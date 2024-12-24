@@ -35,7 +35,7 @@ jobs:
             run: |
                bash ./.github/set-img-root.sh ${{ github.repository_owner }}
 
-         - uses: DeLaGuardo/setup-clojure@13.1
+         - uses: DeLaGuardo/setup-clojure@12.5
            with:
              bb: latest
              github-token: ${{ secrets.GITHUB_TOKEN }}
@@ -68,7 +68,6 @@ jobs:
                node --version
                npm --version
                npm i
-               npm run gen
                npm run build:sw:prod
                sed -i 's/sw.js//g' .gitignore
                sed -i 's/sw-injector.js//g' .gitignore
