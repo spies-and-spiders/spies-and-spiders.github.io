@@ -6,7 +6,7 @@ const onLoadSeo = async () => {
 	const fullPage = `${globalThis._SEO_PAGE}.html`;
 	const it = await DataLoader.pCacheAndGet(fullPage, globalThis._SEO_SOURCE, globalThis._SEO_HASH);
 
-	document.title = `${it.name} - 5etools`;
+	document.title = `${it.name} - sns-tools`;
 	$(`.page__title`).text(`${globalThis._SEO_PAGE.toTitleCase()}: ${it.name}`);
 
 	$(`<div class="ve-col-12 ve-flex-vh-center my-2 pt-3">

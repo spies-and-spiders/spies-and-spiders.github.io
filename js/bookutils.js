@@ -110,7 +110,7 @@ class BookUtil {
 			BookUtil.$dispBook.html("");
 
 			const chapterTitle = (fromIndex.contents[ixChapter] || {}).name;
-			document.title = `${chapterTitle ? `${chapterTitle} - ` : ""}${fromIndex.name} - 5etools`;
+			document.title = `${chapterTitle ? `${chapterTitle} - ` : ""}${fromIndex.name} - sns-tools`;
 
 			BookUtil.curRender.controls = {};
 			BookUtil.$dispBook.append(Renderer.utils.getBorderTr());
@@ -628,7 +628,7 @@ class BookUtil {
 	}
 
 	static async _booksHashChange_pHandleFound ({fromIndex, homebrewData, bookId, hashParts, $contents, isNewBook}) {
-		document.title = `${fromIndex.name} - 5etools`;
+		document.title = `${fromIndex.name} - sns-tools`;
 		$(`#page__title`).html(this._booksHashChange_getCleanName(fromIndex));
 		$(`#page__subtitle`).html("Browse content. Press F to find, and G to go to page.");
 		await this._pLoadChapter(fromIndex, bookId, hashParts, homebrewData, $contents);
