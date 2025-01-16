@@ -44,7 +44,7 @@ const getTemplate = ({page, name, source, hash, img, textStyle, isFluff}) => `<!
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="mobile-web-app-capable" content="yes">
-<title>5etools</title>
+<title>sns-tools</title>
 <link rel="stylesheet" href="/css/bootstrap.css">
 <link rel="stylesheet" href="/css/main.css">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
