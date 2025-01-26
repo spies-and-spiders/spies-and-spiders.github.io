@@ -16842,12 +16842,12 @@
             "A willing, unarmored creature"
           ]
         },
-        "Until the spell ends, the target is protected by a shimmering magical force. Its armour becomes 10 plus half its spellcasting ability modifier. The spell ends if the target dons armor, or if you use an action to dismiss it.",
+        "Until the spell ends, the target is protected by a shimmering magical force. Its armour becomes equal to half its spellcasting ability modifier. The spell ends if the target dons armor, or if you use an action to dismiss it.",
         {
           "type": "entries",
           "name": "Rare",
           "entries": [
-            "Stekart's Enhanced Mage Armour. The target's armour becomes 10 plus your proficiency bonus plus half its spellcasting ability modifier."
+            "Stekart's Enhanced Mage Armour. The target's armour becomes equal to your proficiency bonus."
           ]
         }
       ],
