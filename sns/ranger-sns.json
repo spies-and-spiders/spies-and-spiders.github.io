@@ -217,17 +217,18 @@
   ],
   "subclass": [
     {
-      "name": "Beast Master",
-      "shortName": "Beast Master",
+      "name": "Hunter",
+      "shortName": "Hunter",
       "source": "sns",
       "className": "Ranger",
       "classSource": "sns",
       "subclassFeatures": [
-        "Beast Master|Ranger|sns|Beast Master|sns|1",
-        "New minor feature|Ranger|sns|Beast Master|sns|3",
-        "Exceptional Training|Ranger|sns|Beast Master|sns|5",
-        "Bestial Fury|Ranger|sns|Beast Master|sns|7",
-        "Share Spells|Ranger|sns|Beast Master|sns|9"
+        "Hunter|Ranger|sns|Hunter|sns|1",
+        "Defensive Tactics|Ranger|sns|Hunter|sns|3",
+        "Hunter's Prey|Ranger|sns|Hunter|sns|5",
+        "Hunter Major Effect #2|Ranger|sns|Hunter|sns|5",
+        "Multiattack|Ranger|sns|Hunter|sns|7",
+        "Superior Hunter's Defence|Ranger|sns|Hunter|sns|9"
       ]
     }
   ],
@@ -887,88 +888,208 @@
   ],
   "subclassFeature": [
     {
-      "name": "Beast Master",
+      "name": "Hunter",
       "source": "sns",
       "className": "Ranger",
       "classSource": "sns",
-      "subclassShortName": "Beast Master",
+      "subclassShortName": "Hunter",
       "subclassSource": "sns",
       "level": 1,
       "entries": [
-        "The Beast Master archetype embodies a friendship between the civilized races and the beasts of the world. United in focus, beast and ranger work as one to fight the monstrous foes that threaten civilization and the wilderness alike. Emulating the Beast Master archetype means committing yourself to this ideal, working in partnership with an animal as its companion and friend.",
         {
           "type": "refSubclassFeature",
-          "subclassFeature": "Ranger's Companion|Ranger|sns|Beast Master|sns|1"
+          "subclassFeature": "Hunter's Prey|Ranger|sns|Hunter|sns|1"
+        },
+        {
+          "type": "refSubclassFeature",
+          "subclassFeature": "Hunter Major Effect #1|Ranger|sns|Hunter|sns|1"
         }
       ]
     },
     {
-      "name": "Ranger's Companion",
+      "name": "Hunter's Prey",
       "source": "sns",
       "className": "Ranger",
       "classSource": "sns",
-      "subclassShortName": "Beast Master",
+      "subclassShortName": "Hunter",
       "subclassSource": "sns",
       "level": 1,
-      "header": 1,
       "entries": [
-        "You gain a beast companion that accompanies you on your adventures and is trained to fight alongside you. Choose a {@filter beast that is no larger than Medium and that has a challenge rating of 1/4 or lower|bestiary|challenge rating=[&0;&1/4]|type=beast|size=f;d;t;s;m|miscellaneous=!swarm}. Add your proficiency bonus to the beast's AC, attack rolls, and damage rolls, as well as to any saving throws and skills it is proficient in. Its hit point maximum equals its normal maximum or four times your ranger level, whichever is higher. Like any creature, the beast can spend Hit Dice during a short rest.",
-        "The beast obeys your commands as best as it can. It takes its turn on your initiative. On your turn, you can verbally command the beast where to move (no action required by you). You can use your action to verbally command it to take the {@action Attack}, {@action Dash}, {@action Disengage}, or {@action Help} action. If you don't issue a command, the beast takes the {@action Dodge} action. Once you have the Extra Attack feature, you can make one weapon attack yourself when you command the beast to take the {@action Attack} action.",
-        "If you are {@condition incapacitated} or absent, your beast companion acts on its own, focusing on protecting you and itself. It never requires your command to use its reaction, such as when making an opportunity attack.",
-        "While traveling through your favored terrain with only the beast, you can move stealthily at a normal pace.",
-        "If the beast dies, you can obtain another one by spending 8 hours magically bonding with another beast that isn't hostile to you, either the same type of beast as before or a different one."
+        "At tier 1, you gain one of the following features of your choice.",
+        {
+          "type": "list",
+          "items": [
+            {
+              "type": "item",
+              "name": "Colossus Slayer",
+              "entries": [
+                "Your tenacity can wear down the most potent foes. When you hit a creature with a weapon attack, the creature takes an extra 1d8 damage if it’s below its hit point maximum. You can deal this extra damage only once per turn."
+              ]
+            },
+            {
+              "type": "item",
+              "name": "Giant Killer",
+              "entries": [
+                "When a Large or larger creature within 5 feet of you hits or misses you with an attack, you can use your reaction to attack that creature immediately after its attack, provided that you can see the creature."
+              ]
+            },
+            {
+              "type": "item",
+              "name": "Horde Breaker",
+              "entries": [
+                "Once on each of your turns when you make a weapon attack, you can make another attack with the same weapon against a different creature that is within 5 feet of the original target and within range of your weapon."
+              ]
+            }
+          ]
+        }
       ]
     },
     {
-      "name": "New minor feature",
+      "name": "Hunter Major Effect #1",
       "source": "sns",
       "className": "Ranger",
       "classSource": "sns",
-      "subclassShortName": "Beast Master",
+      "subclassShortName": "Hunter",
+      "subclassSource": "sns",
+      "level": 1,
+      "entries": [
+        "All mark damage you deal this combat is increase by 1 die size."
+      ]
+    },
+    {
+      "name": "Defensive Tactics",
+      "source": "sns",
+      "className": "Ranger",
+      "classSource": "sns",
+      "subclassShortName": "Hunter",
       "subclassSource": "sns",
       "level": 3,
       "header": 2,
       "entries": [
-        "?"
+        "At tier 2, you gain one of the following features of your choice.",
+        {
+          "type": "list",
+          "items": [
+            {
+              "type": "item",
+              "name": "Escape the Horde",
+              "entries": [
+                "Opportunity attacks against you are made with disadvantage."
+              ]
+            },
+            {
+              "type": "item",
+              "name": "Multiattack Defense",
+              "entries": [
+                "When a creature hits you with an attack, you gain a +4 bonus to AC against all subsequent attacks made by that creature for the rest of the turn."
+              ]
+            },
+            {
+              "type": "item",
+              "name": "Steel Will",
+              "entries": [
+                "You have advantage on saving throws against being frightened."
+              ]
+            }
+          ]
+        }
       ]
     },
     {
-      "name": "Exceptional Training",
+      "name": "Hunter's Prey",
       "source": "sns",
       "className": "Ranger",
       "classSource": "sns",
-      "subclassShortName": "Beast Master",
+      "subclassShortName": "Hunter",
       "subclassSource": "sns",
       "level": 5,
       "header": 2,
       "entries": [
-        "Beginning at 7th level, on any of your turns when your beast companion doesn't attack, you can use a bonus action to command the beast to take the {@action Dash}, {@action Disengage}, or {@action Help} action on its turn. In addition, the beast's attacks now count as magical for the purpose of overcoming resistance and immunity to nonmagical attacks and damage."
+        "At tier 3, you gain another feature from the Hunter's Prey options from tier 1."
       ]
     },
     {
-      "name": "Bestial Fury",
+      "name": "Hunter Major Effect #2",
       "source": "sns",
       "className": "Ranger",
       "classSource": "sns",
-      "subclassShortName": "Beast Master",
+      "subclassShortName": "Hunter",
+      "subclassSource": "sns",
+      "level": 5,
+      "header": 2,
+      "entries": [
+        "You restore 2 charges of your Trained Accuracy feature."
+      ]
+    },
+    {
+      "name": "Multiattack",
+      "source": "sns",
+      "className": "Ranger",
+      "classSource": "sns",
+      "subclassShortName": "Hunter",
       "subclassSource": "sns",
       "level": 7,
       "header": 2,
       "entries": [
-        "Starting at 11th level, when you command your beast companion to take the {@action Attack} action, the beast can make two attacks, or it can take the Multiattack action if it has that action."
+        "At tier 4, you gain one of the following features of your choice.",
+        {
+          "type": "list",
+          "items": [
+            {
+              "type": "item",
+              "name": "Volley",
+              "entries": [
+                "You can use your action to make a ranged attack against any number of creatures within 10 feet of a point you can see within your weapon’s range. You must have ammunition for each target, as normal, and you make a separate attack roll for each target."
+              ]
+            },
+            {
+              "type": "item",
+              "name": "Whirlwind Attack",
+              "entries": [
+                "You can use your action to make melee attacks against any number of creatures within your reach, with a separate attack roll for each target."
+              ]
+            }
+          ]
+        }
       ]
     },
     {
-      "name": "Share Spells",
+      "name": "Superior Hunter's Defence",
       "source": "sns",
       "className": "Ranger",
       "classSource": "sns",
-      "subclassShortName": "Beast Master",
+      "subclassShortName": "Hunter",
       "subclassSource": "sns",
       "level": 9,
       "header": 2,
       "entries": [
-        "Beginning at 15th level, when you cast a spell targeting yourself, you can also affect your beast companion with the spell if the beast is within 30 feet of you."
+        "At tier 5, you gain one of the following features of your choice.",
+        {
+          "type": "list",
+          "items": [
+            {
+              "type": "item",
+              "name": "Evasion",
+              "entries": [
+                "When you are subjected to an effect, such as a red dragon’s fiery breath or a lightning bolt spell, that allows you to make a Dexterity saving throw to take only half damage, you instead take no damage if you succeed on a saving throw, and only half damage if you fail."
+              ]
+            },
+            {
+              "type": "item",
+              "name": "Stand Against the Tide",
+              "entries": [
+                "When a hostile creature misses you with a melee attack, you can use your reaction to force that creature to repeat the same attack against another creature (other than itself) of your choice."
+              ]
+            },
+            {
+              "type": "item",
+              "name": "Uncanny Dodge",
+              "entries": [
+                "When an attacker that you can see hits you with an attack, you can use your reaction to halve the attack’s damage against you."
+              ]
+            }
+          ]
+        }
       ]
     }
   ],

@@ -408,8 +408,8 @@
   ],
   "subclass": [
     {
-      "name": "Oath of Devotion",
-      "shortName": "Devotion",
+      "name": "Oath of Redemption",
+      "shortName": "Redemption",
       "source": "sns",
       "className": "Herald",
       "classSource": "sns",
@@ -417,34 +417,35 @@
         {
           "prepared": {
             "3": [
-              "protection from evil and good|sns",
-              "sanctuary|sns"
+              "sanctuary|sns",
+              "sleep|sns"
             ],
             "5": [
-              "lesser restoration|sns",
-              "zone of truth|sns"
+              "calm emotions|sns",
+              "hold person|sns"
             ],
             "9": [
-              "beacon of hope|sns",
-              "dispel magic|sns"
+              "counterspell|sns",
+              "hypnotic pattern|sns"
             ],
             "13": [
-              "freedom of movement|sns",
-              "guardian of faith|sns"
+              "resilient sphere|sns",
+              "stoneskin|sns"
             ],
             "17": [
-              "commune|sns",
-              "flame strike|sns"
+              "hold monster|sns",
+              "wall of force|sns"
             ]
           }
         }
       ],
       "subclassFeatures": [
-        "Oath of Devotion|Herald|sns|Devotion|sns|1",
-        "New minor feature|Herald|sns|Devotion|sns|3",
-        "Aura of Devotion|Herald|sns|Devotion|sns|5",
-        "Purity of Spirit|Herald|sns|Devotion|sns|7",
-        "Holy Nimbus|Herald|sns|Devotion|sns|9"
+        "Oath of Redemption|Herald|sns|Redemption|sns|1",
+        "Aura of the Guardian|Herald|sns|Redemption|sns|3",
+        "Protective Spirit|Herald|sns|Redemption|sns|5",
+        "Redemption Major Effect #2|Herald|sns|Redemption|sns|5",
+        "Aura Buff|Herald|sns|Redemption|sns|7",
+        "Emissary Redemption|Herald|sns|Redemption|sns|9"
       ]
     }
   ],
@@ -995,65 +996,72 @@
   ],
   "subclassFeature": [
     {
-      "name": "Oath of Devotion",
+      "name": "Oath of Redemption",
       "source": "sns",
       "className": "Herald",
       "classSource": "sns",
-      "subclassShortName": "Devotion",
+      "subclassShortName": "Redemption",
       "subclassSource": "sns",
       "level": 1,
       "entries": [
-        "The Oath of Devotion binds a paladin to the loftiest ideals of justice, virtue, and order. Sometimes called cavaliers, white knights, or holy warriors, these paladins meet the ideal of the knight in shining armor, acting with honor in pursuit of justice and the greater good. They hold themselves to the highest standards of conduct, and some, for better or worse, hold the rest of the world to the same standards. Many who swear this oath are devoted to gods of law and good and use their gods' tenets as the measure of their devotion. They hold angels\u2014the perfect servants of good\u2014as their ideals, and incorporate images of angelic wings into their helmets or coats of arms.",
         {
           "type": "refSubclassFeature",
-          "subclassFeature": "Tenets of Devotion|Herald|sns|Devotion|sns|1"
+          "subclassFeature": "Oath Spells|Herald|sns|Redemption|sns|1"
         },
         {
           "type": "refSubclassFeature",
-          "subclassFeature": "Oath Spells|Herald|sns|Devotion|sns|1"
+          "subclassFeature": "Channel Divinity|Herald|sns|Redemption|sns|1"
         },
         {
           "type": "refSubclassFeature",
-          "subclassFeature": "Channel Divinity: Sacred Weapon|Herald|sns|Devotion|sns|1"
-        },
-        {
-          "type": "refSubclassFeature",
-          "subclassFeature": "Channel Divinity: Turn the Unholy|Herald|sns|Devotion|sns|1"
+          "subclassFeature": "Redemption Major Effect #1|Herald|sns|Redemption|sns|1"
         }
       ]
     },
     {
-      "name": "Channel Divinity: Sacred Weapon",
+      "name": "Channel Divinity",
       "source": "sns",
       "className": "Herald",
       "classSource": "sns",
-      "subclassShortName": "Devotion",
+      "subclassShortName": "Redemption",
       "subclassSource": "sns",
       "level": 1,
-      "header": 1,
       "consumes": {
         "name": "Channel Divinity"
       },
       "entries": [
-        "As an action, you can imbue one weapon that you are holding with positive energy, using your Channel Divinity. For 1 minute, you add your Charisma modifier to attack rolls made with that weapon (with a minimum bonus of +1). The weapon also emits bright light in a 20-foot radius and dim light 20 feet beyond that. If the weapon is not already magical, it becomes magical for the duration.",
-        "You can end this effect on your turn as part of any other action. If you are no longer holding or carrying this weapon, or if you fall {@condition unconscious}, this effect ends."
+        "At tier 1, you learn the following Channel Divinity options:",
+        {
+          "type": "list",
+          "items": [
+            {
+              "type": "item",
+              "name": "Emissary of Peace",
+              "entries": [
+                "You can use your Channel Divinity to augment your presence with divine power. As a bonus action, you grant yourself a +5 bonus to Charisma (Persuasion) checks for the next 10 minutes."
+              ]
+            },
+            {
+              "type": "item",
+              "name": "Rebuke the Violent",
+              "entries": [
+                "You can use your Channel Divinity to rebuke those who use violence. Immediately after an attacker within 30 feet of you deals damage with an attack against a creature other than you, you can use your reaction to force the attacker to make a Wisdom saving throw. On a failed save, the attacker takes radiant damage equal to the damage it just dealt. On a successful save, it takes half as much damage."
+              ]
+            }
+          ]
+        }
       ]
     },
     {
-      "name": "Channel Divinity: Turn the Unholy",
+      "name": "Redemption Major Effect #1",
       "source": "sns",
       "className": "Herald",
       "classSource": "sns",
-      "subclassShortName": "Devotion",
+      "subclassShortName": "Redemption",
       "subclassSource": "sns",
       "level": 1,
-      "header": 1,
-      "consumes": {
-        "name": "Channel Divinity"
-      },
       "entries": [
-        "As an action, you present your holy symbol and speak a prayer censuring fiends and undead, using your Channel Divinity. Each fiend or undead that can see or hear you within 30 feet of you must make a Wisdom saving throw. If the creature fails its saving throw, it is turned for 1 minute or until it takes damage.",
-        "A turned creature must spend its turns trying to move as far away from you as it can, and it can't willingly move to a space within 30 feet of you. It also can't take reactions. For its action, it can use only the {@action Dash} action or try to escape from an effect that prevents it from moving. If there's nowhere to move, the creature can use the {@action Dodge} action."
+        "Heal a creature within your reach equal to your level."
       ]
     },
     {
@@ -1061,17 +1069,16 @@
       "source": "sns",
       "className": "Herald",
       "classSource": "sns",
-      "subclassShortName": "Devotion",
+      "subclassShortName": "Redemption",
       "subclassSource": "sns",
       "level": 1,
-      "header": 1,
       "entries": [
-        "You gain oath spells at the paladin levels listed.",
+        "You gain oath spells at the herald levels listed.",
         {
           "type": "table",
-          "caption": "Oath of Devotion Spells",
+          "caption": "Oath of Redemption Spells",
           "colLabels": [
-            "Paladin Level",
+            "Herald Level",
             "Spells"
           ],
           "colStyles": [
@@ -1081,155 +1088,99 @@
           "rows": [
             [
               "3rd",
-              "{@spell protection from evil and good|sns}, {@spell sanctuary|sns}"
+              "{@spell sanctuary|sns}, {@spell sleep|sns}"
             ],
             [
               "5th",
-              "{@spell lesser restoration|sns}, {@spell zone of truth|sns}"
+              "{@spell calm emotions|sns}, {@spell hold person|sns}"
             ],
             [
               "9th",
-              "{@spell beacon of hope|sns}, {@spell dispel magic|sns}"
+              "{@spell counterspell|sns}, {@spell hypnotic pattern|sns}"
             ],
             [
               "13th",
-              "{@spell freedom of movement|sns}, {@spell guardian of faith|sns}"
+              "{@spell resilient sphere|sns}, {@spell stoneskin|sns}"
             ],
             [
               "17th",
-              "{@spell commune|sns}, {@spell flame strike|sns}"
+              "{@spell hold monster|sns}, {@spell wall of force|sns}"
             ]
           ]
         }
       ]
     },
     {
-      "name": "Tenets of Devotion",
+      "name": "Aura of the Guardian",
       "source": "sns",
       "className": "Herald",
       "classSource": "sns",
-      "subclassShortName": "Devotion",
-      "subclassSource": "sns",
-      "level": 1,
-      "header": 1,
-      "entries": [
-        "Though the exact words and strictures of the Oath of Devotion vary, paladins of this oath share these tenets.",
-        {
-          "type": "entries",
-          "entries": [
-            {
-              "type": "entries",
-              "name": "Honesty",
-              "entries": [
-                "Don't lie or cheat. Let your word be your promise."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "entries",
-          "entries": [
-            {
-              "type": "entries",
-              "name": "Courage",
-              "entries": [
-                "Never fear to act, though caution is wise."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "entries",
-          "entries": [
-            {
-              "type": "entries",
-              "name": "Compassion",
-              "entries": [
-                "Aid others, protect the weak, and punish those who threaten them. Show mercy to your foes, but temper it with wisdom."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "entries",
-          "entries": [
-            {
-              "type": "entries",
-              "name": "Honor",
-              "entries": [
-                "Treat others with fairness, and let your honorable deeds be an example to them. Do as much good as possible while causing the least amount of harm."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "entries",
-          "entries": [
-            {
-              "type": "entries",
-              "name": "Duty",
-              "entries": [
-                "Be responsible for your actions and their consequences, protect those entrusted to your care, and obey those who have just authority over you."
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "New minor feature",
-      "source": "sns",
-      "className": "Herald",
-      "classSource": "sns",
-      "subclassShortName": "Devotion",
+      "subclassShortName": "Redemption",
       "subclassSource": "sns",
       "level": 3,
       "header": 2,
       "entries": [
-        "?"
+        "Starting at tier 2, you can shield your allies from harm at the cost of your own health. When a creature within 10 feet of you takes damage, you can use your reaction to magically take that damage, instead of that creature taking it. This feature doesn't transfer any other effects that might accompany the damage, and this damage can't be reduced in any way."
       ]
     },
     {
-      "name": "Aura of Devotion",
+      "name": "Protective Spirit",
       "source": "sns",
       "className": "Herald",
       "classSource": "sns",
-      "subclassShortName": "Devotion",
+      "subclassShortName": "Redemption",
       "subclassSource": "sns",
       "level": 5,
       "header": 2,
       "entries": [
-        "Starting at 7th level, you and friendly creatures within 10 feet of you can't be {@condition charmed} while you are conscious.",
-        "At 18th level, the range of this aura increases to 30 feet."
+        "Starting at tier 3, a holy presence mends your wounds in combat. You regain hit points equal to 1d6 + half your paladin level if you end your turn in combat with fewer than half of your hit points remaining and you aren't incapacitated."
       ]
     },
     {
-      "name": "Purity of Spirit",
+      "name": "Redemption Major Effect #2",
       "source": "sns",
       "className": "Herald",
       "classSource": "sns",
-      "subclassShortName": "Devotion",
+      "subclassShortName": "Redemption",
+      "subclassSource": "sns",
+      "level": 5,
+      "header": 2,
+      "entries": [
+        "Choose a creature within your aura, the next instance of damage is dealt to you instead as true damage."
+      ]
+    },
+    {
+      "name": "Aura Buff",
+      "source": "sns",
+      "className": "Herald",
+      "classSource": "sns",
+      "subclassShortName": "Redemption",
       "subclassSource": "sns",
       "level": 7,
       "header": 2,
       "entries": [
-        "Beginning at 15th level, you are always under the effects of a {@spell protection from evil and good} spell."
+        "At tier 4, the range of Aura of the Guardian increases to 30 feet."
       ]
     },
     {
-      "name": "Holy Nimbus",
+      "name": "Emissary of Redemption",
       "source": "sns",
       "className": "Herald",
       "classSource": "sns",
-      "subclassShortName": "Devotion",
+      "subclassShortName": "Redemption",
       "subclassSource": "sns",
       "level": 9,
       "header": 2,
       "entries": [
-        "At 20th level, as an action, you can emanate an aura of sunlight. For 1 minute, bright light shines from you in a 30-foot radius, and dim light shines 30 feet beyond that.",
-        "Whenever an enemy creature starts its turn in the bright light, the creature takes 10 radiant damage.",
-        "In addition, for the duration, you have advantage on saving throws against spells cast by fiends or undead.",
-        "Once you use this feature, you can't use it again until you finish a long rest."
+        "At tier 5, you become an avatar of peace, which gives you two benefits:",
+        {
+          "type": "list",
+          "items": [
+            "You have resistance to all damage dealt by other creatures (their attacks, spells, and other effects).",
+            "Whenever a creature hits you with an attack, it takes radiant damage equal to half the damage you take from the attack.",
+            "If you attack a creature, cast a spell on it, or deal damage to it by any means but this feature, neither benefit works against that creature until you finish a long rest."
+          ]
+        }
       ]
     }
   ],

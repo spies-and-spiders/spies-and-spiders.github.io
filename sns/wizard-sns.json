@@ -438,17 +438,18 @@
   ],
   "subclass": [
     {
-      "name": "School of Abjuration",
-      "shortName": "Abjuration",
+      "name": "Evoker",
+      "shortName": "Evoker",
       "source": "sns",
       "className": "Wizard",
       "classSource": "sns",
       "subclassFeatures": [
-        "School of Abjuration|Wizard|sns|Abjuration|sns|1",
-        "Projected Ward|Wizard|sns|Abjuration|sns|3",
-        "New major feature|Wizard|sns|Abjuration|sns|5",
-        "Improved Abjuration|Wizard|sns|Abjuration|sns|7",
-        "Spell Resistance|Wizard|sns|Abjuration|sns|9"
+        "Evoker|Wizard|sns|Evoker|sns|1",
+        "Potent Cantrip|Wizard|sns|Evoker|sns|3",
+        "Empowered Evocation|Wizard|sns|Evoker|sns|5",
+        "Evoker Major Effect #2|Wizard|sns|Evoker|sns|5",
+        "Overchannel|Wizard|sns|Evoker|sns|7",
+        "Master Evocation|Wizard|sns|Evoker|sns|9"
       ]
     }
   ],
@@ -884,105 +885,112 @@
   ],
   "subclassFeature": [
     {
-      "name": "School of Abjuration",
+      "name": "Evoker",
       "source": "sns",
       "className": "Wizard",
       "classSource": "sns",
-      "subclassShortName": "Abjuration",
+      "subclassShortName": "Evoker",
       "subclassSource": "sns",
       "level": 1,
       "entries": [
-        "The School of Abjuration emphasizes magic that blocks, banishes, or protects. Detractors of this school say that its tradition is about denial, negation rather than positive assertion. You understand, however, that ending harmful effects, protecting the weak, and banishing evil influences is anything but a philosophical void. It is a proud and respected vocation.",
-        "Called abjurers, members of this school are sought when baleful spirits require exorcism, when important locations must be guarded against magical spying, and when portals to other planes of existence must be closed.",
         {
           "type": "refSubclassFeature",
-          "subclassFeature": "Abjuration Savant|Wizard|sns|Abjuration|sns|1"
+          "subclassFeature": "Sculpt Spells|Wizard|sns|Evoker|sns|1"
         },
         {
           "type": "refSubclassFeature",
-          "subclassFeature": "Arcane Ward|Wizard|sns|Abjuration|sns|1"
+          "subclassFeature": "Evoker Major Effect #1|Wizard|sns|Evoker|sns|1"
         }
       ]
     },
     {
-      "name": "Abjuration Savant",
+      "name": "Sculpt Spells",
       "source": "sns",
       "className": "Wizard",
       "classSource": "sns",
-      "subclassShortName": "Abjuration",
+      "subclassShortName": "Evoker",
       "subclassSource": "sns",
       "level": 1,
-      "header": 1,
       "entries": [
-        "Beginning when you select this school at 2nd level, the gold and time you must spend to copy an abjuration spell into your spellbook is halved."
+        "Beginning at tier 1, you can create pockets of relative safety within the effects of your evocation spells. When you cast an evocation spell that affects other creatures that you can see, you can choose a number of them equal to 1 + the spell's level. The chosen creatures automatically succeed on their saving throws against the spell, and they take no damage if they would normally take half damage on a successful save."
       ]
     },
     {
-      "name": "Arcane Ward",
+      "name": "Evoker Major Effect #1",
       "source": "sns",
       "className": "Wizard",
       "classSource": "sns",
-      "subclassShortName": "Abjuration",
+      "subclassShortName": "Evoker",
       "subclassSource": "sns",
       "level": 1,
-      "header": 1,
       "entries": [
-        "Starting at 2nd level, you can weave magic around yourself for protection. When you cast an {@filter abjuration spell of 1st level or higher|spells|school=A|level=!0}, you can simultaneously use a strand of the spell's magic to create a magical ward on yourself that lasts until you finish a long rest. The ward has a hit point maximum equal to twice your wizard level + your Intelligence modifier. Whenever you take damage, the ward takes the damage instead. If this damage reduces the ward to 0 hit points, you take any remaining damage.",
-        "While the ward has 0 hit points, it can't absorb damage, but its magic remains. Whenever you cast an {@filter abjuration spell of 1st level or higher|spells|school=A|level=!0}, the ward regains a number of hit points equal to twice the level of the spell.",
-        "Once you create the ward, you can't create it again until you finish a long rest."
+        "Your next spell counts as upcasted 1 level."
       ]
     },
     {
-      "name": "Projected Ward",
+      "name": "Potent Cantrip",
       "source": "sns",
       "className": "Wizard",
       "classSource": "sns",
-      "subclassShortName": "Abjuration",
+      "subclassShortName": "Evoker",
       "subclassSource": "sns",
       "level": 3,
       "header": 2,
       "entries": [
-        "Starting at 6th level, when a creature that you can see within 30 feet of you takes damage, you can use your reaction to cause your Arcane Ward to absorb that damage. If this damage reduces the ward to 0 hit points, the warded creature takes any remaining damage."
+        "Starting at tier 2, your damaging cantrips affect even creatures that avoid the brunt of the effect. When a creature succeeds on a saving throw against your cantrip, the creature takes half the cantrip's damage (if any) but suffers no additional effect from the cantrip."
       ]
     },
     {
-      "name": "New major feature",
+      "name": "Empowered Evocation",
       "source": "sns",
       "className": "Wizard",
       "classSource": "sns",
-      "subclassShortName": "Abjuration",
+      "subclassShortName": "Evoker",
       "subclassSource": "sns",
       "level": 5,
       "header": 2,
       "entries": [
-        "?"
+        "Beginning at tier 3, you can add your Intelligence modifier (minimum of +1) to one damage roll of any wizard evocation spell that you cast."
       ]
     },
     {
-      "name": "Improved Abjuration",
+      "name": "Evoker Major Effect #2",
       "source": "sns",
       "className": "Wizard",
       "classSource": "sns",
-      "subclassShortName": "Abjuration",
+      "subclassShortName": "Evoker",
+      "subclassSource": "sns",
+      "level": 5,
+      "header": 2,
+      "entries": [
+        "Your spell echoes in the area again at the start of your next turn. Echoes are less powerful, dealing 1d4 + your level in damage to all enemies in the area."
+      ]
+    },
+    {
+      "name": "Overchannel",
+      "source": "sns",
+      "className": "Wizard",
+      "classSource": "sns",
+      "subclassShortName": "Evoker",
       "subclassSource": "sns",
       "level": 7,
       "header": 2,
       "entries": [
-        "Beginning at 10th level, when you cast an abjuration spell that requires you to make an ability check as a part of casting that spell (as in {@spell counterspell} and {@spell dispel magic}), you add your proficiency bonus to that ability check."
+        "Starting at tier 4, you can increase the power of your simpler spells. When you cast a wizard spell of 1st through 5th level that deals damage, you can deal maximum damage with that spell.",
+        "The first time you do so, you suffer no adverse effect. If you use this feature again before you finish a long rest, you take 2d12 necrotic damage for each level of the spell, immediately after you cast it. Each time you use this feature again before finishing a long rest, the necrotic damage per spell level increases by 1d12. This damage ignores resistance and immunity."
       ]
     },
     {
-      "name": "Spell Resistance",
+      "name": "Master Evocation",
       "source": "sns",
       "className": "Wizard",
       "classSource": "sns",
-      "subclassShortName": "Abjuration",
+      "subclassShortName": "Evoker",
       "subclassSource": "sns",
       "level": 9,
       "header": 2,
       "entries": [
-        "Starting at 14th level, you have advantage on saving throws against spells.",
-        "Furthermore, you have resistance against the damage of spells."
+        "Starting at tier 5, you no longer make major effect choices, instead you apply all your major effects."
       ]
     }
   ],
