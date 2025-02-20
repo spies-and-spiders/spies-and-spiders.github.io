@@ -240,6 +240,10 @@
       "classes": {
         "fromClassList": [
           {
+            "name": "Artificer",
+            "source": "PHB"
+          },
+          {
             "name": "Sorcerer",
             "source": "PHB"
           },
@@ -319,6 +323,10 @@
       "classes": {
         "fromClassList": [
           {
+            "name": "Artificer",
+            "source": "PHB"
+          },
+          {
             "name": "Cleric",
             "source": "PHB"
           },
@@ -392,6 +400,10 @@
       },
       "classes": {
         "fromClassList": [
+          {
+            "name": "Artificer",
+            "source": "PHB"
+          },
           {
             "name": "Bard",
             "source": "PHB"
@@ -476,6 +488,10 @@
       },
       "classes": {
         "fromClassList": [
+          {
+            "name": "Artificer",
+            "source": "PHB"
+          },
           {
             "name": "Wizard",
             "source": "PHB"
@@ -665,6 +681,10 @@
       },
       "classes": {
         "fromClassList": [
+          {
+            "name": "Artificer",
+            "source": "PHB"
+          },
           {
             "name": "Sorcerer",
             "source": "PHB"
@@ -1152,6 +1172,10 @@
       "classes": {
         "fromClassList": [
           {
+            "name": "Artificer",
+            "source": "PHB"
+          },
+          {
             "name": "Bard",
             "source": "PHB"
           },
@@ -1503,6 +1527,10 @@
       "classes": {
         "fromClassList": [
           {
+            "name": "Artificer",
+            "source": "PHB"
+          },
+          {
             "name": "Wizard",
             "source": "PHB"
           }
@@ -1614,6 +1642,10 @@
       "classes": {
         "fromClassList": [
           {
+            "name": "Artificer",
+            "source": "PHB"
+          },
+          {
             "name": "Wizard",
             "source": "PHB"
           }
@@ -1679,6 +1711,10 @@
       "classes": {
         "fromClassList": [
           {
+            "name": "Artificer",
+            "source": "PHB"
+          },
+          {
             "name": "Wizard",
             "source": "PHB"
           }
@@ -1733,6 +1769,10 @@
       },
       "classes": {
         "fromClassList": [
+          {
+            "name": "Artificer",
+            "source": "PHB"
+          },
           {
             "name": "Cleric",
             "source": "PHB"
@@ -3276,6 +3316,10 @@
       "classes": {
         "fromClassList": [
           {
+            "name": "Artificer",
+            "source": "PHB"
+          },
+          {
             "name": "Sorcerer",
             "source": "PHB"
           },
@@ -3421,6 +3465,10 @@
       "classes": {
         "fromClassList": [
           {
+            "name": "Artificer",
+            "source": "PHB"
+          },
+          {
             "name": "Sorcerer",
             "source": "PHB"
           },
@@ -3498,6 +3546,10 @@
       "classes": {
         "fromClassList": [
           {
+            "name": "Artificer",
+            "source": "PHB"
+          },
+          {
             "name": "Sorcerer",
             "source": "PHB"
           },
@@ -3551,6 +3603,10 @@
       },
       "classes": {
         "fromClassList": [
+          {
+            "name": "Artificer",
+            "source": "PHB"
+          },
           {
             "name": "Sorcerer",
             "source": "PHB"
@@ -3624,6 +3680,10 @@
       },
       "classes": {
         "fromClassList": [
+          {
+            "name": "Artificer",
+            "source": "PHB"
+          },
           {
             "name": "Cleric",
             "source": "PHB"
@@ -4245,6 +4305,10 @@
       "classes": {
         "fromClassList": [
           {
+            "name": "Artificer",
+            "source": "PHB"
+          },
+          {
             "name": "Sorcerer",
             "source": "PHB"
           },
@@ -4453,6 +4517,10 @@
       },
       "classes": {
         "fromClassList": [
+          {
+            "name": "Artificer",
+            "source": "PHB"
+          },
           {
             "name": "Bard",
             "source": "PHB"
@@ -4670,6 +4738,10 @@
       },
       "classes": {
         "fromClassList": [
+          {
+            "name": "Artificer",
+            "source": "PHB"
+          },
           {
             "name": "Druid",
             "source": "PHB"
@@ -5044,6 +5116,10 @@
       },
       "classes": {
         "fromClassList": [
+          {
+            "name": "Artificer",
+            "source": "PHB"
+          },
           {
             "name": "Bard",
             "source": "PHB"
@@ -5958,6 +6034,10 @@
       "classes": {
         "fromClassList": [
           {
+            "name": "Artificer",
+            "source": "PHB"
+          },
+          {
             "name": "Cleric",
             "source": "PHB"
           },
@@ -6343,6 +6423,10 @@
       "classes": {
         "fromClassList": [
           {
+            "name": "Artificer",
+            "source": "PHB"
+          },
+          {
             "name": "Cleric",
             "source": "PHB"
           },
@@ -6580,6 +6664,10 @@
       "classes": {
         "fromClassList": [
           {
+            "name": "Artificer",
+            "source": "PHB"
+          },
+          {
             "name": "Sorcerer",
             "source": "PHB"
           },
@@ -6645,6 +6733,10 @@
       },
       "classes": {
         "fromClassList": [
+          {
+            "name": "Artificer",
+            "source": "PHB"
+          },
           {
             "name": "Cleric",
             "source": "PHB"
@@ -6718,6 +6810,10 @@
       "classes": {
         "fromClassList": [
           {
+            "name": "Artificer",
+            "source": "PHB"
+          },
+          {
             "name": "Bard",
             "source": "PHB"
           },
@@ -6780,6 +6876,10 @@
       },
       "classes": {
         "fromClassList": [
+          {
+            "name": "Artificer",
+            "source": "PHB"
+          },
           {
             "name": "Bard",
             "source": "PHB"
@@ -7002,6 +7102,10 @@
       "classes": {
         "fromClassList": [
           {
+            "name": "Artificer",
+            "source": "PHB"
+          },
+          {
             "name": "Druid",
             "source": "PHB"
           },
@@ -7166,6 +7270,10 @@
       },
       "classes": {
         "fromClassList": [
+          {
+            "name": "Artificer",
+            "source": "PHB"
+          },
           {
             "name": "Druid",
             "source": "PHB"
@@ -7510,6 +7618,10 @@
       "classes": {
         "fromClassList": [
           {
+            "name": "Artificer",
+            "source": "PHB"
+          },
+          {
             "name": "Bard",
             "source": "PHB"
           },
@@ -7593,6 +7705,10 @@
       },
       "classes": {
         "fromClassList": [
+          {
+            "name": "Artificer",
+            "source": "PHB"
+          },
           {
             "name": "Cleric",
             "source": "PHB"
@@ -7769,6 +7885,10 @@
       "classes": {
         "fromClassList": [
           {
+            "name": "Artificer",
+            "source": "PHB"
+          },
+          {
             "name": "Bard",
             "source": "PHB"
           },
@@ -7838,6 +7958,10 @@
       },
       "classes": {
         "fromClassList": [
+          {
+            "name": "Artificer",
+            "source": "PHB"
+          },
           {
             "name": "Bard",
             "source": "PHB"
@@ -8089,6 +8213,10 @@
       },
       "classes": {
         "fromClassList": [
+          {
+            "name": "Artificer",
+            "source": "PHB"
+          },
           {
             "name": "Bard",
             "source": "PHB"
@@ -9016,6 +9144,10 @@
       "classes": {
         "fromClassList": [
           {
+            "name": "Artificer",
+            "source": "PHB"
+          },
+          {
             "name": "Warlock",
             "source": "PHB"
           },
@@ -9117,6 +9249,10 @@
       },
       "classes": {
         "fromClassList": [
+          {
+            "name": "Artificer",
+            "source": "PHB"
+          },
           {
             "name": "Bard",
             "source": "PHB"
@@ -9246,6 +9382,10 @@
       },
       "classes": {
         "fromClassList": [
+          {
+            "name": "Artificer",
+            "source": "PHB"
+          },
           {
             "name": "Sorcerer",
             "source": "PHB"
@@ -9646,6 +9786,10 @@
       "classes": {
         "fromClassList": [
           {
+            "name": "Artificer",
+            "source": "PHB"
+          },
+          {
             "name": "Sorcerer",
             "source": "PHB"
           },
@@ -9830,6 +9974,10 @@
       "classes": {
         "fromClassList": [
           {
+            "name": "Artificer",
+            "source": "PHB"
+          },
+          {
             "name": "Wizard",
             "source": "PHB"
           }
@@ -9923,6 +10071,10 @@
       "classes": {
         "fromClassList": [
           {
+            "name": "Artificer",
+            "source": "PHB"
+          },
+          {
             "name": "Bard",
             "source": "PHB"
           },
@@ -10004,6 +10156,10 @@
       "classes": {
         "fromClassList": [
           {
+            "name": "Artificer",
+            "source": "PHB"
+          },
+          {
             "name": "Wizard",
             "source": "PHB"
           }
@@ -10070,6 +10226,10 @@
       },
       "classes": {
         "fromClassList": [
+          {
+            "name": "Artificer",
+            "source": "PHB"
+          },
           {
             "name": "Sorcerer",
             "source": "PHB"
@@ -10249,6 +10409,10 @@
       },
       "classes": {
         "fromClassList": [
+          {
+            "name": "Artificer",
+            "source": "PHB"
+          },
           {
             "name": "Bard",
             "source": "PHB"
@@ -10598,6 +10762,10 @@
       "classes": {
         "fromClassList": [
           {
+            "name": "Artificer",
+            "source": "PHB"
+          },
+          {
             "name": "Cleric",
             "source": "PHB"
           },
@@ -10770,6 +10938,10 @@
       "classes": {
         "fromClassList": [
           {
+            "name": "Artificer",
+            "source": "PHB"
+          },
+          {
             "name": "Sorcerer",
             "source": "PHB"
           },
@@ -10835,6 +11007,10 @@
       },
       "classes": {
         "fromClassList": [
+          {
+            "name": "Artificer",
+            "source": "PHB"
+          },
           {
             "name": "Sorcerer",
             "source": "PHB"
@@ -11093,6 +11269,10 @@
       },
       "classes": {
         "fromClassList": [
+          {
+            "name": "Artificer",
+            "source": "PHB"
+          },
           {
             "name": "Druid",
             "source": "PHB"
@@ -11464,6 +11644,10 @@
       "classes": {
         "fromClassList": [
           {
+            "name": "Artificer",
+            "source": "PHB"
+          },
+          {
             "name": "Sorcerer",
             "source": "PHB"
           },
@@ -11546,6 +11730,10 @@
       },
       "classes": {
         "fromClassList": [
+          {
+            "name": "Artificer",
+            "source": "PHB"
+          },
           {
             "name": "Druid",
             "source": "PHB"
@@ -11845,6 +12033,10 @@
       "classes": {
         "fromClassList": [
           {
+            "name": "Artificer",
+            "source": "PHB"
+          },
+          {
             "name": "Sorcerer",
             "source": "PHB"
           },
@@ -12032,6 +12224,10 @@
       },
       "classes": {
         "fromClassList": [
+          {
+            "name": "Artificer",
+            "source": "PHB"
+          },
           {
             "name": "Bard",
             "source": "PHB"
@@ -12248,6 +12444,10 @@
       },
       "classes": {
         "fromClassList": [
+          {
+            "name": "Artificer",
+            "source": "PHB"
+          },
           {
             "name": "Sorcerer",
             "source": "PHB"
@@ -12805,6 +13005,10 @@
       "classes": {
         "fromClassList": [
           {
+            "name": "Artificer",
+            "source": "PHB"
+          },
+          {
             "name": "Bard",
             "source": "PHB"
           },
@@ -13016,6 +13220,10 @@
       "classes": {
         "fromClassList": [
           {
+            "name": "Artificer",
+            "source": "PHB"
+          },
+          {
             "name": "Sorcerer",
             "source": "PHB"
           },
@@ -13076,6 +13284,10 @@
       },
       "classes": {
         "fromClassList": [
+          {
+            "name": "Artificer",
+            "source": "PHB"
+          },
           {
             "name": "Bard",
             "source": "PHB"
@@ -13147,6 +13359,10 @@
       },
       "classes": {
         "fromClassList": [
+          {
+            "name": "Artificer",
+            "source": "PHB"
+          },
           {
             "name": "Bard",
             "source": "PHB"
@@ -13314,6 +13530,10 @@
       "classes": {
         "fromClassList": [
           {
+            "name": "Artificer",
+            "source": "PHB"
+          },
+          {
             "name": "Cleric",
             "source": "PHB"
           },
@@ -13469,6 +13689,10 @@
       },
       "classes": {
         "fromClassList": [
+          {
+            "name": "Artificer",
+            "source": "PHB"
+          },
           {
             "name": "Druid",
             "source": "PHB"
@@ -13894,6 +14118,10 @@
       "classes": {
         "fromClassList": [
           {
+            "name": "Artificer",
+            "source": "PHB"
+          },
+          {
             "name": "Sorcerer",
             "source": "PHB"
           },
@@ -14166,6 +14394,10 @@
       },
       "classes": {
         "fromClassList": [
+          {
+            "name": "Artificer",
+            "source": "PHB"
+          },
           {
             "name": "Bard",
             "source": "PHB"
@@ -14630,6 +14862,10 @@
       "classes": {
         "fromClassList": [
           {
+            "name": "Artificer",
+            "source": "PHB"
+          },
+          {
             "name": "Bard",
             "source": "PHB"
           },
@@ -14965,6 +15201,10 @@
       },
       "classes": {
         "fromClassList": [
+          {
+            "name": "Artificer",
+            "source": "PHB"
+          },
           {
             "name": "Bard",
             "source": "PHB"
@@ -15707,6 +15947,10 @@
       "classes": {
         "fromClassList": [
           {
+            "name": "Artificer",
+            "source": "PHB"
+          },
+          {
             "name": "Druid",
             "source": "PHB"
           },
@@ -15789,6 +16033,10 @@
       },
       "classes": {
         "fromClassList": [
+          {
+            "name": "Artificer",
+            "source": "PHB"
+          },
           {
             "name": "Bard",
             "source": "PHB"
@@ -15970,6 +16218,10 @@
       },
       "classes": {
         "fromClassList": [
+          {
+            "name": "Artificer",
+            "source": "PHB"
+          },
           {
             "name": "Druid",
             "source": "PHB"
@@ -16223,6 +16475,10 @@
       "classes": {
         "fromClassList": [
           {
+            "name": "Artificer",
+            "source": "PHB"
+          },
+          {
             "name": "Bard",
             "source": "PHB"
           },
@@ -16333,6 +16589,10 @@
       "classes": {
         "fromClassList": [
           {
+            "name": "Artificer",
+            "source": "PHB"
+          },
+          {
             "name": "Sorcerer",
             "source": "PHB"
           },
@@ -16421,6 +16681,10 @@
       },
       "classes": {
         "fromClassList": [
+          {
+            "name": "Artificer",
+            "source": "PHB"
+          },
           {
             "name": "Bard",
             "source": "PHB"
@@ -16517,6 +16781,10 @@
       },
       "classes": {
         "fromClassList": [
+          {
+            "name": "Artificer",
+            "source": "PHB"
+          },
           {
             "name": "Sorcerer",
             "source": "PHB"
@@ -16648,6 +16916,10 @@
       },
       "classes": {
         "fromClassList": [
+          {
+            "name": "Artificer",
+            "source": "PHB"
+          },
           {
             "name": "Bard",
             "source": "PHB"
@@ -16816,6 +17088,10 @@
       "classes": {
         "fromClassList": [
           {
+            "name": "Artificer",
+            "source": "PHB"
+          },
+          {
             "name": "Druid",
             "source": "PHB"
           },
@@ -16953,6 +17229,10 @@
       },
       "classes": {
         "fromClassList": [
+          {
+            "name": "Artificer",
+            "source": "PHB"
+          },
           {
             "name": "Sorcerer",
             "source": "PHB"
@@ -17285,6 +17565,10 @@
       "classes": {
         "fromClassList": [
           {
+            "name": "Artificer",
+            "source": "PHB"
+          },
+          {
             "name": "Bard",
             "source": "PHB"
           },
@@ -17355,6 +17639,10 @@
       },
       "classes": {
         "fromClassList": [
+          {
+            "name": "Artificer",
+            "source": "PHB"
+          },
           {
             "name": "Herald",
             "source": "PHB"
@@ -17974,6 +18262,10 @@
       "classes": {
         "fromClassList": [
           {
+            "name": "Artificer",
+            "source": "PHB"
+          },
+          {
             "name": "Bard",
             "source": "PHB"
           },
@@ -18121,6 +18413,10 @@
       },
       "classes": {
         "fromClassList": [
+          {
+            "name": "Artificer",
+            "source": "PHB"
+          },
           {
             "name": "Bard",
             "source": "PHB"
@@ -18320,6 +18616,10 @@
       },
       "classes": {
         "fromClassList": [
+          {
+            "name": "Artificer",
+            "source": "PHB"
+          },
           {
             "name": "Druid",
             "source": "PHB"
@@ -18662,6 +18962,10 @@
       },
       "classes": {
         "fromClassList": [
+          {
+            "name": "Artificer",
+            "source": "PHB"
+          },
           {
             "name": "Sorcerer",
             "source": "PHB"
@@ -20181,6 +20485,10 @@
       "classes": {
         "fromClassList": [
           {
+            "name": "Artificer",
+            "source": "PHB"
+          },
+          {
             "name": "Bard",
             "source": "PHB"
           },
@@ -20545,6 +20853,10 @@
       "classes": {
         "fromClassList": [
           {
+            "name": "Artificer",
+            "source": "PHB"
+          },
+          {
             "name": "Wizard",
             "source": "PHB"
           }
@@ -20608,6 +20920,10 @@
       },
       "classes": {
         "fromClassList": [
+          {
+            "name": "Artificer",
+            "source": "PHB"
+          },
           {
             "name": "Druid",
             "source": "PHB"
@@ -20799,6 +21115,10 @@
       "classes": {
         "fromClassList": [
           {
+            "name": "Artificer",
+            "source": "PHB"
+          },
+          {
             "name": "Cleric",
             "source": "PHB"
           },
@@ -20940,6 +21260,10 @@
       "classes": {
         "fromClassList": [
           {
+            "name": "Artificer",
+            "source": "PHB"
+          },
+          {
             "name": "Druid",
             "source": "PHB"
           },
@@ -21008,6 +21332,10 @@
       },
       "classes": {
         "fromClassList": [
+          {
+            "name": "Artificer",
+            "source": "PHB"
+          },
           {
             "name": "Druid",
             "source": "PHB"
@@ -21079,6 +21407,10 @@
       },
       "classes": {
         "fromClassList": [
+          {
+            "name": "Artificer",
+            "source": "PHB"
+          },
           {
             "name": "Wizard",
             "source": "PHB"
@@ -21338,6 +21670,10 @@
       "classes": {
         "fromClassList": [
           {
+            "name": "Artificer",
+            "source": "PHB"
+          },
+          {
             "name": "Sorcerer",
             "source": "PHB"
           },
@@ -21564,6 +21900,10 @@
       "classes": {
         "fromClassList": [
           {
+            "name": "Artificer",
+            "source": "PHB"
+          },
+          {
             "name": "Wizard",
             "source": "PHB"
           }
@@ -21623,6 +21963,10 @@
       },
       "classes": {
         "fromClassList": [
+          {
+            "name": "Artificer",
+            "source": "PHB"
+          },
           {
             "name": "Druid",
             "source": "PHB"
@@ -21754,6 +22098,10 @@
       "classes": {
         "fromClassList": [
           {
+            "name": "Artificer",
+            "source": "PHB"
+          },
+          {
             "name": "Wizard",
             "source": "PHB"
           }
@@ -21877,6 +22225,10 @@
       },
       "classes": {
         "fromClassList": [
+          {
+            "name": "Artificer",
+            "source": "PHB"
+          },
           {
             "name": "Cleric",
             "source": "PHB"
@@ -22167,6 +22519,10 @@
       "classes": {
         "fromClassList": [
           {
+            "name": "Artificer",
+            "source": "PHB"
+          },
+          {
             "name": "Warlock",
             "source": "PHB"
           },
@@ -22219,6 +22575,10 @@
       },
       "classes": {
         "fromClassList": [
+          {
+            "name": "Artificer",
+            "source": "PHB"
+          },
           {
             "name": "Wizard",
             "source": "PHB"
@@ -22371,6 +22731,10 @@
       },
       "classes": {
         "fromClassList": [
+          {
+            "name": "Artificer",
+            "source": "PHB"
+          },
           {
             "name": "Bard",
             "source": "PHB"
@@ -22667,6 +23031,10 @@
       },
       "classes": {
         "fromClassList": [
+          {
+            "name": "Artificer",
+            "source": "PHB"
+          },
           {
             "name": "Bard",
             "source": "PHB"
@@ -23022,6 +23390,10 @@
       },
       "classes": {
         "fromClassList": [
+          {
+            "name": "Artificer",
+            "source": "PHB"
+          },
           {
             "name": "Sorcerer",
             "source": "PHB"
@@ -23646,6 +24018,10 @@
       "classes": {
         "fromClassList": [
           {
+            "name": "Artificer",
+            "source": "PHB"
+          },
+          {
             "name": "Cleric",
             "source": "PHB"
           }
@@ -23915,6 +24291,10 @@
       },
       "classes": {
         "fromClassList": [
+          {
+            "name": "Artificer",
+            "source": "PHB"
+          },
           {
             "name": "Sorcerer",
             "source": "PHB"
@@ -24379,6 +24759,10 @@
       "classes": {
         "fromClassList": [
           {
+            "name": "Artificer",
+            "source": "PHB"
+          },
+          {
             "name": "Cleric",
             "source": "PHB"
           },
@@ -24446,6 +24830,10 @@
       },
       "classes": {
         "fromClassList": [
+          {
+            "name": "Artificer",
+            "source": "PHB"
+          },
           {
             "name": "Druid",
             "source": "PHB"
@@ -24523,6 +24911,10 @@
       },
       "classes": {
         "fromClassList": [
+          {
+            "name": "Artificer",
+            "source": "PHB"
+          },
           {
             "name": "Cleric",
             "source": "PHB"
@@ -25593,6 +25985,10 @@
       "classes": {
         "fromClassList": [
           {
+            "name": "Artificer",
+            "source": "PHB"
+          },
+          {
             "name": "Bard",
             "source": "PHB"
           },
@@ -25746,6 +26142,10 @@
       },
       "classes": {
         "fromClassList": [
+          {
+            "name": "Artificer",
+            "source": "PHB"
+          },
           {
             "name": "Bard",
             "source": "PHB"
@@ -26708,6 +27108,10 @@
       "classes": {
         "fromClassList": [
           {
+            "name": "Artificer",
+            "source": "PHB"
+          },
+          {
             "name": "Druid",
             "source": "PHB"
           },
@@ -26879,6 +27283,10 @@
       "classes": {
         "fromClassList": [
           {
+            "name": "Artificer",
+            "source": "PHB"
+          },
+          {
             "name": "Wizard",
             "source": "PHB"
           }
@@ -27045,6 +27453,10 @@
       },
       "classes": {
         "fromClassList": [
+          {
+            "name": "Artificer",
+            "source": "PHB"
+          },
           {
             "name": "Druid",
             "source": "PHB"
@@ -27335,6 +27747,10 @@
       "classes": {
         "fromClassList": [
           {
+            "name": "Artificer",
+            "source": "PHB"
+          },
+          {
             "name": "Druid",
             "source": "PHB"
           },
@@ -27415,6 +27831,10 @@
       },
       "classes": {
         "fromClassList": [
+          {
+            "name": "Artificer",
+            "source": "PHB"
+          },
           {
             "name": "Druid",
             "source": "PHB"
@@ -27515,6 +27935,10 @@
       },
       "classes": {
         "fromClassList": [
+          {
+            "name": "Artificer",
+            "source": "PHB"
+          },
           {
             "name": "Sorcerer",
             "source": "PHB"
@@ -28346,6 +28770,10 @@
       "classes": {
         "fromClassList": [
           {
+            "name": "Artificer",
+            "source": "PHB"
+          },
+          {
             "name": "Druid",
             "source": "PHB"
           },
@@ -28413,6 +28841,10 @@
       },
       "classes": {
         "fromClassList": [
+          {
+            "name": "Artificer",
+            "source": "PHB"
+          },
           {
             "name": "Druid",
             "source": "PHB"
@@ -29802,6 +30234,10 @@
       "classes": {
         "fromClassList": [
           {
+            "name": "Artificer",
+            "source": "PHB"
+          },
+          {
             "name": "Herald",
             "source": "PHB"
           }
@@ -30680,6 +31116,10 @@
       "classes": {
         "fromClassList": [
           {
+            "name": "Artificer",
+            "source": "PHB"
+          },
+          {
             "name": "Sorcerer",
             "source": "PHB"
           },
@@ -30812,6 +31252,10 @@
       "classes": {
         "fromClassList": [
           {
+            "name": "Artificer",
+            "source": "PHB"
+          },
+          {
             "name": "Druid",
             "source": "PHB"
           },
@@ -30876,6 +31320,10 @@
       },
       "classes": {
         "fromClassList": [
+          {
+            "name": "Artificer",
+            "source": "PHB"
+          },
           {
             "name": "Druid",
             "source": "PHB"
@@ -30943,6 +31391,10 @@
       },
       "classes": {
         "fromClassList": [
+          {
+            "name": "Artificer",
+            "source": "PHB"
+          },
           {
             "name": "Sorcerer",
             "source": "PHB"
@@ -31187,6 +31639,10 @@
       "classes": {
         "fromClassList": [
           {
+            "name": "Artificer",
+            "source": "PHB"
+          },
+          {
             "name": "Sorcerer",
             "source": "PHB"
           },
@@ -31245,6 +31701,10 @@
       },
       "classes": {
         "fromClassList": [
+          {
+            "name": "Artificer",
+            "source": "PHB"
+          },
           {
             "name": "Druid",
             "source": "PHB"
@@ -31472,6 +31932,10 @@
       "classes": {
         "fromClassList": [
           {
+            "name": "Artificer",
+            "source": "PHB"
+          },
+          {
             "name": "Sorcerer",
             "source": "PHB"
           },
@@ -31523,6 +31987,10 @@
       },
       "classes": {
         "fromClassList": [
+          {
+            "name": "Artificer",
+            "source": "PHB"
+          },
           {
             "name": "Bard",
             "source": "PHB"
@@ -31709,6 +32177,10 @@
       "classes": {
         "fromClassList": [
           {
+            "name": "Artificer",
+            "source": "PHB"
+          },
+          {
             "name": "Druid",
             "source": "PHB"
           },
@@ -31826,6 +32298,10 @@
       },
       "classes": {
         "fromClassList": [
+          {
+            "name": "Artificer",
+            "source": "PHB"
+          },
           {
             "name": "Sorcerer",
             "source": "PHB"
@@ -32340,6 +32816,10 @@
       },
       "classes": {
         "fromClassList": [
+          {
+            "name": "Artificer",
+            "source": "PHB"
+          },
           {
             "name": "Druid",
             "source": "PHB"
