@@ -881,6 +881,10 @@
         {
           "type": "refSubclassFeature",
           "subclassFeature": "Monstrous Minion|Artificer|sns|Stitcher|sns|1"
+        },
+        {
+          "type": "refSubclassFeature",
+          "subclassFeature": "Stitcher Major Effect #1|Artificer|sns|Stitcher|sns|1"
         }
       ]
     },
@@ -1030,6 +1034,20 @@
       ]
     },
     {
+      "name": "Stitcher Major Effect #1",
+      "source": "sns",
+      "className": "Artificer",
+      "classSource": "sns",
+      "subclassShortName": "Stitcher",
+      "subclassSource": "sns",
+      "level": 1,
+      "header": 1,
+      "entries": [
+        "If the triggering attack dealt damage, your monstrous minion's attacks during its next turn deal additional damage of your attack's base type equal to double your level.",
+        "Otherwise, your monstrous minion gains +1 to all defences for 1 round."
+      ]
+    },
+    {
       "name": "Corpse Storage",
       "source": "sns",
       "className": "Artificer",
@@ -1063,6 +1081,19 @@
         },
         "In addition, you can reattach a severed limb or body part. The limb or body part must be relatively intact and the injury must be no more than 8 hours old. The reattaching process takes 1 hour and requires a DC 14 Magiscience check. On a success the limb or body part is attached and functional with no further complications. On a failure the limb cannot be saved.",
         "Alternatively, you can replace a lost limb or body part with a donor part. This donor part must be analogous to a missing part (an arm for an arm, a leg for a leg), and it must be from a humanoid creature of the same size. The reattaching process requires a DC 20 Magiscience check when performed in this way."
+      ]
+    },
+    {
+      "name": "Stitcher Major Effect #2",
+      "source": "sns",
+      "className": "Artificer",
+      "classSource": "sns",
+      "subclassShortName": "Stitcher",
+      "subclassSource": "sns",
+      "level": 5,
+      "header": 2,
+      "entries": [
+        "You instantly create a blank mannequin-like construct corpse in an unoccupied space within 60 feet of you. It disappears at the end of your next turn."
       ]
     },
     {
