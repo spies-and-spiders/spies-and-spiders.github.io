@@ -1057,7 +1057,7 @@
       "level": 3,
       "header": 2,
       "entries": [
-        "At tier 2, you gain access to a pocket dimension where you can only store the corpses of creatures that died within the past minute. You can do so as an action while adjacent to such a corpse. Corpses in this dimension the next time you take a long rest are expelled back into the material location where they first entered the pocket dimension.",
+        "At tier 2, you gain access to a pocket dimension where you can only store the corpses of creatures that died within the past minute. You can do so as an action while adjacent to such a corpse. The next time you take a long rest, any corpses in this dimension are expelled back into the material location where they first entered the pocket dimension.",
         "You can remove a corpse from this pocket dimension as a free action once on each of your turns, manifesting it in an unoccupied space of your choice within 60 feet of you."
       ]
     },
