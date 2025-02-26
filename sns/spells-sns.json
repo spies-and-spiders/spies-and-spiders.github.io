@@ -37921,7 +37921,7 @@
           "type": "entries",
           "name": "Borrow Experience",
           "entries": [
-            "You can use a bonus action to bolster yourself with the soul's life experience, making your next attack roll or ability check with advantage. If you don't use this benefit before the start of your next turn, it is lost."
+            "You can use a bonus action to bolster yourself with the soul's life experience, making your next attack roll, ability check, or save with advantage. If you don't use this benefit before the start of your next turn, it is lost."
           ]
         },
         {
@@ -38260,7 +38260,7 @@
         "You cause a temple to shimmer into existence on ground you can see within range. The temple must fit within an unoccupied cube of space, up to 120 feet on each side. The temple remains until the spell ends. It is dedicated to whatever god, pantheon, or philosophy is represented by the holy symbol used in the casting.",
         "You make all decisions about the temple's appearance. The interior is enclosed by a floor, walls, and a roof, with one door granting access to the interior and as many windows as you wish. Only you and any creatures you designate when you cast the spell can open or close the door.",
         "The temple's interior is an open space with an idol or altar at one end. You decide whether the temple is illuminated and whether that illumination is bright light or dim light. The smell of burning incense fills the air within, and the temperature is mild.",
-        "The temple opposes types of creatures you choose when you cast this spell. Choose one or more of the following: celestials, elementals, fey, fiends, or undead. If a creature of the chosen type attempts to enter the temple, that creature must make a save. On a failed save, it can't enter the temple for 24 hours. Even if the creature can enter the temple, the magic there hinders it; whenever it makes an attack roll or ability check inside the temple, it must roll a {@dice d4} and subtract the number rolled from the {@dice d20} roll.",
+        "The temple opposes types of creatures you choose when you cast this spell. Choose one or more of the following: celestials, elementals, fey, fiends, or undead. If a creature of the chosen type attempts to enter the temple, that creature must make a save. On a failed save, it can't enter the temple for 24 hours. Even if the creature can enter the temple, the magic there hinders it; whenever it makes an attack roll, ability check, or save inside the temple, it must roll a {@dice d4} and subtract the number rolled from the {@dice d20} roll.",
         "In addition, the snesors created by divination spells can't apepar inside the temple, and creatures within can't be targeted by divination spells.",
         "Finally, whenever any creature inside the temple regains hit points from a spell of 1st level or higher, the creature regains additional hit points equal to your Wisdom modifier plus your proficiency bonus.",
         "The temple is made from opaque magical force that extends into the Ethereal Plane, thus blocking ethereal travel into the temple's interior. Nothing can physically pass through the temple's exterior. It can't be dispelled by {@spell dispel magic|sns}, and {spell antimagic field|sns} has no effect on it. A {@spell disintegrate|sns} spell destroys the temple instantly.",

@@ -1443,7 +1443,7 @@
           "type": "list",
           "items": [
             "a piece of information that will help you in your endeavours before the end of your next long rest,",
-            "or, how one action will play out before the end of your next long rest. Roll a {@dice d20}. Before the end of your next long rest, you may choose to replace any attack roll or ability check made by a creature that you can see within 30 feet of you with the result of this {@dice d20} roll."
+            "or, how one action will play out before the end of your next long rest. Roll a {@dice d20}. Before the end of your next long rest, you may choose to replace any attack roll, ability check, or save made by a creature that you can see within 30 feet of you with the result of this {@dice d20} roll."
           ]
         },
         "The DM lets you know which benefit is available whenever you finish a long rest."
