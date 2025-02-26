@@ -2321,7 +2321,7 @@
             "Up to three creatures"
           ]
         },
-        "The senses of the targets are filled with phantom energies that make them more vulnerable and less capable. Make a will attack against the targets with the following outcomes:Until the spell ends, a {@dice d4} is subtracted from attack rolls and saving throws made by a target.",
+        "The senses of the targets are filled with phantom energies that make them more vulnerable and less capable. Make a will attack against the targets with the following outcomes:",
         {
           "type": "list",
           "items": [
@@ -2329,21 +2329,21 @@
               "type": "item",
               "name": "Minor success",
               "entries": [
-                "The target's armour attack rolls are reduced by 1 for 1 round."
+                "The target's attack rolls are reduced by 1 for 1 round."
               ]
             },
             {
               "type": "item",
               "name": "Standard success",
               "entries": [
-                "Until the spell ends, the target subtracts a {@dice d4} from their armour attack rolls, and a {@dice d4} is added to non-armour attack rolls against them."
+                "Until the spell ends, the target subtracts a {@dice d4} from their attack rolls and saves."
               ]
             },
             {
               "type": "item",
               "name": "Critical success",
               "entries": [
-                "As standard success, but the dice change to {@dice d6}s."
+                "As standard success, but the die changes to a {@dice d6}."
               ]
             }
           ]
@@ -2954,7 +2954,7 @@
             "Wall, varies"
           ]
         },
-        "You create a wall of slashing blades. The wall can be up to 20 feet high and 5 feet thick, and can either be a straight wall up to 100 feet long or a ringed wall of up to 60 feet in diameter. The wall provides three-quarters cover and its area is difficult terrain.",
+        "You create a wall of slashing blades centred on a point within your line of sight. The wall can be up to 20 feet high and 5 feet thick, and can either be a straight wall up to 100 feet long or a ringed wall of up to 60 feet in diameter. The wall provides three-quarters cover and its area is difficult terrain.",
         "The wall is a persistent zone that deals {@dice 4d10} slashing DoT damage."
       ],
       "name": "Blade Barrier",
@@ -3031,7 +3031,7 @@
             "Up to three creatures"
           ]
         },
-        "The blessing you bestow upon the targets makes them more durable and competent. Until the spell ends, a {@dice d4} is added to armour attack rolls made by a target, and a {@dice d4} is subtracted from non-armour attack rolls against it."
+        "The blessing you bestow upon the targets makes them more durable and competent. Until the spell ends, a {@dice d4} is added to attack rolls and saves made by a target"
       ],
       "name": "Bless",
       "time": [
@@ -20658,7 +20658,7 @@
           ]
         },
         "You create a nontransparent barrier of prismatic energy that sheds bright light in a 100-foot radius and dim light for an additional 100 feet. You and creatures you choose at the time of casting are immune to the barrier's effects and may pass through it at will.",
-        "The barrier can be created as either a vertical wall or a sphere. If the wall intersects a space occupied by a creature the spell fails, you lose your action, and the spell slot is wasted.",
+        "The barrier can be created as either a vertical wall or a sphere, centred on a point within your line of sight. If the wall intersects a space occupied by a creature the spell fails, you lose your action, and the spell slot is wasted.",
         "When a creature that can see the barrier moves within 20 feet of the area or starts its turn within 20 feet of the area, it makes a save, becoming {@condition blinded|sns} for 1 minute on a fail.",
         "The wall has 7 layers, each layer of a different color in order from red to violet. Once a layer is destroyed, it is gone for the duration of the spell.",
         "To pass or reach through the barrier a creature does so one layer at a time and must make a save for each layer or be subjected to that layer's effects. On a successful save, any damage taken from a layer is reduced by half.",
@@ -27052,7 +27052,7 @@
             "Special"
           ]
         },
-        "You create a wall of fire on a solid surface. The wall can be up to 60 feet long (it does not have to be a straight line; sections of the wall can angle as long as they are contiguous), 20 feet high, and 1 foot thick, or a ringed wall up to 20 feet in diameter, 20 feet high, and 1 foot thick. The wall blocks sight. When the wall appears, make a reflex attack against each creature within its area that deals {@dice 7d6} fire damage.",
+        "You create a wall of fire on a solid surface. The wall can be up to 60 feet long (it does not have to be a straight line; sections of the wall can angle as long as they are contiguous), 20 feet high, and 1 foot thick, or a ringed wall up to 20 feet in diameter, 20 feet high, and 1 foot thick. You must have line of sight to at least one space the wall occupies. The wall blocks sight. When the wall appears, make a reflex attack against each creature within its area that deals {@dice 7d6} fire damage.",
         "One side of the wall (chosen when the spell is cast) deals {@dice 5d8} fire DoT damage to each creature that ends its turn within 10 feet of that side or inside the wall. A creature takes the same damage when it enters the wall itself for the first time on a turn or ends its turn there. The other side of the wall deals no damage."
       ],
       "name": "Wall of Fire",
@@ -27143,7 +27143,7 @@
             "Special"
           ]
         },
-        "A squirming wall of bodies, groping arms and tentacles, and moaning, biting mouths heaves itself up from the ground at a point you choose. The wall is 6 inches thick and is made up of a contiguous group of ten 10-foot square sections. The wall can have any shape you desire.",
+        "A squirming wall of bodies, groping arms and tentacles, and moaning, biting mouths heaves itself up from the ground at a point you choose. The wall is 6 inches thick and is made up of a contiguous group of ten 10-foot square sections. The wall can have any shape you desire. You must have line of sight to at least one space the wall occupies.",
         "If the wall enters a creature's space when it appears, the creature makes a save, and on a success it moves up to its Speed to escape. On a failed save, it is swallowed by the wall (as below).",
         "When a creature enters the area for the first time on a turn or starts its turn within 10 feet of the wall, tentacles and arms reach out to grab it. The creature makes a save or takes {@dice 5d8} bludgeoning DoT damage and becomes {@condition grappled|sns}. If the creature was already {@condition grappled|sns} by the wall at the start of its turn and fails its save, a mouth opens in the wall and swallows the creature.",
         "A creature swallowed by the wall takes {@dice 5d8} ongoing bludgeoning damage and is {@condition blinded|sns}, {@condition deafened|sns}, and {@condition restrained|sns}.",
@@ -27233,7 +27233,7 @@
             "Special"
           ]
         },
-        "You create an {@condition invisible} wall of force at a point you choose. The wall is a horizontal or vertical barrier, or at an angle. It can be free floating or resting on a solid surface. You can form it into a hemispherical dome or a sphere, either with a radius of up to 10 feet. You may also choose to create a flat surface made up of a contiguous group of ten 10-foot square sections. The wall is 1/4 inch thick.",
+        "You create an {@condition invisible} wall of force at a point you choose. The wall is a horizontal or vertical barrier, or at an angle, centred on a space within your line of sight. It can be free floating or resting on a solid surface. You can form it into a hemispherical dome or a sphere, either with a radius of up to 10 feet. You may also choose to create a flat surface made up of a contiguous group of ten 10-foot square sections. The wall is 1/4 inch thick.",
         "If the wall enters a creature's space when it appears, the creature is pushed to one side of the wall (your choice), but when a creature would be surrounded on all sides by the wall (or the wall and another solid surface), it can use its reaction to make a save. On a success, it can move up to its Speed to escape. Any creature without a special sense like blindsight has disadvantage on this save.",
         "Nothing can physically pass through the wall.",
         "It can be destroyed with {@spell dispel magic|sns} cast using a spell slot of at least 5th-level or by being dealt at least 28 force damage at once. It is otherwise immune to damage. The wall also extends into the Ethereal Plane, blocking ethereal travel through it.",
@@ -27310,7 +27310,7 @@
             "Special"
           ]
         },
-        "You create a wall of ice on a solid surface. You can form it into a hemispherical dome or a sphere, either with a radius of up to 10 feet. You may also choose to create a flat surface made up of a contiguous group of ten 10-foot square sections. The wall is 1 foot thick.",
+        "You create a wall of ice on a solid surface. You can form it into a hemispherical dome or a sphere, either with a radius of up to 10 feet. You may also choose to create a flat surface made up of a contiguous group of ten 10-foot square sections. The wall is 1 foot thick. You must have line of sight to at least one space the wall occupies.",
         "If the wall enters a creature's space when it appears, the creature is pushed to one side of it (your choice).",
         "In addition, make a reflex attack against the creature that deals {@dice 6d12} cold damage.",
         "The wall is an object with vulnerability to fire damage, with 1 Armour and 33 hit points per 10-foot section. Reducing a 10-foot section of wall to 0 hit points destroys it and leaves behind a sheet of frigid air in the space the section occupied. A creature moving through the sheet of frigid air for the first time on a turn takes {@dice 2d10} cold DoT damage.",
@@ -27397,7 +27397,7 @@
             "Special"
           ]
         },
-        "A nonmagical wall of solid stone appears at a point you choose. The wall is 6 inches thick and is made up of a contiguous group of ten 10-foot square sections. Alternatively, you can create 10-foot-by-20- foot sections that are only 3 inches thick.",
+        "A nonmagical wall of solid stone appears at a point you choose. The wall is 6 inches thick and is made up of a contiguous group of ten 10-foot square sections. You must have line of sight to at least one space the wall occupies. Alternatively, you can create 10-foot-by-20- foot sections that are only 3 inches thick.",
         "The wall can have any shape you desire, though it can't occupy the same space as a creature or object.",
         "The wall doesn't need to be vertical or rest on any firm foundation but must merge with and be solidly supported by existing stone. Thus, you can use this spell to bridge a chasm or create a ramp.",
         "If the wall enters a creature's space when it appears, the creature is pushed to one side of the wall (your choice), but when a creature would be surrounded on all sides by the wall (or the wall and another solid surface), it can use its reaction to make a save. On a success, it can move up to its Speed to escape.",
@@ -27489,7 +27489,7 @@
             "Special"
           ]
         },
-        "You create a wall of tough, pliable, tangled brush bristling with needle-sharp thorns on a solid surface. You can choose to make the wall up to 60 feet long, 10 feet high, and 5 feet thick or a circle that has a 20-foot diameter and is up to 20 feet high and 5 feet thick. The wall blocks line of sight. When the wall appears, make a reflex attack against each creature within its area that deals {@dice 10d6} piercing damage.",
+        "You create a wall of tough, pliable, tangled brush bristling with needle-sharp thorns on a solid surface centred on a space within your line of sight. You can choose to make the wall up to 60 feet long, 10 feet high, and 5 feet thick or a circle that has a 20-foot diameter and is up to 20 feet high and 5 feet thick. The wall blocks line of sight. When the wall appears, make a reflex attack against each creature within its area that deals {@dice 10d6} piercing damage.",
         "A creature can move through the wall, albeit slowly and painfully. For every 1 foot a creature moves through the wall, it must spend 4 feet of movement. The first time a creature enters the wall on a turn or ends its turn there, it takes {@dice 6d6} slashing DoT damage."
       ],
       "name": "Wall of Thorns",
@@ -28259,7 +28259,7 @@
             "Special"
           ]
         },
-        "A wall of strong wind rises from the ground at a point you choose. You can make the wall up to 50 feet long, 15 feet high, and 1 foot thick. You can shape the wall in any way you choose so long as it makes one continuous path along the ground.",
+        "A wall of strong wind rises from the ground at a point you choose. You can make the wall up to 50 feet long, 15 feet high, and 1 foot thick. You can shape the wall in any way you choose so long as it makes one continuous path along the ground. You must have line of sight to at least one space the wall occupies.",
         "When the wall appears, make a fortitude attack against each creature within its area that deals {@dice 4d6} bludgeoning damage.",
         "The wall keeps fog, smoke, and other gases (including creatures in gaseous form) at bay. Small or smaller flying creatures or objects can't pass through. Loose, lightweight materials brought into the area fly upward. Arrows, bolts, and other ordinary projectiles launched at targets behind the wall are deflected upward and automatically score critical failures on any attacks they may make (larger projectiles such as boulders and siege engine attacks are unaffected)."
       ],
@@ -35180,7 +35180,7 @@
     {
       "school": "V",
       "entries": [
-        "You create a wall of swirling sand on the ground at a point within range. You can make the wall up to 30 feet long, 10 feet high, and 10 feet thick, and it vanishes when the spell ends. Its area blocks line of sight, but not movement. A creature must spend 3 feet of movement for every 1 foot it moves there."
+        "You create a wall of swirling sand on the ground centred on a point within range in your line of sight. You can make the wall up to 30 feet long, 10 feet high, and 10 feet thick, and it vanishes when the spell ends. Its area blocks line of sight, but not movement. A creature must spend 3 feet of movement for every 1 foot it moves there."
       ],
       "name": "Wall of Sand",
       "time": [
@@ -35231,7 +35231,7 @@
     {
       "school": "V",
       "entries": [
-        "You create a wall of water on the ground at a point within range. You can make the wall up to 30 feet long, 10 feet high, and 1 foot thick, or you can make a ringed wall up to 20 feet in diameter, 20 feet high, and 1 foot thick. The wall vanishes when the spell ends. The wall's space is difficult terrain.",
+        "You create a wall of water on the ground centred on a space within range in your line of sight. You can make the wall up to 30 feet long, 10 feet high, and 1 foot thick, or you can make a ringed wall up to 20 feet in diameter, 20 feet high, and 1 foot thick. The wall vanishes when the spell ends. The wall's space is difficult terrain.",
         "Any ranged weapon attack that enters the wall's space has disadvantage on the attack roll, and fire damage is halved if the fire effect passes through the wall to reach its target. Spells that deal cold damage that pass through the wall cause the area of the wall they pass through to freeze solid (at least a 5-foot-square section is frozen). Each 5-foot-square frozen section has -3 Armour and 16 hit points. Reducing a frozen section to 0 hit points destroys it. When a section is destroyed, the wall's water doesn't fill it."
       ],
       "name": "Wall of Water",
@@ -36929,7 +36929,7 @@
     {
       "school": "V",
       "entries": [
-        "A shimmering wall of bright light appears at a point you choose within range. The wall appears in any orientation you choose: horizontally, vertically, or diagonally. It can be free floating, or it can rest on a solid surface. The wall can be up to 60 feet long, 10 feet high, and 5 feet thick. The wall blocks line of sight, but creatures and objects can pass through it. It emits bright light out to 120 feet and dim light for an additional 120 feet.",
+        "A shimmering wall of bright light appears centred on a space you choose within range in your line of sight. The wall appears in any orientation you choose: horizontally, vertically, or diagonally. It can be free floating, or it can rest on a solid surface. The wall can be up to 60 feet long, 10 feet high, and 5 feet thick. The wall blocks line of sight, but creatures and objects can pass through it. It emits bright light out to 120 feet and dim light for an additional 120 feet.",
         "When the wall appears, make an area spell fortitude attack against each creature in its area that deals {@dice 3d12} radiant damage. On a hit, a target is {@condition blinded|sns} for 1 minute, or until it passes a passive save.",
         "A creature that ends its turn in the wall's area takes {@dice 4d8} radiant DoT damage.",
         "Until the spell ends, you can use an action to launch a beam of radiance from the wall at one creature you can see wtihin 60 feet of it. Make a ranged spell armour attack that deals {@dice 4d8} radiant damage. After this attack, reduce the length of the wall by 10 feet. If the wall's length drops to 0 feet, the spell ends."
