@@ -1075,8 +1075,8 @@
         {
           "type": "list",
           "items": [
-            "bandage (https://a5e.tools/rules/medicinals)",
-            "healing satchel (1 use) (https://a5e.tools/rules/medicinals)"
+            "bandage (used as a bonus action to end all ongoing damage on a creature)",
+            "healing satchel (used when you attempt to stabilise a dying creature with Medicine to set the minimum result of your check to 20)"
           ]
         },
         "In addition, you can reattach a severed limb or body part. The limb or body part must be relatively intact and the injury must be no more than 8 hours old. The reattaching process takes 1 hour and requires a DC 14 Magiscience check. On a success the limb or body part is attached and functional with no further complications. On a failure the limb cannot be saved.",
