@@ -526,6 +526,21 @@
         "Spiritual Guidance|Bard|sns|Spirits|sns|7",
         "Mystical Connection|Bard|sns|Spirits|sns|9"
       ]
+    },
+    {
+      "name": "Sound Sculptor",
+      "shortName": "Sound Sculptor",
+      "source": "sns",
+      "className": "Bard",
+      "classSource": "sns",
+      "subclassFeatures": [
+        "Sound Sculptor|Bard|sns|Sound Sculptor|sns|1",
+        "Blast of Sound|Bard|sns|Sound Sculptor|sns|3",
+        "Thunderous Resonance|Bard|sns|Sound Sculptor|sns|5",
+        "Sound Sculptor Major Effect #2|Bard|sns|Sound Sculptor|sns|5",
+        "Overtones|Bard|sns|Sound Sculptor|sns|7",
+        "Wall of Sound|Bard|sns|Sound Sculptor|sns|9"
+      ]
     }
   ],
   "classFeature": [
@@ -544,7 +559,7 @@
             "String Instruments (Dulcimer, Harp, Lute, Lyre, Violin): String instruments are played by plucking and twanging strings. When using this musical art as a spell focus, whenever you cast a bard spell from the {@filter movement or teleportation|spells|Subschool=movement;teleportation|class=Bard} school you can target an additional creature within 15 feet of you.",
             "Visual (Calligraphy, Dance, Light Manipulation, Shapes): There are many ways to undertake a visual performance whether through illustration, illusion magic, or legerdemain. When using this art as a spell focus, whenever you cast a bard spell you may choose to make an ally able to see you the point of origin of that spell. You must be able to see any targets of the spell to do this.",
             "Voice (Humming, Insults, Oration, Singing): Whenever you would lose concentration on a bard spell while using this musical art as a spell focus, including when reduced to 0 hit points, make a save. On a success, you do not lose concentration on that spell.",
-            "Wind Instruments (Bagpipes, Flute, Horn, Ocarina, Trombone): Any instrument played by passing air through it qualifies as a wind instrument. When using this musical art as a spell focus, whenever you cast a bard spell you can make a Deception or Performance check. Any observers with a passive Insight score equal to or less than the result of your check do not see or hear you cast the spell. Once you have used this feature three times, you cannot do so again until you finish a long rest."
+            "Wind Instruments (Bagpipes, Flute, Horn, Ocarina, Trombone): Any instrument played by passing air through it qualifies as a wind instrument. When using this musical art as a spell focus, whenever you cast a bard spell you can make a Deception or Persuasion check. Any observers with a passive Insight score equal to or less than the result of your check do not see or hear you cast the spell. Once you have used this feature three times, you cannot do so again until you finish a long rest."
           ]
         }
       ]
@@ -1003,7 +1018,7 @@
       "classSource": "sns",
       "level": 7,
       "entries": [
-        "Starting at 7th level, you craft a second bardic legend. Commoners are either more amenable or afraid of you depending on the type of bardic legend you create. Choose one of the following skills: Deception, Insight, Intimidation, or Persuasion. You gain advantage on checks made using the chosen skill against any commoner that has heard your bardic legend. This affects the Gossip and Rob journey activities, but no others."
+        "Starting at 7th level, you craft a second bardic legend. Commoners are either more amenable or afraid of you depending on the type of bardic legend you create. Choose one of the following skills: Deception, Insight, Intimidation, or Persuasion. You gain advantage on checks made using the chosen skill against any commoner that has heard your bardic legend."
       ]
     },
     {
@@ -1081,7 +1096,7 @@
             "String Instruments (Melody for All): The melodies you pluck spread like gusts of wind. You gain a number of melody charges equal to your Charisma modifier, which you regain whenever you finish a long rest. When using this musical art as a spell focus, if you cast a spell that targets only one creature you can spend a melody charge to target an additional creature within the spell's range.",
             "Visual (Dual Masterpiece): Your magic resonates through the air. When using this musical art as a spell focus, after casting a bard spell that used an ally as its point of origin on your last turn, if you cast the same spell normally its spell level increases by 2. Once you have used this feature a number of times equal to your proficiency bonus, you can't do so again until you finish a long rest.",
             "Voice (Everlasting Song): The spells you cast resound upon themselves. When concentrating on a bard spell, you automatically succeed on saves made to maintain concentration while you are using this musical art as a spell focus.",
-            "Wind Instruments (Perfect Pitch): While using this musical art as a spell focus, you gain advantage on Deception and Performance checks to conceal the casting of bard spells."
+            "Wind Instruments (Perfect Pitch): While using this musical art as a spell focus, you gain advantage on Deception and Finesse checks to conceal the casting of bard spells."
           ]
         }
       ]
@@ -1196,7 +1211,7 @@
       "entries": [
         "At 20th level, your capacity for drawing a crowd reaches dizzying new heights. As an action, you can expend a use of Bardic Inspiration to start an epic performance that lasts for {@dice 1d4} rounds. During that time, you can choose up to 50 creatures that are within 120 feet of you. Each creature able to hear or see your Epic Performance makes a save. If a creature fails its save, it is {@condition charmed|sns} by you for the duration plus 6 days, or until you or your companions do anything harmful to it. A {@condition charmed|sns} creature regards you as a friendly acquaintance.",
         "The performance ends early if you become {@condition incapacitated|sns} or silenced, or if you voluntarily end it (no action required). At the end of the duration, you can expend an additional use of Bardic Inspiration to extend the duration by {@dice 1d4} rounds.",
-        "When your Epic Performance lasts at least 1 minute, at the end of the duration you can target each {@condition charmed|sns} creature as if using the {@spell mass suggestion|sns} spell cast at 9th-level. Instead of making an attack roll as part of this casting, always use the standard success outcome. The commands you give a {@condition charmed|sns} creature are not obvious, and other creatures must make an Insight check opposed by your Performance check to understand that you are doing anything more than giving a performance. You can give each creature its own set of commands, but can only give out 6 different sets of commands.",
+        "When your Epic Performance lasts at least 1 minute, at the end of the duration you can target each {@condition charmed|sns} creature as if using the {@spell mass suggestion|sns} spell cast at 9th-level. Instead of making an attack roll as part of this casting, always use the standard success outcome. The commands you give a {@condition charmed|sns} creature are not obvious, and other creatures must make an Insight check opposed by your Deception check to understand that you are doing anything more than giving a performance. You can give each creature its own set of commands, but can only give out 6 different sets of commands.",
         "Once you use this feature, you can't use it again until you finish a long rest."
       ]
     }
@@ -1409,6 +1424,131 @@
       "entries": [
         "At tier 5, you now have the ability to nudge the spirits of Tales from Beyond toward certain tales. Whenever you roll on the Spirit Tales table, you can roll the die twice and choose which of the two effects to bestow. If you roll the same number on both dice, you can ignore the number and choose any effect on the table."
       ]
+    },
+    {
+      "name": "Sound Sculptor",
+      "source": "sns",
+      "className": "Bard",
+      "classSource": "sns",
+      "subclassShortName": "Sound Sculptor",
+      "subclassSource": "sns",
+      "level": 1,
+      "entries": [
+        {
+          "type": "refSubclassFeature",
+          "subclassFeature": "Sound Sculptor's Tools|Bard|sns|Sound Sculptor|sns|1"
+        },
+        {
+          "type": "refSubclassFeature",
+          "subclassFeature": "Eyes of the Ears|Bard|sns|Sound Sculptor|sns|1"
+        },
+        {
+          "type": "refSubclassFeature",
+          "subclassFeature": "Sound Sculptor Major Effect #1|Bard|sns|Sound Sculptor|sns|1"
+        }
+      ]
+    },
+    {
+      "name": "Sound Sculptor's Tools",
+      "source": "sns",
+      "className": "Bard",
+      "classSource": "sns",
+      "subclassShortName": "Sound Sculptor",
+      "subclassSource": "sns",
+      "level": 1,
+      "entries": [
+        "When you select this subclass at tier 1, you gain proficiency with the Persuasion skill. If you are already proficient in Persuasion, you gain an expertise die instead. You also learn the {@spell message|sns}, {@spell minor illusion|sns}, and {@spell thaumaturgy|sns} cantrips, and they do not count against your maximum cantrips known."
+      ]
+    },
+    {
+      "name": "Eyes of the Ears",
+      "source": "sns",
+      "className": "Bard",
+      "classSource": "sns",
+      "subclassShortName": "Sound Sculptor",
+      "subclassSource": "sns",
+      "level": 1,
+      "entries": [
+        "At tier 1, you learn to use sound to locate objects and creatures around you. As a bonus action, you can sing, stomp, or play a musical instrument, concentrating on your music as if it were a spell. Until the start of your next turn, any creature within 300 feet of you that can hear you automatically detects your presence, but you also gain blindsight with a range of 30 feet. If you already have blindsight, its range increases by 30 feet."
+      ]
+    },
+    {
+      "name": "Sound Sculptor Major Effect #1",
+      "source": "sns",
+      "className": "Bard",
+      "classSource": "sns",
+      "subclassShortName": "Sound Sculptor",
+      "subclassSource": "sns",
+      "level": 1,
+      "entries": [
+        "You immediately gain an additional concentration slot that lasts until the end of the current combat. You can only gain one concentration slot from this effect.",
+        "If you have already gained this effect's additional concentration slot, you instead gain a bonus to your spell damage equal to half your level for 1 round."
+      ]
+    },
+    {
+      "name": "Blast of Sound",
+      "source": "sns",
+      "className": "Bard",
+      "classSource": "sns",
+      "subclassShortName": "Sound Sculptor",
+      "subclassSource": "sns",
+      "level": 3,
+      "header": 2,
+      "entries": [
+        "At tier 2, you learn to use sound not just as a tool, but as a weapon. As an action, you can emit a powerful blast of sound in a 15-foot cone. Make a spell fortitude attack against all creatures in the area that deals {@dice 2d4} thunder damage. A creature hit by this attack is {@condition deafened|sns} until the end of its next turn. The damage increases to {@dice 4d4} at level 5 and {@dice 4d6} at level 11. At 17th level, the damage increases to {@dice 3d12} and the blast becomes a 30-foot cone."
+      ]
+    },
+    {
+      "name": "Thunderous Resonance",
+      "source": "sns",
+      "className": "Bard",
+      "classSource": "sns",
+      "subclassShortName": "Sound Sculptor",
+      "subclassSource": "sns",
+      "level": 5,
+      "header": 2,
+      "entries": [
+        "From tier 3, whenever you deal thunder damage to a creature, a number of dice of damage equal to your proficiency bonus that it next takes before the end of your next turn are set to their maximum value instead of being rolled normally. For example, at 5th level, the next 3 damage dice rolled against the creature are set to their maximum value. If an instance of damage has multiple damage dice of different sizes that exceed the remaining uses of this feature, you can choose which dice to set to their maximum value."
+      ]
+    },
+    {
+      "name": "Sound Sculptor Major Effect #2",
+      "source": "sns",
+      "className": "Bard",
+      "classSource": "sns",
+      "subclassShortName": "Sound Sculptor",
+      "subclassSource": "sns",
+      "level": 5,
+      "header": 2,
+      "entries": [
+        "For 1 round, you count as having line of sight to all creatures you can sense within 30 feet of you and your areas only affect creatures of your choice."
+      ]
+    },
+    {
+      "name": "Overtones",
+      "source": "sns",
+      "className": "Bard",
+      "classSource": "sns",
+      "subclassShortName": "Sound Sculptor",
+      "subclassSource": "sns",
+      "level": 7,
+      "header": 2,
+      "entries": [
+        "From tier 4, whenever you target a creature with a battle hymn, you may expend an additional use of Bardic Inspiration to add the effects of another battle hymn you know to the original hymn's effects."
+      ]
+    },
+    {
+      "name": "Wall of Sound",
+      "source": "sns",
+      "className": "Bard",
+      "classSource": "sns",
+      "subclassShortName": "Sound Sculptor",
+      "subclassSource": "sns",
+      "level": 9,
+      "header": 2,
+      "entries": [
+        "At tier 5, you gain the most potent sound sculptor ability: the creation of walls of sound. As an action, you can create a wall of solid sound. The wall is composed of twenty 5-foot-square, 10-foot-tall sections of solid sound. The sections must be contiguous, all sections must be within 120 feet of your position, and you must have line of sight to at least one of its spaces; otherwise, you can form the wall in any shape you desire. The wall's space is difficult terrain, and reverberations in the air grant disadvantage to Perception checks made to see through the wall. Ranged armour attacks fired through the wall are made at disadvantage. The wall is a persistent zone which forces creatures to make a save. On a failed save, a creature loses concentration on any effect they are concentrating on and is {@condition deafened|sns} for one minute. On a success, the target has disadvantage on Perception checks relying on hearing until it exits the section of wall, but is not {@condition deafened|sns} and does not lose concentration. You must concentrate to maintain the wall (as if concentrating on a spell), and it vanishes if you lose concentration. You can use this feature a number of times equal to your proficiency bonus, regaining all uses when you finish a long rest."
+      ]
     }
   ],
   "optionalfeature": [
@@ -1435,13 +1575,13 @@
       ]
     },
     {
-      "name": "Improvised Engineering",
+      "name": "Improvised Magiscience",
       "source": "sns",
       "featureType": [
         "AT"
       ],
       "entries": [
-        "You gain proficiency with History. If you are already proficient with History, you instead gain an expertise die. In addition, you gain advantage on Engineering checks made to build a temporary construction (such as a bridge or ladder) and shore up existing structures (like the wall of a collapsing building). This does not affect the Experiment journey activity."
+        "You gain proficiency with History. If you are already proficient with History, you instead gain an expertise die. In addition, you gain advantage on Magiscience checks made to build a temporary construction (such as a bridge or ladder) and shore up existing structures (like the wall of a collapsing building)."
       ]
     },
     {
@@ -1461,7 +1601,7 @@
         "AT"
       ],
       "entries": [
-        "You gain proficiency with Performance. If you are already proficient with Performance, you instead gain an expertise die. Whenever you make a Performance check to earn coins, you gain twice as much as normal. This affects the Busk journey activity but no others."
+        "You gain proficiency with Persuasion. If you are already proficient with Persuasion, you instead gain an expertise die. Whenever you make a Persuasion check to earn coins through performance, you gain twice as much as normal."
       ]
     },
     {
@@ -1504,7 +1644,7 @@
       ],
       "entries": [
         "Choose one skill you are proficient with. You gain an expertise die on checks made using the chosen skill.",
-        "In addition, when you succeed on an Acrobatics or Athletics check to climb, balance, leap over danger, or otherwise physically overcome an obstacle, a number of allies equal to your proficiency bonus gain advantage on the same check made to overcome the same obstacle. This affects the Chronicle and Seek Shelter journey activities, but no others."
+        "In addition, when you succeed on an Athletics or Finesse check to climb, balance, leap over danger, or otherwise physically overcome an obstacle, a number of allies equal to your proficiency bonus gain advantage on the same check made to overcome the same obstacle."
       ]
     },
     {
