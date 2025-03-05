@@ -1495,7 +1495,7 @@
       "level": 3,
       "header": 2,
       "entries": [
-        "At tier 2, you learn to use sound not just as a tool, but as a weapon. As an action, you can emit a powerful blast of sound in a 15-foot cone. Make a spell fortitude attack against all creatures in the area that deals {@dice 2d4} thunder damage. A creature hit by this attack is {@condition deafened|sns} until the end of its next turn. The damage increases to {@dice 4d4} at level 5 and {@dice 4d6} at level 11. At 17th level, the damage increases to {@dice 3d12} and the blast becomes a 30-foot cone."
+        "At tier 2, you learn to use sound not just as a tool, but as a weapon. As an action, you can emit a powerful blast of sound in a 15-foot cone. Make a spell fortitude attack against all creatures in the area that deals {@dice 1d10} thunder damage. A creature hit by this attack is {@condition deafened|sns} until the end of its next turn. The damage increases to {@dice 2d10} at level 5 and {@dice 3d10} at level 11. At 17th level, the damage increases to {@dice 4d10} and the blast becomes a 30-foot cone."
       ]
     },
     {
