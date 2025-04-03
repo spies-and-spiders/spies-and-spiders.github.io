@@ -1043,7 +1043,7 @@
       "level": 1,
       "header": 1,
       "entries": [
-        "If the triggering attack dealt damage, your monstrous minion's attacks during its next turn deal additional damage of your attack's base type equal to double your level.",
+        "If the triggering attack dealt damage, your monstrous minion's next attack before your next turn deals additional damage of your attack's base type equal to your level.",
         "Otherwise, your monstrous minion gains +1 to all defences for 1 round."
       ]
     },
@@ -1093,7 +1093,8 @@
       "level": 5,
       "header": 2,
       "entries": [
-        "You instantly create a blank mannequin-like construct corpse in an unoccupied space within 60 feet of you. It disappears at the end of your next turn."
+        "Instead of you gaining this major effect option, your Monstrous Minion does instead.",
+        "Your temporary hit points increase by an amount equal to double your master's level."
       ]
     },
     {
