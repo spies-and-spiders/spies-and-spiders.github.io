@@ -17442,7 +17442,7 @@
             "Up to three creatures"
           ]
         },
-        "A trio of glowing darts of magical force unerringly and simultaneously strike the targets, each dealing {@dice 1d4+1} force DoT damage. Any bonuses to this damage apply only once per target.",
+        "A trio of glowing darts of magical force unerringly and simultaneously strike the targets, each dealing {@dice 1d4+1} force DoT damage.",
         {
           "type": "entries",
           "name": "Rare",

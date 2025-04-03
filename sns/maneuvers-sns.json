@@ -8560,7 +8560,7 @@
         },
         "Not to be kept down, you return to the battle, defiant and ready for more.",
         "If you are at 0 hit points and regain hit points, you can use your reaction to immediately stand up from being {@condition prone|sns} without spending movement.",
-        "Additionally, chosoe up to three creatures that can see you. Each creature gains an expertise die to the next attack roll, ability check, or save it makes within 1 minute. You can use this reaction even if you are {@condition incapacitated|sns}."
+        "Additionally, choose up to three creatures that can see you. Each creature gains an expertise die to the next attack roll, ability check, or save it makes within 1 minute. You can use this reaction even if you are {@condition incapacitated|sns}."
       ],
       "name": "Triumphant Return",
       "time": [
