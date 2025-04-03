@@ -263,7 +263,7 @@
       "additionalSpells": [
         {
           "prepared": {
-            "3": [
+            "1": [
               "corpse explosion|sns",
               "false life|sns"
             ],
@@ -912,7 +912,7 @@
           ],
           "rows": [
             [
-              "3rd",
+              "1st",
               "{@spell corpse explosion|sns}, {@spell false life|sns}"
             ],
             [
