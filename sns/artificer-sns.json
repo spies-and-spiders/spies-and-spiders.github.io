@@ -946,8 +946,7 @@
       "header": 1,
       "entries": [
         "Also at tier 1 you learn the secrets of giving life to dead flesh and become able to create a monstrous minion.",
-        "You can create this monstrous minion by spending 8 hours of uninterrupted work on a humanoid corpse that has been dead no more than 24 hours. This monstrous minion is unique and its exact appearance is up to you. It is a minion and requires your concentration to maintain, though remains maintained while you are {@condition unconscious|sns} as well. Your monstrous minion won't attack except as a reaction to being attacked, but it can take other actions as normal and makes death saving throws.",
-        "On your turn you can use a bonus action to order your monstrous minion to perform an action.",
+        "You can create this monstrous minion by spending 8 hours of uninterrupted work on a humanoid corpse that has been dead no more than 24 hours. This monstrous minion is unique and its exact appearance is up to you. It is a minion and requires your concentration to maintain, though remains maintained while you are {@condition unconscious|sns} as well. Your monstrous minion makes death saving throws upon reaching 0 hit points.",
         "Your monstrous minion is a {@creature zombie|sns} with the following improvements.",
         {
           "type": "list",
@@ -999,7 +998,7 @@
           "type": "entries",
           "name": "Grafted Weapon",
           "entries": [
-            "When you prepare your spell inventions and modifications to your monstrous minion, you may choose to graft a melee weapon onto one of its arms in place of a hand. The melee weapon must be able to be wielded with one hand. Your monstrous minion loses its Grab attack and gains an attack with the grafted weapon, which it becomes proficient with. You may retrieve weapons grafted in this way the next time you prepare modifications for this monstrous minion by removing it, or from its remains if it is destroyed."
+            "When you prepare your spell inventions and modifications to your monstrous minion, you may choose to graft a melee weapon onto one of its arms in place of a hand. The melee weapon must be able to be wielded with one hand. Your monstrous minion gains an attack with the grafted weapon, which it becomes proficient with. You may retrieve weapons grafted in this way the next time you prepare modifications for this monstrous minion by removing it, or from its remains if it is destroyed."
           ]
         },
         {
