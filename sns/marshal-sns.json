@@ -1465,7 +1465,7 @@
       "level": 3,
       "header": 2,
       "entries": [
-        "Also at tier 2, you can quickly identify how a creature might fight. Whenever you roll for initiative, choose a hostile creature you can see within 60 feet of you and make either a History, Magiscience, or Nature check (chosen by the DM) with a DC of 15. If you succeed, you learn a random one of the creature's passive traits. If the creature doesn't have enough for you to learn, you then learn random non-standard actions. If the creature against doesn't have enough for you to learn, you then learn random remaining actions. For every 2 you beat the DC by, you learn one additional passive trait or action."
+        "Also at tier 2, you can quickly identify how a creature might fight. Whenever you roll for initiative, choose a hostile creature you can see within 60 feet of you and make either a History, Magiscience, or Nature check (chosen by the DM) with a DC of 15. If you succeed, you learn a random one of the creature's passive traits. If the creature doesn't have enough for you to learn, you then learn random non-standard actions. If the creature again doesn't have enough for you to learn, you then learn random remaining actions. For every 2 you beat the DC by, you learn one additional passive trait or action."
       ]
     },
     {
