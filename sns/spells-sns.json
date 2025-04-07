@@ -7136,7 +7136,7 @@
             "60-foot radius sphere"
           ]
         },
-        "Magical light fills the area. The area is brightly lit and sheds dim light for an additional 60 feet.",
+        "Magical sunlight fills the area. The area is brightly lit and sheds dim light for an additional 60 feet.",
         "If any of the area overlaps with magical darkness created by a spell of 3rd-level or lower, the spell that created the darkness is dispelled.",
         "When cast on an object that is in your possession or unattended, the light shines from it and moves with it. Completely covering the object with something that is not transparent blocks the light."
       ],
