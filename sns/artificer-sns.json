@@ -1178,7 +1178,7 @@
         "FD"
       ],
       "entries": [
-        "There's always a better trap design if you put your mind to it. You can improve traps as you set them. Traps you improve in this way always have their damage die size increased by 1. This affects trap weapons."
+        "There's always a better trap design if you put your mind to it. You can improve traps as you set them. Traps you improve in this way always have their damage die size increased by 1. This affects trap weapons. Additionally, whenever you score a success or higher on the Hunt & Gather journey activity, you add a {@dice d6} to the amount of Supply you (and only you) found."
       ]
     },
     {
@@ -1218,7 +1218,7 @@
         "FD"
       ],
       "entries": [
-        "You always know to have a bit of magnet and a pin on you for orienteering emergencies. With 1 minute's work you can cobble together a makeshift compass. Compasses made in this way become useless after 1 hour and have no sale value. You're also adept at surveying your surroundings and you gain an expertise die on checks made to do so. In addition, you gain proficiency in Survival and an expertise die on checks made to find your way in the wilderness."
+        "You always know to have a bit of magnet and a pin on you for orienteering emergencies. With 1 minute's work you can cobble together a makeshift compass. Compasses made in this way become useless after 1 hour and have no sale value. You're also adept at surveying your surroundings and you gain an expertise die on checks made for the Chronicle and Scout journey activities. In addition, you gain proficiency in Survival."
       ]
     },
     {
@@ -1228,7 +1228,7 @@
         "FD"
       ],
       "entries": [
-        "An orderly mind can see all sorts of uses within the natural world. You may use Magiscience in place of Survival when setting up camps or gathering in the wilderness."
+        "An orderly mind can see all sorts of uses within the natural world. You may use Magiscience in place of Survival for the Cook journey activity."
       ]
     },
     {

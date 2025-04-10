@@ -1561,7 +1561,7 @@
         "LW"
       ],
       "entries": [
-        "You've won more battles armed with a sextant and your keen intellect than you have any blade. You gain an expertise die on Survival checks made to navigate. At the start of a journey, you can make a DC 10 Survival check to navigate a faster route, reducing the length of the journey by 1 day (minimum 1) on a success."
+        "You've won more battles armed with a sextant and your keen intellect than you have any blade. You gain an expertise die on Survival checks made to navigate, which does not benefit the Cook journey activity. At the start of a journey, you can make a DC 10 Survival check to navigate a faster route, reducing the length of the journey by 1 day (minimum 1) on a success."
       ]
     },
     {
@@ -1571,7 +1571,7 @@
         "LW"
       ],
       "entries": [
-        "You can motivate your allies to keep going even when they are tired and hungry. You reduce the length of journeys your party undertakes by 1 day (minimum 1)."
+        "You can motivate your allies to keep going even when they are tired and hungry. You gain advantage on Force March journey activities."
       ]
     },
     {
@@ -1581,7 +1581,7 @@
         "LW"
       ],
       "entries": [
-        "Knowledge of the terrain can be the difference between victory and defeat. By spending 10 minutes observing the area in a 2-mile radius you can spend 2 exertion points to pick out where there are choke points, large swathes of cover, watercourses, vegetations that can offer concealment, ridgelines, and so on. You gain an expertise die on Magiscience and Survival checks made within the rea, and on checks made to prepare an ambush or realise you are being ambushed."
+        "Knowledge of the terrain can be the difference between victory and defeat. By spending 10 minutes observing the area in a 2-mile radius you can spend 2 exertion points to pick out where there are choke points, large swathes of cover, watercourses, vegetations that can offer concealment, ridgelines, and so on. You gain an expertise die on Magiscience and Survival checks made within the area, and on checks made to prepare an ambush or realise you are being ambushed. This benefits the Experiment, Cook, Cover Tracks, and Hunt & Gather journey activities on the same day that you spent the exertion."
       ]
     },
     {
@@ -1591,7 +1591,7 @@
         "LW"
       ],
       "entries": [
-        "Your deeds have heroically won over the hearts and minds of people everywhere or cowed them into submission. Whenever you visit a settlement, the commoners there tell you all the valuable information they can about their including nearby ruins, the general environment of nearby wilderness, and how populated the region is. You gain an expertise die on Nature and Survival checks made within 10 miles of any settlement you have visited."
+        "Your deeds have heroically won over the hearts and minds of people everywhere or cowed them into submission. Whenever you visit a settlement, the commoners there tell you all the valuable information they can about their including nearby ruins, the general environment of nearby wilderness, and how populated the region is. You gain an expertise die on Nature and Survival checks made within 1 day of any settlement you have visited. This affects your Befriend Animal and Cook journey activities."
       ]
     },
     {

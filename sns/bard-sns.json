@@ -1571,7 +1571,7 @@
       ],
       "entries": [
         "Choose one skill you are proficient with. You gain an expertise die on checks made using the chosen skill.",
-        "In addition, you gain advantage on ability checks made to prepare an ambush."
+        "In addition, you gain advantage on ability checks made to prepare an ambush. This benefits the Hunt & Gather journey activity."
       ]
     },
     {
@@ -1581,7 +1581,7 @@
         "AT"
       ],
       "entries": [
-        "You gain proficiency with History. If you are already proficient with History, you instead gain an expertise die. In addition, you gain advantage on Magiscience checks made to build a temporary construction (such as a bridge or ladder) and shore up existing structures (like the wall of a collapsing building)."
+        "You gain proficiency with Magiscience. If you are already proficient with Magiscience, you instead gain an expertise die. In addition, you gain advantage on Magiscience checks made to build a temporary construction (such as a bridge or ladder) and shore up existing structures (like the wall of a collapsing building). This does not benefit the Experiment journey activity."
       ]
     },
     {
@@ -1591,7 +1591,7 @@
         "AT"
       ],
       "entries": [
-        "You know how to inspire and motivate your companions as they travel. The length of journeys your party embarks on are reduced by 1 day, to minimum of 1."
+        "You know how to inspire and motivate your companions as they travel. When you start a journey, you may choose for the length of that journey to be reduced by 1 day, to minimum of 1, but prevent the use of the Cover Tracks journey activity by any creature on that journey."
       ]
     },
     {
@@ -1601,7 +1601,7 @@
         "AT"
       ],
       "entries": [
-        "You gain proficiency with Persuasion. If you are already proficient with Persuasion, you instead gain an expertise die. Whenever you make a Persuasion check to earn coins through performance, you gain twice as much as normal."
+        "You gain proficiency with Persuasion. If you are already proficient with Persuasion, you instead gain an expertise die. Whenever you make a Persuasion check to earn coins through performance, you gain twice as much as normal. This doubles the perk points you gain from the Busk journey activity."
       ]
     },
     {
@@ -1623,7 +1623,7 @@
       ],
       "entries": [
         "Choose one skill you are proficient with. You gain an expertise die on checks made using the chosen skill.",
-        "In addition, when you succeed on an opposed Intelligence, Wisdom, or Charisma check, you gain advantage on your next opposed Intelligence, Wisdom, or Charisma check against the same creature."
+        "In addition, when you succeed on an opposed Intelligence, Wisdom, or Charisma check, you gain advantage on your next opposed Intelligence, Wisdom, or Charisma check against the same creature. This benefits no journey activities."
       ]
     },
     {
