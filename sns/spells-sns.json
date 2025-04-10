@@ -26087,7 +26087,7 @@
           "type": "entries",
           "name": "Area",
           "entries": [
-            "15-foot cube"
+            "15-foot cube, of which at least one space must be adjacent to you"
           ]
         },
         "You create a wave of thunderous force, damaging creatures and pushing them back. Make a fortitude attack against all creatures in the area that deals {@dice 4d4} thunder damage. On a hit, a creature is pushed 10 feet away from you.",
