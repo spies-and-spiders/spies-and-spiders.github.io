@@ -1013,7 +1013,7 @@
           "type": "entries",
           "name": "Shocking Coils",
           "entries": [
-            "Your monstrous minion has spearking coils protruding from its back. A creature takes {@dice 1d6} lightning damage when it hits your monstrous minion with a melee weapon attack. This damage increases to {@dice 2d6} when you reach 11th level."
+            "Your monstrous minion has spearking coils protruding from its back. A creature takes {@dice 1d6} lightning DoT damage when it hits your monstrous minion with a melee weapon attack. This damage increases to {@dice 2d6} when you reach 11th level."
           ]
         },
         {
