@@ -4740,7 +4740,7 @@
         },
         "You trample down enemies in your path.",
         "You must be mounted to use this maneuver.",
-        "Shift up to half your Speed. Creatures in your path that are at least one size smaller than your mount make a save. On a failure, a creature immediately takes {@dice 2d6} bludgeoning DoT damage and is knocked {@condition prone|sns}."
+        "Shift up to half your Speed. Creatures in your path that are at least one size smaller than your mount make a save. On a failure, a creature immediately suffers {@dice 2d6} bludgeoning harm and is knocked {@condition prone|sns}."
       ],
       "name": "Trample",
       "time": [
@@ -6131,7 +6131,7 @@
         },
         "A victorious battle cry strikes fear in the heart of your foes.",
         "Make a melee weapon attack against a creature.",
-        "On a major success, you release a mighty roar that shakes the very earth and firmament in a 30-foot cube centered on you. Each hostile creature in the area takes psychic DoT damage equal to twice your proficiency bonus and it becomes {@condition frightened|sns} until the end of its next turn. On a standard success, the same creatures take half as much psychic DoT damage and do not become {@condition frightened|sns}."
+        "On a major success, you release a mighty roar that shakes the very earth and firmament in a 30-foot cube centered on you. Each hostile creature in the area suffers psychic harm equal to twice your proficiency bonus and it becomes {@condition frightened|sns} until the end of its next turn. On a standard success, the same creatures suffer half as much psychic harm and do not become {@condition frightened|sns}."
       ],
       "name": "Bloody Roar",
       "time": [
@@ -6412,8 +6412,8 @@
           ]
         },
         "Swinging or thrusting with your weapon like you have thousands of times before, you know precisely where its tip grazes and your swing hits at the smallest flaw in an opponent's armor to deliver a painful wound.",
-        "Choose a weapon when you learn this combat maneuver. If you hit with your next attack roll using the chosen weapon against a living creature, you deliver a wound that deals {@dice 1d4} ongoing damage of the weapon's base type that lasts until the creature succeeds on a passive save.",
-        "Alternatively, the wounded creature, or a creature adjacent to it, can use an action to make a Medicine check against your standard DC, ending the ongoing damage on a success.",
+        "Choose a weapon when you learn this combat maneuver. If you hit with your next attack roll using the chosen weapon against a living creature, you deliver a wound that causes {@dice 1d4} ongoing harm of the weapon's base type that lasts until the creature succeeds on a passive save.",
+        "Alternatively, the wounded creature, or a creature adjacent to it, can use an action to make a Medicine check against your standard DC, ending the ongoing harm on a success.",
         "The effect also ends if the wounded creature recovers any number of hit points."
       ],
       "name": "Wounding Strike",
@@ -6489,7 +6489,7 @@
           ]
         },
         "You quickly draw and strike with a weapon in the blink of an eye.",
-        "Choose a creature within your reach. You draw a melee weapon that you are not currently holding and use it to deal DoT damage equal to the weapon's base damage to that creature. You cannot use this combat maneuver against the same creature more than once per combat."
+        "Choose a creature within your reach. You draw a melee weapon that you are not currently holding and use it to cause harm equal to the weapon's base damage to that creature. You cannot use this combat maneuver against the same creature more than once per combat."
       ],
       "name": "Instant Strike",
       "time": [
@@ -7237,7 +7237,7 @@
           ]
         },
         "With daring-do and practiced grace you seamlessly fling an obstacle across the floor with surprising swiftness. With some extra effort, you can distract from the violent intent.",
-        "You spread ball bearings, caltrops, or oil into a 5-foot square. If a creature is in the area, it makes a save with advantage (or normally if you spend an additional 1 exertion). On a fail against ball bearings or oil the creature falls {@condition prone|sns}, or on a failure against caltrops it takes {@dice 1d4} piercing DoT damage that reduces its Speed by 10 feet until it regains at least 1 hit point."
+        "You spread ball bearings, caltrops, or oil into a 5-foot square. If a creature is in the area, it makes a save with advantage (or normally if you spend an additional 1 exertion). On a fail against ball bearings or oil the creature falls {@condition prone|sns}, or on a failure against caltrops it suffers {@dice 1d4} piercing harm that reduces its Speed by 10 feet until it regains at least 1 hit point."
       ],
       "name": "Quick Spill",
       "time": [
@@ -7274,7 +7274,7 @@
           ]
         },
         "No matter how deadly or serious an opponent is, if they can drink, you can splash something down their throat with superlative timing.",
-        "Make a Persuasion check opposed by the Insight check of a creature within your reach. On a success, the creature drinks whatever item you are offering to it, whether that it a potion, poison, or otherwise. Any alchemical item (such as an acid flask or alchemist's fire) deals four times as much damage as normal when a creature drinks it in this way, although any ongoing damage is only doubled."
+        "Make a Persuasion check opposed by the Insight check of a creature within your reach. On a success, the creature drinks whatever item you are offering to it, whether that it a potion, poison, or otherwise. Any alchemical item (such as an acid flask or alchemist's fire) deals four times as much damage or harm as normal when a creature drinks it in this way, although any ongoing harm is only doubled."
       ],
       "name": "Quick, Drink This",
       "time": [
@@ -7505,7 +7505,7 @@
             "The Empowered Attack feature"
           ]
         },
-        "You draw forth the unquiet dead and force them to your bidding. Choose a number of 5-foot spaces equal to your Charisma modifier within 30 feet. Each space becomes occupied by a spirit entity with Armour equal to half your Charisma modifier, 22 hit points, and vulnerability to radiant damage. Each entity also has a reach of 5 feet and its own reaction. When a creature moves out of its reach, an entity can deal half of your main hand weapon's base damage as DoT damage to the creature if your main hand weapon is a melee weapon. The entities cannot use any movement and cannot flank. The spaces they occupy are considered difficult terrain to any creature except you.",
+        "You draw forth the unquiet dead and force them to your bidding. Choose a number of 5-foot spaces equal to your Charisma modifier within 30 feet. Each space becomes occupied by a spirit entity with Armour equal to half your Charisma modifier, 22 hit points, and vulnerability to radiant damage. Each entity also has a reach of 5 feet and its own reaction. When a creature moves out of its reach, an entity can cause half of your main hand weapon's base damage as harm to the creature if your main hand weapon is a melee weapon. The entities cannot use any movement and cannot flank. The spaces they occupy are considered difficult terrain to any creature except you.",
         "Additionally, while this stance is active, whenever you take the Attack action, you can make your attack from a chosen entity instead of from you. This stance ends early if all entities are destroyed."
       ],
       "name": "Darkstalkers",
@@ -7689,7 +7689,7 @@
             "1 point"
           ]
         },
-        "You draw your hand along your blade, limning it in hellish flame. As a bonus action, you coat your weapon in green flame, causing your next melee weapon attack before the end of your next turn to potentially damage an additional target. The attack's original target receives the effects of the attack as normal, but if the attack scores a major success, an additional target of your choice within reach takes necrotic DoT damage equal to half the damage dealt to the first target."
+        "You draw your hand along your blade, limning it in hellish flame. As a bonus action, you coat your weapon in green flame, causing your next melee weapon attack before the end of your next turn to potentially damage an additional target. The attack's original target receives the effects of the attack as normal, but if the attack scores a major success, an additional target of your choice within reach suffers necrotic harm equal to half the damage dealt to the first target."
       ],
       "name": "Green-Flame Strike",
       "time": [
@@ -7873,7 +7873,7 @@
             "2 points"
           ]
         },
-        "Your grip can wither flesh from bone. When you are grappling an opponent, you can use your reaction to deal necrotic DoT damage equal to {@dice 1d8} + your Charisma modifier."
+        "Your grip can wither flesh from bone. When you are grappling an opponent, you can use your reaction to cause necrotic harm equal to {@dice 1d8} + your Charisma modifier."
       ],
       "name": "Necrotic Grip",
       "time": [
@@ -7988,7 +7988,7 @@
             "2 points"
           ]
         },
-        "You enchant your weapon with clinging shadows. Until the end of your next turn, the next creature you score a major success against with a melee weapon attack takes ongoing necrotic damage equal to your main hand weapon's base damage for a number of rounds equal to your Charisma modifier."
+        "You enchant your weapon with clinging shadows. Until the end of your next turn, the next creature you score a major success against with a melee weapon attack suffers ongoing necrotic harm equal to your main hand weapon's base damage for a number of rounds equal to your Charisma modifier."
       ],
       "name": "Vicious Blade",
       "time": [
@@ -8778,7 +8778,7 @@
             "1 point"
           ]
         },
-        "As part of this stance, you trace a rune onto a melee weapon. Your mark is transferred to the next creature you successfully hit with the inscribed weapon. If the marked creature attempts to make an armour attack against any other target but you, it takes force DoT damage equal to your Intelligence modifier, regardless of whether the attack hits. This stance ends early if you wish to mark another creature or if the target is more than 30 feet away from you."
+        "As part of this stance, you trace a rune onto a melee weapon. Your mark is transferred to the next creature you successfully hit with the inscribed weapon. If the marked creature attempts to make an armour attack against any other target but you, it suffers force harm equal to your Intelligence modifier, regardless of whether the attack hits. This stance ends early if you wish to mark another creature or if the target is more than 30 feet away from you."
       ],
       "name": "Duelist's Sigil",
       "time": [
@@ -8817,7 +8817,7 @@
             "2 points"
           ]
         },
-        "After hitting with a melee weapon, select three 5-foot spaces within your reach. These spaces erupt into flames 5 feet high and count as difficult terrain until the end of your next turn. These spaces are a persistent zone that deals fire DoT damage equal to your weapon's base damage."
+        "After hitting with a melee weapon, select three 5-foot spaces within your reach. These spaces erupt into flames 5 feet high and count as difficult terrain until the end of your next turn. These spaces are a persistent zone that cause fire harm equal to your weapon's base damage."
       ],
       "name": "Flame Burst",
       "time": [
@@ -8927,7 +8927,7 @@
           ]
         },
         "Choose a creature of no more than one size category larger than you that is within 30 feet. Make a ranged weapon fortitude or reflex attack against that creature (target's choice) that deals bludgeoning damage equal to your Strength modifier. On a hit, the target is {@condition grappled|sns} by a gauntleted hand made of force. This effect requires concentration as though it were a spell.",
-        "You may use your bonus action each turn to maintain the grapple for up to a number of rounds equal to half your level. When you maintain a grapple, the target takes bludgeoning DoT damage equal to your Strength modifier. A creature that becomes {@condition grappled|sns} while in the air remains in its current space, even though its fly speed becomes 0, though at the DM's discretion it may have to make a save once it is no longer {@condition grappled|sns}, falling on a fail.",
+        "You may use your bonus action each turn to maintain the grapple for up to a number of rounds equal to half your level. When you maintain a grapple, the target suffers bludgeoning harm equal to your Strength modifier. A creature that becomes {@condition grappled|sns} while in the air remains in its current space, even though its fly speed becomes 0, though at the DM's discretion it may have to make a save once it is no longer {@condition grappled|sns}, falling on a fail.",
         "At the beginning of each of its turns, a creature {@condition grappled|sns} by this maneuver can make a save, ending the effect on itself on a success. This effect also ends early if you target another creature with the gauntlet or if you move more than 45 feet from the target."
       ],
       "name": "Grasping Gauntlet",
@@ -8964,7 +8964,7 @@
             "3 points"
           ]
         },
-        "When you use this ability, choose an adjacent space. When you strike this space a 50-foot long, 5-foot wide line of difficult terrain appears in the direction of your choosing. You may also choose to make the space you've chosen the centre of a 40-foot line. Creatures and objects within the line when it is created take bludgeoning DoT damage equal to your Strength modifier. Striking a surface that is 1 foot thick or less, such as a rooftop or bridge, severely damages it, causing creatures and objects in the area to fall."
+        "When you use this ability, choose an adjacent space. When you strike this space a 50-foot long, 5-foot wide line of difficult terrain appears in the direction of your choosing. You may also choose to make the space you've chosen the centre of a 40-foot line. Creatures and objects within the line when it is created suffers bludgeoning harm equal to your Strength modifier. Striking a surface that is 1 foot thick or less, such as a rooftop or bridge, severely damages it, causing creatures and objects in the area to fall."
       ],
       "name": "Groundshatter",
       "time": [

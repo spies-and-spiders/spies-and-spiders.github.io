@@ -681,7 +681,7 @@
           "type": "entries",
           "name": "Igniting Smite",
           "entries": [
-            "Your smite instead deals fire damage, and if the triggering attack scored a major success, the target takes {@dice 1d6} ongoing fire damage until it passes a passive save. The fire can also be put out as an action or by the environment, and exstinguishes itself after 1 minute."
+            "Your smite instead deals fire damage, and if the triggering attack scored a major success, the target suffers {@dice 1d6} ongoing fire harm until it passes a passive save. The fire can also be put out as an action or by the environment, and exstinguishes itself after 1 minute."
           ]
         },
         {

@@ -112,8 +112,8 @@
         {
           "type": "list",
           "items": [
-            "Whenever you deal damage with an attack, the damage dealt is halved, and the target takes ongoing damage of the attack's base type equal to the amount of damage lost. This ongoing damge stacks, but all stacks are removed when the target succeeds on a passive save.",
-            "Creatures making passive saves to end your ongoing damage do so with disadvantage."
+            "Whenever you deal damage with an attack, the damage dealt is halved, and the target suffers ongoing harm of the attack's base type equal to the amount of damage lost. This ongoing harm stacks, but all stacks are removed when the target succeeds on a passive save.",
+            "Creatures making passive saves to end your ongoing harm do so with disadvantage."
           ]
         }
       ],
