@@ -122,7 +122,7 @@
             "Creature or object"
           ]
         },
-        "A jet of acid streaks towards the target like a hissing, green arrow. Make an armour attack that deals {@dice 2d10} acid damage and on a hit, inflicts {@dice 2d4} ongoing acid damage for 1 round.",
+        "A jet of acid streaks towards the target like a hissing, green arrow. Make an armour attack that deals {@dice 2d10} acid damage and on a hit, causes {@dice 2d4} ongoing acid harm for 1 round.",
         {
           "type": "entries",
           "name": "Rare",
@@ -150,7 +150,7 @@
           "type": "entries",
           "name": "Cast at Higher Levels",
           "entries": [
-            "Increase this spell's initial damage by {@dice 1d10} and ongoing damage by {@dice 1d4} per slot level above 2nd."
+            "Increase this spell's attack damage by {@dice 1d10} and ongoing harm by {@dice 1d4} per slot level above 2nd."
           ]
         }
       ],
@@ -712,7 +712,7 @@
             "One non-celestial creature"
           ]
         },
-        "The target is bombarded with a fraction of energy stolen from some slumbering, deific source, immediately taking 40 radiant DoT damage. This spell ignores resistances but does not ignore immunities. A creature killed by this spell does not decay and cannot become undead for the spell's duration. Days spent under the influence of this spell don't count against the time limit of spells such as raise dead. This effect ends early if the corpse takes necrotic damage."
+        "The target is bombarded with a fraction of energy stolen from some slumbering, deific source, immediately suffering 40 radiant harm. This spell ignores resistances but does not ignore immunities. A creature killed by this spell does not decay and cannot become undead for the spell's duration. Days spent under the influence of this spell don't count against the time limit of spells such as raise dead. This effect ends early if the corpse takes necrotic damage."
       ],
       "name": "Angel Paradox",
       "time": [
@@ -726,7 +726,7 @@
           "type": "entries",
           "name": "Cast at Higher Levels",
           "entries": [
-            "The damage and duration increase to 45 radiant damage and 1 year when using an 8th-level spell slot, or 50 damage and until dispelled when using a 9th-level spell slot."
+            "The harm and duration increase to 45 radiant damage and 1 year when using an 8th-level spell slot, or 50 harm and until dispelled when using a 9th-level spell slot."
           ]
         }
       ],
@@ -747,7 +747,7 @@
       "subschools": [
         "radiant",
         "undead",
-        "dot"
+        "harm"
       ],
       "level": 7,
       "components": {
@@ -798,7 +798,7 @@
               "type": "item",
               "name": "Standard success",
               "entries": [
-                "Until the spell ends or one of your companions harms it (whichever is sooner), the target is {@condition charmed|sns}."
+                "Until the spell ends or one of your companions hurts it (whichever is sooner), the target is {@condition charmed|sns}."
               ]
             },
             {
@@ -1579,7 +1579,7 @@
               "type": "item",
               "name": "Snatch",
               "entries": [
-                "The hand makes a save to try and grab a creature adjacent to it, with advantage if the creature is Medium or smaller. On a success, the creature is {@condition grappled|sns} by the hand. You can use a bonus action to crush a creature {@condition grappled|sns} by the hand, dealing bludgeoning DoT damage equal to {@dice 2d6} + your spellcasting ability modifier."
+                "The hand makes a save to try and grab a creature adjacent to it, with advantage if the creature is Medium or smaller. On a success, the creature is {@condition grappled|sns} by the hand. You can use a bonus action to crush a creature {@condition grappled|sns} by the hand, causing bludgeoning harm equal to {@dice 2d6} + your spellcasting ability modifier."
               ]
             },
             {
@@ -1604,7 +1604,7 @@
           "type": "entries",
           "name": "Cast at Higher Levels",
           "entries": [
-            "The damage from Smash increases by {@dice 2d8} and the damage from Snatch increases by {@dice 2d6} for each slot level above 5th."
+            "The damage from Smash increases by {@dice 2d8} and the harm from Snatch increases by {@dice 2d6} for each slot level above 5th."
           ]
         }
       ],
@@ -1887,13 +1887,13 @@
       "school": "V",
       "entries": [
         "You summon an insubstantial yet deadly sword to do your bidding.",
-        "A target of your choice adjacent to the sword takes {@dice 3d4} force DoT damage.",
-        "Until the spell ends, you can use a bonus action on subsequent turns to move the sword up to 20 feet to a space you can see and deal the damage again to a similar target.",
+        "A target of your choice adjacent to the sword suffers {@dice 3d4} force harm.",
+        "Until the spell ends, you can use a bonus action on subsequent turns to move the sword up to 20 feet to a space you can see and cause the harm again to a similar target.",
         {
           "type": "entries",
           "name": "Rare",
           "entries": [
-            "Kreven's Bloody Arcane Sword. The spell's damage is reduced to {@dice 2d4} and when a creature is damaged by the spell it makes a save or it suffers a level of {@condition fatigue|sns}."
+            "Kreven's Bloody Arcane Sword. The spell's harm is reduced to {@dice 2d4} and when a creature is harmed by the spell it makes a save or it suffers a level of {@condition fatigue|sns}."
           ]
         }
       ],
@@ -1925,7 +1925,7 @@
         "force",
         "summoning",
         "weaponry",
-        "dot"
+        "harm"
       ],
       "level": 7,
       "components": {
@@ -2240,7 +2240,7 @@
             "Huge or smaller beast or plant with Intelligence 3 or less."
           ]
         },
-        "You impart sentience in the target, granting it an Intelligence of 10 and proficiency in a language you know. A plant targeted by this spell gains the ability to move, as well as senses identical to those of a human. The DM assigns awakened plant statistics (such as an {@creature awakened shrub} or {@creature awakened tree}). The target is {@condition charmed|sns} for 30 days or until you or your companions harm it. Depending on how you treated the target while it was {@condition charmed|sns}, when the condition ends the awakened creature may choose to remain friendly to you.",
+        "You impart sentience in the target, granting it an Intelligence of 10 and proficiency in a language you know. A plant targeted by this spell gains the ability to move, as well as senses identical to those of a human. The DM assigns awakened plant statistics (such as an {@creature awakened shrub} or {@creature awakened tree}). The target is {@condition charmed|sns} for 30 days or until you or your companions hurt it. Depending on how you treated the target while it was {@condition charmed|sns}, when the condition ends the awakened creature may choose to remain friendly to you.",
         {
           "type": "entries",
           "name": "Rare",
@@ -2874,7 +2874,7 @@
             "20-foot square"
           ]
         },
-        "Writhing black tentacles fill the ground within the area turning it into difficult terrain. The area also becomes a persistent zone that deals {@dice 2d4} bludgeoning DoT damage and forces targets to make a save, becoming {@condition restrained|sns} by the tentacles on a fail. A creature that starts its turn {@condition restrained|sns} by the tentacles takes {@dice 3d6} bludgeoning DoT damage.",
+        "Writhing black tentacles fill the ground within the area turning it into difficult terrain. The area also becomes a persistent zone that causes {@dice 2d4} bludgeoning harm and forces targets to make a save, becoming {@condition restrained|sns} by the tentacles on a fail. A creature that starts its turn {@condition restrained|sns} by the tentacles suffers {@dice 3d6} bludgeoning harm.",
         "A {@condition restrained|sns} creature can use its action to make an Acrobatics or Athletics check against your standard DC, freeing itself on a success."
       ],
       "name": "Black Tentacles",
@@ -2889,7 +2889,7 @@
           "type": "entries",
           "name": "Cast at Higher Levels",
           "entries": [
-            "The persistent zone damage increases by {@dice 1d4} and the restrain damage increases by {@dice 1d6} for every 2 slot levels above 4th."
+            "The persistent zone harm increases by {@dice 1d4} and the restrain harm increases by {@dice 1d6} for every 2 slot levels above 4th."
           ]
         }
       ],
@@ -2917,7 +2917,7 @@
         "terrain",
         "bludgeoning",
         "persistent",
-        "dot"
+        "harm"
       ],
       "level": 4,
       "components": {
@@ -2955,7 +2955,7 @@
           ]
         },
         "You create a wall of slashing blades centred on a point within your line of sight. The wall can be up to 20 feet high and 5 feet thick, and can either be a straight wall up to 100 feet long or a ringed wall of up to 60 feet in diameter. The wall provides three-quarters cover and its area is difficult terrain.",
-        "The wall is a persistent zone that deals {@dice 4d10} slashing DoT damage."
+        "The wall is a persistent zone that causes {@dice 4d10} slashing harm."
       ],
       "name": "Blade Barrier",
       "time": [
@@ -2969,7 +2969,7 @@
           "type": "entries",
           "name": "Cast at Higher Levels",
           "entries": [
-            "The damage increases by {@dice 1d10} for each slot level above 6th."
+            "The harm increases by {@dice 1d10} for each slot level above 6th."
           ]
         }
       ],
@@ -2997,7 +2997,7 @@
         "weaponry",
         "slashing",
         "persistent",
-        "dot"
+        "harm"
       ],
       "level": 6,
       "components": {
@@ -4612,7 +4612,7 @@
           ]
         },
         "You create a sphere of poisonous, sickly green fog, which can spread around corners but not change shape. The area is heavily obscured. A strong wind disperses the fog, ending the spell early.",
-        "Until the spell ends, the area becomes a persistent zone that deals {@dice 4d6} poison DoT damage.",
+        "Until the spell ends, the area becomes a persistent zone that causes {@dice 4d6} poison harm.",
         "The fog moves away from you 10 feet at the start of each of your turns, flowing along the ground. The fog is thicker than air, sinks to the lowest level in the land, and can even flow down openings and pits."
       ],
       "name": "Cloudkill",
@@ -4627,7 +4627,7 @@
           "type": "entries",
           "name": "Cast at Higher Levels",
           "entries": [
-            "The damage increases by {@dice 1d6} for each slot level above 5th."
+            "The harm increases by {@dice 1d6} for each slot level above 5th."
           ]
         }
       ],
@@ -4654,7 +4654,7 @@
         "obscurement",
         "poison",
         "persistent",
-        "dot"
+        "harm"
       ],
       "level": 5,
       "components": {
@@ -4690,7 +4690,7 @@
           "type": "entries",
           "name": "Rare",
           "entries": [
-            "Sidoneth's Vomitous Cobra's Spit. You can use an action to end the spell early, taking {@dice 4d8} poison DoT damage and spewing a 15-foot cone of poison. Make an area spell reflex attack against each creature in the area that deals {@dice 9d8} poison damage."
+            "Sidoneth's Vomitous Cobra's Spit. You can use an action to end the spell early, suffering {@dice 4d8} poison harm and spewing a 15-foot cone of poison. Make an area spell reflex attack against each creature in the area that deals {@dice 9d8} poison damage."
           ]
         }
       ],
@@ -4706,7 +4706,7 @@
           "type": "entries",
           "name": "Cast at Higher Levels",
           "entries": [
-            "The damage increases by {@dice 1d8} for each slot level above 3rd."
+            "The harm increases by {@dice 1d8} for each slot level above 3rd."
           ]
         }
       ],
@@ -5754,7 +5754,7 @@
       },
       "school": "D",
       "entries": [
-        "You consult an otherworldly entity, risking your very mind in the process. Make a save. On a fail, you take {@dice 6d6} psychic DoT damage and suffer four levels of {@condition strife|sns} until you finish a long rest. A {@spell greater restoration|sns} spell ends this effect. On a successful save, you can ask the entity up to 5 questions before the spell ends. When possible the entity responds with one-word answers: yes, no, maybe, never, irrelevant, or unclear. At the DM's discretion, it may instead provide a brief but truthful answer when necessary."
+        "You consult an otherworldly entity, risking your very mind in the process. Make a save. On a fail, you suffer {@dice 6d6} psychic harm and suffer four levels of {@condition strife|sns} until you finish a long rest. A {@spell greater restoration|sns} spell ends this effect. On a successful save, you can ask the entity up to 5 questions before the spell ends. When possible the entity responds with one-word answers: yes, no, maybe, never, irrelevant, or unclear. At the DM's discretion, it may instead provide a brief but truthful answer when necessary."
       ],
       "name": "Contact Other Plane",
       "time": [
@@ -6094,7 +6094,7 @@
               "type": "item",
               "name": "Whirlpool",
               "entries": [
-                "If the affected body of water is at least 50 feet square and 25 feet deep, a whirlpool forms within the area in a 50-foot wide cone that is 25 feet long. Creatures and objects that are in the area and within 25 feet of the whirlpool make an Athletics check against your standard DC or are pulled 10 feet toward it. Once within the whirlpool, checks made to swim out of it have disadvantage. The whirlpool is a persistent zone that deals {@dice 1d10} bludgeoning DoT damage and forces creatures to make a save, being pulled into the centre of the whirlpool on a fail."
+                "If the affected body of water is at least 50 feet square and 25 feet deep, a whirlpool forms within the area in a 50-foot wide cone that is 25 feet long. Creatures and objects that are in the area and within 25 feet of the whirlpool make an Athletics check against your standard DC or are pulled 10 feet toward it. Once within the whirlpool, checks made to swim out of it have disadvantage. The whirlpool is a persistent zone that causes {@dice 1d10} bludgeoning harm and forces creatures to make a save, being pulled into the centre of the whirlpool on a fail."
               ]
             }
           ]
@@ -6133,7 +6133,7 @@
         "water",
         "bludgeoning",
         "persistent",
-        "dot"
+        "harm"
       ],
       "level": 4,
       "components": {
@@ -7859,7 +7859,7 @@
       "entries": [
         "You teleport to any place you can see, visualize, or describe by stating distance and direction such as 200 feet straight downward or 400 feet upward at a 30-degree angle to the southeast.",
         "You can bring along objects if their weight doesn't exceed what you can carry. You can also bring one willing creature of your size or smaller, provided it isn't carrying gear beyond its carrying capacity and is within 5 feet.",
-        "If you would arrive in an occupied space the spell fails, and you and any creature with you each take {@dice 4d6} force DoT damage."
+        "If you would arrive in an occupied space the spell fails, and you and any creature with you each suffer {@dice 4d6} force harm."
       ],
       "name": "Dimension Door",
       "time": [
@@ -8699,7 +8699,7 @@
           ]
         },
         "You frighten the target by echoing its movements with ominous music and terrifying sound effects. Make a will attack against the target that deals {@dice 1d4} psychic damage. On a hit, the target becomes {@condition frightened|sns} until either the spell ends or it passes a passive save.",
-        "Whenever the target fails its passive save to end the fear, it takes {@dice 1d4} psychic DoT damage.",
+        "Whenever the target fails its passive save to end the fear, it suffers {@dice 1d4} psychic harm.",
         "You cannot cast another spell requiring a material component while concentrating on this spell.",
         {
           "type": "entries",
@@ -8721,7 +8721,7 @@
           "type": "entries",
           "name": "Cast at Higher Levels",
           "entries": [
-            "The damage increases by {@dice 1d4} for each slot level above 1st."
+            "The damage and harm increase by {@dice 1d4} for each slot level above 1st."
           ]
         }
       ],
@@ -8934,7 +8934,7 @@
           "type": "entries",
           "name": "Rare",
           "entries": [
-            "Sidoneth's Crystal Pillar. The pillar summoned by this spell is made of translucent crystal. If this spell causes an attack to no longer target you, the attack hits the pillar instead. If this pillar is destroyed, every creature within 5 feet of it takes {@dice 2d6} piercing DoT damage."
+            "Sidoneth's Crystal Pillar. The pillar summoned by this spell is made of translucent crystal. If this spell causes an attack to no longer target you, the attack hits the pillar instead. If this pillar is destroyed, every creature within 5 feet of it suffers {@dice 2d6} piercing harm."
           ]
         }
       ],
@@ -9020,8 +9020,8 @@
               "type": "item",
               "name": "Structures",
               "entries": [
-                "A structure in contact with the ground in the spell's area takes 50 bludgeoning DoT damage when you cast the spell and again at the start of each of your turns while the spell is active. A structure reduced to 0 hit points this way collapses.",
-                "Creatures within half the distance of a collapsing structure's height must pass a save or take {@dice 5d6} bludgeoning DoT damage, be knocked {@condition prone|sns}, and be buried in the rubble, requiring a DC 20 Acrobatics or Athletics check as an action to escape. A creature inside (instead of near) a collapsing structure has disadvantage on its save. The DM can adjust the DC higher or lower depending on the composition of the rubble. On a successful save, the creature takes half as much damage and doesn't fall {@condition prone|sns} or become buried."
+                "A structure in contact with the ground in the spell's area suffers 50 bludgeoning harm when you cast the spell and again at the start of each of your turns while the spell is active. A structure reduced to 0 hit points this way collapses.",
+                "Creatures within half the distance of a collapsing structure's height must pass a save or suffer {@dice 5d6} bludgeoning harm, be knocked {@condition prone|sns}, and be buried in the rubble, requiring a DC 20 Acrobatics or Athletics check as an action to escape. A creature inside (instead of near) a collapsing structure has disadvantage on its save. The DM can adjust the DC higher or lower depending on the composition of the rubble. On a successful save, the creature takes half as much damage and doesn't fall {@condition prone|sns} or become buried."
               ]
             }
           ]
@@ -9099,7 +9099,7 @@
     {
       "school": "C",
       "entries": [
-        "A black, nonreflective, incorporeal 10-foot cube appears in an unoccupied space that you can see. Its space can be in midair if you so desire. The area is a persistent zone that deals {@dice 2d10} psychic DoT damage.",
+        "A black, nonreflective, incorporeal 10-foot cube appears in an unoccupied space that you can see. Its space can be in midair if you so desire. The area is a persistent zone that causes {@dice 2d10} psychic harm.",
         "As a bonus action, you can move the cube up to 10 feet in any direction to a space you can see. The cube cannot be made to pass through other creatures in this way.",
         {
           "type": "entries",
@@ -9134,7 +9134,7 @@
       "subschools": [
         "psychic",
         "persistent",
-        "dot"
+        "harm"
       ],
       "level": 5,
       "components": {
@@ -9415,7 +9415,7 @@
             "One artificial nonmagical structure with a foundation area of no more than 3,000 square feet."
           ]
         },
-        "You animate and enrage a target building that lashes out at its inhabitants and surroundings. As a bonus action you may command the target to open, close, lock, or unlock any nonmagical doors or windows, or to thrash about and attempt to crush its inhabitants. While the target is thrashing, any creature inside or within 30 feet of it takes {@damage 1d10 + 5} bludgeoning DoT damage. When the spell ends, the target returns to its previous state, magically repairing any damage it sustained during the spell's duration."
+        "You animate and enrage a target building that lashes out at its inhabitants and surroundings. As a bonus action you may command the target to open, close, lock, or unlock any nonmagical doors or windows, or to thrash about and attempt to crush its inhabitants. While the target is thrashing, any creature inside or within 30 feet of it suffers {@damage 1d10 + 5} bludgeoning harm. When the spell ends, the target returns to its previous state, magically repairing any damage it sustained during the spell's duration."
       ],
       "name": "Enrage Architecture",
       "time": [
@@ -9442,7 +9442,7 @@
       "subschools": [
         "earth",
         "terrain",
-        "dot",
+        "harm",
         "bludgeoning"
       ],
       "level": 7,
@@ -9670,7 +9670,7 @@
         "While on the Ethereal Plane, you can move in any direction, but vertical movement is considered difficult terrain. You can see and hear the plane you originated from, but everything looks desaturated and you can see no further than 60 feet.",
         "While on the Ethereal Plane, you can only affect and be affected by other creatures on that plane.",
         "Creatures not on the Ethereal Plane can't perceive you unless some special ability or magic explicitly allows them to.",
-        "When the spell ends, you immediately return to the plane you originated from in the spot you currently occupy. If you occupy the same spot as a solid object or creature when this happens, you are immediately shunted to the nearest unoccupied space and you take force DoT damage equal to twice the number of feet you are moved.",
+        "When the spell ends, you immediately return to the plane you originated from in the spot you currently occupy. If you occupy the same spot as a solid object or creature when this happens, you are immediately shunted to the nearest unoccupied space and you suffer force harm equal to twice the number of feet you are moved.",
         "The spell has no effect if you cast it while you are on the Ethereal Plane or a plane that doesn't border it, such as an Outer Plane."
       ],
       "name": "Etherealness",
@@ -10106,7 +10106,7 @@
         "You conjure a phantasmal watchdog. Until the spell ends, the hound remains in the area unless you spend an action to dismiss it or you move more than 100 feet away from it.",
         "The hound is {@condition invisible} except to you and can't be harmed. When a Small or larger creature enters the area without speaking a password you specify when casting the spell, the hound starts barking loudly.",
         "The hound sees {@condition invisible} creatures, can see into the Ethereal Plane, and is immune to illusions.",
-        "At the start of each of your turns, the hound bites a hostile creature of your choice that is within the area, dealing {@dice 2d8} piercing DoT damage, treated as if it were your own damage.",
+        "At the start of each of your turns, the hound bites a hostile creature of your choice that is within the area, causing {@dice 2d8} piercing harm, treated as if caused by you.",
         {
           "type": "entries",
           "name": "Rare",
@@ -10143,7 +10143,7 @@
         "protection",
         "sound",
         "piercing",
-        "dot"
+        "harm"
       ],
       "level": 4,
       "components": {
@@ -10445,7 +10445,7 @@
             "One creature"
           ]
         },
-        "You blast the target's mind, attempting to crush its intellect and sense of self. The target takes {@dice 4d6} psychic DoT damage.",
+        "You blast the target's mind, attempting to crush its intellect and sense of self. The target suffers {@dice 4d6} psychic harm.",
         "Then, make a will attack against the target with the following outcomes:",
         {
           "type": "list",
@@ -10496,7 +10496,7 @@
         "affliction",
         "arcane",
         "psychic",
-        "dot",
+        "harm",
         "ranged"
       ],
       "level": 8,
@@ -10725,7 +10725,7 @@
     {
       "school": "D",
       "entries": [
-        "This spell reveals whether there is at least one trap within range and within line of sight. You don't learn the number, location, or kind of traps detected. For the purpose of this spell, a trap is a hidden mechanical device or magical effect which is designed to harm you or put you in danger, such as a pit trap, symbol spell, or alarm bell on a door, but not a natural hazard.",
+        "This spell reveals whether there is at least one trap within range and within line of sight. You don't learn the number, location, or kind of traps detected. For the purpose of this spell, a trap is a hidden mechanical device or magical effect which is designed to hurt you or put you in danger, such as a pit trap, symbol spell, or alarm bell on a door, but not a natural hazard.",
         {
           "type": "entries",
           "name": "Rare",
@@ -11040,14 +11040,14 @@
               "type": "item",
               "name": "Chill Shield",
               "entries": [
-                "You have 50% resistance to fire damage. A creature adjacent to you takes {@dice 2d8} cold DoT damage when it hits you with a melee weapon attack."
+                "You have 50% resistance to fire damage. A creature adjacent to you suffers {@dice 2d8} cold harm when it hits you with a melee weapon attack."
               ]
             },
             {
               "type": "item",
               "name": "Warm Shield",
               "entries": [
-                "You have 50% resistance to cold damage. A creature adjacent to you takes {@dice 2d8} fire DoT damage when it hits you with a melee weapon attack."
+                "You have 50% resistance to cold damage. A creature adjacent to you suffers {@dice 2d8} fire harm when it hits you with a melee weapon attack."
               ]
             }
           ]
@@ -11096,7 +11096,7 @@
         "cold",
         "fire",
         "protection",
-        "dot"
+        "harm"
       ],
       "level": 4,
       "components": {
@@ -11370,12 +11370,12 @@
       "school": "C",
       "entries": [
         "A 5-foot-diameter sphere of fire appears within range, lasting for the duration. It casts bright light in a 20-foot radius and dim light for another 20 feet, and ignites unattended flammable objects it touches.",
-        "You can use a bonus action to move the sphere up to 30 feet. It can jump over pits 10 feet wide or obstacles 5 feet tall. If you move the sphere into a creature, the sphere ends its movement for that turn and the creature takes {@dice 1d8} fire DoT damage. A creature that ends its turn adjacent to the sphere takes the same damage.",
+        "You can use a bonus action to move the sphere up to 30 feet. It can jump over pits 10 feet wide or obstacles 5 feet tall. If you move the sphere into a creature, the sphere ends its movement for that turn and the creature suffers {@dice 1d8} fire harm. A creature that ends its turn adjacent to the sphere takes the same damage.",
         {
           "type": "entries",
           "name": "Rare",
           "entries": [
-            "Katrina's Chariot Flaming Sphere. If you are Medium or smaller you can use 5 feet of your movement to enter or exit the sphere. While inside, you can't be harmed by the sphere, you move with it when it moves, and creatures take {@dice 1d4} DoT fire damage when they hit you with a melee weapon attack."
+            "Katrina's Chariot Flaming Sphere. If you are Medium or smaller you can use 5 feet of your movement to enter or exit the sphere. While inside, you can't be harmed by the sphere, you move with it when it moves, and creatures suffer {@dice 1d4} fire harm when they hit you with a melee weapon attack."
           ]
         }
       ],
@@ -11391,7 +11391,7 @@
           "type": "entries",
           "name": "Cast at Higher Levels",
           "entries": [
-            "The damage increases by {@dice 1d6} for each slot level above 2nd."
+            "The harm increases by {@dice 1d6} for each slot level above 2nd."
           ]
         }
       ],
@@ -11413,7 +11413,7 @@
       "subschools": [
         "arcane",
         "fire",
-        "dot"
+        "harm"
       ],
       "level": 2,
       "components": {
@@ -11772,7 +11772,7 @@
         "You protect the target area against magical travel.",
         "Creatures can't teleport into the area, use a magical portal to enter it, or travel into it from another plane of existence, such as the Astral or Ethereal Plane.",
         "The spell's area can't overlap with another forbiddance spell.",
-        "The spell damages specific types of trespassing creatures. Choose one or more of celestials, elementals, fey, fiends, and undead. The area is a persistent zone that deals {@dice 5d10} radiant or necrotic DoT damage (your choice when you cast the spell) against creatures of the chosen type. You may designate a password. A creature speaking this password as it enters takes no damage from the spell.",
+        "The spell damages specific types of trespassing creatures. Choose one or more of celestials, elementals, fey, fiends, and undead. The area is a persistent zone that causes {@dice 5d10} radiant or necrotic harm (your choice when you cast the spell) to creatures of the chosen type. You may designate a password. A creature speaking this password as it enters takes no damage from the spell.",
         "After casting this spell on the same area for 30 consecutive days it becomes permanent until dispelled. This final casting to make the spell permanent consumes its material components."
       ],
       "name": "Forbiddance",
@@ -12562,7 +12562,7 @@
               "type": "item",
               "name": "Standard success",
               "entries": [
-                "The target is {@condition charmed|sns}. While {@condition charmed|sns} in this way, it takes {@dice 5d10} psychic DoT damage the first time each day that it disobeys your command. Your command can be any course of action or inaction that wouldn't result in the target's death. The spell ends if the command is suicidal or you use an action to dismiss the spell. Alternatively, a {@spell remove curse|sns}, {@spell greater restoration|sns}, or {@spell wish|sns} spell cast on the target using a spell slot at least as high as the slot used to cast this spell also ends it."
+                "The target is {@condition charmed|sns}. While {@condition charmed|sns} in this way, it suffers {@dice 5d10} psychic harm the first time each day that it disobeys your command. Your command can be any course of action or inaction that wouldn't result in the target's death. The spell ends if the command is suicidal or you use an action to dismiss the spell. Alternatively, a {@spell remove curse|sns}, {@spell greater restoration|sns}, or {@spell wish|sns} spell cast on the target using a spell slot at least as high as the slot used to cast this spell also ends it."
               ]
             },
             {
@@ -12611,7 +12611,7 @@
         "divine",
         "ranged",
         "psychic",
-        "dot"
+        "harm"
       ],
       "level": 5,
       "components": {
@@ -13179,7 +13179,7 @@
           "type": "entries",
           "name": "Rare",
           "entries": [
-            "Katrina's Flammable Grease. Until the spell ends, a creature that has been attacked by the spell or made a save for it gets grease on itself and becomes flammable. When the creature takes fire damage from a hit, it takes {@dice 1d6} ongoing fire damage until it uses an action to douse the flames."
+            "Katrina's Flammable Grease. Until the spell ends, a creature that has been attacked by the spell or made a save for it gets grease on itself and becomes flammable. When the creature takes fire damage from a hit, it suffers {@dice 1d6} ongoing fire harm until it uses an action to douse the flames."
           ]
         }
       ],
@@ -14345,7 +14345,7 @@
             "One metal object (such as a sword or a suit of metal armor)"
           ]
         },
-        "The target becomes oven hot. Any creature touching the target takes {@dice 2d8} fire DoT damage when the spell is cast. Until the spell ends, on subsequent turns you can use a bonus action to inflict the same damage. If a creature is holding or wearing the target and suffers damage, it makes a save or it drops the target. If a creature does not or cannot drop the target, it has disadvantage on armour attack rolls and ability checks until the start of your next turn."
+        "The target becomes oven hot. Any creature touching the target suffers {@dice 2d8} fire harm when the spell is cast. Until the spell ends, on subsequent turns you can use a bonus action to cause the same harm. If a creature is holding or wearing the target and suffers this harm, it makes a save or it drops the target. If a creature does not or cannot drop the target, it has disadvantage on armour attack rolls and ability checks until the start of your next turn."
       ],
       "name": "Heat Metal",
       "time": [
@@ -14382,7 +14382,7 @@
         "affliction",
         "fire",
         "nature",
-        "dot"
+        "harm"
       ],
       "level": 2,
       "components": {
@@ -14425,7 +14425,7 @@
           "type": "entries",
           "name": "Rare",
           "entries": [
-            "Komanav's Final Heroes' Feast. Instead of receiving any benefits, 10 minutes after the food is consumed all participants other than you take {@dice 8d10} necrotic DoT damage."
+            "Komanav's Final Heroes' Feast. Instead of receiving any benefits, 10 minutes after the food is consumed all participants other than you suffer {@dice 8d10} necrotic harm."
           ]
         },
         {
@@ -15083,7 +15083,7 @@
           "type": "entries",
           "name": "Rare",
           "entries": [
-            "Gabal's Shackling Ice Storm. A creature that takes 22 or more damage is ensnared in icy shackles. An ensnared creature is {@condition grappled|sns} and takes {@dice 2d6} ongoing cold damage until it uses an action to make a save to end the effect."
+            "Gabal's Shackling Ice Storm. A creature that takes 22 or more damage is ensnared in icy shackles. An ensnared creature is {@condition grappled|sns} and suffers {@dice 2d6} ongoing cold harm until it uses an action to make a save to end the effect."
           ]
         }
       ],
@@ -15443,13 +15443,13 @@
             "20-foot radius sphere"
           ]
         },
-        "A cloud of burning embers, smoke, and roiling flame appears within range. The cloud heavily obscures its area, spreading around corners and through cracks. When the cloud appears and a creature is in it, when a creature enters the cloud for the first time on a turn, or when a creature ends its turn within the cloud it takes {@dice 9d6} fire DoT damage.",
+        "A cloud of burning embers, smoke, and roiling flame appears within range. The cloud heavily obscures its area, spreading around corners and through cracks. When the cloud appears and a creature is in it, when a creature enters the cloud for the first time on a turn, or when a creature ends its turn within the cloud it suffers {@dice 9d6} fire harm.",
         "The cloud can be dispelled by a wind of at least 10 miles per hour. After it is cast, the cloud moves 10 feet away from you in a direction that you choose at the start of each of your turns.",
         {
           "type": "entries",
           "name": "Rare",
           "entries": [
-            "Katrina's Clinging Incendiary Cloud. Until the spell ends, burning embers stick to any creatures caught within the cloud. A creature that takes damage from this spell must make a save, taking {@dice 1d8} ongoing fire damage on a fail. A creature outside of the cloud can use an action to brush the embers off."
+            "Katrina's Clinging Incendiary Cloud. Until the spell ends, burning embers stick to any creatures caught within the cloud. A creature that takes damage from this spell must make a save, suffering {@dice 1d8} ongoing fire harm on a fail. A creature outside of the cloud can use an action to brush the embers off."
           ]
         }
       ],
@@ -15481,7 +15481,7 @@
       "subschools": [
         "arcane",
         "fire",
-        "dot"
+        "harm"
       ],
       "level": 8,
       "components": {
@@ -15519,7 +15519,7 @@
             "One creature"
           ]
         },
-        "You infect your target with an arcane disease. At any time after you cast this spell, as long as you are on the same plane of existence as the target, you can use an action to deal {@dice 7d10} necrotic DoT damage to the target. If this damage would reduce the target to 0 hit points, you can choose to leave it with 1 hit point.",
+        "You infect your target with an arcane disease. At any time after you cast this spell, as long as you are on the same plane of existence as the target, you can use an action to cause {@dice 7d10} necrotic harm to the target. If this damage would reduce the target to 0 hit points, you can choose to leave it with 1 hit point.",
         "As part of dealing the damage, you may expend a 7th-level spell slot to sustain the disease. Otherwise, the spell ends. The spell ends when you die. Casting {@spell remove curse|sns}, {@spell greater restoration|sns}, or {@spell heal|sns} on the target allows the target to make a save, ending the disease on a success. Otherwise the disease can only be cured by a {@spell wish|sns} spell."
       ],
       "name": "Inescapable Malady",
@@ -15550,7 +15550,7 @@
       "subschools": [
         "affliction",
         "necrotic",
-        "dot"
+        "harm"
       ],
       "level": 7,
       "components": {
@@ -15594,7 +15594,7 @@
               "type": "item",
               "name": "Flame Fork",
               "entries": [
-                "The weapon deals fire damage. On a critical success, the target catches fire, taking {@dice 2d6} ongoing fire damage."
+                "The weapon deals fire damage. On a critical success, the target catches fire, suffering {@dice 2d6} ongoing fire harm."
               ]
             },
             {
@@ -15739,7 +15739,7 @@
             "20-foot radius sphere"
           ]
         },
-        "A roiling cloud of insects appears, biting and stinging any creatures it touches. The cloud lightly obscures its area, spreads around corners, and is considered difficult terrain. When the cloud appears and a creature is in it, when a creature enters the cloud for the first time on a turn, or when a creature ends its turn within the cloud it takes {@dice 4d6} piercing DoT damage.",
+        "A roiling cloud of insects appears, biting and stinging any creatures it touches. The cloud lightly obscures its area, spreads around corners, and is considered difficult terrain. When the cloud appears and a creature is in it, when a creature enters the cloud for the first time on a turn, or when a creature ends its turn within the cloud it suffers {@dice 4d6} piercing harm.",
         {
           "type": "entries",
           "name": "Rare",
@@ -15787,7 +15787,7 @@
         "nature",
         "summoning",
         "piercing",
-        "dot"
+        "harm"
       ],
       "level": 5,
       "components": {
@@ -17442,12 +17442,12 @@
             "Up to three creatures"
           ]
         },
-        "A trio of glowing darts of magical force unerringly and simultaneously strike the targets, each dealing {@dice 1d4+1} force DoT damage.",
+        "A trio of glowing darts of magical force unerringly and simultaneously strike the targets, each causing {@dice 1d4+1} force harm.",
         {
           "type": "entries",
           "name": "Rare",
           "entries": [
-            "Kreven's Ruinous Magic Missile. Creatures damaged by this spell must make a save or become {@condition rattled|sns} until the end of your next turn."
+            "Kreven's Ruinous Magic Missile. Creatures harmed by this spell must make a save or become {@condition rattled|sns} until the end of your next turn."
           ]
         }
       ],
@@ -17480,7 +17480,7 @@
         "arcane",
         "attack",
         "force",
-        "dot"
+        "harm"
       ],
       "level": 1,
       "components": {
@@ -18158,7 +18158,7 @@
         },
         "Until the spell ends, you meld yourself and your carried equipment into the target stone. Using your movement, you may enter the stone from any point you can touch. No trace of your presence is visible or detectable by nonmagical senses.",
         "Within the stone, you can't see outside it and have disadvantage on Perception checks made to hear beyond it. You are aware of time passing, and may cast spells upon yourself. You may use your movement only to step out of the target where you entered it, ending the spell.",
-        "If the target is damaged such that its shape changes and you no longer fit within it, you are expelled and take {@dice 6d6} bludgeoning DoT damage. Complete destruction of the target, or its transmutation into another substance, expels you and you take 50 bludgeoning DoT damage. When expelled you fall {@condition prone|sns} into the closest unoccupied space near your entrance point.",
+        "If the target is damaged such that its shape changes and you no longer fit within it, you are expelled and suffer {@dice 6d6} bludgeoning harm. Complete destruction of the target, or its transmutation into another substance, expels you and you suffer 50 bludgeoning harm. When expelled you fall {@condition prone|sns} into the closest unoccupied space near your entrance point.",
         {
           "type": "entries",
           "name": "Rare",
@@ -19103,7 +19103,7 @@
           ]
         },
         "A beam of moonlight fills the area with dim light.",
-        "The area becomes a persistent zone which strikes creatures with silver flames that deal {@dice 2d6} radiant DoT damage.",
+        "The area becomes a persistent zone which strikes creatures with silver flames that cause {@dice 2d6} radiant harm.",
         "A shapeshifted creature is forced to take its original form while within the zone.",
         "On your turn, you may use an action to move the beam 60 feet in any direction.",
         {
@@ -19152,7 +19152,7 @@
         "nature",
         "radiant",
         "persistent",
-        "dot"
+        "harm"
       ],
       "level": 2,
       "components": {
@@ -19492,8 +19492,8 @@
             "10-foot sphere"
           ]
         },
-        "A swarm of insects fills the area, which becomes a persistent zone dealing 1 piercing DoT damage. The pests also ravage any unattended organic material within their radius, such as plant, wood, or fabric.",
-        "This spell's damage increases by 1 when you reach 5th level (2), 10th level (3), and 15th level (4)."
+        "A swarm of insects fills the area, which becomes a persistent zone causing 1 piercing harm. The pests also ravage any unattended organic material within their radius, such as plant, wood, or fabric.",
+        "This spell's harm increases by 1 when you reach 5th level (2), 10th level (3), and 15th level (4)."
       ],
       "name": "Pestilence",
       "time": [
@@ -19524,7 +19524,7 @@
         "nature",
         "summoning",
         "persistent",
-        "dot"
+        "harm"
       ],
       "level": 0,
       "components": {
@@ -19573,12 +19573,12 @@
             "One creature"
           ]
         },
-        "You create an illusion that invokes the target's deepest fears. Only the target can see this illusion. When the spell is cast, make a will attack against the target that deals {@dice 7d6} psychic damage. On a hit, the target becomes {@condition frightened|sns} and takes {@dice 4d10} ongoing psychic damage until it passes a passive save.",
+        "You create an illusion that invokes the target's deepest fears. Only the target can see this illusion. When the spell is cast, make a will attack against the target that deals {@dice 7d6} psychic damage. On a hit, the target becomes {@condition frightened|sns} and suffers {@dice 4d10} ongoing psychic harm until it passes a passive save.",
         {
           "type": "entries",
           "name": "Rare",
           "entries": [
-            "Aurana's Creeping Phantasmal Killer. When the spell ends early from the target passing a passive save, you may choose a new target for the spell. That target must make its own save, and on a fail the spell's {@condition frightened|sns} condition and ongoing damage continue on this new target without the expenditure of an additional spell slot, using the same duration."
+            "Aurana's Creeping Phantasmal Killer. When the spell ends early from the target passing a passive save, you may choose a new target for the spell. That target must make its own save, and on a fail the spell's {@condition frightened|sns} condition and ongoing harm continue on this new target without the expenditure of an additional spell slot, using the same duration."
           ]
         },
         {
@@ -19601,7 +19601,7 @@
           "type": "entries",
           "name": "Cast at Higher Levels",
           "entries": [
-            "The attack damage increases by {@dice 2d6} and the ongoing damage by {@condition 1d10} for each slot level above the 4th."
+            "The attack damage increases by {@dice 2d6} and the ongoing harm by {@condition 1d10} for each slot level above the 4th."
           ]
         }
       ],
@@ -19626,7 +19626,7 @@
         "psychic",
         "spell",
         "ranged",
-        "dot"
+        "harm"
       ],
       "level": 4,
       "components": {
@@ -20165,7 +20165,7 @@
             "One creature"
           ]
         },
-        "The target becomes poisonous to the touch. Until the spell ends, whenever a creature adjacent to the target hits the target with a melee weapon attack, the creature makes a save, becoming {@condition poisoned|sns} and taking {@dice 1d6} ongoing poison damage on a fail, both until the target passes a passive save.",
+        "The target becomes poisonous to the touch. Until the spell ends, whenever a creature adjacent to the target hits the target with a melee weapon attack, the creature makes a save, becoming {@condition poisoned|sns} and suffering {@dice 1d6} ongoing poison harm on a fail, both until the target passes a passive save.",
         "The target of the spell also becomes bright and multicolored like a poisonous dart frog, giving it disadvantage on Stealth checks."
       ],
       "name": "Poison Skin",
@@ -20180,7 +20180,7 @@
           "type": "entries",
           "name": "Cast at Higher Levels",
           "entries": [
-            "The target's skin is also covered in mucus, granting attacks against it that can {@condition grappled|sns|grapple} or {@condition restrained|sns|restrain} disadvantage. In addition, the damage increases by {@dice 1d6} for each slot level above 3rd."
+            "The target's skin is also covered in mucus, granting attacks against it that can {@condition grappled|sns|grapple} or {@condition restrained|sns|restrain} disadvantage. In addition, the harm increases by {@dice 1d6} for each slot level above 3rd."
           ]
         }
       ],
@@ -20532,35 +20532,35 @@
               "type": "item",
               "name": "1. Red",
               "entries": [
-                "The target takes {@dice 10d6} fire DoT damage."
+                "The target suffers {@dice 10d6} fire harm."
               ]
             },
             {
               "type": "item",
               "name": "2. Orange",
               "entries": [
-                "The target takes {@dice 10d6} acid DoT damage."
+                "The target suffers {@dice 10d6} acid harm."
               ]
             },
             {
               "type": "item",
               "name": "3. Yellow",
               "entries": [
-                "The target takes {@dice 10d6} lightning DoT damage."
+                "The target suffers {@dice 10d6} lightning harm."
               ]
             },
             {
               "type": "item",
               "name": "4. Green",
               "entries": [
-                "The target takes {@dice 10d6} poison DoT damage."
+                "The target suffers {@dice 10d6} poison harm."
               ]
             },
             {
               "type": "item",
               "name": "5. Blue",
               "entries": [
-                "The target takes {@dice 10d6} cold DoT damage."
+                "The target suffers {@dice 10d6} cold harm."
               ]
             },
             {
@@ -20620,7 +20620,7 @@
         "lightning",
         "poison",
         "cold",
-        "dot"
+        "harm"
       ],
       "level": 7,
       "components": {
@@ -20670,7 +20670,7 @@
               "type": "item",
               "name": "Red",
               "entries": [
-                "The creature takes {@dice 10d6} fire DoT damage.",
+                "The creature suffers {@dice 10d6} fire harm.",
                 "While active, nonmagical ranged attacks can't penetrate the barrier. The layer is destroyed by 28 cold damage."
               ]
             },
@@ -20678,28 +20678,28 @@
               "type": "item",
               "name": "Orange",
               "entries": [
-                "The creature takes {@dice 10d6} acid DoT damage. While active, magical ranged attacks can't penetrate the barrier. The layer is destroyed by strong winds."
+                "The creature suffers {@dice 10d6} acid harm. While active, magical ranged attacks can't penetrate the barrier. The layer is destroyed by strong winds."
               ]
             },
             {
               "type": "item",
               "name": "Yellow",
               "entries": [
-                "The creature takes {@dice 10d6} lightning DoT damage. This layer is destroyed by 67 force damage."
+                "The creature suffers {@dice 10d6} lightning harm. This layer is destroyed by 67 force damage."
               ]
             },
             {
               "type": "item",
               "name": "Green",
               "entries": [
-                "The creature takes {@dice 10d6} poison DoT damage. A {@spell passwall|sns} spell, or any spell of equal or greater level which can create a portal on a solid surface, destroys the layer."
+                "The creature suffers {@dice 10d6} poison harm. A {@spell passwall|sns} spell, or any spell of equal or greater level which can create a portal on a solid surface, destroys the layer."
               ]
             },
             {
               "type": "item",
               "name": "Blue",
               "entries": [
-                "The creature takes {@dice 10d6} cold DoT damage.",
+                "The creature suffers {@dice 10d6} cold harm.",
                 "This layer is destroyed by 28 fire damage."
               ]
             },
@@ -20759,7 +20759,7 @@
         "lightning",
         "poison",
         "cold",
-        "dot"
+        "harm"
       ],
       "level": 9,
       "components": {
@@ -21442,7 +21442,7 @@
               "type": "item",
               "name": "Brimstone Rubble",
               "entries": [
-                "You can fill any number of unoccupied 5-foot squares in the area with smoldering brimstone. These spaces become difficult terrain. These spaces are also a persistent zone that deals {@dice 2d10} fire DoT damage."
+                "You can fill any number of unoccupied 5-foot squares in the area with smoldering brimstone. These spaces become difficult terrain. These spaces are also a persistent zone that causes {@dice 2d10} fire harm."
               ]
             },
             {
@@ -21457,14 +21457,14 @@
               "name": "Spawning Pits",
               "entries": [
                 "The ground opens to create up to 6 pits filled with poisonous bile. Each pit fills a 10-foot cube that drops beneath the ground.",
-                "When this spell is cast, any creature whose space is on a pit may make a save, moving to an unoccupied space next to the pit on a success. The pit is a persistent zone that deals {@dice 10d6} poison DoT damage. A creature reduced to 0 hit points by this damage immediately dies and rises as a {@creature lemure} at the start of its next turn. Lemures created this way obey your verbal commands, but they disappear when the spell ends or if they leave the area for any reason."
+                "When this spell is cast, any creature whose space is on a pit may make a save, moving to an unoccupied space next to the pit on a success. The pit is a persistent zone that causes {@dice 10d6} poison harm. A creature reduced to 0 hit points by this damage immediately dies and rises as a {@creature lemure} at the start of its next turn. Lemures created this way obey your verbal commands, but they disappear when the spell ends or if they leave the area for any reason."
               ]
             },
             {
               "type": "item",
               "name": "Unhallowed Spires",
               "entries": [
-                "Up to four spires of black ice rise from the ground in unoccupied 10-foot squares within the area. Each spire can be up to 66 feet tall and is immune to all damage and magical effects. Whenever a creature within 30 feet of a spire would regain hit points, it does not regain hit points and instead takes {@dice 3d6} necrotic DoT damage."
+                "Up to four spires of black ice rise from the ground in unoccupied 10-foot squares within the area. Each spire can be up to 66 feet tall and is immune to all damage and magical effects. Whenever a creature within 30 feet of a spire would regain hit points, it does not regain hit points and instead suffers {@dice 3d6} necrotic harm."
               ]
             }
           ]
@@ -21497,7 +21497,7 @@
         "fire",
         "poison",
         "necrotic",
-        "dot"
+        "harm"
       ],
       "subschools": [
         "evil",
@@ -23073,7 +23073,7 @@
           ]
         },
         "You create three orbs of jagged broken glass and hurl them at targets within range. You can hurl them at one target or several.",
-        "For each unique target, make an armour attack that deals {@dice 2d4} slashing damage for each orb hurled at them (for example, a creature with two orbs hurled at them receives an attack that deals {@dice 4d4} slashing damage). On a hit, the shards of broken glass remain suspended in midair, filling the area they occupy (or 5 feet of the space they occupy if the creature is Large-sized or larger) with shards of suspended broken glass. This becomes a persistent zone that deals {@dice 1d4} slashing DoT damage for each orb that shattered there.",
+        "For each unique target, make an armour attack that deals {@dice 2d4} slashing damage for each orb hurled at them (for example, a creature with two orbs hurled at them receives an attack that deals {@dice 4d4} slashing damage). On a hit, the shards of broken glass remain suspended in midair, filling the area they occupy (or 5 feet of the space they occupy if the creature is Large-sized or larger) with shards of suspended broken glass. This becomes a persistent zone that causes {@dice 1d4} slashing harm for each orb that shattered there.",
         "The shards of broken glass dissolve into harmless wisps of sand and blow away after 1 minute.",
         {
           "type": "entries",
@@ -23115,7 +23115,7 @@
         "ranged",
         "spell",
         "persistent",
-        "dot"
+        "harm"
       ],
       "level": 2,
       "components": {
@@ -23224,7 +23224,7 @@
           "type": "entries",
           "name": "Rare",
           "entries": [
-            "Komanov's Radiant Shield. When a creature makes a melee weapon attack against the target, it takes {@dice 1d6} radiant DoT damage as the shield sparks and flares with holy power."
+            "Komanov's Radiant Shield. When a creature makes a melee weapon attack against the target, it suffers {@dice 1d6} radiant harm as the shield sparks and flares with holy power."
           ]
         }
       ],
@@ -24326,7 +24326,7 @@
             "20-foot radius"
           ]
         },
-        "You cause sharp spikes and thorns to sprout in the area, making it difficult terrain. When a creature enters or moves within the area, it takes {@dice 2d4} piercing DoT damage for every 5 feet it travels.",
+        "You cause sharp spikes and thorns to sprout in the area, making it difficult terrain. When a creature enters or moves within the area, it suffers {@dice 2d4} piercing harm for every 5 feet it travels.",
         "Your magic causes the ground to look natural. A creature that can't see the area when the spell is cast can spot the hazardous terrain just before entering it by making a Perception check against your standard DC.",
         {
           "type": "entries",
@@ -24363,7 +24363,7 @@
         "nature",
         "terrain",
         "piercing",
-        "dot"
+        "harm"
       ],
       "level": 2,
       "components": {
@@ -24400,7 +24400,7 @@
           ]
         },
         "You call down spirits of divine fury, filling the area with flitting spectral forms. You choose the form taken by the spirits.",
-        "Creatures of your choice halve their Speed while in the area. The area also becomes a persistent zone that deals {@dice 2d6} radiant or necrotic DoT damage (your choice)."
+        "Creatures of your choice halve their Speed while in the area. The area also becomes a persistent zone that causes {@dice 2d6} radiant or necrotic harm (your choice)."
       ],
       "name": "Spirit Guardians",
       "time": [
@@ -24440,7 +24440,7 @@
         "necrotic",
         "radiant",
         "persistent",
-        "dot"
+        "harm"
       ],
       "level": 3,
       "components": {
@@ -24469,7 +24469,7 @@
     {
       "school": "V",
       "entries": [
-        "You create a floating, incandescent weapon with an appearance of your choosing and use it to attack your enemies. On the round you cast it, a creature of your choice adjacent to the weapon takes force DoT damage equal to your spellcasting ability modifier.",
+        "You create a floating, incandescent weapon with an appearance of your choosing and use it to attack your enemies. On the round you cast it, a creature of your choice adjacent to the weapon suffers force harm equal to your spellcasting ability modifier.",
         "As a bonus action on subsequent turns until the spell ends, you can move the weapon up to 20 feet and deal the damage to a creature adjacent to it.",
         {
           "type": "entries",
@@ -24513,7 +24513,7 @@
         "attack",
         "divine",
         "force",
-        "dot"
+        "harm"
       ],
       "level": 2,
       "components": {
@@ -24552,7 +24552,7 @@
           "type": "entries",
           "name": "Rare",
           "entries": [
-            "Sidoneth's Poisonous Sporesight. Choose a number of creatures in the area equal to your proficiency bonus. The area is a persistent zone that deals {@dice 1d10} poison DoT damage."
+            "Sidoneth's Poisonous Sporesight. Choose a number of creatures in the area equal to your proficiency bonus. The area is a persistent zone that causes {@dice 1d10} poison harm."
           ]
         }
       ],
@@ -24880,7 +24880,7 @@
           "type": "entries",
           "name": "Cast at Higher Levels",
           "entries": [
-            "When using a 6th-level spell slot or higher, if you have the Empowered Attack feature, one instance of it applies to this spell. When using a 7th-level spell slot, you may choose an additional target within 30 feet of the target for each spell slot level above 6th, forcing each additional target to make a save or take {@dice 6d8} lightning DoT damage."
+            "When using a 6th-level spell slot or higher, if you have the Empowered Attack feature, one instance of it applies to this spell. When using a 7th-level spell slot, you may choose an additional target within 30 feet of the target for each spell slot level above 6th, forcing each additional target to make a save or suffer {@dice 6d8} lightning harm."
           ]
         }
       ],
@@ -24960,28 +24960,28 @@
               "type": "item",
               "name": "Round 2",
               "entries": [
-                "Acidic rain falls throughout the area dealing {@dice 1d6} acid DoT damage to each creature and object beneath the cloud."
+                "Acidic rain falls throughout the area causing {@dice 1d6} acid harm to each creature and object beneath the cloud."
               ]
             },
             {
               "type": "item",
               "name": "Round 3",
               "entries": [
-                "Lightning bolts strike up to 6 creatures or objects of your choosing that are beneath the cloud (no more than one bolt per creature or object). A creature struck by this lightning takes {@dice 5d8} lightning DoT damage."
+                "Lightning bolts strike up to 6 creatures or objects of your choosing that are beneath the cloud (no more than one bolt per creature or object). A creature struck by this lightning suffers {@dice 5d8} lightning harm."
               ]
             },
             {
               "type": "item",
               "name": "Round 4",
               "entries": [
-                "Hailstones fall throughout the area dealing {@dice 2d6} bludgeoning DoT damage to each creature beneath the cloud."
+                "Hailstones fall throughout the area causing {@dice 2d6} bludgeoning harm to each creature beneath the cloud."
               ]
             },
             {
               "type": "item",
               "name": "Round 5-10",
               "entries": [
-                "Gusts and freezing rain turn the area beneath the cloud into difficult terrain that is heavily obscured. Ranged weapon attacks are impossible while a creature or its target are beneath the cloud. When a creature concentrating on a spell starts its turn beneath the cloud or enters into the area, it makes a save, losing concentration on a fail. Gusts of strong winds between 20-50 miles per hour automatically disperse fog, mists, and similar effects (whether mundane or magical). Finally, each creature beneath the cloud takes {@dice 1d6} cold DoT damage."
+                "Gusts and freezing rain turn the area beneath the cloud into difficult terrain that is heavily obscured. Ranged weapon attacks are impossible while a creature or its target are beneath the cloud. When a creature concentrating on a spell starts its turn beneath the cloud or enters into the area, it makes a save, losing concentration on a fail. Gusts of strong winds between 20-50 miles per hour automatically disperse fog, mists, and similar effects (whether mundane or magical). Finally, each creature beneath the cloud suffers {@dice 1d6} cold harm."
               ]
             }
           ]
@@ -25471,7 +25471,7 @@
             "20-foot radius"
           ]
         },
-        "You quietly play a tragedy, a song that fills those around you with magical sorrow. Each creature in the area makes a save at the start of its turn. On a fail, a creature takes {@dice 2d4} psychic DoT damage, it is {@condition debilitated|sns} for that turn due to its crying, and it can't take reactions until the start of its next turn. Creatures that are immune to the {@condition charmed|sns} condition automatically succeed on this save.",
+        "You quietly play a tragedy, a song that fills those around you with magical sorrow. Each creature in the area makes a save at the start of its turn. On a fail, a creature suffers {@dice 2d4} psychic harm, it is {@condition debilitated|sns} for that turn due to its crying, and it can't take reactions until the start of its next turn. Creatures that are immune to the {@condition charmed|sns} condition automatically succeed on this save.",
         "If a creature other than you hears the entire song (remaining within the spell's area from the casting through the duration) it is so wracked with sadness that it is {@condition debilitated|sns} for {@dice 1d4} rounds.",
         "You cannot cast another spell with material components while concentrating on this spell.",
         {
@@ -25518,7 +25518,7 @@
         "compulsion",
         "psychic",
         "sound",
-        "dot"
+        "harm"
       ],
       "level": 4,
       "components": {
@@ -26925,7 +26925,7 @@
             "One creature"
           ]
         },
-        "You cause a searing poison to burn quickly through the target's wounds. The target makes a save. On a fail, the target takes {@dice 1d6} poison DoT damage and regains {@dice 1d10} hit points at the start of each of its turns for the next {@dice 1d4+1} rounds."
+        "You cause a searing poison to burn quickly through the target's wounds. The target makes a save. On a fail, the target suffers {@dice 1d6} poison harm and regains {@dice 1d10} hit points at the start of each of its turns for the next {@dice 1d4+1} rounds."
       ],
       "name": "Venomous Succor",
       "time": [
@@ -26956,7 +26956,7 @@
         "healing",
         "nature",
         "poison",
-        "dot"
+        "harm"
       ],
       "level": 3,
       "components": {
@@ -27053,7 +27053,7 @@
           ]
         },
         "You create a wall of fire on a solid surface. The wall can be up to 60 feet long (it does not have to be a straight line; sections of the wall can angle as long as they are contiguous), 20 feet high, and 1 foot thick, or a ringed wall up to 20 feet in diameter, 20 feet high, and 1 foot thick. You must have line of sight to at least one space the wall occupies. The wall blocks sight. When the wall appears, make a reflex attack against each creature within its area that deals {@dice 7d6} fire damage.",
-        "One side of the wall (chosen when the spell is cast) deals {@dice 5d8} fire DoT damage to each creature that ends its turn within 10 feet of that side or inside the wall. A creature takes the same damage when it enters the wall itself for the first time on a turn or ends its turn there. The other side of the wall deals no damage."
+        "One side of the wall (chosen when the spell is cast) causes {@dice 5d8} fire harm to each creature that ends its turn within 10 feet of that side or inside the wall. A creature suffers the same harm when it enters the wall itself for the first time on a turn or ends its turn there. The other side of the wall causes no harm."
       ],
       "name": "Wall of Fire",
       "time": [
@@ -27095,7 +27095,7 @@
         "protection",
         "spell",
         "area",
-        "dot"
+        "harm"
       ],
       "level": 4,
       "components": {
@@ -27145,8 +27145,8 @@
         },
         "A squirming wall of bodies, groping arms and tentacles, and moaning, biting mouths heaves itself up from the ground at a point you choose. The wall is 6 inches thick and is made up of a contiguous group of ten 10-foot square sections. The wall can have any shape you desire. You must have line of sight to at least one space the wall occupies.",
         "If the wall enters a creature's space when it appears, the creature makes a save, and on a success it moves up to its Speed to escape. On a failed save, it is swallowed by the wall (as below).",
-        "When a creature enters the area for the first time on a turn or starts its turn within 10 feet of the wall, tentacles and arms reach out to grab it. The creature makes a save or takes {@dice 5d8} bludgeoning DoT damage and becomes {@condition grappled|sns}. If the creature was already {@condition grappled|sns} by the wall at the start of its turn and fails its save, a mouth opens in the wall and swallows the creature.",
-        "A creature swallowed by the wall takes {@dice 5d8} ongoing bludgeoning damage and is {@condition blinded|sns}, {@condition deafened|sns}, and {@condition restrained|sns}.",
+        "When a creature enters the area for the first time on a turn or starts its turn within 10 feet of the wall, tentacles and arms reach out to grab it. The creature makes a save or suffers {@dice 5d8} bludgeoning harm and becomes {@condition grappled|sns}. If the creature was already {@condition grappled|sns} by the wall at the start of its turn and fails its save, a mouth opens in the wall and swallows the creature.",
+        "A creature swallowed by the wall suffers {@dice 5d8} ongoing bludgeoning harm and is {@condition blinded|sns}, {@condition deafened|sns}, and {@condition restrained|sns}.",
         "A creature {@condition grappled|sns} or {@condition restrained|sns} by the wall can use its action to make a save. On a success, a {@condition grappled|sns} creature frees itself and a {@condition restrained|sns} creature claws its way out of the wall's space, exiting to an empty space next to the wall and still {@condition grappled|sns}.",
         {
           "type": "entries",
@@ -27168,7 +27168,7 @@
           "type": "entries",
           "name": "Cast at Higher Levels",
           "entries": [
-            "The damage increases by {@dice 1d8} for each slot level above the 6th."
+            "The harm increases by {@dice 1d8} for each slot level above the 6th."
           ]
         }
       ],
@@ -27193,7 +27193,7 @@
         "evil",
         "protection",
         "bludgeoning",
-        "dot"
+        "harm"
       ],
       "level": 6,
       "components": {
@@ -27313,7 +27313,7 @@
         "You create a wall of ice on a solid surface. You can form it into a hemispherical dome or a sphere, either with a radius of up to 10 feet. You may also choose to create a flat surface made up of a contiguous group of ten 10-foot square sections. The wall is 1 foot thick. You must have line of sight to at least one space the wall occupies.",
         "If the wall enters a creature's space when it appears, the creature is pushed to one side of it (your choice).",
         "In addition, make a reflex attack against the creature that deals {@dice 6d12} cold damage.",
-        "The wall is an object with vulnerability to fire damage, with 1 Armour and 33 hit points per 10-foot section. Reducing a 10-foot section of wall to 0 hit points destroys it and leaves behind a sheet of frigid air in the space the section occupied. A creature moving through the sheet of frigid air for the first time on a turn takes {@dice 2d10} cold DoT damage.",
+        "The wall is an object with vulnerability to fire damage, with 1 Armour and 33 hit points per 10-foot section. Reducing a 10-foot section of wall to 0 hit points destroys it and leaves behind a sheet of frigid air in the space the section occupied. A creature moving through the sheet of frigid air for the first time on a turn suffers {@dice 2d10} cold harm.",
         {
           "type": "entries",
           "name": "Rare",
@@ -27361,7 +27361,7 @@
         "protection",
         "spell",
         "area",
-        "dot"
+        "harm"
       ],
       "level": 6,
       "components": {
@@ -27490,7 +27490,7 @@
           ]
         },
         "You create a wall of tough, pliable, tangled brush bristling with needle-sharp thorns on a solid surface centred on a space within your line of sight. You can choose to make the wall up to 60 feet long, 10 feet high, and 5 feet thick or a circle that has a 20-foot diameter and is up to 20 feet high and 5 feet thick. The wall blocks line of sight. When the wall appears, make a reflex attack against each creature within its area that deals {@dice 10d6} piercing damage.",
-        "A creature can move through the wall, albeit slowly and painfully. For every 1 foot a creature moves through the wall, it must spend 4 feet of movement. The first time a creature enters the wall on a turn or ends its turn there, it takes {@dice 6d6} slashing DoT damage."
+        "A creature can move through the wall, albeit slowly and painfully. For every 1 foot a creature moves through the wall, it must spend 4 feet of movement. The first time a creature enters the wall on a turn or ends its turn there, it suffers {@dice 6d6} slashing harm."
       ],
       "name": "Wall of Thorns",
       "time": [
@@ -27504,7 +27504,7 @@
           "type": "entries",
           "name": "Cast at Higher Levels",
           "entries": [
-            "Damage dealt by the wall increases by {@dice 2d6} for each slot level above 6th."
+            "Harm caused by the wall increases by {@dice 2d6} for each slot level above 6th."
           ]
         }
       ],
@@ -27534,7 +27534,7 @@
         "protection",
         "spell",
         "area",
-        "dot"
+        "harm"
       ],
       "level": 6,
       "components": {
@@ -27872,7 +27872,7 @@
         "Webs layered over a flat surface are 5 feet deep.",
         "The area becomes a persistent zone that forces creatures within to pass a save or become {@condition restrained|sns} as long as it remains in the webs (or until the creature breaks free).",
         "A creature {@condition restrained|sns} by the webs can escape by using its action to make a Brawn check against your standard DC.",
-        "Any 5-foot cube of webs exposed to fire burns away in 1 round, dealing {@dice 2d4} fire DoT damage to any creature that starts its turn in the fire.",
+        "Any 5-foot cube of webs exposed to fire burns away in 1 round, causing {@dice 2d4} fire harm to any creature that starts its turn in the fire.",
         {
           "type": "entries",
           "name": "Rare",
@@ -27884,7 +27884,7 @@
           "type": "entries",
           "name": "Rare",
           "entries": [
-            "Katrina's Flammable Web. Any 10-foot cube of webs exposed to fire burns away instantly, dealing {@dice 3d4} fire DoT damage to any creature in the area."
+            "Katrina's Flammable Web. Any 10-foot cube of webs exposed to fire burns away instantly, causing {@dice 3d4} fire harm to any creature in the area."
           ]
         }
       ],
@@ -27983,14 +27983,14 @@
               "type": "item",
               "name": "Standard success",
               "entries": [
-                "The target becomes {@condition frightened|sns} until the spell ends, or it passes a passive save. Whenever the target fails this passive save, it takes {@dice 4d10} psychic DoT damage."
+                "The target becomes {@condition frightened|sns} until the spell ends, or it passes a passive save. Whenever the target fails this passive save, it suffers {@dice 4d10} psychic harm."
               ]
             },
             {
               "type": "item",
               "name": "Critical success",
               "entries": [
-                "As standard success, but the psychic damage is increased to {@dice 8d10}."
+                "As standard success, but the psychic harm is increased to {@dice 8d10}."
               ]
             }
           ]
@@ -28026,7 +28026,7 @@
         "attack",
         "fear",
         "psychic",
-        "dot",
+        "harm",
         "area"
       ],
       "level": 9,
@@ -28610,7 +28610,7 @@
           ]
         },
         "You create a zone that minimizes deception. Any creature that is able to be {@condition charmed|sns} can't speak a deliberate lie while in the area.",
-        "An affected creature is aware of the spell and can choose not to speak, or it might be evasive in its communications. The area becomes a persistent zone that forces creatures within to make a save. On a failed save, a creature takes {@dice 2d4} psychic DoT damage when it intentionally tries to mislead or occlude important information for the remainder of the spell's duration. Each time the spell damages a creature, it makes a Deception check (DC 8 + the damage dealt) or its suffering is obvious. You know whether a creature succeeds on its save."
+        "An affected creature is aware of the spell and can choose not to speak, or it might be evasive in its communications. The area becomes a persistent zone that forces creatures within to make a save. On a failed save, a creature suffers {@dice 2d4} psychic harm when it intentionally tries to mislead or occlude important information for the remainder of the spell's duration. Each time the spell damages a creature, it makes a Deception check (DC 8 + the damage dealt) or its suffering is obvious. You know whether a creature succeeds on its save."
       ],
       "name": "Zone of Truth",
       "time": [
@@ -28640,7 +28640,7 @@
         "communication",
         "compulsion",
         "psychic",
-        "dot",
+        "harm",
         "persistent"
       ],
       "level": 2,
@@ -28862,7 +28862,7 @@
     {
       "school": "A",
       "entries": [
-        "A protective magical force surrounds you, manifesting as a spectral frost that covers you and your gear. You gain 5 temporary hit points for the duration, or until you have 0 temporary hit points. If a creature hits you with a melee attack while this spell is active, the creature takes 5 cold DoT damage."
+        "A protective magical force surrounds you, manifesting as a spectral frost that covers you and your gear. You gain 5 temporary hit points for the duration, or until you have 0 temporary hit points. If a creature hits you with a melee attack while this spell is active, the creature suffers 5 cold harm."
       ],
       "name": "Armour of Agathys",
       "time": [
@@ -28876,7 +28876,7 @@
           "type": "entries",
           "name": "Cast at Higher Levels",
           "entries": [
-            "Both the temporary hit points and the cold damage increase by 5 for each slot level above 1st."
+            "Both the temporary hit points and the cold harm increase by 5 for each slot level above 1st."
           ]
         }
       ],
@@ -28896,7 +28896,7 @@
       ],
       "subschools": [
         "cold",
-        "dot"
+        "harm"
       ],
       "level": 1,
       "components": {
@@ -29398,7 +29398,7 @@
     {
       "school": "V",
       "entries": [
-        "The next time you hit a creature with a melee weapon attack during the spell's duration, your weapon flares with white-hot intensity and the attack deals an extra {@dice 1d6} fire damage to the target and causes the target to ignite in flames. The target makes passive saves to end the spell, but whenever it fails one, it takes {@dice 1d6} fire DoT damage. If the target or a creature adjacent to it uses an action to put out the flames, or if some other effect douses the flames (such as the target being submerged in water), the spell ends."
+        "The next time you hit a creature with a melee weapon attack during the spell's duration, your weapon flares with white-hot intensity and the attack deals an extra {@dice 1d6} fire damage to the target and causes the target to ignite in flames. The target makes passive saves to end the spell, but whenever it fails one, it suffers {@dice 1d6} fire harm. If the target or a creature adjacent to it uses an action to put out the flames, or if some other effect douses the flames (such as the target being submerged in water), the spell ends."
       ],
       "name": "Searing Smite",
       "time": [
@@ -29412,7 +29412,7 @@
           "type": "entries",
           "name": "Cast at Higher Levels",
           "entries": [
-            "The initial extra damage dealt by the hit increases by {@dice 1d6} for each slot level above 1st."
+            "The initial extra damage dealt by the attack increases by {@dice 1d6} for each slot level above 1st."
           ]
         }
       ],
@@ -29514,7 +29514,7 @@
             "One creature"
           ]
         },
-        "A beam of crackling, blue energy lances out towards the target, forming a sustained arc of lightning between it and you. Make an armour attack against the target that deals {@dice 1d12} lightning damage. On a hit, you can use your action on subsequent turns for the duration to deal {@dice 1d12} lightning DoT damage to the target automatically. The spell ends if you use your action to do anything else. The spell also ends if the target is ever outside the spell's range or if it has total cover from you."
+        "A beam of crackling, blue energy lances out towards the target, forming a sustained arc of lightning between it and you. Make an armour attack against the target that deals {@dice 1d12} lightning damage. On a hit, you can use your action on subsequent turns for the duration to cause {@dice 1d12} lightning harm to the target automatically. The spell ends if you use your action to do anything else. The spell also ends if the target is ever outside the spell's range or if it has total cover from you."
       ],
       "name": "Witch Bolt",
       "time": [
@@ -29528,7 +29528,7 @@
           "type": "entries",
           "name": "Cast at Higher Levels",
           "entries": [
-            "The initial damage increases by {@dice 1d12} for each slot level above 1st."
+            "The attack damage increases by {@dice 1d12} for each slot level above 1st."
           ]
         }
       ],
@@ -29551,7 +29551,7 @@
         "lightning",
         "ranged",
         "spell",
-        "dot"
+        "harm"
       ],
       "level": 1,
       "components": {
@@ -29750,14 +29750,14 @@
             "5-foot cube"
           ]
         },
-        "You fill the air with spinning daggers centred on a point you choose within range. This is a persistent zone that deals {@dice 4d4} slashing DoT damage."
+        "You fill the air with spinning daggers centred on a point you choose within range. This is a persistent zone that causes {@dice 4d4} slashing harm."
       ],
       "entriesHigherLevel": [
         {
           "type": "entries",
           "name": "Cast at Higher Levels",
           "entries": [
-            "The damage increases by {@dice 2d4} for each slot level above 1st."
+            "The harm increases by {@dice 2d4} for each slot level above 1st."
           ]
         }
       ],
@@ -29786,7 +29786,7 @@
       "subschools": [
         "slashing",
         "persistent",
-        "dot"
+        "harm"
       ],
       "level": 2,
       "components": {
@@ -29948,7 +29948,7 @@
                 "The phantasm includes sound, temperature, and other stimuli, also evident only to the creature.",
                 "The target can use its action to examine the phantasm with an Investigation check against your standard DC. If the check succeeds, the target realises that the phantasm is an illusion, and the spell ends.",
                 "While a target is affected by the spell, the target treats the phantasm as if it were real. The target rationalises any illogical outcomes from interacting with the phantasm. For example, a target attempting to walk across a phantasmal bridge that spans a chasm falls once it steps onto the bridge. If the target survives the fall, it still believes that the bridge exists and comes up with some other explanation for its fall - it was pushed, it slipped, or a strong wind might have knocked it off.",
-                "An affected target is so convinced of the phantasm's reality that it can even take damage from the illusion. A phantasm created to appear as a creature can strike the target. Similarly, a phantasm created to appear as fire, a pool of acid, or lava can burn the target. Each round on your turn, the phantasm can deal {@dice 1d6} psychic DoT damage to the target if it is in the phantasm's area or within 5 feet of the phantasm, provided that the illusion is of a creature or hazard that could logically deal damage, such as by attacking. The target perceives the damage as a type appropriate to the illusion."
+                "An affected target is so convinced of the phantasm's reality that it can even take damage from the illusion. A phantasm created to appear as a creature can strike the target. Similarly, a phantasm created to appear as fire, a pool of acid, or lava can burn the target. Each round on your turn, the phantasm can cause {@dice 1d6} psychic harm to the target if it is in the phantasm's area or adjacent to the phantasm, provided that the illusion is of a creature or hazard that could logically deal damage or cause harm, such as by attacking. The target perceives the harm as a type appropriate to the illusion."
               ]
             },
             {
@@ -29986,7 +29986,7 @@
       ],
       "subschools": [
         "psychic",
-        "dot"
+        "harm"
       ],
       "level": 2,
       "components": {
@@ -30331,7 +30331,7 @@
           ]
         },
         "You open a gateway to the dark between the stars, a region infested with unknown horrors. The area is filled with blackness and bitter cold, lasting for the duration. This void is filled with a cacophony of soft whispers and slurping noises that can be heard up to 30 feet away. No light, magical or otherwise, can illuminate the area, and creatures fully within the area are {@condition blinded|sns}.",
-        "The void creates a warp in the fabric of space, and the area is difficult terrain. Any creature that starts its turn in the area takes {@dice 2d6} cold DoT damage. Any creature that ends its turn in the area takes {@dice 1d6} acid DoT damage as milky, otherworldly tentacles rub against it."
+        "The void creates a warp in the fabric of space, and the area is difficult terrain. Any creature that starts its turn in the area suffers {@dice 2d6} cold harm. Any creature that ends its turn in the area suffers {@dice 1d6} acid harm as milky, otherworldly tentacles rub against it."
       ],
       "name": "Hunger of Hadar",
       "time": [
@@ -30357,7 +30357,7 @@
       ],
       "subschools": [
         "cold",
-        "dot",
+        "harm",
         "acid"
       ],
       "level": 3,
@@ -30624,7 +30624,7 @@
       "school": "C",
       "entries": [
         "A Large spectral guardian appears and hovers for the duration in an unoccupied space of your choice within range. The guardian occupies that space and is indistinct except for a gleaming sword and shield emblazoned with the symbol of your deity.",
-        "Any creature hostile to you that moves to a space within 10 feet of the guardian for the first time on a turn takes 13 radiant DoT damage. The guardian vanishes when it has dealt a total of 39 damage."
+        "Any creature hostile to you that moves to a space within 10 feet of the guardian for the first time on a turn suffers 13 radiant harm. The guardian vanishes when it has caused a total of 39 harm."
       ],
       "name": "Guardian of Faith",
       "time": [
@@ -30646,7 +30646,7 @@
       "source": "sns",
       "subschools": [
         "radiant",
-        "dot"
+        "harm"
       ],
       "level": 4,
       "components": {
@@ -30980,7 +30980,7 @@
       "entries": [
         "A wall of water springs into existence at a point you choose within range. You can make the wall up to 300 feet long, 300 feet high, and 50 feet thick. The wall lasts for the duration.",
         "When the wall appears, make a fortitude attack against each creature within its area that deals {@dice 8d8} bludgeoning damage.",
-        "At the start of each of your turns after the wall appears, the wall, along with any creatures in it, moves 50 feet away from you. Any Huge or smaller creature inside the wall or whose space the wall enters when it moves take {@dice 3d8} bludgeoning DoT damage. A creature can take this damage only once per round. At the end of the turn, the wall's height is reduced by 50 feet, and the damage creatures take from the spell on subsequent turns is reduced by {@dice 1d8}. When the wall reaches 0 feet in height, the spell ends.",
+        "At the start of each of your turns after the wall appears, the wall, along with any creatures in it, moves 50 feet away from you. Any Huge or smaller creature inside the wall or whose space the wall enters when it moves suffers {@dice 3d8} bludgeoning harm. A creature can suffer this harm only once per round. At the end of the turn, the wall's height is reduced by 50 feet, and the harm creatures suffer from the spell on subsequent turns is reduced by {@dice 1d8}. When the wall reaches 0 feet in height, the spell ends.",
         "A creature caught in the wall can move by swimming. Because of the force of the wall, though, the creature must make a successful Athletics check against your standard DC in order to move at all. If it fails the check, it can't move. A creature that moves out of the area falls to the ground."
       ],
       "name": "Tsunami",
@@ -31005,7 +31005,7 @@
       "subschools": [
         "water",
         "bludgeoning",
-        "dot",
+        "harm",
         "spell",
         "area"
       ],
@@ -31080,8 +31080,8 @@
             "One adjacent creature"
           ]
         },
-        "You make a melee weapon attack against the target. On a hit, the target becomes sheathed in booming energy until the start of your next turn. If the target willingly moves 5 feet or more before then, it takes {@dice 1d8} thunder DoT damage, and the spell ends.",
-        "This spell's damage increases when you reach certain levels. At 5th level, the attack deals an extra {@dice 1d8} thunder damageto the target on a hit, and the damage the target takes for moving increases to {@dice 2d8}. Both damage rolls increase by {@dice 1d8} at 11th level ({@dice 2d8} and {@dice 3d8}) and again at 17th level ({@dice 3d8} and {@dice 4d8})."
+        "You make a melee weapon attack against the target. On a hit, the target becomes sheathed in booming energy until the start of your next turn. If the target willingly moves 5 feet or more before then, it suffers {@dice 1d8} thunder harm, and the spell ends.",
+        "This spell's damage increases when you reach certain levels. At 5th level, the attack deals an extra {@dice 1d8} thunder damage to the target on a hit, and the damage the target takes for moving increases to {@dice 2d8}. Both damage rolls increase by {@dice 1d8} at 11th level ({@dice 2d8} and {@dice 3d8}) and again at 17th level ({@dice 3d8} and {@dice 4d8})."
       ],
       "name": "Booming Blade",
       "time": [
@@ -31217,9 +31217,9 @@
             "5-foot cube"
           ]
         },
-        "You create a bonfire on ground within range. Until the spell ends, the magic bonfire fills the area. Any creature in the bonfire's space when you cast the spell takes {@dice 1d4} fire DoT damage. A creature also takes this damage when it moves into the bonfire's space for the first time on a turn or ends its turn there.",
+        "You create a bonfire on ground within range. Until the spell ends, the magic bonfire fills the area. Any creature in the bonfire's space when you cast the spell suffers {@dice 1d4} fire harm. A creature also suffers this harm when it moves into the bonfire's space for the first time on a turn or ends its turn there.",
         "The bonfire ignites flammable objects in its area that aren't being worn or carried.",
-        "The spell's damage increases by {@dice 1d4} when you reach 5th level ({@dice 2d4}), 11th level ({@dice 3d4}), and 17th level ({@dice 4d4})."
+        "The spell's harm increases by {@dice 1d4} when you reach 5th level ({@dice 2d4}), 11th level ({@dice 3d4}), and 17th level ({@dice 4d4})."
       ],
       "name": "Create Bonfire",
       "time": [
@@ -31242,7 +31242,7 @@
       "source": "sns",
       "subschools": [
         "fire",
-        "dot"
+        "harm"
       ],
       "level": 0,
       "components": {
@@ -31360,8 +31360,8 @@
             "One melee weapon you are holding in your main hand"
           ]
         },
-        "You brandish the target and make a melee weapon attack with it against one adjacent creature. On a hit, you can cause green fire to leap from the target to a different creature of your choice adjacent to it. The second creature takes fire DoT damage equal to your spellcasting ability modifier.",
-        "This spell's damage increases when you reach certain levels. At 5th level, the weapon attack deals an extra {@dice 1d8} fire damage to the target on a hit, and the fire damage to the second creature increases to {@dice 1d8} + your spellcasting ability modifier. Both damage rolls increase by {@dice 1d8} at 11th level ({@dice 2d8}) and 17th level ({@dice 3d8})."
+        "You brandish the target and make a melee weapon attack with it against one adjacent creature. On a hit, you can cause green fire to leap from the target to a different creature of your choice adjacent to it. The second creature suffers fire harm equal to your spellcasting ability modifier.",
+        "This spell's damage and harm increase when you reach certain levels. At 5th level, the weapon attack deals an extra {@dice 1d8} fire damage to the target on a hit, and the fire harm to the second creature increases to {@dice 1d8} + your spellcasting ability modifier. Both rolls increase by {@dice 1d8} at 11th level ({@dice 2d8}) and 17th level ({@dice 3d8})."
       ],
       "name": "Green-Flame Blade",
       "time": [
@@ -31378,7 +31378,7 @@
       "source": "sns",
       "subschools": [
         "fire",
-        "dot",
+        "harm",
         "weaponry"
       ],
       "level": 0,
@@ -32664,7 +32664,7 @@
             "One creature"
           ]
         },
-        "You create a shard of ice and fling it at the target. Make an armour attack against the target that deals {@dice 1d10} piercing damage. After the attack, the shard explodes. The target and each creature adjacent to it takes {@dice 1d6} cold DoT damage."
+        "You create a shard of ice and fling it at the target. Make an armour attack against the target that deals {@dice 1d10} piercing damage. After the attack, the shard explodes. The target and each creature adjacent to it suffers {@dice 1d6} cold harm."
       ],
       "name": "Ice Knife",
       "time": [
@@ -32678,7 +32678,7 @@
           "type": "entries",
           "name": "Cast at Higher Levels",
           "entries": [
-            "The cold damage increases by {@dice 1d6} for each slot level above 1st."
+            "The cold harm increases by {@dice 1d6} for each slot level above 1st."
           ]
         }
       ],
@@ -32691,7 +32691,7 @@
       "subschools": [
         "ranged",
         "spell",
-        "dot",
+        "harm",
         "piercing",
         "cold"
       ],
@@ -32855,21 +32855,21 @@
               "type": "item",
               "name": "Minor success",
               "entries": [
-                "The target immediately takes {@dice 1d4} acid DoT damage."
+                "The target immediately suffers {@dice 1d4} acid harm."
               ]
             },
             {
               "type": "item",
               "name": "Standard success",
               "entries": [
-                "The target is covered in acid for the spell's duration or until a creature uses its action to scrape or wash the acid off itself or another creature. A creature covered in the acid takes {@dice 2d4} ongoing acid damage."
+                "The target is covered in acid for the spell's duration or until a creature uses its action to scrape or wash the acid off itself or another creature. A creature covered in the acid suffers {@dice 2d4} ongoing acid harm."
               ]
             },
             {
               "type": "item",
               "name": "Critical success",
               "entries": [
-                "As standard success, but the damage increases to {@dice 4d4}."
+                "As standard success, but the harm increases to {@dice 4d4}."
               ]
             }
           ]
@@ -32887,7 +32887,7 @@
           "type": "entries",
           "name": "Cast at Higher Levels",
           "entries": [
-            "The damage increases by {@dice 2d4} for each slot level above 1st."
+            "The ongoing harm increases by {@dice 2d4} for each slot level above 1st."
           ]
         }
       ],
@@ -32906,7 +32906,7 @@
       "subschools": [
         "area",
         "acid",
-        "dot"
+        "harm"
       ],
       "level": 1,
       "components": {
@@ -33220,7 +33220,7 @@
           ]
         },
         "An elemental force that resembles a dust devil appears in the target and lasts for the spell's duration.",
-        "Any creature that ends its turn within 5 feet of the dust devil must make a save. On a failed save, the creature takes {@dice 1d8} bludgeoning DoT damage and is pushed 10 feet away from the dust devil. On a successful save, the creature takes half as much damage and isn't pushed.",
+        "Any creature that ends its turn within 5 feet of the dust devil must make a save. On a failed save, the creature suffers {@dice 1d8} bludgeoning harm and is pushed 10 feet away from the dust devil. On a successful save, the creature takes half as much harm and isn't pushed.",
         "As a bonus action, you can move the dust devil up to 30 feet in any direction. If the dust devil moves over sand, dust, loose dirt, or light gravel, it sucks up the material and forms a 10-foot-radius cloud of debris around itself that lasts until the start of your next turn. The cloud heavily obscures its area."
       ],
       "name": "Dust Devil",
@@ -33235,7 +33235,7 @@
           "type": "entries",
           "name": "Cast at Higher Levels",
           "entries": [
-            "The damage increases by {@dice 1d8} for each slot level above 2nd."
+            "The harm increases by {@dice 1d8} for each slot level above 2nd."
           ]
         }
       ],
@@ -33253,7 +33253,7 @@
       "source": "sns",
       "subschools": [
         "bludgeoning",
-        "dot"
+        "harm"
       ],
       "level": 2,
       "components": {
@@ -33455,7 +33455,7 @@
           "items": [
             "Your Speed increases by 10 feet.",
             "You don't provoke opportunity attacks.",
-            "You can move through the space of any other creatures. If you end your turn in another creature's space, you are shunted to the last unoccupied space you occupied, and you take {@dice 1d8} force DoT damage."
+            "You can move through the space of any other creatures. If you end your turn in another creature's space, you are shunted to the last unoccupied space you occupied, and you suffer {@dice 1d8} force harm."
           ]
         }
       ],
@@ -34410,7 +34410,7 @@
       "school": "T",
       "entries": [
         "The billowing flames of a dragon blast from your feet, granting you explosive speed. For the duration, your Speed increases by 20 feet all your movement counts as shifting.",
-        "When you move into a space adjacent to a creature or an object that isn't being word or carried, it takes {@dice 1d6} fire DoT damage for your trail of heat. A creature or object can take this damage only once during a turn."
+        "When you move into a space adjacent to a creature or an object that isn't being word or carried, it suffers {@dice 1d6} fire harm from your trail of heat. A creature or object can incur this harm only once during a turn."
       ],
       "name": "Draconic Stride",
       "time": [
@@ -34424,7 +34424,7 @@
           "type": "entries",
           "name": "Cast at Higher Levels",
           "entries": [
-            "Increase your Speed by 5 feet for each spell slot level above 3rd. The spell deals an additional {@dice 1d6} fire damage for each slot level above 3rd."
+            "Increase your Speed by 5 feet for each spell slot level above 3rd. The spell causes an additional {@dice 1d6} fire harm for each slot level above 3rd."
           ]
         }
       ],
@@ -34442,7 +34442,7 @@
       "source": "sns",
       "subschools": [
         "fire",
-        "dot",
+        "harm",
         "mobility"
       ],
       "level": 3,
@@ -34922,7 +34922,7 @@
     {
       "school": "V",
       "entries": [
-        "You create six tiny meteors in your space. They float in the air and orbit you for the spell's duration. When you cast the spell - and as a bonus action on each of your turns thereafter - you can expend one or two of the meteors, sending them streaking towards a point or points you choose within 120 feet of you. Once a meteor reaches its destination or impacts against a solid surface, the meteor explodes. Each creature adjacent to the point where the meteor explodes takes {@dice 1d8} fire DoT damage."
+        "You create six tiny meteors in your space. They float in the air and orbit you for the spell's duration. When you cast the spell - and as a bonus action on each of your turns thereafter - you can expend one or two of the meteors, sending them streaking towards a point or points you choose within 120 feet of you. Once a meteor reaches its destination or impacts against a solid surface, the meteor explodes. Each creature adjacent to the point where the meteor explodes suffers {@dice 1d8} fire harm."
       ],
       "name": "Minute Meteors",
       "time": [
@@ -34954,7 +34954,7 @@
       "source": "sns",
       "subschools": [
         "fire",
-        "dot"
+        "harm"
       ],
       "level": 3,
       "components": {
@@ -35631,7 +35631,7 @@
       "school": "N",
       "entries": [
         "Flame-like shadows wreathe your body until the spell ends, causing you to become heavily obscured to others. The shadows turn dim light within 10 feet of you into darkness, and bright light in the same area to dim light.",
-        "Until the spell ends, you have 50% resistance to radiant damage. In addition, whenever a creature within 10 feet of you hits you with an armour attack, the shadows lash out at that creature, dealing it {@dice 2d8} necrotic DoT damage."
+        "Until the spell ends, you have 50% resistance to radiant damage. In addition, whenever a creature within 10 feet of you hits you with an armour attack, the shadows lash out at that creature, causing {@dice 2d8} necrotic harm."
       ],
       "name": "Shadow of Moil",
       "time": [
@@ -35654,7 +35654,7 @@
       "source": "sns",
       "subschools": [
         "necrotic",
-        "dot"
+        "harm"
       ],
       "level": 4,
       "components": {
@@ -35690,7 +35690,7 @@
           ]
         },
         "Dim, greenish light spreads within the area. The area spreads around corners, and it lasts until the spell ends.",
-        "The area is a persistent zone that forces creatures to make a save. On a fail, a creature takes {@dice 4d10} radiant DoT damage, gains one level of {@condition fatigue|sns}, and emits a dim, greenish light in a 5-foot radius. This light makes it impossible for the creature to benefit from being {@condition invisible}. The light and any levels of {@condition fatigue|sns} caused by this spell go away when the spell ends."
+        "The area is a persistent zone that forces creatures to make a save. On a fail, a creature suffers {@dice 4d10} radiant harm, gains one level of {@condition fatigue|sns}, and emits a dim, greenish light in a 5-foot radius. This light makes it impossible for the creature to benefit from being {@condition invisible}. The light and any levels of {@condition fatigue|sns} caused by this spell go away when the spell ends."
       ],
       "name": "Sickening Radiance",
       "time": [
@@ -35714,7 +35714,7 @@
       "subschools": [
         "radiant",
         "persistent",
-        "dot"
+        "harm"
       ],
       "level": 4,
       "components": {
@@ -35755,8 +35755,8 @@
             "20-foot-radius sphere centered on a point within range"
           ]
         },
-        "An area of whirling air springs into existence. The area remains for the spell's duration. Each creature in the area when it appears or that ends its turn there must succeed on a save or take {@dice 2d6} bludgeoning DoT damage. The area is difficult terrain.",
-        "Until the spell ends, you can use a bonus action on each of your turns to cause a bolt of lightning to leap from the centre of the area towards one creature you choose within 60 feet of the centre. That creature must make a save, which has disadvantage if it is within the area. On a fail, the creature takes {@dice 4d6} lightning DoT damage.",
+        "An area of whirling air springs into existence. The area remains for the spell's duration. Each creature in the area when it appears or that ends its turn there suffers {@dice 1d8} bludgeoning harm. The area is difficult terrain.",
+        "Until the spell ends, you can use a bonus action on each of your turns to cause a bolt of lightning to leap from the centre of the area towards one creature you choose within 60 feet of the centre. That creature must make a save, which has disadvantage if it is within the area. On a fail, the creature suffers {@dice 4d6} lightning harm.",
         "Creatures within 30 feet of the area have disadvantage on Perception checks made to listen."
       ],
       "name": "Storm Sphere",
@@ -35771,7 +35771,7 @@
           "type": "entries",
           "name": "Cast at Higher Levels",
           "entries": [
-            "The damage for each of the spell's effects increases by {@dice 1d6} for each slot level above 4th."
+            "The harm for each of the spell's effects increases by {@dice 1d6} for each slot level above 4th."
           ]
         }
       ],
@@ -35789,7 +35789,7 @@
       "source": "sns",
       "subschools": [
         "lightning",
-        "dot"
+        "harm"
       ],
       "level": 4,
       "components": {
@@ -35880,7 +35880,7 @@
     {
       "school": "V",
       "entries": [
-        "You point at a location within range, and a glowing 1-foot-diameter ball of emerald acid streaks there and explodes in a 20-foot-radius sphere. Make a reflex attack against each creature in that area that deals {@dice 8d6} acid damage. On a hit, a target takes {@dice 5d4} acid DoT damage at the end of its next turn."
+        "You point at a location within range, and a glowing 1-foot-diameter ball of emerald acid streaks there and explodes in a 20-foot-radius sphere. Make a reflex attack against each creature in that area that deals {@dice 8d6} acid damage. On a hit, a target suffers {@dice 5d4} acid harm at the end of its next turn."
       ],
       "name": "Vitriolic Sphere",
       "time": [
@@ -35894,7 +35894,7 @@
           "type": "entries",
           "name": "Cast at Higher Levels",
           "entries": [
-            "The initial damage increases by {@dice 2d6} for each slot level above 4th."
+            "The attack damage increases by {@dice 2d6} for each slot level above 4th."
           ]
         }
       ],
@@ -35908,7 +35908,7 @@
         "acid",
         "area",
         "spell",
-        "dot"
+        "harm"
       ],
       "level": 4,
       "components": {
@@ -36096,7 +36096,7 @@
           ]
         },
         "The light of dawn shines down on the area, covering it in bright light. This light is sunlight.",
-        "When the cylinder appears, each creature in it takes {@dice 4d6} radiant DoT damage. A creature also takes this damage whenever it ends its turn in the cylinder.",
+        "When the cylinder appears, each creature in it suffers {@dice 4d6} radiant harm. A creature also suffers this harm whenever it ends its turn in the cylinder.",
         "If you're within 60 feet of the cylinder, you can move it up to 60 feet as a bonus action on your turn."
       ],
       "name": "Dawn",
@@ -36120,7 +36120,7 @@
       "source": "sns",
       "subschools": [
         "radiant",
-        "dot"
+        "harm"
       ],
       "level": 5,
       "components": {
@@ -36160,8 +36160,8 @@
             "One creature"
           ]
         },
-        "A tendril of inky darkness reaches out from you, touching the target to drain life from it. Make a reflex attack against the target that deals {@dice 3d12} necrotic damage. If this attack fails to hit, the spell ends. Otherwise, until the spell ends, you can use your action on each of your turns to automatically deal {@dice 4d8} necrotic DoT damage to the target. The spell ends if you use your action to do anything else, if the target is ever outside the spell's range, or if the target has total cover from you.",
-        "Whenever the spell deals damage to a target, you regain hit points equal to the amount of necrotic damage the target takes."
+        "A tendril of inky darkness reaches out from you, touching the target to drain life from it. Make a reflex attack against the target that deals {@dice 3d12} necrotic damage. If this attack fails to hit, the spell ends. Otherwise, until the spell ends, you can use your action on each of your turns to automatically cause {@dice 4d8} necrotic harm to the target. The spell ends if you use your action to do anything else, if the target is ever outside the spell's range, or if the target has total cover from you.",
+        "Whenever the spell damages or harms a target, you regain hit points equal to the amount of necrotic damage or harm the target suffers."
       ],
       "name": "Enervation",
       "time": [
@@ -36175,7 +36175,7 @@
           "type": "entries",
           "name": "Cast at Higher Levels",
           "entries": [
-            "The damage increases by {@dice 1d8} for each slot level above 5th."
+            "The damage and harm increase by {@dice 1d8} for each slot level above 5th."
           ]
         }
       ],
@@ -36195,7 +36195,7 @@
         "necrotic",
         "spell",
         "ranged",
-        "dot"
+        "harm"
       ],
       "level": 5,
       "components": {
@@ -36416,8 +36416,8 @@
             "One creature"
           ]
         },
-        "Flames wreathe the target. Make a reflex attack against the target that deals {@dice 7d8} fire damage. On a hit, the target also burns for the spell's duration. The burning target sheds bright light in a 30-foot radius and dim light for an additional 30 feet, and makes a save at the end of each of its turns. On a failed save, it takes {@dice 4d6} fire DoT damage, and the spell ends on a successful one. These magical flames can't be extinguished by nonmagical means.",
-        "If damage from this spell kills a target, the target is turned to ash."
+        "Flames wreathe the target. Make a reflex attack against the target that deals {@dice 7d8} fire damage. On a hit, the target also burns for the spell's duration. The burning target sheds bright light in a 30-foot radius and dim light for an additional 30 feet, and makes a save at the end of each of its turns. On a failed save, it suffers {@dice 4d6} fire harm, and the spell ends on a successful one. These magical flames can't be extinguished by nonmagical means.",
+        "If damage or harm from this spell kills a target, the target is turned to ash."
       ],
       "name": "Immolation",
       "time": [
@@ -36442,7 +36442,7 @@
         "fire",
         "ranged",
         "spell",
-        "dot"
+        "harm"
       ],
       "level": 5,
       "components": {
@@ -36479,7 +36479,7 @@
             "30-foot-radius, 5-foot-high cylinder centered on a point on the ground or in a body of water within range"
           ]
         },
-        "A swirling mass of water appears in the area. Until the spell ends, the area is difficult terrain, and any creature that starts its turn there must succeed on a save or take {@dice 6d6} bludgeoning DoT damage and be pulled 10 feet towards the centre."
+        "A swirling mass of water appears in the area. Until the spell ends, the area is difficult terrain, and any creature that starts its turn there must succeed on a save or suffer {@dice 6d6} bludgeoning harm and be pulled 10 feet towards the centre."
       ],
       "name": "Maelstrom",
       "time": [
@@ -36502,7 +36502,7 @@
       "source": "sns",
       "subschools": [
         "bludgeoning",
-        "dot",
+        "harm",
         "water"
       ],
       "level": 5,
@@ -36931,7 +36931,7 @@
       "entries": [
         "A shimmering wall of bright light appears centred on a space you choose within range in your line of sight. The wall appears in any orientation you choose: horizontally, vertically, or diagonally. It can be free floating, or it can rest on a solid surface. The wall can be up to 60 feet long, 10 feet high, and 5 feet thick. The wall blocks line of sight, but creatures and objects can pass through it. It emits bright light out to 120 feet and dim light for an additional 120 feet.",
         "When the wall appears, make an area spell fortitude attack against each creature in its area that deals {@dice 3d12} radiant damage. On a hit, a target is {@condition blinded|sns} for 1 minute, or until it passes a passive save.",
-        "A creature that ends its turn in the wall's area takes {@dice 4d8} radiant DoT damage.",
+        "A creature that ends its turn in the wall's area suffers {@dice 4d8} radiant harm.",
         "Until the spell ends, you can use an action to launch a beam of radiance from the wall at one creature you can see wtihin 60 feet of it. Make a ranged spell armour attack that deals {@dice 4d8} radiant damage. After this attack, reduce the length of the wall by 10 feet. If the wall's length drops to 0 feet, the spell ends."
       ],
       "name": "Wall of Light",
@@ -36946,7 +36946,7 @@
           "type": "entries",
           "name": "Cast at Higher Levels",
           "entries": [
-            "The initial attack's damage increases by {@dice 1d12}, and the DoT and armour attack damage increases by {@dice 1d8} for each slot level above 5th."
+            "The initial attack's damage increases by {@dice 1d12}, and the harm and armour attack damage increase by {@dice 1d8} for each slot level above 5th."
           ]
         }
       ],
@@ -37022,7 +37022,7 @@
           "type": "entries",
           "name": "Trees",
           "entries": [
-            "At the start of each of your turns, each of your enemies within 10 feet of any tree in the area takes {@dice 2d6} slashing DoT damage from whipping branches."
+            "At the start of each of your turns, each of your enemies within 10 feet of any tree in the area suffers {@dice 2d6} slashing harm from whipping branches."
           ]
         },
         {
@@ -37036,7 +37036,7 @@
           "type": "entries",
           "name": "Rocks",
           "entries": [
-            "As a bonus action on your turn, you can cause a loose rock in the area to launch at a creature in the area. The creature takes {@dice 1d12} bludgeoning DoT damage and makes a save. On a fail, it falls {@condition prone|sns}."
+            "As a bonus action on your turn, you can cause a loose rock in the area to launch at a creature in the area. The creature suffers {@dice 1d12} bludgeoning harm and makes a save. On a fail, it falls {@condition prone|sns}."
           ]
         }
       ],
@@ -37061,7 +37061,7 @@
       "source": "sns",
       "subschools": [
         "slashing",
-        "dot",
+        "harm",
         "bludgeoning"
       ],
       "level": 5,
@@ -37116,7 +37116,7 @@
             }
           ]
         },
-        "If a pillar is prevented from reaching its full height because of a ceiling or other obstacle, a creature on the pillar takes {@dice 6d6} bludgeoning DoT damage and is {@condition restrained|sns}, pinched between the pillar and the obstacle. The {@condition restrained|sns} creature can use an action to make a Brawn or Acrobatics check (the creature's choice) against your standard DC. On a success, the creature is no longer {@condition restrained|sns} and must either move off the pillar or fall off it."
+        "If a pillar is prevented from reaching its full height because of a ceiling or other obstacle, a creature on the pillar suffers {@dice 6d6} bludgeoning harm and is {@condition restrained|sns}, pinched between the pillar and the obstacle. The {@condition restrained|sns} creature can use an action to make a Brawn or Acrobatics check (the creature's choice) against your standard DC. On a success, the creature is no longer {@condition restrained|sns} and must either move off the pillar or fall off it."
       ],
       "name": "Bones of the Earth",
       "time": [
@@ -37142,7 +37142,7 @@
       "source": "sns",
       "subschools": [
         "bludgeoning",
-        "dot",
+        "harm",
         "earth",
         "area"
       ],
@@ -37406,7 +37406,7 @@
           "type": "list",
           "items": [
             "You are immune to fire damage and have 50% resistance to cold damage.",
-            "Any creature that moves into a space adjacent to you for the first time on a turn or ends its turn there takes {@dice 1d10} fire DoT damage.",
+            "Any creature that moves into a space adjacent to you for the first time on a turn or ends its turn there suffers {@dice 1d10} fire harm.",
             "You can use your action to create a line of fire 15 feet long and 5 feet wide extending from you in a direction you choose. Make a reflex attack against each creature in the line that deals {@dice 3d12} fire damage."
           ]
         }
@@ -37432,7 +37432,7 @@
       "source": "sns",
       "subschools": [
         "fire",
-        "dot",
+        "harm",
         "area",
         "spell"
       ],
@@ -37711,7 +37711,7 @@
             "One creature that is not immune to being {@condition charmed|sns}"
           ]
         },
-        "You attempt to bind the target within an illusory cell that only it perceives. Make a will attack against the target that deals {@dice 9d8} psychic damage. On a hit, you make the area immediately around the target's space appear dangerous to it in some way. You might cause the target to perceive itself as being surrounded by fire, floating razors, or hideous maws filled with dripping teeth. Whatever form the illusion takes, the target can't sense anything beyond it and is {@condition restrained|sns} for the spell's duration. If the target is moved out of the illusion, makes a melee weapon attack through it, or reaches any part of its body through it, the target takes {@dice 10d10} psychic DoT damage, and the spell ends."
+        "You attempt to bind the target within an illusory cell that only it perceives. Make a will attack against the target that deals {@dice 9d8} psychic damage. On a hit, you make the area immediately around the target's space appear dangerous to it in some way. You might cause the target to perceive itself as being surrounded by fire, floating razors, or hideous maws filled with dripping teeth. Whatever form the illusion takes, the target can't sense anything beyond it and is {@condition restrained|sns} for the spell's duration. If the target is moved out of the illusion, makes a melee weapon attack through it, or reaches any part of its body through it, the target suffers {@dice 10d10} psychic harm, and the spell ends."
       ],
       "name": "Mental Prison",
       "time": [
@@ -37736,7 +37736,7 @@
         "psychic",
         "ranged",
         "spell",
-        "dot"
+        "harm"
       ],
       "level": 6,
       "components": {
@@ -38048,7 +38048,7 @@
     {
       "school": "V",
       "entries": [
-        "Seven star-like motes of light appear and orbit your head until the spell ends. You can use a bonus action to send one of the motes streaking towards one creature or object within 120 feet of you. When you do so, the target takes {@dice 2d12} radiant DoT damage and the mote is expended. The spell ends early if you expend the last mote.",
+        "Seven star-like motes of light appear and orbit your head until the spell ends. You can use a bonus action to send one of the motes streaking towards one creature or object within 120 feet of you. When you do so, the target suffers {@dice 2d12} radiant harm and the mote is expended. The spell ends early if you expend the last mote.",
         "If you have four or more motes remaining, they shed bright light in a 30-foot radius and dim light for an additional 30 feet. If you have one to three motes remaining, they shed dim light in a 30-foot radius."
       ],
       "name": "Crown of Stars",
@@ -38080,7 +38080,7 @@
       "source": "sns",
       "subschools": [
         "radiant",
-        "dot"
+        "harm"
       ],
       "level": 7,
       "components": {
@@ -38128,7 +38128,7 @@
               "type": "item",
               "name": "Breath Weapon",
               "entries": [
-                "When you cast this spell, and as a bonus action on subsequent turns for the duration, you can exhale shimmering energy in a 60-foot cone. Each creature in that area takes {@dice 4d8} force DoT damage."
+                "When you cast this spell, and as a bonus action on subsequent turns for the duration, you can exhale shimmering energy in a 60-foot cone. Each creature in that area suffers {@dice 4d8} force harm."
               ]
             },
             {
@@ -38163,7 +38163,7 @@
       "subschools": [
         "shapeshift",
         "force",
-        "dot"
+        "harm"
       ],
       "level": 7,
       "components": {
@@ -38322,7 +38322,7 @@
           ]
         },
         "A whirlwind howls down in the area. Until the spell ends, you can use your action to move the whirlwind up to 30 feet in any direction along the ground. The whirlwind sucks up any Medium or smaller objects that aren't secured to anything and that aren't worn or carried by anyone.",
-        "The first time on a turn that a creature enters the area or that the area enters its space, including when the whirlwind first appears, the creature takes {@dice 5d8} bludgeoning DoT damage. In addition, a Large or smaller creature that takes this damage must succeed on a save or become {@condition restrained|sns} in the whirlwind until the spell ends. When a creature starts its turn {@condition restrained|sns} by the whirlwind, the creature is pushed 5 feet higher inside it, unless the creature is at the top. A {@condition restrained|sns} creature moves with the whirlwind and falls when the spell ends, unless the creature has some means to stay aloft.",
+        "The first time on a turn that a creature enters the area or that the area enters its space, including when the whirlwind first appears, the creature suffers {@dice 5d8} bludgeoning harm. In addition, a Large or smaller creature that suffers this harm must succeed on a save or become {@condition restrained|sns} in the whirlwind until the spell ends. When a creature starts its turn {@condition restrained|sns} by the whirlwind, the creature is pushed 5 feet higher inside it, unless the creature is at the top. A {@condition restrained|sns} creature moves with the whirlwind and falls when the spell ends, unless the creature has some means to stay aloft.",
         "A {@condition restrained|sns} creature can use an action to make a Brawn or Acrobatics check against your standard DC. If successful, the creature is no longer {@condition restrained|sns} by the whirlwind and is hurled {@dice 3d6} x 10 feet away from it in a random direction."
       ],
       "name": "Whirlwind",
@@ -38347,7 +38347,7 @@
       "subschools": [
         "air",
         "bludgeoning",
-        "dot"
+        "harm"
       ],
       "level": 7,
       "components": {
@@ -38471,7 +38471,7 @@
             }
           ]
         },
-        "As a bonus action on your turn, you can move the illusion up to 60 feet. At any point during its movement, you can cause it to exhale a blast of energy in a 60-foot cone originating from its space. When you create the dragon, choose a damage type: acid, cold, fire, lightning, necrotic, or poison. Each creature in the cone takes {@dice 5d6} DoT damage of the chosen type.",
+        "As a bonus action on your turn, you can move the illusion up to 60 feet. At any point during its movement, you can cause it to exhale a blast of energy in a 60-foot cone originating from its space. When you create the dragon, choose a damage type: acid, cold, fire, lightning, necrotic, or poison. Each creature in the cone suffers {@dice 5d6} harm of the chosen type.",
         "The illusion is tangible because of the shadow stuff used to create it, but attacks score critical fails against it automatically and it is immune to all damage and conditions. A creature that uses an action to examine the dragon can determine that it is an illusion by succeeding on an Investigation check against your standard DC. If a creature discerns the illusion for what it is, the creature can see through it and the illusion's breath attack has disadvantage against the creature."
       ],
       "name": "Illusory Dragon",
@@ -38500,7 +38500,7 @@
         "lightning",
         "necrotic",
         "poison",
-        "dot"
+        "harm"
       ],
       "level": 8,
       "components": {
@@ -38534,7 +38534,7 @@
           ]
         },
         "Magical darkness spreads within the area until the spell ends. The darkness spreads around corners. A creature with darkvision can't see through this darkness. Nonmagical light, as well as light created by spells of 8th level of lower, can't illuminate the area.",
-        "Shrieks, gibbering, and mad laughter can be heard within the sphere. Whenever a creature starts its turn in the sphere, it takes {@dice 5d8} psychic DoT damage."
+        "Shrieks, gibbering, and mad laughter can be heard within the sphere. Whenever a creature starts its turn in the sphere, it suffers {@dice 5d8} psychic harm."
       ],
       "name": "Maddening Darkness",
       "time": [
@@ -38557,7 +38557,7 @@
       "source": "sns",
       "subschools": [
         "psychic",
-        "dot"
+        "harm"
       ],
       "level": 8,
       "components": {
@@ -39301,8 +39301,8 @@
         {
           "name": "Bloodletting Sickle (Redcap Only)",
           "entries": [
-            "{@atk mw} reach 5 ft., one target. 7 ({@damage 2d4 + 2}) slashing damage. If the target is a creature other than an undead or construct and the attack scores a major success, the target takes 5 ({@dice 2d4}) ongoing slashing damage due to a bleeding wound.",
-            "Each time the redcap hits the wounded target with this attack, the ongoing damage dealt by the wound increases by 5 ({@dice 2d4}). Any creature can take an action to staunch the wound with a successful {@dc 12} Medicine check. The wound also closes if the target receives magical healing."
+            "{@atk mw} reach 5 ft., one target. 7 ({@damage 2d4 + 2}) slashing damage. If the target is a creature other than an undead or construct and the attack scores a major success, the target suffers 5 ({@dice 2d4}) ongoing slashing harm due to a bleeding wound.",
+            "Each time the redcap hits the wounded target with this attack, the ongoing harm caused by the wound increases by 5 ({@dice 2d4}). Any creature can take an action to staunch the wound with a successful {@dc 12} Medicine check. The wound also closes if the target receives magical healing."
           ]
         },
         {
@@ -39667,7 +39667,7 @@
         {
           "name": "Heated Body (Metal Only)",
           "entries": [
-            "A creature that touches the construct or hits it with a melee weapon attack while adjacent to it takes {@dice 1d10} fire DoT damage."
+            "A creature that touches the construct or hits it with a melee weapon attack while adjacent to it suffers {@dice 1d10} fire harm."
           ]
         },
         {

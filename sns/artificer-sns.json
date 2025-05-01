@@ -1005,7 +1005,7 @@
           "type": "entries",
           "name": "Infectious Bite",
           "entries": [
-            "Your monstrous minion's Bite attack deals an additional {@dice 1d4} ongoing necrotic damage on a hit that persists, but does not stack, until the target regains hit points or is medically administered to with a {@dc 15} Medicine check. This damage increases to {@dice 2d4} when you reach 11th level.",
+            "Your monstrous minion's Bite attack causes an additional {@dice 1d4} ongoing necrotic harm on a hit that persists, but does not stack, until the target regains hit points or is medically administered to with a {@dc 15} Medicine check. This harm increases to {@dice 2d4} when you reach 11th level.",
             "If the target is a beast, dragon, giant, humanoid, or monstrosity and it dies while suffering from this effect, it rises as a zombie after 1 minute, gaining the Zombie Template (https://a5e.tools/rules/zombie-template). Zombies created in this way are hostile to all non-undead and are not under your control."
           ]
         },
@@ -1013,7 +1013,7 @@
           "type": "entries",
           "name": "Shocking Coils",
           "entries": [
-            "Your monstrous minion has spearking coils protruding from its back. A creature takes {@dice 1d6} lightning DoT damage when it hits your monstrous minion with a melee weapon attack. This damage increases to {@dice 2d6} when you reach 11th level."
+            "Your monstrous minion has spearking coils protruding from its back. A creature suffers {@dice 1d6} lightning harm when it hits your monstrous minion with a melee weapon attack. This damage increases to {@dice 2d6} when you reach 11th level."
           ]
         },
         {
@@ -1074,7 +1074,7 @@
         {
           "type": "list",
           "items": [
-            "bandage (used as a bonus action to end all ongoing damage on a creature)",
+            "bandage (used as a bonus action to end all ongoing harm on a creature)",
             "healing satchel (used when you attempt to stabilise a dying creature with Medicine to set the minimum result of your check to 20)"
           ]
         },

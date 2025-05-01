@@ -1366,7 +1366,7 @@
       "header": 2,
       "entries": [
         "At tier 5, you are able to manipulate the burning brilliance of the stars themselves. As an action, choose an object or creature within 60 feet. For 1 minute the target emits bright light in a 60-foot radius and dim light for an additional 30 feet. The target emits a 30-foot persistent zone around it that forces creatures to make a save or become {@condition blinded|sns} for 1 minute, or until they pass a passive save.",
-        "The first time this feature is used per long rest, the persistent zone also deals {@dice 8d6} radiant DoT damage. Magical auras within the bright light become visible for 1 hour, shedding dim light in a 5-foot radius for 1 hour. An {@condition invisible} creature that takes radiant damage from the light is also revealed and it sheds dim light in a 5-foot radius for 1 hour."
+        "The first time this feature is used per long rest, the persistent zone also causes {@dice 8d6} radiant harm. Magical auras within the bright light become visible for 1 hour, shedding dim light in a 5-foot radius for 1 hour. An {@condition invisible} creature that takes radiant damage from the light is also revealed and it sheds dim light in a 5-foot radius for 1 hour."
       ]
     }
   ],

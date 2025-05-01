@@ -706,7 +706,7 @@
           "type": "entries",
           "name": "Eldritch Scythe",
           "entries": [
-            "Once per turn when you would make a melee weapon attack as part of the Attack action or an opportunity attack, you can instead make a melee spell armour attack, lashing out with an ephemeral and unearthly blade. It deals {@dice 1d8} force damage. In addition, on a hit, you can choose a creature that you can see and that is within your reach. It takes half as much damage as force DoT damage."
+            "Once per turn when you would make a melee weapon attack as part of the Attack action or an opportunity attack, you can instead make a melee spell armour attack, lashing out with an ephemeral and unearthly blade. It deals {@dice 1d8} force damage. In addition, on a hit, you can choose a creature that you can see and that is within your reach. It suffers half as much damage as force harm."
           ]
         },
         {
