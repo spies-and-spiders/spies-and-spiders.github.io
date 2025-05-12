@@ -4781,15 +4781,6 @@
           "unit": "action"
         }
       ],
-      "entriesHigherLevel": [
-        {
-          "type": "entries",
-          "name": "Cast at Higher Levels",
-          "entries": [
-            "Add an additional similar target with the next-fewest hit points in the area for each slot level above 1st."
-          ]
-        }
-      ],
       "duration": [
         {
           "type": "timed",
@@ -23633,15 +23624,6 @@
         {
           "number": 1,
           "unit": "action"
-        }
-      ],
-      "entriesHigherLevel": [
-        {
-          "type": "entries",
-          "name": "Cast at Higher Levels",
-          "entries": [
-            "Add an additional similar target with the next-fewest hit points in the area for each slot level above 1st."
-          ]
         }
       ],
       "duration": [
