@@ -4762,7 +4762,7 @@
           "type": "entries",
           "name": "Target",
           "entries": [
-            "The creature in the area with the fewest hit points"
+            "The creature with CR up to this spell's level in the area with the fewest hit points"
           ]
         },
         {
@@ -4786,7 +4786,7 @@
           "type": "entries",
           "name": "Cast at Higher Levels",
           "entries": [
-            "Add an additional target with the next-fewest hit points in the area for each slot level above 1st."
+            "Add an additional similar target with the next-fewest hit points in the area for each slot level above 1st."
           ]
         }
       ],
@@ -23614,7 +23614,7 @@
           "type": "entries",
           "name": "Target",
           "entries": [
-            "The creature in the area with the fewest hit points"
+            "The creature with CR up to this spell's level in the area with the fewest hit points"
           ]
         },
         {
@@ -23640,7 +23640,7 @@
           "type": "entries",
           "name": "Cast at Higher Levels",
           "entries": [
-            "Add an additional target with the next-fewest hit points in the area for each slot level above 1st."
+            "Add an additional similar target with the next-fewest hit points in the area for each slot level above 1st."
           ]
         }
       ],
