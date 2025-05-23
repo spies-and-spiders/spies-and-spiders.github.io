@@ -699,7 +699,7 @@
       "classSource": "sns",
       "level": 1,
       "entries": [
-        "Also at 1st level, as an action you can magically shapeshift into one of three types of the {@creature Animal Form} statblock: Land, Sea, and Sky.",
+        "Also at 1st level, as an action you can magically shapeshift into one of three types of the {@creature Animal Form|sns} statblock: Land, Sea, and Sky.",
         "As you assume a form, you determine its appearance, selecting an animal that matches the form's type. You can alternatively choose a hybrid form that incorporates visual characteristics from two or more animals. The appearance you choose has no effect on the form's capabilities.",
         "When choosing an animal's appearance for a form, that animal needn't be the same size as the form. For example, you could choose elephant for the apprance and Small for the size - creating a form that resembles a little elephant.",
         "You can use this feature a number of times equal to your proficiency bonus. You regain expended uses when you finish a long rest.",
