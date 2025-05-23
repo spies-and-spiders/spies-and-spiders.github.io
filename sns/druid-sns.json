@@ -1,0 +1,1358 @@
+{
+  "_meta": {
+    "optionalFeatureTypes": {
+      "SN": "Secret of Nature"
+    }
+  },
+  "class": [
+    {
+      "name": "Druid",
+      "source": "sns",
+      "hd": {
+        "number": 1,
+        "faces": 8
+      },
+      "defences": {
+        "frt": 2,
+        "wil": 2
+      },
+      "spellcastingAbility": "wis",
+      "casterProgression": "full",
+      "cantripProgression": [
+        2,
+        2,
+        2,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "startingProficiencies": {
+        "armor": [
+          "light",
+          "medium",
+          "{@item shield|phb|shields}"
+        ],
+        "weapons": [
+          "arcane staff",
+          "blowgun",
+          "club",
+          "dagger",
+          "dart",
+          "javelin",
+          "mace",
+          "quarterstaff",
+          "scimitar",
+          "scythe",
+          "sickle",
+          "sling",
+          "spear"
+        ],
+        "skills": [
+          {
+            "choose": {
+              "from": [
+                "history",
+                "insight",
+                "magiscience",
+                "medicine",
+                "perception",
+                "survival"
+              ],
+              "count": 2
+            },
+            "nature": true
+          }
+        ]
+      },
+      "classTableGroups": [
+        {
+          "colLabels": [
+            "{@filter Secrets Known|optionalfeatures|feature type=sn}",
+            "{@filter Cantrips Known|spells|level=0|class=druid}"
+          ],
+          "rows": [
+            [
+              0,
+              2
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              4,
+              3
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              5,
+              4
+            ],
+            [
+              5,
+              4
+            ],
+            [
+              5,
+              4
+            ],
+            [
+              5,
+              4
+            ],
+            [
+              6,
+              4
+            ],
+            [
+              6,
+              4
+            ],
+            [
+              6,
+              4
+            ],
+            [
+              6,
+              4
+            ]
+          ]
+        },
+        {
+          "title": "Spell Slots per Spell Level",
+          "colLabels": [
+            "{@filter 1st|spells|level=1|class=druid}",
+            "{@filter 2nd|spells|level=2|class=druid}",
+            "{@filter 3rd|spells|level=3|class=druid}",
+            "{@filter 4th|spells|level=4|class=druid}",
+            "{@filter 5th|spells|level=5|class=druid}",
+            "{@filter 6th|spells|level=6|class=druid}",
+            "{@filter 7th|spells|level=7|class=druid}",
+            "{@filter 8th|spells|level=8|class=druid}",
+            "{@filter 9th|spells|level=9|class=druid}"
+          ],
+          "rows": [
+            [
+              2,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              3,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              4,
+              2,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              4,
+              3,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              4,
+              3,
+              2,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              4,
+              3,
+              3,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              4,
+              3,
+              3,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              4,
+              3,
+              3,
+              2,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              4,
+              3,
+              3,
+              3,
+              1,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              4,
+              3,
+              3,
+              3,
+              2,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              4,
+              3,
+              3,
+              3,
+              2,
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              4,
+              3,
+              3,
+              3,
+              2,
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              4,
+              3,
+              3,
+              3,
+              2,
+              1,
+              1,
+              0,
+              0
+            ],
+            [
+              4,
+              3,
+              3,
+              3,
+              2,
+              1,
+              1,
+              0,
+              0
+            ],
+            [
+              4,
+              3,
+              3,
+              3,
+              2,
+              1,
+              1,
+              1,
+              0
+            ],
+            [
+              4,
+              3,
+              3,
+              3,
+              2,
+              1,
+              1,
+              1,
+              0
+            ],
+            [
+              4,
+              3,
+              3,
+              3,
+              2,
+              1,
+              1,
+              1,
+              1
+            ],
+            [
+              4,
+              3,
+              3,
+              3,
+              3,
+              1,
+              1,
+              1,
+              1
+            ],
+            [
+              4,
+              3,
+              3,
+              3,
+              3,
+              2,
+              1,
+              1,
+              1
+            ],
+            [
+              4,
+              3,
+              3,
+              3,
+              3,
+              2,
+              2,
+              1,
+              1
+            ]
+          ]
+        }
+      ],
+      "classFeatures": [
+        {
+          "classFeature": "First Subclass Tier 1|Druid|sns|1|sns",
+          "gainSubclassFeature": true
+        },
+        "Druidic Training|Druid|sns|1|sns",
+        "Wild Shape|Druid|sns|1|sns",
+        "Spellcasting|Druid|sns|1|sns",
+        "Secrets of Nature|Druid|sns|2|sns",
+        "Nature's Bond|Druid|sns|2|sns",
+        "Natural Demeanor|Druid|sns|3|sns",
+        {
+          "classFeature": "First Subclass Tier 2|Druid|sns|3|sns",
+          "gainSubclassFeature": true
+        },
+        "Ability Score Improvement|Druid|sns|4|sns",
+        {
+          "classFeature": "First Subclass Tier 3|Druid|sns|5|sns",
+          "gainSubclassFeature": true
+        },
+        "Druidic Lore|Druid|sns|6|sns",
+        {
+          "classFeature": "First Subclass Tier 4|Druid|sns|7|sns",
+          "gainSubclassFeature": true
+        },
+        "Ability Score Improvement|Druid|sns|8|sns",
+        "Ferocity or Serenity|Druid|sns|9|sns",
+        {
+          "classFeature": "First Subclass Tier 5|Druid|sns|9|sns",
+          "gainSubclassFeature": true
+        },
+        "Improved Natural Bond|Druid|sns|10|sns",
+        "Second Subclass Tier 1|Druid|sns|11|sns",
+        "Ability Score Improvement|Druid|sns|12|sns",
+        "Second Subclass Tier 2|Druid|sns|13|sns",
+        "Harmonise or Tyrannise|Druid|sns|14|sns",
+        "Second Subclass Tier 3|Druid|sns|15|sns",
+        "Ability Score Improvement|Druid|sns|16|sns",
+        "Second Subclass Tier 4|Druid|sns|17|sns",
+        "Greater Natural Bond|Druid|sns|18|sns",
+        "Ability Score Improvement|Druid|sns|19|sns",
+        "Second Subclass Tier 5|Druid|sns|19|sns",
+        "Archdruid|Druid|sns|20|sns"
+      ],
+      "subclassTitle": "Druid Subclass"
+    }
+  ],
+  "subclass": [
+    {
+      "name": "Circle of the Moon",
+      "shortName": "Moon",
+      "source": "sns",
+      "className": "Druid",
+      "classSource": "sns",
+      "subclassFeatures": [
+        "Circle of the Moon|Druid|sns|Moon|sns|1",
+        "Primal Strike|Druid|sns|Moon|sns|3",
+        "New Major Feature|Druid|sns|Moon|sns|5",
+        "Elemental Wild Shape|Druid|sns|Moon|sns|7",
+        "Thousand Forms|Druid|sns|Moon|sns|9"
+      ]
+    }
+  ],
+  "classFeature": [
+    {
+      "name": "First Subclass Tier 1",
+      "source": "sns",
+      "className": "Druid",
+      "classSource": "sns",
+      "level": 1,
+      "entries": [
+        "At 1st level, you gain the tier 1 feature from your first subclass"
+      ]
+    },
+    {
+      "name": "First Subclass Tier 2",
+      "source": "sns",
+      "className": "Druid",
+      "classSource": "sns",
+      "level": 3,
+      "entries": [
+        "At 3rd level, you gain the tier 2 feature from your first subclass"
+      ]
+    },
+    {
+      "name": "First Subclass Tier 3",
+      "source": "sns",
+      "className": "Druid",
+      "classSource": "sns",
+      "level": 5,
+      "entries": [
+        "At 5th level, you gain the tier 3 feature from your first subclass"
+      ]
+    },
+    {
+      "name": "First Subclass Tier 4",
+      "source": "sns",
+      "className": "Druid",
+      "classSource": "sns",
+      "level": 7,
+      "entries": [
+        "At 7th level, you gain the tier 4 feature from your first subclass"
+      ]
+    },
+    {
+      "name": "First Subclass Tier 5",
+      "source": "sns",
+      "className": "Druid",
+      "classSource": "sns",
+      "level": 9,
+      "entries": [
+        "At 9th level, you gain the tier 5 feature from your first subclass"
+      ]
+    },
+    {
+      "name": "Second Subclass Tier 1",
+      "source": "sns",
+      "className": "Druid",
+      "classSource": "sns",
+      "level": 11,
+      "entries": [
+        "At 11th level, you gain the tier 1 feature from your second subclass"
+      ]
+    },
+    {
+      "name": "Second Subclass Tier 2",
+      "source": "sns",
+      "className": "Druid",
+      "classSource": "sns",
+      "level": 13,
+      "entries": [
+        "At 13th level, you gain the tier 2 feature from your second subclass"
+      ]
+    },
+    {
+      "name": "Second Subclass Tier 3",
+      "source": "sns",
+      "className": "Druid",
+      "classSource": "sns",
+      "level": 15,
+      "entries": [
+        "At 15th level, you gain the tier 3 feature from your second subclass"
+      ]
+    },
+    {
+      "name": "Second Subclass Tier 4",
+      "source": "sns",
+      "className": "Druid",
+      "classSource": "sns",
+      "level": 17,
+      "entries": [
+        "At 17th level, you gain the tier 4 feature from your second subclass"
+      ]
+    },
+    {
+      "name": "Second Subclass Tier 5",
+      "source": "sns",
+      "className": "Druid",
+      "classSource": "sns",
+      "level": 19,
+      "entries": [
+        "At 19th level, you gain the tier 5 feature from your second subclass"
+      ]
+    },
+    {
+      "name": "Ability Score Improvement",
+      "source": "sns",
+      "className": "Druid",
+      "classSource": "sns",
+      "level": 4,
+      "entries": [
+        "When you reach 4th level, you can increase one ability score of your choice by 1. As normal, you can't increase an ability score above 20 using this feature. Additionally, you gain a feat."
+      ]
+    },
+    {
+      "name": "Ability Score Improvement",
+      "source": "sns",
+      "className": "Druid",
+      "classSource": "sns",
+      "level": 8,
+      "entries": [
+        "When you reach 8th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature."
+      ]
+    },
+    {
+      "name": "Ability Score Improvement",
+      "source": "sns",
+      "className": "Druid",
+      "classSource": "sns",
+      "level": 12,
+      "entries": [
+        "When you reach 12th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature."
+      ]
+    },
+    {
+      "name": "Ability Score Improvement",
+      "source": "sns",
+      "className": "Druid",
+      "classSource": "sns",
+      "level": 16,
+      "entries": [
+        "When you reach 16th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature."
+      ]
+    },
+    {
+      "name": "Ability Score Improvement",
+      "source": "sns",
+      "className": "Druid",
+      "classSource": "sns",
+      "level": 19,
+      "entries": [
+        "When you reach 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature."
+      ]
+    },
+    {
+      "name": "Druidic Training",
+      "source": "sns",
+      "className": "Druid",
+      "classSource": "sns",
+      "level": 1,
+      "entries": [
+        "All druids are taught to commune with nature, to become a conduit for natural power, and to maintain the secrets of their druid circle. Also at 1st level, you gain proficiency with Nature, and you learn the {@spell druidcraft|sns} cantrip (this does not count against your total cantrips known).",
+        "You know Druidic, the secret language of druids. You can speak the language and use it to leave hidden messages. You and others who know this language automatically spot such a message. Others spot the message's presence with a successful DC 15 Perception check but can't decipher it without magic."
+      ]
+    },
+    {
+      "name": "Secrets of Nature",
+      "source": "sns",
+      "className": "Druid",
+      "classSource": "sns",
+      "level": 2,
+      "entries": [
+        "During your druidic training and exploration of nature you pick up several methods of surviving in the wilderness. At 2nd level you gain two {@filter secrets of nature|optionalfeatures|feature type=sn} of your choice. The Secrets Known column of the Druid table shows when you learn more secrets of nature."
+      ]
+    },
+    {
+      "name": "Spellcasting",
+      "source": "sns",
+      "className": "Druid",
+      "classSource": "sns",
+      "level": 1,
+      "entries": [
+        "Drawing on the divine essence of nature itself, you can cast spells to shape that essence to your will.",
+        {
+          "type": "entries",
+          "name": "Cantrips",
+          "entries": [
+            "At 1st level, you know two cantrips of your choice from the {@filter druid spell list|spells|level=0|class=druid}. You learn additional druid cantrips of your choice at higher levels, as shown in the Cantrips Known column of the Druid table."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Preparing and Casting Spells",
+          "entries": [
+            "The Druid table shows how many spell slots you have to cast your {@filter druid spells|spells|class=druid} of 1st level and higher. To cast one of these druid spells, you must expend a slot of the spell's level or higher. You regain all expended spell slots when you finish a long rest.",
+            "You prepare the list of druid spells that are available for you to cast, choosing from the druid spell list. When you do so, choose a number of druid spells equal to your Wisdom modifier + your druid level (minimum of one spell). The spells must be of a level for which you have spell slots.",
+            "For example, if you are a 3rd-level druid, you have four 1st-level and two 2nd-level spell slots. With a Wisdom of 16, your list of prepared spells can include six spells of 1st or 2nd level, in any combination. If you prepare the 1st-level spell {@spell cure wounds|sns}, you can cast it using a 1st-level or 2nd-level slot. Casting the spell doesn't remove it from your list of prepared spells.",
+            "You can also change your list of prepared spells when you finish a long rest."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Spellcasting Ability",
+          "entries": [
+            "Wisdom is your spellcasting ability for your druid spells, since your magic draws upon your devotion and attunement to nature. You use your Wisdom whenever a spell refers to your spellcasting ability."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Spellcasting Focus",
+          "entries": [
+            "You can use a druidic focus as a spellcasting focus for your druid spells."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Nature's Bond",
+      "source": "sns",
+      "className": "Druid",
+      "classSource": "sns",
+      "level": 2,
+      "entries": [
+        "At 2nd level, nature provides you with the ability to summon its minor spirits. As an action, you can expend a use of your Wild Shape feature to cast the {@spell find familiar|sns} spell, without material components.",
+        "The familiar you summon is a fey instead of a beast, and it disappears after a number of hours equal to half your druid level."
+      ]
+    },
+    {
+      "name": "Wild Shape",
+      "source": "sns",
+      "className": "Druid",
+      "classSource": "sns",
+      "level": 1,
+      "entries": [
+        "Also at 1st level, as an action you can magically shapeshift into one of three types of the {@creature Animal Form} statblock: Land, Sea, and Sky.",
+        "As you assume a form, you determine its appearance, selecting an animal that matches the form's type. You can alternatively choose a hybrid form that incorporates visual characteristics from two or more animals. The appearance you choose has no effect on the form's capabilities.",
+        "When choosing an animal's appearance for a form, that animal needn't be the same size as the form. For example, you could choose elephant for the apprance and Small for the size - creating a form that resembles a little elephant.",
+        "You can use this feature a number of times equal to your proficiency bonus. You regain expended uses when you finish a long rest.",
+        "Whenever you use your Wild Shapes feature to shapeshift, you gain a number of temporary hit points equal to triple your proficiency bonus.",
+        "You can stay in a wild shape for a number of hours equal to your druid level. You then revert to your normal form unless you expend another use of this feature. You can revert to your normal form earlier by using a bonus action on your turn. You automatically revert if you fall {@condition unconscious}, drop to 0 hit points, or die.",
+        "While you are shapeshifted, the following rules apply:",
+        {
+          "type": "list",
+          "items": [
+            "Your game statistics are replaced by the statistics of the form, except you retain your hit points and Hit Dice, personality, the ability to speak and understand any languages you know, your Intelligence, Wisdom, and Charisma scores, your non-armour defences, and your skill proficiencies.",
+            "While in a wild shape your Strength and Dexterity are equal to your Wisdom score, and your armour is equal to half your Wisdom modifier.",
+            "While in a wild shape you may only cast spells with a range of Self or Touch. You can perform the verbal and somatic components of such spells while in a wild shape and your wild shape itself acts as your spellcasting focus. Shapeshifting doesn't break your concentration on a spell you've already cast, nor does it prevent you from taking actions that are part of a spell, such as {@spell call lightning|sns}, that you've already cast.",
+            "You still retain the benefit of any feature from your class and can use them if your wild shape is physically capable of doing so.",
+            "Any equipment you are wearing or wielding merges into your new form and retains its effects as if you were still wearing it."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Natural Demeanor",
+      "source": "sns",
+      "className": "Druid",
+      "classSource": "sns",
+      "level": 3,
+      "entries": [
+        "At 3rd level your connection to the natural world comes forth and becomes omnipresent. Choose one of the following:",
+        {
+          "type": "entries",
+          "name": "A Way with Animals",
+          "entries": [
+            "Beasts understand anything you verbally communicate in Druidic, and you can comprehend them in return. The knowledge and awareness of many beasts is limited by their intelligence, but at minimum beasts can give you information about nearby locations and monsters, including whatever they have perceived within the past day. At the DM's discretion, you might be able to persuade a beast to perform a small favour for you. In addition, you gain an expertise die on Nature checks."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "First-Hand Naturalist",
+          "entries": [
+            "You've learned the intricacies of nature through fisthand experience rather than academic study.",
+            "You gain an expertise die on Nature checks. In addition, you may always choose to use Wisdom when making Nature checks."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Leyline Awareness",
+          "entries": [
+            "Druidic rituals attune you to the leylines that course through the Material Plane. While you are on the Material Plane, you always know the following information:",
+            {
+              "type": "list",
+              "items": [
+                "Which way is north.",
+                "The direction of the nearest forest.",
+                "The direction of the nearest natural body of water.",
+                "The direction of the nearest city or other humanoid community.",
+                "The general health of the local ecosystem, and if anything unnatural or magical is upsetting the natural order."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Scholar of Old Ways",
+          "entries": [
+            "Your circle taught the old magic at the root of all things, granting you eldritch insights beyond mundane arcane studies.",
+            "You gain proficiency with Arcana, or if you already have proficiency you instead gain an expertise die on Arcana checks. In addition, you may always choose to use Wisdom when making Arcana checks."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Druidic Lore",
+      "source": "sns",
+      "className": "Druid",
+      "classSource": "sns",
+      "level": 6,
+      "entries": [
+        "At 6th level, your knowledge of the natural world grows. Choose one of the following:",
+        {
+          "type": "entries",
+          "name": "Druidic Secrets",
+          "entries": [
+            "You're adept at covertly performing druidic magic without attracting attention. When you cast a druid spell you may choose to do so utilising silent and subtle Druidic motions and signs in place of both the spell's somatic and verbal components, gestures that creatures which can speak Druidic are aware of. Once you cast a druid spell in this way, you cannot do so again until you finish a short or long rest."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Toxin Intuition",
+          "entries": [
+            "You are a veteran of nature's chemical warefare. You automatically know if any flora or fauna is poisonous or venomous. In addition, you gain advantage on checks made to determine if a foodstuff is poisonous and non-armour attacks that deal poison damage or cause the {@condition poisoned|sns} condition have disadvantage against you."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Truthspeaker",
+          "entries": [
+            "You've learned to tap into the fundamental truth that connects all things, at least briefly.",
+            "You may cast the spell {@spell legend lore|sns} without expending a spell slot and without material components. Once you cast the spell in this way, you cannot do so again for the next 24 hours."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Waste Not",
+          "entries": [
+            "With 10 minutes work you can scavenge valuable cuts from the corpse of a beast, dragon, monstrosity, or plant that has a CR of 1 or higher and has died within the last hour. If sold to a collector, naturalist, or other druid, this notable component is worth an amount of gold equal to the creature's CR."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Ferocity or Serenity",
+      "source": "sns",
+      "className": "Druid",
+      "classSource": "sns",
+      "level": 9,
+      "entries": [
+        "At 9th level you choose to embrace either the wild savagery of nature or the control you need to protect it. Choose one of the following:",
+        {
+          "type": "entries",
+          "name": "Embraced Ferocity",
+          "entries": [
+            "You gain a +2 bonus on armour attack rolls you make while in a Wild Shape. In addition, whenever you use Wild Shape to shapeshift, you gain a number of temporary hit points equal to five times your proficiency bonus instead of three times."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Embraced Serenity",
+          "entries": [
+            "You gain +1 to non-armour defences while concentrating on a spell. In addition, as a bonus action you may sacrifice a use of Wild Shape to recover an expended spell slot of 3rd-level or lower, or two uses of your Wild Shape feature to recover an expended spell slot of 6th-level or lower."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Improved Natural Bond",
+      "source": "sns",
+      "className": "Druid",
+      "classSource": "sns",
+      "level": 10,
+      "entries": [
+        "At 10th level your bond has grown and you are able to summon forth far greater nature spirits. As an action, you can expend a use of Wild Shape to cast the {@spell conjure animals|sns} spell."
+      ]
+    },
+    {
+      "name": "Harmonise or Tyrannise",
+      "source": "sns",
+      "className": "Druid",
+      "classSource": "sns",
+      "level": 14,
+      "entries": [
+        "At 14th level you choose to harmonise with nature or to harness it. Choose one of the following:",
+        {
+          "type": "entries",
+          "name": "Harmonise",
+          "entries": [
+            "During a short rest you may choose to meditate and harmonise with your surroundings. If you do, at the end of your rest you attune to the area in a 5-mile radius around you. You magically know what types of creatures are present in your attuned area, their approximate numbers, and if there are any magics disturbing the natural order in your attuned area. While in your attuned area, you have advantage on Nature, Perception, and Survival checks, and blindsight out to a range of 30 feet. Once attuned to an area, you remain attuned for the next 24 hours. You can only attune to one area at a time."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Tyrannise",
+          "entries": [
+            "You draw upon nature's power to become a prime example of one of its children. Whenever you assume a wild shape you may choose to assume the apex form of that wild shape. An apex form is always Large and any attack made by an apex form wild shape deals an extra {@dice 1d8} damage (this is multiplied by the Empowered Attack feature). In addition, while in an apex form wild shape you gain an expertise die on saves and Strength and Dexterity checks."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Greater Natural Bond",
+      "source": "sns",
+      "className": "Druid",
+      "classSource": "sns",
+      "level": 18,
+      "entries": [
+        "At 18th level your bond expands to encompass the Feywild and you are able to summon any woodland beings. As an action, you can expend a use of Wild Shape to cast the {@spell conjure woodland beings|sns} spell as if you cast it using a 6th-level spell slot."
+      ]
+    },
+    {
+      "name": "Archdruid",
+      "source": "sns",
+      "className": "Druid",
+      "classSource": "sns",
+      "level": 20,
+      "entries": [
+        "At 20th level, you become an extension of nature. Your Wild Shape has no duration. In addition, when you cast a druid spell you do not need seen, vocalised, or material components. You gain this benefit in both your normal shape and while using Wild Shape.",
+        "You also learn to tap into the intricate ebb and flow of life around you and how to divert it as you see fit. You may cast the spells {@spell power word kill|sns} and {@spell mass heal|sns} without expending a spell slot and without any material components. Once you cast either spell in this way, you cannot do so again until you finish a long rest.",
+        "Finally, you can turn nature in its rawest elements into deadly weapons no matter your form. Once each turn, you can use a bonus action to choose a target point within 30 feet and one of the following element options. If the element you choose is not present at or near the target point, any harm caused by this feature is halved and creatures have advantage on any save against it.",
+        {
+          "type": "list",
+          "items": [
+            {
+              "type": "item",
+              "name": "Air",
+              "entries": [
+                "Each creature within 20 feet of that point must make a save. On a failure, a target suffers bludgeoning harm equal to {@dice 3d8} + your Wisdom modifier and is flung up to 20 feet away from the target point in a random direction and knocked {@condition prone|sns}. If a thrown target strikes an object, such as a wall or floor, the target suffers {@dice 1d8} bludgeoning harm. If the target is thrown at another creature, that creature must succeed on a save or suffer the same damage and be knocked {@condition prone|sns}. If the save is successful, the target suffers half the bludgeoning harm and isn't flung away or knocked {@condition prone|sns}.",
+                "In addition, all ranged armour attacks within 30 feet of the target point have disadvantage until the beginning of your next turn."
+              ]
+            },
+            {
+              "type": "item",
+              "name": "Earth",
+              "entries": [
+                "Clumps of dirt and stone explode outward. Creatures within 10 feet of the target point suffer {@dice 4d8} bludgeoning harm and are knocked {@condition prone|sns}. A creature that makes and passes a save suffers half the harm and is not knocked {@condition prone|sns}."
+              ]
+            },
+            {
+              "type": "item",
+              "name": "Fire",
+              "entries": [
+                "Flames roil outward in a burst of inferno. Creatures within 15 feet of the target point suffer {@dice 5d6} fire harm."
+              ]
+            },
+            {
+              "type": "item",
+              "name": "Ice",
+              "entries": [
+                "You condense and flash freeze the water from a vast area above you into a massive boulder to drop down with immense force. A creature at least 30 feet below the target point suffers {@dice 4d6} bludgeoning and cold harm.",
+                "In addition, the area in a 20-foot radius around the creature becomes difficult terrain for 1 minute."
+              ]
+            },
+            {
+              "type": "item",
+              "name": "Water",
+              "entries": [
+                "You create a 20-foot tall, 20-foot wide wave that travels 30 feet in one direction and then crashes down. Any Large or smaller creatures and objects in the wave's path make a save. On a failure, a creature suffers {@dice 4d8} bludgeoning harm and is carried with the wave."
+              ]
+            },
+            {
+              "type": "item",
+              "name": "Wood",
+              "entries": [
+                "Splinters appear and fling themselves into flesh and armour alike. Creatures within 20 feet of the target point suffer {@dice 3d6} piercing harm."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "subclassFeature": [
+    {
+      "name": "Circle of the Moon",
+      "source": "sns",
+      "className": "Druid",
+      "classSource": "sns",
+      "subclassShortName": "Moon",
+      "subclassSource": "sns",
+      "level": 1,
+      "entries": [
+        {
+          "type": "refSubclassFeature",
+          "subclassFeature": "Combat Wild Shape|Druid|sns|Moon|sns|1"
+        },
+        {
+          "type": "refSubclassFeature",
+          "subclassFeature": "Moon Major Effect #1|Druid|sns|Moon|sns|1"
+        }
+      ]
+    },
+    {
+      "name": "Combat Wild Shape",
+      "source": "sns",
+      "className": "Druid",
+      "classSource": "sns",
+      "subclassShortName": "Moon",
+      "subclassSource": "sns",
+      "level": 1,
+      "header": 1,
+      "entries": [
+        "When you choose this subclass at tier 1, you gain the ability to use Wild Shape on your turn as a bonus action, rather than as an action.",
+        "Additionally, while you are shapeshifted with Wild Shape, you can use a bonus action to expend one spell slot to regain {@dice 2d4} hit points per level of spell slot expended."
+      ]
+    },
+    {
+      "name": "Moon Major Effect #1",
+      "source": "sns",
+      "className": "Druid",
+      "classSource": "sns",
+      "subclassShortName": "Moon",
+      "subclassSource": "sns",
+      "level": 1,
+      "header": 1,
+      "entries": [
+        "If you are shapeshifted, you gain temporary hit points equal to half the triggering attack's damage, which stack with any existing temporary hit points.",
+        "If you are not shapeshifted, you gain half as many temporary hit points, which stack with any existing temporary hit points."
+      ]
+    },
+    {
+      "name": "Circle Forms",
+      "source": "sns",
+      "className": "Druid",
+      "classSource": "sns",
+      "subclassShortName": "Moon",
+      "subclassSource": "sns",
+      "level": 3,
+      "header": 2,
+      "entries": [
+        "The rites of your circle grant you the ability to transform into more dangerous animal forms. Starting at tier 2, the bestial strike action on your animal forms gains 1 additional instance of the Empowered Attack feature, multiplying the damage 1 additional time."
+      ]
+    },
+    {
+      "name": "Primal Strike",
+      "source": "sns",
+      "className": "Druid",
+      "classSource": "sns",
+      "subclassShortName": "Moon",
+      "subclassSource": "sns",
+      "level": 3,
+      "header": 2,
+      "entries": [
+        "Starting at tier 2, your weapon attacks in beast form ignore resistance and immunities."
+      ]
+    },
+    {
+      "name": "Wild Fortitude",
+      "source": "sns",
+      "className": "Druid",
+      "classSource": "sns",
+      "subclassShortName": "Moon",
+      "subclassSource": "sns",
+      "level": 5,
+      "header": 2,
+      "entries": [
+        "Starting at tier 3, the initial temporary hit points granted by wild shape is increased by an amount equal to double your level."
+      ]
+    },
+    {
+      "name": "Moon Major Effect #2",
+      "source": "sns",
+      "className": "Druid",
+      "classSource": "sns",
+      "subclassShortName": "Moon",
+      "subclassSource": "sns",
+      "level": 5,
+      "header": 2,
+      "entries": [
+        "You immediately shift to an unoccupied space within 30 feet of you that is adjacent to an ally. Each creature of your choice that you passed through during this movement must make a save. On a fail, a creature suffers bludgeoning harm equal to your proficiency bonus and is {@condition rattled|sns} until the end of its next turn."
+      ]
+    },
+    {
+      "name": "Elemental Wild Shape",
+      "source": "sns",
+      "className": "Druid",
+      "classSource": "sns",
+      "subclassShortName": "Moon",
+      "subclassSource": "sns",
+      "level": 7,
+      "header": 2,
+      "entries": [
+        "At 10th level, you can expend two uses of Wild Shape at the same time to shapeshift into an {@creature Elemental Form|sns} of one of the following types: Air, Earth, Fire, or Water."
+      ]
+    },
+    {
+      "name": "Thousand Forms",
+      "source": "sns",
+      "className": "Druid",
+      "classSource": "sns",
+      "subclassShortName": "Moon",
+      "subclassSource": "sns",
+      "level": 9,
+      "header": 2,
+      "entries": [
+        "By tier 5, you have learned to use magic to alter your physical form in more subtle ways. You can cast the {@spell Alter Self|sns} spell at will."
+      ]
+    }
+  ],
+  "optionalfeature": [
+    {
+			"name": "Aerial Surveyor",
+			"source": "sns",
+			"featureType": [
+				"SN"
+			],
+			"entries": [
+				"You are at home soaring at dizzying heights and peering towards the horizon. You can familiarises yourself with a 5-mile radius area around you by spending a minute studying your surroundings while flying or at great heights. Once your familiarise yourself with an area in this way, you gain an expertise die on any Perception or Survival checks you make while outdoors in that area for the next 24 hours, and you cannot familiarise yourself with another area until you finish a long rest. This does not grant any bonuses to journey activities."
+			]
+		},
+		{
+			"name": "Aquatic Delver",
+			"source": "sns",
+			"featureType": [
+				"SN"
+			],
+			"entries": [
+				"You are at home in the depths, able to control your breathing and attune to the subtle movements of the water. You gain a swimming speed equal to your Speed and you add your Wisdom modifier to the number of minutes you can hold your breath before suffocating. In addition, while fully submerged in water you gain blindsight out to a range of 10 feet."
+			]
+		},
+        {
+			"name": "Cavern Skulker",
+			"source": "sns",
+			"featureType": [
+				"SN"
+			],
+			"entries": [
+				"You've grown accustomed to the echoing solitude to vast caverns. You always know the actual direction of any sound you hear regardless of any echoes. In addition, while you are in complete darkness and not {@condition deafened|sns} you gain blindsight out to a range of 15 feet."
+			]
+		},
+        {
+			"name": "Desert Dweller",
+			"source": "sns",
+			"featureType": [
+				"SN"
+			],
+			"entries": [
+				"Few choose to willingly live where the sun relentlessly burns overhead but you find tranquility amongst the sands. You are naturally acclimatised to hot weather and extremely high temperatures, allowing you to ignore the penalties of hot weather on your journey activities. In addition, while in a desert or similar arid environment and a member of your party scores a substantial success or higher on a Hunt & Gather journey activity check, you gain 1 Supply. Once you use this benefit, you cannot do so again until you finish a long rest."
+			]
+		},
+        {
+			"name": "Eldritch Survivor",
+			"source": "sns",
+			"featureType": [
+				"SN"
+			],
+			"entries": [
+				"You've grown to know the lands twisted by the fey, distorted by magical pollution, or places otherwise warped in unnatural ways. You may make Survival checks in place of Magiscience checks regarding magical environments, foodstuffs, and creatures, and gain an expertise die on any checks made this way. This affects your Experiment journey activity checks."
+			]
+		},
+        {
+			"name": "Herbal Apothecary",
+			"source": "sns",
+			"featureType": [
+				"SN"
+			],
+			"entries": [
+				"Forests and jungles are filled with natural medicines ripe for the picking. You gain an expertise die on checks made to locate herbal ingredients. This affects your Harvest journey activity checks. In addition, you gain double the number of perk points from the Harvest journey activity. This doubling does not stack with other sources of the same effect."
+			]
+		},
+        {
+			"name": "Marshland Guide",
+			"source": "sns",
+			"featureType": [
+				"SN"
+			],
+			"entries": [
+				"Bogs and swamps are unpleasant to most but are filled to with natural beauty to you. Moving through swamps, bogs, or muddy difficult terrain costs you no extra movement and you cannot become naturally lost while traveling through marshlands. In addition, you ignore the effects of roughing it imposed by resting in wet or swampy environments, allowing you to always consider these environments Havens."
+			]
+		},
+        {
+			"name": "Master Forager",
+			"source": "sns",
+			"featureType": [
+				"SN"
+			],
+			"entries": [
+				"No matter the brush you always know how to harvest nature's bounty. You have advantage on checks made to locate or harvest edible flora in the wild, which affects the Hunt & Gather journey activity, and you gain twice as much Supply from the Hunt & Gather journey activity. This doubling does not stack with other sources of the same effect."
+			]
+		},
+        {
+			"name": "Mountain Climber",
+			"source": "sns",
+			"featureType": [
+				"SN"
+			],
+			"entries": [
+				"You gain a climbing speed equal to your Speed. You gain an expertise die on any Athletics checks made while climbing and you are also acclimated to high altitudes, including elevations above 20,000 feet. In addition, you ignore the effects of roughing it imposed by resting in rocky or uneven terrain, allowing you to always consider these environments Havens."
+			]
+		},
+        {
+			"name": "Tundra Explorer",
+			"source": "sns",
+			"featureType": [
+				"SN"
+			],
+			"entries": [
+				"You embrace the cold of snowbound tundra. You are naturally acclimatised to cold weather and extremely low temperatures, allowing you to ignore the penalties of cold weather on your journey activity checks, and you ignore the disadvantage to Perception checks imposed by blizzards. In addition, you ignore the effects of roughing it imposed by resting without warmth in environments of extreme cold, allowing you to always consider these environments Havens."
+			]
+		}
+  ],
+  "monster": [
+    {
+      "name": "Animal Form",
+      "source": "sns",
+      "size": [
+        "T",
+        "S",
+        "M",
+        "L"
+      ],
+      "type": "beast",
+      "alignment": [
+        "U"
+      ],
+      "ac": [
+        {
+          "special": "half your Wisdom modifier"
+        }
+      ],
+      "hp": {
+        "special": "you continue to use your hit points and Hit Dice"
+      },
+      "speed": {
+        "walk": 40,
+        "climb": {
+          "number": 40,
+          "condition": "(Land only)"
+        },
+        "fly": {
+          "number": 40,
+          "condition": "(Sky only)"
+        },
+        "swim": {
+          "number": 40,
+          "condition": "(Sea only)"
+        }
+      },
+      "str": 0,
+      "dex": 0,
+      "con": 0,
+      "int": 0,
+      "wis": 0,
+      "cha": 0,
+      "senses": [
+        "darkvision 60 ft."
+      ],
+      "passive": 0,
+      "languages": [
+        "the languages you know"
+      ],
+      "trait": [
+        {
+          "type": "entries",
+          "name": "Amphibious (Sea Only)",
+          "entries": [
+            "You can breathe air and water."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Flyby (Sky Only)",
+          "entries": [
+            "You don't provoke opportunity attacks when you fly out of an enemy's reach."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Keen Senses (Land and Sky Only)",
+          "entries": [
+            "You have advantage on Perception checks."
+          ]
+        }
+      ],
+      "action": [
+        {
+          "name": "Bestial Strike (Land Only)",
+          "entries": [
+            "{@atk mw} reach 5 ft., one target. {@dice 1d8} + your Wisdom modifier bludgeoning, piercing, or slashing damage. This damage is increased to {@dice 2d8} + double your Wisdom modifier from 5th level onwards, which counts as the attack being affected by the Empowered Attack feature."
+          ]
+        },
+        {
+          "name": "Bestial Strike (Sea Only)",
+          "entries": [
+            "{@atk mw} reach 5 ft., one target. {@dice 1d6} + your Wisdom modifier bludgeoning, piercing, or slashing damage. This damage is increased to {@dice 2d6} + double your Wisdom modifier from 5th level onwards, which counts as the attack being affected by the Empowered Attack feature."
+          ]
+        },
+        {
+          "name": "Bestial Strike (Sky Only)",
+          "entries": [
+            "{@atk mw} reach 5 ft., one target. {@dice 1d4} + your Wisdom modifier bludgeoning, piercing, or slashing damage. This damage is increased to {@dice 2d4} + double your Wisdom modifier from 5th level onwards, which counts as the attack being affected by the Empowered Attack feature."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Elemental Form",
+      "source": "sns",
+      "size": [
+        "S"
+      ],
+      "type": {
+        "type": "elemental",
+        "tags": [
+          "air, earth, fire, or water"
+        ]
+      },
+      "alignment": [
+        "U"
+      ],
+      "ac": [
+        {
+          "special": "half your Wisdom modifier"
+        }
+      ],
+      "hp": {
+        "special": "you continue to use your hit points and Hit Dice"
+      },
+      "speed": {
+        "walk": 30,
+        "burrow": {
+          "number": 30,
+          "condition": "(Earth only)"
+        },
+        "fly": {
+          "number": 30,
+          "condition": "(hover; Air only)"
+        },
+        "swim": {
+          "number": 30,
+          "condition": "(Water only)"
+        }
+      },
+      "str": 0,
+      "dex": 0,
+      "con": 0,
+      "int": 0,
+      "wis": 0,
+      "cha": 0,
+      "immune": [
+        "fire (Fire only)",
+        "poison"
+      ],
+      "conditionImmune": [
+        "fatigue|sns",
+        "staggered|sns",
+        "poisoned|sns",
+        "strife|sns",
+        "unconscious|sns"
+      ],
+      "senses": [
+        "darkvision 60 ft.",
+        "tremorsense 60 ft. (Earth only)"
+      ],
+      "passive": 0,
+      "languages": [
+        "the languages you know"
+      ],
+      "trait": [
+        {
+          "type": "entries",
+          "name": "Amorphous Form (Air, Fire, and Water Only)",
+          "entries": [
+            "You can move through a space as narrow as 1 inch wide without squeezing."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Elemental Burst",
+          "entries": [
+            "Elemental power erupts from you when you reach 0 hit points. You make a reflex attack against each adjacent creature that deals bludgeoning damage (or fire damage for a Fire elemental) equal to your level plus your Wisdom modifier."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Insubstantial (Air and Fire Only)",
+          "entries": [
+            "You cannot be {@condition grappled|sns}, knocked {@condition prone|sns}, or {@condition restrained|sns}."
+          ]
+        }
+      ],
+      "action": [
+        {
+          "name": "Slam",
+          "entries": [
+            "{@atk mw} reach 5 ft., one target. {@dice 6d6} + triple your Wisdom modifier bludgeoning damage (or fire damage for a Fire elemental). This attack counts as having two instances of the Empowered Attack feature affecting it."
+          ]
+        }
+      ]
+    }
+  ]
+}
