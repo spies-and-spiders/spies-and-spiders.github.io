@@ -461,7 +461,8 @@
       "subclassFeatures": [
         "Circle of the Moon|Druid|sns|Moon|sns|1",
         "Primal Strike|Druid|sns|Moon|sns|3",
-        "New Major Feature|Druid|sns|Moon|sns|5",
+        "Wild Fortitude|Druid|sns|Moon|sns|5",
+        "Moon Major Effect #2|Druid|sns|Moon|sns|5",
         "Elemental Wild Shape|Druid|sns|Moon|sns|7",
         "Thousand Forms|Druid|sns|Moon|sns|9"
       ]
