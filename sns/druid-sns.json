@@ -1243,7 +1243,7 @@
         {
           "name": "Bestial Strike (Land Only)",
           "entries": [
-            "{@atk mw} reach 5 ft., one target. {@dice 1d8} + your Wisdom modifier bludgeoning, piercing, or slashing damage. This damage is increased to {@dice 2d8} + double your Wisdom modifier from 5th level onwards, which counts as the attack being affected by the Empowered Attack feature."
+            "{@atk mw} reach 5 ft., one target. {@dice 1d12} + your Wisdom modifier bludgeoning, piercing, or slashing damage. This damage is increased to {@dice 2d8} + double your Wisdom modifier from 5th level onwards, which counts as the attack being affected by the Empowered Attack feature."
           ]
         },
         {
