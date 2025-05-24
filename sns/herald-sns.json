@@ -354,15 +354,16 @@
         }
       ],
       "classFeatures": [
+        "Spellcasting|Herald|sns|1|sns",
+        "Channel Divinity|Herald|sns|1|sns",
         {
           "classFeature": "First Subclass Tier 1|Herald|sns|1|sns",
           "gainSubclassFeature": true
         },
-        "Divine Sense|Herald|sns|1|sns",
-        "Lay on Hands|Herald|sns|1|sns",
-        "Spellcasting|Herald|sns|1|sns",
         "Combat Maneuvers|Herald|sns|2|sns",
         "Divine Smite|Herald|sns|2|sns",
+        "Divine Sense|Herald|sns|3|sns",
+        "Lay on Hands|Herald|sns|3|sns",
         "Divine Lessons|Herald|sns|3|sns",
         {
           "classFeature": "First Subclass Tier 2|Herald|sns|3|sns",
@@ -441,10 +442,10 @@
       ],
       "subclassFeatures": [
         "Oath of Redemption|Herald|sns|Redemption|sns|1",
-        "Aura of the Guardian|Herald|sns|Redemption|sns|3",
-        "Protective Spirit|Herald|sns|Redemption|sns|5",
+        "Reprimand|Herald|sns|Redemption|sns|3",
+        "Aura of the Guardian|Herald|sns|Redemption|sns|5",
         "Redemption Major Effect #2|Herald|sns|Redemption|sns|5",
-        "Aura Buff|Herald|sns|Redemption|sns|7",
+        "Protective Spirit|Herald|sns|Redemption|sns|7",
         "Emissary of Redemption|Herald|sns|Redemption|sns|9"
       ]
     }
@@ -455,9 +456,9 @@
       "source": "sns",
       "className": "Herald",
       "classSource": "sns",
-      "level": 1,
+      "level": 3,
       "entries": [
-        "Choose one of the following sets of enemies: 'celestials and fiends', 'fey and elementals', or 'aberrations and undead'. You can always sense when a creature of your chosen types is within 30 feet of you, but cannot determine their number, type, or location. As a bonus action, you can briefly enhance your senses to learn the location, number, and type of any creatures of your chosen types within 30 feet of you. When you do so, make a will attack against creatures of those types that are within range, with disadvantage if the creature's CR is higher than your herald level. This attack has the following outcomes:",
+        "At 3rd level, choose one of the following sets of enemies: 'celestials and fiends', 'fey and elementals', or 'aberrations and undead'. You can always sense when a creature of your chosen types is within 30 feet of you, but cannot determine their number, type, or location. As a bonus action, you can briefly enhance your senses to learn the location, number, and type of any creatures of your chosen types within 30 feet of you. When you do so, make a will attack against creatures of those types that are within range, with disadvantage if the creature's CR is higher than your herald level. This attack has the following outcomes:",
         {
           "type": "list",
           "items": [
@@ -493,12 +494,22 @@
       "source": "sns",
       "className": "Herald",
       "classSource": "sns",
-      "level": 1,
+      "level": 3,
       "entries": [
-        "Your blessed touch can heal wounds. You have a pool of healing power that replenishes when you take a long rest. With that pool, you can restore a total number of hit points equal to your herald level x 6.",
+        "From 3rd level, your blessed touch can heal wounds. You have a pool of healing power that replenishes when you take a long rest. With that pool, you can restore a total number of hit points equal to your herald level x 6.",
         "As an action, you can touch a creature and draw power from the pool to restore a number of hit points to that creature, up to the maximum amount remaining in your pool.",
         "Alternatively, you can expend 6 hit points from your pool of healing to cure the target of one disease or neutralise one poison affecting it. You can cure multiple diseases and neutralise multiple poisons with a single use of Lay on Hands, expending hit points separately for each one.",
         "This feature has no effect on undead and constructs."
+      ]
+    },
+    {
+      "name": "Channel Divinity",
+      "source": "sns",
+      "className": "Herald",
+      "classSource": "sns",
+      "level": 1,
+      "entries": [
+        "Also at 1st level, your oath allows you to channel the divine for more magical effects than just casting spells. Each Channel Divinity option granted by your subclass explains how to use it. Whenever you use your Channel Divinity, you choose which option to use. Once you have used this feature you can't do so again until you finish a short or long rest."
       ]
     },
     {
@@ -772,21 +783,14 @@
           "type": "entries",
           "name": "Devout",
           "entries": [
-            "You gain proficiency in the Persuasion skill. You have advantage when using this skill to influence others by discussing your oath or deity, and witnesses that hear your words are inspired to share any useful or important information they might have. This affects the Pray journey activity."
-          ]
-        },
-        {
-          "type": "entries",
-          "name": "Evangelism",
-          "entries": [
-            "You gain proficiency in the Performance skill. You have advantage when using this skill to convert others through preaching about your oath or deity, and witnesses that hear your words are inspired to donate to your cause. This affects the Busk journey activity, but not Entertain."
+            "You gain proficiency in the Persuasion skill. You have advantage when using this skill to influence others by discussing your oath or deity, and witnesses that hear your words are inspired to share any useful or important information they might have. This affects the Busk journey activity."
           ]
         },
         {
           "type": "entries",
           "name": "Fearmonger",
           "entries": [
-            "You gain proficiency in the Intimidation skill. You have advantage when using this skill and your faith to intimidate others, and witnesses with opposing views make obvious efforts to avoid you. This affects the Rob journey activity."
+            "You gain proficiency in the Intimidation skill. You have advantage when using this skill and your faith to intimidate others, and witnesses with opposing views make obvious efforts to avoid you. This affects the Mug journey activity."
           ]
         }
       ]
@@ -1038,14 +1042,14 @@
               "type": "item",
               "name": "Emissary of Peace",
               "entries": [
-                "You can use your Channel Divinity to augment your presence with divine power. As a bonus action, you grant yourself a +5 bonus to Charisma (Persuasion) checks for the next 10 minutes."
+                "You can use your Channel Divinity to augment your presence with divine power. As a bonus action, you grant yourself a +5 bonus to Persuasion checks for the next 10 minutes."
               ]
             },
             {
               "type": "item",
               "name": "Rebuke the Violent",
               "entries": [
-                "You can use your Channel Divinity to rebuke those who use violence. Immediately after an attacker within 30 feet of you deals damage with an attack against a creature other than you, you can use your reaction to force the attacker to make a Wisdom saving throw. On a failed save, the attacker takes radiant damage equal to the damage it just dealt. On a successful save, it takes half as much damage."
+                "You can use your Channel Divinity to rebuke those who use violence. Immediately after an attacker within 30 feet of you hits a creature other than you with an armour attack, you can use your reaction to cause radiant harm to the attacker equal to the damage it just dealt."
               ]
             }
           ]
@@ -1061,7 +1065,7 @@
       "subclassSource": "sns",
       "level": 1,
       "entries": [
-        "Heal a creature within your reach equal to your level."
+        "Heal a creature within your reach a number of hit points equal to your level."
       ]
     },
     {
@@ -1087,7 +1091,7 @@
           ],
           "rows": [
             [
-              "3rd",
+              "2nd",
               "{@spell sanctuary|sns}, {@spell sleep|sns}"
             ],
             [
@@ -1111,7 +1115,7 @@
       ]
     },
     {
-      "name": "Aura of the Guardian",
+      "name": "Reprimand",
       "source": "sns",
       "className": "Herald",
       "classSource": "sns",
@@ -1120,7 +1124,20 @@
       "level": 3,
       "header": 2,
       "entries": [
-        "Starting at tier 2, you can shield your allies from harm at the cost of your own health. When a creature within 10 feet of you takes damage, you can use your reaction to magically take that damage, instead of that creature taking it. This feature doesn't transfer any other effects that might accompany the damage, and this damage can't be reduced in any way."
+        "From tier 2, you can punish those who would strike you. Whenever a creature hits you with a melee armour attack, you may spend 1 exertion to cause radiant harm to it equal to your proficiency bonus."
+      ]
+    },
+    {
+      "name": "Aura of the Guardian",
+      "source": "sns",
+      "className": "Herald",
+      "classSource": "sns",
+      "subclassShortName": "Redemption",
+      "subclassSource": "sns",
+      "level": 5,
+      "header": 2,
+      "entries": [
+        "Starting at tier 3, you can shield your allies from harm at the cost of your own health. When a creature within 10 feet of you takes damage, you can use your reaction to magically take that damage as true damage, instead of that creature taking it. This feature doesn't transfer any other effects that might accompany the damage."
       ]
     },
     {
@@ -1130,10 +1147,11 @@
       "classSource": "sns",
       "subclassShortName": "Redemption",
       "subclassSource": "sns",
-      "level": 5,
+      "level": 7,
       "header": 2,
       "entries": [
-        "Starting at tier 3, a holy presence mends your wounds in combat. You regain hit points equal to 1d6 + half your paladin level if you end your turn in combat with fewer than half of your hit points remaining and you aren't incapacitated."
+        "Starting at tier 4, a holy presence mends your wounds in combat. You regain hit points equal to 1d6 + your paladin level if you end your turn in combat with fewer than half of your hit points remaining and you aren't {@condition incapacitated|sns}.",
+        "Additionally, the range of your Aura of the Guardian increases to 30 feet."
       ]
     },
     {
@@ -1146,20 +1164,7 @@
       "level": 5,
       "header": 2,
       "entries": [
-        "Choose a creature within your aura, the next instance of damage is dealt to you instead as true damage."
-      ]
-    },
-    {
-      "name": "Aura Buff",
-      "source": "sns",
-      "className": "Herald",
-      "classSource": "sns",
-      "subclassShortName": "Redemption",
-      "subclassSource": "sns",
-      "level": 7,
-      "header": 2,
-      "entries": [
-        "At tier 4, the range of Aura of the Guardian increases to 30 feet."
+        "Choose a creature within your Aura of the Guardian. The next instance of damage it takes is dealt to you instead. This doesn't transfer any other effects that might accompany the damage."
       ]
     },
     {
@@ -1176,11 +1181,11 @@
         {
           "type": "list",
           "items": [
-            "You have resistance to all damage dealt by other creatures (their attacks, spells, and other effects).",
-            "Whenever a creature hits you with an attack, it takes radiant damage equal to half the damage you take from the attack.",
-            "If you attack a creature, cast a spell on it, or deal damage to it by any means but this feature, neither benefit works against that creature until you finish a long rest."
+            "You gain 50% resistance to damage from other creatures.",
+            "Whenever a creature hits you with an attack, it suffers radiant harm equal to half the damage you take from the attack."
           ]
-        }
+        },
+        "If you attack a creature, cast a spell on it, deal damage to it by any means, or cause harm to it by any means but this subclass' features, neither benefit works against that creature until you finish a long rest."
       ]
     }
   ],
@@ -1222,7 +1227,7 @@
         "DL"
       ],
       "entries": [
-        "Your divine connection and years of training combine to allow you to ignore the first level of {@condition fatigue|sns} you would gain, effectively increasing the number of fatigue levels you can track by 1."
+        "Your divine connection and years of training combine to allow you to survive without Supply for a number of days in a row equal to your Charisma modifier without suffering any adverse effects."
       ]
     },
     {
@@ -1232,7 +1237,7 @@
         "DL"
       ],
       "entries": [
-        "You gain an expertise die on Acrobatics and Athletics checks made to climb, jump, run, and swim. This affects the Chronicle and Seek Shelter journey activities, but no others. When your party makes a group Acrobatics or Athletics check, you may apply the results of your roll to yourself and one ally. You can choose which ally to apply your result to after everyone has rolled, but must do so before the DM says whether you succeed or fail. This part of the lesson does not affect journey activities."
+        "You gain an expertise die on Athletics or Finesse checks made to climb, jump, run, and swim. This affects the Force March journey activity. When your party makes a group Athletics or Finesse check, you may apply the results of your roll to yourself and one ally. You can choose which ally to apply your result to after everyone has rolled, but must do so before the DM says whether you succeed or fail. This part of the lesson does not affect journey activities."
       ]
     },
     {
@@ -1272,7 +1277,7 @@
         "DL"
       ],
       "entries": [
-        "Choose one type of terrain: arctic, coast, desert, forest, grassland, mountain, subterranean, or swamp. You gain an expertise die on Nature and Survival checks made in this terrain. In addition, once each week, you may cure yourself of 1 level of {@condition fatigue|sns}."
+        "Choose one type of terrain: arctic, coast, desert, forest, grassland, mountain, subterranean, or swamp. You gain an expertise die on Nature and Survival checks made in this terrain. In addition, once each week when your party has run out of Supply, your next Hunt & Gather journey activity check scores at least a success."
       ]
     },
     {
