@@ -444,7 +444,6 @@
         "Oath of Redemption|Herald|sns|Redemption|sns|1",
         "Reprimand|Herald|sns|Redemption|sns|3",
         "Aura of the Guardian|Herald|sns|Redemption|sns|5",
-        "Redemption Major Effect #2|Herald|sns|Redemption|sns|5",
         "Protective Spirit|Herald|sns|Redemption|sns|7",
         "Emissary of Redemption|Herald|sns|Redemption|sns|9"
       ]
@@ -1018,7 +1017,7 @@
         },
         {
           "type": "refSubclassFeature",
-          "subclassFeature": "Redemption Major Effect #1|Herald|sns|Redemption|sns|1"
+          "subclassFeature": "Redemption Major Effects|Herald|sns|Redemption|sns|1"
         }
       ]
     },
@@ -1057,7 +1056,7 @@
       ]
     },
     {
-      "name": "Redemption Major Effect #1",
+      "name": "Redemption Major Effects",
       "source": "sns",
       "className": "Herald",
       "classSource": "sns",
@@ -1065,7 +1064,15 @@
       "subclassSource": "sns",
       "level": 1,
       "entries": [
-        "Heal a creature within your reach a number of hit points equal to your level."
+        "From tier 1, Redemption Heralds have access to the following major effect options:",
+        {
+          "type": "list",
+          "items": [
+            "Heal a creature within your reach a number of hit points equal to your level. If you are the only creature within your reach and you are on full hit points, increase your temporary hit points by an amount equal to your level instead.",
+            "Choose a creature within 10 feet of you. The next time it is targeted by a damaging attack, after you see the result of the attack, you can take that attack instead."
+          ]
+        }
+        
       ]
     },
     {
@@ -1152,19 +1159,6 @@
       "entries": [
         "Starting at tier 4, a holy presence mends your wounds in combat. You regain hit points equal to 1d6 + your paladin level if you end your turn in combat with fewer than half of your hit points remaining and you aren't {@condition incapacitated|sns}.",
         "Additionally, the range of your Aura of the Guardian increases to 30 feet."
-      ]
-    },
-    {
-      "name": "Redemption Major Effect #2",
-      "source": "sns",
-      "className": "Herald",
-      "classSource": "sns",
-      "subclassShortName": "Redemption",
-      "subclassSource": "sns",
-      "level": 5,
-      "header": 2,
-      "entries": [
-        "Choose a creature within your Aura of the Guardian. The next time it is targeted by a damaging attack, after you see the result of the attack, you can take that attack instead."
       ]
     },
     {
