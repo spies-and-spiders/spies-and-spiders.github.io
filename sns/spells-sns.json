@@ -13327,7 +13327,8 @@
             "a charm effect.",
             "a curse or cursed item attunement.",
             "any reduction to a single ability score.",
-            "an effect that has reduced the target's hit point maximum."
+            "an effect that has reduced the target's hit point maximum.",
+            "a Wound."
           ],
           "type": "list"
         }
