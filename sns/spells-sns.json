@@ -16946,7 +16946,7 @@
       "range": {
         "type": "point",
         "distance": {
-          "amount": 1,
+          "amount": 1000,
           "type": "feet"
         }
       }
@@ -17023,7 +17023,7 @@
       "range": {
         "type": "point",
         "distance": {
-          "amount": 1,
+          "amount": 1000,
           "type": "feet"
         }
       }
