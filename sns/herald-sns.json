@@ -1048,7 +1048,7 @@
               "type": "item",
               "name": "Rebuke the Violent",
               "entries": [
-                "You can use your Channel Divinity to rebuke those who use violence. Immediately after an attacker within 30 feet of you hits a creature other than you with an armour attack, you can use your reaction to cause radiant harm to the attacker equal to the damage it just dealt."
+                "You can use your Channel Divinity to rebuke those who use violence. Immediately after an attacker within 30 feet of you hits a creature other than you with an armour attack, you can use your reaction to make a ranged spell will attack against the attacker that deals radiant damage equal to the damage it just dealt."
               ]
             }
           ]
@@ -1178,7 +1178,7 @@
             "Whenever a creature hits you with an armour attack, it suffers radiant harm equal to half the damage you take from the attack."
           ]
         },
-        "If you attack a creature, cast a spell on it, deal damage to it by any means, or cause harm to it by any means but this feature or your Reprimand feature, neither benefit works against that creature until you finish a long rest."
+        "If you attack a creature, cast a spell on it, deal damage to it by any means, or cause harm to it by any means but features from this subclass, neither benefit works against that creature until you finish a long rest."
       ]
     }
   ],
