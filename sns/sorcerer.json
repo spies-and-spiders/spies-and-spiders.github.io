@@ -840,7 +840,7 @@
       ]
     },
     {
-      "name": "Metamagic",
+      "name": "Metamagics",
       "source": "sns",
       "className": "Sorcerer",
       "classSource": "sns",
