@@ -202,12 +202,12 @@
       "entries": [
         {
           "type": "entries",
-          "name": "Target",
+          "name": "Area",
           "entries": [
-            "Up to two creatures within 5 feet of each other"
+            "5-foot-radius sphere"
           ]
         },
-        "A stinking bubble of acid is conjured out of thin air to fly at the targets. Make a reflex attack against all creatures within the area, dealing {@dice 1d6} acid damage.",
+        "You create an acidic bubble centred on a point within range, where it explodes. Make a reflex attack against all creatures within the area, dealing {@dice 1d6} acid damage.",
         "This spell's damage increases by {@dice 1d6} when you reach 5th level ({@dice 2d6}), 11th level ({@dice 3d6}), and 17th level ({@dice 4d6})."
       ],
       "name": "Acid Splash",
