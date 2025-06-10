@@ -1013,6 +1013,10 @@
         },
         {
           "type": "refSubclassFeature",
+          "subclassFeature": "Thou Shalt Not Kill|Herald|sns|Redemption|sns|1"
+        },
+        {
+          "type": "refSubclassFeature",
           "subclassFeature": "Channel Divinity|Herald|sns|Redemption|sns|1"
         },
         {
@@ -1072,6 +1076,18 @@
             "Choose a creature within 10 feet of you. The next time it is targeted by a damaging attack, after you see the result of the attack, you can take that attack instead."
           ]
         }
+      ]
+    },
+    {
+      "name": "Thou Shalt Not Kill",
+      "source": "sns",
+      "className": "Herald",
+      "classSource": "sns",
+      "subclassShortName": "Redemption",
+      "subclassSource": "sns",
+      "level": 1,
+      "entries": [
+        "From tier 1, any damage you deal and any harm you cause can always be non-lethal, even if it usually couldn't."
       ]
     },
     {
