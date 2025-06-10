@@ -256,7 +256,8 @@
             "A slowed creature's speed is halved.",
             "Armour and reflex attacks against the creature have advantage.",
             "The creature cannot take reactions.",
-            "On its turn, the creature can take either an action or a bonus action, not both."
+            "On its turn, the creature can take either an action or a bonus action, not both.",
+            "Whenever the creature takes the Attack action, it can make a maximum of one attack."
           ]
         }
       ],
