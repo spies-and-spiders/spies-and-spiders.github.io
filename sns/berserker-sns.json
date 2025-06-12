@@ -230,7 +230,6 @@
         },
         "Ability Score Improvement|Berserker|sns|8|sns",
         "Furious Critical (4)|Berserker|sns|8|sns",
-        "Battle Moxie|Berserker|sns|9|sns",
         {
           "classFeature": "First Subclass Tier 5|Berserker|sns|9|sns",
           "gainSubclassFeature": true
@@ -239,7 +238,6 @@
         "School of the Open Road|Berserker|sns|11|sns",
         "Second Subclass Tier 1|Berserker|sns|11|sns",
         "Ability Score Improvement|Berserker|sns|12|sns",
-        "Crushing Blows (2)|Berserker|sns|12|sns",
         "Furious Critical (6)|Berserker|sns|12|sns",
         "Notable Reputation|Berserker|sns|13|sns",
         "Second Subclass Tier 2|Berserker|sns|13|sns",
@@ -248,7 +246,7 @@
         "Second Subclass Tier 3|Berserker|sns|15|sns",
         "Ability Score Improvement|Berserker|sns|16|sns",
         "Furious Critical (8)|Berserker|sns|16|sns",
-        "Crushing Blows (3)|Berserker|sns|17|sns",
+        "Crushing Blows (2)|Berserker|sns|17|sns",
         "Reliable Might|Berserker|sns|17|sns",
         "Second Subclass Tier 4|Berserker|sns|17|sns",
         "Furious Critical (9)|Berserker|sns|18|sns",
@@ -685,7 +683,6 @@
 			"level": 5,
 			"entries": [
 				"By 5th level your martial prowess is such that you are able to land attacks to the best effect, dealing devastating amounts of damage. Your melee weapon armour attacks have +1 critical hit range.",
-				"At 12th level, your melee weapon armour attacks have a further +1 critical hit range.",
 				"At 17th level, your melee weapon armour attacks have a further +1 critical hit range."
 			]
 		},
@@ -763,37 +760,6 @@
 					"name": "Preternatural Agility",
 					"entries": [
 						"You can evade danger to an unbelievable degree. Whenever you are targeted by a damaging reflex attack, you reduce its success tier by 1."
-					]
-				}
-			]
-		},
-		{
-			"name": "Battle Moxie",
-			"source": "sns",
-			"className": "Berserker",
-			"classSource": "sns",
-			"level": 9,
-			"entries": [
-				"At 9th level, your experiences in combat teach you more about how to live in the world. Choose one of the following.",
-				{
-					"type": "entries",
-					"name": "Provoking Attitude",
-					"entries": [
-						"You know how to piss people off. You can expend one use of Rage and choose a creature within 60 feet that can sense you. The creature makes a save. On a failure, it makes or accepts a challenge. The nature of this challenge is at the DM's discretion but is usually a duel or opposed check: arm-wrestling with Brawn, competing with a gaming set, wrestling with Athletics, and so on."
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Roaring Pause",
-					"entries": [
-						"When initiative is rolled you can expend one use of Rage to make an Intimidation check (DC 8 + the number of creatures that rolled initiative) to briefly unveil the boundless fury within in a furious roar. On a success each creature that rolled initiative stops what it is doing and can only make statements and a Deception, Intimidation, or Persuasion check on its turn. On a substantial success initiative is rerolled, and you choose a number of creatures equal to your fortitude to gain advantage on their initiative roll."
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Takes One To Know One",
-					"entries": [
-						"You know another warrior when you see one. When you see a creature, you know if it is proficient with more than simple weapons or has access to combat maneuvers."
 					]
 				}
 			]
@@ -990,19 +956,9 @@
 			"source": "sns",
 			"className": "Berserker",
 			"classSource": "sns",
-			"level": 12,
-			"entries": [
-				"At 12th level, your melee weapon armour attacks have a further +1 critical hit range (for a total of +2)."
-			]
-		},
-		{
-			"name": "Crushing Blows (3)",
-			"source": "sns",
-			"className": "Berserker",
-			"classSource": "sns",
 			"level": 17,
 			"entries": [
-				"At 17th level, your melee weapon armour attacks have a further +1 critical hit range (for a total of +3)."
+				"At 17th level, your melee weapon armour attacks have a further +1 critical hit range (for a total of +2)."
 			]
 		}
   ],
