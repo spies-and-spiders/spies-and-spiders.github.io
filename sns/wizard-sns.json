@@ -1068,8 +1068,8 @@
         {
           "type": "list",
           "items": [
-            "Major effect #1",
-            "Major effect #2"
+            "The initiative order is immediately revealed to you. Then, you may move an ally on the initiative tracker to any position on the tracker.",
+            "You warp time around the target, causing them to become {@condition rattled|sns} and suffer {@dice 1d8} ongoing force harm, stacking until they pass a passive save. This harm increases to {@dice 2d8} at 5th level, {@dice 3d8} at 11th level, and {@dice 4d8} at 17th level."
           ]
         }
       ]
@@ -1114,7 +1114,7 @@
       ]
     },
     {
-      "name": "New Strong Feature",
+      "name": "Altered Fate",
       "source": "sns",
       "className": "Wizard",
       "classSource": "sns",
@@ -1123,7 +1123,7 @@
       "level": 5,
       "header": 2,
       "entries": [
-        "?"
+        "From tier 3, after you influence an attack with your Chronal Shift feature, you may choose to also either increase or decrease the attack's success tier by one."
       ]
     },
     {

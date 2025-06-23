@@ -1320,14 +1320,14 @@
         {
           "type": "list",
           "items": [
-            "?",
-            "?"
+            "Immediately trigger the effects of your The Churn feature.",
+            "Immediately recover sorcery points equal to your proficiency bonus. Additionally, the next time you cast a spell this combat, you may choose an additional Metamagic option to modify the spell with."
           ]
         }
       ]
     },
     {
-      "name": "New Minor Feature",
+      "name": "Overwhelm",
       "source": "sns",
       "className": "Sorcerer",
       "classSource": "sns",
@@ -1336,7 +1336,7 @@
       "level": 3,
       "header": 2,
       "entries": [
-        "?",
+        "From tier 3, your cantrips deal full damage on a minor success.",
         "Additionally, you can focus your Things Fall Apart feature on distant massive objects by spending a sorcery point. If you spend a minute concentrating on an object you can see, you can cause it to fall apart in some way that would naturally be possible. The object must be something that has not been attended to by any sapient being for at least a year - something truly abandoned or wild, like a derelict house, a cliff edge upon which no one camps, or a wild drifting glacier - but can be as large as a hundred feet across. The destruction manifests over the course of a minute. This is seldom of use offensively, but serves as a terrifying display of the power that fuels you."
       ]
     },

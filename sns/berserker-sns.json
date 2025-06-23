@@ -1007,8 +1007,8 @@
         {
           "type": "list",
           "items": [
-            "?",
-            "?"
+            "You gain a number of rage hit points equal to double your level.",
+            "Expend any number of rage hit points you currently have. If the triggering attack is a damaging attack, it deals additional damage equal to the number of rage hit points spent."
           ]
         }
       ]
@@ -1027,7 +1027,7 @@
       ]
     },
     {
-      "name": "New Strong Feature",
+      "name": "Revenger",
       "source": "sns",
       "className": "Berserker",
       "classSource": "sns",
@@ -1036,7 +1036,7 @@
       "level": 5,
       "header": 2,
       "entries": [
-        "?"
+        "From tier 3, while you or an ally within 30 feet of you is bloodied, you have a +1 bonus to attack rolls and your damaging weapon attacks deal additional base damage equal to your proficiency bonus."
       ]
     },
     {
