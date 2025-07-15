@@ -17146,7 +17146,10 @@
       ],
       "duration": [
         {
-          "type": "sustained"
+          "type": "permanent",
+          "ends": [
+            "sustained"
+          ]
         }
       ],
       "source": "sns",
