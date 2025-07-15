@@ -512,6 +512,7 @@ export class ConverterSpell extends ConverterBase {
 		const {durStr, condition} = this._setCleanDuration_getInput({line, options});
 
 		if (durStr.toLowerCase() === "instantaneous") return stats.duration = this._setCleanDurationn_getOutput({duration: [{type: "instant"}], condition});
+		if (durStr.toLowerCase() === "sustained") return stats.duration = this._setCleanDurationn_getOutput({duration: [{type: "sustained"}], condition});
 		if (durStr.toLowerCase() === "special") return stats.duration = this._setCleanDurationn_getOutput({duration: [{type: "special"}], condition});
 		if (durStr.toLowerCase() === "permanent") return stats.duration = this._setCleanDurationn_getOutput({duration: [{type: "permanent"}], condition});
 
