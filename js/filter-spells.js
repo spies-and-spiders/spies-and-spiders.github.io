@@ -199,6 +199,7 @@ class PageFilterSpells extends PageFilterBase {
 				}
 			}
 			case "permanent": return "Permanent";
+			case "sustained": return "Sustained";
 			case "special":
 			default: return "Special";
 		}

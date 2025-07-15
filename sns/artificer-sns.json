@@ -294,6 +294,46 @@
         "Advanced Grafting|Artificer|sns|Stitcher|sns|7",
         "Harness Death|Artificer|sns|Stitcher|sns|9"
       ]
+    },
+    {
+      "name": "Artillerist",
+      "shortName": "Artillerist",
+      "source": "sns",
+      "className": "Artificer",
+      "classSource": "sns",
+      "additionalSpells": [
+        {
+          "prepared": {
+            "1": [
+              "shield|sns",
+              "thunderwave|sns"
+            ],
+            "5": [
+              "scorching ray|sns",
+              "shatter|sns"
+            ],
+            "9": [
+              "fireball|sns",
+              "wind wall|sns"
+            ],
+            "13": [
+              "ice storm|sns",
+              "wall of fire|sns"
+            ],
+            "17": [
+              "cone of cold|sns",
+              "wall of force|sns"
+            ]
+          }
+        }
+      ],
+      "subclassFeatures": [
+        "Artillerist|Artificer|sns|Artillerist|sns|1",
+        "Resilient Construction|Artificer|sns|Artillerist|sns|3",
+        "Arcane Conduit|Artificer|sns|Artillerist|sns|5",
+        "Explosive Cannon|Artificer|sns|Artillerist|sns|7",
+        "Fortified Position|Artificer|sns|Artillerist|sns|9"
+      ]
     }
   ],
   "classFeature": [
@@ -1168,6 +1208,178 @@
       "entries": [
         "At tier 5 you've harnessed death - mostly. You gain the {@spell Inescapable Malady|sns} spell and when you prepare your artificer spells you can prepare it and create a spell invention for it (or forgo it for a modification) in addition to your normal number of prepared spells. This spell counts as a 5th-level artificer spell for you and you can cast it without the usual material components, but a creature you target with it cannot be targeted by this feature again."
       ]
+    },
+    {
+      "name": "Artillerist",
+      "source": "sns",
+      "className": "Artificer",
+      "classSource": "sns",
+      "subclassShortName": "Artillerist",
+      "subclassSource": "sns",
+      "level": 1,
+      "entries": [
+        "An artillerist specialises in using magic to hurl energy, projectiles, and explosions on a battlefield. This destructive power is valued by armies in the wars on many worlds. And when war passes, some members of this specialisation seek to build a more peaceful world by using their powers to fight the resurgence of strife.",
+        {
+          "type": "refSubclassFeature",
+          "subclassFeature": "Artillerist Spells|Artificer|sns|Artillerist|sns|1"
+        },
+        {
+          "type": "refSubclassFeature",
+          "subclassFeature": "Eldritch Cannon|Artificer|sns|Artillerist|sns|1"
+        },
+        {
+          "type": "refSubclassFeature",
+          "subclassFeature": "Artillerist Major Effects|Artificer|sns|Artillerist|sns|1"
+        }
+      ]
+    },
+    {
+      "name": "Artillerist Spells",
+      "source": "sns",
+      "className": "Artificer",
+      "classSource": "sns",
+      "subclassShortName": "Artillerist",
+      "subclassSource": "sns",
+      "level": 1,
+      "header": 1,
+      "entries": [
+        "At tier 1, when you prepare your artificer spells you can prepare certain spells and create spell inventions for them in addition to your normal number of prepared spells. These spells count as artificer spells for you, even if they aren't on the artificer spell list.",
+        {
+          "type": "table",
+          "caption": "Artillerist Spells",
+          "colLabels": [
+            "Artificer Level",
+            "Spells"
+          ],
+          "colStyles": [
+            "col-2 text-center",
+            "col-10"
+          ],
+          "rows": [
+            [
+              "1st",
+              "{@spell shield|sns}, {@spell thunderwave|sns}"
+            ],
+            [
+              "5th",
+              "{@spell scorching ray|sns}, {@spell shatter|sns}"
+            ],
+            [
+              "9th",
+              "{@spell fireball|sns}, {@spell wind wall|sns}"
+            ],
+            [
+              "13th",
+              "{@spell ice storm|sns}, {@spell wall of fire|sns}"
+            ],
+            [
+              "17th",
+              "{@spell cone of cold|sns}, {@spell wall of force|sns}"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Eldritch Cannon",
+      "source": "sns",
+      "className": "Artificer",
+      "classSource": "sns",
+      "subclassShortName": "Artillerist",
+      "subclassSource": "sns",
+      "level": 1,
+      "header": 1,
+      "entries": [
+        "Also at tier 1, you've learned how to create a magical cannon. Using your tools of artifice, you can take an action to magically create an {@creature eldritch cannon|sns} in an unoccupied space on a horizontal surface within 5 feet of you. Once you create a cannon, you can't do so again until you finish a long rest or until you expend a spell invention to create one. You can have only one cannon at a time and can't create one while your cannon is present.",
+        "The cannon is a minion and requires your concentration to maintain, though you cannot lose concentration on it against your will, even if you are {@condition incapacitated|sns}. It disappears if it is reduced to 0 hit points or after 1 hour. You can dismiss it early as an action.",
+        "When you create the cannon, you determine its appearance. You also decide which type it is, choosing from Flamethrower, Force Ballista, or Protector. The cannon can only act while you are within 60 feet of it. If you are not, it does nothing on its turns."
+      ]
+    },
+    {
+      "name": "Artillerist Major Effects",
+      "source": "sns",
+      "className": "Artificer",
+      "classSource": "sns",
+      "subclassShortName": "Artillerist",
+      "subclassSource": "sns",
+      "level": 1,
+      "header": 1,
+      "entries": [
+        "From tier 1, Artillerist Artificers have access to the following major effect options:",
+        {
+          "type": "list",
+          "items": [
+            "Your eldritch cannon's armour is increased by 3 for 1 round. If you do not have an active eldritch cannon, you gain the bonus instead.",
+            "For 1 round, your eldritch cannon's Flamethrower variant only affects creatures of your choice, its Force Ballista variant ignores half and three-quarters cover, and its Protector variant's range increases to 20 feet."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Resilient Construction",
+      "source": "sns",
+      "className": "Artificer",
+      "classSource": "sns",
+      "subclassShortName": "Artillerist",
+      "subclassSource": "sns",
+      "level": 3,
+      "header": 2,
+      "entries": [
+        "From tier 2, your eldritch cannons are reinforced to withstand physical assaults. They gain 50% resistance to bludgeoning, piercing, and slashing damage."
+      ]
+    },
+    {
+      "name": "Arcane Conduit",
+      "source": "sns",
+      "className": "Artificer",
+      "classSource": "sns",
+      "subclassShortName": "Artillerist",
+      "subclassSource": "sns",
+      "level": 5,
+      "header": 2,
+      "entries": [
+        "At tier 3, you know how to channel your destructive spell inventions through your eldritch cannon. Whenever you cast a spell with an instantaneous duration that deals damage, you may cast it from your eldritch cannon instead of yourself. When you do so, it counts as if the cannon cast the spell instead of you, and the first damage roll made for it is increased by {@dice 1d8}."
+      ]
+    },
+    {
+      "name": "Explosive Cannon",
+      "source": "sns",
+      "className": "Artificer",
+      "classSource": "sns",
+      "subclassShortName": "Artillerist",
+      "subclassSource": "sns",
+      "level": 7,
+      "header": 2,
+      "entries": [
+        "Starting at tier 4, every eldritch cannon you create is more destructive:",
+        {
+          "type": "list",
+          "items": [
+            "Damage the cannon deals with its own actions and the amount of temporary hit points it grants are both increased by {@dice 1d8}.",
+            "Whenever the cannon reaches 0 hit points it detonates, making an area spell reflex attack against all creatures of your choice within 20 feet of it, dealing {@dice 4d6} force damage."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Fortified Position",
+      "source": "sns",
+      "className": "Artificer",
+      "classSource": "sns",
+      "subclassShortName": "Artillerist",
+      "subclassSource": "sns",
+      "level": 9,
+      "header": 2,
+      "entries": [
+        "By tier 5, you're a master at forming well-defended emplacements using your eldritch cannon:",
+        {
+          "type": "list",
+          "items": [
+            "You and your allies have half cover while within 10 feet of your eldritch cannon, as a result of a shimmering field of magical protection that the cannon emits.",
+            "Whenever you create your eldritch cannon, you may instead create an {@creature eldritch megacannon|sns}. If you need to expend a spell invention to create the megacannon, you must expend two inventions instead. Any effect that refers to your eldritch cannon also applies to your megacannon."
+          ]
+        }
+      ]
     }
   ],
   "optionalfeature": [
@@ -1462,6 +1674,160 @@
           "name": "Bite",
           "entries": [
             "{@atk mw} reach 5 ft., one {@condition grappled|sns} target. {@damage 1d10 + 1} piercing damage, and the zombie regains the same number of hit points."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Eldritch Cannon",
+      "source": "sns",
+      "size": [
+        "S"
+      ],
+      "type": "construct",
+      "alignment": [
+        "U"
+      ],
+      "ac": [
+        {
+          "ac": 4
+        }
+      ],
+      "hp": {
+        "special": "six times your level"
+      },
+      "speed": {
+        "walk": 15,
+        "climb": 15
+      },
+      "str": 10,
+      "dex": 10,
+      "int": 10,
+      "wis": 10,
+      "cha": 10,
+      "save": {
+        "str": "+0",
+        "dex": "+0",
+        "wis": "+0"
+      },
+      "immune": [
+        "poison",
+        "psychic"
+      ],
+      "passive": 10,
+      "trait": [
+        {
+          "name": "—MAJOR EFFECTS—",
+          "entries": [
+            {
+              "type": "list",
+              "items": [
+                "The cannon recovers hit points equal to your level. If it is already on full hit points, it instead gains that amount of temporary hit points."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Sustainable Engineering",
+          "entries": [
+            "Whenever the {@spell mending|sns} spell is cast on the cannon, the cannon regains {@dice 2d6} hit points."
+          ]
+        }
+      ],
+      "action": [
+        {
+          "name": "Cannon (Flamethrower Only)",
+          "entries": [
+            "The cannon exhales fire in a 15-foot cone. It makes an area spell reflex attack against each creature in that area, dealing {@dice 4d4} fire damage. The fire ignites any flammable objects in the area that aren't being worn or carried."
+          ]
+        },
+        {
+          "name": "Cannon (Force Ballista Only)",
+          "entries": [
+            "{@atk rs} range 120 ft., one target. {@damage 2d8} force damage. On a hit, the target is pushed 5 feet away from the cannon."
+          ]
+        },
+        {
+          "name": "Cannon (Protector Only)",
+          "entries": [
+            "The cannon emits a burst of positive energy that grants itself and each creature of your choice within 10 feet of it a number of temporary hit points equal to {@dice 1d10} + your Intelligence modifier (minimum of +1)."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Eldritch Megacannon",
+      "source": "sns",
+      "size": [
+        "M"
+      ],
+      "type": "construct",
+      "alignment": [
+        "U"
+      ],
+      "ac": [
+        {
+          "ac": 4
+        }
+      ],
+      "hp": {
+        "special": "12 times your level"
+      },
+      "speed": {
+        "walk": 15,
+        "climb": 15
+      },
+      "str": 10,
+      "dex": 10,
+      "int": 10,
+      "wis": 10,
+      "cha": 10,
+      "save": {
+        "str": "+0",
+        "dex": "+0",
+        "wis": "+0"
+      },
+      "immune": [
+        "poison",
+        "psychic"
+      ],
+      "passive": 10,
+      "trait": [
+        {
+          "name": "—MAJOR EFFECTS—",
+          "entries": [
+            {
+              "type": "list",
+              "items": [
+                "The cannon recovers hit points equal to your level. If it is already on full hit points, it instead gains that amount of temporary hit points."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Sustainable Engineering",
+          "entries": [
+            "Whenever the {@spell mending|sns} spell is cast on the cannon, the cannon regains {@dice 2d6} hit points."
+          ]
+        }
+      ],
+      "action": [
+        {
+          "name": "Cannon (Flamethrower Only)",
+          "entries": [
+            "The cannon exhales fire in a 15-foot cone. It makes an area spell reflex attack against each creature in that area, dealing {@dice 3d12} fire damage. The fire ignites any flammable objects in the area that aren't being worn or carried."
+          ]
+        },
+        {
+          "name": "Cannon (Force Ballista Only)",
+          "entries": [
+            "{@atk rs} range 120 ft., one target. {@damage 4d8} force damage. On a hit, the target is pushed 10 feet away from the cannon."
+          ]
+        },
+        {
+          "name": "Cannon (Protector Only)",
+          "entries": [
+            "The cannon emits a burst of positive energy that grants itself and each creature of your choice within 10 feet of it a number of temporary hit points equal to {@dice 2d10} + double your Intelligence modifier (minimum of +2)."
           ]
         }
       ]
