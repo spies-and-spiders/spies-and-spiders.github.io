@@ -1444,7 +1444,7 @@
         },
         {
           "type": "refSubclassFeature",
-          "subclassFeature": "Sound Sculptor Major Effect #1|Bard|sns|Sound Sculptor|sns|1"
+          "subclassFeature": "Sound Sculptor Major Effects|Bard|sns|Sound Sculptor|sns|1"
         }
       ]
     },
@@ -1473,7 +1473,7 @@
       ]
     },
     {
-      "name": "Sound Sculptor Major Effect #1",
+      "name": "Sound Sculptor Major Effects",
       "source": "sns",
       "className": "Bard",
       "classSource": "sns",
@@ -1481,12 +1481,18 @@
       "subclassSource": "sns",
       "level": 1,
       "entries": [
-        "You immediately gain an additional concentration slot that lasts until the end of the current combat. You can only gain one concentration slot from this effect.",
-        "If you have already gained this effect's additional concentration slot, you instead gain a bonus to your spell damage equal to half your level for 1 round."
+        "From tier 1, Sound Sculptor Bards have access to the following major effect options:",
+        {
+          "type": "list",
+          "items": [
+            "You immediately gain an additional concentration slot that lasts until the end of the current combat. You can only gain one concentration slot from this effect. If you have already gained this effect's additional concentration slot, you instead gain a bonus to your spell damage equal to half your level for 1 round.",
+            "For 1 round, you count as having line of sight to all creatures you can sense within 30 feet of you and your areas only affect creatures of your choice."
+          ]
+        }
       ]
     },
     {
-      "name": "Blast of Sound",
+      "name": "Vital Reverberations",
       "source": "sns",
       "className": "Bard",
       "classSource": "sns",
@@ -1495,11 +1501,11 @@
       "level": 3,
       "header": 2,
       "entries": [
-        "At tier 2, you learn to use sound not just as a tool, but as a weapon. As an action, you can emit a powerful blast of sound in a 15-foot cone. Make a spell fortitude attack against all creatures in the area that deals {@dice 1d10} thunder damage. A creature hit by this attack is {@condition deafened|sns} until the end of its next turn. The damage increases to {@dice 2d10} at level 5 and {@dice 3d10} at level 11. At 17th level, the damage increases to {@dice 4d10} and the blast becomes a 30-foot cone."
+        "At tier 2, you learn how to manipulate reverberations to help or hinder vital functions, such as beats of the heart or pulses through the nervous system. While concentrating on your Eyes of the Ears feature, creatures of your choice within 30 feet of you are unable recover hit points, except through resting. Additionally, whenever an enemy creature within that area becomes bloodied, you may use your reaction to choose another creature within that area to heal a number of hit points equal to two rolls of your bardic inspiration die."
       ]
     },
     {
-      "name": "Thunderous Resonance",
+      "name": "Deafning Presence",
       "source": "sns",
       "className": "Bard",
       "classSource": "sns",
@@ -1508,20 +1514,7 @@
       "level": 5,
       "header": 2,
       "entries": [
-        "From tier 3, whenever you deal thunder damage to a creature, a number of dice of damage equal to your proficiency bonus that it next takes before the end of your next turn are set to their maximum value instead of being rolled normally. For example, at 5th level, the next 3 damage dice rolled against the creature are set to their maximum value. If an instance of damage has multiple damage dice of different sizes that exceed the remaining uses of this feature, you can choose which dice to set to their maximum value."
-      ]
-    },
-    {
-      "name": "Sound Sculptor Major Effect #2",
-      "source": "sns",
-      "className": "Bard",
-      "classSource": "sns",
-      "subclassShortName": "Sound Sculptor",
-      "subclassSource": "sns",
-      "level": 5,
-      "header": 2,
-      "entries": [
-        "For 1 round, you count as having line of sight to all creatures you can sense within 30 feet of you and your areas only affect creatures of your choice."
+        "At tier 3, you can weaponise the sound you create into a deafening cacophany. While concentrating on your Eyes of the Ears feature, all creatures of your choice within 30 feet of you are {@condition deafened|sns} to all sounds except those from you, and distracted, granting reflex attacks made against them advantage."
       ]
     },
     {
@@ -1534,7 +1527,7 @@
       "level": 7,
       "header": 2,
       "entries": [
-        "From tier 4, whenever you target a creature with a battle hymn, you may expend an additional use of Bardic Inspiration to add the effects of another battle hymn you know to the original hymn's effects."
+        "From tier 4, whenever you target an enemy creature with a battle hymn, you may expend an additional use of Bardic Inspiration to add the effects of another battle hymn you know to the original hymn's effects."
       ]
     },
     {
@@ -1547,7 +1540,7 @@
       "level": 9,
       "header": 2,
       "entries": [
-        "At tier 5, you gain the most potent sound sculptor ability: the creation of walls of sound. As an action, you can create a wall of solid sound. The wall is composed of twenty 5-foot-square, 10-foot-tall sections of solid sound. The sections must be contiguous, all sections must be within 120 feet of your position, and you must have line of sight to at least one of its spaces; otherwise, you can form the wall in any shape you desire. The wall's space is difficult terrain, and reverberations in the air grant disadvantage to Perception checks made to see through the wall. Ranged armour attacks fired through the wall are made at disadvantage. The wall is a persistent zone which forces creatures to make a save. On a failed save, a creature loses concentration on any effect they are concentrating on and is {@condition deafened|sns} for one minute. On a success, the target has disadvantage on Perception checks relying on hearing until it exits the section of wall, but is not {@condition deafened|sns} and does not lose concentration. You must concentrate to maintain the wall (as if concentrating on a spell), and it vanishes if you lose concentration. You can use this feature a number of times equal to your proficiency bonus, regaining all uses when you finish a long rest."
+        "At tier 5, you gain the most potent sound sculptor ability: the creation of walls of sound. As an action, you can create a wall of solid sound. The wall is composed of twenty 5-foot-square, 10-foot-tall sections of solid sound. The sections must be contiguous, all sections must be within 120 feet of your position, and you must have line of sight to at least one of its spaces; otherwise, you can form the wall in any shape you desire. The wall's space is difficult terrain, and reverberations in the air grant disadvantage to Perception checks made to see through the wall. Ranged armour attacks fired through the wall are made at disadvantage. The wall is a persistent zone which forces creatures to make a save. On a failed save, a creature loses concentration on any effect they are concentrating on. You can use this feature a number of times equal to your proficiency bonus, regaining all uses when you finish a long rest."
       ]
     }
   ],

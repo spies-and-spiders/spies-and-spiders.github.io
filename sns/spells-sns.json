@@ -23308,12 +23308,10 @@
       ],
       "duration": [
         {
-          "type": "timed",
-          "duration": {
-            "type": "hour",
-            "amount": 8,
-            "upTo": false
-          }
+          "type": "permanent",
+          "ends": [
+            "sustained"
+          ]
         }
       ],
       "source": "sns",
