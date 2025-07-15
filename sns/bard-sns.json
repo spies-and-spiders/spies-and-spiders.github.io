@@ -535,10 +535,9 @@
       "classSource": "sns",
       "subclassFeatures": [
         "Sound Sculptor|Bard|sns|Sound Sculptor|sns|1",
-        "Blast of Sound|Bard|sns|Sound Sculptor|sns|3",
-        "Thunderous Resonance|Bard|sns|Sound Sculptor|sns|5",
-        "Sound Sculptor Major Effect #2|Bard|sns|Sound Sculptor|sns|5",
-        "Overtones|Bard|sns|Sound Sculptor|sns|7",
+        "Vital Reverberations|Bard|sns|Sound Sculptor|sns|3",
+        "Deafening Presence|Bard|sns|Sound Sculptor|sns|5",
+        "Discordance|Bard|sns|Sound Sculptor|sns|7",
         "Wall of Sound|Bard|sns|Sound Sculptor|sns|9"
       ]
     }
@@ -1501,11 +1500,11 @@
       "level": 3,
       "header": 2,
       "entries": [
-        "At tier 2, you learn how to manipulate reverberations to help or hinder vital functions, such as beats of the heart or pulses through the nervous system. While concentrating on your Eyes of the Ears feature, creatures of your choice within 30 feet of you are unable recover hit points, except through resting. Additionally, whenever an enemy creature within that area becomes bloodied, you may use your reaction to choose another creature within that area to heal a number of hit points equal to two rolls of your bardic inspiration die."
+        "At tier 2, you learn how to manipulate reverberations to help or hinder vital functions, such as beats of the heart or pulses through the nervous system. While concentrating on your Eyes of the Ears feature, creatures of your choice within 30 feet of you are unable recover hit points, except through resting. Additionally, whenever an enemy creature within that area becomes bloodied, you may choose another creature within that area to heal a number of hit points equal to two rolls of your bardic inspiration die."
       ]
     },
     {
-      "name": "Deafning Presence",
+      "name": "Deafening Presence",
       "source": "sns",
       "className": "Bard",
       "classSource": "sns",
@@ -1518,7 +1517,7 @@
       ]
     },
     {
-      "name": "Overtones",
+      "name": "Discordance",
       "source": "sns",
       "className": "Bard",
       "classSource": "sns",
@@ -1527,7 +1526,7 @@
       "level": 7,
       "header": 2,
       "entries": [
-        "From tier 4, whenever you target an enemy creature with a battle hymn, you may expend an additional use of Bardic Inspiration to add the effects of another battle hymn you know to the original hymn's effects."
+        "At tier 4, you learn to use your mastery over physical sound to control the battlefield. As a reaction to any creature within 60 feet of you moving into a space adjacent to another creature, you may push the moving creature 20 feet in a horizontal direction of your choice."
       ]
     },
     {
