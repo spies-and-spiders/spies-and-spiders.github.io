@@ -1484,7 +1484,7 @@
         {
           "type": "list",
           "items": [
-            "You immediately gain an additional concentration slot that lasts until the end of the current combat. You can only gain one concentration slot from this effect. If you have already gained this effect's additional concentration slot, you instead gain a bonus to your spell damage equal to half your level for 1 round.",
+            "You immediately gain an additional concentration slot that lasts until the end of the current combat. You can only gain one concentration slot from this effect. If you have already gained this effect's additional concentration slot, you instead gain a bonus to your resistance equal to half your level (minimum +1) for 1 round.",
             "For 1 round, you count as having line of sight to all creatures you can sense within 30 feet of you and your areas only affect creatures of your choice."
           ]
         }
