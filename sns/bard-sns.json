@@ -538,7 +538,7 @@
         "Vital Reverberations|Bard|sns|Sound Sculptor|sns|3",
         "Deafening Presence|Bard|sns|Sound Sculptor|sns|5",
         "Discordance|Bard|sns|Sound Sculptor|sns|7",
-        "Wall of Sound|Bard|sns|Sound Sculptor|sns|9"
+        "Dome of Sound|Bard|sns|Sound Sculptor|sns|9"
       ]
     }
   ],
@@ -1526,11 +1526,11 @@
       "level": 7,
       "header": 2,
       "entries": [
-        "At tier 4, you learn to use your mastery over physical sound to control the battlefield. As a reaction to any creature within 60 feet of you moving into a space adjacent to another creature, you may push the moving creature 20 feet in a horizontal direction of your choice."
+        "At tier 4, you learn to use your mastery over physical sound to control the battlefield. As a reaction to any creature within 30 feet of you moving into a space adjacent to another creature while you are concentrating on your Eyes of the Ears feature, you may push the moving creature 20 feet in a horizontal direction of your choice."
       ]
     },
     {
-      "name": "Wall of Sound",
+      "name": "Dome of Sound",
       "source": "sns",
       "className": "Bard",
       "classSource": "sns",
@@ -1539,7 +1539,7 @@
       "level": 9,
       "header": 2,
       "entries": [
-        "At tier 5, you gain the most potent sound sculptor ability: the creation of walls of sound. As an action, you can create a wall of solid sound. The wall is composed of twenty 5-foot-square, 10-foot-tall sections of solid sound. The sections must be contiguous, all sections must be within 120 feet of your position, and you must have line of sight to at least one of its spaces; otherwise, you can form the wall in any shape you desire. The wall's space is difficult terrain, and reverberations in the air grant disadvantage to Perception checks made to see through the wall. Ranged armour attacks fired through the wall are made at disadvantage. The wall is a persistent zone which forces creatures to make a save. On a failed save, a creature loses concentration on any effect they are concentrating on. You can use this feature a number of times equal to your proficiency bonus, regaining all uses when you finish a long rest."
+        "At tier 5, you gain the most potent sound sculptor ability: the creation of a dome of sound. As an action while concentrating on your Eyes of the Ears feature, you can create a 30-foot radius sphere of physical sound centred on you. The dome lasts for as long as you maintain concentration on your Eyes of the Ears feature. The area is difficult terrain, and reverberations in the air grant disadvantage to Perception checks made inside it. Ranged armour attacks fired within the area are also made at disadvantage. The area is a persistent zone which forces creatures to make a save. On a failed save, a creature loses concentration on any effect they are concentrating on. When you first create the dome, you can choose any creatures you can sense to be unaffected by the dome's effects for its duration. You can use this feature once between long rests."
       ]
     }
   ],
