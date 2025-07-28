@@ -7747,6 +7747,13 @@
           "items": [
             {
               "type": "item",
+              "name": "Critical failure",
+              "entries": [
+                "You may not probe that creature's mind again until the spell ends."
+              ]
+            },
+            {
+              "type": "item",
               "name": "Minor success",
               "entries": [
                 "You may ask one question about the creature's statistics, and then may not probe that creature's mind again until the spell ends."
@@ -7756,21 +7763,48 @@
               "type": "item",
               "name": "Standard success",
               "entries": [
-                "You learn the creature's surface thoughts - what is most on its mind in that moment. Conversation naturally shapes the course of a creature's thoughts and what it is thinking about may change based on questions verbally directed at it. Then, the spell ends."
-              ]
-            },
-            {
-              "type": "item",
-              "name": "Major success",
-              "entries": [
-                "As standard success, but you probe deeper into the creature's mind. You gain insight into the creature's motivations, emotional state, and something that looms large in its mind. The creature then becomes aware you are proving its mind and can use an action to make an Intelligence check contested by your Intelligence check, ending the spell if it succeeds."
+                "You can hear the creature's surface thoughts for the remainder of the spell's duration - what is most on its mind in that moment. Conversation naturally shapes the course of a creature's thoughts and what it is thinking about may change based on questions verbally directed at it."
               ]
             },
             {
               "type": "item",
               "name": "Critical success",
               "entries": [
-                "As major success, but the creature does not become aware of your probing. If the creature passes a passive save, the spell ends."
+                "As standard success, but if you decide to probe further with this spell, your success tier on that attack is increased by 1."
+              ]
+            }
+          ]
+        },
+        "Once you have successfully read a creature's surface thoughts, you can use an action to probe deeper into its mind. You make another will attack against the creature with the following outcomes:",
+        {
+          "type": "list",
+          "items": [
+            {
+              "type": "item",
+              "name": "Critical failure",
+              "entries": [
+                "The spell immediately ends."
+              ]
+            },
+            {
+              "type": "item",
+              "name": "Minor success",
+              "entries": [
+                "You fail to probe any deeper, and the effects of the spell end on the target for its remaining duration."
+              ]
+            },
+            {
+              "type": "item",
+              "name": "Standard success",
+              "entries": [
+                "You gain insight into the creature's motivations, emotional state, and something that looms large in its mind. The creature then becomes aware you are probing its mind and can use an action to make an Intelligence check contested by your Intelligence check, ending the effects of the spell on it for the remaining duration on a success."
+              ]
+            },
+            {
+              "type": "item",
+              "name": "Critical success",
+              "entries": [
+                "As standard success, but the target does not become aware of your deep probing and cannot take the repelling action."
               ]
             }
           ]
@@ -23159,7 +23193,7 @@
     {
       "school": "A",
       "entries": [
-        "You create a shimmering arcane barrier between yourself and an oncoming attack. Until the spell ends, all armour attacks made against you have their success tier reduced by 1 (including the triggering attack) and any {@spell magic missile|sns} targeting you is harmlessly deflected."
+        "You create a shimmering arcane barrier between yourself and an oncoming assault. Until the spell ends, all armour attacks made against you have their success tier reduced by 1 (including the triggering attack) and any {@spell magic missile|sns} targeting you is harmlessly deflected."
       ],
       "name": "Shield",
       "time": [
