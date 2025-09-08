@@ -359,7 +359,7 @@
             "If the creature's fortitude and reflex are higher than 0, they are 0.",
             "Armour attack rolls against the creature have advantage.",
             "Damaging attacks against the creature from adjacent creatures are upgraded one success tier.",
-            "If this condition is lost during combat and the creature had at least one turn while unconscious, it immediately takes a turn. This does not change initiative order."
+            "If this condition is lost during combat by the creature being hurt, and the creature had at least one turn while unconscious, it immediately takes a turn. This does not change initiative order."
           ]
         }
       ],
