@@ -18617,7 +18617,7 @@
             "One creature"
           ]
         },
-        "The target has 50% resistance to psychic damage and attacks against it that can {@condition charmed|sns|charm} or {@condition frightened|sns|frighten} have disadvantage."
+        "The target has 50% resistance to psychic damage and whenever it would be {@condition charmed|sns} or {@condition frightened|sns}, it makes a save, ignoring the condition on a success."
       ],
       "name": "Mindshield",
       "time": [
