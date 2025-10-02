@@ -466,6 +466,20 @@
         "Elemental Wild Shape|Druid|sns|Moon|sns|7",
         "Thousand Forms|Druid|sns|Moon|sns|9"
       ]
+    },
+    {
+      "name": "Circle of the Sea",
+      "shortName": "Sea",
+      "source": "sns",
+      "className": "Druid",
+      "classSource": "sns",
+      "subclassFeatures": [
+        "Circle of the Sea|Druid|sns|Sea|sns|1",
+        "Aquatic Affinity|Druid|sns|Sea|sns|3",
+        "New Major Feature|Druid|sns|Sea|sns|5",
+        "Stormborn|Druid|sns|Sea|sns|7",
+        "Oceanic Gift|Druid|sns|Sea|sns|9"
+      ]
     }
   ],
   "classFeature": [
@@ -1061,6 +1075,184 @@
       "header": 2,
       "entries": [
         "By tier 5, you have learned to use magic to alter your physical form in more subtle ways. You can cast the {@spell Alter Self|sns} spell at will."
+      ]
+    },
+    {
+      "name": "Circle of the Sea",
+      "source": "sns",
+      "className": "Druid",
+      "classSource": "sns",
+      "subclassShortName": "Sea",
+      "subclassSource": "sns",
+      "level": 1,
+      "entries": [
+        {
+          "type": "refSubclassFeature",
+          "subclassFeature": "Circle of the Sea Spells|Druid|sns|Sea|sns|1"
+        },
+        {
+          "type": "refSubclassFeature",
+          "subclassFeature": "Wrath of the Sea|Druid|sns|Sea|sns|1"
+        },
+        {
+          "type": "refSubclassFeature",
+          "subclassFeature": "Sea Major Effects|Druid|sns|Sea|sns|1"
+        }
+      ]
+    },
+    {
+      "name": "Circle of the Sea Spells",
+      "source": "sns",
+      "className": "Druid",
+      "classSource": "sns",
+      "subclassShortName": "Sea",
+      "subclassSource": "sns",
+      "level": 1,
+      "header": 1,
+      "entries": [
+        "When you reach a Druid level specified in the Circle of the Sea Spells table, you thereafter always have the listed spells prepared.",
+        {
+          "type": "table",
+          "caption": "Circle of the Sea Spells",
+          "colLabels": [
+            "Druid Level",
+            "Spells"
+          ],
+          "colStyles": [
+            "col-2 text-center",
+            "col-10"
+          ],
+          "rows": [
+            [
+              "1st",
+              "{@spell fog cloud|sns}, {@spell ray of frost|sns}, {@spell thunderwave|sns}"
+            ],
+            [
+              "3rd",
+              "{@spell gust of wind|sns}, {@spell shatter|sns}"
+            ],
+            [
+              "5th",
+              "{@spell lightning bolt|sns}, {@spell water breathing|sns}"
+            ],
+            [
+              "7th",
+              "{@spell control water|sns}, {@spell ice storm|sns}"
+            ],
+            [
+              "9th",
+              "{@spell conjure elemental|sns}, {@spell hold monster|sns}"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Wrath of the Sea",
+      "source": "sns",
+      "className": "Druid",
+      "classSource": "sns",
+      "subclassShortName": "Sea",
+      "subclassSource": "sns",
+      "level": 1,
+      "header": 1,
+      "entries": [
+        "From tier 1, as a bonus action, you can expend a use of your Wild Shape to emit a 5-foot radius of ocean spray centred on you for 10 minutes. It ends early if you dismiss it (no action required), manifest it again, or have the {@condition unconscious|sns} condition.",
+        "When you manifest the spray and as a bonus action on your subsequent turns, you can choose another creature in the spray. The target suffers cold harm equal to a number of d6s equal to half your Wisdom modifier (minimum of one die), and then makes a save if it is Large or smaller. On a fail, the target is pushed 15 feet away from you."
+      ]
+    },
+    {
+      "name": "Sea Major Effects",
+      "source": "sns",
+      "className": "Druid",
+      "classSource": "sns",
+      "subclassShortName": "Sea",
+      "subclassSource": "sns",
+      "level": 1,
+      "header": 1,
+      "entries": [
+        "From tier 1, Sea Druids have access to the following major effect options:",
+        {
+          "type": "list",
+          "items": [
+            "X",
+            "X"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Aquatic Affinity",
+      "source": "sns",
+      "className": "Druid",
+      "classSource": "sns",
+      "subclassShortName": "Sea",
+      "subclassSource": "sns",
+      "level": 3,
+      "header": 2,
+      "entries": [
+        "At tier 2, the radius of the ocean spray created by your Wrath of the Sea increases to 10 feet.",
+        "In addition, you gain a swim speed equal to your Speed."
+      ]
+    },
+    {
+      "name": "New Major Feature",
+      "source": "sns",
+      "className": "Druid",
+      "classSource": "sns",
+      "subclassShortName": "Sea",
+      "subclassSource": "sns",
+      "level": 5,
+      "header": 2,
+      "entries": [
+        "?"
+      ]
+    },
+    {
+      "name": "Stormborn",
+      "source": "sns",
+      "className": "Druid",
+      "classSource": "sns",
+      "subclassShortName": "Sea",
+      "subclassSource": "sns",
+      "level": 7,
+      "header": 2,
+      "entries": [
+        "From tier 4, your Wrath of the Sea confers two more benefits while active, as detailed below.",
+        {
+          "type": "list",
+          "style": "list-no-bullets",
+          "items": [
+            {
+              "type": "item",
+              "name": "Flight",
+              "entries": [
+                "You gain a fly speed equal to your Speed."
+              ]
+            },
+            {
+              "type": "item",
+              "name": "Resistance",
+              "entries": [
+                "You have 50% resistance to cold, lightning, and fire damage."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Oceanic Gift",
+      "source": "sns",
+      "className": "Druid",
+      "classSource": "sns",
+      "subclassShortName": "Sea",
+      "subclassSource": "sns",
+      "level": 9,
+      "header": 2,
+      "entries": [
+        "At tier 5, instead of manifesting the ocean spray of Wrath of the Sea around yourself, you can manifest it around one willing creature within 60 feet of yourself. That creature gains all the benefits of the spray and uses your Wisdom modifier for it.",
+        "In addition, you can manifest the spray around both the other creature and yourself if you expend two uses of your Wild Shape feature instead of one when manifesting it."
       ]
     }
   ],
