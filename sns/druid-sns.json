@@ -476,7 +476,7 @@
       "subclassFeatures": [
         "Circle of the Sea|Druid|sns|Sea|sns|1",
         "Aquatic Affinity|Druid|sns|Sea|sns|3",
-        "New Major Feature|Druid|sns|Sea|sns|5",
+        "New Strong Feature|Druid|sns|Sea|sns|5",
         "Stormborn|Druid|sns|Sea|sns|7",
         "Oceanic Gift|Druid|sns|Sea|sns|9"
       ]
@@ -1196,7 +1196,7 @@
       ]
     },
     {
-      "name": "New Major Feature",
+      "name": "New Strong Feature",
       "source": "sns",
       "className": "Druid",
       "classSource": "sns",
