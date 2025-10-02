@@ -975,7 +975,7 @@
           ]
         },
         "You animate a mortal's remains to become your undead servant.",
-        "If the spell is cast upon bones you create a {@creature skeleton}, and if cast upon a corpse you choose to create a {@creature skeleton} or a {@creature zombie}. The DM has the undead's statistics.",
+        "If the spell is cast upon bones you create a {@creature skeleton}, and if cast upon a corpse you choose to create a {@creature skeleton} or a {@creature zombie|sns}. The DM has the undead's statistics.",
         "While it is within 60 feet you can use a bonus action to mentally command the undead. When you command multiple undead using this spell, you must give them all the same command. You may decide the action the undead takes and where it moves during its next turn, or you can issue a general command, such as guarding an area. If not given a command, the undead only defends itself. The undead continues to follow a command until its task is complete.",
         "The undead is under your control for 24 hours, after which it stops obeying any commands. You must cast this spell on the undead before the spell ends to maintain control of it for another 24 hours.",
         "Casting the spell in this way reasserts control over up to 4 of your previously-animated undead instead of animating a new one.",
@@ -2240,7 +2240,7 @@
             "Huge or smaller beast or plant with Intelligence 3 or less."
           ]
         },
-        "You impart sentience in the target, granting it an Intelligence of 10 and proficiency in a language you know. A plant targeted by this spell gains the ability to move, as well as senses identical to those of a human. The DM assigns awakened plant statistics (such as an {@creature awakened shrub} or {@creature awakened tree}). The target is {@condition charmed|sns} for 30 days or until you or your companions hurt it. Depending on how you treated the target while it was {@condition charmed|sns}, when the condition ends the awakened creature may choose to remain friendly to you.",
+        "You impart sentience in the target, granting it an Intelligence of 10 and proficiency in a language you know. A plant targeted by this spell gains the ability to move, as well as senses identical to those of a human. The DM assigns awakened plant statistics (such as an {@creature awakened shrub|sns} or {@creature awakened tree|sns}). The target is {@condition charmed|sns} for 30 days or until you or your companions hurt it. Depending on how you treated the target while it was {@condition charmed|sns}, when the condition ends the awakened creature may choose to remain friendly to you.",
         {
           "type": "entries",
           "name": "Rare",
@@ -4346,7 +4346,7 @@
           "type": "entries",
           "name": "Rare",
           "entries": [
-            "Roav's Reanimating Circle of Death. Creatures killed by this spell rise as {@creature zombie||zombies} at the start of your next turn. These zombies have 1 hit point, they are not under your control, and they attack the nearest living creature."
+            "Roav's Reanimating Circle of Death. Creatures killed by this spell rise as {@creature zombie|sns|zombies} at the start of your next turn. These zombies have 1 hit point, they are not under your control, and they attack the nearest living creature."
           ]
         }
       ],
@@ -10827,7 +10827,7 @@
             "One creature"
           ]
         },
-        "Negative energy wracks the target. Make a fortitude attack against the target that deals {@dice 10d6} + 33 necrotic damage. A humanoid killed by this spell turns into a {@creature zombie} at the start of your next turn. It is permanently under your control and follows your spoken commands.",
+        "Negative energy wracks the target. Make a fortitude attack against the target that deals {@dice 10d6} + 33 necrotic damage. A humanoid killed by this spell turns into a {@creature zombie|sns} at the start of your next turn. It is permanently under your control and follows your spoken commands.",
         {
           "type": "entries",
           "name": "Rare",
@@ -37275,7 +37275,7 @@
           "type": "entries",
           "name": "Grove Guardians",
           "entries": [
-            "You can animate up to four trees in the area, causing them to uproot themselves from the ground. These trees have the same statistics as an {@creature awakened tree}, except they can't speak, and their bark is covered with druidic symbols. If any creature not immune to this effect enters the warded area, the grove guardians fight until they have driven off or slain the intruders. The grove guardians also obey your spoken commands (no action required by you) that you issue while in the area. If you don't give them commands and no intruders are present, the grove guardians do nothing. The grove guardians can't leave the warded area. When the spell ends, the magic animating them disappears, and the trees take root again if possible."
+            "You can animate up to four trees in the area, causing them to uproot themselves from the ground. These trees have the same statistics as an {@creature awakened tree|sns}, except they can't speak, and their bark is covered with druidic symbols. If any creature not immune to this effect enters the warded area, the grove guardians fight until they have driven off or slain the intruders. The grove guardians also obey your spoken commands (no action required by you) that you issue while in the area. If you don't give them commands and no intruders are present, the grove guardians do nothing. The grove guardians can't leave the warded area. When the spell ends, the magic animating them disappears, and the trees take root again if possible."
           ]
         },
         {
@@ -39810,6 +39810,150 @@
           "name": "Breath Weapon",
           "entries": [
             "The dragon exhales destructive energy in a 30-foot cone. Make an area weapon reflex attack against each creature in that area that deals {@dice 5d6} damage of a type this dragon has 50% resistance to (your choice)."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Awakened Shrub",
+      "source": "sns",
+      "size": [
+        "S"
+      ],
+      "type": "plant",
+      "alignment": [
+        "U"
+      ],
+      "ac": [
+        {
+          "ac": -1
+        }
+      ],
+      "hp": {
+        "special": "11"
+      },
+      "speed": {
+        "walk": 20
+      },
+      "str": 3,
+      "dex": 8,
+      "con": 11,
+      "int": 10,
+      "wis": 10,
+      "cha": 6,
+      "save": {
+        "str": "+0",
+        "dex": "+0",
+        "wis": "+0"
+      },
+      "resist": [
+        "piercing"
+      ],
+      "vulnerable": [
+        "fire"
+      ],
+      "passive": 10,
+      "languages": [
+        "one language known by its creator"
+      ],
+      "trait": [
+        {
+          "name": "—MAJOR EFFECTS—",
+          "entries": [
+            {
+              "type": "list",
+              "items": [
+                "The target's armour is reduced by 1 for 1 round."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "False Appearance",
+          "entries": [
+            "While the shrub remains motionless, it is indistinguishable from a normal shrub."
+          ]
+        }
+      ],
+      "action": [
+        {
+          "name": "Rake",
+          "entries": [
+            "{@atk mw} reach 5 ft., one target. {@damage 1d4 - 1} slashing damage."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Awakened Tree",
+      "source": "sns",
+      "size": [
+        "H"
+      ],
+      "type": "plant",
+      "alignment": [
+        "U"
+      ],
+      "ac": [
+        {
+          "ac": 1,
+          "from": [
+            "natural armor"
+          ]
+        }
+      ],
+      "hp": {
+        "special": "59"
+      },
+      "speed": {
+        "walk": 20
+      },
+      "str": 19,
+      "dex": 6,
+      "con": 15,
+      "int": 10,
+      "wis": 10,
+      "cha": 7,
+      "save": {
+        "str": "+4",
+        "dex": "+0",
+        "wis": "+0"
+      },
+      "resist": [
+        "bludgeoning",
+        "piercing"
+      ],
+      "vulnerable": [
+        "fire"
+      ],
+      "passive": 10,
+      "languages": [
+        "one language known by its creator"
+      ],
+      "trait": [
+        {
+          "name": "—MAJOR EFFECTS—",
+          "entries": [
+            {
+              "type": "list",
+              "items": [
+                "The target's armour is reduced by 1 for 1 round."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "False Appearance",
+          "entries": [
+            "While the tree remains motionless, it is indistinguishable from a normal tree."
+          ]
+        }
+      ],
+      "action": [
+        {
+          "name": "Slam",
+          "entries": [
+            "{@atk mw} reach 10 ft., one target. {@damage 3d6 + 4} bludgeoning damage."
           ]
         }
       ]
