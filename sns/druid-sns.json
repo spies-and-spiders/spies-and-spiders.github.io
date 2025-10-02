@@ -1258,105 +1258,105 @@
   ],
   "optionalfeature": [
     {
-			"name": "Aerial Surveyor",
-			"source": "sns",
-			"featureType": [
-				"SN"
-			],
-			"entries": [
-				"You are at home soaring at dizzying heights and peering towards the horizon. You can familiarises yourself with a 5-mile radius area around you by spending a minute studying your surroundings while flying or at great heights. Once your familiarise yourself with an area in this way, you gain an expertise die on any Perception or Survival checks you make while outdoors in that area for the next 24 hours, and you cannot familiarise yourself with another area until you finish a long rest. This does not grant any bonuses to journey activities."
-			]
-		},
-		{
-			"name": "Aquatic Delver",
-			"source": "sns",
-			"featureType": [
-				"SN"
-			],
-			"entries": [
-				"You are at home in the depths, able to control your breathing and attune to the subtle movements of the water. You gain a swimming speed equal to your Speed and you add your Wisdom modifier to the number of minutes you can hold your breath before suffocating. In addition, while fully submerged in water you gain blindsight out to a range of 10 feet."
-			]
-		},
-        {
-			"name": "Cavern Skulker",
-			"source": "sns",
-			"featureType": [
-				"SN"
-			],
-			"entries": [
-				"You've grown accustomed to the echoing solitude to vast caverns. You always know the actual direction of any sound you hear regardless of any echoes. In addition, while you are in complete darkness and not {@condition deafened|sns} you gain blindsight out to a range of 15 feet."
-			]
-		},
-        {
-			"name": "Desert Dweller",
-			"source": "sns",
-			"featureType": [
-				"SN"
-			],
-			"entries": [
-				"Few choose to willingly live where the sun relentlessly burns overhead but you find tranquility amongst the sands. You are naturally acclimatised to hot weather and extremely high temperatures, allowing you to ignore the penalties of hot weather on your journey activities. In addition, while in a desert or similar arid environment and a member of your party scores a substantial success or higher on a Hunt & Gather journey activity check, you gain 1 Supply. Once you use this benefit, you cannot do so again until you finish a long rest."
-			]
-		},
-        {
-			"name": "Eldritch Survivor",
-			"source": "sns",
-			"featureType": [
-				"SN"
-			],
-			"entries": [
-				"You've grown to know the lands twisted by the fey, distorted by magical pollution, or places otherwise warped in unnatural ways. You may make Survival checks in place of Magiscience checks regarding magical environments, foodstuffs, and creatures, and gain an expertise die on any checks made this way. This affects your Experiment journey activity checks."
-			]
-		},
-        {
-			"name": "Herbal Apothecary",
-			"source": "sns",
-			"featureType": [
-				"SN"
-			],
-			"entries": [
-				"Forests and jungles are filled with natural medicines ripe for the picking. You gain an expertise die on checks made to locate herbal ingredients. This affects your Harvest journey activity checks. In addition, you gain double the number of perk points from the Harvest journey activity. This doubling does not stack with other sources of the same effect."
-			]
-		},
-        {
-			"name": "Marshland Guide",
-			"source": "sns",
-			"featureType": [
-				"SN"
-			],
-			"entries": [
-				"Bogs and swamps are unpleasant to most but are filled to with natural beauty to you. Moving through swamps, bogs, or muddy difficult terrain costs you no extra movement and you cannot become naturally lost while traveling through marshlands. In addition, you ignore the effects of roughing it imposed by resting in wet or swampy environments, allowing you to always consider these environments Havens."
-			]
-		},
-        {
-			"name": "Master Forager",
-			"source": "sns",
-			"featureType": [
-				"SN"
-			],
-			"entries": [
-				"No matter the brush you always know how to harvest nature's bounty. You have advantage on checks made to locate or harvest edible flora in the wild, which affects the Hunt & Gather journey activity, and you gain twice as much Supply from the Hunt & Gather journey activity. This doubling does not stack with other sources of the same effect."
-			]
-		},
-        {
-			"name": "Mountain Climber",
-			"source": "sns",
-			"featureType": [
-				"SN"
-			],
-			"entries": [
-				"You gain a climbing speed equal to your Speed. You gain an expertise die on any Athletics checks made while climbing and you are also acclimated to high altitudes, including elevations above 20,000 feet. In addition, you ignore the effects of roughing it imposed by resting in rocky or uneven terrain, allowing you to always consider these environments Havens."
-			]
-		},
-        {
-			"name": "Tundra Explorer",
-			"source": "sns",
-			"featureType": [
-				"SN"
-			],
-			"entries": [
-				"You embrace the cold of snowbound tundra. You are naturally acclimatised to cold weather and extremely low temperatures, allowing you to ignore the penalties of cold weather on your journey activity checks, and you ignore the disadvantage to Perception checks imposed by blizzards. In addition, you ignore the effects of roughing it imposed by resting without warmth in environments of extreme cold, allowing you to always consider these environments Havens."
-			]
-		}
+      "name": "Aerial Surveyor",
+      "source": "sns",
+      "featureType": [
+        "SN"
+      ],
+      "entries": [
+        "You are at home soaring at dizzying heights and peering towards the horizon. You can familiarises yourself with a 5-mile radius area around you by spending a minute studying your surroundings while flying or at great heights. Once your familiarise yourself with an area in this way, you gain an expertise die on any Perception or Survival checks you make while outdoors in that area for the next 24 hours, and you cannot familiarise yourself with another area until you finish a long rest. This does not grant any bonuses to journey activities."
+      ]
+    },
+    {
+      "name": "Aquatic Delver",
+      "source": "sns",
+      "featureType": [
+        "SN"
+      ],
+      "entries": [
+        "You are at home in the depths, able to control your breathing and attune to the subtle movements of the water. You gain a swimming speed equal to your Speed and you add your Wisdom modifier to the number of minutes you can hold your breath before suffocating. In addition, while fully submerged in water you gain blindsight out to a range of 10 feet."
+      ]
+    },
+    {
+      "name": "Cavern Skulker",
+      "source": "sns",
+      "featureType": [
+        "SN"
+      ],
+      "entries": [
+        "You've grown accustomed to the echoing solitude to vast caverns. You always know the actual direction of any sound you hear regardless of any echoes. In addition, while you are in complete darkness and not {@condition deafened|sns} you gain blindsight out to a range of 15 feet."
+      ]
+    },
+    {
+      "name": "Desert Dweller",
+      "source": "sns",
+      "featureType": [
+        "SN"
+      ],
+      "entries": [
+        "Few choose to willingly live where the sun relentlessly burns overhead but you find tranquility amongst the sands. You are naturally acclimatised to hot weather and extremely high temperatures, allowing you to ignore the penalties of hot weather on your journey activities. In addition, while in a desert or similar arid environment and a member of your party scores a substantial success or higher on a Hunt & Gather journey activity check, you gain 1 Supply. Once you use this benefit, you cannot do so again until you finish a long rest."
+      ]
+    },
+    {
+      "name": "Eldritch Survivor",
+      "source": "sns",
+      "featureType": [
+        "SN"
+      ],
+      "entries": [
+        "You've grown to know the lands twisted by the fey, distorted by magical pollution, or places otherwise warped in unnatural ways. You may make Survival checks in place of Magiscience checks regarding magical environments, foodstuffs, and creatures, and gain an expertise die on any checks made this way. This affects your Experiment journey activity checks."
+      ]
+    },
+    {
+      "name": "Herbal Apothecary",
+      "source": "sns",
+      "featureType": [
+        "SN"
+      ],
+      "entries": [
+        "Forests and jungles are filled with natural medicines ripe for the picking. You gain an expertise die on checks made to locate herbal ingredients. This affects your Harvest journey activity checks. In addition, you gain double the number of perk points from the Harvest journey activity. This doubling does not stack with other sources of the same effect."
+      ]
+    },
+    {
+      "name": "Marshland Guide",
+      "source": "sns",
+      "featureType": [
+        "SN"
+      ],
+      "entries": [
+        "Bogs and swamps are unpleasant to most but are filled to with natural beauty to you. Moving through swamps, bogs, or muddy difficult terrain costs you no extra movement and you cannot become naturally lost while traveling through marshlands. In addition, you ignore the effects of roughing it imposed by resting in wet or swampy environments, allowing you to always consider these environments Havens."
+      ]
+    },
+    {
+      "name": "Master Forager",
+      "source": "sns",
+      "featureType": [
+        "SN"
+      ],
+      "entries": [
+        "No matter the brush you always know how to harvest nature's bounty. You have advantage on checks made to locate or harvest edible flora in the wild, which affects the Hunt & Gather journey activity, and you gain twice as much Supply from the Hunt & Gather journey activity. This doubling does not stack with other sources of the same effect."
+      ]
+    },
+    {
+      "name": "Mountain Climber",
+      "source": "sns",
+      "featureType": [
+        "SN"
+      ],
+      "entries": [
+        "You gain a climbing speed equal to your Speed. You gain an expertise die on any Athletics checks made while climbing and you are also acclimated to high altitudes, including elevations above 20,000 feet. In addition, you ignore the effects of roughing it imposed by resting in rocky or uneven terrain, allowing you to always consider these environments Havens."
+      ]
+    },
+    {
+      "name": "Tundra Explorer",
+      "source": "sns",
+      "featureType": [
+        "SN"
+      ],
+      "entries": [
+        "You embrace the cold of snowbound tundra. You are naturally acclimatised to cold weather and extremely low temperatures, allowing you to ignore the penalties of cold weather on your journey activity checks, and you ignore the disadvantage to Perception checks imposed by blizzards. In addition, you ignore the effects of roughing it imposed by resting without warmth in environments of extreme cold, allowing you to always consider these environments Havens."
+      ]
+    }
   ],
   "monster": [
     {
