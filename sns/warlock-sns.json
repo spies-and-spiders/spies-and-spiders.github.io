@@ -131,14 +131,12 @@
           {
             "choose": {
               "from": [
-                "arcana",
-                "deception",
-                "engineering",
-                "history",
-                "intimidation",
-                "investigation",
-                "nature",
-                "religion"
+                "{@skill Deception|sns}",
+                "{@skill History|sns}",
+                "{@skill Intimidation|sns}",
+                "{@skill Investigation|sns}",
+                "{@skill Magiscience|sns}",
+                "{@skill Nature|sns}"
               ],
               "count": 2
             }
@@ -708,7 +706,7 @@
           "type": "entries",
           "name": "Eldritch Scythe",
           "entries": [
-            "Once per turn when you would make a melee weapon attack as part of the Attack action or an opportunity attack, you can instead make a melee spell armour attack, lashing out with an ephemeral and unearthly blade. It deals {@dice 1d8} force damage. In addition, on a hit, you can choose a creature that you can see and that is within your reach. It takes half as much damage as force DoT damage."
+            "Once per turn when you would make a melee weapon attack as part of the Attack action or an opportunity attack, you can instead make a melee spell armour attack, lashing out with an ephemeral and unearthly blade. It deals {@dice 1d8} force damage. In addition, on a hit, you can choose a creature that you can see and that is within your reach. It suffers half as much damage as force harm."
           ]
         },
         {
@@ -1812,7 +1810,7 @@
       ],
       "entries": [
         "Choose one creature type from the following: aberration, celestial, elemental, fey, fiend, or undead. You are familiar with the intricacies of society and politics among those creatures, and you have advantage on checks made to interact with them or recall lore about them.",
-        "Additionally, you gain proficiency with your choice of either Arcana, History, or Religion. If you are already proficient in the chosen skill, you instead gain an expertise die."
+        "Additionally, you gain proficiency with your choice of either {@skill Magiscience|sns} or {@skill History|sns}. If you are already proficient in the chosen skill, you instead gain an expertise die."
       ]
     },
     {
@@ -2735,7 +2733,7 @@
         }
       ],
       "entries": [
-        "You can use an action to become {@condition invisible} while you are in an area of dim light or darkness. Your invisibility lasts until you move, take an action, or use your reaction."
+        "You can use an action to become {@condition invisible|sns} while you are in an area of dim light or darkness. Your invisibility lasts until you move, take an action, or use your reaction."
       ]
     },
     {

@@ -1609,6 +1609,8 @@ Parser.spDurationToFull = function (dur, {isPlainText = false} = {}) {
 					return `Special${ptCondition}`;
 				case "instant":
 					return `Instantaneous${ptCondition}`;
+				case "sustained":
+					return "Sustained";
 				case "timed":
 					return `${d.concentration ? `${isPlainText ? "Concentration" : Renderer.get().render(`{@status Concentration}`)}, ` : ""}${d.concentration ? "u" : d.duration.upTo ? "U" : ""}${d.concentration || d.duration.upTo ? "p to " : ""}${d.duration.amount} ${d.duration.amount === 1 ? d.duration.type : `${d.duration.type}s`}${ptCondition}`;
 				case "permanent": {
@@ -1626,6 +1628,7 @@ Parser.spDurationToFull = function (dur, {isPlainText = false} = {}) {
 
 Parser.DURATION_TYPES = [
 	{type: "instant", full: "Instantaneous"},
+	{type: "sustained", full: "Sustained"},
 	{type: "timed", hasAmount: true},
 	{type: "permanent", hasEnds: true},
 	{type: "special"},

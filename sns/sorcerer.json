@@ -1,0 +1,1485 @@
+{
+  "_meta": {
+    "optionalFeatureTypes": {
+      "AI": "Arcane Innovation"
+    }
+  },
+  "class": [
+    {
+      "name": "Sorcerer",
+      "source": "sns",
+      "hd": {
+        "number": 1,
+        "faces": 6
+      },
+      "defences": {
+        "fort": 2,
+        "wil": 2
+      },
+      "spellcastingAbility": "cha",
+      "casterProgression": "full",
+      "cantripProgression": [
+        4,
+        4,
+        4,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6
+      ],
+      "startingProficiencies": {
+        "weapons": [
+          "daggers",
+          "darts",
+          "slings",
+          "quarterstaves",
+          "light crossbows"
+        ],
+        "skills": [
+          {
+            "choose": {
+              "from": [
+                "deception",
+                "insight",
+                "intimidation",
+                "magiscience",
+                "persuasion",
+                "religion"
+              ],
+              "count": 2
+            }
+          }
+        ]
+      },
+      "classTableGroups": [
+        {
+          "colLabels": [
+            "Sorcery Points",
+            "{@filter Innovations Known|optionalfeatures|feature type=ai}",
+            "{@filter Cantrips Known|spells|level=0|class=Sorcerer}",
+            "Spells Prepared"
+          ],
+          "rows": [
+            [
+              0,
+              0,
+              4,
+              2
+            ],
+            [
+              2,
+              0,
+              4,
+              3
+            ],
+            [
+              3,
+              0,
+              4,
+              4
+            ],
+            [
+              4,
+              1,
+              5,
+              5
+            ],
+            [
+              5,
+              1,
+              5,
+              6
+            ],
+            [
+              6,
+              1,
+              5,
+              7
+            ],
+            [
+              7,
+              1,
+              5,
+              8
+            ],
+            [
+              8,
+              2,
+              5,
+              9
+            ],
+            [
+              9,
+              2,
+              5,
+              10
+            ],
+            [
+              10,
+              2,
+              6,
+              11
+            ],
+            [
+              11,
+              2,
+              6,
+              12
+            ],
+            [
+              12,
+              3,
+              6,
+              12
+            ],
+            [
+              13,
+              3,
+              6,
+              13
+            ],
+            [
+              14,
+              3,
+              6,
+              13
+            ],
+            [
+              15,
+              3,
+              6,
+              14
+            ],
+            [
+              16,
+              4,
+              6,
+              14
+            ],
+            [
+              17,
+              4,
+              6,
+              15
+            ],
+            [
+              18,
+              4,
+              6,
+              15
+            ],
+            [
+              19,
+              4,
+              6,
+              16
+            ],
+            [
+              20,
+              5,
+              6,
+              16
+            ]
+          ]
+        },
+        {
+          "title": "Spell Slots per Spell Level",
+          "colLabels": [
+            "{@filter 1st|spells|level=1|class=Sorcerer}",
+            "{@filter 2nd|spells|level=2|class=Sorcerer}",
+            "{@filter 3rd|spells|level=3|class=Sorcerer}",
+            "{@filter 4th|spells|level=4|class=Sorcerer}",
+            "{@filter 5th|spells|level=5|class=Sorcerer}",
+            "{@filter 6th|spells|level=6|class=Sorcerer}",
+            "{@filter 7th|spells|level=7|class=Sorcerer}",
+            "{@filter 8th|spells|level=8|class=Sorcerer}",
+            "{@filter 9th|spells|level=9|class=Sorcerer}"
+          ],
+          "rowsSpellProgression": [
+            [
+              2,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              3,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              4,
+              2,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              4,
+              3,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              4,
+              3,
+              2,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              4,
+              3,
+              3,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              4,
+              3,
+              3,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              4,
+              3,
+              3,
+              2,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              4,
+              3,
+              3,
+              3,
+              1,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              4,
+              3,
+              3,
+              3,
+              2,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              4,
+              3,
+              3,
+              3,
+              2,
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              4,
+              3,
+              3,
+              3,
+              2,
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              4,
+              3,
+              3,
+              3,
+              2,
+              1,
+              1,
+              0,
+              0
+            ],
+            [
+              4,
+              3,
+              3,
+              3,
+              2,
+              1,
+              1,
+              0,
+              0
+            ],
+            [
+              4,
+              3,
+              3,
+              3,
+              2,
+              1,
+              1,
+              1,
+              0
+            ],
+            [
+              4,
+              3,
+              3,
+              3,
+              2,
+              1,
+              1,
+              1,
+              0
+            ],
+            [
+              4,
+              3,
+              3,
+              3,
+              2,
+              1,
+              1,
+              1,
+              1
+            ],
+            [
+              4,
+              3,
+              3,
+              3,
+              3,
+              1,
+              1,
+              1,
+              1
+            ],
+            [
+              4,
+              3,
+              3,
+              3,
+              3,
+              2,
+              1,
+              1,
+              1
+            ],
+            [
+              4,
+              3,
+              3,
+              3,
+              3,
+              2,
+              2,
+              1,
+              1
+            ]
+          ]
+        }
+      ],
+      "classFeatures": [
+        {
+          "classFeature": "First Subclass Tier 1|Sorcerer|sns|1|sns",
+          "gainSubclassFeature": true
+        },
+        "Spellcasting|Sorcerer|sns|1|sns",
+        "Font of Magic|Sorcerer|sns|2|sns",
+        "Manifestation|Sorcerer|sns|2|sns",
+        "Latent Power|Sorcerer|sns|3|sns",
+        "Metamagics|Sorcerer|sns|3|sns",
+        {
+          "classFeature": "First Subclass Tier 2|Sorcerer|sns|3|sns",
+          "gainSubclassFeature": true
+        },
+        "Ability Score Improvement|Sorcerer|sns|4|sns",
+        "Arcane Innovations|Sorcerer|sns|4|sns",
+        "Additional Metamagics|Sorcerer|sns|5|sns",
+        {
+          "classFeature": "First Subclass Tier 3|Sorcerer|sns|5|sns",
+          "gainSubclassFeature": true
+        },
+        "Arcane Refinement|Sorcerer|sns|6|sns",
+        {
+          "classFeature": "First Subclass Tier 4|Sorcerer|sns|7|sns",
+          "gainSubclassFeature": true
+        },
+        "Ability Score Improvement|Sorcerer|sns|8|sns",
+        "Rapturous Presence|Sorcerer|sns|9|sns",
+        {
+          "classFeature": "First Subclass Tier 5|Sorcerer|sns|9|sns",
+          "gainSubclassFeature": true
+        },
+        "Additional Metamagics|Sorcerer|sns|10|sns",
+        "Second Subclass Tier 1|Sorcerer|sns|11|sns",
+        "Ability Score Improvement|Sorcerer|sns|12|sns",
+        "Evolving Manifestation|Sorcerer|sns|12|sns",
+        "Second Subclass Tier 2|Sorcerer|sns|13|sns",
+        "Additional Metamagics|Sorcerer|sns|14|sns",
+        "Major Metamagic|Sorcerer|sns|15|sns",
+        "Second Subclass Tier 3|Sorcerer|sns|15|sns",
+        "Ability Score Improvement|Sorcerer|sns|16|sns",
+        "Second Subclass Tier 4|Sorcerer|sns|17|sns",
+        "Additional Metamagics|Sorcerer|sns|18|sns",
+        "Ability Score Improvement|Sorcerer|sns|19|sns",
+        "Second Subclass Tier 5|Sorcerer|sns|19|sns",
+        "Arcane Clutch|Sorcerer|sns|20|sns",
+        "Explosive Magics|Sorcerer|sns|20|sns",
+        "Additional Major Metamagic|Sorcerer|sns|20|sns"
+      ],
+      "subclassTitle": "Sorcerer Subclass"
+    }
+  ],
+  "subclass": [
+    {
+      "name": "Annihilator",
+      "shortName": "Annihilator",
+      "source": "sns",
+      "className": "Sorcerer",
+      "classSource": "sns",
+      "subclassFeatures": [
+        "Annihilator|Sorcerer|sns|Annihilator|sns|1",
+        "Overwhelm|Sorcerer|sns|Annihilator|sns|3",
+        "Consuming Vortex|Sorcerer|sns|Annihilator|sns|5",
+        "Unboil an Egg|Sorcerer|sns|Annihilator|sns|7",
+        "The Teeth of the Gyre|Sorcerer|sns|Annihilator|sns|9"
+      ]
+    }
+  ],
+  "classFeature": [
+    {
+      "name": "First Subclass Tier 1",
+      "source": "sns",
+      "className": "Sorcerer",
+      "classSource": "sns",
+      "level": 1,
+      "entries": [
+        "At 1st level, you gain the tier 1 feature from your first subclass"
+      ]
+    },
+    {
+      "name": "First Subclass Tier 2",
+      "source": "sns",
+      "className": "Sorcerer",
+      "classSource": "sns",
+      "level": 3,
+      "entries": [
+        "At 3rd level, you gain the tier 2 feature from your first subclass"
+      ]
+    },
+    {
+      "name": "First Subclass Tier 3",
+      "source": "sns",
+      "className": "Sorcerer",
+      "classSource": "sns",
+      "level": 5,
+      "entries": [
+        "At 5th level, you gain the tier 3 feature from your first subclass"
+      ]
+    },
+    {
+      "name": "First Subclass Tier 4",
+      "source": "sns",
+      "className": "Sorcerer",
+      "classSource": "sns",
+      "level": 7,
+      "entries": [
+        "At 7th level, you gain the tier 4 feature from your first subclass"
+      ]
+    },
+    {
+      "name": "First Subclass Tier 5",
+      "source": "sns",
+      "className": "Sorcerer",
+      "classSource": "sns",
+      "level": 9,
+      "entries": [
+        "At 9th level, you gain the tier 5 feature from your first subclass"
+      ]
+    },
+    {
+      "name": "Second Subclass Tier 1",
+      "source": "sns",
+      "className": "Sorcerer",
+      "classSource": "sns",
+      "level": 11,
+      "entries": [
+        "At 11th level, you gain the tier 1 feature from your second subclass"
+      ]
+    },
+    {
+      "name": "Second Subclass Tier 2",
+      "source": "sns",
+      "className": "Sorcerer",
+      "classSource": "sns",
+      "level": 13,
+      "entries": [
+        "At 13th level, you gain the tier 2 feature from your second subclass"
+      ]
+    },
+    {
+      "name": "Second Subclass Tier 3",
+      "source": "sns",
+      "className": "Sorcerer",
+      "classSource": "sns",
+      "level": 15,
+      "entries": [
+        "At 15th level, you gain the tier 3 feature from your second subclass"
+      ]
+    },
+    {
+      "name": "Second Subclass Tier 4",
+      "source": "sns",
+      "className": "Sorcerer",
+      "classSource": "sns",
+      "level": 17,
+      "entries": [
+        "At 17th level, you gain the tier 4 feature from your second subclass"
+      ]
+    },
+    {
+      "name": "Second Subclass Tier 5",
+      "source": "sns",
+      "className": "Sorcerer",
+      "classSource": "sns",
+      "level": 19,
+      "entries": [
+        "At 19th level, you gain the tier 5 feature from your second subclass"
+      ]
+    },
+    {
+      "name": "Spellcasting",
+      "source": "sns",
+      "className": "Sorcerer",
+      "classSource": "sns",
+      "level": 1,
+      "entries": [
+        "You have awoken a latent magic within yourself caused by something you were exposed to, a quirk of an ancestor that has now manifested in you, supernatural experimentation, or something else entirely. This conduit, which you may not yet fully understand, fuels your spellcasting.",
+        {
+          "type": "entries",
+          "name": "Cantrips",
+          "entries": [
+            "At 1st level, you know four cantrips of your choice from the {@filter sorcerer spell list|spells|level=0|class=sorcerer}. You learn additional sorcerer cantrips of your choice at higher levels, as shown in the Cantrips Known column of the Sorcerer table."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Preparing and Casting Spells",
+          "entries": [
+            "The Sorcerer table shows how many spell slots you have to cast your sorcerer spells of 1st level and higher. To cast one of these spells, you must expend a slot of the spell's level or higher. You regain all expended spell slots when you finish a long rest.",
+            "You prepare the list of sorcerer spells that are available for you to cast. To do so, choose a number of sorcerer spells from the {@filter sorcerer spell list|spells|class=sorcerer} equal to the value in the Spells Prepared column of the Sorcerer table. The spells must be of a level for which you have spell slots.",
+            "For example, if you're a 3rd-level sorcerer, you have four 1st-level and two 2nd-level spell slots. Your list of prepared spells can include four spells of 1st or 2nd level, in any combination, chosen from the sorcerer spell list. If you prepare the 1st-level spell {@spell magic missile|sns}, you can cast it using a 1st-level or a 2nd-level slot. Casting the spell doesn't remove it from your list of prepared spells.",
+            "You can change your list of prepared spells when you finish a long rest."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Spellcasting Ability",
+          "entries": [
+            "Charisma is your spellcasting ability for your sorcerer spells, as your magic is fueled by an attunement to your very soul. You use your Charisma whenever a spell refers to your spellcasting ability."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Spellcasting Focus",
+          "entries": [
+            "You can use an {@item arcane focus|phb} as a spellcasting focus for your sorcerer spells."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Font of Magic",
+      "source": "sns",
+      "className": "Sorcerer",
+      "classSource": "sns",
+      "level": 2,
+      "entries": [
+        "At 2nd level, you've begun to understand the well of power within you that you draw from to cast your magics. Up until now, it's just been something abstract, maybe hardly understood, but now you can use it in a precise manner to fuel your magics. It grants you a new resource in the form of Sorcery Points, as well as a way to use them.",
+        {
+          "type": "entries",
+          "name": "Sorcery Points",
+          "entries": [
+            "You have 2 Sorcery Points, and you gain more as you reach higher levels, as shown in the Sorcery Points column of the Sorcerer table. You can never have more Sorcery Points than shown on the table for your level. You regain all spent Sorcery Points when you finish a long rest."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Flexible Casting",
+          "entries": [
+            "You can use your Sorcery Points to gain additional spell slots, or sacrifice spell slots to gain additional Sorcery Points.",
+            {
+              "type": "list",
+              "style": "list-no-bullets",
+              "items": [
+                {
+                  "type": "item",
+                  "name": "Conversion",
+                  "entries": [
+                    "You can transform unexpended Sorcery Points into one spell slot, or vice versa, as a bonus action. The Creating Spell Slots table shows the cost of creating a spell slot of a given level, or the value of sacrificing a spell slot for Sorcery Points. You cannot convert spell slots of 6th-level or higher."
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "table",
+              "caption": "Creating Spell Slots",
+              "colLabels": [
+                "Spell Slot Level",
+                "Sorcery Point Cost"
+              ],
+              "colStyles": [
+                "col-2 text-center",
+                "col-2 text-center"
+              ],
+              "rows": [
+                [
+                  "1st",
+                  "2"
+                ],
+                [
+                  "2nd",
+                  "3"
+                ],
+                [
+                  "3rd",
+                  "5"
+                ],
+                [
+                  "4th",
+                  "6"
+                ],
+                [
+                  "5th",
+                  "7"
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Manifestation",
+      "source": "sns",
+      "className": "Sorcerer",
+      "classSource": "sns",
+      "level": 2,
+      "entries": [
+        "At 2nd level, you also choose one of the following manifestations, which represents a kind of energy you are especially effective at producing. When you cast a spell that deals acid, cold, fire, lightning, poison, or thunder damage, you can change the damage type to your manifestation's damage type.",
+        {
+          "type": "entries",
+          "name": "Blizzard (Cold)",
+          "entries": [
+            "When you cast a spell that deals cold damage, you can spend 1 sorcery point and choose one creature you can see. If that creature takes cold damage from the spell, it is also chilled, reducing its movement speeds by 10 feet for a number of rounds equal to the level of the spell (minimum 1 round)."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Corrosion (Acid)",
+          "entries": [
+            "When you cast a spell that deals acid damage, you can spend 1 sorcery point and choose one creature you can see. If that creature takes acid damage from the spell, its armour is reduced by 2 until the end of your next turn."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Hurricane (Lightning or Thunder)",
+          "entries": [
+            "You can treat both lightning and thunder damage as your manifestation's damage types. When you cast a spell that deals lightning or thunder damage, you can spend 1 sorcery point to produce a thunderous blast around you. Large or smaller creatures adjacent to you must make a save, being pushed back 10 feet and knocked {@condition prone|sns} on a fail."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Inferno (Fire)",
+          "entries": [
+            "When you cast a spell that deals fire damage, you can spend 1 sorcery point and choose one creature you can see. If that creature takes fire damage from the spell, it is also set ablaze, suffering {@dice 2d4} ongoing fire harm for a number of rounds equal to the spell's level, or until it uses an action to put itself out."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Venom (Poison)",
+          "entries": [
+            "When you cast a spell that deals poison damage, you can spend 1 sorcery point, causing creatures immune to poison damage to take half damage, and creatures resistant to poison damage to take full damage."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Ability Score Improvement",
+      "source": "sns",
+      "className": "Sorcerer",
+      "classSource": "sns",
+      "level": 4,
+      "entries": [
+        "When you reach 4th level, you can increase one ability score of your choice by 1. As normal, you can't increase an ability score above 20 using this feature. Additionally, you gain a feat."
+      ]
+    },
+    {
+      "name": "Ability Score Improvement",
+      "source": "sns",
+      "className": "Sorcerer",
+      "classSource": "sns",
+      "level": 8,
+      "entries": [
+        "When you reach 8th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature."
+      ]
+    },
+    {
+      "name": "Ability Score Improvement",
+      "source": "sns",
+      "className": "Sorcerer",
+      "classSource": "sns",
+      "level": 12,
+      "entries": [
+        "When you reach 12th level, you can increase one ability score of your choice by 2, or your can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature."
+      ]
+    },
+    {
+      "name": "Ability Score Improvement",
+      "source": "sns",
+      "className": "Sorcerer",
+      "classSource": "sns",
+      "level": 16,
+      "entries": [
+        "When you reach 16th level, you can increase one ability score of your choice by 2, or your can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature."
+      ]
+    },
+    {
+      "name": "Ability Score Improvement",
+      "source": "sns",
+      "className": "Sorcerer",
+      "classSource": "sns",
+      "level": 19,
+      "entries": [
+        "When you reach 19th level, you can increase one ability score of your choice by 2, or your can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature."
+      ]
+    },
+    {
+      "name": "Latent Power",
+      "source": "sns",
+      "className": "Sorcerer",
+      "classSource": "sns",
+      "level": 3,
+      "entries": [
+        "By 3rd level, your power starts to manifest as something people can subconsciously sense, even if they know nothing beyond the mundane, and it affects how they see you. Choose one of the following.",
+        {
+          "type": "entries",
+          "name": "All Eyes",
+          "entries": [
+            "You can an expertise die on Persuasion checks. In addition, you can use your magic to make your presence known. As a bonus action, you can spend 1 sorcery point to put out a subtle pulse that causes all creatures within 60 feet to take notice of you, allowing you to speak and be heard even in the midst of chaos. During combat, this notice lasts only a split second - not long enough to distract, but allowing you to make a Charisma check as part of the bonus action used to activate this featutre."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Daunting Energy",
+          "entries": [
+            "You can an expertise die on Intimidation checks. If you fail an ability check against a creature trying to intimidate you, or an attack would cause you to become {@condition frightened|sns}, you can spend 1 sorcery point to immediately reroll the check or attack."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Unsuspecting",
+          "entries": [
+            "You can an expertise die on Deception checks. After you make a Deception check against a humanoid, you can use a combination of fast-talk and your magic to make them forget your misstep, spending 1 sorcery point to reroll the check. On a success, their memory skips a beat and fills in the gap with your new story. On a failure from the reroll, not only do they not believe you, but anyone who can cast spells and observed the exchange (including your target, if applicable) knows that arcane subterfuge was attempted."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Metamagics",
+      "source": "sns",
+      "className": "Sorcerer",
+      "classSource": "sns",
+      "level": 3,
+      "entries": [
+        "At 3rd level, you gain the ability to twist your spells to suit your needs. You gain two minor Metamagic options, and one moderate Metamagic option. You gain another minor Metamagic option at 5th level, 10th level, 14th level, and 18th level. You gain an additional moderate Metamagic option at 10th and 18th level. Whenever you complete a long rest, you can replace any Metamagic options with new ones.",
+        "You can use only one Metamagic option on a spell when you cast it, unless otherwise noted.",
+        {
+          "type": "entries",
+          "name": "Minor Metamagic",
+          "entries": [
+            {
+              "type": "list",
+              "items": [
+                {
+                  "type": "item",
+                  "name": "Delayed Spell",
+                  "entries": [
+                    "When you ready a spell, you can spend 1 sorcery point. The spell can be held for up to 1 minute, instead of 1 round."
+                  ]
+                },
+                {
+                  "type": "item",
+                  "name": "Distant Spell",
+                  "entries": [
+                    "When you cast a spell that has a range of 5 feet or greater, you can spend 1 sorcery point to double the range of the spell. Alternatively, if you cast a spell hat has a range of touch, you can spend 1 sorcery point to make the range of the spell 20 feet."
+                  ]
+                },
+                {
+                  "type": "item",
+                  "name": "Enduring Spell",
+                  "entries": [
+                    "When you cast a spell that has a duration of 1 minute or longer, you can spend 1 sorcery point to double the duration, to a maximum of 24 hours."
+                  ]
+                },
+                {
+                  "type": "item",
+                  "name": "Reliable Spell",
+                  "entries": [
+                    "When you roll a 4 or lower on a spell attack, you can spend 1 sorcery point to reroll the attack. You can use Reliable Spell even if you have already used a different Metamagic option during the casting of the spell."
+                  ]
+                },
+                {
+                  "type": "item",
+                  "name": "Subdual Spell",
+                  "entries": [
+                    "When damage or harm from one of your spells reduces one or more creature to 0 hit points, you can use your reaction and spend 1 sorcery point to make that spell non-lethal, even if it usually wouldn't be possible."
+                  ]
+                },
+                {
+                  "type": "item",
+                  "name": "Subtle Spell",
+                  "entries": [
+                    "When you cast a spell, you can spend 1 sorcery point to cast it without any vocalised or seen components."
+                  ]
+                },
+                {
+                  "type": "item",
+                  "name": "Treacherous Spell",
+                  "entries": [
+                    "When you cast a spell, you can spend 1 sorcery point to alter its components in subtle ways. A creature attempting to identify the spell perceives it as a different spell of your choice, of the same or lower level. Attempts to {@spell counterspell|sns} this spell are made at disadvantage."
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Moderate Metamagic",
+          "entries": [
+            {
+              "type": "list",
+              "items": [
+                {
+                  "type": "item",
+                  "name": "Careful Spell",
+                  "entries": [
+                    "When you cast a spell with an instantaneous duration that affects an area, you can spend 1 sorcery point, and choose a number of creatures up to your Charisma modifier in the area (minimum of one creature). A chosen creature is unaffected by the spell."
+                  ]
+                },
+                {
+                  "type": "item",
+                  "name": "Empowered Spell",
+                  "entries": [
+                    "When you roll damage for a spell, you can spend 1 sorcery point to reroll a number of the damage dice up to your Charisma modifier (minimum of one). You must use the new rolls. You can use Empowered Spell even if you have already used a different Metamagic option during the casting of the spell."
+                  ]
+                },
+                {
+                  "type": "item",
+                  "name": "Heightened Spell",
+                  "entries": [
+                    "When you cast a spell that makes a non-armour attack, you can spend 3 Sorcery Points to give that attack advantage against one target of the spell."
+                  ]
+                },
+                {
+                  "type": "item",
+                  "name": "Quickened Spell",
+                  "entries": [
+                    "When you cast a spell that has a casting time of 1 action, you can spend 2 Sorcery Points to change the casting time to 1 bonus action for this casting. As part of this, any attacks the spell may make are converted to requiring the target to make a save, where a success counts as a critical failure on the original attack, and a failure counts as a standard success. Additionally, any damage the spell deals is caused as harm instead."
+                  ]
+                },
+                {
+                  "type": "item",
+                  "name": "Reflexive Spell",
+                  "entries": [
+                    "Immediately before rolling initiative, you can spend 2 Sorcery Points to cast a spell of up to 3rd-level that has a casting time of 1 action or 1 bonus action. The spell activates before any other actions in initiative, but doing so uses your action for your first turn in the combat."
+                  ]
+                },
+                {
+                  "type": "item",
+                  "name": "Refracting Spell",
+                  "entries": [
+                    "When you cast a spell that involves a damaging spell armour attack and targets only a single creature, you can spend an additional 2 Sorcery Points. If the attack hits, a creature adjacent to the original target suffers half the attack's damage as harm of the attack's base type."
+                  ]
+                },
+                {
+                  "type": "item",
+                  "name": "Twinned Spell",
+                  "entries": [
+                    "When you cast a spell that targets only one creature and doesn't have a range of Self, you can spend a number of Sorcery Points equal to the spell's level (or 1 for a cantrip) to target a second creature in range with the same spell.",
+                    "To be eligible, a spell must be incapable of targeting more than one creature at the spell's current level. For example, {@spell magic missile|sns} and {@spell scorching ray|sns} are ineligible, but {@spell ray of frost|sns} can be modified by Twinned Spell."
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Additional Metamagics",
+      "source": "sns",
+      "className": "Sorcerer",
+      "classSource": "sns",
+      "level": 5,
+      "entries": [
+        "At 5th level, you gain one additional minor Metamagic option."
+      ]
+    },
+    {
+      "name": "Additional Metamagics",
+      "source": "sns",
+      "className": "Sorcerer",
+      "classSource": "sns",
+      "level": 10,
+      "entries": [
+        "At 10th level, you gain one additional minor Metamagic option and one additional major Metamagic option."
+      ]
+    },
+    {
+      "name": "Additional Metamagics",
+      "source": "sns",
+      "className": "Sorcerer",
+      "classSource": "sns",
+      "level": 14,
+      "entries": [
+        "At 14th level, you gain one additional minor Metamagic option."
+      ]
+    },
+    {
+      "name": "Additional Metamagics",
+      "source": "sns",
+      "className": "Sorcerer",
+      "classSource": "sns",
+      "level": 18,
+      "entries": [
+        "At 18th level, you gain one additional minor Metamagic option and one additional major Metamagic option."
+      ]
+    },
+    {
+      "name": "Arcane Innovations",
+      "source": "sns",
+      "className": "Sorcerer",
+      "classSource": "sns",
+      "level": 4,
+      "entries": [
+        "At 4th level, you acquire insights in arcana that others would never realise. You gain an {@filter arcane innovation|optionalfeatures|feature type=ai} of your choice. Your arcane innovations are detailed at the end of the class description. The Innovations Known column of the Sorcerer table shows when you gain additional innovations."
+      ]
+    },
+    {
+      "name": "Arcane Refinement",
+      "source": "sns",
+      "className": "Sorcerer",
+      "classSource": "sns",
+      "level": 6,
+      "entries": [
+        "At 6th level, your command over your magic becomes more precise, and you are able to assert more control over it. Choose one of the following.",
+        {
+          "type": "entries",
+          "name": "Deep Font",
+          "entries": [
+            "You can reach beyond your limits to draw more power from within. When you finish a short rest, you may expend a number of Hit Dice up to your Charisma modifier to regain some of your magic essence. For each hit die expended in this way, you regain 2 Sorcery Points. Once you have used this feature, you cannot do so again until you finish a long rest."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Patient Aptitude",
+          "entries": [
+            "You may pick a number of spells with the ritual tag equal to your Charisma modifier. These spells need not be from the sorcerer spell list, but they must be of a level for which you have spell slots. You can cast these spells as rituals, though you don't gain the ability to cast them normally with spell slots, nor do they count toward your spells prepared. If you increase your Charisma modifier, the number of ritual spells you know also increases. Whenever you finish a long rest, you may replace any of these ritual spells with new ones."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Prodigious Innovator",
+          "entries": [
+            "Choose three cantrips from any spell list. These cantrips don't count towards your cantrips known."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Rapturous Presence",
+      "source": "sns",
+      "className": "Sorcerer",
+      "classSource": "sns",
+      "level": 9,
+      "entries": [
+        "Beginning at 9th level, your magic becomes a presence that noticeably bears down on creatures. Choose one of the following.",
+        {
+          "type": "entries",
+          "name": "Larger Than Life",
+          "entries": [
+            "Your power tends to distort people's perception of you, causing you to seem more dangerous than you are. You have advantage on Intimidation checks made to threaten someone with your magic. This benefits your Mug journey activity checks. On a failure, your target is unconvinced and unless you make good on your threat with an unambiguous show of force to prove your mettle, this feature no longer functions until you prove your reputation again. Additionally, features and traits that attempt to evaluate how tough you are, such as the fighter's Size Up, always give the impression that you are 3 levels higher than you actually are."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Nobody's Fool",
+          "entries": [
+            "People find it difficult to lie to you or to conceal their motives in your presence. You gain a bonus to Insight checks equal to your Charisma modifier. In addition, you can spend 1 sorcery point as an action to project an aura of honesty. For the next 10 minutes, creatures within 10 feet of you have disadvantage on Deception checks made to lie or conceal the truth. When a creature in this aura fails a Deception check, it accidentally blurts out something it didn't mean to while attempting to spin its lie."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Otherworldly",
+          "entries": [
+            "You have a way with creatures wildly unlike yourself. Select three of the following creature types: aberration, celestial, dragon, elemental, fey, fiend, or undead. You have advantage on Charisma checks to make a first impression on a creature of one of your chosen types, and if you do not share a common language, you can still communicate some simple concepts to them such as 'friendly', 'help', and 'run'. In addition, by spending 2 Sorcery Points and 1 minute in meditation, you can change your creature type to one of the chosen creature types. This transformation lasts for 1 hour, and cannot be reversed early without repeating the meditation and spending the Sorcery Points again."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Evolving Manifestation",
+      "source": "sns",
+      "className": "Sorcerer",
+      "classSource": "sns",
+      "level": 12,
+      "entries": [
+        "At 12th level, you gain a deeper understanding of your magics. You may either take the improved from of the manifestation you selected at 2nd level, or you may choose an additional feature from the Manifestation list.",
+        {
+          "type": "entries",
+          "name": "Evolving Blizzard",
+          "entries": [
+            "When you cast a levelled spell that deals cold damage, you can spend 1 sorcery point to gain {@dice 1d6} temporary hit points per level of the spell cast. While you have these temporary hit points and a creature hits you with a melee weapon armour attack, the attacker suffers {@dice 1d10} cold harm. These temporary hit points last for 1 hour."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Evolving Corrosion",
+          "entries": [
+            "When you cast a levelled spell that deals acid damage, you can spend 1 sorcery point to create a 10-foot radius pool of acid centred on either the target of the spell or the spell's point of origin. The area is difficult terrain, and when a creature ends its turn in the area it suffers {@dice 2d8} acid harm. The pool remains for 1 minute of until you use a bonus action to dismiss it."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Evolving Hurricane",
+          "entries": [
+            "When you cast a levelled spell that deals thunder or lightning damage, you can spend 1 sorcery point to create a 15-foot radius storm centred on you, which moves with you. The area of the storm is heavily obscured and counts as difficult terrain, but you can see and move through it normally. At the end of each subsequent turn you can spend an additional sorcery point to maintain it, otherwise it dissipates."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Evolving Inferno",
+          "entries": [
+            "When you cast a levelled spell that deals fire damage, you can spend 1 sorcery point to store some of the energy of the spell as a flame you hold in one hand. You can use an action to throw this flame, making a ranged spell armour attack against a target you can see within 30 feet, dealing {@dice 1d8} fire damage per level of the spell cast to trigger this effect. The flame lasts for up to 1 minute or until it is thrown."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Evolving Venom",
+          "entries": [
+            "When you cast a spell that deals poison damage, you can spend 1 sorcery point and choose one creature you can see. If the target creature takes poison damage from the spell, it suffers {@dice 2d6} ongoing poison harm for 1 minute or until a creature uses an action to treat the victim (requiring a Medicine check against your standard DC)."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Major Metamagic",
+      "source": "sns",
+      "className": "Sorcerer",
+      "classSource": "sns",
+      "level": 15,
+      "entries": [
+        "At 15th level, you gain one major metamagic option. These are more powerful expressions of your magic, though they come at significantly higher costs. You gain an additional major metamagic option at 20th level.",
+        {
+          "type": "entries",
+          "name": "Major Metamagic Options",
+          "entries": [
+            {
+              "type": "list",
+              "items": [
+                {
+                  "type": "item",
+                  "name": "Consumptive Spell",
+                  "entries": [
+                    "When you cast a spell that deals damage, you can spend 4 Sorcery Points. You, or a creature within 10 feet of you, regain hit points equal to half the damage roll for the spell. If you roll damage multiple times for a spell, you only restore hit points from the first roll."
+                  ]
+                },
+                {
+                  "type": "item",
+                  "name": "Contingent Spell",
+                  "entries": [
+                    "When you cast a spell, rather than have it go off immediately, you can spend 6 Sorcery Points and describe an external condition. When that condition occurs before you finish a long rest, you can use your reaction to cast the spell. You can only have one Contingent Spell at a time."
+                  ]
+                },
+                {
+                  "type": "item",
+                  "name": "Echo Spell",
+                  "entries": [
+                    "When you cast a spell of 5th-level or lower, you can spend Sorcery Points equal to the sorcery point conversion cost for a spell slot of that level (see Table: Creating Spell Slots). The spell repeats on the next turn, originating from the same point and aimed at the same target as the first instance of the spell. Any attacks the repeated spell may make are converted to requiring the target to make a save, where a success counts as a critical failure on the original attack, and a failure counts as a standard success. Additionally, any damage the repeated spell deals is caused as harm instead."
+                  ]
+                },
+                {
+                  "type": "item",
+                  "name": "Intense Spell",
+                  "entries": [
+                    "Before rolling damage for a spell or seeing the result of any attack rolls for the spell, you can spend Sorcery Points equal to the spell's level. The spell deals its maximum possible damage to one of its targets."
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Additional Major Metamagic",
+      "source": "sns",
+      "className": "Sorcerer",
+      "classSource": "sns",
+      "level": 20,
+      "entries": [
+        "At 20th level, you gain one additional major Metamagic option."
+      ]
+    },
+    {
+      "name": "Arcane Clutch",
+      "source": "sns",
+      "className": "Sorcerer",
+      "classSource": "sns",
+      "level": 20,
+      "entries": [
+        "At 20th level, you can reclaim some fraction of the energies you expend as you cast. Whenever you cast a spell of 3rd-level or higher, you regain Sorcery Points equal to a third of the expended spell slot's level."
+      ]
+    },
+    {
+      "name": "Explosive Magics",
+      "source": "sns",
+      "className": "Sorcerer",
+      "classSource": "sns",
+      "level": 20,
+      "entries": [
+        "Also at 20th level, the magic you bring to bear can be made to build upon itself. When you cast a spell of 4th-level or lower that deals damage, you can spend a number of Sorcery Points equal to half the spell's level (minimum 1) to reroll any dice that have the maximum result and add them to the total. For example, if you cast an exploding fireball and roll three 6s amongst your damage dice, you roll an additional {@dice 3d6}, and continue to reroll any 6s, adding them to the total damage dealt."
+      ]
+    }
+  ],
+  "subclassFeature": [
+    {
+      "name": "Annihilator",
+      "source": "sns",
+      "className": "Sorcerer",
+      "classSource": "sns",
+      "subclassShortName": "Annihilator",
+      "subclassSource": "sns",
+      "level": 1,
+      "entries": [
+        {
+          "type": "refSubclassFeature",
+          "subclassFeature": "Annihilator Spells|Sorcerer|sns|Annihilator|sns|1"
+        },
+        {
+          "type": "refSubclassFeature",
+          "subclassFeature": "Things Fall Apart|Sorcerer|sns|Annihilator|sns|1"
+        },
+        {
+          "type": "refSubclassFeature",
+          "subclassFeature": "The Churn|Sorcerer|sns|Annihilator|sns|1"
+        },
+        {
+          "type": "refSubclassFeature",
+          "subclassFeature": "Annihilator Major Effects|Sorcerer|sns|Annihilator|sns|1"
+        }
+      ]
+    },
+    {
+      "name": "Annihilator Spells",
+      "source": "sns",
+      "className": "Sorcerer",
+      "classSource": "sns",
+      "subclassShortName": "Annihilator",
+      "subclassSource": "sns",
+      "level": 1,
+      "entries": [
+        "You gain the following spells at the levels listed. These spells always count as prepared for you, and don't count towards your total number of spells prepared.",
+        {
+          "type": "table",
+          "caption": "Annihilator Spells",
+          "colLabels": [
+            "Level",
+            "Spells"
+          ],
+          "colStyles": [
+            "col-2 text-center",
+            "col-10"
+          ],
+          "rows": [
+            [
+              "1st",
+              "{@spell bane|sns}, {@spell corpse explosion|sns}, {@spell false life|sns}, {@spell inflict wounds|sns}"
+            ],
+            [
+              "3rd",
+              "{@spell deadweight|sns}, {@spell lemure transformation|sns}, {@spell ray of enfeeblement|sns}, {@spell shatter|sns}"
+            ],
+            [
+              "5th",
+              "{@spell bestow curse|sns}, {@spell dispel magic|sns}, {@spell slow|sns}, {@spell vampiric touch|sns}"
+            ],
+            [
+              "7th",
+              "{@spell blight|sns}, {@spell confusion|sns}, {@spell control water|sns}, {@spell ice storm|sns}"
+            ],
+            [
+              "9th",
+              "{@spell cloudkill|sns}, {@spell cone of cold|sns}, {@spell contagion|sns}, {@spell insect plague|sns}"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Things Fall Apart",
+      "source": "sns",
+      "className": "Sorcerer",
+      "classSource": "sns",
+      "subclassShortName": "Annihilator",
+      "subclassSource": "sns",
+      "level": 1,
+      "entries": [
+        "At tier 1, your mere touch can cause objects to decay as if with a great passage of time, or simply shatter in an instance. You can spend an action to destroy a small object you are touching, and that no one else is touching. Most magic items, and some particularly resilient materials like adamantine are immune to this. The manner of the destruction varies - rot, erosion, fractures, rust - but generally cannot cause more damage than a person with a sledgehammer spending a round smashing away. This doesn't let you break things faster than usual, it just avoids the need to have a tool or exert yourself."
+      ]
+    },
+    {
+      "name": "The Churn",
+      "source": "sns",
+      "className": "Sorcerer",
+      "classSource": "sns",
+      "subclassShortName": "Annihilator",
+      "subclassSource": "sns",
+      "level": 1,
+      "entries": [
+        "Additionally, starting at tier 1, destruction and death in your presence cascades and feeds on itself.",
+        "At the end of each of your turns, if any creature was reduced to 0 hit points within 30 feet of you since the end of your last turn, you can choose another creature within that range, and cause {@dice 1d10} force harm to it. The force harm increases to {@dice 2d10} at 5th level, {@dice 3d10} at 11th level, and {@dice 4d10} at 17th level."
+      ]
+    },
+    {
+      "name": "Annihilator Major Effects",
+      "source": "sns",
+      "className": "Sorcerer",
+      "classSource": "sns",
+      "subclassShortName": "Annihilator",
+      "subclassSource": "sns",
+      "level": 1,
+      "entries": [
+        "From tier 1, Annihilator Sorcerers have access to the following major effect options:",
+        {
+          "type": "list",
+          "items": [
+            "Immediately trigger the effects of your The Churn feature.",
+            "Immediately recover sorcery points equal to your proficiency bonus. Additionally, the next time you cast a spell this combat, you may choose an additional Metamagic option to modify the spell with."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Overwhelm",
+      "source": "sns",
+      "className": "Sorcerer",
+      "classSource": "sns",
+      "subclassShortName": "Annihilator",
+      "subclassSource": "sns",
+      "level": 3,
+      "header": 2,
+      "entries": [
+        "From tier 3, your cantrips deal full damage on a minor success.",
+        "Additionally, you can focus your Things Fall Apart feature on distant massive objects by spending a sorcery point. If you spend a minute concentrating on an object you can see, you can cause it to fall apart in some way that would naturally be possible. The object must be something that has not been attended to by any sapient being for at least a year - something truly abandoned or wild, like a derelict house, a cliff edge upon which no one camps, or a wild drifting glacier - but can be as large as a hundred feet across. The destruction manifests over the course of a minute. This is seldom of use offensively, but serves as a terrifying display of the power that fuels you."
+      ]
+    },
+    {
+      "name": "Consuming Vortex",
+      "source": "sns",
+      "className": "Sorcerer",
+      "classSource": "sns",
+      "subclassShortName": "Annihilator",
+      "subclassSource": "sns",
+      "level": 5,
+      "header": 2,
+      "entries": [
+        "At tier 3, you can manifest the consuming power of the Gyre to draw creatures towards you or towards your magic.",
+        "When you cast a spell, you can choose either yourself, or a space within the area of the spell you are casting. Before your spell takes effect, creatures of your choice within 120 feet of that spot must make a save, being pushed 20 feet towards that spot on a failure. After you use this feature, you cannot use it again until you complete a long rest."
+      ]
+    },
+    {
+      "name": "Unboil an Egg",
+      "source": "sns",
+      "className": "Sorcerer",
+      "classSource": "sns",
+      "subclassShortName": "Annihilator",
+      "subclassSource": "sns",
+      "level": 7,
+      "header": 2,
+      "entries": [
+        "At tier 4, your understanding of the nature of destruction gives you the ability to undo its damage.",
+        "You can spend 1 sorcery point to cast {@spell cure wounds|sns}, heightened to the highest level spell you can cast.",
+        "Alternatively, you can spend an action and concentrate on a damaged or destroyed object, then spend 1 sorcery point for every 30 feet across that object is. Over the course of a minute, you reverse the damage to the object, potentially restoring it to its prime. This requires concentration, and if your concentration fails, the restoration fails as well.",
+        "This cannot restore things that were reshaped into new items. You can rebuild a shattered boat, but cannot cause the metal in a suit of armour to turn back into an ingot or into raw ore."
+      ]
+    },
+    {
+      "name": "The Teeth of the Gyre",
+      "source": "sns",
+      "className": "Sorcerer",
+      "classSource": "sns",
+      "subclassShortName": "Annihilator",
+      "subclassSource": "sns",
+      "level": 9,
+      "header": 2,
+      "entries": [
+        "At tier 5, you can manifest the heart of the Gyre, which can destroy anything. You can spend a bonus action to create a sphere of annihilation within 5 feet of you, which lasts for one minute. This floating sphere of darkness is a 2-foot-diameter hole in reality that eliminates all matter that it comes into contact with.",
+        "Anything that the sphere touches or that touches it that is not instantly obliterated suffers {@dice 2d10} force harm. This harm increases to {@dice 3d10} at 11th level, and {@dice 4d10} at 17th level.",
+        "The default state of the sphere is stationary, but should a creature be in the way of a moving sphere it suffer's half the sphere's usual force harm.",
+        "While within 60 feet of an uncontrolled sphere of annihilation, you can use an action to make a {@dc 25} Charisma (Magiscience) check and take control of it. On a success, the sphere moves in the direction of your choice a number of 5-foot spaces equal to your Charisma modifier (minimum 1). On a failure, the sphere moves 10 feet towards you instead. If a sphere is controlled by another creature, you may wrest away control by using an action and making a Charisma (Magiscience) check contested by the controlling creature's. On a success, you take control of the sphere and can utilise it as normal. Other creatures attempting to influence it make Magiscience checks and the distance they can move it is based on their Intelligence modifier.",
+        "When you create the sphere, you can immediately move it as if you had successfully controlled it, but afterwards the sphere hovers in place until you or another creature spend an action to try to control it.",
+        "A unique effect happens when a sphere comes into contact with a planar portal or extradimensional space (such as a portable hole). In the case of such an event, the DM rolls {@dice d100} to determine what happens next: on 1-50 the sphere is destroyed, on 51-85 the sphere simply moves through the portal or into the space, and on 86-100 a rift forms that pulls in all creatures and objects within 180 feet. Each object and creature, including the sphere, reappears in a random plane of existence.",
+        "After you use this feature, you cannot use it again until you complete a short or long rest."
+      ]
+    }
+  ],
+  "optionalfeature": [
+    {
+      "name": "Draw Nourishment",
+      "source": "sns",
+      "featureType": [
+        "AI"
+      ],
+      "entries": [
+        "You can consume things that most people wouldn't consider sustenance, though it's hardly pleasant. You can spend 3 Sorcery Points before eating a pound of just about anything organic - bark, grass, cactus flesh, bone, whatever's at hand - and so long as you can stomach the taste, it counts as 1 Supply for you as your body transmutes it into something more edible. A poisonous substance consumed in this way is still poisonous."
+      ]
+    },
+    {
+      "name": "Hot Air",
+      "source": "sns",
+      "featureType": [
+        "AI"
+      ],
+      "entries": [
+        "The source of your magic is strangely buoyant. Any time you have Sorcery Points remaining, your weight is reduced by half, and you have 50% resistance to fall damage. Additionally, while not wearing medium or heavy armour, you float on water."
+      ]
+    },
+    {
+      "name": "Lingering Touch",
+      "source": "sns",
+      "featureType": [
+        "AI"
+      ],
+      "entries": [
+        "When you encounter a shed piece of a creature (such as a lock of hair, bloody bandage, a scale, or a tooth), you you can touch that object and instantly attune to it. You can only be attuned to one such object at a time. If you are carrying the shed piece and sttuned to it when you see the creature from which it originated, you immediately know that it belongs to that creature, at which point the attunement ends. At the DM's discretion, you may learn additional cryptic information from being attuned to such things."
+      ]
+    },
+    {
+      "name": "Retrace",
+      "source": "sns",
+      "featureType": [
+        "AI"
+      ],
+      "entries": [
+        "By spending 1 minute in meditation, you can reflect on the magical aura you leave behind as you travel. After doing so, you can perfectly retrace the steps you've taken in the past 4 hours. This causes your minimum success tier on the Scout journey activity to be failure."
+      ]
+    },
+    {
+      "name": "Mage Hunter",
+      "source": "sns",
+      "featureType": [
+        "AI"
+      ],
+      "entries": [
+        "When tracking a creature that can cast at least 1 spell, you can attempt to do so by focusing on the mystic energy it leaves in its wake, allowing you to use your Charisma for any ability checks made to track it. This does not benefit your journey activities."
+      ]
+    },
+    {
+      "name": "Magnetic Step",
+      "source": "sns",
+      "featureType": [
+        "AI"
+      ],
+      "entries": [
+        "You can move along vertical surfaces at half your Speed without needing to make an ability check. If you end your turn on such a surface, you immediately fall unless you have some other way to support yourself."
+      ]
+    },
+    {
+      "name": "Strange Traces",
+      "source": "sns",
+      "featureType": [
+        "AI"
+      ],
+      "entries": [
+        "While traveling, you can spend 1 sorcery point to obscure your trail. For the next hour, any tracks your group leaves become random, zigzagging, and incomprehensible. Creatures have disadvantage on Survival checks to track you and become lost on a failed check. This grants you advantage on the Cover Tracks journey activity."
+      ]
+    },
+    {
+      "name": "Ominous Insight",
+      "source": "sns",
+      "featureType": [
+        "AI"
+      ],
+      "entries": [
+        "When you know, you know, you know? When you fail a History, Magiscience, or Nature check, you can attempt to draw on your magics to find an answer and reroll the check. On a failure, your attempt clouds your mind and you have disadvantage on Intelligence checks until you finish a short rest. While suffering this disadvantage, you can't use Ominous Insight again."
+      ]
+    },
+    {
+      "name": "Wode Sense",
+      "source": "sns",
+      "featureType": [
+        "AI"
+      ],
+      "entries": [
+        "While traveling, any time you enter an illusory terrain or magic is used to cause you to become lost, you always notice within 1 minute of being affected."
+      ]
+    }
+  ]
+}

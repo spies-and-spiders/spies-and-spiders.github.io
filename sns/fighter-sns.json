@@ -30,15 +30,15 @@
           {
             "choose": {
               "from": [
-                "acrobatics",
-                "animal handling",
-                "athletics",
-                "brawn",
-                "history",
-                "insight",
-                "intimidation",
-                "perception",
-                "survival"
+                "{@skill Athletics|sns}",
+                "{@skill Brawn|sns}",
+                "{@skill Finesse|sns}",
+                "{@skill History|sns}",
+                "{@skill Insight|sns}",
+                "{@skill Intimidation|sns}",
+                "{@skill Nature|sns}",
+                "{@skill Perception|sns}",
+                "{@skill Survival|sns}"
               ],
               "count": 2
             }
@@ -498,7 +498,7 @@
           "type": "entries",
           "name": "Unarmed Fighting",
           "entries": [
-            "Your damage with brawling weapons is increased by 2. If you start your turn grappling a creature, you may deal bludgeoning DoT damage equal to your Strength modifier to any creature you are grappling."
+            "Your damage with brawling weapons is increased by 2. If you start your turn grappling a creature, you may cause bludgeoning harm equal to your Strength modifier to any creature you are grappling."
           ]
         }
       ]
@@ -967,7 +967,7 @@
             "Aim for the Eyes: You aim for the creature's weak and delicate eyes. If the Focus Shot scores a major success, the target is {@condition blinded|sns} until it recovers.",
             "Bring it Down: You aim for weak points on the creature's legs. If the Focus Shot scores a major success, its Speed is reduced by half until it recovers.",
             "Center of Mass: You aim for the heart or its horrid equivalent. Your Focus Shot's critical success range increases by 1.",
-            "Vein Slice: You aim for a vital vein or artery to bleed your target out. If the Focus Shot scores a major success, the target takes {@dice 1d6} ongoing damage of your weapon's base type until it recovers.",
+            "Vein Slice: You aim for a vital vein or artery to bleed your target out. If the Focus Shot scores a major success, the target suffers {@dice 1d6} ongoing harm of your weapon's base type until it recovers.",
             "Wing Clip: You aim for your target's wings. If the Focus Shot scores a major success, the target's flying speed is reduced by half until it recovers. Creatures who are currently flying when this effect begins immediately plummet up to 60 feet down and take falling damage as normal."
           ]
         }
@@ -1047,7 +1047,7 @@
         "SK"
       ],
       "entries": [
-        "You gain a swimming speed equal to your Speed, and may spend 1 exertion to reroll a failed Strength or Dexterity check related to aquatic activity (such as Athletics checks to swim or Acrobatics checks to keep balance on a ship's deck). You may choose whether to use the new roll or the original. In addition, you add your proficiency bonus to the number of minutes you can hold your breath before suffocating, and can spend 1 exertion to hold your breath for additional minutes equal to your proficiency bonus. This does not affect your journey activities."
+        "You gain a swimming speed equal to your Speed, and may spend 1 exertion to reroll a failed Strength or Dexterity check related to aquatic activity (such as {@skill Athletics|sns} checks to swim or {@skill Finesse|sns} checks to keep balance on a ship's deck). You may choose whether to use the new roll or the original. In addition, you add your proficiency bonus to the number of minutes you can hold your breath before suffocating, and can spend 1 exertion to hold your breath for additional minutes equal to your proficiency bonus"
       ]
     },
     {
@@ -1107,7 +1107,7 @@
         "SK"
       ],
       "entries": [
-        "You are used to sleeping light and making the most of your rest. When taking a long rest, add your proficiency bonus to the number of hours you can spend in light activity. In addition, one hour of that time can be spent in strenuous activity near the rest site (such as patrolling, fighting, or other adventuring activities) without interrupting your rest. This allows you to perform an additional disadvantaged journey activity for the day if you wish."
+        "You are used to sleeping light and making the most of your rest. When taking a long rest, add your proficiency bonus to the number of hours you can spend in light activity. In addition, one hour of that time can be spent in strenuous activity near the rest site (such as patrolling, fighting, or other adventuring activities) without interrupting your rest."
       ]
     },
     {
@@ -1127,7 +1127,7 @@
         "SK"
       ],
       "entries": [
-        "Exposed to all kinds of weather over your life, you are inured to all but the most deadly effects. Attacks against you from cold and hot weather, as well as any adverse effects from wind or precipitation, have disadvantage. This also allows you to ignore the effects of these types of weather during journeys, if you wish."
+        "Exposed to all kinds of weather over your life, you are inured to all but the most deadly effects. You gain advantage on saves against cold and hot weather, as well as any adverse effects from wind or precipitation, and such effects have disadvantage on attacks against you."
       ]
     }
   ]

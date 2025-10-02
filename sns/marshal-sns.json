@@ -1,0 +1,1618 @@
+{
+  "_meta": {
+    "optionalFeatureTypes": {
+      "LW": "Lesson of War"
+    }
+  },
+  "class": [
+    {
+      "name": "Marshal",
+      "source": "sns",
+      "hd": {
+        "number": 1,
+        "faces": 10
+      },
+      "defences": {
+        "wil": 4
+      },
+      "startingProficiencies": {
+        "armor": [
+          "light",
+          "medium",
+          "heavy",
+          "shields"
+        ],
+        "weapons": [
+          "simple",
+          "martial"
+        ],
+        "skills": [
+          {
+            "choose": {
+              "from": [
+                "athletics",
+                "brawn",
+                "history",
+                "insight",
+                "intimidation",
+                "medicine",
+                "perception",
+                "persuasion"
+              ],
+              "count": 2
+            }
+          }
+        ]
+      },
+      "classTableGroups": [
+        {
+          "colLabels": [
+            "Commanding Presence",
+            "Followers",
+            "{@filter Maneuvers Known|spells|Subschool=biting zephyr;gallant heart;mirror's glint;mist and shade;rapid current;razor's edge;sanguine knot;spirited steed;unending wheel}",
+            "Maneuver Degree",
+            "{@filter Lessons Known|optionalfeatures|feature type=lw}"
+          ],
+          "rows": [
+            [
+              "10 feet",
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              "10 feet",
+              0,
+              2,
+              "{@filter 1st|spells|Subschool=biting zephyr;gallant heart;mirror's glint;mist and shade;rapid current;razor's edge;sanguine knot;spirited steed;unending wheel|level=1}",
+              1
+            ],
+            [
+              "10 feet",
+              0,
+              3,
+              "{@filter 1st|spells|Subschool=biting zephyr;gallant heart;mirror's glint;mist and shade;rapid current;razor's edge;sanguine knot;spirited steed;unending wheel|level=1}",
+              1
+            ],
+            [
+              "10 feet",
+              0,
+              3,
+              "{@filter 2nd|spells|Subschool=biting zephyr;gallant heart;mirror's glint;mist and shade;rapid current;razor's edge;sanguine knot;spirited steed;unending wheel|level=2}",
+              1
+            ],
+            [
+              "20 feet",
+              1,
+              4,
+              "{@filter 2nd|spells|Subschool=biting zephyr;gallant heart;mirror's glint;mist and shade;rapid current;razor's edge;sanguine knot;spirited steed;unending wheel|level=2}",
+              1
+            ],
+            [
+              "20 feet",
+              1,
+              4,
+              "{@filter 2nd|spells|Subschool=biting zephyr;gallant heart;mirror's glint;mist and shade;rapid current;razor's edge;sanguine knot;spirited steed;unending wheel|level=2}",
+              2
+            ],
+            [
+              "20 feet",
+              1,
+              5,
+              "{@filter 2nd|spells|Subschool=biting zephyr;gallant heart;mirror's glint;mist and shade;rapid current;razor's edge;sanguine knot;spirited steed;unending wheel|level=2}",
+              2
+            ],
+            [
+              "20 feet",
+              1,
+              5,
+              "{@filter 3rd|spells|Subschool=biting zephyr;gallant heart;mirror's glint;mist and shade;rapid current;razor's edge;sanguine knot;spirited steed;unending wheel|level=3}",
+              2
+            ],
+            [
+              "20 feet",
+              1,
+              6,
+              "{@filter 3rd|spells|Subschool=biting zephyr;gallant heart;mirror's glint;mist and shade;rapid current;razor's edge;sanguine knot;spirited steed;unending wheel|level=3}",
+              2
+            ],
+            [
+              "30 feet",
+              2,
+              6,
+              "{@filter 3rd|spells|Subschool=biting zephyr;gallant heart;mirror's glint;mist and shade;rapid current;razor's edge;sanguine knot;spirited steed;unending wheel|level=3}",
+              3
+            ],
+            [
+              "30 feet",
+              2,
+              7,
+              "{@filter 3rd|spells|Subschool=biting zephyr;gallant heart;mirror's glint;mist and shade;rapid current;razor's edge;sanguine knot;spirited steed;unending wheel|level=3}",
+              3
+            ],
+            [
+              "30 feet",
+              2,
+              7,
+              "{@filter 4th|spells|Subschool=biting zephyr;gallant heart;mirror's glint;mist and shade;rapid current;razor's edge;sanguine knot;spirited steed;unending wheel|level=4}",
+              3
+            ],
+            [
+              "30 feet",
+              2,
+              8,
+              "{@filter 4th|spells|Subschool=biting zephyr;gallant heart;mirror's glint;mist and shade;rapid current;razor's edge;sanguine knot;spirited steed;unending wheel|level=4}",
+              3
+            ],
+            [
+              "30 feet",
+              2,
+              8,
+              "{@filter 4th|spells|Subschool=biting zephyr;gallant heart;mirror's glint;mist and shade;rapid current;razor's edge;sanguine knot;spirited steed;unending wheel|level=4}",
+              4
+            ],
+            [
+              "45 feet",
+              3,
+              9,
+              "{@filter 4th|spells|Subschool=biting zephyr;gallant heart;mirror's glint;mist and shade;rapid current;razor's edge;sanguine knot;spirited steed;unending wheel|level=4}",
+              4
+            ],
+            [
+              "45 feet",
+              3,
+              9,
+              "{@filter 5th|spells|Subschool=biting zephyr;gallant heart;mirror's glint;mist and shade;rapid current;razor's edge;sanguine knot;spirited steed;unending wheel|level=5}",
+              4
+            ],
+            [
+              "45 feet",
+              3,
+              10,
+              "{@filter 5th|spells|Subschool=biting zephyr;gallant heart;mirror's glint;mist and shade;rapid current;razor's edge;sanguine knot;spirited steed;unending wheel|level=5}",
+              4
+            ],
+            [
+              "45 feet",
+              3,
+              10,
+              "{@filter 5th|spells|Subschool=biting zephyr;gallant heart;mirror's glint;mist and shade;rapid current;razor's edge;sanguine knot;spirited steed;unending wheel|level=5}",
+              5
+            ],
+            [
+              "45 feet",
+              3,
+              11,
+              "{@filter 5th|spells|Subschool=biting zephyr;gallant heart;mirror's glint;mist and shade;rapid current;razor's edge;sanguine knot;spirited steed;unending wheel|level=5}",
+              5
+            ],
+            [
+              "60 feet",
+              4,
+              11,
+              "{@filter 5th|spells|Subschool=biting zephyr;gallant heart;mirror's glint;mist and shade;rapid current;razor's edge;sanguine knot;spirited steed;unending wheel|level=5}",
+              5
+            ]
+          ]
+        }
+      ],
+      "classFeatures": [
+        {
+          "classFeature": "First Subclass Tier 1|Marshal|sns|1|sns",
+          "gainSubclassFeature": true
+        },
+        "Commanding Presence|Marshal|sns|1|sns",
+        "Rallying Surge|Marshal|sns|1|sns",
+        "Combat Maneuvers|Marshal|sns|2|sns",
+        "Lessons of War|Marshal|sns|2|sns",
+        "Mark Foe|Marshal|sns|3|sns",
+        "Rallying Surge Improvement (2 targets)|Marshal|sns|3|sns",
+        {
+          "classFeature": "First Subclass Tier 2|Marshal|sns|3|sns",
+          "gainSubclassFeature": true
+        },
+        "Ability Score Improvement|Marshal|sns|4|sns",
+        "Combat Directives|Marshal|sns|5|sns",
+        "Empowered Attack (1)|Marshal|sns|5|sns",
+        "Followers|Marshal|sns|5|sns",
+        {
+          "classFeature": "First Subclass Tier 3|Marshal|sns|5|sns",
+          "gainSubclassFeature": true
+        },
+        "Call to Arms|Marshal|sns|6|sns",
+        "Martial Renown|Marshal|sns|6|sns",
+        "Versatile Exploration|Marshal|sns|6|sns",
+        "Rallying Surge Improvement (short rest)|Marshal|sns|7|sns",
+        {
+          "classFeature": "First Subclass Tier 4|Marshal|sns|7|sns",
+          "gainSubclassFeature": true
+        },
+        "Ability Score Improvement|Marshal|sns|8|sns",
+        "Spur Ally|Marshal|sns|9|sns",
+        {
+          "classFeature": "First Subclass Tier 5|Marshal|sns|9|sns",
+          "gainSubclassFeature": true
+        },
+        "Expanded Directives (1)|Marshal|sns|10|sns",
+        "Rouse the Troops|Marshal|sns|10|sns",
+        "Empowered Attack (2)|Marshal|sns|11|sns",
+        "Second Subclass Tier 1|Marshal|sns|11|sns",
+        "Ability Score Improvement|Marshal|sns|12|sns",
+        "Commanding Demeanor|Marshal|sns|12|sns",
+        "Dauntless|Marshal|sns|13|sns",
+        "Stronghold|Marshal|sns|13|sns",
+        "Spur Ally Improvement (short rest)|Marshal|sns|13|sns",
+        "Second Subclass Tier 2|Marshal|sns|13|sns",
+        "Advantageous Action|Marshal|sns|14|sns",
+        "Expanded Directives (2)|Marshal|sns|15|sns",
+        "Second Subclass Tier 3|Marshal|sns|15|sns",
+        "Greater Stronghold|Marshal|sns|16|sns",
+        "Ability Score Improvement|Marshal|sns|16|sns",
+        "Critical Weakness|Marshal|sns|17|sns",
+        "Second Subclass Tier 4|Marshal|sns|17|sns",
+        "Impressive Reputation|Marshal|sns|18|sns",
+        "Ability Score Improvement|Marshal|sns|19|sns",
+        "Second Subclass Tier 5|Marshal|sns|19|sns",
+        "Legendary Commander|Marshal|sns|20|sns",
+        "Supreme Stronghold|Marshal|sns|20|sns"
+      ],
+      "subclassTitle": "Marshal Subclass"
+    }
+  ],
+  "subclass": [
+    {
+      "name": "Talented Tactician",
+      "shortName": "Talented Tactician",
+      "source": "sns",
+      "className": "Marshal",
+      "classSource": "sns",
+      "subclassFeatures": [
+        "Talented Tactician|Marshal|sns|Talented Tactician|sns|1",
+        "Student of War|Marshal|sns|Talented Tactician|sns|3",
+        "Eye for Strategy|Marshal|sns|Talented Tactician|sns|3",
+        "Operations Leader|Marshal|sns|Talented Tactician|sns|5",
+        "Talented Tactician Major Effect #2|Marshal|sns|Talented Tactician|sns|5",
+        "Superior Tactics|Marshal|sns|Talented Tactician|sns|7",
+        "Hidden Resources|Marshal|sns|Talented Tactician|sns|9"
+      ]
+    }
+  ],
+  "classFeature": [
+    {
+      "name": "Commanding Presence",
+      "source": "sns",
+      "className": "Marshal",
+      "classSource": "sns",
+      "level": 1,
+      "entries": [
+        "Starting at 1st level, you have a Commanding Presence which extends from you in a 10-foot radius.",
+        "Your allies can attack at your command. When you take the Attack action, you can forgo either the entire attack or one instance of the Empowered Attack feature to allow a friendly creature within range of your Commanding Presence to act instead. If the target can hear or see you, it can use its reaction to either cast a cantrip or make one weapon attack.",
+        "The range of your presence increases as shown in the Commanding Presence column of the Marshal table."
+      ]
+    },
+    {
+      "name": "Rallying Surge",
+      "source": "sns",
+      "className": "Marshal",
+      "classSource": "sns",
+      "level": 1,
+      "entries": [
+        "Also at 1st level, you can use a bonus action to choose an ally within 30 feet of you. If the target can sense you, it regains hit points equal to {@dice 1d10} + your marshal level + your proficiency bonus. Once you use this feature, you must finish a long rest before you can use it again.",
+        "You can simultaneously target 2 allies with this feature at 3rd level, and starting at 7th level you regain use of this feature after finishing a short or long rest."
+      ]
+    },
+    {
+      "name": "Rallying Surge Improvement (2 targets)",
+      "source": "sns",
+      "className": "Marshal",
+      "classSource": "sns",
+      "level": 3,
+      "entries": [
+        "From 3rd level, you can target up to 2 allies with your Rallying Surge within the same action."
+      ]
+    },
+    {
+      "name": "Rallying Surge Improvement (short rest)",
+      "source": "sns",
+      "className": "Marshal",
+      "classSource": "sns",
+      "level": 7,
+      "entries": [
+        "From 7th level, you regain the use of your Rallying Surge after completing a short or long rest."
+      ]
+    },
+    {
+      "name": "Combat Maneuvers",
+      "source": "sns",
+      "className": "Marshal",
+      "classSource": "sns",
+      "level": 2,
+      "entries": [
+        "At 2nd level, you gain the ability to use combat maneuvers. You gain proficiency in two combat traditions from the following list: {@filter Biting Zephyr|spells|Subschool=biting zephyr|}, {@filter Gallant Heart|spells|Subschool=gallant heart|}, {@filter Mirror's Glint|spells|Subschool=mirror's glint|}, {@filter Mist and Shade|spells|Subschool=mist and shade|}, {@filter Rapid Current|spells|Subschool=rapid current|}, {@filter Razor's Edge|spells|Subschool=razor's edge|}, {@filter Sanguine Knot|spells|Subschool=sanguine knot|}, {@filter Spirited Steed|spells|Subschool=spirited steed|}, and {@filter Unending Wheel|spells|Subschool=unending wheel|}. You learn two maneuvers of your choice from traditions you are proficient with.",
+        "You gain an exertion pool equal to twice your proficiency bonus, regaining any spent exertion at the end of a short or long rest. You use your maneuvers by spending points from your exertion pool. The Maneuvers Known column of the Marshal table shows when you learn more maneuvers from a tradition you are proficient with, while the Maneuver Degree column shows the highest degree you can select maneuvers from at a given level.",
+        "Additionally, whenever you learn a new maneuver, you can choose one of the maneuvers you know and replace it with another maneuver of the same degree from a tradition you are proficient with."
+      ]
+    },
+    {
+      "name": "Lessons of War",
+      "source": "sns",
+      "className": "Marshal",
+      "classSource": "sns",
+      "level": 2,
+      "entries": [
+        "Also at 2nd level you learn a {@filter lesson of war|optionalfeatures|feature type=lw} of your choice. The Lessons Known column of the Marshal table shows when you learn more lessons of war."
+      ]
+    },
+    {
+      "name": "Mark Foe",
+      "source": "sns",
+      "className": "Marshal",
+      "classSource": "sns",
+      "level": 3,
+      "entries": [
+        "At 3rd level, your martial direction improves the efficiency of your allies' armour attacks against an enemy you focus their attention on. You can use a bonus action to choose a creature you can see within 30 feet. Until the start of your next turn, creatures able to hear or see you gain an expertise die on armour attacks made against that creature."
+      ]
+    },
+    {
+      "name": "First Subclass Tier 1",
+      "source": "sns",
+      "className": "Marshal",
+      "classSource": "sns",
+      "level": 1,
+      "entries": [
+        "At 1st level, you gain the tier 1 feature from your first subclass"
+      ]
+    },
+    {
+      "name": "First Subclass Tier 2",
+      "source": "sns",
+      "className": "Marshal",
+      "classSource": "sns",
+      "level": 3,
+      "entries": [
+        "At 3rd level, you gain the tier 2 feature from your first subclass"
+      ]
+    },
+    {
+      "name": "First Subclass Tier 3",
+      "source": "sns",
+      "className": "Marshal",
+      "classSource": "sns",
+      "level": 5,
+      "entries": [
+        "At 5th level, you gain the tier 3 feature from your first subclass"
+      ]
+    },
+    {
+      "name": "First Subclass Tier 4",
+      "source": "sns",
+      "className": "Marshal",
+      "classSource": "sns",
+      "level": 7,
+      "entries": [
+        "At 7th level, you gain the tier 4 feature from your first subclass"
+      ]
+    },
+    {
+      "name": "First Subclass Tier 5",
+      "source": "sns",
+      "className": "Marshal",
+      "classSource": "sns",
+      "level": 9,
+      "entries": [
+        "At 9th level, you gain the tier 5 feature from your first subclass"
+      ]
+    },
+    {
+      "name": "Second Subclass Tier 1",
+      "source": "sns",
+      "className": "Marshal",
+      "classSource": "sns",
+      "level": 11,
+      "entries": [
+        "At 11th level, you gain the tier 1 feature from your second subclass"
+      ]
+    },
+    {
+      "name": "Second Subclass Tier 2",
+      "source": "sns",
+      "className": "Marshal",
+      "classSource": "sns",
+      "level": 13,
+      "entries": [
+        "At 13th level, you gain the tier 2 feature from your second subclass"
+      ]
+    },
+    {
+      "name": "Second Subclass Tier 3",
+      "source": "sns",
+      "className": "Marshal",
+      "classSource": "sns",
+      "level": 15,
+      "entries": [
+        "At 15th level, you gain the tier 3 feature from your second subclass"
+      ]
+    },
+    {
+      "name": "Second Subclass Tier 4",
+      "source": "sns",
+      "className": "Marshal",
+      "classSource": "sns",
+      "level": 17,
+      "entries": [
+        "At 17th level, you gain the tier 4 feature from your second subclass"
+      ]
+    },
+    {
+      "name": "Second Subclass Tier 5",
+      "source": "sns",
+      "className": "Marshal",
+      "classSource": "sns",
+      "level": 19,
+      "entries": [
+        "At 19th level, you gain the tier 5 feature from your second subclass"
+      ]
+    },
+    {
+      "name": "Ability Score Improvement",
+      "source": "sns",
+      "className": "Marshal",
+      "classSource": "sns",
+      "level": 4,
+      "entries": [
+        "When you reach 4th level, you can increase one ability score of your choice by 1. As normal, you can't increase an ability score above 20 using this feature. Additionally, you gain a feat."
+      ]
+    },
+    {
+      "name": "Ability Score Improvement",
+      "source": "sns",
+      "className": "Marshal",
+      "classSource": "sns",
+      "level": 8,
+      "entries": [
+        "At 8th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature."
+      ]
+    },
+    {
+      "name": "Ability Score Improvement",
+      "source": "sns",
+      "className": "Marshal",
+      "classSource": "sns",
+      "level": 12,
+      "entries": [
+        "At 12th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature."
+      ]
+    },
+    {
+      "name": "Ability Score Improvement",
+      "source": "sns",
+      "className": "Marshal",
+      "classSource": "sns",
+      "level": 16,
+      "entries": [
+        "At 16th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature."
+      ]
+    },
+    {
+      "name": "Ability Score Improvement",
+      "source": "sns",
+      "className": "Marshal",
+      "classSource": "sns",
+      "level": 19,
+      "entries": [
+        "At 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature."
+      ]
+    },
+    {
+      "name": "Combat Directives",
+      "source": "sns",
+      "className": "Marshal",
+      "classSource": "sns",
+      "level": 5,
+      "entries": [
+        "Starting at 5th level, you can direct your companions so effectively that they can use the techniques you've mastered. You learn one additional combat maneuvers from the {@filter Sanguine Knot tradition|spells|Subschool=sanguine knot|}. This combat maneuver does not count against the number of combat maneuvers you know.",
+        "In addition, when a creature uses your Commanding Presence to make an attack, it can simultaneously use one Sanguine Knot combat maneuver that you know. If the creature does not have any exertion points to spend on combat maneuvers, it does not require exertion points for that use but it cannot benefit from Combat Directives again until it has finished a short or long rest."
+      ]
+    },
+    {
+      "name": "Empowered Attack (1)",
+      "source": "sns",
+      "className": "Marshal",
+      "classSource": "sns",
+      "level": 5,
+      "entries": [
+        "From 5th level, when you use the Attack action, your main hand weapon's base damage is doubled. For example, a weapon with a damage of {@dice 1d6} + your Strength modifier deals {@dice 2d6} + double your Strength modifier instead."
+      ]
+    },
+    {
+      "name": "Empowered Attack (2)",
+      "source": "sns",
+      "className": "Marshal",
+      "classSource": "sns",
+      "level": 11,
+      "entries": [
+        "From 11th level, when you use the Attack action, your main hand weapon's base damage is tripled. For example, a weapon with a damage of {@dice 1d6} + your Strength modifier deals {@dice 3d6} + triple your Strength modifier instead."
+      ]
+    },
+    {
+      "name": "Followers",
+      "source": "sns",
+      "className": "Marshal",
+      "classSource": "sns",
+      "level": 5,
+      "entries": [
+        "At 5th level, you gain one inexperienced follower from the below options. At 10th, 15th, and 20th level, you gain an additional follower or one of your followers increases in experience tier by 1.",
+        "When one of your followers dies, after 1 month you receive word that their replacement is ready to join you.",
+        {
+          "type": "entries",
+          "name": "Apothecary",
+          "entries": [
+            "Known for assorted tonics and serums, apothecaries are sometimes mistaken for alchemists but their servives are purely medicinal.",
+            {
+              "type": "list",
+              "items": [
+                {
+                  "type": "item",
+                  "name": "Inexperienced",
+                  "entries": [
+                    "Once between the apothecary's long rests, a creature treated by the apothecary can make a save against a poison or disease that can be ended or reduced with a save."
+                  ]
+                },
+                {
+                  "type": "item",
+                  "name": "Seasoned",
+                  "entries": [
+                    "Once per long rest, the apothecary can use an antidote to automatically end the {@condition poisoned|sns} condition on a creature."
+                  ]
+                },
+                {
+                  "type": "item",
+                  "name": "Expert",
+                  "entries": [
+                    "Once per week, the apothecary provides one medicinal of your choosing (https://a5e.tools/rules/medicinals) worth no more than 100 gold. The medicinal must be used within 24 hours or it loses potency."
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Bodyguard",
+          "entries": [
+            "A bodyguard is tasked with keeping you alive.",
+            {
+              "type": "list",
+              "items": [
+                {
+                  "type": "item",
+                  "name": "Inexperienced",
+                  "entries": [
+                    "Once only, when you would be reduced to 0 hit points, the bodyguard takes the damage instead. The bodyguard is killed in the process."
+                  ]
+                },
+                {
+                  "type": "item",
+                  "name": "Seasoned",
+                  "entries": [
+                    "Once per long rest, when you would take damage from an armour attack the bodyguard takes the damage instead."
+                  ]
+                },
+                {
+                  "type": "item",
+                  "name": "Expert",
+                  "entries": [
+                    "Once per long rest, the bodyguard leaps in front of you to take all damage that would be dealt to you for 1 round."
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Cook",
+          "entries": [
+            "Preparing meals over a campfire is an entirely different skill set than cooking in a kitchen. Warm meals are a luxury many adventurers forgo, but consuming only preserved rations can lead to ill health.",
+            {
+              "type": "list",
+              "items": [
+                {
+                  "type": "item",
+                  "name": "Inexperienced",
+                  "entries": [
+                    "Once per long rest, when you take a short rest, you heal 1 additional Hit Die without expending it."
+                  ]
+                },
+                {
+                  "type": "item",
+                  "name": "Seasoned",
+                  "entries": [
+                    "Once per long rest, when you and up to 4 allies take a short rest, you each heal 1 additional Hit Die without expending it."
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Diviner",
+          "entries": [
+            "Whether drawn to adventurers by fate and prophecy, unusual circumstance, or coin for promoting their faith a diviner brings a touch of the beyond with them.",
+            {
+              "type": "list",
+              "items": [
+                {
+                  "type": "item",
+                  "name": "Inexperienced",
+                  "entries": [
+                    "Once per long rest, the diviner cast a {@filter cantrip or 1st-level spell from the cleric spell list|spells|level=0,1|class=Cleric} on you or an ally of your choosing."
+                  ]
+                },
+                {
+                  "type": "item",
+                  "name": "Seasoned",
+                  "entries": [
+                    "Once per long rest, the diviner receives a helpful vision and you gain an expertise die on your next ability check."
+                  ]
+                },
+                {
+                  "type": "item",
+                  "name": "Expert",
+                  "entries": [
+                    "Once per week, the diviner channels a supernatural voice that reveals an event in the near future that grants you advantage on one ability check, attack roll, or save."
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Footpad",
+          "entries": [
+            "A footpad is a low-level thief.",
+            {
+              "type": "list",
+              "items": [
+                {
+                  "type": "item",
+                  "name": "Inexperienced",
+                  "entries": [
+                    "Once per long rest, when in a crowded area, you are able to gain 5 gold per footpad as they mingle with the crowd."
+                  ]
+                },
+                {
+                  "type": "item",
+                  "name": "Seasoned",
+                  "entries": [
+                    "Your footpad can search a town or other settlement in order to gain valuable information or to locate people or objects."
+                  ]
+                },
+                {
+                  "type": "item",
+                  "name": "Expert",
+                  "entries": [
+                    "Once per week, you can direct your footpad to shadow a person. They report back to you after 7 days with detailed notes on every location the person visited, the people the person interacted with, and any purchases the person made."
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Healer",
+          "entries": [
+            "A healer is able to tend wounds.",
+            {
+              "type": "list",
+              "items": [
+                {
+                  "type": "item",
+                  "name": "Inexperienced",
+                  "entries": [
+                    "Once per long rest, the healer heals a creature for {@damage 1d8 + 3} hit points."
+                  ]
+                },
+                {
+                  "type": "item",
+                  "name": "Seasoned",
+                  "entries": [
+                    "As inexperienced. In addition, once per long rest, the healer heals a creature for {@damage 2d8 + 6} hit points."
+                  ]
+                },
+                {
+                  "type": "item",
+                  "name": "Expert",
+                  "entries": [
+                    "As seasoned. In addition, once per long rest, the healer heals a creature for {@damage 4d8 + 11} hit points."
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Interpreter",
+          "entries": [
+            "Occasionally called translators, interpreters are polyglots who are not only able to speak multiple languages but also quick to learn new tongues.",
+            {
+              "type": "list",
+              "items": [
+                {
+                  "type": "item",
+                  "name": "All",
+                  "entries": [
+                    "Once per long rest, when encountering an unknown language, you have advantage on History checks to comprehend that language."
+                  ]
+                },
+                {
+                  "type": "item",
+                  "name": "Inexperienced",
+                  "entries": [
+                    "Choose two languages. Your interpreter is proficient in these languages."
+                  ]
+                },
+                {
+                  "type": "item",
+                  "name": "Seasoned",
+                  "entries": [
+                    "Your interpreter can translate all languages generally spoken on the Material Plane."
+                  ]
+                },
+                {
+                  "type": "item",
+                  "name": "Expert",
+                  "entries": [
+                    "Your interpreter can translate all languages whether alien, current, or dead."
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Minstrel",
+          "entries": [
+            "Equally adept at performing songs and telling tales, minstrels entertain during long travels and recount adventurers' heroic deeds.",
+            {
+              "type": "list",
+              "items": [
+                {
+                  "type": "item",
+                  "name": "Inexperienced",
+                  "entries": [
+                    "Once per long rest, you gain advantage on a Charisma check."
+                  ]
+                },
+                {
+                  "type": "item",
+                  "name": "Seasoned",
+                  "entries": [
+                    "Once per long rest, you gain an expertise die on an attack roll using a weapon you are proficient with or ability check using a skill you are proficient with."
+                  ]
+                },
+                {
+                  "type": "item",
+                  "name": "Expert",
+                  "entries": [
+                    "The ballads, poems, songs, and tales that your minstrel has composed about your deeds spread far and wide. You gain a bonus to your Persuasion equal to half your proficiency bonus."
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Sage",
+          "entries": [
+            "Sages are specialists frequently consulted by those in search of obscure information. They rarely leave civilisation, but sometimes accompany adventurers who need their expertise to examine ruins or immovable relics. A sage is very knowledgeable about a single skill. For each sage, choose a skill.",
+            {
+              "type": "list",
+              "items": [
+                {
+                  "type": "item",
+                  "name": "Inexperienced",
+                  "entries": [
+                    "Once per long rest, the sage may make their skill check for you as though you were proficient in that skill. In addition, you gain an expertise die on the check."
+                  ]
+                },
+                {
+                  "type": "item",
+                  "name": "Seasoned",
+                  "entries": [
+                    "As inexperienced. In addition, once per day you have advantage on an Intelligence check made to learn or recall a piece of knowledge."
+                  ]
+                },
+                {
+                  "type": "item",
+                  "name": "Expert",
+                  "entries": [
+                    "As seasoned, except that expert sages only grant the following ability when they are proficient in Magiscience, Nature, or History: once per week when the sage is able to see a creature they can learn information about from their skill, you gain advantage on your first armour attack roll against it."
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Smith",
+          "entries": [
+            "A smith keeps your weapons and armour in top condition.",
+            {
+              "type": "list",
+              "items": [
+                {
+                  "type": "item",
+                  "name": "Inexperienced",
+                  "entries": [
+                    "While you have a smith in your employ, any weapon you wield does +1 damage after your smith has fine-tuned it over the course of a short rest."
+                  ]
+                },
+                {
+                  "type": "item",
+                  "name": "Seasoned",
+                  "entries": [
+                    "As inexperienced, and your smith takes particularly good care of some of your equipment. At the end of each week choose a number of items equal to your proficiency bonus. The chosen items always look polished and brand-new as your smith makes sure to keep them in excellent condition."
+                  ]
+                },
+                {
+                  "type": "item",
+                  "name": "Expert",
+                  "entries": [
+                    "As seasoned, and any body armour you wear gains a +1 Armour bonus after your smith has fine-tuned it over the course of a long rest. In addition, any body armour you wear grants you +1 resistance to bludgeoning, piercing, and slashing damage, and any weapons you wield have their base damage die increased by 1 size."
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Squire",
+          "entries": [
+            "Trained to assist warriors with their gear, squires are typically youths of noble blood apprenticing to be knights. However, lowborn adventurers occasionally feign nobility and employ squires of their own. Squires remain close to their master, holding extra weapons and equipment, picking up dropped gear, or carrying their liege's banner.",
+            {
+              "type": "list",
+              "items": [
+                {
+                  "type": "item",
+                  "name": "Inexperienced",
+                  "entries": [
+                    "A squire can assist in equipping a shield or other weapon, allowing you to swap held items once per round as a free action."
+                  ]
+                },
+                {
+                  "type": "item",
+                  "name": "Seasoned",
+                  "entries": [
+                    "As inexperienced. In addition, your squire can identify other warriors and their squires, as well as where they are from and if they are knighted."
+                  ]
+                },
+                {
+                  "type": "item",
+                  "name": "Expert",
+                  "entries": [
+                    "As seasoned. In addition, your squire can announce you in royal courts. You gain advantage and a +5 bonus to your first Charisma check made in a royal court after your squire has introduced you."
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Torchbearer",
+          "entries": [
+            "Also known as a lantern bearer or linkboy, torchbearers provide light during expeditions to dark places, freeing their employers' hands for other purposes.",
+            {
+              "type": "list",
+              "items": [
+                {
+                  "type": "item",
+                  "name": "Inexperienced",
+                  "entries": [
+                    "You shed bright light in a 40-foot radius and dim light for an additional 20 feet."
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Call to Arms",
+      "source": "sns",
+      "className": "Marshal",
+      "classSource": "sns",
+      "level": 6,
+      "entries": [
+        "Beginning at 6th level, when you roll initiative, you and each creature friendly to you that are within range of your Commanding Presence gain an expertise die to their initiative check. Additionally, when you roll for initiative, you can switch your result with that of any ally you can see."
+      ]
+    },
+    {
+      "name": "Martial Renown",
+      "source": "sns",
+      "className": "Marshal",
+      "classSource": "sns",
+      "level": 6,
+      "entries": [
+        "At 6th level, tales of your deeds take root in the hearts of the people. As a leader, you are more famous than most adventurers. You add half your proficiency bonus to your Persuasion.",
+        "In addition, your reputation strongly affects how you are perceived, and when it becomes known that you are in a settlement people treat you accordingly. At the DM's discretion, there may be settlements (such as an enemy's war camp) where you cannot utilise this feature. Choose one of the following:",
+        {
+          "type": "entries",
+          "name": "Famous",
+          "entries": [
+            "When you arrive in a settlement, after you reveal who you are local authority figures seek you out to make introductions and invite you to share a meal or drink.",
+            "In addition, you gain an expertise die on Persuasion checks."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Infamous",
+          "entries": [
+            "When you arrive in a settlement, after you reveal who you are common folk hurry to get out of your way, and when you corner a commoner to ask about something local they rapidly tell you whatever details they think you might want to know.",
+            "In addition, you gain an expertise die on Intimidation checks."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Maverick",
+          "entries": [
+            "When you arrive in a settlement, after you reveal who you are the local watch starts keeping an eye on you. Heads of illegal organisations may introduce themselves to you if they have goals well-suited to your talents. Additionally, guards expect you're up to no good so are quick to leave their posts to follow you."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Versatile Exploration",
+      "source": "sns",
+      "className": "Marshal",
+      "classSource": "sns",
+      "level": 6,
+      "entries": [
+        "Also at 6th level, whenever you learn a new lesson of war, you can instead choose from {@filter fighter soldiering knacks|optionalfeatures|feature type=lw}."
+      ]
+    },
+    {
+      "name": "Spur Ally",
+      "source": "sns",
+      "className": "Marshal",
+      "classSource": "sns",
+      "level": 9,
+      "entries": [
+        "Beginning at 9th level, when an ally within your line of sight who can sense you fails an ability check or save, you can use your reaction to make them reroll. Once you use this feature, you must finish a long rest before you can use it again.",
+        "Starting at 13th level, you regain use of this feature after finishing a short or long rest."
+      ]
+    },
+    {
+      "name": "Spur Ally Improvement (short rest)",
+      "source": "sns",
+      "className": "Marshal",
+      "classSource": "sns",
+      "level": 13,
+      "entries": [
+        "At 13th level, you regain the use of your Spur Ally after completing a short or long rest."
+      ]
+    },
+    {
+      "name": "Expanded Directives (1)",
+      "source": "sns",
+      "className": "Marshal",
+      "classSource": "sns",
+      "level": 10,
+      "entries": [
+        "Starting at 10th level, your capacity to direct your companions broadens. Choose one tradition that you know combat maneuvers from. You are able to use Combat Directives to grant uses of combat maneuvers from the chosen tradition.",
+        "At 15th level, choose a second tradition that you know combat maneuvers from."
+      ]
+    },
+    {
+      "name": "Expanded Directives (2)",
+      "source": "sns",
+      "className": "Marshal",
+      "classSource": "sns",
+      "level": 15,
+      "entries": [
+        "At 15th level, choose a second tradition that you know combat maneuvers from that you can use your Combat Directives with."
+      ]
+    },
+    {
+      "name": "Rouse the Troops",
+      "source": "sns",
+      "className": "Marshal",
+      "classSource": "sns",
+      "level": 10,
+      "entries": [
+        "Also at 10th level, you can spend 1 minute speaking words of encouragement and support to reinvigorate your companions. Each friendly creature than can hear or understand you can spend any number of Hit Dice to regain hit points without having to finish a short rest. In addition, each creature that does spend at least one Hit Die in this way can remove one level of {@condition fatigue|sns} or {@condition strife|sns} it is suffering from. Once a creature has removed a level of {@condition fatigue|sns} or {@condition strife|sns} from your use of this class feature, the creature must finish a long rest before it can do so again."
+      ]
+    },
+    {
+      "name": "Commanding Demeanor",
+      "source": "sns",
+      "className": "Marshal",
+      "classSource": "sns",
+      "level": 12,
+      "entries": [
+        "Starting at 12th level, the lessons you've learned on the battlefield become useful tools beyond the realm of combat. Choose one of the following:",
+        {
+          "type": "entries",
+          "name": "Calm",
+          "entries": [
+            "Knowing how and when to embrace quietude allows your silence to speak far lounder than any words, and you easily pick up on the subtleties revealed by body language and demeanor. When you first meet a creature, you can choose to remain silent and speak through nonvisual cues - scrunching your brows, pursing your lips, narrowing your eyes, slowly leaning ever so slightly forward, hunching your shoulders, and so on. As long as you remain silent for 1 minute, the creature has a CR lower than your level, and it remains within your line of sight for the duration, it acts as if you succeeded on an Intimidation check.",
+            "In addition, you gain an expertise die on Insight checks."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Resolute",
+          "entries": [
+            "Winning a battle is as much about knowing when to quit as it is knowing when not to give up. Whenever you make an Intelligence, Wisdom, or Charisma check against a creature and fail, you gain an expertise die on your next Intelligence, Wisdom, or Charisma check made against that creature."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Responsive",
+          "entries": [
+            "Whether between duelists or armies, combat is all about timing and you are impeccably punctual. When you overhear an interesting conversation between other creatures, you can interject so seamlessly and casually that the speakers think they already know you, answering one question you ask before realising that they don't.",
+            "In addition, you gain an expertise die on Persuasion checks."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Dauntless",
+      "source": "sns",
+      "className": "Marshal",
+      "classSource": "sns",
+      "level": 13,
+      "entries": [
+        "Beginning at 13th level, attacks that can cause the {@condition charmed|sns} or {@condition frightened|sns} conditions have disadvantage against you and allies within your Commanding Presence."
+      ]
+    },
+    {
+      "name": "Stronghold",
+      "source": "sns",
+      "className": "Marshal",
+      "classSource": "sns",
+      "level": 13,
+      "entries": [
+        "Also at 13th level, you gain a stronghold in a location of your choice. While your stronghold is not destroyed, you gain a +3 bonus to Persuasion checks and further bonuses based on the type of stronghold. Choose one of the following:",
+        {
+          "type": "entries",
+          "name": "Castle",
+          "entries": [
+            "You gain a coat of arms, which can be displayed on your shield or on the flag of a squire bearing your standard (if you have one). Attacks that can cause the {@condition frightened|sns} condition have disadvantage against allies who can see your coat of arms.",
+            "Additionally, your Strength is increased by 1."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Encampment",
+          "entries": [
+            "You gain an expertise die on ability checks made to hide in natural surroundings. In addition, whenever you lose {@condition fatigue|sns}, lose 1 additional level. Whenever you take a long rest, you always count as doing so in a Haven.",
+            "Finally, your hit point maximum is increased by 2."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Farm",
+          "entries": [
+            "You gain a number of additional Hit Dice equal to your proficiency bonus. In addition, you gain 1 gold whenever you complete a long rest while in the same hex as your stronghold. Your time working the farm has also made it easy for you to recover quickly. When you expend Hit Dice to heal during a short rest, you can treat a Hit Die roll of 3 or lower as a 4.",
+            "Finally, your hit point maximum is increased by 2."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Guildhouse",
+          "entries": [
+            "Whenever you complete a long rest within a city's borders, gain 1 gold. In addition, you gain an expertise die on ability checks made to deal with representatives of commercial or criminal organisations.",
+            "Finally, your choice of either your Wisdom or Charisma is increased by 1."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "House",
+          "entries": [
+            "The urge to return to your home can help embolden the hearts of everyone who travels with you. The length of journeys your party makes towards the house are reduced by 1 day (minimum 1). In addition, once per week, you and your party may gain the benefit of a long rest by taking a short rest. Once per month, you are able to throw a lavish and impressive event in the house that draws the attention of people from all around. You gain a {@dice d6} expertise die on Intelligence, Wisdom, and Charisma checks made while hosting such an event.",
+            "Finally, your Charisma is increased by 1."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Laboratory",
+          "entries": [
+            "You immediately learn one new cantrip or spell at the highest spell level which you have access to, chosen from a spell list you have access to. In addition, once between long rests you can use a bonus action to regain a spell slot of a level equal to half your proficiency bonus. You also gain one 1st-level spell slot, access to your choice of either the {@filter sorcerer|spells|level=1|class=Sorcerer}, {@filter warlock|spells|level=1|class=Warlock}, or {@filter wizard|spells|level=1|class=Wizard} spell list, and learn one new 1st-level spell from a spell list you have access to. The spell is governed by your Charisma, regardless of which list it came from.",
+            "Finally, your Intelligence is increased by 1."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Library",
+          "entries": [
+            "You gain an expertise die whenever you make an Intelligence check using a skill you are proficient with. In addition, you gain proficiency with your choice of History, Magiscience, or Nature. You can change this decision whenever you complete a long rest.",
+            "Finally, your Intelligence is increased by 1."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Menagerie",
+          "entries": [
+            "Once per short or long rest, you can use an action to heal a minion of yours that you touch, which regains {@dice 4d6} hit points. In addition, you gain an expertise die whenever you make an ability check related to animals. Once per long rest, you can also spend 1 minute tending to a minion of yours to restore it to its hit point maximum.",
+            "Finally, your Wisdom is increased by 1."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Sacred Grove",
+          "entries": [
+            "Choose up to two skills you are proficient with. If you are in natural, outdoor surroundings you gain an expertise die whenever you make an ability check using the chosen skills. In addition, you learn the {@spell commune with nature|sns} spell if you do not already know it, and you may cast it once between long rests without expending a spell slot.",
+            "Finally, your Wisdom is increased by 1."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Shop",
+          "entries": [
+            "The cost of all loot results is reduced by 5 gold for you. In addition, whenever you gain gold, you gain 2 additional gold.",
+            "Finally, your choice of either your Wisdom or Charisma is increased by 1."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Tavern",
+          "entries": [
+            "You have advantage on ability checks and armour attack rolls made against creatures {@condition poisoned|sns} by alcohol. In addition, you gain an expertise die on saves made against poison, and cannot be {@condition poisoned|sns} by consuming alcohol.",
+            "Finally, your Charisma is increased by 1."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Temple",
+          "entries": [
+            "Whenever you heal a creature with a limited power through the rolling of dice, you restore two additional hit points per die rolled. In addition, you gain advantage on Wisdom and Charisma checks made against followers devoted to the same higher power as your temple.",
+            "Finally, your Wisdom is increased by 1."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Workshop",
+          "entries": [
+            "You gain an expertise die on Magiscience checks made in the workshop.",
+            "Additionally, any body armour worn by members of your party grants +2 resistance to bludgeoning, piercing, and slashing damage, and the base damage die size of any weapons wielded by members of your party is increased by 2.",
+            "Finally, your Strength is increased by 1."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Advantageous Action",
+      "source": "sns",
+      "className": "Marshal",
+      "classSource": "sns",
+      "level": 14,
+      "entries": [
+        "Starting at 14th level, your experience in battle lets you help your companions more easily. You can use the Help action as a bonus action. In addition, when you take the Help action choose one of the following effects:",
+        {
+          "type": "list",
+          "items": [
+            "You end the {@condition frightened|sns} condition on one creature within 30 feet of you that can sense you.",
+            "You grant one creature adjacent to you temporary hit points equal to your Charisma modifier + your proficiency bonus.",
+            "You touch a living creature that has 0 hit points. The creature regains 2 hit points."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Greater Stronghold",
+      "source": "sns",
+      "className": "Marshal",
+      "classSource": "sns",
+      "level": 16,
+      "entries": [
+        "At 16th level, your stronghold improves based on its type.",
+        {
+          "type": "entries",
+          "name": "Castle",
+          "entries": [
+            "Your coat of arms can inspire your allies. When an ally able to see your coat of arms is targeted by an attack that can cause the {@condition frightened|sns} condition that results in a minor or lower success, they gain Inspiration."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Encampment",
+          "entries": [
+            "Your familiarity with temporary structures is such that you can spend 1 hour to create a Haven able to shelter a number of creatures equal to your proficiency bonus. You can't use this feature again until after you finish a long rest."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Farm",
+          "entries": [
+            "You regain 2 additional hit points for every Hit Die expended during a short rest."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Guildhouse",
+          "entries": [
+            "The expertise die on ability checks made to deal with representatives of commercial or criminal organisations increases to a {@dice d6}."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "House",
+          "entries": [
+            "The expertise die on Intelligence, Wisdom, and Charisma checks made while hosting events increases to a {@dice d8}."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Laboratory",
+          "entries": [
+            "You gain a 2nd-level spell slot and a 2nd-level spell from the spell list you chose."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Library",
+          "entries": [
+            "You can change your proficiency choice whenever you complete a short or long rest."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Menagerie",
+          "entries": [
+            "You gain advantage on checks made to learn about creatures you can see."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Sacred Grove",
+          "entries": [
+            "You gain an expertise die whenever you make an ability check if you are in natural, outdoor surroundings."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Shop",
+          "entries": [
+            "Whenever you gain gold, you gain 1 additional gold."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Tavern",
+          "entries": [
+            "If you have consumed alcohol within the past minute, you gain an expertise die on ability checks."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Temple",
+          "entries": [
+            "Whenever you are healed by a spell through the rolling of dice, the dice are rolled with advantage."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Workshop",
+          "entries": [
+            "You gain advantage on Magiscience checks made in the workshop, and the expertise die on Magiscience checks made in the workshop now applies anywhere."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Critical Weakness",
+      "source": "sns",
+      "className": "Marshal",
+      "classSource": "sns",
+      "level": 17,
+      "entries": [
+        "Beginning at 17th level, you can focus your mind to identify any enemy's weaknesses. As a bonus action, you can choose a creature within 60 feet, exposing a flaw in its defences. Until the end of your next turn, any creature able to sense you has advantage on armour attack rolls against that creature, and their attacks deal an extra 6 damage to it. Once you have used this feature, you cannot use it again until you finish a short or long rest."
+      ]
+    },
+    {
+      "name": "Impressive Reputation",
+      "source": "sns",
+      "className": "Marshal",
+      "classSource": "sns",
+      "level": 18,
+      "entries": [
+        "Starting at 18th level, your very name can inspire courage in the hearts of soldiers, fear among the ranks of the enemy, or uncertainty in the minds of the commanders set against you. Choose one of the following:",
+        {
+          "type": "entries",
+          "name": "Hero",
+          "entries": [
+            "Inspiring tales of your victories have won you friends in high places. Nobles and royalty treat you as an equal, granting you free lodging, food, and a place upon their court for a number of days up to your marshal level. Whenever you complete a long rest within these conditions, gain 1 gold."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Iconoclast",
+          "entries": [
+            "You are known for doing the unexpected and people love to hear about it. Whenever you arriv in a settlement you are visited by {@damage 1d4 + 1} bards, scholars, and sages asking for recountings of your recent exploits. In exchange they each either share a piece of information they think might be relevant to your current quest, or make an Intelligence, Wisdom, or Charisma check (bonus of +5) on your behalf to answer a specific question."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Slaughterer",
+          "entries": [
+            "Tales of your merciless bloodshed have won you friends in unlikely places. Bandit and pirate captains, crimelords, intelligent monsters of ill intent, and even fiends know who you are and that you are a valuable ally, doing their best to persuade you to take up the sword against their enemies. Whenever you encounter such a creature, it spends its first action (even in combat) declaring that it knows of your prowess and offering an alliance."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Legendary Commander",
+      "source": "sns",
+      "className": "Marshal",
+      "classSource": "sns",
+      "level": 20,
+      "entries": [
+        "At 20th level, friendly creatures within range of your Commanding Presence add half your Charisma modifier (minimum 0) to their non-Armour defences. Additionally, choose one of the following:",
+        {
+          "type": "entries",
+          "name": "Commander's Expertise",
+          "entries": [
+            "Whenever a creature uses your Commanding presence to act, it gains an expertise die on any associated {@dice d20} rolls it makes."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Feedback Loop",
+          "entries": [
+            "Whenever a creature uses your Command Presence to make an attack that hits, you gain a reaction. You must use this reaction before the start of your next turn or it is lost."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Rapid Deployment",
+          "entries": [
+            "After initiative is rolled and until combat ends, your Speed increases by 20 feet, and allies that are able to sense you increase their Speed by 20 feet."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Supreme Stronghold",
+      "source": "sns",
+      "className": "Marshal",
+      "classSource": "sns",
+      "level": 20,
+      "entries": [
+        "If your stronghold initially granted you +1 to an ability score, you gain a further +1 to the same ability score. If it instead granted you +2 to your hit point maximum, you gain a further +3 to your hit point maximum."
+      ]
+    }
+  ],
+  "subclassFeature": [
+    {
+      "name": "Talented Tactician",
+      "source": "sns",
+      "className": "Marshal",
+      "classSource": "sns",
+      "subclassShortName": "Talented Tactician",
+      "subclassSource": "sns",
+      "level": 1,
+      "entries": [
+        "The most brilliant of tactician marshals are those who can sit far away from the fronstlines and yet picture every move their enemy might take. For each move, they plan an appropriate response to drive their foe into desperation and surrender without ever firing a shot or lifting a sword.",
+        {
+          "type": "refSubclassFeature",
+          "subclassFeature": "Tactical Edge|Marshal|sns|Talented Tactician|sns|1"
+        },
+        {
+          "type": "refSubclassFeature",
+          "subclassFeature": "Talented Tactician Major Effect #1|Marshal|sns|Talented Tactician|sns|1"
+        }
+      ]
+    },
+    {
+      "name": "Tactical Edge",
+      "source": "sns",
+      "className": "Marshal",
+      "classSource": "sns",
+      "subclassShortName": "Talented Tactician",
+      "subclassSource": "sns",
+      "level": 1,
+      "header": 1,
+      "entries": [
+        "Beginning at tier 1 when you choose this archetype, whenever you roll initiative, you gain a tactics die, which is a {@dice d4}. While you have this die, any creature friendly to you within 60 feet of you that can hear or see you can roll the tactics die as a bonus die when making an armour attack roll. Once rolled, the tactics die is lost until you regain it at the start of your next turn. The tactics die disappears when the combat ends.",
+        "If you start your turn and no one has rolled the tactics die, you can trade out the die for a die of the next larger size, such that a {@dice d4} becomes a {@dice d6}, a {@dice d6} becomes a {@dice d8}, and so on up to a maximum of {@dice d12}. After the tactics die is rolled, when regained it reverts to a {@dice d4}."
+      ]
+    },
+    {
+      "name": "Talented Tactician Major Effect #1",
+      "source": "sns",
+      "className": "Marshal",
+      "classSource": "sns",
+      "subclassShortName": "Talented Tactician",
+      "subclassSource": "sns",
+      "level": 1,
+      "header": 1,
+      "entries": [
+        "Your tactics dice immediately increase by 2 sizes. If this would increase either of them beyond a {@dice d12}, they instead gain a +1 bonus for each size increase overflow."
+      ]
+    },
+    {
+      "name": "Student of War",
+      "source": "sns",
+      "className": "Marshal",
+      "classSource": "sns",
+      "subclassShortName": "Talented Tactician",
+      "subclassSource": "sns",
+      "level": 3,
+      "header": 2,
+      "entries": [
+        "At tier 2, choose either History or Nature. You gain proficiency with the chosen skill and an expertise die on checks made using the chosen skill."
+      ]
+    },
+    {
+      "name": "Eye for Strategy",
+      "source": "sns",
+      "className": "Marshal",
+      "classSource": "sns",
+      "subclassShortName": "Talented Tactician",
+      "subclassSource": "sns",
+      "level": 3,
+      "header": 2,
+      "entries": [
+        "Also at tier 2, you can quickly identify how a creature might fight. Whenever you roll for initiative, choose a hostile creature you can see within 60 feet of you and make either a History, Magiscience, or Nature check (chosen by the DM) with a DC of 15. If you succeed, you learn a random one of the creature's passive traits. If the creature doesn't have enough for you to learn, you then learn random non-standard actions. If the creature again doesn't have enough for you to learn, you then learn random remaining actions. For every 2 you beat the DC by, you learn one additional passive trait or action."
+      ]
+    },
+    {
+      "name": "Operations Leader",
+      "source": "sns",
+      "className": "Marshal",
+      "classSource": "sns",
+      "subclassShortName": "Talented Tactician",
+      "subclassSource": "sns",
+      "level": 5,
+      "header": 2,
+      "entries": [
+        "Starting at tier 3, you devise a set of communication cues. Any allies who have received this training - usually taking 10 minutes of discussion and practise - do not need to share a language with you to benefit from this feature.",
+        "Additionally on your turn, you can use a bonus action and spend 5 exertion points to make it easier for you and your allies to help each other with certain skills. While this coordination is in place, you and your chosen allies can take the Help action as a bonus action to help each other with skill checks. This coordination requires you to maintain concentration, and both allies - the one taking the Help action and the one making the skill check - to be within 30 feet of you at the time of the skill check.",
+        "You can use your bonus action to change which allies benefit from the coordination each turn and you are able to concentrate on it for up to 10 minutes. The skills that can benefit from this are Athletics, Brawn, Deception, Finesse, Insight, Intimidation, Investigation, Nature, Stealth, and Survival. This might be used to help the team navigate difficult terrain, maintain a facade while undercover, or perform an ambush.",
+        "If you have proficiency in Stealth this coordination can happen silently via surreptitious signals. If you have proficiency in Deception this coordination can happen as a series of code words interspersed with other conversation. An onlooker needs to succeed on an Insight check contested by your ability check - whether Stealth or Deception - to realise the coordination is taking place."
+      ]
+    },
+    {
+      "name": "Talented Tactician Major Effect #2",
+      "source": "sns",
+      "className": "Marshal",
+      "classSource": "sns",
+      "subclassShortName": "Talented Tactician",
+      "subclassSource": "sns",
+      "level": 5,
+      "header": 2,
+      "entries": [
+        "You learn a passive trait or action about the attack's target as per your Eye for Strategy feature. If you already know all of this information about the target, the success tiers of your attacks against them are increased by 1 for 1 round.",
+        "If the target was killed by the attack, you instead choose another creature within 60 feet of you as the target of this major effect. You do not require line of sight to this other creature."
+      ]
+    },
+    {
+      "name": "Superior Tactics",
+      "source": "sns",
+      "className": "Marshal",
+      "classSource": "sns",
+      "subclassShortName": "Talented Tactician",
+      "subclassSource": "sns",
+      "level": 7,
+      "header": 2,
+      "entries": [
+        "At tier 4, choose one of the following.",
+        {
+          "type": "entries",
+          "name": "More Tactical",
+          "entries": [
+            "Whenever you gain a tactics die, you gain an additional tactics die to a maximum of two dice. The second tactics die can be used like the first and the tactics die increases size in the manner described under the Tactical Edge class feature."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Tactical Efficacy",
+          "entries": [
+            "Your tactics die begins at {@dice d6}. When you reach 20th level, your tactics die begins at {@dice d8}."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Hidden Resources",
+      "source": "sns",
+      "className": "Marshal",
+      "classSource": "sns",
+      "subclassShortName": "Talented Tactician",
+      "subclassSource": "sns",
+      "level": 9,
+      "header": 2,
+      "entries": [
+        "At tier 5, choose one of the following.",
+        {
+          "type": "entries",
+          "name": "Dig Deeper",
+          "entries": [
+            "You can take a bonus action to allow a creature to regain the use of a class feature that would normally be regained by finishing a short rest. You can use this feature twice and you regain any expended uses when you finish a long rest."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Reach Further",
+          "entries": [
+            "While you are conscious and when an ally within range of your Commanding Presence would drop to 0 hit points, your ally can use their reaction to spend the tactics die and roll it to gain temporary hit points equal to the result plus your Charisma modifier plus your proficiency bonus. Once a creature has benefitted from the tactics die in this way, it cannot do so again until it finishes a long rest."
+          ]
+        }
+      ]
+    }
+  ],
+  "optionalfeature": [
+    {
+      "name": "Exacting",
+      "source": "sns",
+      "featureType": [
+        "LW"
+      ],
+      "entries": [
+        "You've won more battles armed with a sextant and your keen intellect than you have any blade. You gain an expertise die on Survival checks made to navigate, which does not benefit the Cook journey activity. At the start of a journey, you can make a DC 10 Survival check to navigate a faster route, reducing the length of the journey by 1 day (minimum 1) on a success."
+      ]
+    },
+    {
+      "name": "Keep Walking",
+      "source": "sns",
+      "featureType": [
+        "LW"
+      ],
+      "entries": [
+        "You can motivate your allies to keep going even when they are tired and hungry. You gain advantage on Force March journey activities."
+      ]
+    },
+    {
+      "name": "Lay of the Land",
+      "source": "sns",
+      "featureType": [
+        "LW"
+      ],
+      "entries": [
+        "Knowledge of the terrain can be the difference between victory and defeat. By spending 10 minutes observing the area in a 2-mile radius you can spend 2 exertion points to pick out where there are choke points, large swathes of cover, watercourses, vegetations that can offer concealment, ridgelines, and so on. You gain an expertise die on Magiscience and Survival checks made within the area, and on checks made to prepare an ambush or realise you are being ambushed. This benefits the Experiment, Cook, Cover Tracks, and Hunt & Gather journey activities on the same day that you spent the exertion."
+      ]
+    },
+    {
+      "name": "Rewarding Repute",
+      "source": "sns",
+      "featureType": [
+        "LW"
+      ],
+      "entries": [
+        "Your deeds have heroically won over the hearts and minds of people everywhere or cowed them into submission. Whenever you visit a settlement, the commoners there tell you all the valuable information they can about their including nearby ruins, the general environment of nearby wilderness, and how populated the region is. You gain an expertise die on Nature and Survival checks made within 1 day of any settlement you have visited. This affects your Befriend Animal and Cook journey activities."
+      ]
+    },
+    {
+      "name": "Team Tactics",
+      "source": "sns",
+      "featureType": [
+        "LW"
+      ],
+      "entries": [
+        "With your directions to help there is very little your companions can't accomplish. When more than one creature takes the Help action to aid an ally making an ability check, for each additional creature helping the check is made with a +1 bonus. Only a number of additional creatures equal to half your proficiency bonus are able to Help in this way."
+      ]
+    },
+    {
+      "name": "Teamwork",
+      "source": "sns",
+      "featureType": [
+        "LW"
+      ],
+      "entries": [
+        "When you are involved in a group check, all members of the check gain an expertise die. This can also be used for group Persuasion and Deception checks, where the final check gains an expertise die. Once you use this feature, you cannot do so again until you finish a long rest."
+      ]
+    }
+  ]
+}

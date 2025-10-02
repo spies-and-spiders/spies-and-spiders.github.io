@@ -163,38 +163,6 @@
         },
         "type": "point"
       },
-      "name": "Overrun",
-      "level": 0,
-      "time": [
-        {
-          "unit": "special"
-        }
-      ],
-      "duration": [
-        {
-          "type": "instant"
-        }
-      ],
-      "entries": [
-        {
-          "name": "Points",
-          "entries": [
-            "0 points"
-          ],
-          "type": "entries"
-        },
-        "You can make an Overrun maneuver to move through a hostile creature's space by forcing your way past. You can move through the hostile creature's space once this turn. You still provoke opportunity attacks if you move beyond a creature's reach."
-      ],
-      "source": "sns",
-      "school": "M"
-    },
-    {
-      "range": {
-        "distance": {
-          "type": "special"
-        },
-        "type": "point"
-      },
       "name": "Shove",
       "level": 0,
       "time": [
@@ -232,7 +200,6 @@
             "2 points"
           ]
         },
-        "After you slam your weapon into an opponent you work the momentum of the blow into another strike at a second enemy nearby in a devastating display of might.",
         "When you hit with a melee weapon attack using a two-handed weapon, you can use your reaction to deal half the attack's damage against a second creature that is also within your reach."
       ],
       "name": "Cleaving Swing",
@@ -269,7 +236,6 @@
             "1 point"
           ]
         },
-        "You set yourself firmly in place, determined not to move.",
         "You gain an expertise die on Athletics and Brawn checks that use Strength, all incoming combat maneuver attack rolls against you are reduced by {@dice 1d4}, and you ignore the first 10 feet of difficult terrain when you move on your turn."
       ],
       "name": "Heavy Stance",
@@ -309,7 +275,6 @@
             "2 points"
           ]
         },
-        "Not just commiting to an assault, you shoulder into it with all the strength you can bear and deliver hits that resonate in the very bones of your foes.",
         "When you activate this maneuver, you take the Attack action.",
         "Until the start of your next turn, when you score a major success against a creature with a melee weapon attack it is knocked {@condition prone}."
       ],
@@ -347,7 +312,6 @@
             "1 point"
           ]
         },
-        "Putting yourself in just the right position as you strike, your unbalancing hit sends a retreating opponent into a reeling stumble and then the ground.",
         "When a creature within your reach provokes an opportunity attack, you can use your reaction to make a melee weapon attack. On a major success, the creature moves 10 feet in a straight line in the direction it was attempting to move in and is knocked {@condition prone}."
       ],
       "name": "Reactive Knockdown",
@@ -384,7 +348,6 @@
             "2 points"
           ]
         },
-        "Girding yourself when your body is assaulted by more than clenched fists or sharp steel, you defy weakness and overcome.",
         "When an effect causes you to be {@condition frightened|sns}, {@condition poisoned|sns}, or {@condition debilitated|sns}, you can use your reaction to prevent it."
       ],
       "name": "Shrug It Off",
@@ -421,7 +384,6 @@
             "1 point"
           ]
         },
-        "With seeming ease you whirl your weapon about your body, weaving it in a threatening pattern that makes your opponents hesitant to attack.",
         "Until the start of your next turn, your armour increases by 1."
       ],
       "name": "Warding Wield",
@@ -458,7 +420,6 @@
             "1 point"
           ]
         },
-        "A powerful blow smashes a weapon from your enemy's grasp.",
         "When you score a major success against a creature with an attack from a two-handed melee weapon, you can use your reaction knock a weapon it is wielding (your choice) from its grip, causing it to land in a randomly determined space 10 feet away.",
         "You require a critical success on the attack against a creature that is two or more size categories larger than you."
       ],
@@ -503,7 +464,6 @@
             "The Empowered Attack feature"
           ]
         },
-        "With a bone crushing strike you briefly deprive an opponent of their very ability to defend themselves.",
         "Make a melee weapon attack using a two-handed weapon. On a major success, the target is {@condition staggered|sns} until it takes damage or the end of your next turn (whichever comes first)."
       ],
       "name": "Crushing Blow",
@@ -540,7 +500,6 @@
             "3 points"
           ]
         },
-        "At the edge of death, you cling firmly to life.",
         "When you fail a death saving throw, you instead succeed. You can take this reaction even if you are {@condition incapacitated|sns}."
       ],
       "name": "Unbreakable",
@@ -577,7 +536,6 @@
             "1 point"
           ]
         },
-        "You set yourself firmly against maneuvers.",
         "You count as being one size category larger.",
         "When you use an Adamant Mountain maneuver that requires a major success on an attack to take effect, it only requires a hit if the target is smaller than you."
       ],
@@ -618,7 +576,6 @@
             "3 points"
           ]
         },
-        "You power through your enemy's special attacks.",
         "When an effect causes you to be {@condition staggered|sns} or {@condition debilitated|sns}, you can use your reaction to prevent it. You can take this reaction even if you are {@condition incapacitated|sns}."
       ],
       "name": "Unstoppable",
@@ -655,7 +612,6 @@
             "1 point"
           ]
         },
-        "You wield your weapon with abandon, striking seemingly at random.",
         "When you fail to hit with an attack using a two-handed weapon, you can use your reaction to ignore the results of that attack and instead make an attack with the same weapon against another target within your reach."
       ],
       "name": "Wild Swing",
@@ -692,7 +648,6 @@
             "3 points"
           ]
         },
-        "Badly wounded, you force yourself to keep fighting.",
         "When you are reduced to 0 hit points, you can use your reaction to regain hit points equal to {@dice 2d12} + your proficiency bonus.",
         "You can take this reaction even if you are {@condition incapacitated|sns}."
       ],
@@ -737,7 +692,6 @@
             "The Empowered Attack feature"
           ]
         },
-        "You smash the ground, knocking down your enemies with a shockwave.",
         "You hit the ground using a two-handed weapon, sending out a shockwave in a 35-foot cube centered on you. Make a fortitude attack against each other creature in the area, dealing damage as if hit by the weapon and knocking them {@condition prone|sns} on a hit."
       ],
       "name": "World-Shaking Strike",
@@ -774,7 +728,6 @@
             "1 point"
           ]
         },
-        "Making haphazard shots to dissuade enemies, you force opponents onto the defensive by unleashing death from above so an ally can move into position.",
         "Choose a number of creatures equal to your proficiency bonus that you can see within your weapon's normal range. Until the start of your next turn, a chosen creature's movement does not provoke opportunity attacks from creatures you can see as you pelt the area nearby with missiles."
       ],
       "name": "Covering Fire",
@@ -811,10 +764,9 @@
             "1 point"
           ]
         },
-        "You palm two blades or nock two arrows, launching both missiles at the same opponent.",
-        "The next ranged weapon attack you make uses two missiles instead of one. On a hit, you deal an additional weapon damage die."
+        "The next ranged weapon attack you make deals 2 additional damage against targets for every 30 feet away from you they are."
       ],
-      "name": "Doubleshot",
+      "name": "Momentum",
       "time": [
         {
           "number": 1,
@@ -848,7 +800,6 @@
             "1 point"
           ]
         },
-        "By arching your back and stretching your arms to their fullest extent, you make your ranged weaponry travel further than usual.",
         "When you use a weapon to make a ranged attack, increase its normal range by 20 feet and long range by 50 feet."
       ],
       "name": "Farshot Stance",
@@ -888,8 +839,7 @@
             "1 point"
           ]
         },
-        "With uncanny swiftness you ready a weapon normally only used at range, compensating for making an attack at an opponent within only a few feet and giving your enemies reason to be wary.",
-        "Until the end of your next turn, being within 5 feet of a hostile creature who can see you and who isn't {@condition incapacitated|sns} does not give you disadvantage when making a ranged weapon attack.",
+        "Until the end of your next turn, being within 5 feet of a hostile creature who can sense you and who isn't {@condition incapacitated|sns} does not give you disadvantage when making a ranged weapon attack.",
         "In addition, when an adjacent hostile creature that you can see moves 5 feet or more away from you, you can use your reaction to make a ranged weapon attack against it."
       ],
       "name": "Point Blank Shot",
@@ -926,7 +876,6 @@
             "1 point"
           ]
         },
-        "With awe-inspiring skill you unleash a thrown weapon or arrow, knocking a missile out of the air.",
         "When you see a missile from a ranged weapon attack enter into the normal range of a weapon you are wielding, you can use your reaction to deflect it. The attack's success tier is reduced by one.",
         "At the Narrator's discretion, certain ranged weapon attacks (like a giant's thrown rock) may be too heavy to be deflected by Countershot."
       ],
@@ -964,8 +913,7 @@
             "2 points"
           ]
         },
-        "With incredible swiftness you tear your weapon from its sheath and let fly a reckless attack.",
-        "As long as you are not surprised, when initiative is rolled you can use your reaction to draw a weapon and make a ranged attack with it."
+        "As long as you are not surprised, when initiative is rolled you can use your reaction to give your initiative roll disadvantage, draw a weapon, and make a ranged attack with that weapon."
       ],
       "name": "Quickdraw",
       "time": [
@@ -1001,8 +949,7 @@
             "1 point"
           ]
         },
-        "Carefully judging the wind and everything else that might interfere, you unleash an impressive shot that delights all who see it.",
-        "Make a ranged weapon attack with advantage against an unattended object. You can use the result of the attack roll instead of making a Performance check, and you gain an expertise die when doing so. Otherwise the kinds of trick shots you can make are at the Narrator's discretion. The attack has no other effect."
+        "Make a ranged weapon attack with advantage against an unattended object. You can use the result of the attack roll instead of making an Intimidation check, and you gain an expertise die when doing so. Otherwise the kinds of trick shots you can make are at the Narrator's discretion. The attack has no other effect."
       ],
       "name": "Trickshot",
       "time": [
@@ -1038,8 +985,7 @@
             "1 point"
           ]
         },
-        "By closing your eyes and focusing on the sound of the environment, you target an unseen foe with uncanny accuracy.",
-        "Make a Perception check contested by the Stealth check of a target you cannot see that is within 30 feet. On a success, you know the target's location and do not have disadvantage on your next ranged attack against it before the end of your turn."
+        "Make a Perception check contested by the Stealth check of a target you cannot sense that is within 30 feet. On a success, you can sense the target during your next ranged attack against it before the end of your turn."
       ],
       "name": "Blindshot",
       "time": [
@@ -1082,8 +1028,7 @@
             "The Empowered Attack feature"
           ]
         },
-        "Seizing upon the moment you make the sky rain death, striking at a multitude of creatures in rapid succession.",
-        "Make a ranged weapon attack against a number of creatures within 10 feet of a point you can see within your weapon's range.",
+        "Make a ranged weapon attack against a number of creatures in a 5-foot-wide line with length equal to your weapon's range.",
         "You may only target a number of creatures equal to or less than your proficiency bonus and you make a separate attack roll for each target."
       ],
       "name": "Missile Volley",
@@ -1120,9 +1065,8 @@
             "2 points"
           ]
         },
-        "With careful judgments of distances, materials, wind, and applied force you let loose a shot that bounces off of one or more surfaces to strike opponents crouching behind walls or otherwise hidden from sight by cover.",
         "On the next ranged weapon attack you make before the start of your turn, you can completely ignore a target's cover.",
-        "Only targets that have total cover from being entirely enclosed by an object or effect (such as inside of a chamber with no openings to shoot through or a sphere from wall of force) have cover against this attack, and you do not have disadvantage from attacking a target you cannot see."
+        "Only targets that have total cover from being entirely enclosed by an object or effect (such as inside of a chamber with no openings to shoot through or a sphere from wall of force) have cover against this attack, and you do not have disadvantage from attacking a target you cannot sense."
       ],
       "name": "Ricochet",
       "time": [
@@ -1158,7 +1102,6 @@
             "2 points"
           ]
         },
-        "Under fire, you dive for cover.",
         "When you are targeted by a ranged armour attack, after the attack roll is made but before effects are resolved, you can use your reaction to move up to your Speed.",
         "If your movement ends adjacent to either a solid barrier as big as you are or a creature the same size as you or larger, until the beginning of your next turn you have three-quarters cover against ranged armour attacks as long as you remain adjacent to the barrier or creature."
       ],
@@ -1196,9 +1139,8 @@
             "2 points"
           ]
         },
-        "You aim carefully at your opponent's most vulnerable spot.",
-        "Make a ranged weapon attack with advantage against a creature within your weapon's normal range.",
-        "If both attack rolls would hit, it's a critical success. If only one of the rolls would be a critical success but the other roll would still hit, you deal an additional weapon damage die."
+        "Make a ranged weapon attack with advantage against a creature at least 30 feet away from you.",
+        "If both attack rolls would hit, it's a critical success. Additionally, if one of the rolls would be a critical success but the other roll would still hit, you deal an additional weapon damage die."
       ],
       "name": "Heartseeker",
       "time": [
@@ -1234,8 +1176,7 @@
             "2 points"
           ]
         },
-        "By focusing on balance and heft you can throw whatever you have in hand with deadly accuracy.",
-        "While you are wielding a one-handed weapon, it gains the thrown property."
+        "While you are wielding a one-handed weapon, it gains the thrown (20'/60') property."
       ],
       "name": "Mundane Missile Stance",
       "time": [
@@ -1274,9 +1215,8 @@
             "3 points"
           ]
         },
-        "You can literally hear the sound of incoming missiles and react to them easily.",
         "Until the end of your next turn, you gain blindsight to a range of 20 feet. When you are hit by a ranged attack, you make a disadvantaged Perception check against a DC equal to the attack roll.",
-        "On a success the attack misses you, and on a critical success you redirect it back at the attacker."
+        "On a success you reduce the attack's success tier by 1, and on a critical success you ignore it completely and redirect it back at the attacker (using the same attack roll)."
       ],
       "name": "Hear the Wind",
       "time": [
@@ -1319,7 +1259,6 @@
             "The Empowered Attack feature"
           ]
         },
-        "No matter how far away a foe is, if you can see them they're still in danger.",
         "When you activate this maneuver, you take the Attack action. Choose one target. Until the start of your next turn, the target is considered to be within your weapon's normal range and it gains no benefit from cover less than total cover."
       ],
       "name": "Horizon Shot",
@@ -1356,7 +1295,6 @@
             "1 point"
           ]
         },
-        "Your unpredictable maneuvering puts your opponent off-balance —when you connect with your weapon they stumble and fall.",
         "When you activate this maneuver, you take the Attack action. Until the start of your next turn, when you score a major success with a melee weapon attack against a creature and deal 8 or more damage it is knocked {@condition prone|sns}."
       ],
       "name": "Knockdown Assault",
@@ -1393,7 +1331,6 @@
             "1 point"
           ]
         },
-        "An opponent that strikes at you invites peril as they find the momentum from their attack turned against them.",
         "When a creature within your reach fails to hit you with a melee weapon attack, you can use your reaction to try to throw it. Make a reflex attack against the creature with the following outcomes:",
         {
           "type": "list",
@@ -1456,7 +1393,6 @@
             "1 point"
           ]
         },
-        "When an opponent opens themself up to a reflexive strike you can deliver a blow that shakes them to their core and forces them to hesitate.",
         "When a hostile creature moves out of a space adjacent to you, you can use your reaction to make a melee weapon attack and on a hit its Speed is reduced to 0 until the start of its next turn."
       ],
       "name": "Warning Strike",
@@ -1493,7 +1429,6 @@
             "1 point"
           ]
         },
-        "With a keen eye you constantly assess everything within sight, paying close attention to subtle visual cues and tells to better anticipate an opponent.",
         "You gain an expertise die on Insight checks and increase your passive Insight score by 3."
       ],
       "name": "Wary Stance",
@@ -1533,7 +1468,6 @@
             "1 point"
           ]
         },
-        "You take the force delivered by an opponent's failed attack and make it your own, propelling yourself away.",
         "When a creature within your reach fails to hit you with a melee weapon attack, you can use your reaction to shift 15 feet after the attack's effects are resolved."
       ],
       "name": "Assisted Roll",
@@ -1570,7 +1504,6 @@
             "1 point"
           ]
         },
-        "Focusing your attacks on an opponent's weak points allows you to not just wound, but to confound.",
         "Until the start of your next turn, when you hit a creature with a melee weapon attack, instead of dealing damage and triggering major effects you can choose to use pulls, shoves, and strikes to put your target off-balance.",
         "Until the end of your next turn, the target is {@condition sluggish|sns}, it has disadvantage on ability checks, and reflex attacks against it have advantage."
       ],
@@ -1608,7 +1541,6 @@
             "2 points"
           ]
         },
-        "You snatch your enemy's weapon and use it against them.",
         "When a creature fails to hit you with a melee weapon attack, you can use your reaction to flip the weapon out of the creature's hands after the attack's effects have been resolved. Make a reflex attack against the creature with the following outcomes: The creature makes a Dexterity saving throw, and on a failure it drops the weapon and you grab it from mid-air.",
         {
           "type": "list",
@@ -1672,7 +1604,6 @@
             "2 points"
           ]
         },
-        "You turn into a twisting leaf upon the wind of battle, turning every dodged strike into a sublime counterattack.",
         "You take the Dodge action. Until the start of your next turn you make one melee weapon attack against each target that fails to hit you with a melee weapon attack, and you have disadvantage on Perception checks."
       ],
       "name": "Flowing Form",
@@ -1709,7 +1640,6 @@
             "2 points"
           ]
         },
-        "Your opponent's blow is not simply turned away but re-oriented entirely, forced into inflicting a wound against a foe unfortunate enough to be nearby.",
         "When you are hit with a melee weapon attack from a Large or smaller creature, you can use your reaction to reduce the attack's success tier by one against you, and also cause the difference in effect that this tier reduction made to be applied to another creature adjacent to you.",
         "Once you have used this maneuver against a creature, it has no effect against that creature for the remainder of combat."
       ],
@@ -1754,7 +1684,6 @@
             "The Empowered Attack feature"
           ]
         },
-        "A probing blow allows you to take the measure of your foe.",
         "When you activate this maneuver, you take the Attack action.",
         "Until the start of your next turn, when you hit a creature with a melee weapon attack you learn its current hit points, hit point maximum, immunities, resistances, and vulnerabilities.",
         "If you score a critical hit you can choose one of the creature's resistances or immunities. The creature loses that resistance or immunity until the end of your next turn. In addition, until the beginning of your next turn you gain advantage on melee weapon attacks against that creature."
@@ -1793,7 +1722,6 @@
             "2 points"
           ]
         },
-        "You return a blow so quickly that your opponent is shocked.",
         "When you are hit with a melee weapon attack, you can use your reaction to make a melee weapon attack against the attacker. On a hit, that creature has disadvantage on armour attack rolls against you until the beginning of your next turn."
       ],
       "name": "Retributive Blow",
@@ -1830,7 +1758,6 @@
             "2 points"
           ]
         },
-        "You focus on targeting your enemy's weakest spots.",
         "Your critical hit range for melee weapon attacks is increased by 1.",
         "You deal one additional weapon damage die when determining the extra damage for a critical hit with a melee weapon attack."
       ],
@@ -1878,7 +1805,6 @@
             "The Empowered Attack feature"
           ]
         },
-        "With a vicious strike, you blind your enemy.",
         "When you activate this maneuver, you take the Attack action.",
         "Until the start of your next turn, when you hit a creature with a melee weapon attack, it is {@condition blinded|sns} and can't benefit from either blindsight or tremorsense.",
         "At the beginning of each of its turns, a creature {@condition blinded|sns} by this maneuver can make a save, ending the effect on itself on a success."
@@ -1917,7 +1843,6 @@
             "3 points"
           ]
         },
-        "You redirect your enemy's attack back upon itself.",
         "When you are hit with a melee weapon attack, you can use your reaction to redirect the force back to the attacker. The attack's success tier is reduce by one and the attacker takes the difference in effect that this tier reduction made.",
         "If you have already hit that creature with a Mirror's Glint maneuver since the beginning of your last turn, the attack's success tier is reduced by two instead."
       ],
@@ -1955,7 +1880,6 @@
             "1 point"
           ]
         },
-        "You make your move while your foe is busy casting a spell.",
         "Until the start of your next turn, when you see a creature within 5 feet of you cast a spell you can use your reaction to make either an opportunity attack or a Sleight of Hand check against it."
       ],
       "name": "Anticipate Spell",
@@ -1992,7 +1916,6 @@
             "1 point"
           ]
         },
-        "With practice and training you learn how to shut off your facial reactions amidst battle, taking on a passive countenance from which nothing can be easily gleaned.",
         "You gain an expertise die on Deception and Sleight of Hand checks made in combat."
       ],
       "name": "Deceptive Stance",
@@ -2032,7 +1955,6 @@
             "1 point"
           ]
         },
-        "Sometimes a good diversion is presented to you and though a foe might bloody you, your light fingers find opportunity in the exchange.",
         "When a creature hits you with a melee weapon attack, you can use your reaction to make a Sleight of Hand check against it."
       ],
       "name": "Painful Pickpocket",
@@ -2069,7 +1991,6 @@
             "1 point"
           ]
         },
-        "A rain of short, sharp strikes disorients your enemy.",
         "When you activate this maneuver, you take the Attack action. As long as your attack is a melee weapon attack, the target has disadvantage on armour attack rolls against you until the start of your next turn."
       ],
       "name": "Perplexing Flurry",
@@ -2106,7 +2027,6 @@
             "2 points"
           ]
         },
-        "You juke left and right, throw sand, whip out your cloak, or otherwise try to distract your opponent and make them vulnerable to attack.",
         "Choose a creature within your reach. You have advantage on your next weapon attack roll against it."
       ],
       "name": "Agile Feint",
@@ -2143,7 +2063,6 @@
             "2 points"
           ]
         },
-        "After working your way into an opponent's guard you convince them that every step will lead to a disastrous end, and that to divert their attention away from you for even a moment invites devastation.",
         "Make a reflex attack against a creature within your reach with the following outcomes:. On a failure, it reacts to a strike from you that never comes. As long as you remain within the target's reach, until the start of your next turn it cannot attack any creature other than you.",
         {
           "type": "list",
@@ -2207,7 +2126,6 @@
             "1 point"
           ]
         },
-        "As your enemy howls in pain, you swiftly snatch something away from them.",
         "Choose a creature you can see. On a hit with your next melee weapon attack against it before the start of your next turn, you can also make a Sleight of Hand check against the creature."
       ],
       "name": "Mugging Hit",
@@ -2244,7 +2162,6 @@
             "1 point"
           ]
         },
-        "You quickly dash a container of liquid over your opponent at an opportune moment.",
         "You splash a held container of liquid, such as a contact poison, holy water, or alchemical substance, at a target within 20 feet.",
         "This maneuver can also be used to extinguish a small nonmagical fire in a 5-foot-square area."
       ],
@@ -2281,7 +2198,6 @@
             "2 points"
           ]
         },
-        "You make a skillful, deceptive strike which your foe doesn't see coming.",
         "Make a melee weapon attack using the result of a disadvantaged Sleight of Hand check instead of your usual attack roll."
       ],
       "name": "Feinting Strike",
@@ -2318,7 +2234,6 @@
             "1 point"
           ]
         },
-        "You snatch something from your enemy.",
         "When a creature is within your reach, you can use your reaction to make a Sleight of Hand check against it."
       ],
       "name": "Pickpocket",
@@ -2355,7 +2270,6 @@
             "2 points"
           ]
         },
-        "You pace your attacks in a disruptive flow that makes it easy to follow a strike with maneuvering that temporarily blinds your foes.",
         "After you hit a creature with a melee weapon attack, you can spend 1 exertion to make a Sleight of Hand check. Reduce the result by the target's armour, and if it succeeds against a DC of 15, the target is {@condition blinded|sns}.",
         "At the beginning of each of its turns, the {@condition blinded|sns} creature can make a save to recover from its blindness."
       ],
@@ -2396,7 +2310,6 @@
             "2 points"
           ]
         },
-        "A quick step and suddenly you and your foe exchange places.",
         "You can use your reaction to reduce the success tier of a creature's makes a melee weapon attack against you by one.",
         "In addition, you may also swap places with the attacker (no opportunity attacks provoked), then make a will attack against it with the following outcomes:",
         {
@@ -2460,7 +2373,6 @@
             "2 points"
           ]
         },
-        "A quick jab to a pressure point locks your opponent's joints.",
         "When a creature moves into your reach you can use your reaction to make a Sleight of Hand check. Reduce the result by the creature's armour, and if it succeeds against a DC of 15, the creature is {@condition restrained|sns} until the start of its next turn."
       ],
       "name": "Steal Momentum",
@@ -2504,7 +2416,6 @@
             "The Empowered Attack feature"
           ]
         },
-        "You swiftly adjust your enemy's armor so that they cannot move.",
         "Make a Sleight of Hand check. Reduce the result by the armour of a creature within reach that is wearing armour, and if it succeeds against a DC of 15, the creature is {@condition staggered|sns}. At the beginning of each of its turns, a creature {@condition staggered|sns} by this maneuver can make a save, ending the effect on itself on a success.",
         "Your sleight of hand check has advantage if the creature is wearing heavy armour."
       ],
@@ -2542,7 +2453,6 @@
             "3 points"
           ]
         },
-        "You dart forward and snatch an item from a foe just as they start to use it.",
         "When a creature within 15 feet draws an item, you can use your reaction to shift into a space adjacent to it and make a will attack against it with the following outcomes:",
         {
           "type": "list",
@@ -2605,7 +2515,7 @@
             "1 point"
           ]
         },
-        "Flinging yourself forward you barrel towards an enemy with your weapon held at the ready to unleash an attack before they can react! Move up to 30 feet in a straight line and make a melee weapon attack. You can't take the Dash action and use this maneuver on the same turn."
+        "Move up to 30 feet in a straight line and make a melee weapon attack. You can't take the Dash action and use this maneuver on the same turn."
       ],
       "name": "Charge",
       "time": [
@@ -2641,7 +2551,6 @@
             "2 points"
           ]
         },
-        "You rapidly lash out in a rising strike targeting your opponent's brow, leaving a wound that obscures their vision.",
         "Make a melee weapon attack against a creature. On a major success, it is {@condition blinded|sns} until the end of your next turn."
       ],
       "name": "Eye Slash",
@@ -2678,7 +2587,6 @@
             "1 point"
           ]
         },
-        "With practiced agility you weave around an opponent wielding a more cumbersome weapon, quickly darting in to strike with a lighter armament.",
         "When a creature attacks you with a two-handed melee weapon, or a Large-sized or larger creature attacks you with a natural weapon, you can use your reaction to make a melee weapon attack so long as either your main hand weapon is Dexterity-based or you are holding a weapon with the offhand trait."
       ],
       "name": "Speed Over Strength",
@@ -2715,7 +2623,6 @@
             "1 point"
           ]
         },
-        "You adopt a loose stance that gives you an extra bit of swiftness that can make all the difference in a fight or chase.",
         "Your Speed increases by 5 feet."
       ],
       "name": "Swift Stance",
@@ -2755,7 +2662,6 @@
             "1 point"
           ]
         },
-        "Pointing your weapon at your foe you challenge them, forcing them to lower their defenses so you can launch an attack of your own.",
         "At the end of your turn, you can use your reaction to add an expertise die to your armour against one creature you can see within reach.",
         "This increase to your armour only applies to the chosen creature and ends at the start of your next turn.",
         "If the creature fails to hit you with one or more armour attacks before the start of your next turn, you can make a melee weapon attack against it."
@@ -2794,7 +2700,6 @@
             "2 points"
           ]
         },
-        "As casually as any seasoned alchemist, you pluck the cork from a magical concoction and pour it down your throat or a companion's.",
         "You drink a potion or administer a potion to a creature within reach."
       ],
       "name": "Rapid Drink",
@@ -2830,7 +2735,6 @@
             "1 point"
           ]
         },
-        "Flowing through battle like the wind itself, you deftly sprint forward through the reach of enemies to deliver an unexpected attack.",
         "Shift up to 20 feet and make a melee weapon attack."
       ],
       "name": "Rolling Strike",
@@ -2867,7 +2771,6 @@
             "2 points"
           ]
         },
-        "With expert timing you apply just the right amount of force to send an opponent's weapon flying just as they strike.",
         "When a creature makes a melee weapon attack against you and fails to hit, you can use your reaction to make a reflex attack against it with the following outcomes:",
         {
           "type": "list",
@@ -2930,7 +2833,6 @@
             "2 points"
           ]
         },
-        "With an array of quick, carefully placed attacks against the same opponent you throw them off their guard.",
         "When you activate this maneuver, you take the Attack action.",
         "After hitting a creature with a melee weapon attack as part of this action, you can use your bonus action to increase the attack's damage by the weapon's damage.",
         "Alternatively, if you expend an additional 2 exertion points, you can increase the attack's damage by the weapon's damage twice."
@@ -2976,7 +2878,6 @@
             "The Empowered Attack feature"
           ]
         },
-        "Shouldering into a hard spin you lash out at opponents that have surrounded you, striking at each of them in rapid succession.",
         "Make a melee weapon attack against any number of creatures within 5 feet of you, making a separate attack roll for each target. You may only target a number of creatures equal to or less than your proficiency bonus."
       ],
       "name": "Whirlwind Strike",
@@ -3013,7 +2914,6 @@
             "3 points"
           ]
         },
-        "You react and attack quicker than the eye can see.",
         "After rolling initiative, you can use your reaction to treat your initiative as if you had rolled a critical success."
       ],
       "name": "First Blood",
@@ -3050,7 +2950,6 @@
             "3 points"
           ]
         },
-        "You focus on moving so swiftly and with such subtlety that nothing can stop you.",
         "You allow your movements to adapt to all conditions. Whenever you would become {@condition grappled|sns}, {@condition staggered|sns}, {@condition restrained|sns}, or {@condition debilitated|sns}, make a save, ignoring the condition on a success. In addition, you ignore difficult terrain."
       ],
       "name": "Flowing Steps Stance",
@@ -3097,7 +2996,6 @@
             "The Empowered Attack feature"
           ]
         },
-        "You spin around, gathering momentum as you strike your foes harder and harder.",
         "Make a melee weapon attack against any number of creatures within 5 feet of you, making a separate attack roll for each target. For each subsequent hit after the first, you deal an additional {@dice 1d6} damage."
       ],
       "name": "Whirlpool Strike",
@@ -3134,7 +3032,6 @@
             "2 points"
           ]
         },
-        "An expert parry turns a hit into a miss.",
         "When a creature hits you with a melee weapon attack, you can use your reaction to attempt to evade the attack.",
         "Make a reflex attack against the creature, with the following outcomes:",
         {
@@ -3206,7 +3103,6 @@
             "The Empowered Attack feature"
           ]
         },
-        "You sprint through your enemies, striking at every one you pass.",
         "You take the Dash action. During your turn, any time you become adjacent to a creature, you can make a melee attack against it using a weapon that has the Offhand trait or is Dexterity-based.",
         "You cannot attack the same creature twice in a row in this manner or make more attacks than your proficiency bonus."
       ],
@@ -3244,7 +3140,6 @@
             "1 point"
           ]
         },
-        "The execution and follow-through of your strike is exquisite with not an iota of force wasted.",
         "When you activate this maneuver, you take the Attack action. Until the start of your next turn, your weapon attacks have +1 critical success range."
       ],
       "name": "Dangerous Strikes",
@@ -3281,7 +3176,6 @@
             "2 points"
           ]
         },
-        "Deftly surging forward and weaving around your opponent, when their attack fails you quickly move around your foe and force them to stumble.",
         "When a creature makes a melee weapon attack against you with advantage and misses, or when it has disadvantage and both attack rolls would miss, you can use your reaction to trip it. Make a reflex attack against the creature, with the following outcomes:",
         {
           "type": "list",
@@ -3344,7 +3238,6 @@
             "1 point"
           ]
         },
-        "Withdrawing into your mind, you focus and concentrate to steel your nerves.",
         "When you would become {@condition charmed|sns} or {@condition frightened|sns}, you can use your reaction to make a save, ignoring the condition on a success."
       ],
       "name": "Iron Will",
@@ -3381,7 +3274,6 @@
             "1 point"
           ]
         },
-        "Nothing within your sight is of minor significance and you take in your surroundings with great care even as arrows fly and blades clash upon shields.",
         "Your passive Perception score increases by 3. In addition, you gain an expertise die on Perception checks."
       ],
       "name": "Perceptive Stance",
@@ -3421,7 +3313,6 @@
             "1 point"
           ]
         },
-        "With a series of low steps and somersaults you expertly maneuver around opponents.",
         "Shift 20 feet."
       ],
       "name": "Practiced Roll",
@@ -3458,7 +3349,6 @@
             "2 points"
           ]
         },
-        "After striking your foe, you twist the blade.",
         "When you hit a creature with a melee weapon attack on a natural roll of 18 or 19, you can use your reaction to turn the attack into a critical success."
       ],
       "name": "Twist the Blade",
@@ -3495,7 +3385,6 @@
             "1 point"
           ]
         },
-        "Seizing on the surge of adrenaline that comes from suffering a severe blow, you lash out with a vengeful strike.",
         "When a creature scores a critical success against you with a melee weapon attack, you can use your reaction to make a melee weapon attack against it."
       ],
       "name": "Use The Pain",
@@ -3532,7 +3421,6 @@
             "2 points"
           ]
         },
-        "You move inexorably forward with an attack which cannot be stopped by blade or shield, forcing your opponent back.",
         "Make a melee weapon attack against a creature. Whether or not you hit, the creature is pushed back 10 feet."
       ],
       "name": "Drive Back",
@@ -3569,7 +3457,6 @@
             "2 points"
           ]
         },
-        "Utilizing reflexes perfected by dedicated training, your body flows into a sublime strike almost without a thought.",
         "At any point outside of your turn, you can use your reaction to make a melee weapon attack."
       ],
       "name": "Instinctive Counterattack",
@@ -3606,7 +3493,6 @@
             "1 point"
           ]
         },
-        "Focusing your thoughts inward allows you to rise above the pain of wounds inflicted upon your body.",
         "Until the start of your next turn, gain 2 damage resistance."
       ],
       "name": "Mind Over Body",
@@ -3650,7 +3536,6 @@
             "The Empowered Attack feature"
           ]
         },
-        "You feed off the adrenaline from a solid strike and turn that energy into frenetic movement.",
         "Move up to your Speed and make a melee weapon attack against a creature. On a hit, for the next minute your Speed is increased by 10 feet."
       ],
       "name": "Dashing Razor",
@@ -3687,7 +3572,6 @@
             "2 points"
           ]
         },
-        "By relying on your training and countless hours of repetition, you can easily manipulate the battlefield to position yourself where your strikes are able to inflict the most harm.",
         "Your weapon attacks have +2 critical success range."
       ],
       "name": "Perfect Edge Stance",
@@ -3727,7 +3611,6 @@
             "3 points"
           ]
         },
-        "You tune your senses, focusing on the fight at hand.",
         "You can use your reaction to make a disadvantaged Perception check when a creature makes an armour attack against you, turning it into a minor success if your result is higher than the attack roll. In addition, if the attack is turned into a minor success you gain advantage on armour attacks made against that creature until the end of your next turn.",
         "If the attack still hits you, the creature has disadvantage on its next armour attack made against you before the end of its next turn."
       ],
@@ -3772,8 +3655,6 @@
             "Two instances of the Empowered Attack feature"
           ]
         },
-        "All your training culminates in this lethal attack.",
-        "You deliver the perfect killing blow with a single secret technique.",
         "Make a melee weapon attack against a creature.",
         "On a hit, your attack becomes a critical success, and if your attack would have already been a critical success the creature makes a save.",
         "On a failure, the creature is reduced to 0 hit points."
@@ -3812,7 +3693,6 @@
             "3 points"
           ]
         },
-        "You nearly lose concentration, but you shake your head and stay focused.",
         "When you lose concentration, you can use your reaction to prevent yourself from losing concentration."
       ],
       "name": "Heightened Concentration",
@@ -3849,7 +3729,6 @@
             "1 point"
           ]
         },
-        "Working in tandem with an ally, you fray the defenses of an opponent so your companion can better land a strike.",
         "Choose a creature within your reach. The next ally within 20 feet that makes a melee weapon attack against that creature can use their bonus action to force the target to make a save, becoming {@condition grappled|sns} by them or being pushed 10 feet on a failure."
       ],
       "name": "Doubleteam",
@@ -3886,7 +3765,6 @@
             "1 point"
           ]
         },
-        "You strike your foes in such a way as to leave an opening for your allies to follow-up.",
         "When you score a critical success with an armour attack against a creature, an ally within reach of the same creature can use their reaction to make an opportunity attack against it."
       ],
       "name": "Legion Stance",
@@ -3926,7 +3804,6 @@
             "1 point"
           ]
         },
-        "Falling into step with a fellow warrior and putting both of your shields together makes each of you harder to hit.",
         "While you are wielding a shield, you can choose one ally within 5 feet that is also wielding a shield.",
         "Until the start of your next turn, as long as that ally remains within 5 feet of you and is able to take actions both you and your ally increase your armour by 1."
       ],
@@ -3964,7 +3841,6 @@
             "1 point"
           ]
         },
-        "Watching a companion under attack infuriates you and you fling yourself at their opponent with a powerful shove.",
         "After a creature within your reach makes a melee weapon attack against an ally, you can use your reaction to make a fortitude or reflex attack (target's choice) against the creature, using a disadvantaged Athletics check as the attack roll, with the following results.On a success you shove the creature 10 feet away from you and you move 10 feet in that direction.",
         {
           "type": "list",
@@ -4027,7 +3903,6 @@
             "1 point"
           ]
         },
-        "You know how to fight while surrounded by foes and can quickly instruct an ally on how to move in concert to survive against an overwhelming number of foes.",
         "Choose an ally adjacent to you. Until the start of your next turn, as long as that ally remains adjacent to you and is able to take actions, and both of you are unmounted, you and your ally increase your armour by 2.",
         "In addition, each of you gets an extra reaction that can be used before the start of your next turn to activate a combat maneuver that cannot make attacks."
       ],
@@ -4065,7 +3940,6 @@
             "3 points"
           ]
         },
-        "You and an ally tackle a foe together, your combined strength forcing them to the ground.",
         "Choose an ally you can see. Your ally can use their reaction to move up to 20 feet to be adjacent to a creature you designate.",
         "As long as your ally moved at least 20 feet and both you and your ally are adjacent to the creature, you make a fortitude attack against the creature with the following outcomes:it makes a Strength saving throw or is knocked {@condition prone}.",
         {
@@ -4130,7 +4004,6 @@
             "2 points"
           ]
         },
-        "You join in a grapple instigated by an ally.",
         "A creature an ally has {@condition grappled|sns} makes a save. On a failure, the creature is {@condition restrained|sns} until the grapple ends, and either you or your ally (your choice) are also {@condition restrained|sns} until the grapple ends."
       ],
       "name": "Dual Grapple",
@@ -4167,7 +4040,6 @@
             "2 points"
           ]
         },
-        "As your ally strikes an opponent, you seize the moment of imbalance to knock them down.",
         "When an ally within your reach hits a creature with a melee weapon attack, you can use your reaction to make a melee weapon attack against that creature. On a major success, the creature is knocked {@condition prone|sns}."
       ],
       "name": "Follow-Up Topple",
@@ -4204,7 +4076,6 @@
             "3 points"
           ]
         },
-        "You throw your ally at an opponent, lending them extra power.",
         "Choose a willing ally within your reach that is at least one size category smaller than you. You hurl your ally at a creature within 20 feet. Your ally lands in a space adjacent to the creature and can use their reaction to make a melee weapon attack against it. On a major success, the attack becomes a critical success (or if the attack is already a critical success your ally deals maximum damage)."
       ],
       "name": "Hurl Ally",
@@ -4241,7 +4112,6 @@
             "2 points"
           ]
         },
-        "Your strikes make foes hesitate, leaving openings for your allies to move free of danger.",
         "When you activate this maneuver, you take the Attack action. Until the start of your next turn, when you make a melee weapon attack against a creature you can choose one ally within reach.",
         "The chosen ally does not provoke opportunity attacks from that creature until the start of your next turn.",
         "In addition, the next melee weapon attack the chosen ally makes against that creature before the end of their next turn gains an expertise die."
@@ -4280,7 +4150,6 @@
             "3 points"
           ]
         },
-        "You interpose yourself to take a hit for your ally.",
         "When an ally within your reach is hit by an armour attack, you can use your reaction to swap places with them and become the target of that attack, taking half as much damage as normal."
       ],
       "name": "Bodyguard",
@@ -4317,7 +4186,6 @@
             "3 points"
           ]
         },
-        "By focusing on keeping enemies off-balance, you help allies attack more effectively.",
         "Whenever you hit a creature with a melee weapon attack, you can also take the Help action.",
         "On an armour attack critical success, the target of your Help action can use their reaction to take the Dodge action."
       ],
@@ -4358,7 +4226,6 @@
             "2 points"
           ]
         },
-        "You execute a perfect retreat that distracts enemies and allows your companions to fall back beside you.",
         "You take the Disengage action, and up to 3 allies within your reach can use their reactions to shift up to their Speed."
       ],
       "name": "Doubletime",
@@ -4395,7 +4262,6 @@
             "3 points"
           ]
         },
-        "You offer inspiring encouragement to an ally and they gain their second wind.",
         "When an ally you can see takes damage from an armour attack, you can use your reaction to release a hearty rallying cry. As long as they are able to hear you, your ally regains an amount of hit points equal to triple your proficiency bonus."
       ],
       "name": "Rallying Cry",
@@ -4439,7 +4305,6 @@
             "The Empowered Attack feature"
           ]
         },
-        "You and your allies combine forces and attack a single foe with devastating results.",
         "Make a melee weapon attack against a creature. Any willing ally within your reach can use their reaction to make a melee weapon attack against the same creature.",
         "If the creature is hit by two attacks, it takes extra damage from your attack equal to your proficiency bonus.",
         "If the creature is hit by three attacks, it takes extra damage from your attack equal to twice your proficiency bonus and it is knocked {@condition prone|sns}.",
@@ -4479,7 +4344,6 @@
             "1 point"
           ]
         },
-        "You protect your mount as you ride.",
         "While you are riding a mount, your armour increases by 1."
       ],
       "name": "Cavalier Stance",
@@ -4519,7 +4383,6 @@
             "1 point"
           ]
         },
-        "You knock your opponent prone with a direct hit from your weapon.",
         "You must be wielding a weapon with the Reach trait, mounted, and have displaced 20 or more feet this turn in order to use this maneuver.",
         "Make a melee weapon attack against a creature within your weapon's reach. On a hit, you deal an extra {@dice 1d6} damage and on a substantial success, the creature is knocked {@condition prone|sns}."
       ],
@@ -4557,7 +4420,6 @@
             "2 points"
           ]
         },
-        "You charge your foe using your mount's strength and swiftness to add power to your attack.",
         "When you activate this maneuver, you take the Attack action.",
         "You must be mounted to use this maneuver.",
         "Move up to your mount's Speed in a straight line. If at the end of your movement there is a creature within your reach, the attack you make against it as part of this maneuver has advantage.",
@@ -4597,7 +4459,6 @@
             "1 point"
           ]
         },
-        "You coax your mount into making a remarkable leap.",
         "As long as you are mounted and move at least 30 feet in a straight line first, your mount can jump further and higher than usual. The height of the jump increases by a number of feet equal to your proficiency bonus and the distance of the jump increases by a number of feet equal to twice your proficiency bonus.",
         "Your movement this turn counts as shifting."
       ],
@@ -4635,7 +4496,6 @@
             "3 points"
           ]
         },
-        "You rear your mount, intimidating nearby opponents.",
         "When you activate this maneuver, you take the Attack action.",
         "You must be mounted to use this maneuver.",
         "Make a will attack against a number of creatures equal to your proficiency bonus that are within 20 feet, with the following outcomes:",
@@ -4701,7 +4561,6 @@
             "1 point"
           ]
         },
-        "In tune with your mount, you guide it to greater heights.",
         "While you are riding your mount and you make an ability check, you can use your reaction to grant it advantage, and when you are targeted with a non-armour attack you can use your reaction to grant it disadvantage."
       ],
       "name": "Spur Mount",
@@ -4738,9 +4597,8 @@
             "2 points"
           ]
         },
-        "You trample down enemies in your path.",
         "You must be mounted to use this maneuver.",
-        "Shift up to half your Speed. Creatures in your path that are at least one size smaller than your mount make a save. On a failure, a creature immediately takes {@dice 2d6} bludgeoning DoT damage and is knocked {@condition prone|sns}."
+        "Shift up to half your Speed. Creatures in your path that are at least one size smaller than your mount make a save. On a failure, a creature immediately suffers {@dice 2d6} bludgeoning harm and is knocked {@condition prone|sns}."
       ],
       "name": "Trample",
       "time": [
@@ -4776,7 +4634,6 @@
             "2 points"
           ]
         },
-        "You leap from your mount to attack a nearby opponent.",
         "You must be mounted to use this maneuver.",
         "You leap 10 feet away from your mount and make a melee weapon attack against a creature within your reach before you land. On a hit, your attack becomes a critical success."
       ],
@@ -4814,7 +4671,6 @@
             "2 points"
           ]
         },
-        "You use your mount as a shield.",
         "You must be mounted to use this maneuver.",
         "When a creature targets you with an attack you can use your reaction to swing down the side of your mount, automatically causing the attack to score a critical failure, but dismounting you."
       ],
@@ -4852,7 +4708,6 @@
             "3 points"
           ]
         },
-        "From atop your mount, you strike down at your foes with powerful blows.",
         "When you activate this maneuver, you take the Attack action.",
         "You must be mounted to use this maneuver.",
         "Until the end of your next turn, when you use a melee weapon attack and score a major success against a creature of a size smaller than your mount, it suffers one of the following (your choice): {@condition confused|sns} until the start of your next turn, knocked {@condition prone|sns}, or {@condition slowed|sns} until the end of your next turn."
@@ -4891,7 +4746,6 @@
             "3 points"
           ]
         },
-        "Your mount makes an incredible leap, soaring through the air.",
         "When your mount makes an Athletics check to jump, you can use your reaction to grant it a fly speed equal to half its Speed until the end of your turn. Your mount can only fly in a straight line."
       ],
       "name": "Prodigious Leap",
@@ -4928,7 +4782,6 @@
             "2 points"
           ]
         },
-        "You summon your mount to your side.",
         "When you have become separated from your mount but can see it, you can use an action to whistle. As long as your mount is able to hear you, it uses its reaction to move until it is adjacent to you.",
         "Your mount suffers a level of fatigue if this movement is more than twice its Speed."
       ],
@@ -4966,7 +4819,6 @@
             "3 points"
           ]
         },
-        "You focus on a deep and unspoken connection with your mount, lending it strength and working together as one.",
         "When you make a melee weapon attack against a creature while mounted, you gain advantage on armour attack rolls against that creature until the end of your next turn.",
         "In addition, while mounted, incoming non-armour attacks against you have disadvantage and you gain 50% resistance to all damage."
       ],
@@ -5007,7 +4859,6 @@
             "3 points"
           ]
         },
-        "Your mount takes comfort from your presence and gains its second wind.",
         "When you are hit by an attack while mounted, you can use your reaction to pat your mount reassuringly. You regain hit points equal to your level plus your proficiency bonus.",
         "If you are {@condition charmed|sns}, {@condition poisoned|sns}, or {@condition restrained|sns}, you can end those conditions."
       ],
@@ -5052,7 +4903,6 @@
             "The Empowered Attack feature"
           ]
         },
-        "You repeatedly charge your mount at your opponent, attacking again and again.",
         "You take the Dodge action. If your mount moves at least 10 feet in a straight line this turn and there's a creature within your reach, make a melee attack against that creature.",
         "If you can continue your movement for at least 10 more feet, then return, you can turn around and increase the attack's damage by your weapon's damage. You can do this any number of times as per your mount's movement.",
         "You must end your movement at least 10 feet away from the creature."
@@ -5091,7 +4941,6 @@
             "1 point"
           ]
         },
-        "For a moment you unleash your fury forcing your enemy to hesitate.",
         "Choose one hostile creature you can sense within 30 feet. If it can sense you, it makes a save or is {@condition frightened|sns} of you until the end of your next turn.",
         "After you have used this maneuver against a creature, until the end of combat it has advantage on saves to resist Imposing Glare."
       ],
@@ -5129,7 +4978,6 @@
             "1 point"
           ]
         },
-        "As soon as your senses seize upon the uttering of an incantation or a hand working the gestures of magic your body reflexively reacts with violence.",
         "When a creature within your reach casts a spell, you can use your reaction to make a melee weapon attack against it."
       ],
       "name": "Purge Magic",
@@ -5166,7 +5014,6 @@
             "1 point"
           ]
         },
-        "With supreme confidence you march forward with your attack, stepping heavily into every strike and driving each blow home.",
         "When you activate this maneuver, you take the Attack action. Throughout this action, you may move up to 15 feet. This movement can be through the space of hostile creatures that are up to one size category larger than you."
       ],
       "name": "Striding Swings",
@@ -5203,7 +5050,6 @@
             "1 point"
           ]
         },
-        "By submitting to your fervor you make yourself vulnerable but gain an edge on your opponents.",
         "When you make a melee weapon attack on your turn that is either utilising a weapon with the Offhand trait or affected by the Empowered Attack feature, you can decide to gain an expertise die on that attack roll. When you do so, until the start of your next turn armour attack rolls against you gain an expertise die."
       ],
       "name": "Zealous Stance",
@@ -5243,7 +5089,6 @@
             "1 point"
           ]
         },
-        "As soon as you spot the workings of magic nearby you can reflexively draw upon your willpower to fortify your mind, body, and soul.",
         "Whenever magic causes you to become {@condition charmed|sns}, {@condition frightened|sns}, {@condition poisoned|sns}, or {@condition debilitated|sns}, at the start of your next turn you can use your reaction to make a save, removing the condition on a success."
       ],
       "name": "Faith Within",
@@ -5280,7 +5125,6 @@
             "2 points"
           ]
         },
-        "You lock eyes with an opponent with a fury so potent that it cannot be ignored.",
         "You stare down a creature you can sense within 30 feet, and if it can sense you it makes a save. On a failure, the creature is compelled to attack you. On its turns the creature uses its movement to move towards you and then takes the Attack action against you.",
         "The effects of this maneuver end when you attack a different creature or the creature is unable to attack you."
       ],
@@ -5325,7 +5169,6 @@
             "The Empowered Attack feature"
           ]
         },
-        "You strike your opponent with enough force to stun them.",
         "When you activate this maneuver, you take the Attack action.",
         "Until the start of your next turn, when you score a major success with a melee weapon attack the target is {@condition debilitated|sns} until the end of your next turn."
       ],
@@ -5363,7 +5206,6 @@
             "2 points"
           ]
         },
-        "You interrupt a spell to stop it being cast.",
         "When a creature within your reach casts a spell, you can use your reaction to make a melee weapon attack against it. On a major success, the target does not cast that spell (and therefore does not expend any resources on it, including any actions) and cannot cast that spell for the next minute."
       ],
       "name": "Break Spell",
@@ -5400,7 +5242,6 @@
             "2 points"
           ]
         },
-        "The potency of magic is dependent upon whoever wields it, and whether arcane or divine most spells and spellcasters pale in comparison to your obsessive conviction.",
         "When a creature within 30 feet makes a spell armour attack against you, you can use your reaction to defy it, reducing the attack's success tier by 1.",
         "If the spell is of 7th-level or higher, this combat maneuver has no effect."
       ],
@@ -5445,7 +5286,6 @@
             "The Empowered Attack feature"
           ]
         },
-        "You attack with such fury that your enemy's magical defenses wither and fail.",
         "When you activate this maneuver, you take the Attack action. Until the start of your next turn, your weapon attacks have +1 critical success range, and when you score a critical hit against a creature any spell of 3rd-level or lower on the creature ends."
       ],
       "name": "Dispelling Assault",
@@ -5482,7 +5322,6 @@
             "3 points"
           ]
         },
-        "The battle around you narrows as you focus your ire on a single opponent, ignoring other threats or enemies.",
         "Choose one creature you can sense within 30 feet. Until the start of your next turn, you cannot attack any other targets and you have advantage on weapon attacks made against that creature.",
         "On a critical hit within this duration, you can spend exertion to use a Tempered Iron maneuver that you know against the creature so long as it can be activated with an action or bonus action and cannot make attacks."
       ],
@@ -5520,7 +5359,6 @@
             "2 points"
           ]
         },
-        "You charge a spellcaster in order to interrupt their spell.",
         "When a creature within your line of sight casts a spell, you can use your reaction to move up to your Speed. If you end your movement adjacent to that creature, you can make a melee weapon attack against it. On a critical success, the target does not cast that spell (and therefore does not expend any resources on it, including any actions) and cannot cast that spell for the next minute."
       ],
       "name": "Disrupting Charge",
@@ -5557,7 +5395,6 @@
             "2 points"
           ]
         },
-        "You strike a spellcaster and disrupt their control over magic, fracturing the power behind a spell and transforming the energy so it roots them to the spot.",
         "When a creature within your reach casts a spell, you can use your reaction to make a melee weapon attack against it. On a major success, the target does not cast that spell (and therefore does not expend any resources on it, including any actions) and cannot cast that spell for the next minute.",
         {
           "type": "list",
@@ -5627,7 +5464,6 @@
             "3 points"
           ]
         },
-        "You permanently mark your foe with your sword.",
         "Before the start of your next turn, when you hit a creature with a melee weapon attack you can choose to brand it. A branded creature has disadvantage on armour attacks made against creatures other than you, and whenever it takes damage while concentrating, it must make a save, losing concentration on a failure.",
         "In addition, a branded creature cannot move closer to you without passing a save (only one save is made each turn). The brand on a creature is removed when it regains 30 hit points or more from a healing spell or similar magic."
       ],
@@ -5665,7 +5501,6 @@
             "3 points"
           ]
         },
-        "Digging within, you stave off the call of death and surge renewed towards your foes.",
         "When you are reduced to 0 hit points, you can use your reaction to heal a number of hit points equal to double your proficiency bonus.",
         "If you were reduced to 0 hit points by a spell, you instead heal a number of hit points equal to your level plus your proficiency bonus. In addition, for the next minute you gain advantage on armour attack rolls made against the creature that reduced you to 0 hit points, and your weapon attacks against it deal extra damage equal to your proficiency bonus."
       ],
@@ -5703,7 +5538,6 @@
             "1 point"
           ]
         },
-        "You leap and bound toward your enemy with animal fury.",
         "Move 15 feet in a straight line and make a disadvantaged Acrobatics or Athletics check to jump as you do so. If a creature is within your reach when you land, you can make a melee weapon attack against it using the result of your check instead of an attack roll."
       ],
       "name": "Bounding Strike",
@@ -5740,7 +5574,6 @@
             "2 points"
           ]
         },
-        "You lash out with one fast, wild strike.",
         "Make a melee weapon attack. On a hit, the attack deals additional damage equal to its governing ability modifier."
       ],
       "name": "Raking Strike",
@@ -5777,7 +5610,6 @@
             "2 points"
           ]
         },
-        "You leap atop your enemy just as it attacks.",
         "When a creature at least one size category larger than you fails to hit you with a natural weapon attack, you can use your reaction to use the {@spell Grab On|sns} basic maneuver against it."
       ],
       "name": "Ride Enemy",
@@ -5814,7 +5646,6 @@
             "1 point"
           ]
         },
-        "Every time you step, slide, or turn you do so more quickly than usual and it becomes much easier to hurl yourself about.",
         "You increase the distance of your horizontal jumps by a number of feet equal to your proficiency bonus, and the distance of your vertical jumps by a number of feet equal to half your proficiency bonus. In addition, you gain an expertise die on Acrobatics checks and checks made to jump. This affects your journey activity checks."
       ],
       "name": "Springing Stance",
@@ -5854,7 +5685,6 @@
             "2 points"
           ]
         },
-        "You throw your body across the battlefield, careening around opponents in a route and manner that makes it difficult to anticipate where you'll move next.",
         "As long as you move your full Speed before the end of your turn (and your Speed is greater than 0), your armour increases by an amount equal to your proficiency bonus until the start of your next turn."
       ],
       "name": "Expert Tumble",
@@ -5898,7 +5728,6 @@
             "The Empowered Attack feature"
           ]
         },
-        "Like a stalking predator you run down your prey and pounce with a lethal attack that throws your opponent to the ground or knocks them back.",
         "When you activate this maneuver, you take the Attack action. During this action, you may move up to 40 feet in a straight line. If you score a major success with a melee weapon attack at the end of your movement, the target is either knocked {@condition prone|sns} or pushed 10 feet away from you (your choice)."
       ],
       "name": "Leaping Strike",
@@ -5935,7 +5764,6 @@
             "2 points"
           ]
         },
-        "The instant you sense an opponent has moved within your guard you immediately attack in response.",
         "When a creature makes a melee weapon attack against or grapples you, you can use your reaction to make a melee weapon attack against it."
       ],
       "name": "Primal Intercept",
@@ -5972,7 +5800,6 @@
             "3 points"
           ]
         },
-        "You instinctively know when you hit an opponent's weak spot and can muster an extra bit of force to devastating effect, causing your foe to suffer momentary fatigue.",
         "When you hit a creature with a weapon attack, you can use your reaction to give the target one level of {@condition fatigue|sns} for 1 minute. If the weapon attack scored a critical success, the target gains two levels of {@condition fatigue|sns} instead.",
         "A target cannot gain more than two levels of fatigue from this maneuver."
       ],
@@ -6017,7 +5844,6 @@
             "The Empowered Attack feature"
           ]
         },
-        "With two deft attacks you rend at your opponent, striking at them first to diminish their defenses then delivering a ferocious second blow.",
         "When you activate this maneuver, you take the Attack action. The attack deals {@dice 1d8} extra base damage for each instance of the Empowered Attack feature affecting it."
       ],
       "name": "Rake",
@@ -6054,7 +5880,6 @@
             "1 point"
           ]
         },
-        "You move through the environment like a cat, running along walls and easily leaping across gaps.",
         "Move 30 feet. Until the start of your next turn, you gain a climb speed equal to your Speed and your minimum jump distance increases to 10 feet vertically and 15 feet horizontally."
       ],
       "name": "Wild Capering",
@@ -6091,7 +5916,6 @@
             "3 points"
           ]
         },
-        "You use all your senses to focus your attacks on a single enemy.",
         "You gain blindsight out to a range of 30 feet.",
         "If a creature leaves the range of your blindsight, you can use your reaction to mark it as prey and move up to your Speed. The next melee weapon attack you make against that creature before the end of your next turn deals additional damage equal to the attack's base weapon damage die."
       ],
@@ -6129,9 +5953,8 @@
             "3 points"
           ]
         },
-        "A victorious battle cry strikes fear in the heart of your foes.",
         "Make a melee weapon attack against a creature.",
-        "On a major success, you release a mighty roar that shakes the very earth and firmament in a 30-foot cube centered on you. Each hostile creature in the area takes psychic DoT damage equal to twice your proficiency bonus and it becomes {@condition frightened|sns} until the end of its next turn. On a standard success, the same creatures take half as much psychic DoT damage and do not become {@condition frightened|sns}."
+        "On a major success, you release a mighty roar that shakes the very earth and firmament in a 30-foot cube centered on you. Each hostile creature in the area suffers psychic harm equal to twice your proficiency bonus and it becomes {@condition frightened|sns} until the end of its next turn. On a standard success, the same creatures suffer half as much psychic harm and do not become {@condition frightened|sns}."
       ],
       "name": "Bloody Roar",
       "time": [
@@ -6167,8 +5990,7 @@
             "1 point"
           ]
         },
-        "By tapping into your basic survival instincts you not only unleash your potential —you make certain that every strike counts.",
-        "The minimum result on a damage die rolled with a natural weapon, unarmed strike, or weapon with the Offhand trait is a 3."
+        "The minimum result on a damage die rolled with a natural weapon, unarmed strike, or weapon being dual-wielded is a 3."
       ],
       "name": "Mercurial Striking Stance",
       "time": [
@@ -6214,7 +6036,6 @@
             "The Empowered Attack feature"
           ]
         },
-        "You unleash an intense blow driven by pure fury, oblivious to your surroundings.",
         "Make a melee weapon attack against a creature.",
         "On a hit, make a save. Do this again until you fail a save, or you have succeeded on a number of saves equal to your proficiency bonus.",
         "For each save you succeeded, the attack's damage is increased by your weapon's base damage.",
@@ -6254,7 +6075,6 @@
             "3 points"
           ]
         },
-        "Playing dead, you surprise your foe with a sudden attack.",
         "When you lose hit points, you can use your reaction to fall {@condition prone|sns} and pretend to be dead. All hostile creatures able to see you consider you to be dead or dying.",
         "If a creature moves within your reach before the beginning of your next turn, you can immediately stand up and spend exertion to use a Tooth and Claw maneuver you know against it.",
         "No action is required to activate the maneuver and any melee weapon attack made as part of the maneuver has advantage.",
@@ -6294,7 +6114,6 @@
             "1 point"
           ]
         },
-        "You have mastered a strike that is unmistakably your own.",
         "Choose a simple symbol (such as a letter) to be your signature. When you have advantage on a melee weapon attack roll, on a hit you can leave your signature on the creature or object you attacked. Your signature remains on a creature until it has taken a long rest.",
         "While a creature bears your signature, you can use a bonus action to try to intimidate it.",
         "The creature makes a save or becomes {@condition frightened|sns} of you until the start of your next turn."
@@ -6333,7 +6152,6 @@
             "1 point"
           ]
         },
-        "You wield your weapon with a practiced familiarity that makes it deadly even when a foe is beyond your reach, able to hurl it as accurately as a thrown dagger.",
         "Choose a weapon when you learn this combat maneuver. While you are wielding the chosen weapon it gains the Thrown (20'/60') trait."
       ],
       "name": "Throwing Stance",
@@ -6373,7 +6191,6 @@
             "1 point"
           ]
         },
-        "Your victory pose spurs your allies.",
         "Choose a weapon when you learn this combat maneuver. When you score a critical hit with this weapon, you can use your reaction to pose dramatically as you finish the strike.",
         "As you dramatically pose, choose a number of allies equal to your proficiency bonus within 30 feet. The chosen allies have advantage on the next death saving throw each makes before the end of combat."
       ],
@@ -6411,9 +6228,8 @@
             "2 points"
           ]
         },
-        "Swinging or thrusting with your weapon like you have thousands of times before, you know precisely where its tip grazes and your swing hits at the smallest flaw in an opponent's armor to deliver a painful wound.",
-        "Choose a weapon when you learn this combat maneuver. If you hit with your next attack roll using the chosen weapon against a living creature, you deliver a wound that deals {@dice 1d4} ongoing damage of the weapon's base type that lasts until the creature succeeds on a passive save.",
-        "Alternatively, the wounded creature, or a creature adjacent to it, can use an action to make a Medicine check against your standard DC, ending the ongoing damage on a success.",
+        "Choose a weapon when you learn this combat maneuver. If you hit with your next attack roll using the chosen weapon against a living creature, you deliver a wound that causes {@dice 1d4} ongoing harm of the weapon's base type that lasts until the creature succeeds on a passive save.",
+        "Alternatively, the wounded creature, or a creature adjacent to it, can use an action to make a Medicine check against your standard DC, ending the ongoing harm on a success.",
         "The effect also ends if the wounded creature recovers any number of hit points."
       ],
       "name": "Wounding Strike",
@@ -6450,7 +6266,6 @@
             "1 point"
           ]
         },
-        "With a bit of effort as an opponent strikes at you, you can knock the blow away and divert the attack.",
         "When a creature hits you with a weapon armour attack, you can use your reaction to reduce the attack's damage by a number of {@dice d6} equal to your proficiency bonus.",
         "If this maneuver reduces the damage to 0, the attack is no longer considered a hit."
       ],
@@ -6488,8 +6303,7 @@
             "3 points"
           ]
         },
-        "You quickly draw and strike with a weapon in the blink of an eye.",
-        "Choose a creature within your reach. You draw a melee weapon that you are not currently holding and use it to deal DoT damage equal to the weapon's base damage to that creature. You cannot use this combat maneuver against the same creature more than once per combat."
+        "Choose a creature within your reach. You draw a melee weapon that you are not currently holding and use it to cause harm equal to the weapon's base damage to that creature. You cannot use this combat maneuver against the same creature more than once per combat."
       ],
       "name": "Instant Strike",
       "time": [
@@ -6525,7 +6339,6 @@
             "1 point"
           ]
         },
-        "By executing your attacks with perfect precision your weapon can slip beneath even supernatural defenses.",
         "Choose a weapon when you learn this combat maneuver. When you activate this maneuver, you take the Attack action. Until the start of your next turn, your weapon attacks using that weapon ignore all damage resistance."
       ],
       "name": "Preternatural Strikes",
@@ -6562,7 +6375,6 @@
             "1 point"
           ]
         },
-        "Instead of waiting for an opponent to strike so you can slap their weapon away, you lay into them with attacks that knock it from their hands.",
         "When you activate this maneuver, you take the Attack action.",
         "Until the start of your next turn, your strikes can deprive foes of their armaments. In addition to dealing damage, when you score a major success against a creature with a melee weapon attack, an item of your choice that the creature is holding flies from its grip to land in a randomly determined space 10 feet away."
       ],
@@ -6600,7 +6412,6 @@
             "2 points"
           ]
         },
-        "You respond to an attacker's weapon with a peerless defensive step that displays your prowess as a warrior.",
         "When a creature makes a weapon attack against you, you can use your reaction to reduce the attack's success tier by 1."
       ],
       "name": "Expert Sidestep",
@@ -6637,7 +6448,6 @@
             "3 points"
           ]
         },
-        "Your attack unnerves your foe, making it hard for them to concentrate.",
         "Choose a weapon when you learn this combat maneuver. Make a melee weapon attack using the chosen weapon, and on a major success the target loses concentration on any spell it has cast, any combat stance it is using ends, and it cannot use combat maneuvers or cast spells until the end of your next turn."
       ],
       "name": "Unsettling Injury",
@@ -6674,7 +6484,6 @@
             "1 point"
           ]
         },
-        "What you wield isn't what makes you a deadly combatant—you are the weapon. Attaining mastery of some weaponry has taught you how to focus and bring all that practice to bear even with lethal implements you've never seen before.",
         "You gain proficiency with all weapons, and the damage die size of all weapons is increased by 1 for you."
       ],
       "name": "Any Weapon Stance",
@@ -6714,7 +6523,6 @@
             "2 points"
           ]
         },
-        "Mastery is making sure even a mistake becomes an opportunity. You follow-through on a miss to attack a different enemy.",
         "When you miss with a melee weapon attack against a creature, you can use your reaction to ignore the results of that attack to take your momentum and target a different creature within your reach with a melee attack using the same weapon.",
         "This attack is made with advantage and deals extra damage equal to your proficiency bonus.",
         "If both attack rolls would hit the creature, it is {@condition debilitated|sns} until the end of its next turn."
@@ -6753,7 +6561,6 @@
             "3 points"
           ]
         },
-        "You use a melee weapon to strike a foe from a distance.",
         "Choose a melee weapon when you learn this combat maneuver. You can use the chosen weapon to make a ranged attack against a distant target with air pressure, giving your attack a normal range of 20 feet and long range of 60 feet. This functions mechanically as if your weapon had the Thrown trait, except you don't actually throw it and it does not count as a thrown attack.",
         "You have advantage on attack rolls made using this maneuver. If both attack rolls hit, you deal an additional weapon damage die.",
         "After using this maneuver to hit a creature, it can use an action to make a Perception check against your standard DC. On a success, for the next minute any uses of Wind Strike do not grant advantage on attack rolls made against the creature."
@@ -6792,7 +6599,6 @@
             "3 points"
           ]
         },
-        "You focus on the bond between you and your weapon.",
         "Choose a weapon when you learn this combat maneuver. For the next minute, attacks made with the chosen weapon have +1 critical success range and ignore any damage resistances a target might have."
       ],
       "name": "Heart of the Sword",
@@ -6836,7 +6642,6 @@
             "The Empowered Attack feature"
           ]
         },
-        "In a blur of smooth motion, you unleash a sequence of attacks.",
         "When you activate this maneuver, you take the Attack action. Before or after the action's attack, you may use a combat maneuver you know that cannot make attacks. At the end of your turn your exertion pool is reduced to 0 and you suffer a level of fatigue."
       ],
       "name": "Perfect Assault",
@@ -6873,7 +6678,6 @@
             "2 points"
           ]
         },
-        "Even a well-told lie of being harmless only works if you're really believing it when you tell it - and in the midst of a pitched fight it's easy to muster some real feeling to briefly fool a foe.",
         "When a creature makes an armour attack against you, you can use your reaction to make a Deception or nonmusical Performance check with disadvantage, opposed by its Insight check. On a success, the creature is briefly perplexed and targets a different creature with the attack instead."
       ],
       "name": "Don't Hit Me",
@@ -6910,7 +6714,6 @@
             "3 points"
           ]
         },
-        "The art of battle is driven as much by the minds of combatants as it is their muscles, and you have made it your business to get into a foe's head, even if only for a brief moment.",
         "When a creature makes an armour attack against you, you can use your reaction to make a Deception check with advantage opposed by its Insight check. On a success, the creature is briefly perplexed and not sure you're an enemy, targeting a different creature with the attack instead.",
         "In addition, until the end of your next turn the creature treats you as an ally (instead of an enemy) for the purposes of passives and other effects, and it cannot target you with attacks. The effects of this combat maneuver end early if you damage the creature."
       ],
@@ -6948,7 +6751,6 @@
             "1 point"
           ]
         },
-        "Just the right amount of lightness to a warrior's step can frustrate an opponent and make them easy to trick.",
         "You gain an expertise die on Acrobatics and nonmusical Performance checks."
       ],
       "name": "Jovial Stance",
@@ -6988,7 +6790,6 @@
             "3 points"
           ]
         },
-        "Inversion is at the heart of humour, and nothing upends a no-holdsbarred fight faster than a solid joke.",
         "Choose a creature able to see you and make a nonmusical Performance check opposed by its Insight check. On a success, your antics force it to laugh uncontrollably, making it {@condition dazed|sns} until the start of your next turn. After you have used Just a Giggle against a creature, until the end of combat it has advantage on Insight checks to resist this maneuver."
       ],
       "name": "Just a Giggle",
@@ -7025,7 +6826,6 @@
             "6 points"
           ]
         },
-        "With unmatched enthusiasm you undertake a fantastic bit of comedic gymnastics - flipping off of walls, slipping into cartwheels, landing in splits, and otherwise making a grand fool of yourself to the absolute delight of those able to see your exhausting display.",
         "Make a nonmusical Performance check, gaining a number of rapt onlookers equal to half the result (at the DM's discretion, the amount of potential onlookers may be limited by your location). At the end of your routine, roll {@dice 1d20} and add 1 per rapt onlooker. On a result of 20 or higher, you gain inspiration. If you do not roll a natural 20 on either roll, you suffer a level of {@condition fatigue|sns}. Rapt onlookers (including those who are enemies) have disadvantage on Perception and Insight checks until the start of your next turn."
       ],
       "name": "Make Them Laugh",
@@ -7062,7 +6862,6 @@
             "1 point"
           ]
         },
-        "Sometimes putting on a friendly face and sidling up to an enemy thirsting for your blood is just unexpected enough to work.",
         "Make a Deception check opposed by the Insight check of a creature able to see you. On a success, until the end of your next turn the creature treats you as an ally (instead of an enemy) for the purposes of traits and other effects. The creature can still target you with attacks, and the effects of this combat maneuver end early if you damage it."
       ],
       "name": "Old Pal",
@@ -7099,7 +6898,6 @@
             "2 points"
           ]
         },
-        "The art of the pratfall is to make the dive to the floor spectacular, and nothing impresses like taking somebody down with you.",
         "When a creature no more than one size category larger than you uses a basic maneuver against you or targets you with a melee weapon attack, you can use your reaction to fall {@condition prone|sns} and make an advantaged melee reflex attack against the creature with the following outcomes:",
         {
           "type": "list",
@@ -7162,7 +6960,6 @@
             "2 points"
           ]
         },
-        "The extremely rapid delivery of food can be not only hilariously satisfying, but also give a warrior an edge in combat.",
         "When you activate this maneuver, you take the Attack action. This attack must target a creature and be made using an improvised weapon that includes food. If you don't have food with you, you can gain one level of {@condition fatigue|sns} instead by using your rations. On a hit, the creature is {@condition blinded|sns} until either the start of its next turn or until it uses its reaction to wipe its eyes clean (whichever is first). Until the creature uses a bonus action to entirely clean its face, you gain an expertise die on Intimidation checks made against the creature."
       ],
       "name": "Pie to the Face",
@@ -7199,7 +6996,6 @@
             "2 points"
           ]
         },
-        "Physical comedy resonates best if performed in tandem, and with the right footwork even the unsuspecting can be made into an impromptu stage partner.",
         "When you fall {@condition prone|sns} you can use your reaction to force an adjacent creature to make a save, falling {@condition prone|sns} with you on a fail."
       ],
       "name": "Pratfall Pull",
@@ -7236,8 +7032,7 @@
             "2 points"
           ]
         },
-        "With daring-do and practiced grace you seamlessly fling an obstacle across the floor with surprising swiftness. With some extra effort, you can distract from the violent intent.",
-        "You spread ball bearings, caltrops, or oil into a 5-foot square. If a creature is in the area, it makes a save with advantage (or normally if you spend an additional 1 exertion). On a fail against ball bearings or oil the creature falls {@condition prone|sns}, or on a failure against caltrops it takes {@dice 1d4} piercing DoT damage that reduces its Speed by 10 feet until it regains at least 1 hit point."
+        "You spread ball bearings, caltrops, or oil into a 5-foot square. If a creature is in the area, it makes a save with advantage (or normally if you spend an additional 1 exertion). On a fail against ball bearings or oil the creature falls {@condition prone|sns}, or on a failure against caltrops it suffers {@dice 1d4} piercing harm that reduces its Speed by 10 feet until it regains at least 1 hit point."
       ],
       "name": "Quick Spill",
       "time": [
@@ -7273,8 +7068,7 @@
             "3 points"
           ]
         },
-        "No matter how deadly or serious an opponent is, if they can drink, you can splash something down their throat with superlative timing.",
-        "Make a Persuasion check opposed by the Insight check of a creature within your reach. On a success, the creature drinks whatever item you are offering to it, whether that it a potion, poison, or otherwise. Any alchemical item (such as an acid flask or alchemist's fire) deals four times as much damage as normal when a creature drinks it in this way, although any ongoing damage is only doubled."
+        "Make a Persuasion check opposed by the Insight check of a creature within your reach. On a success, the creature drinks whatever item you are offering to it, whether that it a potion, poison, or otherwise. Any alchemical item (such as an acid flask or alchemist's fire) deals four times as much damage or harm as normal when a creature drinks it in this way, although any ongoing harm is only doubled."
       ],
       "name": "Quick, Drink This",
       "time": [
@@ -7310,7 +7104,6 @@
             "4 points"
           ]
         },
-        "A little bit of slipping, an ungainly flip, or a teetering and unlikely turn disorients even the most perceptive of opponents.",
         "Until the end of your next turn, creatures able to see your routine have disadvantage on Insight checks, and non-armour attacks from enchantment spells have advantage against them."
       ],
       "name": "Really Very Funny",
@@ -7347,7 +7140,6 @@
             "3 points"
           ]
         },
-        "Suffering in silence is the worst - pain is far easier to bear when you can laugh it off.",
         "As long as you are able to speak, did not cast a spell with vocalised components on your last turn, and have an ally who can hear and respond to you, once per round you can reduce the damage you take from an attack by an amount equal to your proficiency bonus.",
         "In addition, when you use this stance to reduce the damage you take, you can choose to fall {@condition prone|sns} to reduce the amount of damage you take by an amount equal to twice your proficiency bonus instead."
       ],
@@ -7388,7 +7180,6 @@
             "2 points"
           ]
         },
-        "There's truth to the old adage that practice makes perfect - and you have endlessly practised splashing people.",
         "You splash an acid vial, alchemist's fire, or similar liquid onto an adjacent target, but instead of you making an armour attack, the target makes a save. On a successful save, count your action as what the attack's standard success would usually be. On a fail, count your action as what the attack's critical success would usually be."
       ],
       "name": "Splash of Humour",
@@ -7425,7 +7216,6 @@
             "2 points"
           ]
         },
-        "A good warrior is ready for anything, but even the most experienced opponents don't expect to receive a gift.",
         "Make a Persuasion or nonmusical Performance check opposed by the Insight check of a creature within reach. On a success, as long as the creature has a free hand and is able to understand you, it takes the object you offer to it. On a substantial success, the creature does not need to be able to understand you."
       ],
       "name": "This is Yours",
@@ -7462,7 +7252,7 @@
             "1 point"
           ]
         },
-        "With a hissing malediction, you place your curse upon a specific foe. Before the start of your next turn, when you score a major success against a creature with a melee weapon attack you can choose to lay a curse on it. The cursed target is unable to gain advantage on armour attack rolls against you for a number of rounds equal to your Charisma modifier. This curse can only be applied to one creature at a time."
+        "Before the start of your next turn, when you score a major success against a creature with a melee weapon attack you can choose to lay a curse on it. The cursed target is unable to gain advantage on armour attack rolls against you for a number of rounds equal to your Charisma modifier. This curse can only be applied to one creature at a time."
       ],
       "name": "Blackguard's Blight",
       "time": [
@@ -7505,7 +7295,7 @@
             "The Empowered Attack feature"
           ]
         },
-        "You draw forth the unquiet dead and force them to your bidding. Choose a number of 5-foot spaces equal to your Charisma modifier within 30 feet. Each space becomes occupied by a spirit entity with Armour equal to half your Charisma modifier, 22 hit points, and vulnerability to radiant damage. Each entity also has a reach of 5 feet and its own reaction. When a creature moves out of its reach, an entity can deal half of your main hand weapon's base damage as DoT damage to the creature if your main hand weapon is a melee weapon. The entities cannot use any movement and cannot flank. The spaces they occupy are considered difficult terrain to any creature except you.",
+        "Choose a number of 5-foot spaces equal to your Charisma modifier within 30 feet. Each space becomes occupied by a spirit entity with Armour equal to half your Charisma modifier, 22 hit points, and vulnerability to radiant damage. Each entity also has a reach of 5 feet and its own reaction. When a creature moves out of its reach, an entity can cause half of your main hand weapon's base damage as harm to the creature if your main hand weapon is a melee weapon. The entities cannot use any movement and cannot flank. The spaces they occupy are considered difficult terrain to any creature except you.",
         "Additionally, while this stance is active, whenever you take the Attack action, you can make your attack from a chosen entity instead of from you. This stance ends early if all entities are destroyed."
       ],
       "name": "Darkstalkers",
@@ -7545,7 +7335,7 @@
             "3 points"
           ]
         },
-        "A phantasmal force manifests around your weapon, waiting to wrap itself around a foe. Make a melee weapon attack. On a major success, the target takes additional necrotic damage equal to your Strength modifier and becomes {@condition restrained|sns} until the beginning of your next turn."
+        "Make a melee weapon attack. On a major success, the target takes additional necrotic damage equal to your Strength modifier and becomes {@condition restrained|sns} until the beginning of your next turn."
       ],
       "name": "Deathgrip",
       "time": [
@@ -7581,7 +7371,7 @@
             "1 point"
           ]
         },
-        "Foul magic makes your strikes unnerving. Make a melee weapon attack. On a major success, the target is {@condition rattled|sns} for a number of rounds equal to your Charisma modifier."
+        "Make a melee weapon attack. On a major success, the target is {@condition rattled|sns} for a number of rounds equal to your Charisma modifier."
       ],
       "name": "Dreadful Edge",
       "time": [
@@ -7617,7 +7407,7 @@
             "3 points"
           ]
         },
-        "Flesh and bone obey your command and form spines along your forearm. Flinging your arm out, you launch the bony projectiles into your opponents. Choose a number of targets up to your proficiency bonus in a 15-foot cone. Make an area weapon reflex attack against each that deals damage equal to your Strength modifier. The target is also {@condition rattled|sns} until the start of its next turn. This attack's damage is considered both necrotic and piercing."
+        "Choose a number of targets up to your proficiency bonus in a 15-foot cone. Make an area weapon reflex attack against each that deals damage equal to your Strength modifier. The target is also {@condition rattled|sns} until the start of its next turn. This attack's damage is considered both necrotic and piercing."
       ],
       "name": "Fell Spines",
       "time": [
@@ -7653,7 +7443,7 @@
             "2 points"
           ]
         },
-        "At your behest, the shadows themselves grip at your foes, pulling and dragging like quicksand. Choose 4 5-foot spaces within 20 feet of you that are in dim light or darkness. These spaces become areas of magical darkness which are treated as difficult terrain and can't be illuminated except by magic, such as the {@spell light|sns} spell. This effect lasts until the end of your next turn."
+        "Choose 4 5-foot spaces within 20 feet of you that are in dim light or darkness. These spaces become areas of magical darkness which are treated as difficult terrain and can't be illuminated except by magic, such as the {@spell light|sns} spell. This effect lasts until the end of your next turn."
       ],
       "name": "Grasping Shadows",
       "time": [
@@ -7689,7 +7479,7 @@
             "1 point"
           ]
         },
-        "You draw your hand along your blade, limning it in hellish flame. As a bonus action, you coat your weapon in green flame, causing your next melee weapon attack before the end of your next turn to potentially damage an additional target. The attack's original target receives the effects of the attack as normal, but if the attack scores a major success, an additional target of your choice within reach takes necrotic DoT damage equal to half the damage dealt to the first target."
+        "As a bonus action, you coat your weapon in green flame, causing your next melee weapon attack before the end of your next turn to potentially damage an additional target. The attack's original target receives the effects of the attack as normal, but if the attack scores a major success, an additional target of your choice within reach suffers necrotic harm equal to half the damage dealt to the first target."
       ],
       "name": "Green-Flame Strike",
       "time": [
@@ -7725,7 +7515,7 @@
             "3 points"
           ]
         },
-        "You draw up the dead to do your horrible bidding. Choose a number of 5-foot spaces equal to your Charisma modifier within 30 feet. These spaces become occupied with shadowy apparitions, which have Armour equal to half your Charisma modifier and 11 hit points. Each apparition also has a reach of 5 feet and its own reaction. When a creature moves out of its reach, an entity can deal half of your Charisma modifier as true damage to the creature, and you gain hit points equal to the damage dealt. You can also use your own reaction to direct an apparition to deal this damage again if it has already used its own. The apparitions cannot flank.",
+        "Choose a number of 5-foot spaces equal to your Charisma modifier within 30 feet. These spaces become occupied with shadowy apparitions, which have Armour equal to half your Charisma modifier and 11 hit points. Each apparition also has a reach of 5 feet and its own reaction. When a creature moves out of its reach, an entity can deal half of your Charisma modifier as true damage to the creature, and you gain hit points equal to the damage dealt. You can also use your own reaction to direct an apparition to deal this damage again if it has already used its own. The apparitions cannot flank.",
         "While maintaining this stance, you can forgo your movement to instead move any apparition a number of feet up to your Speed. This can be split among multiple apparitions, as long as you have the movement available. The apparitions must stay within 30 feet of you or they vanish. This stance ends early if all apparitions are destroyed."
       ],
       "name": "Hungry Ghosts",
@@ -7765,7 +7555,7 @@
             "2 points"
           ]
         },
-        "With a baleful word and a vicious strike you draw the very lifeforce from your target. Make a melee weapon attack. If this attack scores a major success against a creature, you gain hit points equal to one of the target's hit dice + your Fortitude (two hit dice one a critical success). This does not deal additional damage, but does expend the hit die if the creature is capable of spending them."
+        "Make a melee weapon attack. If this attack scores a major success against a creature, you gain hit points equal to one of the target's hit dice + your Fortitude (two hit dice one a critical success). This does not deal additional damage, but does expend the hit die if the creature is capable of spending them."
       ],
       "name": "Life Drinker",
       "time": [
@@ -7801,7 +7591,7 @@
             "3 points"
           ]
         },
-        "Severing yourself from your own shadow, you place it at your opponent's back! Choose a space within 15 feet. Until the start of your next turn, your shadow (0 Armour, 2 HP) occupied the chosen space and has a reach of 5 feet. It cannot attack, but it can serve as a flanking partner for you and one other creature that you designate when using this maneuver."
+        "Choose a space within 15 feet. Until the start of your next turn, your shadow (0 Armour, 2 HP) occupied the chosen space and has a reach of 5 feet. It cannot attack, but it can serve as a flanking partner for you and one other creature that you designate when using this maneuver."
       ],
       "name": "Living Shadow",
       "time": [
@@ -7837,7 +7627,7 @@
             "2 points"
           ]
         },
-        "As your foe's deadly attack falls upon you, your form becomes mist and shadow. When you are hit by a melee weapon attack, you can shift 15 feet."
+        "When you are hit by a melee weapon attack, you can shift 15 feet."
       ],
       "name": "Mistfade Retreat",
       "time": [
@@ -7873,7 +7663,7 @@
             "2 points"
           ]
         },
-        "Your grip can wither flesh from bone. When you are grappling an opponent, you can use your reaction to deal necrotic DoT damage equal to {@dice 1d8} + your Charisma modifier."
+        "When you are grappling an opponent, you can use your reaction to cause necrotic harm equal to {@dice 1d8} + your Charisma modifier."
       ],
       "name": "Necrotic Grip",
       "time": [
@@ -7909,7 +7699,7 @@
             "1 point"
           ]
         },
-        "Lashing out at your target gives you a moment to escape amongst concealing shadows. After hitting with a melee weapon attack, you may use your reaction to deal damage equal to your Strength modifier instead of the attack's normal damage (though major effects and critical damage still apply as usual). When you do so, you can shift up to 15 feet."
+        "After hitting with a melee weapon attack, you may use your reaction to deal damage equal to your Strength modifier instead of the attack's normal damage (though major effects and critical damage still apply as usual). When you do so, you can shift up to 15 feet."
       ],
       "name": "Shadowy Feint",
       "time": [
@@ -7952,7 +7742,7 @@
             "Two instances of the Empowered Attack feature"
           ]
         },
-        "Channeling your dark power into a single brutal attack, you attempt to decapitate your target. Make a melee weapon attack. On a hit, your attack becomes a critical success, and if your attack would have already been a critical success, the target makes a save. On a fail, it takes an additional {@dice 10d10} base damage, or half as much on a success."
+        "Make a melee weapon attack. On a hit, your attack becomes a critical success, and if your attack would have already been a critical success, the target makes a save. On a fail, it takes an additional {@dice 10d10} base damage, or half as much on a success."
       ],
       "name": "Skull Taker",
       "time": [
@@ -7988,7 +7778,7 @@
             "2 points"
           ]
         },
-        "You enchant your weapon with clinging shadows. Until the end of your next turn, the next creature you score a major success against with a melee weapon attack takes ongoing necrotic damage equal to your main hand weapon's base damage for a number of rounds equal to your Charisma modifier."
+        "Until the end of your next turn, the next creature you score a major success against with a melee weapon attack suffers ongoing necrotic harm equal to your main hand weapon's base damage for a number of rounds equal to your Charisma modifier."
       ],
       "name": "Vicious Blade",
       "time": [
@@ -8024,7 +7814,6 @@
             "2 points"
           ]
         },
-        "You open your guard in a brazen display of confidence, daring your foes to strike you.",
         "Each hostile creature of your choice whose reach you are within must succeed on a save or use its reaction to make a weapon attack against you. You gain 10 temporary hit points for each attack that fails to hit, up to a maximum number of times equal to your Charisma modifier. If any of the creatures are within your reach, you can then make one melee weapon attack against one of the creatures."
       ],
       "name": "Bravado Taunt",
@@ -8061,7 +7850,6 @@
             "5 points"
           ]
         },
-        "Through moving words, you stir the hearts of your allies and captivate your enemies so completely that your allies go unseen.",
         "When you activate this maneuver, roll a Persuasion check. Then choose up to six creatures within 30 feet of you that can hear you. You can choose which of the following two effects to apply to each target.",
         {
           "type": "list",
@@ -8214,7 +8002,6 @@
             "1 point"
           ]
         },
-        "You announce yourself, why you're here, and what you're about to do. From your opponent's reaction, you can take their measure.",
         "When you activate this maneuver, choose one creature that has rolled initiative, shares a language with you, and hasn't had damage dealt to it by you in this combat. You reveal your name, as well as one piece of critical information about you (such as a notable title, your current objective, or a dark secret).",
         "Make a Persuasion check against the creature's passive Deception. On a success, the chosen creature reveals the same information about itself to the best of its knowledge and ability. On a failure, the creature shares misleading information. This maneuver can only reveal new information about a creature once every 24 hours and only once per combat."
       ],
@@ -8289,7 +8076,6 @@
             "4 points"
           ]
         },
-        "The icon of decorum, your presence leaves no doubt of your whereabouts. When you have the attention you seek, you can add extra flourish that makes hearts swoon.",
         "Allies within 30 feet of you are always aware of your location, regardless of effects or cover that would obfuscate you. You can target them and they can target you as if you can sense each other.",
         "Additionally, you are always aware of the location of any creature {@condition fixated|sns} on you, and you can target them as if you can sense them.",
         "Finally, if you willingly end this stance on your turn, any creature {@condition fixated|sns} on you is also {@condition rattled|sns} for as long as they are fixated in that way."
@@ -8331,7 +8117,6 @@
             "2 points"
           ]
         },
-        "With utter certainty, you announce your impending success and the impressive means by which you'll achieve it. The sheer audacity of the atempt makes it that much more inspiring if you succeed.",
         "When you take the Attack action, but before any dice are rolled, you can use your reaction to activate this maneuver. When using this maneuver, you can't gain the benefits of any expertise for attack rolls or ability checks made during the triggering attack.",
         "If the attack hits, all allies within 30 feet that were able to see you do so gain advantage on their next armour attack roll or ability check if it is made within a number of rounds equal to your Charisma modifier. If the triggering attack is a critical success, this duration becomes 1 minute."
       ],
@@ -8408,7 +8193,6 @@
             "3 points"
           ]
         },
-        "Confident in your ability to prevail, you handicap yourself, granting your opponent a chance at victory and renewing your resolve.",
         "Choose one creature within your reach. The creature gains an expertise die on armour attacks against you until the end of your next turn. For this duration, attacks against you that can frighten, fixate, charm, or rattle have disadvantage. Additionally, if you are currently affected by any of these conditions, you can immediately make a save, ending the effect early on a success."
       ],
       "name": "Sporting Chance",
@@ -8481,7 +8265,6 @@
             "2 points"
           ]
         },
-        "You beckon someone to your side with infectious fervor, be they stranger or comrade-in-arms.",
         "Choose one conscious non-hostile creature within 30 feet of you that can see you. The creature can use its reaction to shift up to its Speed in a straight line towards you.",
         "If the creature enters your reach, you can use your reaction to draw one item and administer it to the creature if it is willing. The item must be a potion, medicine, or some other beneficial consumable."
       ],
@@ -8519,7 +8302,6 @@
             "4 points"
           ]
         },
-        "A duel is not fittingly dramatic without the proper stakes. You lock blades with a worthy foe, and fight to the bitter end. To the winner goes the glory.",
         "Choose one creature within 30 feet that can see or hear you, whose CR is no less than half your level, and has a clear path to you. Make a Persuasion check against the creature's passive Insight. On a success, you and the creature enter a duel and are {@condition fixated|sns} on each other until either you or the challenged creature becomes {@condition incapacitated|sns}, or either ends their turn out of line of sight from the other. It also ends if you use this maneuver on a different creature.",
         "At the beginning of each of your turns, you both must move closer to each other if your opponent is not within your reach for a melee weapon attack or attempt to overcome an effect or obstacle that blocks you from doing so. Once within range, you and the creature must make at least one melee weapon attack against each other on your turns. Neither of you can willingly target other creatures and both of you gain a +4 bonus to your defences against attacks made by other creatures.",
         "If one creature drops to 0 hit points during the duel, the other creatures gain an expertise die to attack and damage rolls for the rest of the combat."
@@ -8558,9 +8340,8 @@
             "3 points"
           ]
         },
-        "Not to be kept down, you return to the battle, defiant and ready for more.",
         "If you are at 0 hit points and regain hit points, you can use your reaction to immediately stand up from being {@condition prone|sns} without spending movement.",
-        "Additionally, chosoe up to three creatures that can see you. Each creature gains an expertise die to the next attack roll or ability check it makes within 1 minute. You can use this reaction even if you are {@condition incapacitated|sns}."
+        "Additionally, choose up to three creatures that can see you. Each creature gains an expertise die to the next attack roll, ability check, or save it makes within 1 minute. You can use this reaction even if you are {@condition incapacitated|sns}."
       ],
       "name": "Triumphant Return",
       "time": [
@@ -8596,7 +8377,6 @@
             "2 points"
           ]
         },
-        "A tossed rose, a blown kiss - you acknowledge someone whose eye was caught by your swagger.",
         "Choose one creature within 30 feet that can see you. Make a Performance check against the creature's passive Insight. On a success, the creature is {@condition fixated|sns} on you until the start of your next turn."
       ],
       "name": "Wink and Smile",
@@ -8778,7 +8558,7 @@
             "1 point"
           ]
         },
-        "As part of this stance, you trace a rune onto a melee weapon. Your mark is transferred to the next creature you successfully hit with the inscribed weapon. If the marked creature attempts to make an armour attack against any other target but you, it takes force DoT damage equal to your Intelligence modifier, regardless of whether the attack hits. This stance ends early if you wish to mark another creature or if the target is more than 30 feet away from you."
+        "As part of this stance, you trace a rune onto a melee weapon. Your mark is transferred to the next creature you successfully hit with the inscribed weapon. If the marked creature attempts to make an armour attack against any other target but you, it suffers force harm equal to your Intelligence modifier, regardless of whether the attack hits. This stance ends early if you wish to mark another creature or if the target is more than 30 feet away from you."
       ],
       "name": "Duelist's Sigil",
       "time": [
@@ -8817,7 +8597,7 @@
             "2 points"
           ]
         },
-        "After hitting with a melee weapon, select three 5-foot spaces within your reach. These spaces erupt into flames 5 feet high and count as difficult terrain until the end of your next turn. These spaces are a persistent zone that deals fire DoT damage equal to your weapon's base damage."
+        "After hitting with a melee weapon, select three 5-foot spaces within your reach. These spaces erupt into flames 5 feet high and count as difficult terrain until the end of your next turn. These spaces are a persistent zone that cause fire harm equal to your weapon's base damage."
       ],
       "name": "Flame Burst",
       "time": [
@@ -8853,7 +8633,6 @@
             "1 point"
           ]
         },
-        "With a shivering whisper of clouding breath, you strike at your target and shift the chill onto them.",
         "Make a melee weapon attack. On a hit, your target's Speed is reduced by 15 feet until the end of your next turn."
       ],
       "name": "Frigid Strike",
@@ -8927,7 +8706,7 @@
           ]
         },
         "Choose a creature of no more than one size category larger than you that is within 30 feet. Make a ranged weapon fortitude or reflex attack against that creature (target's choice) that deals bludgeoning damage equal to your Strength modifier. On a hit, the target is {@condition grappled|sns} by a gauntleted hand made of force. This effect requires concentration as though it were a spell.",
-        "You may use your bonus action each turn to maintain the grapple for up to a number of rounds equal to half your level. When you maintain a grapple, the target takes bludgeoning DoT damage equal to your Strength modifier. A creature that becomes {@condition grappled|sns} while in the air remains in its current space, even though its fly speed becomes 0, though at the DM's discretion it may have to make a save once it is no longer {@condition grappled|sns}, falling on a fail.",
+        "You may use your bonus action each turn to maintain the grapple for up to a number of rounds equal to half your level. When you maintain a grapple, the target suffers bludgeoning harm equal to your Strength modifier. A creature that becomes {@condition grappled|sns} while in the air remains in its current space, even though its fly speed becomes 0, though at the DM's discretion it may have to make a save once it is no longer {@condition grappled|sns}, falling on a fail.",
         "At the beginning of each of its turns, a creature {@condition grappled|sns} by this maneuver can make a save, ending the effect on itself on a success. This effect also ends early if you target another creature with the gauntlet or if you move more than 45 feet from the target."
       ],
       "name": "Grasping Gauntlet",
@@ -8964,7 +8743,7 @@
             "3 points"
           ]
         },
-        "When you use this ability, choose an adjacent space. When you strike this space a 50-foot long, 5-foot wide line of difficult terrain appears in the direction of your choosing. You may also choose to make the space you've chosen the centre of a 40-foot line. Creatures and objects within the line when it is created take bludgeoning DoT damage equal to your Strength modifier. Striking a surface that is 1 foot thick or less, such as a rooftop or bridge, severely damages it, causing creatures and objects in the area to fall."
+        "When you use this ability, choose an adjacent space. When you strike this space a 50-foot long, 5-foot wide line of difficult terrain appears in the direction of your choosing. You may also choose to make the space you've chosen the centre of a 40-foot line. Creatures and objects within the line when it is created suffers bludgeoning harm equal to your Strength modifier. Striking a surface that is 1 foot thick or less, such as a rooftop or bridge, severely damages it, causing creatures and objects in the area to fall."
       ],
       "name": "Groundshatter",
       "time": [
