@@ -4859,7 +4859,7 @@
             "3 points"
           ]
         },
-        "When you are hit by an attack while mounted, you can use your reaction to pat your mount reassuringly. You regain hit points equal to your level plus your proficiency bonus.",
+        "When you are hit by an armour attack while mounted, you can use your reaction to pat your mount reassuringly. You regain hit points equal to your level plus your proficiency bonus.",
         "If you are {@condition charmed|sns}, {@condition poisoned|sns}, or {@condition restrained|sns}, you can end those conditions."
       ],
       "name": "Reassuring Pat",
