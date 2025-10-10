@@ -476,7 +476,7 @@
       "subclassFeatures": [
         "Circle of the Sea|Druid|sns|Sea|sns|1",
         "Aquatic Affinity|Druid|sns|Sea|sns|3",
-        "New Strong Feature|Druid|sns|Sea|sns|5",
+        "Rising Swell|Druid|sns|Sea|sns|5",
         "Stormborn|Druid|sns|Sea|sns|7",
         "Oceanic Gift|Druid|sns|Sea|sns|9"
       ]
@@ -1175,8 +1175,8 @@
         {
           "type": "list",
           "items": [
-            "X",
-            "X"
+            "If you are in combat, the number of d6s of harm your Wrath of the Sea causes is increased by one for the remainder of combat.",
+            "You regain one use of your Wild Shape feature and recover hit points equal to {@dice 1d10} plus your level. If you have not expended any uses of your Wild Shape feature, you instead recover hit points equal to {@dice 2d10} plus your level."
           ]
         }
       ]
@@ -1196,7 +1196,7 @@
       ]
     },
     {
-      "name": "New Strong Feature",
+      "name": "Rising Swell",
       "source": "sns",
       "className": "Druid",
       "classSource": "sns",
@@ -1205,7 +1205,7 @@
       "level": 5,
       "header": 2,
       "entries": [
-        "?"
+        "From tier 3, your Wrath of the Sea causes additional cold harm equal to three times the number of rounds that have started this combat."
       ]
     },
     {
