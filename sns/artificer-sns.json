@@ -334,6 +334,46 @@
         "Explosive Cannon|Artificer|sns|Artillerist|sns|7",
         "Fortified Position|Artificer|sns|Artillerist|sns|9"
       ]
+    },
+    {
+      "name": "Synaptic Surgeon",
+      "shortName": "Synaptic Surgeon",
+      "source": "sns",
+      "className": "Artificer",
+      "classSource": "sns",
+      "additionalSpells": [
+        {
+          "prepared": {
+            "1": [
+              "hideous laughter|sns",
+              "sleep|sns"
+            ],
+            "5": [
+              "blindness/deafness|sns",
+              "suggestion|sns"
+            ],
+            "9": [
+              "fear|sns",
+              "slow|sns"
+            ],
+            "13": [
+              "confusion|sns",
+              "phantasmal killer|sns"
+            ],
+            "17": [
+              "dominate person|sns",
+              "hold monster|sns"
+            ]
+          }
+        }
+      ],
+      "subclassFeatures": [
+        "Synaptic Surgeon|Artificer|sns|Synaptic Surgeon|sns|1",
+        "New Minor Feature|Artificer|sns|Synaptic Surgeon|sns|3",
+        "Triggered Surge|Artificer|sns|Synaptic Surgeon|sns|5",
+        "Advanced Synaptic Gadget|Artificer|sns|Synaptic Surgeon|sns|7",
+        "Restore the Mind|Artificer|sns|Synaptic Surgeon|sns|9"
+      ]
     }
   ],
   "classFeature": [
@@ -1379,6 +1419,259 @@
             "Whenever you create your eldritch cannon, you may instead create an {@creature eldritch megacannon|sns}. If you need to expend a spell invention to create the megacannon, you must expend two inventions instead. Any effect that refers to your eldritch cannon also applies to your megacannon."
           ]
         }
+      ]
+    },
+    {
+      "name": "Synaptic Surgeon",
+      "source": "sns",
+      "className": "Artificer",
+      "classSource": "sns",
+      "subclassShortName": "Synaptic Surgeon",
+      "subclassSource": "sns",
+      "level": 1,
+      "entries": [
+        "At its core, all mental activity stems from jolts of electricity leaping between synapses in the mind. The synaptic surgeon uses inventions that harness these surges of energy, manipulating them in ways that boost allies and hinder foes.",
+        {
+          "type": "refSubclassFeature",
+          "subclassFeature": "Synaptic Surgeon Spells|Artificer|sns|Synaptic Surgeon|sns|1"
+        },
+        {
+          "type": "refSubclassFeature",
+          "subclassFeature": "Synaptic Gadget|Artificer|sns|Synaptic Surgeon|sns|1"
+        },
+        {
+          "type": "refSubclassFeature",
+          "subclassFeature": "Synaptic Surgeon Major Effects|Artificer|sns|Synaptic Surgeon|sns|1"
+        }
+      ]
+    },
+    {
+      "name": "Synaptic Surgeon Spells",
+      "source": "sns",
+      "className": "Artificer",
+      "classSource": "sns",
+      "subclassShortName": "Synaptic Surgeon",
+      "subclassSource": "sns",
+      "level": 1,
+      "header": 1,
+      "entries": [
+        "At tier 1, when you prepare your artificer spells you can prepare certain spells and create spell inventions for them in addition to your normal number of prepared spells. These spells count as artificer spells for you, even if they aren't on the artificer spell list.",
+        {
+          "type": "table",
+          "caption": "Synaptic Surgeon Spells",
+          "colLabels": [
+            "Artificer Level",
+            "Spells"
+          ],
+          "colStyles": [
+            "col-2 text-center",
+            "col-10"
+          ],
+          "rows": [
+            [
+              "1st",
+              "{@spell hideous laughter|sns}, {@spell sleep|sns}"
+            ],
+            [
+              "5th",
+              "{@spell blindness/deafness|sns}, {@spell suggestion|sns}"
+            ],
+            [
+              "9th",
+              "{@spell fear|sns}, {@spell slow|sns}"
+            ],
+            [
+              "13th",
+              "{@spell confusion|sns}, {@spell phantasmal killer|sns}"
+            ],
+            [
+              "17th",
+              "{@spell dominate person|sns}, {@spell hold monster|sns}"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Synaptic Gadget",
+      "source": "sns",
+      "className": "Artificer",
+      "classSource": "sns",
+      "subclassShortName": "Synaptic Surgeon",
+      "subclassSource": "sns",
+      "level": 1,
+      "header": 1,
+      "entries": [
+        "Also at tier 1, you create a unique device capable of manipulating the electric impulses in a living creature: a synaptic gadget. This device can take many forms, such as a pair of gloves that generate a manipulative static charge or a clockwork invention that generates a mind-altering frequency. Regardless of its form, only you know how to manipulate it effectively, and the device can only affect living creatures with an Intelligence score of at least 3 unless otherwise stated. You can't use your synaptic gadget on yourself unless a feature allows it.",
+        "Your synaptic gadget has a number of uses equal to your proficiency bonus. You regain all expended uses when you complete a short or long rest by taking the time to recharge it. You cannot regain expended uses this way if you don't have access to your tools of artifice.",
+        "You can spend a use of your synaptic gadget to manipulate the mind in a variety of ways.",
+        {
+          "type": "entries",
+          "name": "Adrenal Surge",
+          "entries": [
+            "As a bonus action, you apply your synaptic gadget to a willing creature within reach, including yourself, to suppress pain or push muscles to their limit. Choose Strength or Dexterity. The target gains advantage on ability checks for the chosen ability score, and either fortitude or reflex attacks have disadvantage against it respectively, until the end of its next turn. Its weapon attacks governed by the chosen ability deal an additional {@dice 1d4} base damage for the duration. This damage increases by 1 die at 5th level, 11th level, and 17th level (maximum {@dice 4d4}).",
+            "At the end of the duration, the creature suffers a level of {@condition fatigue|sns} that persists until cured or the combat ends. The creature can't benefit from this feature again until this level of {@condition fatigue|sns} is removed. {@condition Fatigue|sns} suffered from other sources does not affect this limitation."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Danger Sense",
+          "entries": [
+            "As a bonus action, you apply your synaptic gadget to a willing creature within reach, heightening its awareness. For a number of rounds equal to your Intelligence modifier, the target gains advantage on Insight and Perception checks and its armour increases by 2 as long as it is not {@condition staggered|sns} and its Speed is greater than 0. This bonus increases by 1 at 5th level, 11th level, and 17th level (maximum 5)."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Disruptive Burst",
+          "entries": [
+            "As an action, you can weaponise your synaptic gadget to disrupt the target's nervous system. This feature has a range of 15 feet. Make a ranged spell armour attack that deals {@dice 1d10} lightning damage. On a major hit, the target is also {@condition slowed|sns} until the end of its next turn. This damage increases by {@dice 1d10} at 5th level, 11th level, and 17th level (maximum {@dice 4d10})."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Synaptic Surgeon Major Effects",
+      "source": "sns",
+      "className": "Artificer",
+      "classSource": "sns",
+      "subclassShortName": "Synaptic Surgeon",
+      "subclassSource": "sns",
+      "level": 1,
+      "header": 1,
+      "entries": [
+        "From tier 1, Synaptic Surgeon Artificers have access to the following major effect options:",
+        {
+          "type": "list",
+          "items": [
+            "?",
+            "?"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "New Minor Feature",
+      "source": "sns",
+      "className": "Artificer",
+      "classSource": "sns",
+      "subclassShortName": "Synaptic Surgeon",
+      "subclassSource": "sns",
+      "level": 3,
+      "header": 2,
+      "entries": [
+        "?"
+      ]
+    },
+    {
+      "name": "Triggered Surge",
+      "source": "sns",
+      "className": "Artificer",
+      "classSource": "sns",
+      "subclassShortName": "Synaptic Surgeon",
+      "subclassSource": "sns",
+      "level": 5,
+      "header": 2,
+      "entries": [
+        "At tier 3, you can spend a use of your synaptic gadget to create a beneficial effect that only triggers under conditions you determine. Activating this feature requires you to touch the gadget to a target for one minute, after which you make an advantaged melee will attack with the following outcomes against an unwilling creature, or automatically use the standard success result for a willing one:",
+        {
+          "type": "list",
+          "items": [
+            {
+              "type": "item",
+              "name": "Minor success",
+              "entries": [
+                "Designate the condition that will cause the surge to trigger, much like setting a posthypnotic suggestion. Only one condition can be designated, and once established it can't be changed for the duration of this feature. Likewise, allies must be designated (or described, if the creature has never seen them, though this occasionally leads to misidentification and mishaps) for the purposes of this feature when the condition is designated and can't be changed for the duration. The creature must be conscious for the effect to trigger.",
+                "Example conditions include: the creature is the target of a spell not cast by an ally; the creature is the target of a weapon attack; the creature falls from a height of more than 10 feet; the creature hears a designated phrase spoken (the creature must be able to hear the phrase to trigger the effect, but does not need to understand it); the creature casts a damaging spell; the creature makes a melee weapon attack against an ally.",
+                "When the condition is triggered, all attacks against the target have advantage for one round.",
+                "The effect ends early if the creature becomes {@condition unconscious|sns}, is reduced to 0 hit points, or you spend 1 minute with your synaptic gadget removing the suggestion. This does not require an additional use of your gadget. The target can't be subjected to more than one triggered surge at a time and the trigger wears off if the conditions are not met for 24 hours. Once a condition is triggered, the creature realises it was affected by magic if it was not otherwise aware."
+              ]
+            },
+            {
+              "type": "item",
+              "name": "Standard success",
+              "entries": [
+                "As minor success, but choose from the effect options below."
+              ]
+            },
+            {
+              "type": "item",
+              "name": "Critical success",
+              "entries": [
+                "As standard success, and the target is also vulnerable to all damage for the effect's duration."
+              ]
+            }
+          ]
+        },
+        "Additional effect options:",
+        {
+          "type": "entries",
+          "name": "Triggered Vigour",
+          "entries": [
+            "Choose Strength, Dexterity, Intelligence, Wisdom, or Charisma. When the condition is met, the creature gains the effects of the {@spell enhance ability|sns} spell for the chosen ability. This effect does not require concentration."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Triggered Rebuke",
+          "entries": [
+            "Choose {@spell blindness/deafness|sns} or {@spell hold person|sns}. When the condition is met, the creature is affected by the standard success result of the chosen spell. This effect does not require concentration."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Advanced Synaptic Gadget",
+      "source": "sns",
+      "className": "Artificer",
+      "classSource": "sns",
+      "subclassShortName": "Synaptic Surgeon",
+      "subclassSource": "sns",
+      "level": 7,
+      "header": 2,
+      "entries": [
+        "At tier 4, you've plumbed the depths of the mind. You can now use the following effects.",
+        {
+          "type": "entries",
+          "name": "Disorienting Frequency",
+          "entries": [
+            "Your synaptic gadget can now emit a sound that muddles the mind. As an action, you can spend a use of your synaptic gadget to make a 30-foot cone of sound. Make an area spell fortitude attack against each creature within the area that deals {@dice 7d6} thunder and psychic damage. On a hit, a target is also {@condition slowed|sns} until the end of its next turn. On a minor success, the target is {@condition rattled|sns} for the same duration. This feature affects all living creatures, regardless of Intelligence."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Disruptive Overload",
+          "entries": [
+            "When using a Disruptive Burst, you can expend an infusion use as part of the action to supercharge your synaptic gadget and enable it to affect undead creatures and constructs made of conductive materials."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Improved Triggered Vigour",
+          "entries": [
+            "When using your Triggered Vigour on a willing creature, you can spend an infusion use as part of the process to boost two ability scores rather than one. However, the creature can't benefit from your Triggered Vigour again for 24 hours once its has been affected in this way."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Rapid Triggered Surge",
+          "entries": [
+            "When using your Triggered Surge feature, you can spend an infusion use to implant the trigger over the course of 1 round. During this time you can't take actions, bonus actions, or reactions or spend any movement. If the creature is unwilling, your attack against it does not have advantage."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Restore the Mind",
+      "source": "sns",
+      "className": "Artificer",
+      "classSource": "sns",
+      "subclassShortName": "Synaptic Surgeon",
+      "subclassSource": "sns",
+      "level": 9,
+      "header": 2,
+      "entries": [
+        "Starting at tier 5, you can spend a use of your synaptic gadget to restore brain activity to its normal state or even temporarily revive someone whose mind has stopped working. By using your synaptic gadget on a living creature, you can remove either a level of {@condition strife|sns}, the {@condition charmed|sns} condition, or a reduction to a single mental ability score. A creature can only benefit from this feature once a week.",
+        "If you use your synaptic gadget on a corpse, you can reactivate its brain activity for a short time. If the target died within the last week, you can ask it questions as though you had cast {@spell speak with dead|sns} without components. If the target died within the last 24 hours, you can also pass the electric impulses into its muscles, animating it to complete one task that takes 10 minutes or less. The temporarily revived target functions as a {@creature zombie|sns}. It can act on information it knew in life but cannot process new information or make decisions on its own."
       ]
     }
   ],
