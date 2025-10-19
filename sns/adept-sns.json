@@ -971,7 +971,7 @@
 			],
       "prerequisite": [
         {
-          "skill": "insight"
+          "other": "Profiency with the Insight skill"
         }
       ],
 			"entries": [
@@ -1448,8 +1448,7 @@
 			],
       "prerequisite": [
         {
-          "skill": "athletics",
-          "other": "Adept Speed practiced technique"
+          "other": "Profiency with the Athletics skill; Adept Speed practiced technique"
         }
       ],
 			"entries": [
@@ -1548,7 +1547,7 @@
               "source": "sns"
             }
           },
-          "skill": "stealth"
+          "other": "Proficiency with the Stealth skill"
         }
       ],
 			"entries": [
@@ -1594,8 +1593,7 @@
 			],
       "prerequisite": [
         {
-          "skill": "finesse",
-          "other": "Adept Speed practiced technique"
+          "other": "Proficiency with the Finesse skill; Adept Speed practiced technique"
         }
       ],
 			"entries": [
@@ -1610,7 +1608,7 @@
 			],
       "prerequisite": [
         {
-          "skill": "survival"
+          "other": "Proficiency with the Survival skill"
         }
       ],
 			"entries": [
