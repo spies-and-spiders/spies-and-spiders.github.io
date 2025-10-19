@@ -13,7 +13,7 @@
         "faces": 12
       },
       "defences": {
-        "fort": 4
+        "frt": 4
       },
       "startingProficiencies": {
         "armor": [
@@ -991,7 +991,7 @@
       "subclassSource": "sns",
       "level": 1,
       "entries": [
-        "Starting when you choose this subclass at tier 1, you can go into a frenzy when you rage. If you do so, for the duration of your rage you can use a bonus action to add your weapon damage to the next melee weapon armour attack you make before the end of your turn. When your frenzied rage ends, you suffer one level of {@condition fatigue|sns}."
+        "Starting when you choose this subclass at tier 1, you can go into a frenzy when you rage. If you do so, for the duration of your rage you can use a bonus action to add your weapon's base damage to the next melee weapon armour attack you make before the end of your turn. When your frenzied rage ends, you suffer one level of {@condition fatigue|sns}."
       ]
     },
     {

@@ -1,0 +1,1646 @@
+{
+  "_meta": {
+    "optionalFeatureTypes": {
+      "PT": "Practiced Technique",
+      "FF": "Focus Feature"
+    }
+  },
+  "class": [
+    {
+      "name": "Adept",
+      "source": "sns",
+      "hd": {
+        "number": 1,
+        "faces": 12
+      },
+      "defences": {
+        "frt": 2,
+        "ref": 2
+      },
+      "startingProficiencies": {
+        "armor": [],
+        "weapons": [
+          "simple",
+          "punching daggers",
+          "shortswords",
+          "starknives"
+        ],
+        "skills": [
+          {
+            "choose": {
+              "from": [
+                "athletics",
+                "brawn",
+                "finesse",
+                "history",
+                "insight",
+                "perception",
+                "stealth"
+              ],
+              "count": 2
+            }
+          }
+        ]
+      },
+      "classTableGroups": [
+        {
+          "colLabels": [
+            "Martial Arts",
+            "{@filter Techniques Known|optionalfeatures|feature type=pt}",
+            "{@filter Focus Features|optionalfeatures|feature type=ff}",
+            "Bonus Exertion",
+            "{@filter Maneuvers Known|spells|school=M}",
+            "Maneuver Degree"
+          ],
+          "rows": [
+            [
+              "{@dice 1d4}",
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              "{@dice 1d4}",
+              1,
+              0,
+              0,
+              2,
+              "{@filter 1st|spells|school=M|level=1}"
+            ],
+            [
+              "{@dice 1d4}",
+              1,
+              1,
+              0,
+              2,
+              "{@filter 1st|spells|school=M|level=1}"
+            ],
+            [
+              "{@dice 1d4}",
+              2,
+              2,
+              1,
+              3,
+              "{@filter 2nd|spells|school=M|level=2}"
+            ],
+            [
+              "{@dice 1d6}",
+              2,
+              3,
+              1,
+              3,
+              "{@filter 2nd|spells|school=M|level=2}"
+            ],
+            [
+              "{@dice 1d6}",
+              3,
+              4,
+              2,
+              4,
+              "{@filter 2nd|spells|school=M|level=2}"
+            ],
+            [
+              "{@dice 1d6}",
+              3,
+              5,
+              3,
+              4,
+              "{@filter 2nd|spells|school=M|level=2}"
+            ],
+            [
+              "{@dice 1d6}",
+              4,
+              6,
+              3,
+              5,
+              "{@filter 3rd|spells|school=M|level=3}"
+            ],
+            [
+              "{@dice 1d6}",
+              4,
+              7,
+              4,
+              5,
+              "{@filter 3rd|spells|school=M|level=3}"
+            ],
+            [
+              "{@dice 1d6}",
+              5,
+              8,
+              4,
+              6,
+              "{@filter 3rd|spells|school=M|level=3}"
+            ],
+            [
+              "{@dice 1d8}",
+              5,
+              9,
+              5,
+              6,
+              "{@filter 3rd|spells|school=M|level=3}"
+            ],
+            [
+              "{@dice 1d8}",
+              6,
+              10,
+              5,
+              6,
+              "{@filter 3rd|spells|school=M|level=3}"
+            ],
+            [
+              "{@dice 1d8}",
+              6,
+              11,
+              6,
+              7,
+              "{@filter 4th|spells|school=M|level=4}"
+            ],
+            [
+              "{@dice 1d8}",
+              7,
+              12,
+              7,
+              7,
+              "{@filter 4th|spells|school=M|level=4}"
+            ],
+            [
+              "{@dice 1d8}",
+              7,
+              13,
+              7,
+              8,
+              "{@filter 4th|spells|school=M|level=4}"
+            ],
+            [
+              "{@dice 1d10}",
+              8,
+              14,
+              8,
+              8,
+              "{@filter 4th|spells|school=M|level=4}"
+            ],
+            [
+              "{@dice 1d10}",
+              8,
+              15,
+              8,
+              9,
+              "{@filter 5th|spells|school=M|level=5}"
+            ],
+            [
+              "{@dice 1d10}",
+              9,
+              16,
+              9,
+              9,
+              "{@filter 5th|spells|school=M|level=5}"
+            ],
+            [
+              "{@dice 1d10}",
+              9,
+              17,
+              9,
+              10,
+              "{@filter 5th|spells|school=M|level=5}"
+            ],
+            [
+              "{@dice 1d10}",
+              10,
+              18,
+              10,
+              10,
+              "{@filter 5th|spells|school=M|level=5}"
+            ]
+          ]
+        }
+      ],
+      "classFeatures": [
+        {
+          "classFeature": "First Subclass Tier 1|Adept|sns|1|sns",
+          "gainSubclassFeature": true
+        },
+        "Adroit Defence|Adept|sns|1|sns",
+        "Martial Arts|Adept|sns|1|sns",
+        "Combat Maneuvers|Adept|sns|2|sns",
+        "Exertion Focus|Adept|sns|2|sns",
+        "Practiced Techniques|Adept|sns|2|sns",
+        {
+          "classFeature": "First Subclass Tier 2|Adept|sns|3|sns",
+          "gainSubclassFeature": true
+        },
+        "Ability Score Improvement|Adept|sns|4|sns",
+        "Empowered Attack|Adept|sns|5|sns",
+        {
+          "classFeature": "First Subclass Tier 3|Adept|sns|5|sns",
+          "gainSubclassFeature": true
+        },
+        "Empty Mind|Adept|sns|6|sns",
+        {
+          "classFeature": "First Subclass Tier 4|Adept|sns|7|sns",
+          "gainSubclassFeature": true
+        },
+        "Ability Score Improvement|Adept|sns|8|sns",
+        {
+          "classFeature": "First Subclass Tier 5|Adept|sns|9|sns",
+          "gainSubclassFeature": true
+        },
+        "Acquired Knowledge|Adept|sns|10|sns",
+        "Second Subclass Tier 1|Adept|sns|11|sns",
+        "Ability Score Improvement|Adept|sns|12|sns",
+        "Second Subclass Tier 2|Adept|sns|13|sns",
+        "Great Reputation|Adept|sns|14|sns",
+        "Second Subclass Tier 3|Adept|sns|15|sns",
+        "Ability Score Improvement|Adept|sns|16|sns",
+        "Second Subclass Tier 4|Adept|sns|17|sns",
+        "Battlefield Etiquette|Adept|sns|18|sns",
+        "Ability Score Improvement|Adept|sns|19|sns",
+        "Second Subclass Tier 5|Adept|sns|19|sns",
+        "Grandmaster|Adept|sns|20|sns"
+      ],
+      "subclassTitle": "Adept Subclass"
+    }
+  ],
+  "subclass": [
+    {
+      "name": "Ghostly Soul",
+      "shortName": "Ghostly Soul",
+      "source": "sns",
+      "className": "Adept",
+      "classSource": "sns",
+      "subclassFeatures": [
+        "Ghostly Soul|Adept|sns|Ghostly Soul|sns|1",
+        "New Minor Feature|Adept|sns|Ghostly Soul|sns|3",
+        "Ghostly Strikes|Adept|sns|Ghostly Soul|sns|5",
+        "Spectral Step|Adept|sns|Ghostly Soul|sns|7",
+        "Ghostly Stride|Adept|sns|Ghostly Soul|sns|9"
+      ]
+    }
+  ],
+  "classFeature": [
+    {
+      "name": "First Subclass Tier 1",
+      "source": "sns",
+      "className": "Adept",
+      "classSource": "sns",
+      "level": 1,
+      "entries": [
+        "At 1st level, you gain the tier 1 feature from your first subclass"
+      ]
+    },
+    {
+      "name": "First Subclass Tier 2",
+      "source": "sns",
+      "className": "Adept",
+      "classSource": "sns",
+      "level": 3,
+      "entries": [
+        "At 3rd level, you gain the tier 2 feature from your first subclass"
+      ]
+    },
+    {
+      "name": "First Subclass Tier 3",
+      "source": "sns",
+      "className": "Adept",
+      "classSource": "sns",
+      "level": 5,
+      "entries": [
+        "At 5th level, you gain the tier 3 feature from your first subclass"
+      ]
+    },
+    {
+      "name": "First Subclass Tier 4",
+      "source": "sns",
+      "className": "Adept",
+      "classSource": "sns",
+      "level": 7,
+      "entries": [
+        "At 7th level, you gain the tier 4 feature from your first subclass"
+      ]
+    },
+    {
+      "name": "First Subclass Tier 5",
+      "source": "sns",
+      "className": "Adept",
+      "classSource": "sns",
+      "level": 9,
+      "entries": [
+        "At 9th level, you gain the tier 5 feature from your first subclass"
+      ]
+    },
+    {
+      "name": "Second Subclass Tier 1",
+      "source": "sns",
+      "className": "Adept",
+      "classSource": "sns",
+      "level": 11,
+      "entries": [
+        "At 11th level, you gain the tier 1 feature from your second subclass"
+      ]
+    },
+    {
+      "name": "Second Subclass Tier 2",
+      "source": "sns",
+      "className": "Adept",
+      "classSource": "sns",
+      "level": 13,
+      "entries": [
+        "At 13th level, you gain the tier 2 feature from your second subclass"
+      ]
+    },
+    {
+      "name": "Second Subclass Tier 3",
+      "source": "sns",
+      "className": "Adept",
+      "classSource": "sns",
+      "level": 15,
+      "entries": [
+        "At 15th level, you gain the tier 3 feature from your second subclass"
+      ]
+    },
+    {
+      "name": "Second Subclass Tier 4",
+      "source": "sns",
+      "className": "Adept",
+      "classSource": "sns",
+      "level": 17,
+      "entries": [
+        "At 17th level, you gain the tier 4 feature from your second subclass"
+      ]
+    },
+    {
+      "name": "Second Subclass Tier 5",
+      "source": "sns",
+      "className": "Adept",
+      "classSource": "sns",
+      "level": 19,
+      "entries": [
+        "At 19th level, you gain the tier 5 feature from your second subclass"
+      ]
+    },
+    {
+      "name": "Ability Score Improvement",
+      "source": "sns",
+      "className": "Adept",
+      "classSource": "sns",
+      "level": 4,
+      "entries": [
+        "When you reach 4th level, you can increase one ability score of your choice by 1. As normal, you can't increase an ability score above 20 using this feature. Additionally, you gain a feat."
+      ]
+    },
+    {
+      "name": "Ability Score Improvement",
+      "source": "sns",
+      "className": "Adept",
+      "classSource": "sns",
+      "level": 8,
+      "entries": [
+        "When you reach 8th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature."
+      ]
+    },
+    {
+      "name": "Ability Score Improvement",
+      "source": "sns",
+      "className": "Adept",
+      "classSource": "sns",
+      "level": 12,
+      "entries": [
+        "When you reach 12th level, you can increase one ability score of your choice by 2, or your can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature."
+      ]
+    },
+    {
+      "name": "Ability Score Improvement",
+      "source": "sns",
+      "className": "Adept",
+      "classSource": "sns",
+      "level": 16,
+      "entries": [
+        "When you reach 16th level, you can increase one ability score of your choice by 2, or your can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature."
+      ]
+    },
+    {
+      "name": "Ability Score Improvement",
+      "source": "sns",
+      "className": "Adept",
+      "classSource": "sns",
+      "level": 19,
+      "entries": [
+        "When you reach 19th level, you can increase one ability score of your choice by 2, or your can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature."
+      ]
+    },
+    {
+			"name": "Adroit Defence",
+			"source": "sns",
+			"className": "Adept",
+			"classSource": "sns",
+			"level": 1,
+			"entries": [
+				"At 1st level, you learn special defensive techniques. Choose one of the following options.",
+				{
+					"type": "entries",
+					"name": "Agile Defence",
+					"entries": [
+						"While you are unarmoured and are not wielding a shield, your base armour is equal to half your Wisdom modifier."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Brutal Defence",
+					"entries": [
+						"You are proficient with light armour. While you are wearing light armour, you replace its base armour with half your Strength modifier if it is higher. If you know the Adept Speed practiced technique or any other that has it has a prerequisite, you can use them while wearing light armour."
+					]
+				}
+			]
+		},
+		{
+			"name": "Martial Arts",
+			"source": "sns",
+			"className": "Adept",
+			"classSource": "sns",
+			"level": 1,
+			"entries": [
+				"At 1st level, your trail to perfection gives you mastery of combat styles that use unarmed strikes and adept weapons, which are quarterstaves, punching daggers, shortswords, and any simple melee weapons that don't have the Two-Handed trait.",
+				"You gain the following benefits while you are unarmed or wielding only adept weapons and you aren't wielding a shield:",
+        {
+          "type": "list",
+          "items": [
+            "You can choose to govern the attacks of your main hand unarmed or adept weapons with either Strength or Dexterity.",
+            "You can roll a {@dice d4} in place of the normal base damage die of your main hand unarmed or adept weapons. This die changes as you gain levels, as shown in the Martial Arts column of the Adept table.",
+            "You can use a bonus action to add your weapon's base damage to the next unarmed or adept weapon attack you make before the end of your turn."
+          ]
+        }
+			]
+		},
+		{
+			"name": "Combat Maneuvers",
+			"source": "sns",
+			"className": "Adept",
+			"classSource": "sns",
+			"level": 2,
+			"entries": [
+				"At 2nd level, you gain the ability to use combat maneuvers. You gain proficiency in two combat traditions from the following list: {@filter Mirror's Glint|spells|Subschool=mirror's glint|}, {@filter Rapid Current|spells|Subschool=rapid current|}, {@filter Razor's Edge|spells|Subschool=razor's edge|}, {@filter Unending Wheel|spells|Subschool=undending wheel|}. You can learn two maneuvers of your choice from traditions you are proficient with.",
+				"You gain an exertion pool equal to twice your proficiency bonus, regaining any spent exertion at the end of a short or long rest. You use your maneuvers by spending points from your exertion pool. The Manuevers Known column of the Adept table shows when you learn more maneuvers from a tradition you are proficient with, while the Maneuver Degree column shows the highest degree you can select maneuvers from at a given level.",
+				"Additionally, whenever you take a long rest, you can replace any of your maneuvers with new ones of the same degree from a tradition you are proficient with.",
+        "As an adept, you gain a +1 bonus to non-armour attack rolls made by your maneuvers."
+			]
+		},
+		{
+			"name": "Exertion Focus",
+			"source": "sns",
+			"className": "Adept",
+			"classSource": "sns",
+			"level": 2,
+			"entries": [
+				"At 2nd level, your training allows you to harness your mental energy into a supernatural state of focus. Some cultures refer to this energy as prana, pneuma, or ki. Your access to this energy is represented by your exertion pool.",
+        "You can spend exertion points to fuel various focus features. You start knowing three such features: {@optfeature Flurry of Blows|sns}, {@optfeature Long Step|sns}, and {@optfeature Patient Defence|sns}. You learn more focus features as you gain levels in this class."
+			]
+		},
+		{
+			"name": "Practiced Techniques",
+			"source": "sns",
+			"className": "Adept",
+			"classSource": "sns",
+			"level": 2,
+			"entries": [
+				"You have picked up a number of tricks in your path towards perfection. At 2nd level you gain a {@filter practiced technique|optionalfeatures|feature type=pt} of your choice. The Techniques Known column of the Adept table shows when you learn more practiced techniques. Unless otherwise noted, you can gain each technique only once."
+			]
+		},
+		{
+			"name": "Focus Feature",
+			"source": "sns",
+			"className": "Adept",
+			"classSource": "sns",
+			"level": 3,
+			"entries": [
+				"Focus features stem from the mastery of your internal energies. At 3rd level, and again every level after that, choose one option from the list of {@filter focused features|optionalfeatures|feature type=ff}. Some features have prerequisites, such as minimum level or another focus feature. You must meet those prerequisites before you choose that focus feature."
+			]
+		},
+		{
+			"name": "Battlefield Etiquette",
+			"source": "sns",
+			"className": "Adept",
+			"classSource": "sns",
+			"level": 18,
+			"entries": [
+				"At 18th level, you learn the unwritten rules of the battlefield. After you have fought beside (or against) a humanoid whose highest ability score is either Strength or Dexterity, you have advantage on Charisma checks against it."
+			]
+		},
+		{
+			"name": "Bonus Exertion",
+			"source": "sns",
+			"className": "Adept",
+			"classSource": "sns",
+			"level": 4,
+			"entries": [
+				"At 4th level, your self-awareness and discipline allow you to draw upon deeper reserves of willpower than other warriors. Your exertion pool increases by the amount listed in the Bonus Exertion column of Table: Adept. For example, at 4th level your exertion pool increases to 5, at 5th level when your proficiency bonus increases your exertion pool becomes 7, at 6th level your exertion pool becomes 8, and so on."
+			]
+		},
+		{
+			"name": "Empowered Attack",
+			"source": "sns",
+			"className": "Adept",
+			"classSource": "sns",
+			"level": 5,
+			"entries": [
+				"From 5th level, when you use the Attack action, your main hand weapon's base damage is doubled. For example, a weapon with a damage of {@dice 1d6} + your Strength modifier deals {@dice 2d6} + double your Strength modifier instead."
+			]
+		},
+    {
+			"name": "Empty Mind",
+			"source": "sns",
+			"className": "Adept",
+			"classSource": "sns",
+			"level": 6,
+			"entries": [
+				"Starting at 6th level, you can empty your mind and easily disguise your emotions. As an action, you can spend 1 exertion to enter a meditative empty mind state. This lasts for 1 hour. While in this state, Insight checks against you have disadvantage.",
+        "In addition, enchantment spells have disadvantage on their non-armour attack rolls against you and you gain 50% resistance to psychic damage."
+			]
+		},
+		{
+			"name": "Acquired Knowledge",
+			"source": "sns",
+			"className": "Adept",
+			"classSource": "sns",
+			"level": 10,
+			"entries": [
+				"Starting at 10th level, your study of different martial arts traditions and foreign cultures pays off in unexpected ways. Choose two languages you are not proficient with. You become proficient with both."
+			]
+		},
+		{
+			"name": "Great Reputation",
+			"source": "sns",
+			"className": "Adept",
+			"classSource": "sns",
+			"level": 14,
+			"entries": [
+				"Starting at 14th level, your reputation spreads and you become famous (or infamous) among the adept community. When you interact with any humanoid whose highest ability score is either Strength or Dexterity, their initial attitude towards you is friendly."
+			]
+		},
+		{
+			"name": "Grandmaster",
+			"source": "sns",
+			"className": "Adept",
+			"classSource": "sns",
+			"level": 20,
+			"entries": [
+				"At 20th level, you finally achieve true mastery and become more than adept - you are a grandmaster. You gain the following features.",
+				{
+					"type": "entries",
+					"name": "Death Blow",
+					"entries": [
+						"You learn how to strike with incredible force at your target's very life force. When you hit with a melee weapon armour attack, you can choose to make your attack a critical hit that deals maximum damage. In addition, if the target is a creature it makes a save, falling to 0 hit points on a fail. You can't use this feature again until you finish a short or long rest."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Perfection Achieved",
+					"entries": [
+						"You finally achieve true mastery. Any time you roll your martial arts die, you can spend 1 exertion to roll a {@dice d12} instead. If you roll a 12 on this die, you can roll another {@dice d12} and add it to the result."
+					]
+				}
+			]
+		}
+  ],
+  "subclassFeature": [
+    {
+      "name": "Ghostly Soul",
+      "source": "sns",
+      "className": "Adept",
+      "classSource": "sns",
+      "subclassShortName": "Ghostly Soul",
+      "subclassSource": "sns",
+      "level": 1,
+      "entries": [
+        {
+          "type": "refSubclassFeature",
+          "subclassFeature": "Incorporeal Arms|Adept|sns|Ghostly Soul|sns|1"
+        },
+        {
+          "type": "refSubclassFeature",
+          "subclassFeature": "Ghostly Soul Major Effects|Adept|sns|Ghostly Soul|sns|1"
+        }
+      ]
+    },
+    {
+      "name": "Incorporeal Arms",
+      "source": "sns",
+      "className": "Adept",
+      "classSource": "sns",
+      "subclassShortName": "Ghostly Soul",
+      "subclassSource": "sns",
+      "level": 1,
+      "entries": [
+        "Beginning at tier 1 when you choose this subclass, you can use a bonus action and spend 3 exertion to turn your arms partially incorporeal for a number of rounds equal to your Wisdom modifier. You can make your arms corporeal again by using a bonus action or your reaction.",
+        "While you arms are partially incorporeal, you add a second martial arts die to damage dealt by your unarmed strikes as your blows disrupt your target internally. You can also use this partial incorporeality to use an action to reach through an object and interact with what is just on the other side, such as a door handle, window latch, or item. You cannot use this ability to pass through metal objects or surfaces. However, when you do this, you suffer 5 ({@dice 1d10}) force harm every round you remain in the object. If this feature's duration ends while you are inside an object, you suffer 10 ({@dice 2d10}) force harm as your arms are ejected."
+      ]
+    },
+    {
+      "name": "Ghostly Soul Major Effects",
+      "source": "sns",
+      "className": "Adept",
+      "classSource": "sns",
+      "subclassShortName": "Ghostly Soul",
+      "subclassSource": "sns",
+      "level": 1,
+      "entries": [
+        "From tier 1, Ghostly Soul Adepts have access to the following major effect options:",
+        {
+          "type": "list",
+          "items": [
+            "?",
+            "?"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "New Minor Feature",
+      "source": "sns",
+      "className": "Adept",
+      "classSource": "sns",
+      "subclassShortName": "Ghostly Soul",
+      "subclassSource": "sns",
+      "level": 3,
+      "header": 2,
+      "entries": [
+        "?"
+      ]
+    },
+    {
+      "name": "Ghostly Strikes",
+      "source": "sns",
+      "className": "Adept",
+      "classSource": "sns",
+      "subclassShortName": "Ghostly Soul",
+      "subclassSource": "sns",
+      "level": 5,
+      "header": 2,
+      "entries": [
+        "At tier 3, you learn how to land a blow while manipulating your corporeality. As part of your Attack action, you can spend 1 exertion to convert all damage dealt by your unarmed strikes and melee weapon armour attacks to force damage until the start of your next turn."
+      ]
+    },
+    {
+      "name": "Spectral Step",
+      "source": "sns",
+      "className": "Adept",
+      "classSource": "sns",
+      "subclassShortName": "Ghostly Soul",
+      "subclassSource": "sns",
+      "level": 7,
+      "header": 2,
+      "entries": [
+        "Starting at tier 4, you learn how to make your entire body as insubstantial as a spirit's. You can use an action and spend 5 exertion to become incorporeal for up to a number of rounds equal to your Wisdom modifier. You can also end this effect by using a bonus action or your reaction. While incorporeal, you can still be seen as a faded version of yourself, but you gain advantage on all Stealth checks, 50% resistance to all types of damage except force, and may pass through objects and creatures as if they were difficult terrain.",
+        "You suffer 10 ({@dice 2d10}) force harm if you end your turn inside an object. If you end your turn in a space occupied by a creature, you both suffer force harm equal to your martial arts die times half your Wisdom modifier. This feature's duration ends while you are inside either an object or a creature, you suffer 10 ({@dice 2d10}) force harm, are shunted to the nearest open space, and suffer an additional 5 ({@dice 1d10}) force harm for every space shunted."
+      ]
+    },
+    {
+      "name": "Ghostly Stride",
+      "source": "sns",
+      "className": "Adept",
+      "classSource": "sns",
+      "subclassShortName": "Ghostly Soul",
+      "subclassSource": "sns",
+      "level": 9,
+      "header": 2,
+      "entries": [
+        "At tier 5, you are able to move through the world as lightly as the ghosts you emulate. You gain a fly speed equal to half your Speed and the ability to hover, and also gain an expertise die on all Finesse and Stealth checks. You are also immune to the {@condition poisoned|sns} condition."
+      ]
+    }
+  ],
+  "optionalfeature": [
+    {
+			"name": "Flurry of Blows",
+			"source": "sns",
+			"featureType": [
+				"FF"
+			],
+			"entries": [
+				"While unarmed, you can spend 1 exertion as a bonus action to add double your weapon's base damage to the next melee weapon armour attack you make before the end of your turn."
+			]
+		},
+		{
+			"name": "Long Step",
+			"source": "sns",
+			"featureType": [
+				"FF"
+			],
+			"entries": [
+				"You can spend 1 exertion to take the Disengage or Dash action as a bonus action on your turn, and your jump distance is doubled for that turn."
+			]
+		},
+    {
+			"name": "Patient Defence",
+			"source": "sns",
+			"featureType": [
+				"FF"
+			],
+			"entries": [
+				"You can spend 1 exertion to take the Block action as a bonus action on your turn."
+			]
+		},
+    {
+			"name": "Empowered Attack (2)",
+			"source": "sns",
+			"featureType": [
+				"FF"
+			],
+      "prerequisite": [
+        {
+          "level": {
+            "level": 11,
+            "class": {
+              "name": "Adept",
+              "source": "sns"
+            }
+          }
+        }
+      ],
+			"entries": [
+				"When you use the Attack action, your main hand weapon's base damage is tripled. For example, a weapon with a damage of {@dice 1d6} + your Strength modifier deals {@dice 3d6} + triple your Strength modifier instead."
+			]
+		},
+    {
+			"name": "Adept Weaponry",
+			"source": "sns",
+			"featureType": [
+				"FF"
+			],
+      "prerequisite": [
+        {
+          "level": {
+            "level": 5,
+            "class": {
+              "name": "Adept",
+              "source": "sns"
+            }
+          }
+        }
+      ],
+			"entries": [
+				"Choose two weapons. If you are not proficient with them, you become proficient with them. They count as adept weapons for you."
+			]
+		},
+    {
+			"name": "Battering Shield",
+			"source": "sns",
+			"featureType": [
+				"FF"
+			],
+      "prerequisite": [
+        {
+          "level": {
+            "level": 11,
+            "class": {
+              "name": "Adept",
+              "source": "sns"
+            }
+          }
+        }
+      ],
+			"entries": [
+				"Your weapon attacks blend together so aggressively that your assault acts almost as a shield. When you use the Attack action and hit a creature, you gain a +2 bonus to armour against that creature until the beginning of your next turn."
+			]
+		},
+    {
+			"name": "Battle Dance",
+			"source": "sns",
+			"featureType": [
+				"FF"
+			],
+			"entries": [
+				"You gain proficiency in the Performance skill. As a bonus action, you can spend 2 exertion to bob and sway, starting a battle dance. Until the end of your turn, your Speed increases by 20 feet and opportunity attacks against you are made with disadvantage. When an opportunity attack fails to hit you, you can use your reaction to retaliate with an unarmed attack."
+			]
+		},
+    {
+			"name": "Battle Meditation",
+			"source": "sns",
+			"featureType": [
+				"FF"
+			],
+			"entries": [
+				"As an action, you can spend 1 Hit Die to regain {@dice 1d4} exertion. You can't use this feature again until you finish a short or long rest."
+			]
+		},
+    {
+			"name": "Beyond Size",
+			"source": "sns",
+			"featureType": [
+				"FF"
+			],
+      "prerequisite": [
+        {
+          "level": {
+            "level": 11,
+            "class": {
+              "name": "Adept",
+              "source": "sns"
+            }
+          }
+        }
+      ],
+			"entries": [
+				"You have learned to use your opponent's size against them. You can use basic maneuvers against creatures of any size."
+			]
+		},
+    {
+			"name": "Closed Soul",
+			"source": "sns",
+			"featureType": [
+				"FF"
+			],
+      "prerequisite": [
+        {
+          "level": {
+            "level": 9,
+            "class": {
+              "name": "Adept",
+              "source": "sns"
+            }
+          }
+        }
+      ],
+			"entries": [
+				"Whenever you are targeted by a non-armour attack, you can use your reaction and spend 2 exertion to grant disadvantage to all non-armour attacks from spells and other magical effects until the beginning of your next turn, including the triggering one."
+			]
+		},
+    {
+			"name": "Dancing Maneuver",
+			"source": "sns",
+			"featureType": [
+				"FF"
+			],
+      "prerequisite": [
+        {
+          "level": {
+            "level": 11,
+            "class": {
+              "name": "Adept",
+              "source": "sns"
+            }
+          },
+          "other": "any 'Dance' focus feature"
+        }
+      ],
+			"entries": [
+				"When you use a bonus action to activate a combat maneuver, you can spend 2 exertion to start one of your dance focus features as part of the same bonus action."
+			]
+		},
+    {
+			"name": "Deflect Missiles",
+			"source": "sns",
+			"featureType": [
+				"FF"
+			],
+			"entries": [
+				"You can use your reaction to deflect or catch the missile when you are targeted by a ranged weapon armour attack. When you do so, the damage you take from the attack is reduced by {@dice 1d10} + your Dexterity modifier + your level.",
+        "If you end up taking 0 damage, you can catch the missile if it is small enough for you to hold in one hand. If you catch a missile in this way, you can spend 1 exertion to make a ranged weapon attack with the weapon or piece of ammunition you just caught, as part of the same reaction. The missile counts as an adept weapon for the attack, which has a normal range of 20 feet and a long range of 60 feet."
+			]
+		},
+    {
+			"name": "Deflect Spells",
+			"source": "sns",
+			"featureType": [
+				"FF"
+			],
+      "prerequisite": [
+        {
+          "level": {
+            "level": 9,
+            "class": {
+              "name": "Adept",
+              "source": "sns"
+            }
+          },
+          "other": "Deflect Missiles focus feature"
+        }
+      ],
+			"entries": [
+				"When you are targeted by a ranged spell armour attack, you can use your reaction and spend 2 exertion to deflect the magic. When you do so, the damage you take from the attack is reduced by {@dice 2d10} + your Dexterity modifier + your level.",
+        "If you end up taking 0 damage, you can spend 1 exertion to redirect the spell to another target within 30 feet of you as part of the same reaction. The attack is governed by your Wisdom."
+			]
+		},
+    {
+			"name": "Distant Death Dance",
+			"source": "sns",
+			"featureType": [
+				"FF"
+			],
+      "prerequisite": [
+        {
+          "level": {
+            "level": 5,
+            "class": {
+              "name": "Adept",
+              "source": "sns"
+            }
+          }
+        }
+      ],
+			"entries": [
+				"As a bonus action, you can inhale air slowly and spend 2 exertion to start the distant death dance. Until the end of your turn, your unarmed reach increases to 60 feet. You have disadvantage on unarmed attacks against creatures more than 20 feet away from you."
+			]
+		},
+    {
+			"name": "Dual Stance",
+			"source": "sns",
+			"featureType": [
+				"FF"
+			],
+      "prerequisite": [
+        {
+          "level": {
+            "level": 11,
+            "class": {
+              "name": "Adept",
+              "source": "sns"
+            }
+          },
+          "other": "know at least 2 stance combat maneuvers"
+        }
+      ],
+			"entries": [
+				"Your martial stances don't end when you start another stance. You can have two stances active at the same time. If you are knocked {@condition unconscious|sns} or begin a long rest both stances end."
+			]
+		},
+    {
+			"name": "Eye for Detail",
+			"source": "sns",
+			"featureType": [
+				"FF"
+			],
+      "prerequisite": [
+        {
+          "skill": "insight"
+        }
+      ],
+			"entries": [
+				"You notice patterns others cannot. As an action, you can spend 1 exertion to study a creature you have watched speak for at least 1 minute. You can ask the DM one of these questions:",
+        {
+          "type": "list",
+          "style": "list-no-bullets",
+          "items": [
+            "Is the creature hiding any strong emotions?",
+            "Does the creature have a secret agenda?",
+            "Did the creature lie in the last minute?",
+            "Is the creature hiding their true race and/or culture?"
+          ]
+        },
+        "The DM must give you a truthful answer."
+			]
+		},
+    {
+			"name": "Focused Strikes",
+			"source": "sns",
+			"featureType": [
+				"FF"
+			],
+      "prerequisite": [
+        {
+          "level": {
+            "level": 5,
+            "class": {
+              "name": "Adept",
+              "source": "sns"
+            }
+          }
+        }
+      ],
+			"entries": [
+				"Your unarmed strikes ignore bludgeoning, piercing, and slashing resistance and immunity."
+			]
+		},
+    {
+			"name": "Forbidden Strike",
+			"source": "sns",
+			"featureType": [
+				"FF"
+			],
+      "prerequisite": [
+        {
+          "level": {
+            "level": 7,
+            "class": {
+              "name": "Adept",
+              "source": "sns"
+            }
+          }
+        }
+      ],
+			"entries": [
+				"When you hit an opponent with an attack empowered by the Flurry of Blows focus feature, you can spend 1 exertion to deal additional damage equal to your martial arts die."
+			]
+		},
+    {
+			"name": "Hooked Swords Dance",
+			"source": "sns",
+			"featureType": [
+				"FF"
+			],
+			"entries": [
+				"When you are fighting with a shortsword and dual-wielding, you use a bonus action and spend 2 exertion to hook your weapons together to start a hooked swords dance. Until the end of your next turn, your shortsword gains the Reach trait and deals {@dice 1d10} additional slashing damage."
+			]
+		},
+    {
+			"name": "Last Dance",
+			"source": "sns",
+			"featureType": [
+				"FF"
+			],
+      "prerequisite": [
+        {
+          "other": "any 'Dance' focus feature"
+        }
+      ],
+			"entries": [
+				"When the duration of one of your dance focus features ends, you can spend 2 exertion to make the effect last until the end of your next turn.",
+        "In addition, if you know two or more dance focus features you can spend 3 additional exertion to activate two dances using the same bonus action."
+			]
+		},
+    {
+			"name": "Magic Resistance",
+			"source": "sns",
+			"featureType": [
+				"FF"
+			],
+      "prerequisite": [
+        {
+          "level": {
+            "level": 15,
+            "class": {
+              "name": "Adept",
+              "source": "sns"
+            }
+          },
+          "other": "Closed Soul focus feature"
+        }
+      ],
+			"entries": [
+				"Spells and other magical effects have disadvantage with non-armour attacks against you."
+			]
+		},
+    {
+			"name": "Maneuver Rush",
+			"source": "sns",
+			"featureType": [
+				"FF"
+			],
+      "prerequisite": [
+        {
+          "level": {
+            "level": 7,
+            "class": {
+              "name": "Adept",
+              "source": "sns"
+            }
+          }
+        }
+      ],
+			"entries": [
+				"When you hit with a maneuver that has the Empowered Attack feature as a prerequisite, you can use another maneuver that does not make any attacks as part of the same action, at no exertion cost. You can't use this feature again until you finish a short or long rest."
+			]
+		},
+    {
+			"name": "Mind Over Body",
+			"source": "sns",
+			"featureType": [
+				"FF"
+			],
+			"entries": [
+				"You can use a bonus action and spend 2 exertion to gain temporary hit points equal to your martial arts die plus your level plus your proficiency bonus."
+			]
+		},
+    {
+			"name": "Mirage Dance",
+			"source": "sns",
+			"featureType": [
+				"FF"
+			],
+      "prerequisite": [
+        {
+          "level": {
+            "level": 5,
+            "class": {
+              "name": "Adept",
+              "source": "sns"
+            }
+          }
+        }
+      ],
+			"entries": [
+				"As a bonus action, you can spend 2 exertion to swiftly start a mirage dance. Until the end of your next turn, you are under the effect of the {@spell mirror image|sns} spell."
+			]
+		},
+    {
+			"name": "Staggering Strike",
+			"source": "sns",
+			"featureType": [
+				"FF"
+			],
+      "prerequisite": [
+        {
+          "level": {
+            "level": 9,
+            "class": {
+              "name": "Adept",
+              "source": "sns"
+            }
+          }
+        }
+      ],
+			"entries": [
+				"You can deal staggering blows. When you score a major hit against a creature with a melee weapon armour attack, you can spend 2 exertion to {@condition staggered|sns|stagger} it until the end of your next turn."
+			]
+		},
+    {
+			"name": "Powerful Blow",
+			"source": "sns",
+			"featureType": [
+				"FF"
+			],
+      "prerequisite": [
+        {
+          "level": {
+            "level": 5,
+            "class": {
+              "name": "Adept",
+              "source": "sns"
+            }
+          }
+        }
+      ],
+			"entries": [
+				"As a bonus action, you prepare a crushing blow. If you make a melee weapon armour attack before the end of your next turn, you can spend 1 exertion to grant it additional damage equal to your martial arts die."
+			]
+		},
+    {
+			"name": "Pressure Point Secrets",
+			"source": "sns",
+			"featureType": [
+				"FF"
+			],
+      "prerequisite": [
+        {
+          "other": "Debilitating Strike or Staggering Strike focus feature"
+        }
+      ],
+			"entries": [
+				"When you hit a creature with a melee weapon armour attack, you can spend 2 exertion to enable the use of either the Debilitating Strike or Staggering Strike focus feature on that attack."
+			]
+		},
+    {
+			"name": "Purity of Body",
+			"source": "sns",
+			"featureType": [
+				"FF"
+			],
+      "prerequisite": [
+        {
+          "level": {
+            "level": 7,
+            "class": {
+              "name": "Adept",
+              "source": "sns"
+            }
+          }
+        }
+      ],
+			"entries": [
+				"You can use your action to end one effect on yourself that is causing you to be {@condition poisoned|sns} or diseased."
+			]
+		},
+    {
+			"name": "Share Focus",
+			"source": "sns",
+			"featureType": [
+				"FF"
+			],
+      "prerequisite": [
+        {
+          "level": {
+            "level": 11,
+            "class": {
+              "name": "Adept",
+              "source": "sns"
+            }
+          }
+        }
+      ],
+			"entries": [
+				"As an action, you can share your spiritual fortitude with others. Choose a creature. That creature reduces the success tier of the next non-armour attack against it by one. You can't use this feature again until you finish a short or long rest."
+			]
+		},
+    {
+			"name": "Shockwave",
+			"source": "sns",
+			"featureType": [
+				"FF"
+			],
+      "prerequisite": [
+        {
+          "level": {
+            "level": 5,
+            "class": {
+              "name": "Adept",
+              "source": "sns"
+            }
+          }
+        }
+      ],
+			"entries": [
+				"You can use an action and spend 3 exertion to hit the ground so hard it sends a shockwave in a 40-foot line that is 5 feet wide. Make an area weapon reflex attack against each creature in that line that deals {@dice 3d10} bludgeoning damage and knocks targets {@condition prone|sns} on a hit."
+			]
+		},
+    {
+			"name": "Stillness of Mind",
+			"source": "sns",
+			"featureType": [
+				"FF"
+			],
+      "prerequisite": [
+        {
+          "level": {
+            "level": 7,
+            "class": {
+              "name": "Adept",
+              "source": "sns"
+            }
+          }
+        }
+      ],
+			"entries": [
+				"You can use your action to end one effect on yourself that is causing you to be {@condition charmed|sns} or {@condition frightened|sns}."
+			]
+		},
+    {
+			"name": "Stunning Strike",
+			"source": "sns",
+			"featureType": [
+				"FF"
+			],
+      "prerequisite": [
+        {
+          "level": {
+            "level": 5,
+            "class": {
+              "name": "Adept",
+              "source": "sns"
+            }
+          }
+        }
+      ],
+			"entries": [
+				"You can deal incapacitating blows. Whenever you score a major hit with a melee weapon armour attack, you can spend 1 exertion to {@condition deblitated|sns|debilitate} the target until the end of your next turn."
+			]
+		},
+    {
+			"name": "Total Combat",
+			"source": "sns",
+			"featureType": [
+				"FF"
+			],
+      "prerequisite": [
+        {
+          "level": {
+            "level": 11,
+            "class": {
+              "name": "Adept",
+              "source": "sns"
+            }
+          }
+        }
+      ],
+			"entries": [
+				"Whenever you successfully use a basic maneuver, the target suffers bludgeoning harm equal to your martial arts die."
+			]
+		},
+    {
+			"name": "Undefeated",
+			"source": "sns",
+			"featureType": [
+				"FF"
+			],
+      "prerequisite": [
+        {
+          "level": {
+            "level": 11,
+            "class": {
+              "name": "Adept",
+              "source": "sns"
+            }
+          }
+        }
+      ],
+			"entries": [
+				"When a creature would drop you to 0 hit points, you can use your reaction to make an unarmed attack against any enemy within your reach. On a hit, you can spend 1 exertion to roll your martial arts die and gain that many temporary hit points. You can't use this feature again until you finish a short or long rest."
+			]
+		},
+    {
+			"name": "Unlikely Wield",
+			"source": "sns",
+			"featureType": [
+				"FF"
+			],
+      "prerequisite": [
+        {
+          "level": {
+            "level": 11,
+            "class": {
+              "name": "Adept",
+              "source": "sns"
+            }
+          }
+        }
+      ],
+			"entries": [
+				"You can wield two Offhand weapons in your offhand. This is a representation of you wielding the second abnormally, such as between your toes or in your mouth."
+			]
+		},
+    {
+			"name": "Vengeful Spirit",
+			"source": "sns",
+			"featureType": [
+				"FF"
+			],
+      "prerequisite": [
+        {
+          "level": {
+            "level": 15,
+            "class": {
+              "name": "Adept",
+              "source": "sns"
+            }
+          }
+        }
+      ],
+			"entries": [
+				"When you are about to make a death save, you can choose to set your own spirit loose as a vengeful ghost to stalk your prey, and automatically succeed on the save at the same time. The spirit acts on your initiative, after your turn, has your statistics, ethereal copies of your equipment, full hit points, and half your exertion pool. Your vengeful spirit is 50% resistant to bludgeoning, piercing, and slashing damage. It can move through other creatures and objects as if they were difficult terrain, but it suffers {@dice 1d10} force harm if it ends its turn inside an object.",
+        "The vengeful spirit targets only the creature who reduced you to 0 hit points. When the creature is defeated, the spirit returns to your body. You can't use this feature again until you finish a long rest."
+			]
+		},
+    {
+			"name": "Warding Dance",
+			"source": "sns",
+			"featureType": [
+				"FF"
+			],
+      "prerequisite": [
+        {
+          "level": {
+            "level": 5,
+            "class": {
+              "name": "Adept",
+              "source": "sns"
+            }
+          }
+        }
+      ],
+			"entries": [
+				"When you are fighting unarmed, you can use a bonus action and spend 2 exertion to start a warding dance. Until the end of your next turn, you have 50% resistance against bludgeoning, piercing, and slashing damage."
+			]
+		},
+    {
+			"name": "Weapon Skill",
+			"source": "sns",
+			"featureType": [
+				"FF"
+			],
+			"entries": [
+				"Choose a martial weapon. You become proficient with that weapon and it counts as an adept weapon for you."
+			]
+		},
+    {
+			"name": "Adept Speed",
+			"source": "sns",
+			"featureType": [
+				"PT"
+			],
+			"entries": [
+				"Your Speed increases by 10 feet while you are unarmoured and not wielding a shield. You can choose this technique more than once. Its effects stack."
+			]
+		},
+    {
+			"name": "Focus Speech",
+			"source": "sns",
+			"featureType": [
+				"PT"
+			],
+      "prerequisite": [
+        {
+          "level": {
+            "level": 15,
+            "class": {
+              "name": "Adept",
+              "source": "sns"
+            }
+          }
+        }
+      ],
+			"entries": [
+				"A combination of your knowledge of body language and your spiritual awareness allows you to understand all spoken languages. Moreover, any creature that can understand a language can understand what you say."
+			]
+		},
+    {
+			"name": "Gale Walk",
+			"source": "sns",
+			"featureType": [
+				"PT"
+			],
+      "prerequisite": [
+        {
+          "skill": "athletics",
+          "other": "Adept Speed practiced technique"
+        }
+      ],
+			"entries": [
+				"You have advantage on Athletics checks made to jump. On your turn, you can spend 1 exertion to triple your jump distances until the start of your next turn."
+			]
+		},
+    {
+			"name": "Hurricane Walk",
+			"source": "sns",
+			"featureType": [
+				"PT"
+			],
+      "prerequisite": [
+        {
+          "other": "Gale Walk practiced technique"
+        }
+      ],
+			"entries": [
+				"Your step is so light you seem to float in the air. You can use a bonus action and spend 1 exertion to cast {@spell fly|sns} on yourself. You also have advantage on Stealth checks related to noise. The effect lasts until the start of your next turn."
+			]
+		},
+    {
+			"name": "Instant Step",
+			"source": "sns",
+			"featureType": [
+				"PT"
+			],
+      "prerequisite": [
+        {
+          "level": {
+            "level": 11,
+            "class": {
+              "name": "Adept",
+              "source": "sns"
+            }
+          },
+          "other": "Adept Speed practiced technique"
+        }
+      ],
+			"entries": [
+				"You can move so fast you seem to teleport. You can use an action to spend 4 exertion and choose an unoccupied space you can see within 500 feet. You teleport and arrive at exactly the spot desired. You can bring along your gear, carried items smaller than your arm, and a single creature of your size category or smaller. In addition, you become invisible until the beginning of your next turn."
+			]
+		},
+    {
+			"name": "Marathon Runner",
+			"source": "sns",
+			"featureType": [
+				"PT"
+			],
+			"entries": [
+				"You are used to running long distances. You add your martial arts die to Forced March journey activity checks."
+			]
+		},
+    {
+			"name": "Nimble Athlete",
+			"source": "sns",
+			"featureType": [
+				"PT"
+			],
+			"entries": [
+				"You can always choose to use your Dexterity modifier for Athletics checks."
+			]
+		},
+    {
+			"name": "Powerful Finesse",
+			"source": "sns",
+			"featureType": [
+				"PT"
+			],
+			"entries": [
+				"You can always choose to use your Strength modifier for Finesse checks."
+			]
+		},
+    {
+			"name": "Religious Training",
+			"source": "sns",
+			"featureType": [
+				"PT"
+			],
+			"entries": [
+				"You are proficient with the History skill. When you are in contact with a holy relic, religious artifact, or any kind of similar object or structure, you can spend 2 exertion to learn something about it. You receive a correct answer from the DM for a question about the object that can be answered with a yes or no."
+			]
+		},
+    {
+			"name": "Shadow Walk",
+			"source": "sns",
+			"featureType": [
+				"PT"
+			],
+      "prerequisite": [
+        {
+          "level": {
+            "level": 11,
+            "class": {
+              "name": "Adept",
+              "source": "sns"
+            }
+          },
+          "skill": "stealth"
+        }
+      ],
+			"entries": [
+				"You can step into a shadow and come out of another. When you are in dim light or darkness, as a bonus action you can teleport up to 60 feet to an unoccupied space you can see that is also in dim light or darkness. You have advantage on Stealth checks until the beginning of your next turn. This affects the Cover Tracks journey activity if you are the last in the party to undertake your journey activity for the day."
+			]
+		},
+    {
+			"name": "Sixth Sense",
+			"source": "sns",
+			"featureType": [
+				"PT"
+			],
+      "prerequisite": [
+        {
+          "level": {
+            "level": 11,
+            "class": {
+              "name": "Adept",
+              "source": "sns"
+            }
+          }
+        }
+      ],
+			"entries": [
+				"You have advantage on initiative rolls. In addition, you can always choose to use your Wisdom for Magiscience, History, and Nature checks. Finally, you gain an expertise die on your Investigation checks."
+			]
+		},
+    {
+			"name": "Slow Fall",
+			"source": "sns",
+			"featureType": [
+				"PT"
+			],
+			"entries": [
+				"You can use your reaction when you fall to reduce any falling damage you take by an amount equal to five times your level."
+			]
+		},
+    {
+			"name": "Wall Walk",
+			"source": "sns",
+			"featureType": [
+				"PT"
+			],
+      "prerequisite": [
+        {
+          "skill": "finesse",
+          "other": "Adept Speed practiced technique"
+        }
+      ],
+			"entries": [
+				"You gain the ability to move along vertical surfaces on your turn without falling during the move. You can use a bonus action and spend 1 exertion to cast {@spell spider climb|sns} on yourself. This effect lasts until the start of your next turn."
+			]
+		},
+    {
+			"name": "Warrior's Awareness",
+			"source": "sns",
+			"featureType": [
+				"PT"
+			],
+      "prerequisite": [
+        {
+          "skill": "survival"
+        }
+      ],
+			"entries": [
+				"Your honed battlefield awareness is unmatched even in the wilderness. When you make a Survival check to avoid being lost, you gain a bonus to the check equal to your martial arts die."
+			]
+		},
+    {
+			"name": "Water Walk",
+			"source": "sns",
+			"featureType": [
+				"PT"
+			],
+      "prerequisite": [
+        {
+          "other": "Adept Speed practiced technique"
+        }
+      ],
+			"entries": [
+				"You gain the ability to move across liquids on your turn without falling during the move. You can use a bonus action and spend 1 exertion to cast {@spell water walk|sns} on yourself. The effect lasts until the start of your next turn."
+			]
+		},
+    {
+			"name": "Wilderness Training",
+			"source": "sns",
+			"featureType": [
+				"PT"
+			],
+			"entries": [
+				"You are proficient with the Survival skill. For the purposes of adept class features, you consider all beasts to be humanoids whose Strength or Dexterity is their highest ability score."
+			]
+		}
+  ]
+}

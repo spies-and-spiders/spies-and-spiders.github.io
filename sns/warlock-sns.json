@@ -1294,7 +1294,7 @@
       "classSource": "sns",
       "level": 4,
       "entries": [
-        "Also at 4th level, you gain a bonus invocation — one to help you traffic in courts both otherworldly and mortal. Choose one invocation from the following list: Beguiling Influence, Courts of the Outer Realms, Eyes of the Runekeeper, Gaze of Two Minds, Mask of Many Faces, Ominous Tormentor, Psionic Secrecy, Spellbinding Contract, Voice of the Chain Master, Whispers of the Grave.",
+        "Also at 4th level, you gain a bonus invocation — one to help you traffic in courts both otherworldly and mortal. Choose one invocation from the following list: {@optfeature Beguiling Influence|sns}, {@optfeature Courts of the Outer Realms|sns}, {@optfeature Eyes of the Runekeeper|sns}, {@optfeature Gaze of Two Minds|sns}, {@optfeature Mask of Many Faces|sns}, {@optfeature Ominous Tormentor|sns}, {@optfeature Psionic Secrecy|sns}, {@optfeature Spellbinding Contract|sns}, {@optfeature Voice of the Chain Master|sns}, {@optfeature Whispers of the Grave|sns}.",
         "You gain another bonus invocation in this way at 10th level and again at 16th level. Whenever you complete a long rest, you can choose one of the bonus invocations you know and replace it with another bonus invocation from this list that you could learn at that level."
       ]
     },
@@ -1317,7 +1317,7 @@
       "classSource": "sns",
       "level": 6,
       "entries": [
-        "At 6th level, you gain a bonus invocation — one which represents your growth in the lethal lore behind Eldritch Blast. Choose one invocation from the following list: Agonizing Blast, Eldritch Bind, Eldritch Elementalism, Eldritch Grasp, Eldritch Prism, Eldritch Riposte, Eldritch Severance, Eldritch Spear, Eldritch Squall, Eldritch Tentacle, Repelling Blast, Versatile Blast.",
+        "At 6th level, you gain a bonus invocation — one which represents your growth in the lethal lore behind Eldritch Blast. Choose one invocation from the following list: {@optfeature Agonizing Blast|sns}, {@optfeature Eldritch Bind|sns}, {@optfeature Eldritch Elementalism|sns}, {@optfeature Eldritch Grasp|sns}, {@optfeature Eldritch Prism|sns}, {@optfeature Eldritch Riposte|sns}, {@optfeature Eldritch Severance|sns}, {@optfeature Eldritch Spear|sns}, {@optfeature Eldritch Squall|sns}, {@optfeature Eldritch Tentacle|sns}, {@optfeature Repelling Blast|sns}, {@optfeature Versatile Blast|sns}.",
         "You gain another bonus invocation in this way at 14th level and again at 18th level. Whenever you complete a long rest, you can choose one of the bonus invocations you know and replace it with another bonus invocation from this list that you could learn at that level."
       ]
     },
