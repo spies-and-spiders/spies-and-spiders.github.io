@@ -369,7 +369,7 @@
       ],
       "subclassFeatures": [
         "Synaptic Surgeon|Artificer|sns|Synaptic Surgeon|sns|1",
-        "New Minor Feature|Artificer|sns|Synaptic Surgeon|sns|3",
+        "Surgeon's Learnings|Artificer|sns|Synaptic Surgeon|sns|3",
         "Triggered Surge|Artificer|sns|Synaptic Surgeon|sns|5",
         "Advanced Synaptic Gadget|Artificer|sns|Synaptic Surgeon|sns|7",
         "Restore the Mind|Artificer|sns|Synaptic Surgeon|sns|9"
@@ -1543,14 +1543,14 @@
         {
           "type": "list",
           "items": [
-            "?",
-            "?"
+            "You immediately use your Synaptic Gadget feature against a creature within its range. This does not require or expend a use of the gadget.",
+            "You repair a fizzled spell invention that contained a spell from your Synaptic Surgeon Spells."
           ]
         }
       ]
     },
     {
-      "name": "New Minor Feature",
+      "name": "Surgeon's Learnings",
       "source": "sns",
       "className": "Artificer",
       "classSource": "sns",
@@ -1559,7 +1559,7 @@
       "level": 3,
       "header": 2,
       "entries": [
-        "?"
+        "You may prepare an additional spell that can only be chosen - needs update"
       ]
     },
     {

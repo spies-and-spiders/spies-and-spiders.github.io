@@ -271,7 +271,7 @@
       "classSource": "sns",
       "subclassFeatures": [
         "Ghostly Soul|Adept|sns|Ghostly Soul|sns|1",
-        "New Minor Feature|Adept|sns|Ghostly Soul|sns|3",
+        "Spirit Armour|Adept|sns|Ghostly Soul|sns|3",
         "Ghostly Strikes|Adept|sns|Ghostly Soul|sns|5",
         "Spectral Step|Adept|sns|Ghostly Soul|sns|7",
         "Ghostly Stride|Adept|sns|Ghostly Soul|sns|9"
@@ -648,14 +648,14 @@
         {
           "type": "list",
           "items": [
-            "?",
-            "?"
+            "You recover exertion equal to your proficiency bonus and hit points equal to your level.",
+            "The target suffers {@dice 1d10} force harm and your next attack against the target has advantage."
           ]
         }
       ]
     },
     {
-      "name": "New Minor Feature",
+      "name": "Spirit Armour",
       "source": "sns",
       "className": "Adept",
       "classSource": "sns",
@@ -664,7 +664,7 @@
       "level": 3,
       "header": 2,
       "entries": [
-        "?"
+        "From tier 2, while any part of your body is incorporeal, you gain a +1 bonus to your armour and creatures you target with attacks suffer force harm equal to your proficiency bonus."
       ]
     },
     {

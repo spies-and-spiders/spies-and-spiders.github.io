@@ -4877,7 +4877,7 @@
         "Approach | Come | Here: At the start of its turn, the target uses its movement to move towards you by the shortest route until it is adjacent to you.",
         "Bow | Grovel | Kneel: At the start of its turn, the target falls {@condition prone|sns}.",
         "Drop: At the start of its turn, the target drops anything it is holding.",
-        "Flee | Run: At the start of its turn, the target uses its movement to move away from you as far as it can.",
+        "Flee | Run: At the start of its turn, the target uses up to half its movement to move away from you as far as it can.",
         "Halt: The target is {@condition sluggish|sns}."
       ],
       "name": "Command",

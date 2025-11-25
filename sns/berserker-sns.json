@@ -271,6 +271,23 @@
         "Intimidating Presence|Berserker|sns|Berserker|sns|7",
         "Retaliation|Berserker|sns|Berserker|sns|9"
       ]
+    },
+		{
+      "name": "Heart-Eater",
+      "shortName": "Heart-Eater",
+      "source": "sns",
+      "className": "Berserker",
+      "classSource": "sns",
+      "subclassFeatures": [
+        "Heart-Eater|Berserker|sns|Heart-Eater|sns|1",
+        "Bloodstriker|Berserker|sns|Heart-Eater|sns|3",
+				"Heart Hunter Improvement|Berserker|sns|Heart-Eater|sns|3",
+        "New Strong Feature|Berserker|sns|Heart-Eater|sns|5",
+        "Heart Strike|Berserker|sns|Heart-Eater|sns|7",
+				"Heart Hunter Improvement|Berserker|sns|Heart-Eater|sns|7",
+        "Hard Dying|Berserker|sns|Heart-Eater|sns|9",
+				"Heart Hunter Improvement|Berserker|sns|Heart-Eater|sns|9"
+      ]
     }
   ],
   "classFeature": [
@@ -1090,6 +1107,164 @@
       "header": 2,
       "entries": [
         "Starting at tier 5, when you are hit by an adjacent creature, you can use your reaction to make a melee weapon attack against that creature."
+      ]
+    },
+		{
+      "name": "Heart-Eater",
+      "source": "sns",
+      "className": "Berserker",
+      "classSource": "sns",
+      "subclassShortName": "Heart-Eater",
+      "subclassSource": "sns",
+      "level": 1,
+      "entries": [
+        {
+          "type": "refSubclassFeature",
+          "subclassFeature": "Heart Hunter|Berserker|sns|Heart-Eater|sns|1"
+        },
+        {
+          "type": "refSubclassFeature",
+          "subclassFeature": "Heart-Eater Major Effects|Berserker|sns|Heart-Eater|sns|1"
+        }
+      ]
+    },
+    {
+      "name": "Heart Hunter",
+      "source": "sns",
+      "className": "Berserker",
+      "classSource": "sns",
+      "subclassShortName": "Heart-Eater",
+      "subclassSource": "sns",
+      "level": 1,
+      "entries": [
+        "When you select this subclass at tier 1, you learn how to gruesomely take the power from a slain foe to become all the mightier. When you or an ally slays a living creature of a CR equal to half your level or higher, if it has died within the last minute you can use an action to strike into its body, rip out the heart, and take a massive bite. For a number of hours equal to half your level you gain an expertise die on ability checks.",
+				"Whether or not you are able to consume the heart of a creature is determined by the DM, and finding the heart of some creatures requires an Investigation or Medicine check (DC 10 + half the creature's CR)."
+      ]
+    },
+    {
+      "name": "Heart-Eater Major Effects",
+      "source": "sns",
+      "className": "Berserker",
+      "classSource": "sns",
+      "subclassShortName": "Heart-Eater",
+      "subclassSource": "sns",
+      "level": 1,
+      "entries": [
+        "From tier 1, Heart-Eater Berserkers have access to the following major effect options:",
+        {
+          "type": "list",
+          "items": [
+            "?",
+            "?"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Bloodstriker",
+      "source": "sns",
+      "className": "Berserker",
+      "classSource": "sns",
+      "subclassShortName": "Heart-Eater",
+      "subclassSource": "sns",
+      "level": 3,
+      "header": 2,
+      "entries": [
+        "At tier 2, you can tap into your fury to control the sanguine flow of a bloody combat. While you are raging, after you hit a bloodied living creature with a weapon attack, you can use a bonus action to do one of the following:",
+				{
+					"type": "entries",
+					"name": "Bloodtrack",
+					"entries": [
+						"For the next hour you know the direction and distance to the creature as long as you are both on the same plane of existence."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Crimson Deflect",
+					"entries": [
+						"You capture the creature's blood in mid-air, forming a floating shield around you. Until the start of your next turn, your armour increases by an amount equal to half your proficiency bonus."
+					]
+				},
+				"Once you have used this feature a number of times equal to half your proficiency bonus, you cannot do so again until you finish a long rest."
+      ]
+    },
+		{
+      "name": "Heart Hunter Improvement",
+      "source": "sns",
+      "className": "Berserker",
+      "classSource": "sns",
+      "subclassShortName": "Heart-Eater",
+      "subclassSource": "sns",
+      "level": 3,
+      "header": 2,
+      "entries": [
+        "Also at tier 2, your Heart Hunter feature now additionally grants you an expertise die on weapon damage rolls for its duration."
+      ]
+    },
+    {
+      "name": "New Strong Feature",
+      "source": "sns",
+      "className": "Berserker",
+      "classSource": "sns",
+      "subclassShortName": "Heart-Eater",
+      "subclassSource": "sns",
+      "level": 5,
+      "header": 2,
+      "entries": [
+        "?"
+      ]
+    },
+    {
+      "name": "Heart Strike",
+      "source": "sns",
+      "className": "Berserker",
+      "classSource": "sns",
+      "subclassShortName": "Heart-Eater",
+      "subclassSource": "sns",
+      "level": 7,
+      "header": 2,
+      "entries": [
+        "Starting at tier 4, you twist a strike at just the right moment to turn it into a devastating blow. When you hit with a melee weapon attack against a living creature, you can use your reaction to turn the attack into a critical hit. Once you have used this feature, you cannot do so again until you finish a short or long rest. Alternatively, when you use your Heart Hunter feature, instead of gaining its usual benefits, you can choose to regain the use of this feature."
+      ]
+    },
+		{
+      "name": "Heart Hunter Improvement",
+      "source": "sns",
+      "className": "Berserker",
+      "classSource": "sns",
+      "subclassShortName": "Heart-Eater",
+      "subclassSource": "sns",
+      "level": 7,
+      "header": 2,
+      "entries": [
+        "Also at tier 4, your Heart Hunter feature now additionally grants you an expertise die on saves."
+      ]
+    },
+    {
+      "name": "Hard Dying",
+      "source": "sns",
+      "className": "Berserker",
+      "classSource": "sns",
+      "subclassShortName": "Heart-Eater",
+      "subclassSource": "sns",
+      "level": 9,
+      "header": 2,
+      "entries": [
+        "At tier 5, you grow far beyond the blood that flows through your veins. When you are reduced to 0 hit points while raging, you can use your reaction to remain conscious for up to 1 minute so long as you are not dead. You continue to resolve the effects of dying as usual and begin to track your negative hit points. You immediately die when your negative hit points reach half your hit point maximum. Once you have used this feature, you cannot do so again until you finish a long rest.",
+				"If you die during this effect your body fades away, and {@dice 1d4} hours later you reappear bloodied in the last place you took a long rest, and you cannot use this feature again for a week."
+      ]
+    },
+		{
+      "name": "Heart Hunter Improvement",
+      "source": "sns",
+      "className": "Berserker",
+      "classSource": "sns",
+      "subclassShortName": "Heart-Eater",
+      "subclassSource": "sns",
+      "level": 9,
+      "header": 2,
+      "entries": [
+        "Also at tier 5, your Heart Hunter feature now additionally grants you an expertise die on armour attack rolls."
       ]
     }
   ],
