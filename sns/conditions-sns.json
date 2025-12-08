@@ -374,6 +374,24 @@
         "While moving away from the source of its fixation, the creature is {@condition sluggish|sns}."
       ],
       "hasFluffImages": false
+    },
+    {
+      "name": "Weakened",
+      "source": "sns",
+      "page": 0,
+      "entries": [
+        "A weakened creature has disadvantage on all attack rolls."
+      ],
+      "hasFluffImages": false
+    },
+    {
+      "name": "Brittle",
+      "source": "sns",
+      "page": 0,
+      "entries": [
+        "All attack rolls made against a brittle creature have advantage."
+      ],
+      "hasFluffImages": false
     }
   ]
 }
