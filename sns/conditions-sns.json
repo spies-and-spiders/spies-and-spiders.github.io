@@ -41,7 +41,7 @@
           "items": [
             "On a 1-4, a confused creature is {@condition debilitated|sns} until the end of its turn.",
             "On a 5-6, a confused creature is {@condition dazed|sns} until the end of its turn.",
-            "On a 7+, a confused creature makes a melee weapon attack against a randomly determined creature at the start of its turn as a free action."
+            "On a 7+, a confused creature makes a melee weapon attack against a randomly determined creature at the start of its turn as a free action. If another creature is the source of this condition, that creature may choose for this effect to do nothing instead."
           ]
         }
       ],
@@ -52,13 +52,7 @@
       "source": "sns",
       "page": 0,
       "entries": [
-        {
-          "type": "list",
-          "items": [
-            "A dazed creature has disadvantage with attacks.",
-            "All attacks against a dazed creature have advantage."
-          ]
-        }
+        "A dazed creature is {@condition weakened|sns} and {@condition brittle|sns}."
       ],
       "hasFluffImages": false
     },
@@ -80,7 +74,7 @@
         {
           "type": "list",
           "items": [
-            "Disadvantage with attacks.",
+            "It is {@condition weakened|sns}.",
             "Damaging attacks are downgraded one success tier.",
             "Does not grant disadvantage on armour attack rolls to adjacent ranged attackers."
           ]
@@ -165,7 +159,7 @@
           "type": "list",
           "items": [
             "A frightened creature has disadvantage on ability checks and armour attack rolls.",
-            "While moving towards the source of its fear, the creature is {@condition sluggish|sns}."
+            "If the creature moves towards the source of its fear, it becomes {@condition debilitated|sns} for the remainder of that turn."
           ]
         }
       ],
@@ -253,11 +247,9 @@
         {
           "type": "list",
           "items": [
-            "A slowed creature's speed is halved.",
+            "A slowed creature is {@condition sluggish|sns} and {@condition rattled|sns}.",
             "Armour and reflex attacks against the creature have advantage.",
-            "The creature cannot take reactions.",
-            "On its turn, the creature can take either an action or a bonus action, not both.",
-            "Whenever the creature takes the Attack action, it can make a maximum of one attack."
+            "On its turn, the creature can take either an action or a bonus action, not both."
           ]
         }
       ],
@@ -281,7 +273,7 @@
         {
           "type": "list",
           "items": [
-            "Incoming attack rolls have advantage.",
+            "It is {@condition brittle|sns}.",
             "Incoming damaging attacks are upgraded one success tier."
           ]
         }
