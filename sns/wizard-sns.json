@@ -1,7 +1,8 @@
 {
   "_meta": {
     "optionalFeatureTypes": {
-      "ES": "Elective Study"
+      "ES": "Elective Study",
+      "AU": "Arcane Utilities"
     }
   },
   "class": [
@@ -1288,6 +1289,158 @@
             "On a piece of parchment or paper, you can create an exact copy of another piece of parchment or paper, including any writing, drawings, or other markings that appear on the original. The paper does not change size to accommodate any differences in size between the two. The copy you create lasts for the duration of this spell, and disappears when the spell ends."
           ]
         }
+      ]
+    },
+    {
+      "name": "Dancing Lights",
+      "source": "sns",
+      "featureType": [
+        "AU"
+      ],
+      "entries": [
+        "As an action, you create up to four hovering lights within 120 feet of you which appear as torches, lanterns, or glowing orbs that can be combined into a glowing Medium-sized humanoid form. These lights last until you dismiss them as a free action, or you take a rest. Each sheds dim light in a 10-foot radius. You can use a bonus action to move the lights up to 60 feet so long as each remains within 20 feet of another light created by this utility. A dancing light winks out when it is further than 120 feet from you."
+      ]
+    },
+    {
+      "name": "Friends",
+      "source": "sns",
+      "featureType": [
+        "AU"
+      ],
+      "entries": [
+        "Whenever your group Persuasion or Deception is used for an ability check, you can add an expertise die to that check. If the check's {@dice d20} roll is a 1, the target realizes its judgment was influenced by magic and may become hostile."
+      ]
+    },
+    {
+      "name": "Grapevine",
+      "source": "sns",
+      "featureType": [
+        "AU"
+      ],
+      "entries": [
+        "As an action, you cause a message to appear, written in a language you are proficient in, carved into a tree or plant within 100 miles of you that you have seen before. You can use another action to erase the message."
+      ]
+    },
+    {
+      "name": "Guidance",
+      "source": "sns",
+      "featureType": [
+        "AU"
+      ],
+      "entries": [
+        "Whenever you make a non-group ability check or use the Help action to aid another creature's ability check, you can add an expertise die to that ability check."
+      ]
+    },
+    {
+      "name": "Mage Hand",
+      "source": "sns",
+      "featureType": [
+        "AU"
+      ],
+      "entries": [
+        "A faintly shimmering phantasmal hand lingers around you. You can dismiss it or have it reappear in a space adjacent to you as an action. It is automatically dismissed if you are 30 feet away from it.",
+        "As an action, you can control the hand and direct it to do any of the following:",
+        {
+          "items": [
+            "move up to 30 feet.",
+            "manipulate an object.",
+            "open an unlocked container or door.",
+            "stow or retrieve items from unlocked containers."
+          ],
+          "type": "list"
+        },
+        "The hand cannot attack, use magic items, or carry more than 10 pounds."
+      ]
+    },
+    {
+      "name": "Message",
+      "source": "sns",
+      "featureType": [
+        "AU"
+      ],
+      "entries": [
+        "As an action, you can point at a creature within 120 feet of you to deliver them a message that you speak silently with your mouth. The target alone hears the message and may reply in a similar fashion, audible only to you."
+      ]
+    },
+    {
+      "name": "Minor Illusion",
+      "source": "sns",
+      "featureType": [
+        "AU"
+      ],
+      "entries": [
+        "As an action, you can create a sound or image of an object at a point within 30 feet of you. The illusion lasts for 1 minute or until you dismiss it as an action.",
+        "The illusion must fit within a 5-foot cube.",
+        "You may create any sound you choose, ranging in volume from a whisper to a scream. You may choose one sound for the duration or change them at varying points before the illusion ends. Sounds are audible outside the illusion's area.",
+        "Visual illusions may replicate any image and remain within the illusion's area, but cannot create sound, light, smell, or other sensory effects.",
+        "The image is revealed as an illusion with any physical interaction as physical objects and creatures pass through it. An Investigation check against your standard DC also reveals the image is an illusion. When a creature realizes the image is an illusion, the effects become fainter for that creature."
+      ]
+    },
+    {
+      "name": "Mold Earth",
+      "source": "sns",
+      "featureType": [
+        "AU"
+      ],
+      "entries": [
+        "As an action, you can manipulate dirt and stone within 30 feet in the following ways:",
+        {
+          "type": "list",
+          "items": [
+            "If you target an area of loose earth, you can instantaneously excavate it, move it along the ground, and deposit it up to 5 feet away. This movement doesn't involve enough force to cause damage.",
+            "You cause shapes, colours, or both to appear on the target, spelling out words, creating images, or shaping patterns. The changes last for 1 hour.",
+            "If the target is on the ground, you cause it to become difficult terrain. Alternatively, you can cause the ground to become normal terrain if it is already difficult terrain. This change lasts for 1 hour."
+          ]
+        },
+        "You can have no more than two of this utility's non-instantaneous effects active at a time, and you can dismiss such an effect as an action."
+      ]
+    },
+    {
+      "name": "Prestidigitation",
+      "source": "sns",
+      "featureType": [
+        "AU"
+      ],
+      "entries": [
+        "As a bonus action, you can wield arcane energies to produce one of the following effects within 30 feet of you:",
+        {
+          "items": [
+            "create a single burst of magic that manifests to one of the senses (for example a burst of sound, sparks, or an odd odor).",
+            "create an instantaneous sound, like ethereal chimes, sinister laughter, or a dragon's roar at a point of your choosing within range.",
+            "clean or soil an object of 1 cubic foot or less.",
+            "light or snuff a flame.",
+            "cause flames to flicker, brighten, dim, or change color.",
+            "chill, warm, or flavor nonliving material of 1 cubic foot or less for 1 hour.",
+            "color or mark an object or surface for 1 hour.",
+            "create an ordinary trinket or illusionary image that fits in your hand and lasts for 1 round.",
+            "your voice booms up to three times louder than normal for 1 minute, granting you advantage on Intimidation checks.",
+            "send harmless tremors throughout the ground for 1 minute.",
+            "instantaneously cause an unlocked door or window to fly open or slam shut.",
+            "alter the appearance of your eyes for 1 minute."
+          ],
+          "type": "list"
+        },
+        "You can have no more than three of this utility's non-instantaneous effects active at a time, and you can dismiss such an effect as an action."
+      ]
+    },
+    {
+      "name": "Shape Water",
+      "source": "sns",
+      "featureType": [
+        "AU"
+      ],
+      "entries": [
+        "As an action, you can manipulate water within 30 feet of you that fits within a 5-foot cube in one of the following ways:",
+        {
+          "items": [
+            "You instantaneously move or otherwise change the flow of the water as you direct, up to 5 feet in any direction. This movement doesn't have enough force to cause damage.",
+            "You cause the water to form into simple shapes and animate at your direction. This change lasts for 1 hour.",
+            "You change the water's colour or opacity. The water must be changed in the same way throughout. This change lasts for 1 hour.",
+            "You freeze the water, provided that there are no creatures in it. The water unfreezes in 1 hour."
+          ],
+          "type": "list"
+        },
+        "You can have no more than two of this utility's non-instantaneous effects active at a time, and you can dismiss such an effect as an action."
       ]
     }
   ]
