@@ -22260,24 +22260,19 @@
     {
       "school": "A",
       "entries": [
-        "You create a shimmering arcane barrier between yourself and an oncoming assault. Until the spell ends, all armour attacks made against you have their success tier reduced by 1 (including the triggering attack) and any {@spell magic missile|sns} targeting you is harmlessly deflected."
+        "You create a shimmering arcane barrier between yourself and an oncoming assault. The triggering attack has its success tier reduced by 1."
       ],
       "name": "Shield",
       "time": [
         {
           "number": 1,
           "unit": "reaction",
-          "condition": "which you take when you are hit by an attack or targeted by the {@spell magic missile|sns} spell"
+          "condition": "which you take when an armour attack is made against you"
         }
       ],
       "duration": [
         {
-          "type": "timed",
-          "duration": {
-            "type": "round",
-            "amount": 1,
-            "upTo": false
-          }
+          "type": "instant"
         }
       ],
       "source": "sns",
