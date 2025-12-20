@@ -207,8 +207,8 @@
             "5-foot-radius sphere"
           ]
         },
-        "You create an acidic bubble centred on a point within range. Make a reflex attack against each creature within the area, dealing {@dice 1d6} acid damage.",
-        "This spell's damage increases by {@dice 1d6} when you reach 5th level ({@dice 2d6}), 11th level ({@dice 3d6}), and 17th level ({@dice 4d6})."
+        "You create an acidic bubble centred on a point within range. Make a reflex attack against each creature within the area, dealing {@dice 1d4} acid damage.",
+        "This spell's damage increases by {@dice 1d4} when you reach 5th level ({@dice 2d4}), 11th level ({@dice 3d4}), and 17th level ({@dice 4d4})."
       ],
       "name": "Acid Splash",
       "time": [
@@ -244,7 +244,15 @@
             "source": "PHB"
           },
           {
+            "name": "Herald",
+            "source": "PHB"
+          },
+          {
             "name": "Sorcerer",
+            "source": "PHB"
+          },
+          {
+            "name": "Warlock",
             "source": "PHB"
           },
           {
@@ -1660,7 +1668,7 @@
     {
       "school": "T",
       "entries": [
-        "Your muscles swell with arcane power. They're too clumsy to effectively wield weapons but certainly strong enough for a powerful punch. Until the spell ends, you can choose to use your spellcasting ability score for Athletics checks, and for the governing ability of unarmed strikes. In addition, your unarmed strikes deal {@dice 1d6} bludgeoning damage and ignore resistance and immunity to bludgeoning damage.",
+        "Your muscles swell with arcane power. They're too clumsy to effectively wield weapons but certainly strong enough for a powerful punch. Until the spell ends, you can choose to use your spellcasting ability score for Athletics and Brawn checks, and for the governing ability of unarmed strikes. In addition, your unarmed strikes deal {@dice 1d6} bludgeoning damage, they ignore resistance and immunity to bludgeoning damage, and whenever you hit with them, you can trigger a basic maneuver's effects.",
         "The damage this spell grants your unarmed attacks increases by {@dice 1d6} when you reach 5th level ({@dice 2d6}), 11th level ({@dice 3d6}), and 17th level ({@dice 4d6})."
       ],
       "name": "Arcane Muscles",
@@ -10695,7 +10703,8 @@
             "One creature or object"
           ]
         },
-        "You cast a streak of flame at the target. Make an armour attack that deals {@dice 1d4} fire damage. On a hit, the target suffers 1 ongoing fire harm until it passes a passive save. This ongoing harm stacks if applied multiple times. This spell's damage and ongoing harm both increase when you reach 5th level ({@dice 2d4}, 2), 11th level ({@dice 3d4}, 3), and 17th level ({@dice 4d4}, 4)."
+        "You cast a streak of flame at the target. Make an armour attack that deals {@dice 1d4} fire damage. On a hit, the target suffers 1 ongoing fire harm until it passes a passive save.",
+        "This spell's damage and ongoing harm both increase when you reach 5th level ({@dice 2d4}, 2), 11th level ({@dice 3d4}, 3), and 17th level ({@dice 4d4}, 4)."
       ],
       "name": "Fire Bolt",
       "time": [
@@ -10731,7 +10740,19 @@
             "source": "PHB"
           },
           {
+            "name": "Druid",
+            "source": "PHB"
+          },
+          {
+            "name": "Herald",
+            "source": "PHB"
+          },
+          {
             "name": "Sorcerer",
+            "source": "PHB"
+          },
+          {
+            "name": "Warlock",
             "source": "PHB"
           },
           {
@@ -20720,8 +20741,8 @@
           ]
         },
         "An icy beam shoots from your outstretched fingers.",
-        "Make an armour attack that deals {@dice 1d8} cold damage and makes the target {@condition sluggish|sns} until the start of your next turn on a hit.",
-        "This spell's damage increases by {@dice 1d8} when you reach 5th level ({@dice 2d8}), 11th level ({@dice 3d8}), and 17th level ({@dice 4d8})."
+        "Make an armour attack that deals {@dice 1d6} cold damage and makes the target {@condition sluggish|sns} until the start of your next turn on a hit.",
+        "This spell's damage increases by {@dice 1d6} when you reach 5th level ({@dice 2d6}), 11th level ({@dice 3d6}), and 17th level ({@dice 4d6})."
       ],
       "name": "Ray of Frost",
       "time": [
@@ -21210,8 +21231,8 @@
             "One creature"
           ]
         },
-        "A radiant holy flame envelops the target. Make a reflex attack against the target that deals {@dice 1d8} radiant damage. This attack ignores up to three-quarters cover.",
-        "This spell's damage increases by {@dice 1d8} when you reach 5th level ({@dice 2d8}), 11th level ({@dice 3d8}), and 17th level ({@dice 4d8})."
+        "A radiant holy flame envelops the target. Make a reflex attack against the target that deals {@dice 1d6} radiant damage. This attack ignores up to three-quarters cover.",
+        "This spell's damage increases by {@dice 1d6} when you reach 5th level ({@dice 2d6}), 11th level ({@dice 3d6}), and 17th level ({@dice 4d6})."
       ],
       "name": "Sacred Flame",
       "time": [
@@ -22377,8 +22398,8 @@
             "One creature"
           ]
         },
-        "Electricity arcs from your hand to shock the target. Make an armour attack that deals {@dice 1d8} lightning damage, and on a hit the target can't make opportunity attacks until the start of its next turn as the electricity courses through its body.",
-        "This spell's damage increases by {@dice 1d8} when you reach 5th level ({@dice 2d8}), 11th level ({@dice 3d8}), and 17th level ({@dice 4d8})."
+        "Electricity arcs from your hand to shock the target. Make an armour attack that deals {@dice 1d10} lightning damage, and on a hit the target can't make opportunity attacks until the start of its next turn as the electricity courses through its body.",
+        "This spell's damage increases by {@dice 1d10} when you reach 5th level ({@dice 2d10}), 11th level ({@dice 3d10}), and 17th level ({@dice 4d10})."
       ],
       "name": "Shocking Grasp",
       "time": [
@@ -25604,6 +25625,10 @@
             "source": "PHB"
           },
           {
+            "name": "Druid",
+            "source": "PHB"
+          },
+          {
             "name": "Herald",
             "source": "PHB"
           },
@@ -25923,8 +25948,8 @@
             "One creature"
           ]
         },
-        "You verbally insult or mock the target so viciously its mind is seared. As long as the target hears you (understanding your words is not required), make a will attack against it that deals {@dice 1d6} psychic damage. On a hit, the target has disadvantage on armour attack rolls during its next turn.",
-        "The spell's damage increases by {@dice 1d6} when you reach 5th level ({@dice 2d6}), 11th level ({@dice 3d6}), and 17th level ({@dice 4d6})."
+        "You verbally insult or mock the target so viciously its mind is seared. As long as the target hears you (understanding your words is not required), make a will attack against it that deals {@dice 1d4} psychic damage. On a hit, the target has disadvantage on armour attack rolls during its next turn.",
+        "The spell's damage increases by {@dice 1d4} when you reach 5th level ({@dice 2d4}), 11th level ({@dice 3d4}), and 17th level ({@dice 4d4})."
       ],
       "name": "Vicious Mockery",
       "time": [
@@ -25956,7 +25981,23 @@
       "classes": {
         "fromClassList": [
           {
+            "name": "Artificer",
+            "source": "PHB"
+          },
+          {
             "name": "Bard",
+            "source": "PHB"
+          },
+          {
+            "name": "Sorcerer",
+            "source": "PHB"
+          },
+          {
+            "name": "Warlock",
+            "source": "PHB"
+          },
+          {
+            "name": "Wizard",
             "source": "PHB"
           }
         ]
@@ -27668,8 +27709,8 @@
             "One creature"
           ]
         },
-        "You spray toxic mist at the target, coating its body. The first time before your next turn that a weapon armour attack is made against the target, that attack deals {@dice 1d12} additional poison damage.",
-        "This spell's added damage increases by {@dice 1d12} when you reach 5th level ({@dice 2d12}), 11th level ({@dice 3d12}), and 17th level ({@dice 4d12})."
+        "You spray toxic mist at the target, coating its body. The first time before your next turn that a weapon armour attack is made against the target, that attack deals {@dice 1d8} additional poison damage.",
+        "This spell's added damage increases by {@dice 1d8} when you reach 5th level ({@dice 2d8}), 11th level ({@dice 3d8}), and 17th level ({@dice 4d8})."
       ],
       "name": "Poison Spray",
       "time": [
@@ -28754,7 +28795,8 @@
       ],
       "source": "sns",
       "subschools": [
-        "ranged"
+        "ranged",
+        "compulsion"
       ],
       "level": 2,
       "components": {
@@ -30020,8 +30062,8 @@
             "5-foot cube"
           ]
         },
-        "You create a bonfire on ground within range. Until the spell ends, the magic bonfire fills the area, creating a persistent zone that causes {@dice 1d4} fire harm.",
-        "The spell's harm increases by {@dice 1d4} when you reach 5th level ({@dice 2d4}), 11th level ({@dice 3d4}), and 17th level ({@dice 4d4})."
+        "You create a bonfire on ground within range. Until the spell ends, the magic bonfire fills the area, creating a persistent zone that causes 1 fire harm.",
+        "The spell's harm increases by 1 when you reach 5th level (2), 11th level (3), and 17th level (4)."
       ],
       "name": "Create Bonfire",
       "time": [
@@ -30254,7 +30296,7 @@
             "One creature"
           ]
         },
-        "You cause a cloud of mites, fleas, and other parasites to appear momentarily on the target. Make a fortitude attack against the target that deals {@dice 1d6} poison damage. On a hit, the target shifts 5 feet in a random direction if it can move and its Speed is at least 5 feet.",
+        "You cause a cloud of mites, fleas, and other parasites to appear momentarily on the target. Make a fortitude attack against the target that deals {@dice 1d6} poison damage. On a hit, the target shifts 10 feet in a random direction if it can move and its Speed is at least 5 feet.",
         "The spell's damage increases by {@dice 1d6} when you reach 5th level ({@dice 2d6}), 11th level ({@dice 3d6}), and 17th level ({@dice 4d6})."
       ],
       "name": "Infestation",
@@ -30355,6 +30397,10 @@
             "source": "PHB"
           },
           {
+            "name": "Druid",
+            "source": "PHB"
+          },
+          {
             "name": "Sorcerer",
             "source": "PHB"
           },
@@ -30385,7 +30431,7 @@
             "One to three pebbles"
           ]
         },
-        "You touch the targets and imbue them with magic. You or someone else can make a ranged spell armour attack with one of the pebbles by throwing it as an action. If thrown, a pebble has a range of 60 feet. If someone else attacks with a pebble, that attack scales with your stats, not the attacker's. The attack deals bludgeoning damage equal to {@dice 1d6} + your spellcasting ability modifier. After the attack, the spell ends on the stone.",
+        "You touch the targets and imbue them with magic. You or someone else can make a ranged spell armour attack with one of the pebbles by throwing it as an action. If thrown, a pebble has a range of 60 feet. If someone else attacks with a pebble, that attack scales with your stats, not the attacker's. The attack deals bludgeoning damage equal to your spellcasting ability modifier. After the attack, the spell ends on the stone.",
         "If you cast this spell again, the spell ends on any pebbles still affected by your previous casting."
       ],
       "name": "Magic Stone",
@@ -30437,8 +30483,8 @@
     {
       "school": "T",
       "entries": [
-        "You channel primal magic to cause your teeth or fingernails to sharpen, ready to deliver a corrosive attack. Make an armour attack against one adjacent creature that deals {@dice 1d8} acid damage. This attack has advantage against targets you are flanking. After you make the attack, your teeth or fingernails return to normal.",
-        "The spell's damage increases by {@dice 1d8} when you reach 5th level ({@dice 2d8}), 11th level ({@dice 3d8}), and 17th level ({@dice 4d8})."
+        "You channel primal magic to cause your teeth or fingernails to sharpen, ready to deliver a corrosive attack. Make an armour attack against one adjacent creature that deals {@dice 1d10} acid damage. This attack has advantage against targets you are flanking. After you make the attack, your teeth or fingernails return to normal.",
+        "The spell's damage increases by {@dice 1d10} when you reach 5th level ({@dice 2d10}), 11th level ({@dice 3d10}), and 17th level ({@dice 4d10})."
       ],
       "name": "Primal Savagery",
       "time": [
@@ -30515,6 +30561,14 @@
             "source": "PHB"
           },
           {
+            "name": "Bard",
+            "source": "PHB"
+          },
+          {
+            "name": "Cleric",
+            "source": "PHB"
+          },
+          {
             "name": "Sorcerer",
             "source": "PHB"
           },
@@ -30545,8 +30599,8 @@
             "One creature"
           ]
         },
-        "You point at the target and the sound of a dolorous bell fills the air around it for the moment. Make a will attack against the target that deals {@dice 1d4} necrotic damage. If the target is bloodied, the attack instead deals {@dice 1d10} necrotic damage.",
-        "This spell's damage increases by one die when you reach 5th level ({@dice 2d4} or {@dice 2d10}), 11th level ({@dice 3d4} or {@dice 3d10}), and 17th level ({@dice 4d4} or {@dice 4d10})."
+        "You point at the target and the sound of a dolorous bell fills the air around it for the moment. Make a will attack against the target that deals {@dice 1d4} necrotic damage. If the target is bloodied, the attack instead deals {@dice 1d8} necrotic damage.",
+        "This spell's damage increases by one die when you reach 5th level ({@dice 2d4} or {@dice 2d8}), 11th level ({@dice 3d4} or {@dice 3d8}), and 17th level ({@dice 4d4} or {@dice 4d8})."
       ],
       "name": "Toll the Dead",
       "time": [
@@ -37215,6 +37269,633 @@
         "distance": {
           "type": "feet",
           "amount": 90
+        }
+      }
+    },
+    {
+      "school": "V",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Target",
+          "entries": [
+            "One creature"
+          ]
+        },
+        "You charge your hand (or similar appendage) with thunderous power. Make an armour attack against the target that deals {@dice 1d10} thunder damage. On a hit, the target is also pushed 5 feet away from you.",
+        "This spell's damage increases by {@dice 1d10} when you reach 5th level ({@dice 2d10}), 11th level ({@dice 3d10}), and 17th level ({@dice 4d10})."
+      ],
+      "name": "Thunder Punch",
+      "time": [
+        {
+          "number": 1,
+          "unit": "action"
+        }
+      ],
+      "duration": [
+        {
+          "type": "instant"
+        }
+      ],
+      "source": "sns",
+      "subschools": [
+        "melee",
+        "spell",
+        "thunder",
+        "arcane"
+      ],
+      "level": 0,
+      "components": {
+        "v": true,
+        "s": true
+      },
+      "classes": {
+        "fromClassList": [
+          {
+            "name": "Bard",
+            "source": "PHB"
+          },
+          {
+            "name": "Herald",
+            "source": "PHB"
+          },
+          {
+            "name": "Sorcerer",
+            "source": "PHB"
+          },
+          {
+            "name": "Wizard",
+            "source": "PHB"
+          }
+        ]
+      },
+      "range": {
+        "type": "point",
+        "distance": {
+          "type": "touch"
+        }
+      }
+    },
+    {
+      "school": "I",
+      "entries": [
+        "An illusory duplicate of you steps clumsily into an unoccupied space within range, presenting a tempting target before winking out of existence.",
+        "Make a will attack against each creature of your choice for which the duplicate is within reach, with the following outcomes:",
+        {
+          "type": "list",
+          "items": [
+            {
+              "type": "item",
+              "name": "Minor success",
+              "entries": [
+                "The target is distracted by the duplicate, gaining disadvantage on attacks of opportunity until its next turn."
+              ]
+            },
+            {
+              "type": "item",
+              "name": "Standard success",
+              "entries": [
+                "The target wastes its reaction attempting to attack the duplicate."
+              ]
+            },
+            {
+              "type": "item",
+              "name": "Critical success",
+              "entries": [
+                "As standard success, but the target is also {@condition weakened|sns} for 1 round."
+              ]
+            }
+          ]
+        }
+      ],
+      "name": "Darting Duplicate",
+      "time": [
+        {
+          "number": 1,
+          "unit": "action"
+        }
+      ],
+      "duration": [
+        {
+          "type": "instant"
+        }
+      ],
+      "source": "sns",
+      "subschools": [
+        "arcane",
+        "chaos"
+      ],
+      "level": 0,
+      "components": {
+        "v": true,
+        "s": true
+      },
+      "classes": {
+        "fromClassList": [
+          {
+            "name": "Bard",
+            "source": "PHB"
+          },
+          {
+            "name": "Sorcerer",
+            "source": "PHB"
+          },
+          {
+            "name": "Wizard",
+            "source": "PHB"
+          }
+        ]
+      },
+      "range": {
+        "type": "point",
+        "distance": {
+          "amount": 5,
+          "type": "feet"
+        }
+      }
+    },
+    {
+      "school": "E",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Target",
+          "entries": [
+            "One willing creature"
+          ]
+        },
+        "You awaken the target's bloodlust, forcing it to use its reaction to make a melee weapon attack with disadvantage against a creature of your choice within its reach."
+      ],
+      "name": "Call to Feast",
+      "time": [
+        {
+          "number": 1,
+          "unit": "action"
+        }
+      ],
+      "duration": [
+        {
+          "type": "instant"
+        }
+      ],
+      "source": "sns",
+      "subschools": [
+        "compulsion",
+        "weaponry"
+      ],
+      "level": 0,
+      "components": {
+        "v": true,
+        "s": false
+      },
+      "classes": {
+        "fromClassList": [
+          {
+            "name": "Artificer",
+            "source": "PHB"
+          },
+          {
+            "name": "Bard",
+            "source": "PHB"
+          },
+          {
+            "name": "Druid",
+            "source": "PHB"
+          }
+        ]
+      },
+      "range": {
+        "type": "point",
+        "distance": {
+          "amount": 30,
+          "type": "feet"
+        }
+      }
+    },
+    {
+      "school": "E",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Target",
+          "entries": [
+            "One creature"
+          ]
+        },
+        "You affix the target with a putrefying gaze. Make a will attack against it with the following outcomes:",
+        {
+          "type": "list",
+          "items": [
+            {
+              "type": "item",
+              "name": "Minor success",
+              "entries": [
+                "The target suffers 1 ongoing necrotic harm until it passes a passive save. This passive save has disadvantage while the target is within your line of sight."
+              ]
+            },
+            {
+              "type": "item",
+              "name": "Standard success",
+              "entries": [
+                "As minor success, but the ongoing necrotic harm increases to {@dice 1d4}."
+              ]
+            },
+            {
+              "type": "item",
+              "name": "Critical success",
+              "entries": [
+                "As minor success, but the ongoing necrotic harm increases to {@dice 1d6}."
+              ]
+            }
+          ]
+        }
+      ],
+      "name": "Eye of Rot",
+      "time": [
+        {
+          "number": 1,
+          "unit": "action"
+        }
+      ],
+      "duration": [
+        {
+          "type": "timed",
+          "duration": {
+            "type": "minute",
+            "amount": 1,
+            "upTo": true
+          },
+          "concentration": true
+        }
+      ],
+      "source": "sns",
+      "subschools": [
+        "necrotic",
+        "harm",
+        "ranged",
+        "affliction"
+      ],
+      "level": 0,
+      "components": {
+        "v": true,
+        "s": true
+      },
+      "classes": {
+        "fromClassList": [
+          {
+            "name": "Bard",
+            "source": "PHB"
+          },
+          {
+            "name": "Sorcerer",
+            "source": "PHB"
+          },
+          {
+            "name": "Warlock",
+            "source": "PHB"
+          }
+        ]
+      },
+      "range": {
+        "type": "point",
+        "distance": {
+          "amount": 120,
+          "type": "feet"
+        }
+      }
+    },
+    {
+      "school": "T",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Target",
+          "entries": [
+            "One creature"
+          ]
+        },
+        "You fling a rock at the target. Make an armour attack dealing {@dice 1d6} bludgeoning damage. On a hit, the target is knocked {@condition prone|sns}.",
+        "This spell's damage increases by {@dice 1d6} when you reach 5th level ({@dice 2d6}), 11th level ({@dice 3d6}), and 17th level ({@dice 4d6})."
+      ],
+      "name": "Rock Slam",
+      "time": [
+        {
+          "number": 1,
+          "unit": "action"
+        }
+      ],
+      "duration": [
+        {
+          "type": "instant"
+        }
+      ],
+      "source": "sns",
+      "subschools": [
+        "bludgeoning",
+        "ranged",
+        "spell",
+        "earth"
+      ],
+      "level": 0,
+      "components": {
+        "v": true,
+        "s": true
+      },
+      "classes": {
+        "fromClassList": [
+          {
+            "name": "Druid",
+            "source": "PHB"
+          },
+          {
+            "name": "Cleric",
+            "source": "PHB"
+          },
+          {
+            "name": "Herald",
+            "source": "PHB"
+          },
+          {
+            "name": "Sorcerer",
+            "source": "PHB"
+          },
+          {
+            "name": "Wizard",
+            "source": "PHB"
+          }
+        ]
+      },
+      "range": {
+        "type": "point",
+        "distance": {
+          "amount": 120,
+          "type": "feet"
+        }
+      }
+    },
+    {
+      "school": "V",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Target",
+          "entries": [
+            "One creature that is neither a construct nor undead"
+          ]
+        },
+        "The target regains {@dice 1d4} hit points.",
+        "The hit points regained increase by {@dice 1d4} when you reach 5th level ({@dice 2d4}), 11th level ({@dice 3d4}), and 17th level ({@dice 4d4})."
+      ],
+      "name": "Tend Wounds",
+      "time": [
+        {
+          "number": 1,
+          "unit": "action"
+        }
+      ],
+      "duration": [
+        {
+          "type": "instant"
+        }
+      ],
+      "source": "sns",
+      "subschools": [
+        "divine",
+        "healing",
+        "nature"
+      ],
+      "level": 0,
+      "components": {
+        "v": true,
+        "s": true
+      },
+      "classes": {
+        "fromClassList": [
+          {
+            "name": "Artificer",
+            "source": "PHB"
+          },
+          {
+            "name": "Bard",
+            "source": "PHB"
+          },
+          {
+            "name": "Cleric",
+            "source": "PHB"
+          },
+          {
+            "name": "Druid",
+            "source": "PHB"
+          },
+          {
+            "name": "Herald",
+            "source": "PHB"
+          }
+        ]
+      },
+      "range": {
+        "type": "point",
+        "distance": {
+          "type": "touch"
+        }
+      }
+    },
+    {
+      "school": "C",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Area",
+          "entries": [
+            "Line 30 feet long and 5 feet wide"
+          ]
+        },
+        "Freezing arctic wind blasts out from you. Make a reflex attack against each creature in the area, dealing {@dice 1d4} cold damage.",
+        "This spell's damage increases by {@dice 1d4} when you reach 5th level ({@dice 2d4}), 11th level ({@dice 3d4}), and 17th level ({@dice 4d4})."
+      ],
+      "name": "Arctic Breath",
+      "time": [
+        {
+          "number": 1,
+          "unit": "action"
+        }
+      ],
+      "duration": [
+        {
+          "type": "instant"
+        }
+      ],
+      "source": "sns",
+      "subschools": [
+        "cold",
+        "area",
+        "spell",
+        "arcane"
+      ],
+      "level": 0,
+      "components": {
+        "v": true,
+        "s": true
+      },
+      "classes": {
+        "fromClassList": [
+          {
+            "name": "Druid",
+            "source": "PHB"
+          },
+          {
+            "name": "Sorcerer",
+            "source": "PHB"
+          },
+          {
+            "name": "Wizard",
+            "source": "PHB"
+          }
+        ]
+      },
+      "range": {
+        "type": "point",
+        "distance": {
+          "type": "self"
+        }
+      }
+    },
+    {
+      "school": "T",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Target",
+          "entries": [
+            "One creature"
+          ]
+        },
+        "Make an armour attack against the target with the following outcomes:",
+        {
+          "type": "list",
+          "items": [
+            {
+              "type": "item",
+              "name": "Minor success",
+              "entries": [
+                "The next armour attack roll made against the target before the end of your next turn has a +1 bonus."
+              ]
+            },
+            {
+              "type": "item",
+              "name": "Standard success",
+              "entries": [
+                "The target's armour is reduced by 1 for 1 round."
+              ]
+            },
+            {
+              "type": "item",
+              "name": "Major success",
+              "entries": [
+                "The target's armour is reduced by 1 until it takes a short or long rest."
+              ]
+            },
+            {
+              "type": "item",
+              "name": "Critical success",
+              "entries": [
+                "As major success, but the armour penalty increases to 2."
+              ]
+            }
+          ]
+        }
+      ],
+      "name": "Caustic Coating",
+      "time": [
+        {
+          "number": 1,
+          "unit": "action"
+        }
+      ],
+      "duration": [
+        {
+          "type": "instant"
+        }
+      ],
+      "source": "sns",
+      "subschools": [
+        "melee",
+        "arcane"
+      ],
+      "level": 0,
+      "components": {
+        "v": false,
+        "s": true
+      },
+      "classes": {
+        "fromClassList": [
+          {
+            "name": "Druid",
+            "source": "PHB"
+          }
+        ]
+      },
+      "range": {
+        "type": "point",
+        "distance": {
+          "type": "touch"
+        }
+      }
+    },
+    {
+      "school": "T",
+      "entries": [
+        "You channel fiery power to form draconic wings. Make a reflex attack against all creatures adjacent to you that deals 1 fire damage. Additionally, you gain 30 feet of flying speed until the end of your turn, after which the wings fade away.",
+        "This spell's damage increases by 1 when you reach 5th level (2), 11th level (3), and 17th level (4)."
+      ],
+      "name": "Dragon Surge",
+      "time": [
+        {
+          "number": 1,
+          "unit": "action"
+        }
+      ],
+      "duration": [
+        {
+          "type": "instant"
+        }
+      ],
+      "source": "sns",
+      "subschools": [
+        "area",
+        "spell",
+        "fire",
+        "movement"
+      ],
+      "level": 0,
+      "components": {
+        "v": true,
+        "s": true
+      },
+      "classes": {
+        "fromClassList": [
+          {
+            "name": "Herald",
+            "source": "PHB"
+          },
+          {
+            "name": "Sorcerer",
+            "source": "PHB"
+          },
+          {
+            "name": "Warlock",
+            "source": "PHB"
+          },
+          {
+            "name": "Wizard",
+            "source": "PHB"
+          }
+        ]
+      },
+      "range": {
+        "type": "point",
+        "distance": {
+          "type": "self"
         }
       }
     }
