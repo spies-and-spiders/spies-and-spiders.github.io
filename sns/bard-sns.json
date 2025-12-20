@@ -459,6 +459,10 @@
         "Bardic Inspiration|Bard|sns|1|sns",
         "Battle Hymn|Bard|sns|1|sns",
         "Spellcasting|Bard|sns|1|sns",
+        "Arcane Utilities|Bard|sns|1|sns",
+        "Arcane Utilities (2)|Bard|sns|5|sns",
+        "Arcane Utilities (3)|Bard|sns|11|sns",
+        "Arcane Utilities (4)|Bard|sns|17|sns",
         "Adventuring Tricks|Bard|sns|2|sns",
         "Jack-of-All-Trades|Bard|sns|2|sns",
         "Varied Expertise|Bard|sns|2|sns",
@@ -574,6 +578,46 @@
         "Once within the next 10 minutes, the creature can roll the die and add the number rolled to one ability check, attack roll, or save it makes. The creature can wait until after it rolls the {@dice d20} before deciding to use the Bardic Inspiration die, but must decide before the DM says whether the roll succeeds or fails. Once the Bardic Inspiration die is rolled, it is lost. A creature can have only one Bardic Inspiration die at a time.",
         "You can use this feature a number of times equal to your Charisma modifier (minimum once). You regain any expended uses when you finish a long rest.",
         "At 5th level your Bardic Inspiration die increases to {@dice d8}, at 10th level it increases to {@dice d10}, and at 15th level it increases to {@dice d12}."
+      ]
+    },
+    {
+      "name": "Arcane Utilities",
+      "source": "sns",
+      "className": "Bard",
+      "classSource": "sns",
+      "level": 1,
+      "entries": [
+        "Also at 1st level, you learn certain capabilities based on your magical knowledge. You gain one {@filter Arcane Utility|optionalfeatures|feature type=au} now, and gain another at 5th, 11th, and 17th levels. You can only gain each utility once."
+      ]
+    },
+    {
+      "name": "Arcane Utilities (2)",
+      "source": "sns",
+      "className": "Bard",
+      "classSource": "sns",
+      "level": 5,
+      "entries": [
+        "At 5th level, you gain a second {@filter Arcane Utility|optionalfeatures|feature type=au}."
+      ]
+    },
+    {
+      "name": "Arcane Utilities (3)",
+      "source": "sns",
+      "className": "Bard",
+      "classSource": "sns",
+      "level": 11,
+      "entries": [
+        "At 11th level, you gain a third {@filter Arcane Utility|optionalfeatures|feature type=au}."
+      ]
+    },
+    {
+      "name": "Arcane Utilities (4)",
+      "source": "sns",
+      "className": "Bard",
+      "classSource": "sns",
+      "level": 17,
+      "entries": [
+        "At 17th level, you gain a fourth {@filter Arcane Utility|optionalfeatures|feature type=au}."
       ]
     },
     {

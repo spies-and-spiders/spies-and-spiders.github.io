@@ -360,6 +360,10 @@
           "classFeature": "First Subclass Tier 1|Herald|sns|1|sns",
           "gainSubclassFeature": true
         },
+        "Arcane Utilities|Herald|sns|1|sns",
+        "Arcane Utilities (2)|Herald|sns|5|sns",
+        "Arcane Utilities (3)|Herald|sns|11|sns",
+        "Arcane Utilities (4)|Herald|sns|17|sns",
         "Combat Maneuvers|Herald|sns|2|sns",
         "Divine Smite|Herald|sns|2|sns",
         "Divine Sense|Herald|sns|3|sns",
@@ -450,6 +454,46 @@
     }
   ],
   "classFeature": [
+    {
+      "name": "Arcane Utilities",
+      "source": "sns",
+      "className": "Herald",
+      "classSource": "sns",
+      "level": 1,
+      "entries": [
+        "Also at 1st level, you learn certain capabilities based on your magical knowledge. You gain one {@filter Arcane Utility|optionalfeatures|feature type=au} now, and gain another at 5th, 11th, and 17th levels. You can only gain each utility once."
+      ]
+    },
+    {
+      "name": "Arcane Utilities (2)",
+      "source": "sns",
+      "className": "Herald",
+      "classSource": "sns",
+      "level": 5,
+      "entries": [
+        "At 5th level, you gain a second {@filter Arcane Utility|optionalfeatures|feature type=au}."
+      ]
+    },
+    {
+      "name": "Arcane Utilities (3)",
+      "source": "sns",
+      "className": "Herald",
+      "classSource": "sns",
+      "level": 11,
+      "entries": [
+        "At 11th level, you gain a third {@filter Arcane Utility|optionalfeatures|feature type=au}."
+      ]
+    },
+    {
+      "name": "Arcane Utilities (4)",
+      "source": "sns",
+      "className": "Herald",
+      "classSource": "sns",
+      "level": 17,
+      "entries": [
+        "At 17th level, you gain a fourth {@filter Arcane Utility|optionalfeatures|feature type=au}."
+      ]
+    },
     {
       "name": "Divine Sense",
       "source": "sns",
