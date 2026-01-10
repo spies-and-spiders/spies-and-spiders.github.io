@@ -202,13 +202,13 @@
       "entries": [
         {
           "type": "entries",
-          "name": "Target",
+          "name": "Area",
           "entries": [
-            "Up to two creatures within 5 feet of each other"
+            "5-foot-radius sphere"
           ]
         },
-        "A stinking bubble of acid is conjured out of thin air to fly at the targets. Make a reflex attack against all creatures within the area, dealing {@dice 1d6} acid damage.",
-        "This spell's damage increases by {@dice 1d6} when you reach 5th level ({@dice 2d6}), 11th level ({@dice 3d6}), and 17th level ({@dice 4d6})."
+        "You create an acidic bubble centred on a point within range. Make a reflex attack against each creature within the area, dealing {@dice 1d4} acid damage.",
+        "This spell's damage increases by {@dice 1d4} when you reach 5th level ({@dice 2d4}), 11th level ({@dice 3d4}), and 17th level ({@dice 4d4})."
       ],
       "name": "Acid Splash",
       "time": [
@@ -244,7 +244,15 @@
             "source": "PHB"
           },
           {
+            "name": "Herald",
+            "source": "PHB"
+          },
+          {
             "name": "Sorcerer",
+            "source": "PHB"
+          },
+          {
+            "name": "Warlock",
             "source": "PHB"
           },
           {
@@ -503,76 +511,6 @@
         "distance": {
           "amount": 60,
           "type": "feet"
-        }
-      }
-    },
-    {
-      "school": "T",
-      "entries": [
-        "You briefly transform your weapon or fist into another material and strike with it, making a melee weapon attack against a target within your reach.",
-        "The attack becomes goverened by your spellcasting ability, and your melee weapon attack counts as if it were made with a different material for the purpose of overcoming resistance and immunity to attacks and damage: either bone, bronze, cold iron, steel, stone, or wood.",
-        "When you reach 5th level, you can choose silver or mithral as the material.",
-        "When you reach 11th level, if you have the Empowered Attack feature, its effects apply to this cantrip. In addition, you can choose adamantine as the material.",
-        "When you reach 17th level, your attacks with this spell deal an extra {@dice 1d6} damage."
-      ],
-      "name": "Altered Strike",
-      "time": [
-        {
-          "number": 1,
-          "unit": "action"
-        }
-      ],
-      "duration": [
-        {
-          "type": "timed",
-          "duration": {
-            "type": "round",
-            "amount": 1,
-            "upTo": false
-          }
-        }
-      ],
-      "source": "sns",
-      "subschools": [
-        "enhancement",
-        "shapeshift",
-        "unarmed",
-        "weaponry",
-        "melee",
-        "weapon"
-      ],
-      "level": 0,
-      "components": {
-        "v": true,
-        "s": true,
-        "m": {
-          "text": "piece of the desired material"
-        }
-      },
-      "classes": {
-        "fromClassList": [
-          {
-            "name": "Bard",
-            "source": "PHB"
-          },
-          {
-            "name": "Herald",
-            "source": "PHB"
-          },
-          {
-            "name": "Sorcerer",
-            "source": "PHB"
-          },
-          {
-            "name": "Wizard",
-            "source": "PHB"
-          }
-        ]
-      },
-      "range": {
-        "type": "point",
-        "distance": {
-          "type": "self"
         }
       }
     },
@@ -1730,7 +1668,7 @@
     {
       "school": "T",
       "entries": [
-        "Your muscles swell with arcane power. They're too clumsy to effectively wield weapons but certainly strong enough for a powerful punch. Until the spell ends, you can choose to use your spellcasting ability score for Athletics checks, and for the governing ability of unarmed strikes. In addition, your unarmed strikes deal {@dice 1d6} bludgeoning damage and ignore resistance and immunity to bludgeoning damage.",
+        "Your muscles swell with arcane power. They're too clumsy to effectively wield weapons but certainly strong enough for a powerful punch. Until the spell ends, you can choose to use your spellcasting ability score for Athletics and Brawn checks, and for the governing ability of unarmed strikes. In addition, your unarmed strikes deal {@dice 1d6} bludgeoning damage, they ignore resistance and immunity to bludgeoning damage, and whenever you hit with them, you can trigger a basic maneuver's effects.",
         "The damage this spell grants your unarmed attacks increases by {@dice 1d6} when you reach 5th level ({@dice 2d6}), 11th level ({@dice 3d6}), and 17th level ({@dice 4d6})."
       ],
       "name": "Arcane Muscles",
@@ -3568,67 +3506,6 @@
       }
     },
     {
-      "school": "D",
-      "entries": [
-        "You instantly know the answer to any mathematical equation that you speak aloud. The equation must be a problem that a creature with Intelligence 20 could solve using nonmagical tools with 1 hour of calculation. Additionally, you gain an expertise die on Engineering checks made during the duration of the spell.",
-        "Note: Using the calculate cantrip allows a player to make use of a calculator at the table in order to rapidly answer mathematical equations."
-      ],
-      "name": "Calculate",
-      "time": [
-        {
-          "number": 1,
-          "unit": "action"
-        }
-      ],
-      "duration": [
-        {
-          "type": "timed",
-          "duration": {
-            "type": "hour",
-            "amount": 1,
-            "upTo": false
-          },
-          "concentration": true
-        }
-      ],
-      "source": "sns",
-      "subschools": [
-        "enhancement",
-        "technological"
-      ],
-      "level": 0,
-      "components": {
-        "v": true,
-        "s": true
-      },
-      "classes": {
-        "fromClassList": [
-          {
-            "name": "Artificer",
-            "source": "PHB"
-          },
-          {
-            "name": "Sorcerer",
-            "source": "PHB"
-          },
-          {
-            "name": "Warlock",
-            "source": "PHB"
-          },
-          {
-            "name": "Wizard",
-            "source": "PHB"
-          }
-        ]
-      },
-      "range": {
-        "type": "point",
-        "distance": {
-          "type": "self"
-        }
-      }
-    },
-    {
       "school": "A",
       "entries": [
         "You surround yourself with a dampening magical field and collect the energy of a foe's attack to use against them. When you are hit by a weapon armour attack, you can end the spell to halve the attack's damage against you, gaining a retribution charge that lasts until the end of your next turn. By expending the retribution charge when you hit with a melee weapon attack, you deal an additional {@dice 2d10} force damage."
@@ -4265,8 +4142,8 @@
             "One creature"
           ]
         },
-        "You reach out with a spectral hand that carries the chill of death. Make an armour attack that deals {@dice 1d8} necrotic damage. On a hit, the target cannot regain hit points until the start of your next turn. The hand remains visibly clutching onto the target for the duration. If the target you hit is undead, it makes attack rolls against you with disadvantage until the end of your next turn.",
-        "The spell's damage increases by {@dice 1d8} when you reach 5th level ({@dice 2d8}), 11th level ({@dice 3d8}), and 17th level ({@dice 4d8})."
+        "Channeling the chill of the grave, make an armour attack against the target that deals {@dice 1d10} necrotic damage. On a hit, the target cannot regain hit points until the end of your next turn.",
+        "The spell's damage increases by {@dice 1d10} when you reach 5th level ({@dice 2d10}), 11th level ({@dice 3d10}), and 17th level ({@dice 4d10})."
       ],
       "name": "Chill Touch",
       "time": [
@@ -4277,12 +4154,7 @@
       ],
       "duration": [
         {
-          "type": "timed",
-          "duration": {
-            "type": "round",
-            "amount": 1,
-            "upTo": false
-          }
+          "type": "instant"
         }
       ],
       "source": "sns",
@@ -4294,7 +4166,7 @@
         "arcane",
         "attack",
         "necrotic",
-        "ranged",
+        "melee",
         "spell"
       ],
       "level": 0,
@@ -4325,8 +4197,7 @@
       "range": {
         "type": "point",
         "distance": {
-          "amount": 120,
-          "type": "feet"
+          "type": "touch"
         }
       }
     },
@@ -4413,58 +4284,6 @@
         "distance": {
           "amount": 120,
           "type": "feet"
-        }
-      }
-    },
-    {
-      "school": "T",
-      "entries": [
-        "You begin carefully regulating your breath so that you can continue playing longer or keep breathing longer in adverse conditions.",
-        "Until the spell ends, you can breathe underwater, and you can utilize bardic performances that would normally require breathable air. In addition, you have advantage on saves against gases and environments with adverse breathing conditions, and attacks from similar sources have disadvantage against you.",
-        "The duration of this spell increases when you reach 5th level (10 minutes), 11th level (30 minutes), and 17th level (1 hour)."
-      ],
-      "name": "Circular Breathing",
-      "time": [
-        {
-          "number": 1,
-          "unit": "bonus"
-        }
-      ],
-      "duration": [
-        {
-          "type": "timed",
-          "duration": {
-            "type": "minute",
-            "amount": 5,
-            "upTo": false
-          }
-        }
-      ],
-      "source": "sns",
-      "subschools": [
-        "air",
-        "enhancement",
-        "water"
-      ],
-      "level": 0,
-      "components": {
-        "s": true,
-        "m": {
-          "text": "long breath of clean air"
-        }
-      },
-      "classes": {
-        "fromClassList": [
-          {
-            "name": "Bard",
-            "source": "PHB"
-          }
-        ]
-      },
-      "range": {
-        "type": "point",
-        "distance": {
-          "type": "self"
         }
       }
     },
@@ -6841,74 +6660,6 @@
     {
       "school": "V",
       "entries": [
-        "You create up to four hovering lights which appear as torches, lanterns, or glowing orbs that can be combined into a glowing Medium-sized humanoid form. Each sheds dim light in a 10-foot radius. You can use a bonus action to move the lights up to 60 feet so long as each remains within 20 feet of another light created by this spell. A dancing light winks out when it exceeds the spell's range."
-      ],
-      "name": "Dancing Lights",
-      "time": [
-        {
-          "number": 1,
-          "unit": "action"
-        }
-      ],
-      "duration": [
-        {
-          "type": "timed",
-          "duration": {
-            "type": "minute",
-            "amount": 1,
-            "upTo": false
-          },
-          "concentration": true
-        }
-      ],
-      "source": "sns",
-      "subschools": [
-        "arcane",
-        "utility"
-      ],
-      "level": 0,
-      "components": {
-        "v": true,
-        "s": true,
-        "m": {
-          "text": "bit of phosphorus or wychwood, or a glowworm"
-        }
-      },
-      "classes": {
-        "fromClassList": [
-          {
-            "name": "Artificer",
-            "source": "PHB"
-          },
-          {
-            "name": "Bard",
-            "source": "PHB"
-          },
-          {
-            "name": "Sorcerer",
-            "source": "PHB"
-          },
-          {
-            "name": "Warlock",
-            "source": "PHB"
-          },
-          {
-            "name": "Wizard",
-            "source": "PHB"
-          }
-        ]
-      },
-      "range": {
-        "type": "point",
-        "distance": {
-          "amount": 120,
-          "type": "feet"
-        }
-      }
-    },
-    {
-      "school": "V",
-      "entries": [
         "You create an enchanted flame that surrounds your hand and produces no heat, but sheds bright light in a 20-foot radius around you and dim light for an additional 20 feet. Only you and up to 6 creatures of your choice can see this light.",
         {
           "type": "entries",
@@ -8905,58 +8656,6 @@
         "type": "point",
         "distance": {
           "type": "special"
-        }
-      }
-    },
-    {
-      "school": "T",
-      "entries": [
-        "You call upon your mastery of nature to produce one of the following effects within range:",
-        {
-          "items": [
-            "You create a minor, harmless sensory effect that lasts for 1 round and predicts the next 24 hours of weather in your current location. For example, the effect might create a miniature thunderhead if storms are predicted.",
-            "You instantly make a plant feature develop, but never to produce food. For example, you can cause a flower to bloom or a seed pod to open.",
-            "You create an instantaneous, harmless sensory effect such as the sound of running water, birdsong, or the smell of mulch. The effect must fit in a 5-foot cube.",
-            "You instantly ignite or extinguish a candle, torch, smoking pipe, or small campfire."
-          ],
-          "type": "list"
-        }
-      ],
-      "name": "Druidcraft",
-      "time": [
-        {
-          "number": 1,
-          "unit": "action"
-        }
-      ],
-      "duration": [
-        {
-          "type": "instant"
-        }
-      ],
-      "source": "sns",
-      "subschools": [
-        "nature",
-        "utility"
-      ],
-      "level": 0,
-      "components": {
-        "v": true,
-        "s": true
-      },
-      "classes": {
-        "fromClassList": [
-          {
-            "name": "Druid",
-            "source": "PHB"
-          }
-        ]
-      },
-      "range": {
-        "type": "point",
-        "distance": {
-          "amount": 30,
-          "type": "feet"
         }
       }
     },
@@ -11004,14 +10703,8 @@
             "One creature or object"
           ]
         },
-        "You cast a streak of flame at the target. Make an armour attack that deals {@dice 1d10} fire damage. An unattended flammable object is ignited. This spell's damage increases by {@dice 1d10} when you reach 5th level ({@dice 2d10}), 11th level ({@dice 3d10}), and 17th level ({@dice 4d10}).",
-        {
-          "type": "entries",
-          "name": "Rare",
-          "entries": [
-            "Katrina's Hellish Fire Bolt. This spell's damage ignores fire resistance and treats a creature's immunity to fire damage as 50% resistance to fire damage."
-          ]
-        }
+        "You cast a streak of flame at the target. Make an armour attack that deals {@dice 1d4} fire damage. On a hit, the target suffers 1 ongoing fire harm until it passes a passive save.",
+        "This spell's damage and ongoing harm both increase when you reach 5th level ({@dice 2d4}, 2), 11th level ({@dice 3d4}, 3), and 17th level ({@dice 4d4}, 4)."
       ],
       "name": "Fire Bolt",
       "time": [
@@ -11032,7 +10725,8 @@
       "subschools": [
         "arcane",
         "fire",
-        "ranged"
+        "ranged",
+        "harm"
       ],
       "level": 0,
       "components": {
@@ -11046,7 +10740,19 @@
             "source": "PHB"
           },
           {
+            "name": "Druid",
+            "source": "PHB"
+          },
+          {
+            "name": "Herald",
+            "source": "PHB"
+          },
+          {
             "name": "Sorcerer",
+            "source": "PHB"
+          },
+          {
+            "name": "Warlock",
             "source": "PHB"
           },
           {
@@ -12357,71 +12063,6 @@
       }
     },
     {
-      "school": "E",
-      "entries": [
-        {
-          "type": "entries",
-          "name": "Target",
-          "entries": [
-            "One nonhostile creature"
-          ]
-        },
-        "Once before the start of your next turn, when you make a Charisma ability check against the target, you gain an expertise die. If you roll a 1 on the ability check, the target realizes its judgment was influenced by magic and may become hostile."
-      ],
-      "name": "Friends",
-      "time": [
-        {
-          "number": 1,
-          "unit": "bonus"
-        }
-      ],
-      "duration": [
-        {
-          "type": "timed",
-          "duration": {
-            "type": "round",
-            "amount": 1,
-            "upTo": false
-          }
-        }
-      ],
-      "source": "sns",
-      "subschools": [
-        "arcane"
-      ],
-      "level": 0,
-      "components": {
-        "s": true
-      },
-      "classes": {
-        "fromClassList": [
-          {
-            "name": "Bard",
-            "source": "PHB"
-          },
-          {
-            "name": "Sorcerer",
-            "source": "PHB"
-          },
-          {
-            "name": "Warlock",
-            "source": "PHB"
-          },
-          {
-            "name": "Wizard",
-            "source": "PHB"
-          }
-        ]
-      },
-      "range": {
-        "type": "point",
-        "distance": {
-          "amount": 30,
-          "type": "feet"
-        }
-      }
-    },
-    {
       "school": "T",
       "entries": [
         {
@@ -13127,50 +12768,6 @@
       }
     },
     {
-      "school": "V",
-      "entries": [
-        "You cause a message in Druidic to appear on a tree or plant within range which you have seen before.",
-        "You can cast the spell again to erase the message."
-      ],
-      "name": "Grapevine",
-      "time": [
-        {
-          "number": 1,
-          "unit": "action"
-        }
-      ],
-      "duration": [
-        {
-          "type": "instant"
-        }
-      ],
-      "source": "sns",
-      "subschools": [
-        "communication",
-        "plants"
-      ],
-      "level": 0,
-      "components": {
-        "v": true,
-        "s": true
-      },
-      "classes": {
-        "fromClassList": [
-          {
-            "name": "Druid",
-            "source": "PHB"
-          }
-        ]
-      },
-      "range": {
-        "type": "point",
-        "distance": {
-          "amount": 100,
-          "type": "miles"
-        }
-      }
-    },
-    {
       "school": "C",
       "entries": [
         {
@@ -13511,73 +13108,6 @@
           },
           {
             "name": "Wizard",
-            "source": "PHB"
-          }
-        ]
-      },
-      "range": {
-        "type": "point",
-        "distance": {
-          "type": "touch"
-        }
-      }
-    },
-    {
-      "school": "D",
-      "entries": [
-        {
-          "type": "entries",
-          "name": "Target",
-          "entries": [
-            "One willing creature"
-          ]
-        },
-        "The target may gain an expertise die to one ability check of its choice, ending the spell. The expertise die can be rolled before or after the ability check is made."
-      ],
-      "name": "Guidance",
-      "time": [
-        {
-          "number": 1,
-          "unit": "action"
-        }
-      ],
-      "duration": [
-        {
-          "type": "timed",
-          "duration": {
-            "type": "minute",
-            "amount": 1,
-            "upTo": false
-          },
-          "concentration": true
-        }
-      ],
-      "source": "sns",
-      "subschools": [
-        "divine",
-        "knowledge"
-      ],
-      "level": 0,
-      "components": {
-        "v": true,
-        "s": true
-      },
-      "classes": {
-        "fromClassList": [
-          {
-            "name": "Artificer",
-            "source": "PHB"
-          },
-          {
-            "name": "Cleric",
-            "source": "PHB"
-          },
-          {
-            "name": "Druid",
-            "source": "PHB"
-          },
-          {
-            "name": "Herald",
             "source": "PHB"
           }
         ]
@@ -17219,76 +16749,6 @@
       }
     },
     {
-      "school": "C",
-      "entries": [
-        "A faintly shimmering phantasmal hand appears at a point you choose within range. It remains until you dismiss it as an action, or until you move out of range of it.",
-        "You can use an action to control the hand and direct it to do any of the following:",
-        {
-          "items": [
-            "manipulate an object.",
-            "open an unlocked container or door.",
-            "stow or retrieve items from unlocked containers."
-          ],
-          "type": "list"
-        },
-        "The hand cannot attack, use magic items, or carry more than 10 pounds."
-      ],
-      "name": "Mage Hand",
-      "time": [
-        {
-          "number": 1,
-          "unit": "action"
-        }
-      ],
-      "duration": [
-        {
-          "type": "timed",
-          "duration": {
-            "type": "minute",
-            "amount": 1,
-            "upTo": false
-          }
-        }
-      ],
-      "source": "sns",
-      "subschools": [
-        "arcane",
-        "utility"
-      ],
-      "level": 0,
-      "components": {
-        "v": true,
-        "s": true
-      },
-      "classes": {
-        "fromClassList": [
-          {
-            "name": "Artificer",
-            "source": "PHB"
-          },
-          {
-            "name": "Sorcerer",
-            "source": "PHB"
-          },
-          {
-            "name": "Warlock",
-            "source": "PHB"
-          },
-          {
-            "name": "Wizard",
-            "source": "PHB"
-          }
-        ]
-      },
-      "range": {
-        "type": "point",
-        "distance": {
-          "amount": 30,
-          "type": "feet"
-        }
-      }
-    },
-    {
       "school": "A",
       "entries": [
         {
@@ -17557,14 +17017,7 @@
         "When your trigger condition is met, a magical mouth appears on the object and recites the message in the same voice and volume as you used when instructing it. If the object chosen has a mouth (for example, a painted portrait) this is where the mouth appears.",
         "You may choose upon casting whether the message is a single event, or whether it repeats every time the trigger condition is met.",
         "The trigger condition must be based upon audio or visual cues within 30 feet of the object, and may be highly detailed or as broad as you choose.",
-        "For example, the trigger could be when any attack action is made within range, or when the first spring shoot breaks ground within range.",
-        {
-          "type": "entries",
-          "name": "Rare",
-          "entries": [
-            "Koren's Mocking Magic Mouth. As long as you also know the {@spell vicious mockery|sns} cantrip, when you cast this spell with a trigger that is a single event you can choose to cast {@spell vicious mockery|sns} through the magical mouth."
-          ]
-        }
+        "For example, the trigger could be when any attack action is made within range, or when the first spring shoot breaks ground within range."
       ],
       "name": "Magic Mouth",
       "time": [
@@ -18254,84 +17707,6 @@
       }
     },
     {
-      "school": "T",
-      "entries": [
-        {
-          "type": "entries",
-          "name": "Target",
-          "entries": [
-            "One object"
-          ]
-        },
-        "You repair a single rip or break in the target object (for example, a cracked goblet, torn page, or ripped robe). The break must be smaller than 1 foot in all dimensions. The spell leaves no trace that the object was damaged.",
-        "Magic items and constructs may be repaired in this way, but their magic is not restored. You gain an expertise die on maintenance checks if you are able to cast this spell on the item you are treating."
-      ],
-      "name": "Mending",
-      "time": [
-        {
-          "number": 1,
-          "unit": "minute"
-        }
-      ],
-      "duration": [
-        {
-          "type": "instant"
-        }
-      ],
-      "source": "sns",
-      "subschools": [
-        "arcane",
-        "transformation",
-        "utility"
-      ],
-      "level": 0,
-      "components": {
-        "v": true,
-        "s": true,
-        "m": {
-          "text": "fragment of equine bone"
-        }
-      },
-      "classes": {
-        "fromClassList": [
-          {
-            "name": "Artificer",
-            "source": "PHB"
-          },
-          {
-            "name": "Bard",
-            "source": "PHB"
-          },
-          {
-            "name": "Cleric",
-            "source": "PHB"
-          },
-          {
-            "name": "Druid",
-            "source": "PHB"
-          },
-          {
-            "name": "Herald",
-            "source": "PHB"
-          },
-          {
-            "name": "Sorcerer",
-            "source": "PHB"
-          },
-          {
-            "name": "Wizard",
-            "source": "PHB"
-          }
-        ]
-      },
-      "range": {
-        "type": "point",
-        "distance": {
-          "type": "touch"
-        }
-      }
-    },
-    {
       "school": "C",
       "entries": [
         "You conjure extensions of your own mental fortitude to keep your foes at bay. For the spell's duration, you can use an action to attempt to {@condition grappled|sns|grapple} a creature within range by making a check with your spellcasting ability modifier against its standard DC.",
@@ -18395,83 +17770,6 @@
         "type": "point",
         "distance": {
           "amount": 60,
-          "type": "feet"
-        }
-      }
-    },
-    {
-      "school": "T",
-      "entries": [
-        {
-          "type": "entries",
-          "name": "Target",
-          "entries": [
-            "One creature"
-          ]
-        },
-        "You point and whisper your message at the target.",
-        "It alone hears the message and may reply in a whisper audible only to you.",
-        "You can cast this spell through solid objects if you are familiar with the target and are certain it is beyond the barrier. The message is blocked by 3 feet of wood, 1 foot of stone, 1 inch of common metals, or a thin sheet of lead.",
-        "The spell moves freely around corners or through openings."
-      ],
-      "name": "Message",
-      "time": [
-        {
-          "number": 1,
-          "unit": "action"
-        }
-      ],
-      "duration": [
-        {
-          "type": "timed",
-          "duration": {
-            "type": "round",
-            "amount": 1,
-            "upTo": false
-          }
-        }
-      ],
-      "source": "sns",
-      "subschools": [
-        "arcane",
-        "communication"
-      ],
-      "level": 0,
-      "components": {
-        "v": true,
-        "s": true,
-        "m": {
-          "text": "scrap of paper"
-        }
-      },
-      "classes": {
-        "fromClassList": [
-          {
-            "name": "Artificer",
-            "source": "PHB"
-          },
-          {
-            "name": "Bard",
-            "source": "PHB"
-          },
-          {
-            "name": "Herald",
-            "source": "PHB"
-          },
-          {
-            "name": "Sorcerer",
-            "source": "PHB"
-          },
-          {
-            "name": "Wizard",
-            "source": "PHB"
-          }
-        ]
-      },
-      "range": {
-        "type": "point",
-        "distance": {
-          "amount": 120,
           "type": "feet"
         }
       }
@@ -18671,82 +17969,6 @@
         "type": "point",
         "distance": {
           "type": "touch"
-        }
-      }
-    },
-    {
-      "school": "I",
-      "entries": [
-        {
-          "type": "entries",
-          "name": "Area",
-          "entries": [
-            "5-foot cube"
-          ]
-        },
-        "This spell creates a sound or image of an object.",
-        "The illusion disappears if dismissed or you cast the spell again.",
-        "You may create any sound you choose, ranging in volume from a whisper to a scream. You may choose one sound for the duration or change them at varying points before the spell ends. Sounds are audible outside the spell's area.",
-        "Visual illusions may replicate any image and remain within the spell's area, but cannot create sound, light, smell, or other sensory effects.",
-        "The image is revealed as an illusion with any physical interaction as physical objects and creatures pass through it. An Investigation check against your standard DC also reveals the image is an illusion. When a creature realizes the image is an illusion, the effects become fainter for that creature."
-      ],
-      "name": "Minor Illusion",
-      "time": [
-        {
-          "number": 1,
-          "unit": "action"
-        }
-      ],
-      "duration": [
-        {
-          "type": "timed",
-          "duration": {
-            "type": "minute",
-            "amount": 1,
-            "upTo": false
-          }
-        }
-      ],
-      "source": "sns",
-      "areaTags": [
-        "C"
-      ],
-      "subschools": [
-        "arcane",
-        "chaos"
-      ],
-      "level": 0,
-      "components": {
-        "s": true,
-        "m": {
-          "text": "tinderbox and small mirror"
-        }
-      },
-      "classes": {
-        "fromClassList": [
-          {
-            "name": "Bard",
-            "source": "PHB"
-          },
-          {
-            "name": "Sorcerer",
-            "source": "PHB"
-          },
-          {
-            "name": "Warlock",
-            "source": "PHB"
-          },
-          {
-            "name": "Wizard",
-            "source": "PHB"
-          }
-        ]
-      },
-      "range": {
-        "type": "point",
-        "distance": {
-          "amount": 30,
-          "type": "feet"
         }
       }
     },
@@ -20472,82 +19694,6 @@
       }
     },
     {
-      "school": "T",
-      "entries": [
-        "You wield arcane energies to produce minor effects. Choose one of the following:",
-        {
-          "items": [
-            "create a single burst of magic that manifests to one of the senses (for example a burst of sound, sparks, or an odd odor).",
-            "clean or soil an object of 1 cubic foot or less.",
-            "light or snuff a flame.",
-            "chill, warm, or flavor nonliving material of 1 cubic foot or less for 1 hour.",
-            "color or mark an object or surface for 1 hour.",
-            "create an ordinary trinket or illusionary image that fits in your hand and lasts for 1 round."
-          ],
-          "type": "list"
-        },
-        "You may cast this spell multiple times, though only three effects may be active at a time. Dismissing each effect requires an action."
-      ],
-      "name": "Prestidigitation",
-      "time": [
-        {
-          "number": 1,
-          "unit": "bonus"
-        }
-      ],
-      "duration": [
-        {
-          "type": "timed",
-          "duration": {
-            "type": "hour",
-            "amount": 1,
-            "upTo": true
-          }
-        }
-      ],
-      "source": "sns",
-      "subschools": [
-        "arcane",
-        "utility"
-      ],
-      "level": 0,
-      "components": {
-        "v": true,
-        "s": true
-      },
-      "classes": {
-        "fromClassList": [
-          {
-            "name": "Artificer",
-            "source": "PHB"
-          },
-          {
-            "name": "Bard",
-            "source": "PHB"
-          },
-          {
-            "name": "Sorcerer",
-            "source": "PHB"
-          },
-          {
-            "name": "Warlock",
-            "source": "PHB"
-          },
-          {
-            "name": "Wizard",
-            "source": "PHB"
-          }
-        ]
-      },
-      "range": {
-        "type": "point",
-        "distance": {
-          "amount": 30,
-          "type": "feet"
-        }
-      }
-    },
-    {
       "school": "V",
       "entries": [
         {
@@ -20900,73 +20046,6 @@
         "distance": {
           "amount": 120,
           "type": "feet"
-        }
-      }
-    },
-    {
-      "school": "C",
-      "entries": [
-        "You create a flame in your hand which lasts until the spell ends and does no harm to you or your equipment. The flame sheds bright light in a 10-foot radius and dim light for an additional 10 feet.",
-        "The spell ends when you dismiss it, cast it again, or attack with the flame. As part of casting the spell or as an action on a following turn, you can fling the flame at a creature within 30 feet, making an armour attack that deals {@dice 1d8} fire damage.",
-        "This spell's damage increases by {@dice 1d8} when you reach 5th level ({@dice 2d8}), 11th level ({@dice 3d8}), and 17th level ({@dice 4d8}).",
-        {
-          "type": "entries",
-          "name": "Rare",
-          "entries": [
-            "Sidoneth's Charged Produce Flame. You conjure a ball of lightning in your hand instead of flame. The ball of lightning produces bright light in a 20-foot radius and dim light for an additional 10 feet, and when flung deals lightning damage instead of fire damage."
-          ]
-        }
-      ],
-      "name": "Produce Flame",
-      "time": [
-        {
-          "number": 1,
-          "unit": "action"
-        }
-      ],
-      "duration": [
-        {
-          "type": "timed",
-          "duration": {
-            "type": "minute",
-            "amount": 10,
-            "upTo": false
-          }
-        }
-      ],
-      "source": "sns",
-      "damageInflict": [
-        "fire"
-      ],
-      "subschools": [
-        "attack",
-        "fire",
-        "nature",
-        "utility",
-        "ranged",
-        "spell"
-      ],
-      "level": 0,
-      "components": {
-        "v": true,
-        "s": true
-      },
-      "classes": {
-        "fromClassList": [
-          {
-            "name": "Artificer",
-            "source": "PHB"
-          },
-          {
-            "name": "Druid",
-            "source": "PHB"
-          }
-        ]
-      },
-      "range": {
-        "type": "point",
-        "distance": {
-          "type": "self"
         }
       }
     },
@@ -21662,15 +20741,8 @@
           ]
         },
         "An icy beam shoots from your outstretched fingers.",
-        "Make an armour attack that deals {@dice 1d8} cold damage and reduces the target's Speed by 10 feet until the start of your next turn on a hit.",
-        "This spell's damage increases by {@dice 1d8} when you reach 5th level ({@dice 2d8}), 11th level ({@dice 3d8}), and 17th level ({@dice 4d8}).",
-        {
-          "type": "entries",
-          "name": "Rare",
-          "entries": [
-            "Gabal's Frigid Ray of Frost. A target that takes 20 or more damage from this spell reduces its Speed to 0 and becomes {@condition rattled|sns} until the beginning of your next turn as the cold penetrates to its very core."
-          ]
-        }
+        "Make an armour attack that deals {@dice 1d6} cold damage and makes the target {@condition sluggish|sns} until the start of your next turn on a hit.",
+        "This spell's damage increases by {@dice 1d6} when you reach 5th level ({@dice 2d6}), 11th level ({@dice 3d6}), and 17th level ({@dice 4d6})."
       ],
       "name": "Ray of Frost",
       "time": [
@@ -21961,13 +21033,14 @@
             "One willing creature"
           ]
         },
-        "Once before the spell ends, the target can roll a d4 and reduce a non-armour attack roll against them by that amount. It can roll the die before or after the attack roll is made. The spell then ends."
+        "Choose a damage type: Acid, bludgeoning, cold, fire, lightning, necrotic, piercing, poison, radiant, slashing, or thunder. When the target takes damage of the chosen type before the spell ends, it reduces the total damage taken by {@dice 1d4}. A creature can benefit from this spell only once per turn."
       ],
       "name": "Resistance",
       "time": [
         {
           "number": 1,
-          "unit": "action"
+          "unit": "reaction",
+          "condition": "which you take in response to rolling for initiative"
         }
       ],
       "duration": [
@@ -22013,7 +21086,8 @@
       "range": {
         "type": "point",
         "distance": {
-          "type": "touch"
+          "amount": 60,
+          "type": "feet"
         }
       }
     },
@@ -22157,15 +21231,8 @@
             "One creature"
           ]
         },
-        "A radiant holy flame envelops the target. Make a reflex attack against the target that deals {@dice 1d8} radiant damage. This attack ignores up to three-quarters cover.",
-        "This spell's damage increases by {@dice 1d8} when you reach 5th level ({@dice 2d8}), 11th level ({@dice 3d8}), and 17th level ({@dice 4d8}).",
-        {
-          "type": "entries",
-          "name": "Rare",
-          "entries": [
-            "Komanov's Purifying Flame. When a target hit by this spell is undead, has the Evil trait, or is vulnerable to radiant damage, it is {@condition rattled|sns} for the next minute, or until it passes a passive save."
-          ]
-        }
+        "A radiant holy flame envelops the target. Make a reflex attack against the target that deals {@dice 1d6} radiant damage. This attack ignores up to three-quarters cover.",
+        "This spell's damage increases by {@dice 1d6} when you reach 5th level ({@dice 2d6}), 11th level ({@dice 3d6}), and 17th level ({@dice 4d6})."
       ],
       "name": "Sacred Flame",
       "time": [
@@ -23193,24 +22260,19 @@
     {
       "school": "A",
       "entries": [
-        "You create a shimmering arcane barrier between yourself and an oncoming assault. Until the spell ends, all armour attacks made against you have their success tier reduced by 1 (including the triggering attack) and any {@spell magic missile|sns} targeting you is harmlessly deflected."
+        "You create a shimmering arcane barrier between yourself and an oncoming assault. The triggering attack has its success tier reduced by 1."
       ],
       "name": "Shield",
       "time": [
         {
           "number": 1,
           "unit": "reaction",
-          "condition": "which you take when you are hit by an attack or targeted by the {@spell magic missile|sns} spell"
+          "condition": "which you take when an armour attack is made against you"
         }
       ],
       "duration": [
         {
-          "type": "timed",
-          "duration": {
-            "type": "round",
-            "amount": 1,
-            "upTo": false
-          }
+          "type": "instant"
         }
       ],
       "source": "sns",
@@ -23322,62 +22384,6 @@
       }
     },
     {
-      "school": "T",
-      "entries": [
-        {
-          "type": "entries",
-          "name": "Target",
-          "entries": [
-            "A weapon you are carrying of the club category"
-          ]
-        },
-        "You imbue the target with nature's magical energy. Until the spell ends, the target becomes a magical weapon (if it wasn't already) and its damage becomes {@dice 1d8} + INT/WIS/CHA. The spell ends if you cast it again or let go of the target."
-      ],
-      "name": "Shillelagh",
-      "time": [
-        {
-          "number": 1,
-          "unit": "bonus"
-        }
-      ],
-      "duration": [
-        {
-          "type": "permanent",
-          "ends": [
-            "sustained"
-          ]
-        }
-      ],
-      "source": "sns",
-      "subschools": [
-        "nature",
-        "transformation",
-        "weaponry"
-      ],
-      "level": 0,
-      "components": {
-        "v": true,
-        "s": true,
-        "m": {
-          "text": "weapon of the club category"
-        }
-      },
-      "classes": {
-        "fromClassList": [
-          {
-            "name": "Druid",
-            "source": "PHB"
-          }
-        ]
-      },
-      "range": {
-        "type": "point",
-        "distance": {
-          "type": "touch"
-        }
-      }
-    },
-    {
       "school": "V",
       "entries": [
         {
@@ -23387,8 +22393,8 @@
             "One creature"
           ]
         },
-        "Electricity arcs from your hand to shock the target. Make an armour attack (with advantage if the target is wearing body armour made of metal) that deals {@dice 1d8} lightning damage, and on a hit the target can't take reactions until the start of its next turn as the electricity courses through its body.",
-        "This spell's damage increases by {@dice 1d8} when you reach 5th level ({@dice 2d8}), 11th level ({@dice 3d8}), and 17th level ({@dice 4d8})."
+        "Electricity arcs from your hand to shock the target. Make an armour attack that deals {@dice 1d10} lightning damage, and on a hit the target can't make opportunity attacks until the start of its next turn as the electricity courses through its body.",
+        "This spell's damage increases by {@dice 1d10} when you reach 5th level ({@dice 2d10}), 11th level ({@dice 3d10}), and 17th level ({@dice 4d10})."
       ],
       "name": "Shocking Grasp",
       "time": [
@@ -23805,19 +22811,12 @@
       "entries": [
         {
           "type": "entries",
-          "name": "Target",
-          "entries": [
-            "Up to six creatures of your choice"
-          ]
-        },
-        {
-          "type": "entries",
           "name": "Area",
           "entries": [
-            "40-foot cube"
+            "20-foot cube"
           ]
         },
-        "You alter the flow of time around your targets. Make a will attack against each target with the following outcomes:",
+        "You alter the flow of time around your targets. Make a will attack against each creature in the area with the following outcomes:",
         {
           "type": "list",
           "items": [
@@ -23832,7 +22831,7 @@
               "type": "item",
               "name": "Standard success",
               "entries": [
-                "The target becomes {@condition slowed|sns} and {@condition debilitated|sns} until it passes a passive save."
+                "The target becomes {@condition slowed|sns} and {@condition weakened|sns} until it passes a passive save."
               ]
             },
             {
@@ -24013,7 +23012,7 @@
             "One living creature with 0 hit points"
           ]
         },
-        "A jolt of healing energy flows through the target. Make a Medicine check with advantage to stabilise the target.",
+        "A jolt of healing energy flows through the target. Revive the target with 40% of its maximum hit points instead of 30%.",
         {
           "type": "entries",
           "name": "Rare",
@@ -26040,77 +25039,6 @@
       }
     },
     {
-      "school": "T",
-      "entries": [
-        {
-          "name": "Area",
-          "entries": [
-            "Special"
-          ],
-          "type": "entries"
-        },
-        "You draw upon divine power and create a minor divine effect. When you cast the spell, choose one of the following:",
-        {
-          "items": [
-            "Your voice booms up to three times louder than normal",
-            "You cause flames to flicker, brighten, dim, or change color",
-            "You send harmless tremors throughout the ground.",
-            "You create an instantaneous sound, like ethereal chimes, sinister laughter, or a dragon's roar at a point of your choosing within range.",
-            "You instantaneously cause an unlocked door or window to fly open or slam shut.",
-            "You alter the appearance of your eyes."
-          ],
-          "type": "list"
-        },
-        "Lingering effects last until the spell ends. If you cast this spell multiple times, you can have up to 3 of the lingering effects active at a time, and can dismiss an effect at any time on your turn."
-      ],
-      "name": "Thaumaturgy",
-      "time": [
-        {
-          "number": 1,
-          "unit": "action"
-        }
-      ],
-      "duration": [
-        {
-          "type": "timed",
-          "duration": {
-            "type": "minute",
-            "amount": 1,
-            "upTo": true
-          }
-        }
-      ],
-      "source": "sns",
-      "areaTags": [],
-      "subschools": [
-        "divine",
-        "enhancement"
-      ],
-      "level": 0,
-      "components": {
-        "v": true
-      },
-      "classes": {
-        "fromClassList": [
-          {
-            "name": "Cleric",
-            "source": "PHB"
-          },
-          {
-            "name": "Herald",
-            "source": "PHB"
-          }
-        ]
-      },
-      "range": {
-        "type": "point",
-        "distance": {
-          "amount": 30,
-          "type": "feet"
-        }
-      }
-    },
-    {
       "school": "V",
       "entries": [
         {
@@ -26654,14 +25582,15 @@
     {
       "school": "D",
       "entries": [
-        "You gain an innate understanding of the defenses of a creature or object in range. You have advantage on your first armour attack roll made against the target before the end of your next turn.",
         {
           "type": "entries",
-          "name": "Rare",
+          "name": "Target",
           "entries": [
-            "Kasvarina's Greater True Strike. You gain an almost total understanding of a creature or object's defenses and body language. The duration increases to Concentration (1 minute) and you gain advantage to three additional armour attack rolls of your choice that are made before the spell ends. Once per round, you can choose to use that advantage when you make your first armour attack roll on your turn."
+            "One melee weapon you are holding in your main hand"
           ]
-        }
+        },
+        "Guided by a flash of magical insight, you make an attack with the target. This attack is governed by your spellcasting ability. You may convert the attack's damage to radiant damage.",
+        "Whether you deal radiant damage or the weapon's normal damage type, the attack deals extra radiant damage when you reach levels 5 ({@dice 1d6}), 11 ({@dice 2d6}), and 17 ({@dice 3d6})."
       ],
       "name": "True Strike",
       "time": [
@@ -26672,20 +25601,13 @@
       ],
       "duration": [
         {
-          "type": "timed",
-          "duration": {
-            "type": "round",
-            "amount": 1,
-            "upTo": false
-          },
-          "concentration": true
+          "type": "instant"
         }
       ],
       "source": "sns",
       "subschools": [
-        "arcane",
-        "attack",
-        "enhancement"
+        "radiant",
+        "weaponry"
       ],
       "level": 0,
       "components": {
@@ -26695,6 +25617,10 @@
         "fromClassList": [
           {
             "name": "Bard",
+            "source": "PHB"
+          },
+          {
+            "name": "Druid",
             "source": "PHB"
           },
           {
@@ -26718,8 +25644,7 @@
       "range": {
         "type": "point",
         "distance": {
-          "amount": 30,
-          "type": "feet"
+          "type": "self"
         }
       }
     },
@@ -27018,15 +25943,8 @@
             "One creature"
           ]
         },
-        "You verbally insult or mock the target so viciously its mind is seared. As long as the target hears you (understanding your words is not required), make a will attack against it that deals {@dice 1d6} psychic damage. On a hit, the target has disadvantage on the first armour attack roll it makes before the end of its next turn.",
-        "The spell's damage increases by {@dice 1d6} when you reach 5th level ({@dice 2d6}), 11th level ({@dice 3d6}), and 17th level ({@dice 4d6}).",
-        {
-          "type": "entries",
-          "name": "Rare",
-          "entries": [
-            "Koren's Taunting Vicious Mockery. Your amazingly effective insults and mockeries also entertain others— even the target's allies. On a hit the target has disadvantage on all armour attack rolls next round, and if it makes an armour attack it can only target you (it can take other actions, but if the target takes the Attack action or casts a spell that includes an armour attack, that attack must be against you). Persuasion checks you make against the target have disadvantage, even after the spell's duration ends."
-          ]
-        }
+        "You verbally insult or mock the target so viciously its mind is seared. As long as the target hears you (understanding your words is not required), make a will attack against it that deals {@dice 1d4} psychic damage. On a hit, the target has disadvantage on armour attack rolls during its next turn.",
+        "The spell's damage increases by {@dice 1d4} when you reach 5th level ({@dice 2d4}), 11th level ({@dice 3d4}), and 17th level ({@dice 4d4})."
       ],
       "name": "Vicious Mockery",
       "time": [
@@ -27058,7 +25976,23 @@
       "classes": {
         "fromClassList": [
           {
+            "name": "Artificer",
+            "source": "PHB"
+          },
+          {
             "name": "Bard",
+            "source": "PHB"
+          },
+          {
+            "name": "Sorcerer",
+            "source": "PHB"
+          },
+          {
+            "name": "Warlock",
+            "source": "PHB"
+          },
+          {
+            "name": "Wizard",
             "source": "PHB"
           }
         ]
@@ -28711,7 +27645,8 @@
       "time": [
         {
           "number": 1,
-          "unit": "action"
+          "unit": "reaction",
+          "condition": "which you take in response to rolling for initiative"
         }
       ],
       "duration": [
@@ -28769,8 +27704,8 @@
             "One creature"
           ]
         },
-        "You extend your hand toward a creature you can see within range and project a puff of noxious gas from your palm. Make a fortitude attack against the target that deals {@dice 1d12} poison damage.",
-        "This spell's damage increases by {@dice 1d12} when you reach 5th level ({@dice 2d12}), 11th level ({@dice 3d12}), and 17th level ({@dice 4d12})."
+        "You spray toxic mist at the target, coating its body. The first time before your next turn that a weapon armour attack is made against the target, that attack deals {@dice 1d8} additional poison damage.",
+        "This spell's added damage increases by {@dice 1d8} when you reach 5th level ({@dice 2d8}), 11th level ({@dice 3d8}), and 17th level ({@dice 4d8})."
       ],
       "name": "Poison Spray",
       "time": [
@@ -28789,8 +27724,8 @@
         "poison"
       ],
       "subschools": [
-        "ranged",
-        "spell"
+        "poison",
+        "weaponry"
       ],
       "level": 0,
       "components": {
@@ -28822,65 +27757,6 @@
         ]
       },
       "savingThrow": [],
-      "range": {
-        "type": "point",
-        "distance": {
-          "amount": 10,
-          "type": "feet"
-        }
-      }
-    },
-    {
-      "school": "C",
-      "entries": [
-        {
-          "type": "entries",
-          "name": "Target",
-          "entries": [
-            "One creature"
-          ]
-        },
-        "You create a long, vine-like whip covered in thorns that lashes out at your command towards a creature in range. Make an armour attack against the target that deals 1d6 piercing damage, and on a hit, if the target is Large or smaller, you pull the target up to 10 feet closer to you.",
-        "This spell's damage increases by {@dice 1d6} when you reach 5th level ({@dice 2d6}), 11th level ({@dice 3d6}), and 17th level ({@dice 4d6})."
-      ],
-      "name": "Thorn Whip",
-      "time": [
-        {
-          "number": 1,
-          "unit": "action"
-        }
-      ],
-      "duration": [
-        {
-          "type": "instant"
-        }
-      ],
-      "source": "sns",
-      "damageInflict": [
-        "piercing"
-      ],
-      "subschools": [
-        "piercing",
-        "melee",
-        "spell"
-      ],
-      "level": 0,
-      "components": {
-        "v": true,
-        "s": true
-      },
-      "classes": {
-        "fromClassList": [
-          {
-            "name": "Artificer",
-            "source": "PHB"
-          },
-          {
-            "name": "Druid",
-            "source": "PHB"
-          }
-        ]
-      },
       "range": {
         "type": "point",
         "distance": {
@@ -29914,7 +28790,8 @@
       ],
       "source": "sns",
       "subschools": [
-        "ranged"
+        "ranged",
+        "compulsion"
       ],
       "level": 2,
       "components": {
@@ -31171,73 +30048,6 @@
       }
     },
     {
-      "school": "T",
-      "entries": [
-        {
-          "type": "entries",
-          "name": "Target",
-          "entries": [
-            "Nonmagical flame that fits within a 5-foot cube"
-          ]
-        },
-        "You affect the target in one of the following ways:",
-        {
-          "type": "list",
-          "items": [
-            "You instantaneously expand the target 5 feet in one direction, provided that wood or other fuel is present in the new location.",
-            "You instantaneously extinguish the target.",
-            "You double or halve the area of bright light and dim light cast by the target, change its colour, or both. The change lasts for 1 hour.",
-            "You cause simple shapes - such as the vague form of a creature, an inanimate object, or a location - to appear within the target and animate as you like. The shapes last for 1 hour."
-          ]
-        },
-        "If you cast this spell multiple times, you can have up to three non-instantaneous effects created by it active at a time, and you can dismiss such an effect as an action."
-      ],
-      "name": "Control Flames",
-      "time": [
-        {
-          "number": 1,
-          "unit": "action"
-        }
-      ],
-      "duration": [
-        {
-          "type": "instant"
-        }
-      ],
-      "source": "sns",
-      "subschools": [
-        "fire"
-      ],
-      "level": 0,
-      "components": {
-        "v": false,
-        "s": true
-      },
-      "classes": {
-        "fromClassList": [
-          {
-            "name": "Druid",
-            "source": "PHB"
-          },
-          {
-            "name": "Sorcerer",
-            "source": "PHB"
-          },
-          {
-            "name": "Wizard",
-            "source": "PHB"
-          }
-        ]
-      },
-      "range": {
-        "type": "point",
-        "distance": {
-          "type": "feet",
-          "amount": 60
-        }
-      }
-    },
-    {
       "school": "C",
       "entries": [
         {
@@ -31247,9 +30057,8 @@
             "5-foot cube"
           ]
         },
-        "You create a bonfire on ground within range. Until the spell ends, the magic bonfire fills the area. Any creature in the bonfire's space when you cast the spell suffers {@dice 1d4} fire harm. A creature also suffers this harm when it moves into the bonfire's space for the first time on a turn or ends its turn there.",
-        "The bonfire ignites flammable objects in its area that aren't being worn or carried.",
-        "The spell's harm increases by {@dice 1d4} when you reach 5th level ({@dice 2d4}), 11th level ({@dice 3d4}), and 17th level ({@dice 4d4})."
+        "You create a bonfire on ground within range. Until the spell ends, the magic bonfire fills the area, creating a persistent zone that causes 1 fire harm.",
+        "The spell's harm increases by 1 when you reach 5th level (2), 11th level (3), and 17th level (4)."
       ],
       "name": "Create Bonfire",
       "time": [
@@ -31273,75 +30082,6 @@
       "subschools": [
         "fire",
         "harm"
-      ],
-      "level": 0,
-      "components": {
-        "v": true,
-        "s": true
-      },
-      "classes": {
-        "fromClassList": [
-          {
-            "name": "Artificer",
-            "source": "PHB"
-          },
-          {
-            "name": "Druid",
-            "source": "PHB"
-          },
-          {
-            "name": "Sorcerer",
-            "source": "PHB"
-          },
-          {
-            "name": "Warlock",
-            "source": "PHB"
-          },
-          {
-            "name": "Wizard",
-            "source": "PHB"
-          }
-        ]
-      },
-      "range": {
-        "type": "point",
-        "distance": {
-          "type": "feet",
-          "amount": 60
-        }
-      }
-    },
-    {
-      "school": "V",
-      "entries": [
-        {
-          "type": "entries",
-          "name": "Target",
-          "entries": [
-            "One creature"
-          ]
-        },
-        "You cause numbing frost to form on the target. Make a fortitude attack against the target that deals {@dice 1d6} cold damage. On a hit, the target has disadvantage on the next weapon armour attack roll it makes before the end of its next turn.",
-        "The spell's damage increases by {@dice 1d6} when you reach 5th level ({@dice 2d6}), 11th level ({@dice 3d6}), and 17th level ({@dice 4d6}).",
-        "Casting this spell while holding a thought strand allows you to instantly receive whatever memory, idea, or message the thought strand contains. (Casting {@spell detect thoughts|sns} on the strand has the same effect.)"
-      ],
-      "name": "Frostbite",
-      "time": [
-        {
-          "number": 1,
-          "unit": "action"
-        }
-      ],
-      "duration": [
-        {
-          "type": "instant"
-        }
-      ],
-      "source": "sns",
-      "subschools": [
-        "cold",
-        "ranged",
-        "spell"
       ],
       "level": 0,
       "components": {
@@ -31464,29 +30204,34 @@
                       "type": "item",
                       "name": "Minor success",
                       "entries": [
-                        "The target's Speed is reduced by 5 feet for 1 round."
+                        "The target is pushed 5 feet away from you."
                       ]
                     },
                     {
                       "type": "item",
                       "name": "Standard success",
                       "entries": [
-                        "The target is pushed 5 feet away from you."
+                        "As minor success, but the push is increased to 10 feet."
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Major success",
+                      "entries": [
+                        "As minor success, but the push is increased to 15 feet."
                       ]
                     },
                     {
                       "type": "item",
                       "name": "Critical success",
                       "entries": [
-                        "As standard success, but the push is increased to 10 feet."
+                        "As minor success, but the push is increased to 20 feet."
                       ]
                     }
                   ]
                 }
               ]
-            },
-            "You create a small blast of air capable of moving one object that is neither held nor carried and that weighs no more than 5 pounds. The object is pushed up to 10 feet away from you. It isn't pushed with enough force to cause damage.",
-            "You create a harmless sensory effect using air, such as causing leaves to rustle, wind to slam shutters closed, or your clothing to ripple in a breeze."
+            }
           ]
         }
       ],
@@ -31546,7 +30291,7 @@
             "One creature"
           ]
         },
-        "You cause a cloud of mites, fleas, and other parasites to appear momentarily on the target. Make a fortitude attack against the target that deals {@dice 1d6} poison damage. On a hit, the target shifts 5 feet in a random direction if it can move and its Speed is at least 5 feet.",
+        "You cause a cloud of mites, fleas, and other parasites to appear momentarily on the target. Make a fortitude attack against the target that deals {@dice 1d6} poison damage. On a hit, the target shifts 10 feet in a random direction if it can move and its Speed is at least 5 feet.",
         "The spell's damage increases by {@dice 1d6} when you reach 5th level ({@dice 2d6}), 11th level ({@dice 3d6}), and 17th level ({@dice 4d6})."
       ],
       "name": "Infestation",
@@ -31614,33 +30359,7 @@
             "One creature within 15 feet of you"
           ]
         },
-        "You create a lash of lightning energy that strikes at the target. Make a fortitude attack against the target with the following outcomes:",
-        {
-          "type": "list",
-          "items": [
-            {
-              "type": "item",
-              "name": "Minor success",
-              "entries": [
-                "The target is pushed 5 feet straight towards you."
-              ]
-            },
-            {
-              "type": "item",
-              "name": "Standard success",
-              "entries": [
-                "The target is pushed 10 feet straight towards you and then takes {@dice 1d8} lightning damage if it is within 5 feet of you."
-              ]
-            },
-            {
-              "type": "item",
-              "name": "Critical success",
-              "entries": [
-                "As standard success, but the damage is increased to {@dice 2d8}."
-              ]
-            }
-          ]
-        },
+        "You create a lash of lightning energy that strikes at the target. Make a fortitude attack against the target that deals {@dice 1d8} lightning damage. On a hit, the target is also pushed 10 feet straight towards you.",
         "The spell's damage increases by {@dice 1d8} when you reach 5th level ({@dice 2d8}), 11th level ({@dice 3d8}), and 17th level ({@dice 4d8})."
       ],
       "name": "Lightning Lure",
@@ -31670,6 +30389,10 @@
         "fromClassList": [
           {
             "name": "Artificer",
+            "source": "PHB"
+          },
+          {
+            "name": "Druid",
             "source": "PHB"
           },
           {
@@ -31703,7 +30426,7 @@
             "One to three pebbles"
           ]
         },
-        "You touch the targets and imbue them with magic. You or someone else can make a ranged spell armour attack with one of the pebbles by throwing it as an action. If thrown, a pebble has a range of 60 feet. If someone else attacks with a pebble, that attack scales with your stats, not the attacker's. The attack deals bludgeoning damage equal to {@dice 1d6} + your spellcasting ability modifier. After the attack, the spell ends on the stone.",
+        "You touch the targets and imbue them with magic. You or someone else can make a ranged spell armour attack with one of the pebbles by throwing it as an action. If thrown, a pebble has a range of 60 feet. If someone else attacks with a pebble, that attack scales with your stats, not the attacker's. The attack deals bludgeoning damage equal to your spellcasting ability modifier. After the attack, the spell ends on the stone.",
         "If you cast this spell again, the spell ends on any pebbles still affected by your previous casting."
       ],
       "name": "Magic Stone",
@@ -31755,73 +30478,7 @@
     {
       "school": "T",
       "entries": [
-        {
-          "type": "entries",
-          "name": "Target",
-          "entries": [
-            "Portion of dirt or stone that fits within a 5-foot-cube"
-          ]
-        },
-        "You manipulate the target in one of the following ways:",
-        {
-          "type": "list",
-          "items": [
-            "If you target an area of loose earth, you can instantaneously excavate it, move it along the ground, and deposit it up to 5 feet away. This movement doesn't involve enough force to cause damage.",
-            "You cause shapes, colours, or both to appear on the target, spelling out words, creating images, or shaping patterns. The changes last for 1 hour.",
-            "If the target is on the ground, you cause it to become difficult terrain. Alternatively, you can cause the ground to become normal terrain if it is already difficult terrain. This change lasts for 1 hour."
-          ]
-        },
-        "If you cast this spell multiple times, you can have no more than two of its non-instantaneous effects active at a time, and you can dismiss such an effect as an action."
-      ],
-      "name": "Mold Earth",
-      "time": [
-        {
-          "number": 1,
-          "unit": "action"
-        }
-      ],
-      "duration": [
-        {
-          "type": "instant"
-        }
-      ],
-      "source": "sns",
-      "subschools": [
-        "earth"
-      ],
-      "level": 0,
-      "components": {
-        "v": false,
-        "s": true
-      },
-      "classes": {
-        "fromClassList": [
-          {
-            "name": "Druid",
-            "source": "PHB"
-          },
-          {
-            "name": "Sorcerer",
-            "source": "PHB"
-          },
-          {
-            "name": "Wizard",
-            "source": "PHB"
-          }
-        ]
-      },
-      "range": {
-        "type": "point",
-        "distance": {
-          "type": "feet",
-          "amount": 30
-        }
-      }
-    },
-    {
-      "school": "T",
-      "entries": [
-        "You channel primal magic to cause your teeth or fingernails to sharpen, ready to deliver a corrosive attack. Make an armour attack against one adjacent creature that deals {@dice 1d10} acid damage. After you make the attack, your teeth or fingernails return to normal.",
+        "You channel primal magic to cause your teeth or fingernails to sharpen, ready to deliver a corrosive attack. Make an armour attack against one adjacent creature that deals {@dice 1d10} acid damage. This attack has advantage against targets you are flanking. After you make the attack, your teeth or fingernails return to normal.",
         "The spell's damage increases by {@dice 1d10} when you reach 5th level ({@dice 2d10}), 11th level ({@dice 3d10}), and 17th level ({@dice 4d10})."
       ],
       "name": "Primal Savagery",
@@ -31864,73 +30521,6 @@
       }
     },
     {
-      "school": "T",
-      "entries": [
-        {
-          "type": "entries",
-          "name": "Target",
-          "entries": [
-            "Water that fits within a 5-foot cube"
-          ]
-        },
-        "You manipulate the target in one of the following ways:",
-        {
-          "type": "list",
-          "items": [
-            "You instantaneously move or otherwise change the flow of the target as you direct, up to 5 feet in any direction. This movement doesn't haev enough force to cause damage.",
-            "You cause the target to form into simple shapes and animate at your direction. This change lasts for 1 hour.",
-            "You change the target's colour or opacity. The target must be changed in the same way throughout. This change lasts for 1 hour.",
-            "You freeze the target, provided that there are no creatures in it. The target unfreezes in 1 hour."
-          ]
-        },
-        "If you cast this spell multiple times, you can have no more than two of its non-instantaneous effects active at a time, and you can dismiss such an effect as an action."
-      ],
-      "name": "Shape Water",
-      "time": [
-        {
-          "number": 1,
-          "unit": "action"
-        }
-      ],
-      "duration": [
-        {
-          "type": "instant"
-        }
-      ],
-      "source": "sns",
-      "subschools": [
-        "water"
-      ],
-      "level": 0,
-      "components": {
-        "v": false,
-        "s": true
-      },
-      "classes": {
-        "fromClassList": [
-          {
-            "name": "Druid",
-            "source": "PHB"
-          },
-          {
-            "name": "Sorcerer",
-            "source": "PHB"
-          },
-          {
-            "name": "Wizard",
-            "source": "PHB"
-          }
-        ]
-      },
-      "range": {
-        "type": "point",
-        "distance": {
-          "type": "feet",
-          "amount": 30
-        }
-      }
-    },
-    {
       "school": "C",
       "entries": [
         "You create a momentary circle of spectral blades that sweep around you. Make a reflex attack against all adjacent creatures that deals {@dice 1d6} force damage.",
@@ -31966,6 +30556,14 @@
             "source": "PHB"
           },
           {
+            "name": "Bard",
+            "source": "PHB"
+          },
+          {
+            "name": "Cleric",
+            "source": "PHB"
+          },
+          {
             "name": "Sorcerer",
             "source": "PHB"
           },
@@ -31987,71 +30585,6 @@
       }
     },
     {
-      "school": "V",
-      "entries": [
-        "You create a burst of thunderous sound that can be heard up to 100 feet away. Make a fortitude attack against each creature within range that deals {@dice 1d6} thunder damage.",
-        "This spell's damage increases by {@dice 1d6} when you reach 5th level ({@dice 2d6}), 11th level ({@dice 3d6}), and 17th level ({@dice 4d6})."
-      ],
-      "name": "Thunderclap",
-      "time": [
-        {
-          "number": 1,
-          "unit": "action"
-        }
-      ],
-      "duration": [
-        {
-          "type": "instant"
-        }
-      ],
-      "source": "sns",
-      "subschools": [
-        "area",
-        "spell",
-        "thunder"
-      ],
-      "level": 0,
-      "components": {
-        "v": false,
-        "s": true
-      },
-      "classes": {
-        "fromClassList": [
-          {
-            "name": "Artificer",
-            "source": "PHB"
-          },
-          {
-            "name": "Bard",
-            "source": "PHB"
-          },
-          {
-            "name": "Druid",
-            "source": "PHB"
-          },
-          {
-            "name": "Sorcerer",
-            "source": "PHB"
-          },
-          {
-            "name": "Warlock",
-            "source": "PHB"
-          },
-          {
-            "name": "Wizard",
-            "source": "PHB"
-          }
-        ]
-      },
-      "range": {
-        "type": "point",
-        "distance": {
-          "type": "feet",
-          "amount": 5
-        }
-      }
-    },
-    {
       "school": "N",
       "entries": [
         {
@@ -32061,8 +30594,8 @@
             "One creature"
           ]
         },
-        "You point at the target and the sound of a dolorous bell fills the air around it for the moment. Make a will attack against the target that deals {@dice 1d8} necrotic damage. If the target is missing any of its hit points, the attack instead deals {@dice 1d12} necrotic damage.",
-        "This spell's damage increases by one die when you reach 5th level ({@dice 2d8} or {@dice 2d12}), 11th level ({@dice 3d8} or {@dice 3d12}), and 17th level ({@dice 4d8} or {@dice 4d12})."
+        "You point at the target and the sound of a dolorous bell fills the air around it for the moment. Make a will attack against the target that deals {@dice 1d4} necrotic damage. If the target is bloodied, the attack instead deals {@dice 1d8} necrotic damage.",
+        "This spell's damage increases by one die when you reach 5th level ({@dice 2d4} or {@dice 2d8}), 11th level ({@dice 3d4} or {@dice 3d8}), and 17th level ({@dice 4d4} or {@dice 4d8})."
       ],
       "name": "Toll the Dead",
       "time": [
@@ -32108,54 +30641,6 @@
         "distance": {
           "type": "feet",
           "amount": 60
-        }
-      }
-    },
-    {
-      "school": "V",
-      "entries": [
-        "You utter a divine word, and burning radiance erupts from you. Make a fortitude attack against each creature of your choice within range that deals {@dice 1d6} radiant damage.",
-        "This spell's damage increases by {@dice 1d6} when you reach 5th level ({@dice 2d6}), 11th level ({@dice 3d6}), and 17th level ({@dice 4d6})."
-      ],
-      "name": "Word of Radiance",
-      "time": [
-        {
-          "number": 1,
-          "unit": "action"
-        }
-      ],
-      "duration": [
-        {
-          "type": "instant"
-        }
-      ],
-      "source": "sns",
-      "subschools": [
-        "area",
-        "spell",
-        "radiant"
-      ],
-      "level": 0,
-      "components": {
-        "v": true,
-        "s": false,
-        "m": {
-          "text": "a holy symbol"
-        }
-      },
-      "classes": {
-        "fromClassList": [
-          {
-            "name": "Cleric",
-            "source": "PHB"
-          }
-        ]
-      },
-      "range": {
-        "type": "point",
-        "distance": {
-          "type": "feet",
-          "amount": 5
         }
       }
     },
@@ -32760,7 +31245,7 @@
     {
       "school": "E",
       "entries": [
-        "You magically distract the triggering creature and turn its momentary uncertainty into encouragement for another creature. The triggering creature must reroll the {@dice d20} and use the lower roll.",
+        "You magically distract the triggering creature and turn its momentary uncertainty into encouragement for another creature. The triggering roll gains disadvantage.",
         "You can then choose a different creature within range. The chosen creature has advantage on the next attack roll, ability check, or save it makes within 1 minute. A creature can be empowered by only one use of this spell at a time."
       ],
       "name": "Silvery Barbs",
@@ -32768,7 +31253,7 @@
         {
           "number": 1,
           "unit": "reaction",
-          "condition": "which you take when a creature within range succeeds on an attack roll, an ability check, or a save"
+          "condition": "which you take when a creature within range is about to make an attack roll, ability check, or save"
         }
       ],
       "duration": [
@@ -38779,6 +37264,633 @@
         "distance": {
           "type": "feet",
           "amount": 90
+        }
+      }
+    },
+    {
+      "school": "V",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Target",
+          "entries": [
+            "One creature"
+          ]
+        },
+        "You charge your hand (or similar appendage) with thunderous power. Make an armour attack against the target that deals {@dice 1d10} thunder damage. On a hit, the target is also pushed 5 feet away from you.",
+        "This spell's damage increases by {@dice 1d10} when you reach 5th level ({@dice 2d10}), 11th level ({@dice 3d10}), and 17th level ({@dice 4d10})."
+      ],
+      "name": "Thunder Punch",
+      "time": [
+        {
+          "number": 1,
+          "unit": "action"
+        }
+      ],
+      "duration": [
+        {
+          "type": "instant"
+        }
+      ],
+      "source": "sns",
+      "subschools": [
+        "melee",
+        "spell",
+        "thunder",
+        "arcane"
+      ],
+      "level": 0,
+      "components": {
+        "v": true,
+        "s": true
+      },
+      "classes": {
+        "fromClassList": [
+          {
+            "name": "Bard",
+            "source": "PHB"
+          },
+          {
+            "name": "Herald",
+            "source": "PHB"
+          },
+          {
+            "name": "Sorcerer",
+            "source": "PHB"
+          },
+          {
+            "name": "Wizard",
+            "source": "PHB"
+          }
+        ]
+      },
+      "range": {
+        "type": "point",
+        "distance": {
+          "type": "touch"
+        }
+      }
+    },
+    {
+      "school": "I",
+      "entries": [
+        "An illusory duplicate of you steps clumsily into an unoccupied space within range, presenting a tempting target before winking out of existence.",
+        "Make a will attack against each creature of your choice for which the duplicate is within reach, with the following outcomes:",
+        {
+          "type": "list",
+          "items": [
+            {
+              "type": "item",
+              "name": "Minor success",
+              "entries": [
+                "The target is distracted by the duplicate, gaining disadvantage on attacks of opportunity until its next turn."
+              ]
+            },
+            {
+              "type": "item",
+              "name": "Standard success",
+              "entries": [
+                "The target wastes its reaction attempting to attack the duplicate."
+              ]
+            },
+            {
+              "type": "item",
+              "name": "Critical success",
+              "entries": [
+                "As standard success, but the target is also {@condition weakened|sns} for 1 round."
+              ]
+            }
+          ]
+        }
+      ],
+      "name": "Darting Duplicate",
+      "time": [
+        {
+          "number": 1,
+          "unit": "action"
+        }
+      ],
+      "duration": [
+        {
+          "type": "instant"
+        }
+      ],
+      "source": "sns",
+      "subschools": [
+        "arcane",
+        "chaos"
+      ],
+      "level": 0,
+      "components": {
+        "v": true,
+        "s": true
+      },
+      "classes": {
+        "fromClassList": [
+          {
+            "name": "Bard",
+            "source": "PHB"
+          },
+          {
+            "name": "Sorcerer",
+            "source": "PHB"
+          },
+          {
+            "name": "Wizard",
+            "source": "PHB"
+          }
+        ]
+      },
+      "range": {
+        "type": "point",
+        "distance": {
+          "amount": 5,
+          "type": "feet"
+        }
+      }
+    },
+    {
+      "school": "E",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Target",
+          "entries": [
+            "One willing creature"
+          ]
+        },
+        "You awaken the target's bloodlust, forcing it to use its reaction to make a melee weapon attack with disadvantage against a creature of your choice within its reach."
+      ],
+      "name": "Call to Feast",
+      "time": [
+        {
+          "number": 1,
+          "unit": "action"
+        }
+      ],
+      "duration": [
+        {
+          "type": "instant"
+        }
+      ],
+      "source": "sns",
+      "subschools": [
+        "compulsion",
+        "weaponry"
+      ],
+      "level": 0,
+      "components": {
+        "v": true,
+        "s": false
+      },
+      "classes": {
+        "fromClassList": [
+          {
+            "name": "Artificer",
+            "source": "PHB"
+          },
+          {
+            "name": "Bard",
+            "source": "PHB"
+          },
+          {
+            "name": "Druid",
+            "source": "PHB"
+          }
+        ]
+      },
+      "range": {
+        "type": "point",
+        "distance": {
+          "amount": 30,
+          "type": "feet"
+        }
+      }
+    },
+    {
+      "school": "E",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Target",
+          "entries": [
+            "One creature"
+          ]
+        },
+        "You affix the target with a putrefying gaze. Make a will attack against it with the following outcomes:",
+        {
+          "type": "list",
+          "items": [
+            {
+              "type": "item",
+              "name": "Minor success",
+              "entries": [
+                "The target suffers 1 ongoing necrotic harm until it passes a passive save. This passive save has disadvantage while the target is within your line of sight."
+              ]
+            },
+            {
+              "type": "item",
+              "name": "Standard success",
+              "entries": [
+                "As minor success, but the ongoing necrotic harm increases to {@dice 1d4}."
+              ]
+            },
+            {
+              "type": "item",
+              "name": "Critical success",
+              "entries": [
+                "As minor success, but the ongoing necrotic harm increases to {@dice 1d6}."
+              ]
+            }
+          ]
+        }
+      ],
+      "name": "Eye of Rot",
+      "time": [
+        {
+          "number": 1,
+          "unit": "action"
+        }
+      ],
+      "duration": [
+        {
+          "type": "timed",
+          "duration": {
+            "type": "minute",
+            "amount": 1,
+            "upTo": true
+          },
+          "concentration": true
+        }
+      ],
+      "source": "sns",
+      "subschools": [
+        "necrotic",
+        "harm",
+        "ranged",
+        "affliction"
+      ],
+      "level": 0,
+      "components": {
+        "v": true,
+        "s": true
+      },
+      "classes": {
+        "fromClassList": [
+          {
+            "name": "Bard",
+            "source": "PHB"
+          },
+          {
+            "name": "Sorcerer",
+            "source": "PHB"
+          },
+          {
+            "name": "Warlock",
+            "source": "PHB"
+          }
+        ]
+      },
+      "range": {
+        "type": "point",
+        "distance": {
+          "amount": 120,
+          "type": "feet"
+        }
+      }
+    },
+    {
+      "school": "T",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Target",
+          "entries": [
+            "One creature"
+          ]
+        },
+        "You fling a rock at the target. Make an armour attack dealing {@dice 1d6} bludgeoning damage. On a hit, the target is knocked {@condition prone|sns}.",
+        "This spell's damage increases by {@dice 1d6} when you reach 5th level ({@dice 2d6}), 11th level ({@dice 3d6}), and 17th level ({@dice 4d6})."
+      ],
+      "name": "Rock Slam",
+      "time": [
+        {
+          "number": 1,
+          "unit": "action"
+        }
+      ],
+      "duration": [
+        {
+          "type": "instant"
+        }
+      ],
+      "source": "sns",
+      "subschools": [
+        "bludgeoning",
+        "ranged",
+        "spell",
+        "earth"
+      ],
+      "level": 0,
+      "components": {
+        "v": true,
+        "s": true
+      },
+      "classes": {
+        "fromClassList": [
+          {
+            "name": "Druid",
+            "source": "PHB"
+          },
+          {
+            "name": "Cleric",
+            "source": "PHB"
+          },
+          {
+            "name": "Herald",
+            "source": "PHB"
+          },
+          {
+            "name": "Sorcerer",
+            "source": "PHB"
+          },
+          {
+            "name": "Wizard",
+            "source": "PHB"
+          }
+        ]
+      },
+      "range": {
+        "type": "point",
+        "distance": {
+          "amount": 120,
+          "type": "feet"
+        }
+      }
+    },
+    {
+      "school": "V",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Target",
+          "entries": [
+            "One creature that is neither a construct nor undead"
+          ]
+        },
+        "The target regains {@dice 1d4} hit points.",
+        "The hit points regained increase by {@dice 1d4} when you reach 5th level ({@dice 2d4}), 11th level ({@dice 3d4}), and 17th level ({@dice 4d4})."
+      ],
+      "name": "Tend Wounds",
+      "time": [
+        {
+          "number": 1,
+          "unit": "action"
+        }
+      ],
+      "duration": [
+        {
+          "type": "instant"
+        }
+      ],
+      "source": "sns",
+      "subschools": [
+        "divine",
+        "healing",
+        "nature"
+      ],
+      "level": 0,
+      "components": {
+        "v": true,
+        "s": true
+      },
+      "classes": {
+        "fromClassList": [
+          {
+            "name": "Artificer",
+            "source": "PHB"
+          },
+          {
+            "name": "Bard",
+            "source": "PHB"
+          },
+          {
+            "name": "Cleric",
+            "source": "PHB"
+          },
+          {
+            "name": "Druid",
+            "source": "PHB"
+          },
+          {
+            "name": "Herald",
+            "source": "PHB"
+          }
+        ]
+      },
+      "range": {
+        "type": "point",
+        "distance": {
+          "type": "touch"
+        }
+      }
+    },
+    {
+      "school": "C",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Area",
+          "entries": [
+            "Line 30 feet long and 5 feet wide"
+          ]
+        },
+        "Freezing arctic wind blasts out from you. Make a reflex attack against each creature in the area, dealing {@dice 1d4} cold damage.",
+        "This spell's damage increases by {@dice 1d4} when you reach 5th level ({@dice 2d4}), 11th level ({@dice 3d4}), and 17th level ({@dice 4d4})."
+      ],
+      "name": "Arctic Breath",
+      "time": [
+        {
+          "number": 1,
+          "unit": "action"
+        }
+      ],
+      "duration": [
+        {
+          "type": "instant"
+        }
+      ],
+      "source": "sns",
+      "subschools": [
+        "cold",
+        "area",
+        "spell",
+        "arcane"
+      ],
+      "level": 0,
+      "components": {
+        "v": true,
+        "s": true
+      },
+      "classes": {
+        "fromClassList": [
+          {
+            "name": "Druid",
+            "source": "PHB"
+          },
+          {
+            "name": "Sorcerer",
+            "source": "PHB"
+          },
+          {
+            "name": "Wizard",
+            "source": "PHB"
+          }
+        ]
+      },
+      "range": {
+        "type": "point",
+        "distance": {
+          "type": "self"
+        }
+      }
+    },
+    {
+      "school": "T",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Target",
+          "entries": [
+            "One creature"
+          ]
+        },
+        "Make an armour attack against the target with the following outcomes:",
+        {
+          "type": "list",
+          "items": [
+            {
+              "type": "item",
+              "name": "Minor success",
+              "entries": [
+                "The next armour attack roll made against the target before the end of your next turn has a +1 bonus."
+              ]
+            },
+            {
+              "type": "item",
+              "name": "Standard success",
+              "entries": [
+                "The target's armour is reduced by 1 for 1 round."
+              ]
+            },
+            {
+              "type": "item",
+              "name": "Major success",
+              "entries": [
+                "The target's armour is reduced by 1 until it takes a short or long rest."
+              ]
+            },
+            {
+              "type": "item",
+              "name": "Critical success",
+              "entries": [
+                "As major success, but the armour penalty increases to 2."
+              ]
+            }
+          ]
+        }
+      ],
+      "name": "Caustic Coating",
+      "time": [
+        {
+          "number": 1,
+          "unit": "action"
+        }
+      ],
+      "duration": [
+        {
+          "type": "instant"
+        }
+      ],
+      "source": "sns",
+      "subschools": [
+        "melee",
+        "arcane"
+      ],
+      "level": 0,
+      "components": {
+        "v": false,
+        "s": true
+      },
+      "classes": {
+        "fromClassList": [
+          {
+            "name": "Druid",
+            "source": "PHB"
+          }
+        ]
+      },
+      "range": {
+        "type": "point",
+        "distance": {
+          "type": "touch"
+        }
+      }
+    },
+    {
+      "school": "T",
+      "entries": [
+        "You channel fiery power to form draconic wings. Make a reflex attack against all creatures adjacent to you that deals 1 fire damage. Additionally, you gain 30 feet of flying speed until the end of your turn, after which the wings fade away.",
+        "This spell's damage increases by 1 when you reach 5th level (2), 11th level (3), and 17th level (4)."
+      ],
+      "name": "Dragon Surge",
+      "time": [
+        {
+          "number": 1,
+          "unit": "action"
+        }
+      ],
+      "duration": [
+        {
+          "type": "instant"
+        }
+      ],
+      "source": "sns",
+      "subschools": [
+        "area",
+        "spell",
+        "fire",
+        "movement"
+      ],
+      "level": 0,
+      "components": {
+        "v": true,
+        "s": true
+      },
+      "classes": {
+        "fromClassList": [
+          {
+            "name": "Herald",
+            "source": "PHB"
+          },
+          {
+            "name": "Sorcerer",
+            "source": "PHB"
+          },
+          {
+            "name": "Warlock",
+            "source": "PHB"
+          },
+          {
+            "name": "Wizard",
+            "source": "PHB"
+          }
+        ]
+      },
+      "range": {
+        "type": "point",
+        "distance": {
+          "type": "self"
         }
       }
     }

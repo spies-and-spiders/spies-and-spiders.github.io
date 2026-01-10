@@ -438,6 +438,10 @@
           "gainSubclassFeature": true
         },
         "Spellcasting|Sorcerer|sns|1|sns",
+        "Arcane Utilities|Sorcerer|sns|1|sns",
+        "Arcane Utilities (2)|Sorcerer|sns|5|sns",
+        "Arcane Utilities (3)|Sorcerer|sns|11|sns",
+        "Arcane Utilities (4)|Sorcerer|sns|17|sns",
         "Font of Magic|Sorcerer|sns|2|sns",
         "Manifestation|Sorcerer|sns|2|sns",
         "Latent Power|Sorcerer|sns|3|sns",
@@ -501,6 +505,46 @@
     }
   ],
   "classFeature": [
+    {
+      "name": "Arcane Utilities",
+      "source": "sns",
+      "className": "Sorcerer",
+      "classSource": "sns",
+      "level": 1,
+      "entries": [
+        "Also at 1st level, you learn certain capabilities based on your magical knowledge. You gain one {@filter Arcane Utility|optionalfeatures|feature type=au} now, and gain another at 5th, 11th, and 17th levels. You can only gain each utility once."
+      ]
+    },
+    {
+      "name": "Arcane Utilities (2)",
+      "source": "sns",
+      "className": "Sorcerer",
+      "classSource": "sns",
+      "level": 5,
+      "entries": [
+        "At 5th level, you gain a second {@filter Arcane Utility|optionalfeatures|feature type=au}."
+      ]
+    },
+    {
+      "name": "Arcane Utilities (3)",
+      "source": "sns",
+      "className": "Sorcerer",
+      "classSource": "sns",
+      "level": 11,
+      "entries": [
+        "At 11th level, you gain a third {@filter Arcane Utility|optionalfeatures|feature type=au}."
+      ]
+    },
+    {
+      "name": "Arcane Utilities (4)",
+      "source": "sns",
+      "className": "Sorcerer",
+      "classSource": "sns",
+      "level": 17,
+      "entries": [
+        "At 17th level, you gain a fourth {@filter Arcane Utility|optionalfeatures|feature type=au}."
+      ]
+    },
     {
       "name": "First Subclass Tier 1",
       "source": "sns",
