@@ -3818,7 +3818,14 @@
               "type": "item",
               "name": "Standard success",
               "entries": [
-                "You can choose one of the below effects to apply to the target."
+                "You can choose one of the below effects to apply to the target.",
+                {
+                  "items": [
+                    "Suppress the {@condition charmed|sns} and {@condition frightened|sns} conditions, though they resume when the spell ends (time spent suppressed counts against a condition's duration).",
+                    "Suppress hostile feelings towards creatures of your choice until the spell ends. This suppression ends if a target is attacked or sees its allies being attacked. Targets act normally when the spell ends. If the target missed at least one turn of combat while suppressed, they immediately take a turn when the spell ends. This does not affect initiative order."
+                  ],
+                  "type": "list"
+                }
               ]
             },
             {
@@ -3831,12 +3838,6 @@
           ]
         },
         {
-          "items": [
-            "Suppress the {@condition charmed|sns} and {@condition frightened|sns} conditions, though they resume when the spell ends (time spent suppressed counts against a condition's duration).",
-            "Suppress hostile feelings towards creatures of your choice until the spell ends. This suppression ends if a target is attacked or sees its allies being attacked. Targets act normally when the spell ends. If the target missed atleast one turn of combat while suppressed, they immediately take a turn when the spell ends. This does not affect initiative order."
-          ],
-          "type": "list"
-        },
         "If a target is willing, automatically use the standard success outcome against them without making an attack roll."
       ],
       "name": "Calm Emotions",
@@ -5827,7 +5828,7 @@
               "type": "item",
               "name": "Standard success",
               "entries": [
-                "You afflict the target with a disese chosen from the list below.",
+                "You afflict the target with a disease chosen from the list below.",
                 "The target must make a save at the end of each of its turns. After three failed saves, the disease lasts for the duration and the creature stops making saves, or after three successful saves, the creature recovers and the spell ends. A {@spell greater restoration|sns} spell or similar effect also ends the disease."
               ]
             },
@@ -10910,7 +10911,7 @@
           ]
         },
         "A fiery mote streaks to a point within range and explodes in a burst of flame. The fire spreads around corners and ignites unattended flammable objects.",
-        "Make a reflex attack agains each creature in the area that deals {@dice 5d8} fire damage.",
+        "Make a reflex attack against each creature in the area that deals {@dice 5d8} fire damage.",
         {
           "type": "entries",
           "name": "Rare",
@@ -13898,7 +13899,7 @@
           "type": "entries",
           "name": "Rare",
           "entries": [
-            "Ravjahani's Hallucinatory Domicile. The spell can affect manufactured structures. A crumbling and empty hut could be made to look as though it were fully furnished and well cared for, or a wellappointed room could be made to look empty."
+            "Ravjahani's Hallucinatory Domicile. The spell can affect manufactured structures. A crumbling and empty hut could be made to look as though it were fully furnished and well cared for, or a well appointed room could be made to look empty."
           ]
         }
       ],
@@ -15407,7 +15408,7 @@
           ]
         },
         "The target does not need sustenance or air, nor does it age. No divination spells of any sort can be used to reveal the target's location.",
-        "When cast, you must specify a condition that will cause the spell to end and release the target. This condition must be based on some observable action or quality and not related to mechanics like level, hitpoints, or class, and the DM must agree to it.",
+        "When cast, you must specify a condition that will cause the spell to end and release the target. This condition must be based on some observable action or quality and not related to mechanics like level, hit points, or class, and the DM must agree to it.",
         "A {@spell dispel magic|sns} only dispels an imprisonment if it is cast using a 9th-level spell slot and targets the prison or the material component used to create the prison.",
         "Each casting that uses the same spell effect is unique; repeated castings with the same effect free the prior occupant.",
         {
@@ -16357,7 +16358,7 @@
             "An object, creature, or location you name or describe"
           ]
         },
-        "You learn significant information about the target. This could range from the most up-todate research, lore forgotten in old tales, or even previously unknown information. The spell gives you additional, more detailed information if you already have some knowledge of the target. The spell will not return any information for items not of legendary renown.",
+        "You learn significant information about the target. This could range from the most up-to-date research, lore forgotten in old tales, or even previously unknown information. The spell gives you additional, more detailed information if you already have some knowledge of the target. The spell will not return any information for items not of legendary renown.",
         "The knowledge you gain is always true, but may be obscured by metaphor, poetic language, or verse.",
         "If you use the spell for a cursed tome, for instance, you may gain knowledge of the dire words spoken by its creator as they brought it into the world."
       ],
@@ -24500,7 +24501,7 @@
       "school": "V",
       "entries": [
         "You create a floating, incandescent weapon with an appearance of your choosing and use it to attack your enemies. On the round you cast it, a creature of your choice adjacent to the weapon suffers force harm equal to your spellcasting ability modifier.",
-        "As a bonus action on subsequent turns until the spell ends, you can move the weapon up to 20 feet and deal the damage to a creature adjacent to it.",
+        "As a bonus action on subsequent turns until the spell ends, you can move the weapon up to 20 feet and deal the harm to a creature adjacent to it.",
         {
           "type": "entries",
           "name": "Rare",
@@ -24521,7 +24522,7 @@
           "type": "entries",
           "name": "Cast at Higher Levels",
           "entries": [
-            "The damage increases by {@dice 1d4} for every two slot levels above 2nd."
+            "The harm increases by {@dice 1d4} for every two slot levels above 2nd."
           ]
         }
       ],
@@ -31877,7 +31878,7 @@
         {
           "type": "list",
           "items": [
-            "You instantaneously move or otherwise change the flow of the target as you direct, up to 5 feet in any direction. This movement doesn't haev enough force to cause damage.",
+            "You instantaneously move or otherwise change the flow of the target as you direct, up to 5 feet in any direction. This movement doesn't have enough force to cause damage.",
             "You cause the target to form into simple shapes and animate at your direction. This change lasts for 1 hour.",
             "You change the target's colour or opacity. The target must be changed in the same way throughout. This change lasts for 1 hour.",
             "You freeze the target, provided that there are no creatures in it. The target unfreezes in 1 hour."
@@ -36962,7 +36963,7 @@
         "A shimmering wall of bright light appears centred on a space you choose within range in your line of sight. The wall appears in any orientation you choose: horizontally, vertically, or diagonally. It can be free floating, or it can rest on a solid surface. The wall can be up to 60 feet long, 10 feet high, and 5 feet thick. The wall blocks line of sight, but creatures and objects can pass through it. It emits bright light out to 120 feet and dim light for an additional 120 feet.",
         "When the wall appears, make an area spell fortitude attack against each creature in its area that deals {@dice 3d12} radiant damage. On a hit, a target is {@condition blinded|sns} for 1 minute, or until it passes a passive save.",
         "A creature that ends its turn in the wall's area suffers {@dice 4d8} radiant harm.",
-        "Until the spell ends, you can use an action to launch a beam of radiance from the wall at one creature you can see wtihin 60 feet of it. Make a ranged spell armour attack that deals {@dice 4d8} radiant damage. After this attack, reduce the length of the wall by 10 feet. If the wall's length drops to 0 feet, the spell ends."
+        "Until the spell ends, you can use an action to launch a beam of radiance from the wall at one creature you can see within 60 feet of it. Make a ranged spell armour attack that deals {@dice 4d8} radiant damage. After this attack, reduce the length of the wall by 10 feet. If the wall's length drops to 0 feet, the spell ends."
       ],
       "name": "Wall of Light",
       "time": [
@@ -38291,7 +38292,7 @@
         "You make all decisions about the temple's appearance. The interior is enclosed by a floor, walls, and a roof, with one door granting access to the interior and as many windows as you wish. Only you and any creatures you designate when you cast the spell can open or close the door.",
         "The temple's interior is an open space with an idol or altar at one end. You decide whether the temple is illuminated and whether that illumination is bright light or dim light. The smell of burning incense fills the air within, and the temperature is mild.",
         "The temple opposes types of creatures you choose when you cast this spell. Choose one or more of the following: celestials, elementals, fey, fiends, or undead. If a creature of the chosen type attempts to enter the temple, that creature must make a save. On a failed save, it can't enter the temple for 24 hours. Even if the creature can enter the temple, the magic there hinders it; whenever it makes an attack roll, ability check, or save inside the temple, it must roll a {@dice d4} and subtract the number rolled from the {@dice d20} roll.",
-        "In addition, the snesors created by divination spells can't apepar inside the temple, and creatures within can't be targeted by divination spells.",
+        "In addition, the sensors created by divination spells can't appear inside the temple, and creatures within can't be targeted by divination spells.",
         "Finally, whenever any creature inside the temple regains hit points from a spell of 1st level or higher, the creature regains additional hit points equal to your Wisdom modifier plus your proficiency bonus.",
         "The temple is made from opaque magical force that extends into the Ethereal Plane, thus blocking ethereal travel into the temple's interior. Nothing can physically pass through the temple's exterior. It can't be dispelled by {@spell dispel magic|sns}, and {spell antimagic field|sns} has no effect on it. A {@spell disintegrate|sns} spell destroys the temple instantly.",
         "Casting this spell on the same spot every day for a year makes this effect permanent."
