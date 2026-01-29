@@ -3624,7 +3624,14 @@
               "type": "item",
               "name": "Standard success",
               "entries": [
-                "You can choose one of the below effects to apply to the target."
+                "You can choose one of the below effects to apply to the target.",
+                {
+                  "items": [
+                    "Suppress the {@condition charmed|sns} and {@condition frightened|sns} conditions, though they resume when the spell ends (time spent suppressed counts against a condition's duration).",
+                    "Suppress hostile feelings towards creatures of your choice until the spell ends. This suppression ends if a target is attacked or sees its allies being attacked. Targets act normally when the spell ends. If the target missed atleast one turn of combat while suppressed, they immediately take a turn when the spell ends. This does not affect initiative order."
+                  ],
+                  "type": "list"
+                }
               ]
             },
             {
@@ -3635,13 +3642,6 @@
               ]
             }
           ]
-        },
-        {
-          "items": [
-            "Suppress the {@condition charmed|sns} and {@condition frightened|sns} conditions, though they resume when the spell ends (time spent suppressed counts against a condition's duration).",
-            "Suppress hostile feelings towards creatures of your choice until the spell ends. This suppression ends if a target is attacked or sees its allies being attacked. Targets act normally when the spell ends. If the target missed atleast one turn of combat while suppressed, they immediately take a turn when the spell ends. This does not affect initiative order."
-          ],
-          "type": "list"
         },
         "If a target is willing, automatically use the standard success outcome against them without making an attack roll."
       ],
