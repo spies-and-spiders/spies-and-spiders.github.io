@@ -122,21 +122,7 @@
             "Creature or object"
           ]
         },
-        "A jet of acid streaks towards the target like a hissing, green arrow. Make an armour attack that deals {@dice 2d10} acid damage and on a hit, causes {@dice 2d4} ongoing acid harm for 1 round.",
-        {
-          "type": "entries",
-          "name": "Rare",
-          "entries": [
-            "Gabal's Blinding Acid Arrow. The arrow flies to the target's sensory organs seeking to damage its sight. If the spell's attack scores a major success, the target is {@condition blinded|sns} until the end of its next turn."
-          ]
-        },
-        {
-          "type": "entries",
-          "name": "Rare",
-          "entries": [
-            "Kreven's Insidious Acid Arrow. The acid stinks and disorients as it burns. If the spell's attack scores a major success, the target is {@condition poisoned|sns} until the end of its next turn."
-          ]
-        }
+        "A jet of acid streaks towards the target like a hissing, green arrow. Make a ranged armour attack that deals {@dice 2d10} acid damage and on a hit, causes {@dice 2d4} ongoing acid harm for 1 round."
       ],
       "name": "Acid Arrow",
       "time": [
@@ -207,7 +193,7 @@
             "5-foot-radius sphere"
           ]
         },
-        "You create an acidic bubble centred on a point within range. Make a reflex attack against each creature within the area, dealing {@dice 1d4} acid damage.",
+        "You create an acidic bubble centred on a point within range. Make an area reflex attack against each creature within the area, dealing {@dice 1d4} acid damage.",
         "This spell's damage increases by {@dice 1d4} when you reach 5th level ({@dice 2d4}), 11th level ({@dice 3d4}), and 17th level ({@dice 4d4})."
       ],
       "name": "Acid Splash",
@@ -362,14 +348,7 @@
             "One creature"
           ]
         },
-        "Your deft weapon swing sends a wave of cutting air to assault a creature within range. Make a melee weapon attack against the target. If you are wielding one weapon in each hand, your attack deals an additional {@dice 1d6} damage. Regardless of the weapon you are wielding, your attack deals slashing damage.",
-        {
-          "type": "entries",
-          "name": "Rare",
-          "entries": [
-            "Aurana's Rapid Air Wave. If you have the Empowered Attack feature, this spell benefits from one instance of it."
-          ]
-        }
+        "Your deft weapon swing sends a wave of cutting air to assault a creature within range. Make a melee weapon attack against the target. If you are wielding one weapon in each hand, your attack deals an additional {@dice 1d6} damage. Regardless of the weapon you are wielding, your attack deals slashing damage."
       ],
       "name": "Air Wave",
       "time": [
@@ -721,7 +700,7 @@
             "Beast that you can see that is able to hear you and has Intelligence 3 or less"
           ]
         },
-        "You allow your inner beauty to shine through in song and dance whether to call a bird from its tree or a badger from its sett. Make a will attack against the target, with the following outcomes:",
+        "You allow your inner beauty to shine through in song and dance whether to call a bird from its tree or a badger from its sett. Make a ranged will attack against the target, with the following outcomes:",
         {
           "type": "list",
           "items": [
@@ -746,13 +725,6 @@
                 "As standard success, but the target is also {@condition dominated|sns}."
               ]
             }
-          ]
-        },
-        {
-          "type": "entries",
-          "name": "Rare",
-          "entries": [
-            "Sidoneth's Lasting Animal Friendship. So long as the target has a CR equal to or less than half your proficiency bonus, the spell's duration becomes permanent until it is dispelled or you cast this spell again."
           ]
         }
       ],
@@ -1668,7 +1640,7 @@
     {
       "school": "T",
       "entries": [
-        "Your muscles swell with arcane power. They're too clumsy to effectively wield weapons but certainly strong enough for a powerful punch. Until the spell ends, you can choose to use your spellcasting ability score for Athletics and Brawn checks, and for the governing ability of unarmed strikes. In addition, your unarmed strikes deal {@dice 1d6} bludgeoning damage, they ignore resistance and immunity to bludgeoning damage, and whenever you hit with them, you can trigger a basic maneuver's effects.",
+        "Your muscles swell with arcane power. They're too clumsy to effectively wield weapons but certainly strong enough for a powerful punch. Until the spell ends, you can choose to use your spellcasting ability score for Athletics and Brawn checks, and for the governing ability of unarmed strikes. In addition, your unarmed strikes deal {@dice 1d6} bludgeoning damage, they ignore resistance and immunity to bludgeoning damage, and whenever you make them alongside a basic maneuver, you gain a +2 bonus to the attack roll.",
         "The damage this spell grants your unarmed attacks increases by {@dice 1d6} when you reach 5th level ({@dice 2d6}), 11th level ({@dice 3d6}), and 17th level ({@dice 4d6})."
       ],
       "name": "Arcane Muscles",
@@ -1739,14 +1711,7 @@
     {
       "school": "V",
       "entries": [
-        "You respond to an incoming attack with a magically-infused attack of your own. Make an armour attack against the creature that attacked you that deals {@dice 3d6} acid, cold, fire, lightning, poison, or thunder damage.",
-        {
-          "type": "entries",
-          "name": "Rare",
-          "entries": [
-            "Kasvarina's Unsettling Arcane Riposte. When you deal 10 or more damage, the target is {@condition rattled|sns} until the end of your next turn."
-          ]
-        }
+        "You respond to an incoming attack with a magically-infused attack of your own. Make a melee armour attack against the creature that attacked you that deals {@dice 3d6} acid, cold, fire, lightning, poison, or thunder damage."
       ],
       "name": "Arcane Riposte",
       "time": [
@@ -2259,7 +2224,7 @@
             "Up to three creatures"
           ]
         },
-        "The senses of the targets are filled with phantom energies that make them more vulnerable and less capable. Make a will attack against the targets with the following outcomes:",
+        "The senses of the targets are filled with phantom energies that make them more vulnerable and less capable. Make a ranged will attack against the targets with the following outcomes:",
         {
           "type": "list",
           "items": [
@@ -2284,20 +2249,6 @@
                 "As standard success, but the die changes to a {@dice d6}."
               ]
             }
-          ]
-        },
-        {
-          "type": "entries",
-          "name": "Rare",
-          "entries": [
-            "Beshala's Unnerving Bane. Targets affected by this spell are {@condition rattled|sns}."
-          ]
-        },
-        {
-          "type": "entries",
-          "name": "Rare",
-          "entries": [
-            "Kreven's Tormenting Bane. The next attack that can cause the {@condition frightened|sns} condition against a target affected by this spell has advantage."
           ]
         }
       ],
@@ -2372,7 +2323,7 @@
             "One creature"
           ]
         },
-        "You employ sheer force of will to make reality question the existence of a nearby creature, causing them to warp visibly in front of you. Make a will attack against the target with the following outcomes:",
+        "You employ sheer force of will to make reality question the existence of a nearby creature, causing them to warp visibly in front of you. Make a ranged will attack against the target with the following outcomes:",
         {
           "type": "list",
           "items": [
@@ -2398,13 +2349,6 @@
                 "As standard success, but if the target returns early, it is {@condition debilitated|sns} for the remainder of the spell's duration."
               ]
             }
-          ]
-        },
-        {
-          "type": "entries",
-          "name": "Rare",
-          "entries": [
-            "Komanov's Icy Displeasure. Until the spell ends, the target is vulnerable to cold damage and it has disadvantage on ability checks and armour attack rolls."
           ]
         }
       ],
@@ -2688,7 +2632,7 @@
           ],
           "type": "entries"
         },
-        "Make a will attack against the target with the following outcomes:",
+        "Make a melee will attack against the target with the following outcomes:",
         {
           "type": "list",
           "items": [
@@ -2725,15 +2669,7 @@
           ],
           "type": "list"
         },
-        "A {@spell remove curse|sns} spell ends the spell if the spell slot used to cast it is equal to or greater than the spell slot used to cast bestow curse.",
-        {
-          "name": "Rare",
-          "entries": [
-            "Beshela's Enduring Bestow Curse. The spell's duration is permanent, it no longer requires your concentration, and the curse cannot be dispelled.",
-            "The curse is only removed when a specific condition is met such as absorbing the scale of a red dragon, ingesting ambrosia, swimming in a mythical waterway, or performing an act of supreme heroism."
-          ],
-          "type": "entries"
-        }
+        "A {@spell remove curse|sns} spell ends the spell if the spell slot used to cast it is equal to or greater than the spell slot used to cast bestow curse."
       ],
       "name": "Bestow Curse",
       "time": [
@@ -3041,7 +2977,7 @@
             "One creature or plant"
           ]
         },
-        "Necrotic energies drain moisture and vitality from the target. Make a fortitude attack against the target that deals {@dice 9d8} necrotic damage. Undead and constructs are immune to this spell.",
+        "Necrotic energies drain moisture and vitality from the target. Make a ranged fortitude attack against the target that deals {@dice 9d8} necrotic damage. Undead and constructs are immune to this spell.",
         "The attack has advantage against a plant creature or magical plant and deals the maximum damage possible from this spell. A nonmagical plant targeted does not require an attack rolls and instead automatically withers until dead."
       ],
       "name": "Blight",
@@ -3121,7 +3057,7 @@
             "One creature"
           ]
         },
-        "Make a fortitude attack against the target with the following outcomes:",
+        "Make a ranged fortitude attack against the target with the following outcomes:",
         {
           "type": "list",
           "items": [
@@ -3433,14 +3369,7 @@
             "15-foot cone"
           ]
         },
-        "A thin sheet of flames shoots forth from your outstretched hands. Make a reflex attack against each creature in the area dealing {@dice 3d6} fire damage. The fire ignites any flammable unattended objects in the area.",
-        {
-          "type": "entries",
-          "name": "Rare",
-          "entries": [
-            "Gabal's Inverted Burning Hands. The spell deals cold damage instead of fire damage, the attack is a fortitude attack instead of a reflex attack, and the area becomes difficult terrain for 1 minute as it is covered in hoarfrost."
-          ]
-        }
+        "A thin sheet of flames shoots forth from your outstretched hands. Make an area reflex attack against each creature in the area dealing {@dice 3d6} fire damage. The fire ignites any flammable unattended objects in the area."
       ],
       "name": "Burning Hands",
       "time": [
@@ -3680,7 +3609,7 @@
           ],
           "type": "entries"
         },
-        "Strong and harmful emotions are suppressed within the area. Make a will attack against each unwilling target with the following outcomes:",
+        "Strong and harmful emotions are suppressed within the area. Make a ranged will attack against each unwilling target with the following outcomes:",
         {
           "type": "list",
           "items": [
@@ -3852,7 +3781,7 @@
             "One creature or object (primary) and up to three additional"
           ]
         },
-        "You fire a bolt of electricity at the primary target. Make a reflex attack against it that deals {@dice 9d10} lightning damage. Electricity arcs to up to 3 additional targets you choose that are within 30 feet of the primary target, and you also make the same attack against each of them. These additional targets must have line of sight from the primary target."
+        "You fire a bolt of electricity at the primary target. Make a ranged reflex attack against it that deals {@dice 9d10} lightning damage. Electricity arcs to up to 3 additional targets you choose that are within 30 feet of the primary target, and you also make the same attack against each of them. These additional targets must have line of sight from the primary target."
       ],
       "name": "Chain Lightning",
       "time": [
@@ -3924,7 +3853,7 @@
             "One creature"
           ]
         },
-        "You do not require line of sight to the target and this spell's attack against it has disadvantage if you or your companions are fighting it. Make a will attack against the target with the following outcomes:",
+        "You do not require line of sight to the target and this spell's attack against it has disadvantage if you or your companions are fighting it. Make a ranged will attack against the target with the following outcomes:",
         {
           "type": "list",
           "items": [
@@ -4033,7 +3962,7 @@
             "One humanoid"
           ]
         },
-        "You do not need line of sight to the target so long as they can sense you. Make a will attack against the target, which has disadvantage if you or your companions are fighting the target. The attack has the following outcomes:",
+        "You do not need line of sight to the target so long as they can sense you. Make a ranged will attack against the target, which has disadvantage if you or your companions are fighting the target. The attack has the following outcomes:",
         {
           "type": "list",
           "items": [
@@ -4142,8 +4071,8 @@
             "One creature"
           ]
         },
-        "Channeling the chill of the grave, make an armour attack against the target that deals {@dice 1d10} necrotic damage. On a hit, the target cannot regain hit points until the end of your next turn.",
-        "The spell's damage increases by {@dice 1d10} when you reach 5th level ({@dice 2d10}), 11th level ({@dice 3d10}), and 17th level ({@dice 4d10})."
+        "Channeling the chill of the grave, make a melee armour attack against the target that deals {@dice 1d8} necrotic damage. On a hit, the target cannot regain hit points until the end of your next turn and you immediately recover 1 hit point.",
+        "The spell's damage and healing increase by {@dice 1d8} and 1 respectively when you reach 5th level ({@dice 2d8} and 2), 11th level ({@dice 3d8} and 3), and 17th level ({@dice 4d8} and 4)."
       ],
       "name": "Chill Touch",
       "time": [
@@ -4167,7 +4096,8 @@
         "attack",
         "necrotic",
         "melee",
-        "spell"
+        "spell",
+        "healing"
       ],
       "level": 0,
       "components": {
@@ -4212,14 +4142,7 @@
           ]
         },
         "A sphere of negative energy sucks life from the area.",
-        "Make a fortitude attack against each creature in the area that deals {@dice 10d6} necrotic damage.",
-        {
-          "type": "entries",
-          "name": "Rare",
-          "entries": [
-            "Roav's Reanimating Circle of Death. Creatures killed by this spell rise as {@creature zombie|sns|zombies} at the start of your next turn. These zombies have 1 hit point, they are not under your control, and they attack the nearest living creature."
-          ]
-        }
+        "Make an area fortitude attack against each creature in the area that deals {@dice 10d6} necrotic damage."
       ],
       "name": "Circle of Death",
       "time": [
@@ -4665,7 +4588,7 @@
             "One creature"
           ]
         },
-        "This spell does not require line of sight so long as the target can sense you. Make a will attack against the target, with the following outcomes:",
+        "This spell does not require line of sight so long as the target can sense you. Make a ranged will attack against the target, with the following outcomes:",
         {
           "type": "list",
           "items": [
@@ -4974,14 +4897,7 @@
             "60-foot cone"
           ]
         },
-        "Frigid cold blasts from your hands. Make a fortitude attack against each creature in the area that deals {@dice 9d8} cold damage. Creatures killed by this spell become frozen statues until they thaw.",
-        {
-          "type": "entries",
-          "name": "Rare",
-          "entries": [
-            "Soliogn's Cubed Cone of Cold. The spell's area becomes a 30-foot cube. Any buildings or structures entirely in the area take double damage."
-          ]
-        }
+        "Frigid cold blasts from your hands. Make an area fortitude attack against each creature in the area that deals {@dice 9d8} cold damage. Creatures killed by this spell become frozen statues until they thaw."
       ],
       "name": "Cone of Cold",
       "time": [
@@ -5056,7 +4972,7 @@
             "10-foot radius sphere"
           ]
         },
-        "You assault the minds of your targets, filling them with delusions. Make a will attack against each target with the following outcomes:",
+        "You assault the minds of your targets, filling them with delusions. Make an area will attack against each target with the following outcomes:",
         {
           "type": "list",
           "items": [
@@ -5631,7 +5547,7 @@
             "One creature"
           ]
         },
-        "Your touch inflicts a hideous disease. Make an armour attack with the following outcomes:",
+        "Your touch inflicts a hideous disease. Make a melee armour attack with the following outcomes:",
         {
           "type": "list",
           "items": [
@@ -6066,7 +5982,7 @@
             "One corpse within range"
           ]
         },
-        "A corpse explodes in a poisonous cloud. Make a fortitude attack against each creature in a 10-foot radius of the corpse that deals {@dice 2d10} thunder damage. On a hit, a creature is {@condition poisoned|sns} for 1 minute, or until it passes a passive save."
+        "A corpse explodes in a poisonous cloud. Make an area fortitude attack against each creature in a 10-foot radius of the corpse that deals {@dice 2d10} thunder damage. On a hit, a creature is {@condition poisoned|sns} for 1 minute, or until it passes a passive save."
       ],
       "name": "Corpse Explosion",
       "time": [
@@ -6507,7 +6423,7 @@
     {
       "school": "V",
       "entries": [
-        "Your fist reverberates with destructive energy, and woe betide whatever it strikes. As part of casting the spell, make an armour attack against an adjacent creature or object that deals {@dice 7d6} thunder damage. On a major success, the target is knocked {@condition prone|sns} and {@condition debilitated|sns} until the end of its next turn. This spell's damage is doubled against objects and structures."
+        "Your fist reverberates with destructive energy, and woe betide whatever it strikes. As part of casting the spell, make a melee armour attack against an adjacent creature or object that deals {@dice 7d6} thunder damage. On a major success, the target is knocked {@condition prone|sns} and {@condition debilitated|sns} until the end of its next turn. This spell's damage is doubled against objects and structures."
       ],
       "name": "Crushing Haymaker",
       "time": [
@@ -6961,7 +6877,7 @@
           ]
         },
         "The target object's weight is greatly increased.",
-        "If a creature is holding the object, make a fortitude attack against it with the following outcomes:",
+        "If a creature is holding the object, make a melee fortitude attack against it with the following outcomes:",
         {
           "type": "list",
           "items": [
@@ -7118,7 +7034,7 @@
             "20-foot radius sphere"
           ]
         },
-        "A glowing bead of yellow light flies from your finger and lingers at a point at the center of the area until you end the spell — either because your concentration is broken or because you choose to end it — and the bead detonates. Make a reflex attack against each creature in the area that deals {@dice 7d12} fire damage. If at the end of your turn the bead has not yet detonated, the damage increases by {@dice 1d12}.",
+        "A glowing bead of yellow light flies from your finger and lingers at a point at the center of the area until you end the spell — either because your concentration is broken or because you choose to end it — and the bead detonates. Make an area reflex attack against each creature in the area that deals {@dice 7d12} fire damage. If at the end of your turn the bead has not yet detonated, the damage increases by {@dice 1d12}.",
         "If touched before the spell ends, the creature touching the bead makes a save or the bead detonates. On a successful save, the creature can use an action to throw the bead up to 40 feet, moving the area with it. If the bead strikes a creature or solid object, the bead detonates.",
         "The fire spreads around corners, and it damages and ignites any flammable unattended objects in the area."
       ],
@@ -7492,7 +7408,7 @@
             "Self"
           ]
         },
-        "On the round you cast it, and as an action on subsequent turns until the spell ends, you can probe the mind of a creature within range that speaks at least one language with an Intelligence score of at least 4 to read its thoughts. Make a will attack against the creature with the following outcomes:",
+        "On the round you cast it, and as an action on subsequent turns until the spell ends, you can probe the mind of a creature within range that speaks at least one language with an Intelligence score of at least 4 to read its thoughts. Make a ranged will attack against the creature with the following outcomes:",
         {
           "type": "list",
           "items": [
@@ -7526,7 +7442,7 @@
             }
           ]
         },
-        "Once you have successfully read a creature's surface thoughts, you can use an action to probe deeper into its mind. You make another will attack against the creature with the following outcomes:",
+        "Once you have successfully read a creature's surface thoughts, you can use an action to probe deeper into its mind. You make another ranged will attack against the creature with the following outcomes:",
         {
           "type": "list",
           "items": [
@@ -7562,14 +7478,7 @@
         },
         "Additionally, you can use an action to scan for thinking creatures within range that you can't see.",
         "Once you detect the presence of a thinking creature, so long as it remains within range you can attempt to read its thoughts as described above (even if you don't have line of sight to it).",
-        "The spell penetrates most barriers but is blocked by 2 feet of stone, 2 inches of common metal, or a thin sheet of lead.",
-        {
-          "type": "entries",
-          "name": "Rare",
-          "entries": [
-            "Diogenes' Specific Detect Thoughts. You can scan the thoughts of all creatures within range and locate one creature currently thinking about a single subject you choose when you cast the spell. You can read its thoughts as described in the spell's description. This spell does not reveal the creature having these thoughts, and until you determine which creature it is you cannot shape the course of its thoughts so the information you receive may be limited."
-          ]
-        }
+        "The spell penetrates most barriers but is blocked by 2 feet of stone, 2 inches of common metal, or a thin sheet of lead."
       ],
       "name": "Detect Thoughts",
       "time": [
@@ -7779,7 +7688,7 @@
           ]
         },
         "A pale ray emanates from your pointed finger to the target as you attempt to undo it.",
-        "Make a reflex attack against the target that deals {@dice 10d6} + 40 force damage. A creature reduced to 0 hit points is obliterated, leaving behind nothing but fine dust, along with anything it was wearing or carrying (except magic items).",
+        "Make a ranged reflex attack against the target that deals {@dice 10d6} + 40 force damage. A creature reduced to 0 hit points is obliterated, leaving behind nothing but fine dust, along with anything it was wearing or carrying (except magic items).",
         "This spell automatically disintegrates nonmagical objects and creations of magical force that are Large-sized or smaller.",
         "Larger objects and creations of magical force have a 10-foot-cube portion disintegrated instead.",
         "Magic items are unaffected."
@@ -8483,16 +8392,9 @@
             "One creature"
           ]
         },
-        "You frighten the target by echoing its movements with ominous music and terrifying sound effects. Make a will attack against the target that deals {@dice 1d4} psychic damage. On a hit, the target becomes {@condition frightened|sns} until either the spell ends or it passes a passive save.",
+        "You frighten the target by echoing its movements with ominous music and terrifying sound effects. Make a ranged will attack against the target that deals {@dice 1d4} psychic damage. On a hit, the target becomes {@condition frightened|sns} until either the spell ends or it passes a passive save.",
         "Whenever the target fails its passive save to end the fear, it suffers {@dice 1d4} psychic harm.",
-        "You cannot cast another spell requiring a material component while concentrating on this spell.",
-        {
-          "type": "entries",
-          "name": "Rare",
-          "entries": [
-            "Koren's Subtle Dramatic Sting. When you cast this spell, make a Performance check opposed by the target's Perception check. On a success, the target is affected by the spell but does not realize it is being targeted by a spell. Each round at the start of its turn, the target gains an expertise die on a Perception check made against the result of your Performance check to realize it has been targeted by a spell."
-          ]
-        }
+        "You cannot cast another spell requiring a material component while concentrating on this spell."
       ],
       "name": "Dramatic Sting",
       "time": [
@@ -8569,7 +8471,7 @@
         },
         "Until the spell ends, you manipulate the dreams of another creature. You designate a messenger, which may be you or a willing creature you touch, to enter a trance. The messenger remains aware of its surroundings while in the trance but cannot take actions or move.",
         "If the target is sleeping the messenger appears in its dreams and can converse with the target as long as it remains asleep and the spell remains active. The messenger can also manipulate the dream, creating objects, landscapes, and various other sensory sensations. The messenger can choose to end the trance at any time, ending the spell. The target remembers the dream in perfect detail when it wakes. The messenger knows if the target is awake when you cast the spell and can either end the trance (and the spell) or wait for the target to fall asleep, at which point the spell works as described.",
-        "You can choose to let the messenger terrorize the target. The messenger can deliver a message of 10 words or fewer and you make a will attack against the target. This attack has advantage if you have a portion of the target's body (some hair or a drop of blood). The attack has the following outcomes:",
+        "You can choose to let the messenger terrorize the target. The messenger can deliver a message of 10 words or fewer and you make a ranged will attack against the target. This attack has advantage if you have a portion of the target's body (some hair or a drop of blood). The attack has the following outcomes:",
         {
           "type": "list",
           "items": [
@@ -8596,14 +8498,7 @@
             }
           ]
         },
-        "Creatures that don't sleep or don't dream (such as elves) cannot be contacted by this spell.",
-        {
-          "type": "entries",
-          "name": "Rare",
-          "entries": [
-            "Aurana's Terrible Dream. When you choose to terrorize a target, the attack's success tier is increased by 1. You may also convey a message of up to 25 words as part of terrorizing it (rather than 10 words)."
-          ]
-        }
+        "Creatures that don't sleep or don't dream (such as elves) cannot be contacted by this spell."
       ],
       "name": "Dream",
       "time": [
@@ -9021,7 +8916,7 @@
             "One creature or object that is not being worn or carried within range"
           ]
         },
-        "You cause the target to grow or shrink. If the target is unwilling, you must make a fortitude attack against them with the following outcomes.",
+        "You cause the target to grow or shrink. If the target is unwilling, you must make a ranged fortitude attack against them with the following outcomes.",
         {
           "type": "list",
           "items": [
@@ -9231,7 +9126,7 @@
             "20-foot square centered on the target"
           ]
         },
-        "Constraining plants erupt from the ground in the spell's area, wrapping vines and tendrils around creatures. Until the spell ends, the area is difficult terrain. When you cast the spell, make a fortitude attack against all creatures in the area, with the following outcomes:",
+        "Constraining plants erupt from the ground in the spell's area, wrapping vines and tendrils around creatures. Until the spell ends, the area is difficult terrain. When you cast the spell, make an area fortitude attack against all creatures in the area, with the following outcomes:",
         {
           "type": "list",
           "items": [
@@ -9319,7 +9214,7 @@
             "Any number of creatures you choose within range"
           ]
         },
-        "You weave a compelling stream of words that captivates your targets. Make a will attack against each target, automatically scoring a critical failure against any target that can't be {@condition charmed|sns}. You have disadvantage on the attack against targets fighting you or creatures friendly to you. The attack has the following outcomes:",
+        "You weave a compelling stream of words that captivates your targets. Make an area will attack against each target, automatically scoring a critical failure against any target that can't be {@condition charmed|sns}. You have disadvantage on the attack against targets fighting you or creatures friendly to you. The attack has the following outcomes:",
         {
           "type": "list",
           "items": [
@@ -9546,7 +9441,7 @@
     {
       "school": "N",
       "entries": [
-        "Your eyes become an inky void imbued with fell power. Make a will attack against one creature of your choice within 60 feet of you with the following outcomes:",
+        "Your eyes become an inky void imbued with fell power. Make a ranged will attack against one creature of your choice within 60 feet of you with the following outcomes:",
         {
           "type": "list",
           "items": [
@@ -9600,13 +9495,6 @@
                 "The target has disadvantage on armour attack rolls and ability checks. It can end this effect by passing a passive save."
               ]
             }
-          ]
-        },
-        {
-          "type": "entries",
-          "name": "Rare",
-          "entries": [
-            "Beshela's Devious Eyebite. Your eyes glow with a soft purple light. You gain an additional option: The target is {@condition charmed|sns}. On each of its turns while it is {@condition charmed|sns}, you may beckon it (no action required) to force the target to move closer to you by the shortest, safest route."
           ]
         }
       ],
@@ -9990,7 +9878,7 @@
             "30-foot cone"
           ]
         },
-        "You project a phantasmal image into the minds of each creature in the area showing them what they fear most. Make a will attack against each of them with the following outcomes:",
+        "You project a phantasmal image into the minds of each creature in the area showing them what they fear most. Make an area will attack against each of them with the following outcomes:",
         {
           "type": "list",
           "items": [
@@ -10016,13 +9904,6 @@
                 "As standard success, but the target is also {@condition debilitated|sns}."
               ]
             }
-          ]
-        },
-        {
-          "type": "entries",
-          "name": "Rare",
-          "entries": [
-            "Aurana's Feast of Fear. The spell affects every creature within 30 feet of you. When you first cast the spell and again at the start of each of your turns, you gain temporary hit points equal to double the number of {@condition frightened|sns} creatures within 30 feet of you."
           ]
         }
       ],
@@ -10179,7 +10060,7 @@
           ]
         },
         "You blast the target's mind, attempting to crush its intellect and sense of self. The target suffers {@dice 4d6} psychic harm.",
-        "Then, make a will attack against the target with the following outcomes:",
+        "Then, make a ranged will attack against the target with the following outcomes:",
         {
           "type": "list",
           "items": [
@@ -10526,15 +10407,7 @@
             "One creature"
           ]
         },
-        "Negative energy wracks the target. Make a fortitude attack against the target that deals {@dice 10d6} + 33 necrotic damage. A humanoid killed by this spell turns into a {@creature zombie|sns} at the start of your next turn. It is permanently under your control and follows your spoken commands.",
-        {
-          "type": "entries",
-          "name": "Rare",
-          "entries": [
-            "Cyneburg's Shadowed Finger of Death. This spell's duration is 1 hour. You can store the spell harmlessly on a willing creature, causing an inky stain to appear on its finger. That creature can make a melee weapon or spell armour attack to deliver the spell to a target, replacing its usual fortitude attack.",
-            "The spell ends once the attack has been made."
-          ]
-        }
+        "Negative energy wracks the target. Make a ranged fortitude attack against the target that deals {@dice 10d6} + 33 necrotic damage. A humanoid killed by this spell turns into a {@creature zombie|sns} at the start of your next turn. It is permanently under your control and follows your spoken commands."
       ],
       "name": "Finger of Death",
       "time": [
@@ -10609,22 +10482,7 @@
           ]
         },
         "A fiery mote streaks to a point within range and explodes in a burst of flame. The fire spreads around corners and ignites unattended flammable objects.",
-        "Make a reflex attack agains each creature in the area that deals {@dice 5d8} fire damage.",
-        {
-          "type": "entries",
-          "name": "Rare",
-          "entries": [
-            "Katrina's Improved Fireball. The fireball deals {@dice 7d8} fire damage."
-          ]
-        },
-        {
-          "type": "entries",
-          "name": "Rare",
-          "entries": [
-            "Ravjahani's Shadow Fireball. This spell's silent black flames deal necrotic damage and don't damage objects or leave marks on bodies. Any nonmagical flames in the area are extinguished.",
-            "The spell has no vocalized component."
-          ]
-        }
+        "Make an area reflex attack agains each creature in the area that deals {@dice 5d8} fire damage."
       ],
       "name": "Fireball",
       "time": [
@@ -10703,7 +10561,7 @@
             "One creature or object"
           ]
         },
-        "You cast a streak of flame at the target. Make an armour attack that deals {@dice 1d4} fire damage. On a hit, the target suffers 1 ongoing fire harm until it passes a passive save.",
+        "You cast a streak of flame at the target. Make a ranged armour attack that deals {@dice 1d4} fire damage. On a hit, the target suffers 1 ongoing fire harm until it passes a passive save.",
         "This spell's damage and ongoing harm both increase when you reach 5th level ({@dice 2d4}, 2), 11th level ({@dice 3d4}, 3), and 17th level ({@dice 4d4}, 4)."
       ],
       "name": "Fire Bolt",
@@ -10871,14 +10729,7 @@
             "Special"
           ]
         },
-        "Flames roar. Make an attack against each creature in the area that deals {@dice 10d8} fire damage. Objects in the area also take this damage and are ignited if unattended and flammable. If you choose, plant life in the area is unaffected. This spell's area consists of a contiguous group of ten 10-foot cubes in an arrangement you choose, with each cube adjacent to at least one other cube.",
-        {
-          "type": "entries",
-          "name": "Rare",
-          "entries": [
-            "Stekart's Delayed Fire Storm. This spell has a duration of 10 minutes. The flames do not immediately appear when the spell is cast. If a Small or larger creature enters the area of the spell, the flames appear and make the attack, ending the spell."
-          ]
-        }
+        "Flames roar. Make an area reflex attack against each creature in the area that deals {@dice 10d8} fire damage. Objects in the area also take this damage and are ignited if unattended and flammable. If you choose, plant life in the area is unaffected. This spell's area consists of a contiguous group of ten 10-foot cubes in an arrangement you choose, with each cube adjacent to at least one other cube."
       ],
       "name": "Fire Storm",
       "time": [
@@ -11036,14 +10887,7 @@
             "10-foot radius cylinder that is 40 feet high"
           ]
         },
-        "A column of divine flame descends on the area. Make a reflex attack against each creature in the area that deals {@dice 5d6} fire damage and {@dice 5d6} radiant damage.",
-        {
-          "type": "entries",
-          "name": "Rare",
-          "entries": [
-            "Kreven's Discerning Lightning Strike. This spell deals lightning damage instead of fire damage and is a divination spell. The attack has advantage against a creature which has knowingly lied in the last minute, while a creature which has not lied is immune to the spell's damage."
-          ]
-        }
+        "A column of divine flame descends on the area. Make an area reflex attack against each creature in the area that deals {@dice 5d6} fire damage and {@dice 5d6} radiant damage."
       ],
       "name": "Flame Strike",
       "time": [
@@ -11724,14 +11568,7 @@
             "One creature or object within your reach"
           ]
         },
-        "Make an armour attack that deals {@dice 3d8} force damage.",
-        {
-          "type": "entries",
-          "name": "Rare",
-          "entries": [
-            "Vorax-Hul's Mighty Force Punch. On a hit, the target is pushed 5 feet away from you for every 10 points of damage dealt."
-          ]
-        }
+        "Make a melee armour attack that deals {@dice 3d8} force damage."
       ],
       "name": "Force Punch",
       "time": [
@@ -11999,7 +11836,7 @@
             "60-foot radius sphere"
           ]
         },
-        "A freezing globe streaks to a point within range and explodes. Make a fortitude attack against each creature in the area that deals {@dice 6d12} cold damage. Liquid in the area is frozen to a depth of 6 inches for 1 minute. Any creature caught in the ice can use an action to make a Brawn check against your standard DC to escape.",
+        "A freezing globe streaks to a point within range and explodes. Make an area fortitude attack against each creature in the area that deals {@dice 6d12} cold damage. Liquid in the area is frozen to a depth of 6 inches for 1 minute. Any creature caught in the ice can use an action to make a Brawn check against your standard DC to escape.",
         "Instead of firing the globe, you can hold it in your hand. If you handle it carefully, it won't explode until a minute after you cast the spell. At any time, you or another creature can strike the globe, throw it up to 60 feet, or use it as a slingstone, causing it to explode on impact."
       ],
       "name": "Freezing Sphere",
@@ -12222,7 +12059,7 @@
             "One creature"
           ]
         },
-        "You give a command to a target which can understand you. Make a will attack against the target with the following outcomes:",
+        "You give a command to a target which can understand you. Make a ranged will attack against the target with the following outcomes:",
         {
           "type": "list",
           "items": [
@@ -12778,7 +12615,7 @@
           ]
         },
         "Grease erupts from a point that you can see within range and coats the ground in the area, turning it into difficult terrain until the spell ends.",
-        "When the grease appears, make a reflex attack against each creature within the area with the following outcomes:",
+        "When the grease appears, make an area reflex attack against each creature within the area with the following outcomes:",
         {
           "type": "list",
           "items": [
@@ -12805,14 +12642,7 @@
             }
           ]
         },
-        "A creature that enters or ends its turn in the area must succeed on a save or fall {@condition prone|sns}.",
-        {
-          "type": "entries",
-          "name": "Rare",
-          "entries": [
-            "Katrina's Flammable Grease. Until the spell ends, a creature that has been attacked by the spell or made a save for it gets grease on itself and becomes flammable. When the creature takes fire damage from a hit, it suffers {@dice 1d6} ongoing fire harm until it uses an action to douse the flames."
-          ]
-        }
+        "A creature that enters or ends its turn in the area must succeed on a save or fall {@condition prone|sns}."
       ],
       "name": "Grease",
       "time": [
@@ -13129,14 +12959,7 @@
             "One creature"
           ]
         },
-        "A bolt of light erupts from your hand. Make an armour attack against the target that deals {@dice 4d6} radiant damage. On a hit, the next armour attack roll made against the target before the end of your next turn has advantage.",
-        {
-          "type": "entries",
-          "name": "Rare",
-          "entries": [
-            "Leska's Marked Guiding Bolt. On a hit, until the end of your next turn the target glows with bright light in a 20-foot radius and dim light an additional 10 feet."
-          ]
-        }
+        "A bolt of light erupts from your hand. Make a ranged armour attack against the target that deals {@dice 4d6} radiant damage. On a hit, the next armour attack roll made against the target before the end of your next turn has advantage."
       ],
       "name": "Guiding Bolt",
       "time": [
@@ -13513,7 +13336,7 @@
           ]
         },
         "You assail a target with an agonizing disease.",
-        "Make a fortitude attack against the target that deals {@dice 10d10} necrotic damage. On a hit, the target's hit point maximum is reduced by an amount equal to the damage taken for 1 hour or until the disease is magically cured. This spell cannot reduce a target to less than 1 hit point."
+        "Make a ranged fortitude attack against the target that deals {@dice 10d10} necrotic damage. On a hit, the target's hit point maximum is reduced by an amount equal to the damage taken for 1 hour or until the disease is magically cured. This spell cannot reduce a target to less than 1 hit point."
       ],
       "entriesHigherLevel": [
         {
@@ -14130,7 +13953,7 @@
           ]
         },
         "The target is overwhelmed by the absurdity of the world and is crippled by paroxysms of laughter.",
-        "Make a will attack against the target with the following outcomes:",
+        "Make a ranged will attack against the target with the following outcomes:",
         {
           "type": "list",
           "items": [
@@ -14157,22 +13980,7 @@
             }
           ]
         },
-        "The target may make passive saves to end the spell's effects, and may also make an advantaged save whenever it takes damage, ending the spell on a success.",
-        {
-          "type": "entries",
-          "name": "Rare",
-          "entries": [
-            "Beshala's Infectious Hideous Laughter.",
-            "Any creature that touches the target must also succeed on a save or be affected by the spell."
-          ]
-        },
-        {
-          "type": "entries",
-          "name": "Rare",
-          "entries": [
-            "Kreven's Despairing Hideous Laughter. When the mirth fades the target is affected with crushing grief, sadness, and despair, causing it to sob uncontrollably. The emotional toll of the spell causes the target to have disadvantage on the first ability check or armour attack roll it makes after the spell ends, or if a non-armour attack is made against it before that, it has advantage."
-          ]
-        }
+        "The target may make passive saves to end the spell's effects, and may also make an advantaged save whenever it takes damage, ending the spell on a success."
       ],
       "name": "Hideous Laughter",
       "time": [
@@ -14247,7 +14055,7 @@
             "One creature"
           ]
         },
-        "Make a will attack against the target with the following outcomes:",
+        "Make a ranged will attack against the target with the following outcomes:",
         {
           "type": "list",
           "items": [
@@ -14355,7 +14163,7 @@
             "One humanoid"
           ]
         },
-        "Make a will attack against the target with the following outcomes:",
+        "Make a ranged will attack against the target with the following outcomes:",
         {
           "type": "list",
           "items": [
@@ -14542,7 +14350,7 @@
             "20-foot cube"
           ]
         },
-        "You conjure a swirling pattern of twisting hues that roils through the air, appearing for a moment and then vanishing. Make a will attack against creatures in the area that can see the pattern with the following outcomes:",
+        "You conjure a swirling pattern of twisting hues that roils through the air, appearing for a moment and then vanishing. Make an area will attack against creatures in the area that can see the pattern with the following outcomes:",
         {
           "type": "list",
           "items": [
@@ -14643,14 +14451,7 @@
             "20-foot radius cylinder that is 40 feet high"
           ]
         },
-        "A bombardment of jagged ice erupts throughout the target area. Make a reflex attack against all creatures in the area that deals {@dice 4d4} bludgeoning damage and {@dice 5d6} cold damage. Large chunks of ice turn the area into difficult terrain until the end of your next turn.",
-        {
-          "type": "entries",
-          "name": "Rare",
-          "entries": [
-            "Gabal's Shackling Ice Storm. A creature that takes 22 or more damage is ensnared in icy shackles. An ensnared creature is {@condition grappled|sns} and suffers {@dice 2d6} ongoing cold harm until it uses an action to make a save to end the effect."
-          ]
-        }
+        "A bombardment of jagged ice erupts throughout the target area. Make an area reflex attack against all creatures in the area that deals {@dice 4d4} bludgeoning damage and {@dice 5d6} cold damage. Large chunks of ice turn the area into difficult terrain until the end of your next turn."
       ],
       "name": "Ice Storm",
       "time": [
@@ -15240,7 +15041,7 @@
             "One creature"
           ]
         },
-        "You impart fell energies that suck away the target's life force, making an armour attack against the target that deals {@dice 3d10} necrotic damage."
+        "You impart fell energies that suck away the target's life force, making a melee armour attack against the target that deals {@dice 3d10} necrotic damage."
       ],
       "name": "Inflict Wounds",
       "time": [
@@ -15637,7 +15438,7 @@
             "One creature capable of being charmed"
           ]
         },
-        "You murmur a tune that takes root in the target's mind until the spell ends, forcing it to caper, dance, and shuffle. Make a will attack against the target with the following outcomes:",
+        "You murmur a tune that takes root in the target's mind until the spell ends, forcing it to caper, dance, and shuffle. Make a ranged will attack against the target with the following outcomes:",
         {
           "type": "list",
           "items": [
@@ -15662,13 +15463,6 @@
                 "As standard success, but the target is also {@condition staggered|sns}."
               ]
             }
-          ]
-        },
-        {
-          "type": "entries",
-          "name": "Rare",
-          "entries": [
-            "Beshala's Wild Irresistible Dance. The target is forced to dance with such vigor that it suffers a level of {@condition fatigue|sns} when the spell ends."
           ]
         }
       ],
@@ -16078,7 +15872,7 @@
             "Creature or object under 500 lbs."
           ]
         },
-        "If the target is an unwilling creature, make a fortitude attack against them. Otherwise, automatically use the standard success outcome of the attack. The attack has the following outcomes:",
+        "If the target is an unwilling creature, make a ranged fortitude attack against them. Otherwise, automatically use the standard success outcome of the attack. The attack has the following outcomes:",
         {
           "type": "list",
           "items": [
@@ -16290,15 +16084,8 @@
             "Line 100 feet long and 5 feet wide"
           ]
         },
-        "A bolt of lightning arcs out from you in a direction you choose. Make a reflex attack against each creature in the area that deals {@dice 7d8} lightning damage. The lightning ignites flammable objects in its path that aren't worn or carried by another creature.",
-        "If the spell is stopped by an object at least as large as its width, it ends there unless it deals enough damage to break through. When it does, it continues to the end of its area.",
-        {
-          "type": "entries",
-          "name": "Rare",
-          "entries": [
-            "Gabal's Conductive Lightning Bolt. The attack has advantage against metallic creatures and creatures wearing metal armour."
-          ]
-        }
+        "A bolt of lightning arcs out from you in a direction you choose. Make an area reflex attack against each creature in the area that deals {@dice 7d8} lightning damage. The lightning ignites flammable objects in its path that aren't worn or carried by another creature.",
+        "If the spell is stopped by an object at least as large as its width, it ends there unless it deals enough damage to break through. When it does, it continues to the end of its area."
       ],
       "name": "Lightning Bolt",
       "time": [
@@ -17472,7 +17259,7 @@
             "Up to twelve creatures that can hear and understand you"
           ]
         },
-        "Creatures that cannot be {@condition charmed|sns} are immune to this spell. Make a will attack against each target with the following outcomes:",
+        "Creatures that cannot be {@condition charmed|sns} are immune to this spell. Make an area will attack against each target with the following outcomes:",
         {
           "type": "list",
           "items": [
@@ -17784,14 +17571,7 @@
             "Four 40-foot radius spheres"
           ]
         },
-        "Scorching spheres of flame strike the ground at 4 different points within range. The effects of a sphere reach around corners. Make a reflex attack against creatures and objects in each area that deals {@dice 10d10} fire damage and {@dice 10d10} bludgeoning damage, and flammable unattended objects catch on fire. If a creature is in the area of more than one sphere, it is affected only once.",
-        {
-          "type": "entries",
-          "name": "Rare",
-          "entries": [
-            "Gabal's Decisive Meteor Swarm. A creature that takes 56 or more damage is knocked {@condition prone|sns}. A creature that takes 112 or more damage is {@condition debilitated|sns} until the end of its next turn and knocked {@condition prone|sns}."
-          ]
-        }
+        "Scorching spheres of flame strike the ground at 4 different points within range. The effects of a sphere reach around corners. Make an area reflex attack against creatures and objects in each area that deals {@dice 10d10} fire damage and {@dice 10d10} bludgeoning damage, and flammable unattended objects catch on fire. If a creature is in the area of more than one sphere, it is affected only once."
       ],
       "name": "Meteor Swarm",
       "time": [
@@ -18253,7 +18033,7 @@
             "One creature"
           ]
         },
-        "Make a will attack against the target, which has disadvantage if you are in combat with the target. The attack has the following outcomes:",
+        "Make a ranged will attack against the target, which has disadvantage if you are in combat with the target. The attack has the following outcomes:",
         {
           "type": "list",
           "items": [
@@ -18828,7 +18608,7 @@
             "One creature"
           ]
         },
-        "You create an illusion that invokes the target's deepest fears. Only the target can see this illusion. When the spell is cast, make a will attack against the target that deals {@dice 7d6} psychic damage. On a hit, the target becomes {@condition frightened|sns} and suffers {@dice 4d10} ongoing psychic harm until it passes a passive save.",
+        "You create an illusion that invokes the target's deepest fears. Only the target can see this illusion. When the spell is cast, make a ranged will attack against the target that deals {@dice 7d6} psychic damage. On a hit, the target becomes {@condition frightened|sns} and suffers {@dice 4d10} ongoing psychic harm until it passes a passive save.",
         {
           "type": "entries",
           "name": "Rare",
@@ -19103,7 +18883,7 @@
             "One celestial, elemental, fey, or fiend"
           ]
         },
-        "The target must remain within range for the entire casting of the spell (usually by means of a {@spell magic circle|sns} spell). Make a will attack against the target with the following outcomes:",
+        "The target must remain within range for the entire casting of the spell (usually by means of a {@spell magic circle|sns} spell). Make a ranged will attack against the target with the following outcomes:",
         {
           "type": "list",
           "items": [
@@ -19129,13 +18909,6 @@
                 "As standard success, but the DM will tell you if the target plans to take advantage of your wording, and you may then alter your wording. You must use your second set of wording."
               ]
             }
-          ]
-        },
-        {
-          "type": "entries",
-          "name": "Rare",
-          "entries": [
-            "Leska's Star Sign Planar Binding. The spell can also target an aberration."
           ]
         }
       ],
@@ -19223,7 +18996,7 @@
           ]
         },
         "Willing targets are transported to a plane of existence that you choose. If the destination is generally described, targets arrive near that destination in a location chosen by the Narrator. If you know the correct sequence of an existing teleportation circle (see {@spell teleportation circle|sns}), you can choose it as the destination (when the designated circle is too small for all targets to fit, any additional targets are shunted to the closest unoccupied spaces).",
-        "Alternatively this spell can be used offensively to banish an unwilling target. You make an armour attack with the following outcomes:",
+        "Alternatively this spell can be used offensively to banish an unwilling target. You make a ranged armour attack with the following outcomes:",
         {
           "type": "list",
           "items": [
@@ -20652,7 +20425,7 @@
             "One creature"
           ]
         },
-        "A black ray of necrotic energy shoots from your fingertip. Make an armour attack against the target with the following outcomes:",
+        "A black ray of necrotic energy shoots from your fingertip. Make a ranged armour attack against the target with the following outcomes:",
         {
           "type": "list",
           "items": [
@@ -20741,7 +20514,7 @@
           ]
         },
         "An icy beam shoots from your outstretched fingers.",
-        "Make an armour attack that deals {@dice 1d6} cold damage and makes the target {@condition sluggish|sns} until the start of your next turn on a hit.",
+        "Make a ranged armour attack that deals {@dice 1d6} cold damage and makes the target {@condition sluggish|sns} until the start of your next turn on a hit.",
         "This spell's damage increases by {@dice 1d6} when you reach 5th level ({@dice 2d6}), 11th level ({@dice 3d6}), and 17th level ({@dice 4d6})."
       ],
       "name": "Ray of Frost",
@@ -20940,7 +20713,7 @@
             "One creature or object of Large size or smaller"
           ]
         },
-        "A transparent sphere of force encloses the target. If the target is unwilling, make a reflex attack against it. Otherwise, use the standard success outcome. The attack has the following outcomes:",
+        "A transparent sphere of force encloses the target. If the target is unwilling, make a ranged reflex attack against it. Otherwise, use the standard success outcome. The attack has the following outcomes:",
         {
           "type": "list",
           "items": [
@@ -20967,8 +20740,7 @@
               ]
             }
           ]
-        },
-        ""
+        }
       ],
       "name": "Resilient Sphere",
       "time": [
@@ -21231,7 +21003,7 @@
             "One creature"
           ]
         },
-        "A radiant holy flame envelops the target. Make a reflex attack against the target that deals {@dice 1d6} radiant damage. This attack ignores up to three-quarters cover.",
+        "A radiant holy flame envelops the target. Make a ranged reflex attack against the target that deals {@dice 1d6} radiant damage. This attack ignores up to three-quarters cover.",
         "This spell's damage increases by {@dice 1d6} when you reach 5th level ({@dice 2d6}), 11th level ({@dice 3d6}), and 17th level ({@dice 4d6})."
       ],
       "name": "Sacred Flame",
@@ -21353,14 +21125,7 @@
             "One or more creatures or objects"
           ]
         },
-        "Three rays of blazing orange fire shoot from your fingertips, which can all be shot at one target, or be divided across the targets in any way. For each unique target, make an armour attack that deals {@dice 2d6} fire damage for each ray shot at them. For example, if two rays are shot at one target, one attack is made against that target which deals {@dice 4d6} fire damage.",
-        {
-          "type": "entries",
-          "name": "Rare",
-          "entries": [
-            "Kasvarina's Imbued Ray. The rays are a different color chosen by you and deal damage of the corresponding type: black (necrotic), blue (cold), green (acid), purple (psychic), white (lightning), yellow (poison)."
-          ]
-        }
+        "Three rays of blazing orange fire shoot from your fingertips, which can all be shot at one target, or be divided across the targets in any way. For each unique target, make a ranged armour attack that deals {@dice 2d6} fire damage for each ray shot at them. For example, if two rays are shot at one target, one attack is made against that target which deals {@dice 4d6} fire damage."
       ],
       "name": "Scorching Ray",
       "time": [
@@ -21429,7 +21194,7 @@
           ],
           "type": "entries"
         },
-        "You can see and hear a specific creature that you choose. If the target is unwilling, make a will attack against it. Otherwise, use the standard success outcome of the attack.",
+        "You can see and hear a specific creature that you choose. If the target is unwilling, make a ranged will attack against it. Otherwise, use the standard success outcome of the attack.",
         "You have penalties or bonuses to the attack roll based on your knowledge of the target and whether you possess a physical item with a connection to the target.",
         {
           "type": "table",
@@ -21574,7 +21339,7 @@
             "15-foot cone"
           ]
         },
-        "You briefly go into a magical trance and whisper an alien equation which you never fully remember once the spell is complete. Make a will attack against each creature in the area that deals {@dice 3d6} psychic damage. On a hit, the target is also {@condition deafened|sns} for 1 round.",
+        "You briefly go into a magical trance and whisper an alien equation which you never fully remember once the spell is complete. Make an area will attack against each creature in the area that deals {@dice 3d6} psychic damage. On a hit, the target is also {@condition deafened|sns} for 1 round.",
         "Creatures who are unable to hear the equation, immune to psychic damage, or who have an Intelligence score lower than 4 are immune to this spell."
       ],
       "name": "Searing Equation",
@@ -21866,7 +21631,7 @@
             "Any number of creatures in range"
           ]
         },
-        "Until the spell ends or you use an action to dispel it, you can change the appearance of the targets. If a target is unwilling, make a will attack against it. Otherwise, use the standard success outcome of the attack. The attack has the following outcomes:",
+        "Until the spell ends or you use an action to dispel it, you can change the appearance of the targets. If a target is unwilling, make an area will attack against it. Otherwise, use the standard success outcome of the attack. The attack has the following outcomes:",
         {
           "type": "list",
           "items": [
@@ -22083,7 +21848,7 @@
             "10-foot radius sphere"
           ]
         },
-        "An ear-splitting ringing sound emanates through the area. Make a fortitude attack against each creature in the area that deals {@dice 4d6} thunder damage. The attack has advantage against a target made of stone, metal, or other inorganic material.",
+        "An ear-splitting ringing sound emanates through the area. Make an area fortitude attack against each creature in the area that deals {@dice 4d6} thunder damage. The attack has advantage against a target made of stone, metal, or other inorganic material.",
         "Any nonmagical items within the area that are not worn or carried also take damage."
       ],
       "name": "Shatter",
@@ -22173,15 +21938,8 @@
           ]
         },
         "You create three orbs of jagged broken glass and hurl them at targets within range. You can hurl them at one target or several.",
-        "For each unique target, make an armour attack that deals {@dice 2d4} slashing damage for each orb hurled at them (for example, a creature with two orbs hurled at them receives an attack that deals {@dice 4d4} slashing damage). On a hit, the shards of broken glass remain suspended in midair, filling the area they occupy (or 5 feet of the space they occupy if the creature is Large-sized or larger) with shards of suspended broken glass. This becomes a persistent zone that causes {@dice 1d4} slashing harm for each orb that shattered there.",
-        "The shards of broken glass dissolve into harmless wisps of sand and blow away after 1 minute.",
-        {
-          "type": "entries",
-          "name": "Rare",
-          "entries": [
-            "Gabal's Persistent Shattering Barrage. The shards of broken glass do not dissolve harmlessly and instead fall, turning the area they occupy into difficult terrain."
-          ]
-        }
+        "For each unique target, make a ranged armour attack that deals {@dice 2d4} slashing damage for each orb hurled at them (for example, a creature with two orbs hurled at them receives an attack that deals {@dice 4d4} slashing damage). On a hit, the shards of broken glass remain suspended in midair, filling the area they occupy (or 5 feet of the space they occupy if the creature is Large-sized or larger) with shards of suspended broken glass. This becomes a persistent zone that causes {@dice 1d4} slashing harm for each orb that shattered there.",
+        "The shards of broken glass dissolve into harmless wisps of sand and blow away after 1 minute."
       ],
       "name": "Shattering Barrage",
       "time": [
@@ -22393,7 +22151,7 @@
             "One creature"
           ]
         },
-        "Electricity arcs from your hand to shock the target. Make an armour attack that deals {@dice 1d10} lightning damage, and on a hit the target can't make opportunity attacks until the start of its next turn as the electricity courses through its body.",
+        "Electricity arcs from your hand to shock the target. Make a melee armour attack that deals {@dice 1d10} lightning damage, and on a hit the target can't make opportunity attacks until the start of its next turn as the electricity courses through its body.",
         "This spell's damage increases by {@dice 1d10} when you reach 5th level ({@dice 2d10}), 11th level ({@dice 3d10}), and 17th level ({@dice 4d10})."
       ],
       "name": "Shocking Grasp",
@@ -22816,7 +22574,7 @@
             "20-foot cube"
           ]
         },
-        "You alter the flow of time around your targets. Make a will attack against each creature in the area with the following outcomes:",
+        "You alter the flow of time around your targets. Make an area will attack against each creature in the area with the following outcomes:",
         {
           "type": "list",
           "items": [
@@ -22912,7 +22670,7 @@
             "One creature"
           ]
         },
-        "The target's hands harden with inner power, turning dexterous fingers into magical iron cudgels. If the target is unwilling, make a fortitude attack against it. Otherwise, automatically use the standard success outcome without making an attack. The attack has the following outcomes:",
+        "The target's hands harden with inner power, turning dexterous fingers into magical iron cudgels. If the target is unwilling, make a melee fortitude attack against it. Otherwise, automatically use the standard success outcome without making an attack. The attack has the following outcomes:",
         {
           "type": "list",
           "items": [
@@ -23895,7 +23653,7 @@
           ]
         },
         "You must be able to move in order to cast this spell.",
-        "You leap into the air and flash across the battlefield, arriving feet-first with the force of a thunderbolt. As part of casting this spell, make an armour attack against a creature within range. You instantly flash to an open space of your choosing adjacent to the target, and the attack deals bludgeoning damage equal to {@dice 1d6} + your spellcasting modifier plus {@dice 3d8} thunder damage and {@dice 6d8} lightning damage. If your unarmed strike normally uses a larger die, use that instead of a {@dice d6}."
+        "You leap into the air and flash across the battlefield, arriving feet-first with the force of a thunderbolt. As part of casting this spell, make a melee armour attack against a creature within range. You instantly flash to an open space of your choosing adjacent to the target, and the attack deals bludgeoning damage equal to {@dice 1d6} + your spellcasting modifier plus {@dice 3d8} thunder damage and {@dice 6d8} lightning damage. If your unarmed strike normally uses a larger die, use that instead of a {@dice d6}."
       ],
       "name": "Storm Kick",
       "time": [
@@ -23980,7 +23738,7 @@
             "360-foot radius area that is up to 5,000 feet in the air"
           ]
         },
-        "You conjure a churning storm cloud that spreads to cover the target area. As it forms, lightning and thunder mix with howling winds. Make a fortitude attack against each creature beneath the cloud that deals {@dice 2d6} thunder damage. On a hit, a target becomes {@condition deafened|sns} for 5 minutes.",
+        "You conjure a churning storm cloud that spreads to cover the target area. As it forms, lightning and thunder mix with howling winds. Make an area fortitude attack against each creature beneath the cloud that deals {@dice 2d6} thunder damage. On a hit, a target becomes {@condition deafened|sns} for 5 minutes.",
         "Until the spell ends, at the start of your turn the cloud produces additional effects:",
         {
           "type": "list",
@@ -24084,7 +23842,7 @@
             "One creature"
           ]
         },
-        "Creatures that cannot be {@condition charmed} are immune to this spell. Make a will attack against the target with the following outcomes:",
+        "Creatures that cannot be {@condition charmed} are immune to this spell. Make a ranged will attack against the target with the following outcomes:",
         {
           "type": "list",
           "items": [
@@ -24195,7 +23953,7 @@
             "Line 60 feet long and 5 feet wide"
           ]
         },
-        "A beam of radiant sunlight streaks from your hand. Make a fortitude attack against each creature in the area that deals {@dice 9d6} radiant damage. This attack has advantage on oozes and undead. On a hit, a target is {@condition blinded} for 1 round.",
+        "A beam of radiant sunlight streaks from your hand. Make an area fortitude attack against each creature in the area that deals {@dice 9d6} radiant damage. This attack has advantage on oozes and undead. On a hit, a target is {@condition blinded} for 1 round.",
         "Until the spell ends, you can use an action on subsequent turns to create a new beam of sunlight and a mote of brilliant radiance lingers on your hand, shedding bright light in a 30-foot radius and dim light an additional 30 feet. This light is sunlight."
       ],
       "name": "Sunbeam",
@@ -24280,15 +24038,8 @@
             "60-foot radius"
           ]
         },
-        "You create a burst of radiant sunlight that fills the area. Make a fortitude attack against each creature in the area that deals {@dice 7d12} radiant damage. This attack has advantage against oozes and undead. On a hit, a target is {@condition blinded|sns} for 1 minute, or until it passes a passive save.",
-        "This spell dispels any magical darkness in its area.",
-        {
-          "type": "entries",
-          "name": "Rare",
-          "entries": [
-            "Gabal's Disorienting Sunburst. A creature that takes 56 or more damage from this spell is {@condition confused|sns}. At the start of each of its turns, a creature {@condition confused|sns} by this spell makes a save, ending that effect on itself on a success."
-          ]
-        }
+        "You create a burst of radiant sunlight that fills the area. Make an area fortitude attack against each creature in the area that deals {@dice 7d12} radiant damage. This attack has advantage against oozes and undead. On a hit, a target is {@condition blinded|sns} for 1 minute, or until it passes a passive save.",
+        "This spell dispels any magical darkness in its area."
       ],
       "name": "Sunburst",
       "time": [
@@ -24376,7 +24127,7 @@
               "type": "item",
               "name": "Death",
               "entries": [
-                "Make a fortitude attack against creatures in the area that deals {@dice 10d12} necrotic damage."
+                "Make an area fortitude attack against creatures in the area that deals {@dice 10d12} necrotic damage."
               ]
             },
             {
@@ -25048,15 +24799,8 @@
             "15-foot cube, of which at least one space must be adjacent to you"
           ]
         },
-        "You create a wave of thunderous force, damaging creatures and pushing them back. Make a fortitude attack against all creatures in the area that deals {@dice 4d4} thunder damage. On a hit, a creature is pushed 10 feet away from you.",
-        "Unsecured objects completely within the area are also pushed 10 feet away from you. The thunderous boom of the spell is audible out to 300 feet.",
-        {
-          "type": "entries",
-          "name": "Rare",
-          "entries": [
-            "Vorax-Hul's Shaking Thunderwave. A creature hit by this spell that takes 10 or more damage is knocked {@condition prone|sns}."
-          ]
-        }
+        "You create a wave of thunderous force, damaging creatures and pushing them back. Make an area fortitude attack against all creatures in the area that deals {@dice 4d4} thunder damage. On a hit, a creature is pushed 10 feet away from you.",
+        "Unsecured objects completely within the area are also pushed 10 feet away from you. The thunderous boom of the spell is audible out to 300 feet."
       ],
       "name": "Thunderwave",
       "time": [
@@ -25659,7 +25403,7 @@
           ]
         },
         "A meteor ripped from diabolical skies streaks through the air and explodes at a point 100 feet directly above you.",
-        "Make a reflex attack against each creature within range that can see the meteor (other than you) must make a save, becoming {@condition blinded} until the end of your next turn on a fail. Fiery chunks of the meteor then plummet to the ground at different areas you choose within range. Make a reflex attack against each creature in an area that deals {@dice 5d8} fire damage and {@dice 5d8} necrotic damage. A creature in more than one area is affected only once.",
+        "Make an area reflex attack against each creature within range that can see the meteor (other than you) must make a save, becoming {@condition blinded} until the end of your next turn on a fail. Fiery chunks of the meteor then plummet to the ground at different areas you choose within range. Make a reflex attack against each creature in an area that deals {@dice 5d8} fire damage and {@dice 5d8} necrotic damage. A creature in more than one area is affected only once.",
         "The spell damages objects in the area and ignites flammable objects that aren't being worn or carried."
       ],
       "name": "Unholy Star",
@@ -25943,7 +25687,7 @@
             "One creature"
           ]
         },
-        "You verbally insult or mock the target so viciously its mind is seared. As long as the target hears you (understanding your words is not required), make a will attack against it that deals {@dice 1d4} psychic damage. On a hit, the target has disadvantage on armour attack rolls during its next turn.",
+        "You verbally insult or mock the target so viciously its mind is seared. As long as the target hears you (understanding your words is not required), make a ranged will attack against it that deals {@dice 1d4} psychic damage. On a hit, the target has disadvantage on armour attack rolls during its next turn.",
         "The spell's damage increases by {@dice 1d4} when you reach 5th level ({@dice 2d4}), 11th level ({@dice 3d4}), and 17th level ({@dice 4d4})."
       ],
       "name": "Vicious Mockery",
@@ -26016,7 +25760,7 @@
             "Special"
           ]
         },
-        "You create a wall of fire on a solid surface. The wall can be up to 60 feet long (it does not have to be a straight line; sections of the wall can angle as long as they are contiguous), 20 feet high, and 1 foot thick, or a ringed wall up to 20 feet in diameter, 20 feet high, and 1 foot thick. You must have line of sight to at least one space the wall occupies. The wall blocks sight. When the wall appears, make a reflex attack against each creature within its area that deals {@dice 7d6} fire damage.",
+        "You create a wall of fire on a solid surface. The wall can be up to 60 feet long (it does not have to be a straight line; sections of the wall can angle as long as they are contiguous), 20 feet high, and 1 foot thick, or a ringed wall up to 20 feet in diameter, 20 feet high, and 1 foot thick. You must have line of sight to at least one space the wall occupies. The wall blocks sight. When the wall appears, make an area reflex attack against each creature within its area that deals {@dice 7d6} fire damage.",
         "One side of the wall (chosen when the spell is cast) causes {@dice 5d8} fire harm to each creature that ends its turn within 10 feet of that side or inside the wall. A creature suffers the same harm when it enters the wall itself for the first time on a turn or ends its turn there. The other side of the wall causes no harm."
       ],
       "name": "Wall of Fire",
@@ -26276,15 +26020,8 @@
         },
         "You create a wall of ice on a solid surface. You can form it into a hemispherical dome or a sphere, either with a radius of up to 10 feet. You may also choose to create a flat surface made up of a contiguous group of ten 10-foot square sections. The wall is 1 foot thick. You must have line of sight to at least one space the wall occupies.",
         "If the wall enters a creature's space when it appears, the creature is pushed to one side of it (your choice).",
-        "In addition, make a reflex attack against the creature that deals {@dice 6d12} cold damage.",
-        "The wall is an object with vulnerability to fire damage, with 1 Armour and 33 hit points per 10-foot section. Reducing a 10-foot section of wall to 0 hit points destroys it and leaves behind a sheet of frigid air in the space the section occupied. A creature moving through the sheet of frigid air for the first time on a turn suffers {@dice 2d10} cold harm.",
-        {
-          "type": "entries",
-          "name": "Rare",
-          "entries": [
-            "Gabal's Glacier. The wall is not vulnerable to fire damage. Each section has 2 Armour and 39 hit points."
-          ]
-        }
+        "In addition, make an area reflex attack against the creature that deals {@dice 6d12} cold damage.",
+        "The wall is an object with vulnerability to fire damage, with 1 Armour and 33 hit points per 10-foot section. Reducing a 10-foot section of wall to 0 hit points destroys it and leaves behind a sheet of frigid air in the space the section occupied. A creature moving through the sheet of frigid air for the first time on a turn suffers {@dice 2d10} cold harm."
       ],
       "name": "Wall of Ice",
       "time": [
@@ -26453,7 +26190,7 @@
             "Special"
           ]
         },
-        "You create a wall of tough, pliable, tangled brush bristling with needle-sharp thorns on a solid surface centred on a space within your line of sight. You can choose to make the wall up to 60 feet long, 10 feet high, and 5 feet thick or a circle that has a 20-foot diameter and is up to 20 feet high and 5 feet thick. The wall blocks line of sight. When the wall appears, make a reflex attack against each creature within its area that deals {@dice 10d6} piercing damage.",
+        "You create a wall of tough, pliable, tangled brush bristling with needle-sharp thorns on a solid surface centred on a space within your line of sight. You can choose to make the wall up to 60 feet long, 10 feet high, and 5 feet thick or a circle that has a 20-foot diameter and is up to 20 feet high and 5 feet thick. The wall blocks line of sight. When the wall appears, make an area reflex attack against each creature within its area that deals {@dice 10d6} piercing damage.",
         "A creature can move through the wall, albeit slowly and painfully. For every 1 foot a creature moves through the wall, it must spend 4 feet of movement. The first time a creature enters the wall on a turn or ends its turn there, it suffers {@dice 6d6} slashing harm."
       ],
       "name": "Wall of Thorns",
@@ -26932,7 +26669,7 @@
             "30-foot sphere"
           ]
         },
-        "You create illusions which manifest the deepest fears and worst nightmares in the minds of all creatures in the spell's area. Make a will attack against each creature in the area with the following outcomes:",
+        "You create illusions which manifest the deepest fears and worst nightmares in the minds of all creatures in the spell's area. Make an area will attack against each creature in the area with the following outcomes:",
         {
           "type": "list",
           "items": [
@@ -27025,7 +26762,7 @@
           ]
         },
         "You must have a usable speed greater than 0 and not be {@condition sluggish|sns} to cast this spell. You leap into the air and spin like a tornado, striking foes all around you with supernatural force as you fly up to 60 feet in a straight line. Your movement (which does not provoke attacks of opportunity) must end on a surface that can support your weight or you fall as normal.",
-        "As part of the casting of this spell, make an armour attack against any number of creatures in the area that deals your unarmed strike damage plus {@dice 2d6} thunder damage. On a major success, a target is either pulled 10 feet closer to you or pushed 10 feet away (your choice)."
+        "As part of the casting of this spell, make a melee armour attack against any number of creatures in the area that deals your unarmed strike damage plus {@dice 2d6} thunder damage. On a major success, a target is either pulled 10 feet closer to you or pushed 10 feet away (your choice)."
       ],
       "name": "Whirlwind Kick",
       "time": [
@@ -27224,7 +26961,7 @@
           ]
         },
         "A wall of strong wind rises from the ground at a point you choose. You can make the wall up to 50 feet long, 15 feet high, and 1 foot thick. You can shape the wall in any way you choose so long as it makes one continuous path along the ground. You must have line of sight to at least one space the wall occupies.",
-        "When the wall appears, make a fortitude attack against each creature within its area that deals {@dice 4d6} bludgeoning damage.",
+        "When the wall appears, make an area fortitude attack against each creature within its area that deals {@dice 4d6} bludgeoning damage.",
         "The wall keeps fog, smoke, and other gases (including creatures in gaseous form) at bay. Small or smaller flying creatures or objects can't pass through. Loose, lightweight materials brought into the area fly upward. Arrows, bolts, and other ordinary projectiles launched at targets behind the wall are deflected upward and automatically score critical failures on any attacks they may make (larger projectiles such as boulders and siege engine attacks are unaffected)."
       ],
       "name": "Wind Wall",
@@ -27837,7 +27574,7 @@
             "10-foot radius sphere"
           ]
         },
-        "You invoke the power of Hadar, the Dark Hunger. Tendrils of dark energy erupt from you and batter all creatures within 10 feet of you. Make a fortitude attack against each creature in that area that deals {@dice 3d4} necrotic damage. On a hit, a target can't take reactions until its next turn."
+        "You invoke the power of Hadar, the Dark Hunger. Tendrils of dark energy erupt from you and batter all creatures within 10 feet of you. Make an area fortitude attack against each creature in that area that deals {@dice 3d4} necrotic damage. On a hit, a target can't take reactions until its next turn."
       ],
       "entriesHigherLevel": [
         {
@@ -27899,7 +27636,7 @@
             "One creature"
           ]
         },
-        "You hurl a 4-inch-diameter sphere of energy at a creature that you can see within range. You choose acid, cold, fire, lightning, poison, or thunder for the type of orb you create, and then make an armour attack against the target that deals {@dice 3d8} damage of the type you chose."
+        "You hurl a 4-inch-diameter sphere of energy at a creature that you can see within range. You choose acid, cold, fire, lightning, poison, or thunder for the type of orb you create, and then make a ranged armour attack against the target that deals {@dice 3d8} damage of the type you chose."
       ],
       "name": "Chromatic Orb",
       "time": [
@@ -27979,7 +27716,7 @@
             "One creature"
           ]
         },
-        "You attempt to compel the target into a duel. Make a will attack against the target with the following outcomes:",
+        "You attempt to compel the target into a duel. Make a ranged will attack against the target with the following outcomes:",
         {
           "type": "list",
           "items": [
@@ -28061,7 +27798,7 @@
             "One creature"
           ]
         },
-        "You whisper a discordant melody that only the target can hear, wracking it with terrible pain. Make a will attack against the target that deals {@dice 2d10} psychic damage. On a hit, the target must immediately use its reaction, if available, to move as far as its Speed allows away from you. The target doesn't move into obviously dangerous ground, such as a fire or a pit. A {@condition deafened|sns} target reduces the success tier of the attack by 1."
+        "You whisper a discordant melody that only the target can hear, wracking it with terrible pain. Make a ranged will attack against the target that deals {@dice 2d10} psychic damage. On a hit, the target must immediately use its reaction, if available, to move as far as its Speed allows away from you. The target doesn't move into obviously dangerous ground, such as a fire or a pit. A {@condition deafened|sns} target reduces the success tier of the attack by 1."
       ],
       "name": "Dissonant Whispers",
       "time": [
@@ -28108,7 +27845,7 @@
     {
       "school": "V",
       "entries": [
-        "You point your finger, and the creature that hit you is momentarily surrounded by hellish flames. Make a reflex attack against the creature that deals {@dice 2d12} fire damage."
+        "You point your finger, and the creature that hit you is momentarily surrounded by hellish flames. Make a ranged reflex attack against the creature that deals {@dice 2d12} fire damage."
       ],
       "name": "Hellish Rebuke",
       "time": [
@@ -28244,7 +27981,7 @@
             "One creature"
           ]
         },
-        "A ray of sickening greenish energy lashes out towards the target. Make an armour attack against the target that deals {@dice 2d8} poison damage. On a major success, the target is also {@condition poisoned|sns} until the end of your next turn."
+        "A ray of sickening greenish energy lashes out towards the target. Make a ranged armour attack against the target that deals {@dice 2d8} poison damage. On a major success, the target is also {@condition poisoned|sns} until the end of your next turn."
       ],
       "name": "Ray of Sickness",
       "time": [
@@ -28420,7 +28157,7 @@
             "One creature"
           ]
         },
-        "A beam of crackling, blue energy lances out towards the target, forming a sustained arc of lightning between it and you. Make an armour attack against the target that deals {@dice 1d12} lightning damage. On a hit, you can use your action on subsequent turns for the duration to cause {@dice 1d12} lightning harm to the target automatically. The spell ends if you use your action to do anything else. The spell also ends if the target is ever outside the spell's range or if it has total cover from you."
+        "A beam of crackling, blue energy lances out towards the target, forming a sustained arc of lightning between it and you. Make a ranged armour attack against the target that deals {@dice 1d12} lightning damage. On a hit, you can use your action on subsequent turns for the duration to cause {@dice 1d12} lightning harm to the target automatically. The spell ends if you use your action to do anything else. The spell also ends if the target is ever outside the spell's range or if it has total cover from you."
       ],
       "name": "Witch Bolt",
       "time": [
@@ -28740,7 +28477,7 @@
             "One humanoid"
           ]
         },
-        "Make a will attack against the target with the following outcomes:",
+        "Make a ranged will attack against the target with the following outcomes:",
         {
           "type": "list",
           "items": [
@@ -29405,7 +29142,7 @@
             "Any number of creatures you choose that can hear you"
           ]
         },
-        "Make a will attack against each target. If a target can't be {@condition charmed|sns}, the attack against them automatically scores a critical failure. The attack has the following outcomes:",
+        "Make an area will attack against each target. If a target can't be {@condition charmed|sns}, the attack against them automatically scores a critical failure. The attack has the following outcomes:",
         {
           "type": "list",
           "items": [
@@ -29732,7 +29469,7 @@
             "30-foot radius centered on you"
           ]
         },
-        "You strike the ground, creating a burst of divine energy that ripples outwards from you. Make a fortitude attack against each creature in the area that deals {@dice 3d12 thunder damage}, as well as {@dice 3d12} radiant or necrotic damage (your choice). On a hit, the target is knocked {@condition prone|sns}."
+        "You strike the ground, creating a burst of divine energy that ripples outwards from you. Make an area fortitude attack against each creature in the area that deals {@dice 3d12 thunder damage}, as well as {@dice 3d12} radiant or necrotic damage (your choice). On a hit, the target is knocked {@condition prone|sns}."
       ],
       "name": "Destructive Wave",
       "time": [
@@ -29886,7 +29623,7 @@
       "school": "C",
       "entries": [
         "A wall of water springs into existence at a point you choose within range. You can make the wall up to 300 feet long, 300 feet high, and 50 feet thick. The wall lasts for the duration.",
-        "When the wall appears, make a fortitude attack against each creature within its area that deals {@dice 8d8} bludgeoning damage.",
+        "When the wall appears, make an area fortitude attack against each creature within its area that deals {@dice 8d8} bludgeoning damage.",
         "At the start of each of your turns after the wall appears, the wall, along with any creatures in it, moves 50 feet away from you. Any Huge or smaller creature inside the wall or whose space the wall enters when it moves suffers {@dice 3d8} bludgeoning harm. A creature can suffer this harm only once per round. At the end of the turn, the wall's height is reduced by 50 feet, and the harm creatures suffer from the spell on subsequent turns is reduced by {@dice 1d8}. When the wall reaches 0 feet in height, the spell ends.",
         "A creature caught in the wall can move by swimming. Because of the force of the wall, though, the creature must make a successful Athletics check against your standard DC in order to move at all. If it fails the check, it can't move. A creature that moves out of the area falls to the ground."
       ],
@@ -30196,7 +29933,7 @@
             {
               "type": "entries",
               "entries": [
-                "Make a fortitude attack against one Medium or smaller creature that you choose with the following outcomes:",
+                "Make a ranged fortitude attack against one Medium or smaller creature that you choose with the following outcomes:",
                 {
                   "type": "list",
                   "items": [
@@ -30291,7 +30028,7 @@
             "One creature"
           ]
         },
-        "You cause a cloud of mites, fleas, and other parasites to appear momentarily on the target. Make a fortitude attack against the target that deals {@dice 1d6} poison damage. On a hit, the target shifts 10 feet in a random direction if it can move and its Speed is at least 5 feet.",
+        "You cause a cloud of mites, fleas, and other parasites to appear momentarily on the target. Make a ranged fortitude attack against the target that deals {@dice 1d6} poison damage. On a hit, the target shifts 10 feet in a random direction if it can move and its Speed is at least 5 feet.",
         "The spell's damage increases by {@dice 1d6} when you reach 5th level ({@dice 2d6}), 11th level ({@dice 3d6}), and 17th level ({@dice 4d6})."
       ],
       "name": "Infestation",
@@ -30359,7 +30096,7 @@
             "One creature within 15 feet of you"
           ]
         },
-        "You create a lash of lightning energy that strikes at the target. Make a fortitude attack against the target that deals {@dice 1d8} lightning damage. On a hit, the target is also pushed 10 feet straight towards you.",
+        "You create a lash of lightning energy that strikes at the target. Make a melee fortitude attack against the target that deals {@dice 1d8} lightning damage. On a hit, the target is also pushed 10 feet straight towards you.",
         "The spell's damage increases by {@dice 1d8} when you reach 5th level ({@dice 2d8}), 11th level ({@dice 3d8}), and 17th level ({@dice 4d8})."
       ],
       "name": "Lightning Lure",
@@ -30478,7 +30215,7 @@
     {
       "school": "T",
       "entries": [
-        "You channel primal magic to cause your teeth or fingernails to sharpen, ready to deliver a corrosive attack. Make an armour attack against one adjacent creature that deals {@dice 1d10} acid damage. This attack has advantage against targets you are flanking. After you make the attack, your teeth or fingernails return to normal.",
+        "You channel primal magic to cause your teeth or fingernails to sharpen, ready to deliver a corrosive attack. Make a melee armour attack against one adjacent creature that deals {@dice 1d10} acid damage. This attack has advantage against targets you are flanking. After you make the attack, your teeth or fingernails return to normal.",
         "The spell's damage increases by {@dice 1d10} when you reach 5th level ({@dice 2d10}), 11th level ({@dice 3d10}), and 17th level ({@dice 4d10})."
       ],
       "name": "Primal Savagery",
@@ -30523,7 +30260,7 @@
     {
       "school": "C",
       "entries": [
-        "You create a momentary circle of spectral blades that sweep around you. Make a reflex attack against all adjacent creatures that deals {@dice 1d6} force damage.",
+        "You create a momentary circle of spectral blades that sweep around you. Make an area reflex attack against all adjacent creatures that deals {@dice 1d6} force damage.",
         "This spell's damage increases by {@dice 1d6} when you reach 5th level ({@dice 2d6}), 11th level ({@dice 3d6}), and 17th level ({@dice 4d6})."
       ],
       "name": "Sword Burst",
@@ -30594,7 +30331,7 @@
             "One creature"
           ]
         },
-        "You point at the target and the sound of a dolorous bell fills the air around it for the moment. Make a will attack against the target that deals {@dice 1d4} necrotic damage. If the target is bloodied, the attack instead deals {@dice 1d8} necrotic damage.",
+        "You point at the target and the sound of a dolorous bell fills the air around it for the moment. Make a ranged will attack against the target that deals {@dice 1d4} necrotic damage. If the target is bloodied, the attack instead deals {@dice 1d8} necrotic damage.",
         "This spell's damage increases by one die when you reach 5th level ({@dice 2d4} or {@dice 2d8}), 11th level ({@dice 3d4} or {@dice 3d8}), and 17th level ({@dice 4d4} or {@dice 4d8})."
       ],
       "name": "Toll the Dead",
@@ -30777,7 +30514,7 @@
             "One object weighing 1 to 5 pounds that isn't being worn or carried"
           ]
         },
-        "The target flies in a straight line up to 90 feet in a direction you choose before falling to the ground, stopping early if it impacts a solid surface. If the object would strike a creature, make a reflex attack against that creature that deals {@dice 3d8} bludgeoning damage. When this attack is made, the object stops moving and also takes the same damage."
+        "The target flies in a straight line up to 90 feet in a direction you choose before falling to the ground, stopping early if it impacts a solid surface. If the object would strike a creature, make a ranged reflex attack against that creature that deals {@dice 3d8} bludgeoning damage. When this attack is made, the object stops moving and also takes the same damage."
       ],
       "name": "Catapult",
       "time": [
@@ -30845,7 +30582,7 @@
             "One non-construct, non-undead creature"
           ]
         },
-        "You awaken the sense of mortality in the target. Make a will attack against the target with the following outcomes:",
+        "You awaken the sense of mortality in the target. Make a ranged will attack against the target with the following outcomes:",
         {
           "type": "list",
           "items": [
@@ -30939,7 +30676,7 @@
             "One creature"
           ]
         },
-        "You hurl an undulating, warbling mass of chaotic energy at the target. Make an armour attack against the target that deals {@damage 2d8 + 1d6} damage. Choose one of the {@dice d8}s. The number rolled on that die determines the attack's damage type, as shown below.",
+        "You hurl an undulating, warbling mass of chaotic energy at the target. Make a ranged armour attack against the target that deals {@damage 2d8 + 1d6} damage. Choose one of the {@dice d8}s. The number rolled on that die determines the attack's damage type, as shown below.",
         {
           "type": "table",
           "rows": [
@@ -31047,7 +30784,7 @@
     {
       "school": "V",
       "entries": [
-        "You cause a tremor in the ground within range. Make a reflex attack against each creature in that area that deals {@dice 1d6} bludgeoning damage. On a hit, a target is knocked {@condition prone|sns}. If the ground in that area is loose earth or stone, it becomes difficult terrain until cleared, with each 5-foot-diameter portion requiring at least 1 minute to clear by hand."
+        "You cause a tremor in the ground within range. Make an area reflex attack against each creature in that area that deals {@dice 1d6} bludgeoning damage. On a hit, a target is knocked {@condition prone|sns}. If the ground in that area is loose earth or stone, it becomes difficult terrain until cleared, with each 5-foot-diameter portion requiring at least 1 minute to clear by hand."
       ],
       "name": "Earth Tremor",
       "time": [
@@ -31119,7 +30856,7 @@
             "15-foot cone"
           ]
         },
-        "Freezing cold blasts from your fingertips. Make a fortitude attack against each creature in the area that deals {@dice 4d4} cold damage.",
+        "Freezing cold blasts from your fingertips. Make an area fortitude attack against each creature in the area that deals {@dice 4d4} cold damage.",
         "The cold freezes nonmagical liquids in the area that aren't being worn or carried."
       ],
       "name": "Frost Fingers",
@@ -31179,7 +30916,7 @@
             "One creature"
           ]
         },
-        "You create a shard of ice and fling it at the target. Make an armour attack against the target that deals {@dice 1d10} piercing damage. After the attack, the shard explodes. The target and each creature adjacent to it suffers {@dice 1d6} cold harm."
+        "You create a shard of ice and fling it at the target. Make a ranged armour attack against the target that deals {@dice 1d10} piercing damage. After the attack, the shard explodes. The target and each creature adjacent to it suffers {@dice 1d6} cold harm."
       ],
       "name": "Ice Knife",
       "time": [
@@ -31362,7 +31099,7 @@
             "Line 30 feet long and 5 feet wide"
           ]
         },
-        "A stream of acid emanates from you in a direction you choose. Make a reflex attack against each creature in the area with the following outcomes:",
+        "A stream of acid emanates from you in a direction you choose. Make an area reflex attack against each creature in the area with the following outcomes:",
         {
           "type": "list",
           "items": [
@@ -31456,7 +31193,7 @@
             "Line 30 feet long and 5 feet wide"
           ]
         },
-        "A line of roaring flame emanates from you in a direction you choose. Make a reflex attack against each creature in the line that deals {@dice 4d6} fire damage."
+        "A line of roaring flame emanates from you in a direction you choose. Make an area reflex attack against each creature in the line that deals {@dice 4d6} fire damage."
       ],
       "name": "Scorcher",
       "time": [
@@ -31658,7 +31395,7 @@
             "One willing creature"
           ]
         },
-        "You touch the target and imbue it with the power to spew magical energy from its mouth, provided it has one. Choose acid, fire, lightning, or poison. Until the spell ends, the creature can use an action to exhale energy of the chosen type in a 15-foot cone. Make a reflex attack against each creature in that area that deals {@dice 2d10} damage of the chosen type. This attack scales with your stats, not the target's."
+        "You touch the target and imbue it with the power to spew magical energy from its mouth, provided it has one. Choose acid, fire, lightning, or poison. Until the spell ends, the creature can use an action to exhale energy of the chosen type in a 15-foot cone. Make an area reflex attack against each creature in that area that deals {@dice 2d10} damage of the chosen type. This attack scales with your stats, not the target's."
       ],
       "name": "Dragon's Breath",
       "time": [
@@ -31812,7 +31549,7 @@
             "One creature"
           ]
         },
-        "Yellow strips of magical energy loop around the target. Make a fortitude attack against the target with the following outcomes:",
+        "Yellow strips of magical energy loop around the target. Make a ranged fortitude attack against the target with the following outcomes:",
         {
           "type": "list",
           "items": [
@@ -32031,7 +31768,7 @@
     {
       "school": "T",
       "entries": [
-        "You choose an unoccupied space on the ground within range. A Medium hand made from compacted soil rises there and reaches for one creature adjacent to it. Make a fortitude attack against the target that deals {@dice 2d6} bludgeoning damage. On a hit, the target is {@condition restrained|sns} for the spell's duration.",
+        "You choose an unoccupied space on the ground within range. A Medium hand made from compacted soil rises there and reaches for one creature adjacent to it. Make a melee fortitude attack against the target that deals {@dice 2d6} bludgeoning damage. On a hit, the target is {@condition restrained|sns} for the spell's duration.",
         "As an action, you can cuase the hand to crush the {@condition restrained|sns} target, making a melee spell fortitude attack against the target that deals {@dice 3d4} bludgeoning damage.",
         "To break out, the {@condition restrained|sns} target can use its action to make a Brawn check against your standard DC. On a success, the target escapes and is no longer {@condition restrained|sns} by the hand.",
         "As an action, you can cause the hand to reach for a different creature or to move to a different unoccupied space within range. The hand releases a {@condition restrained|sns} target if you do either."
@@ -32098,7 +31835,7 @@
             "One creature"
           ]
         },
-        "You reach into the target's mind. Make a will attack against the target that deals {@dice 4d6} psychic damage. On a hit, you always know the target's location until the spell ends, but only while the two of you are on the same plane of existence. While you have this knowledge, the target can't become hidden from you, and if it's {@condition invisible|sns}, it gains no benefit from that condition against you."
+        "You reach into the target's mind. Make a ranged will attack against the target that deals {@dice 4d6} psychic damage. On a hit, you always know the target's location until the spell ends, but only while the two of you are on the same plane of existence. While you have this knowledge, the target can't become hidden from you, and if it's {@condition invisible|sns}, it gains no benefit from that condition against you."
       ],
       "name": "Mind Spike",
       "time": [
@@ -32276,7 +32013,7 @@
               "type": "item",
               "name": "Fireworks",
               "entries": [
-                "The target explodes with a dazzling display of colours. Make a fortitude attack against each creature within 10 feet of the target with the following outcomes:",
+                "The target explodes with a dazzling display of colours. Make an area fortitude attack against each creature within 10 feet of the target with the following outcomes:",
                 {
                   "type": "list",
                   "items": [
@@ -32374,7 +32111,7 @@
             "30-foot cone"
           ]
         },
-        "A burst of cold energy emanates from you. Make a fortitude attack against each creature in the area that deals {@dice 4d6} cold damage. On a hit, a target is hindered by ice formations for 1 minute, or until it or another creature within reach of it uses an action to break away the ice. A creature hindered by ice has its Speed halved."
+        "A burst of cold energy emanates from you. Make an area fortitude attack against each creature in the area that deals {@dice 4d6} cold damage. On a hit, a target is hindered by ice formations for 1 minute, or until it or another creature within reach of it uses an action to break away the ice. A creature hindered by ice has its Speed halved."
       ],
       "name": "Binding Ice",
       "time": [
@@ -32569,7 +32306,7 @@
             "5-foot-radius sphere"
           ]
         },
-        "A flurry of magic snowballs erupts from a point you choose within range. Make a reflex attack against each creature in the area that deals {@dice 2d10} cold damage."
+        "A flurry of magic snowballs erupts from a point you choose within range. Make an area reflex attack against each creature in the area that deals {@dice 2d10} cold damage."
       ],
       "name": "Snowball Swarm",
       "time": [
@@ -32636,7 +32373,7 @@
             "One creature"
           ]
         },
-        "You magically twist space around the target. Make a fortitude attack against the target with the following outcomes (if the target is willing, it can choose to automatically use the standard success result):",
+        "You magically twist space around the target. Make a ranged fortitude attack against the target with the following outcomes (if the target is willing, it can choose to automatically use the standard success result):",
         {
           "type": "list",
           "items": [
@@ -32859,7 +32596,7 @@
             "10-foot-radius sphere"
           ]
         },
-        "You invoke both death and life upon the area centered on a point within range. Make a fortitude attack against each creature in the area that deals {@dice 3d4} necrotic damage. Nonmagical vegetation in the area withers.",
+        "You invoke both death and life upon the area centered on a point within range. Make an area fortitude attack against each creature in the area that deals {@dice 3d4} necrotic damage. Nonmagical vegetation in the area withers.",
         "In addition, one creature of your choice in the area can spend and roll one of its unspent Hit Dice and regain a number of hit points equal to the roll plus double your spellcasting ability modifier."
       ],
       "name": "Wither and Bloom",
@@ -33076,7 +32813,7 @@
             "One creature that is not immune to being {@condition frightened|sns}"
           ]
         },
-        "You reach into the target's mind and make a will attack against it with the following outcomes:",
+        "You reach into the target's mind and make a ranged will attack against it with the following outcomes:",
         {
           "type": "list",
           "items": [
@@ -33171,7 +32908,7 @@
             "20-foot cube centered on a point on the ground"
           ]
         },
-        "A fountain of churned earth and stone erupts in the area. Make a reflex attack against each creature in the area that deals {@dice 6d6} bludgeoning damage. Additionally, the ground in the area becomes difficult terrain until cleared. Each 5-foot-square portion of the area requires at least 1 minute to clear by hand."
+        "A fountain of churned earth and stone erupts in the area. Make an area reflex attack against each creature in the area that deals {@dice 6d6} bludgeoning damage. Additionally, the ground in the area becomes difficult terrain until cleared. Each 5-foot-square portion of the area requires at least 1 minute to clear by hand."
       ],
       "name": "Erupting Earth",
       "time": [
@@ -33501,7 +33238,7 @@
     {
       "school": "C",
       "entries": [
-        "You teleport yourself to an unoccupied space within range. Immediately after you disappear, a thunderous boom sounds, and you make a fortitude attack against each creature within 10 feet of the space you left that deals {@dice 4d8} thunder damage. The thunder can be heard from up to 300 feet away.",
+        "You teleport yourself to an unoccupied space within range. Immediately after you disappear, a thunderous boom sounds, and you make an area fortitude attack against each creature within 10 feet of the space you left that deals {@dice 4d8} thunder damage. The thunder can be heard from up to 300 feet away.",
         "You can bring along objects as long as their weight doesn't exceed what you can carry. You can also teleport one willing creature of your size or smaller who is carrying gear up to its carrying capacity. The creature must be adjacent to you when you cast this spell, and there must be an unoccupied space adjacent to your destination space for the creature to appear in; otherwise, the creature is left behind."
       ],
       "name": "Thunder Step",
@@ -33571,7 +33308,7 @@
             "Up to 30 feet long, up to 10 feet wide, and up to 10 feet tall"
           ]
         },
-        "You conjure up a wave of water that crashes down on the area. Make a reflex attack against each creature in the area that deals {@dice 3d12} bludgeoning damage. On a hit, a target is knocked {@condition prone|sns}. The water then spreads out across the ground in all directions, extinguishing unprotected flames in its area and within 30 feet of it, and then it vanishes."
+        "You conjure up a wave of water that crashes down on the area. Make an area reflex attack against each creature in the area that deals {@dice 3d12} bludgeoning damage. On a hit, a target is knocked {@condition prone|sns}. The water then spreads out across the ground in all directions, extinguishing unprotected flames in its area and within 30 feet of it, and then it vanishes."
       ],
       "name": "Tidal Wave",
       "time": [
@@ -33813,7 +33550,7 @@
             "One creature"
           ]
         },
-        "Choose one of the following damage types: acid, cold, fire, lightning, or thunder. Make a fortitude attack against the target with the following outcomes:",
+        "Choose one of the following damage types: acid, cold, fire, lightning, or thunder. Make a ranged fortitude attack against the target with the following outcomes:",
         {
           "type": "list",
           "items": [
@@ -34080,7 +33817,7 @@
           ]
         },
         "You unleash a shimmering lance of psychic power from your forehead at the target. This spell does not require line of sight if you utter the target's name.",
-        "Make a will attack against the target that deals {@dice 5d10} psychic damage. On a hit, the target is {@condition dazed|sns} until the start of your next turn."
+        "Make a ranged will attack against the target that deals {@dice 5d10} psychic damage. On a hit, the target is {@condition dazed|sns} until the start of your next turn."
       ],
       "name": "Psychic Lance",
       "time": [
@@ -34395,7 +34132,7 @@
     {
       "school": "V",
       "entries": [
-        "You point at a location within range, and a glowing 1-foot-diameter ball of emerald acid streaks there and explodes in a 20-foot-radius sphere. Make a reflex attack against each creature in that area that deals {@dice 8d6} acid damage. On a hit, a target suffers {@dice 5d4} acid harm at the end of its next turn."
+        "You point at a location within range, and a glowing 1-foot-diameter ball of emerald acid streaks there and explodes in a 20-foot-radius sphere. Make an area reflex attack against each creature in that area that deals {@dice 8d6} acid damage. On a hit, a target suffers {@dice 5d4} acid harm at the end of its next turn."
       ],
       "name": "Vitriolic Sphere",
       "time": [
@@ -34675,7 +34412,7 @@
             "One creature"
           ]
         },
-        "A tendril of inky darkness reaches out from you, touching the target to drain life from it. Make a reflex attack against the target that deals {@dice 3d12} necrotic damage. If this attack fails to hit, the spell ends. Otherwise, until the spell ends, you can use your action on each of your turns to automatically cause {@dice 4d8} necrotic harm to the target. The spell ends if you use your action to do anything else, if the target is ever outside the spell's range, or if the target has total cover from you.",
+        "A tendril of inky darkness reaches out from you, touching the target to drain life from it. Make a ranged reflex attack against the target that deals {@dice 3d12} necrotic damage. If this attack fails to hit, the spell ends. Otherwise, until the spell ends, you can use your action on each of your turns to automatically cause {@dice 4d8} necrotic harm to the target. The spell ends if you use your action to do anything else, if the target is ever outside the spell's range, or if the target has total cover from you.",
         "Whenever the spell damages or harms a target, you regain hit points equal to the amount of necrotic damage or harm the target suffers."
       ],
       "name": "Enervation",
@@ -34807,7 +34544,7 @@
           ]
         },
         "You imbue the target with holy power. Until the spell ends, the target emits bright light in a 30-foot radius and dim light for an additional 30 feet. In addition, weapon attacks made with it deal an extra {@dice 2d8} radiant damage. The target's base physical damage also ignores resistances and immunities.",
-        "As a bonus action on your turn, you can dismiss this spell and cause the target to emit a burst of radiance. Make a fortitude attack against each creature of your choice within 30 feet of the target that deals {@dice 3d12} radiant damage. On a hit, a creature is {@condition blinded|sns} for either 1 minute or until it passes a passive save."
+        "As a bonus action on your turn, you can dismiss this spell and cause the target to emit a burst of radiance. Make an area fortitude attack against each creature of your choice within 30 feet of the target that deals {@dice 3d12} radiant damage. On a hit, a creature is {@condition blinded|sns} for either 1 minute or until it passes a passive save."
       ],
       "name": "Holy Weapon",
       "time": [
@@ -34931,7 +34668,7 @@
             "One creature"
           ]
         },
-        "Flames wreathe the target. Make a reflex attack against the target that deals {@dice 7d8} fire damage. On a hit, the target also burns for the spell's duration. The burning target sheds bright light in a 30-foot radius and dim light for an additional 30 feet, and makes a save at the end of each of its turns. On a failed save, it suffers {@dice 4d6} fire harm, and the spell ends on a successful one. These magical flames can't be extinguished by nonmagical means.",
+        "Flames wreathe the target. Make a ranged reflex attack against the target that deals {@dice 7d8} fire damage. On a hit, the target also burns for the spell's duration. The burning target sheds bright light in a 30-foot radius and dim light for an additional 30 feet, and makes a save at the end of each of its turns. On a failed save, it suffers {@dice 4d6} fire harm, and the spell ends on a successful one. These magical flames can't be extinguished by nonmagical means.",
         "If damage or harm from this spell kills a target, the target is turned to ash."
       ],
       "name": "Immolation",
@@ -35054,7 +34791,7 @@
             "One creature"
           ]
         },
-        "You send ribbons of negative energy at the target. Unless the target is undead, make a fortitude attack against it that deals {@dice 8d8} necrotic damage. A target killed by this damage rises up as a {@creature zombie|sns} at the start of your next turn. The zombie pursues whatever creature it can see that is closest to it.",
+        "You send ribbons of negative energy at the target. Unless the target is undead, make a ranged fortitude attack against it that deals {@dice 8d8} necrotic damage. A target killed by this damage rises up as a {@creature zombie|sns} at the start of your next turn. The zombie pursues whatever creature it can see that is closest to it.",
         "If you target an undead with this spell, you do not attack the target. Instead, roll {@dice 4d8}. The target gains the total as temporary hit points."
       ],
       "name": "Negative Energy Flood",
@@ -35305,7 +35042,7 @@
             "20-foot-radius sphere centered on a point within range"
           ]
         },
-        "Psychic energy explodes in the area. Make a will attack against each creature with an Intelligence score of 3 or higher in the area that deals {@dice 7d8} psychic damage.",
+        "Psychic energy explodes in the area. Make an area will attack against each creature with an Intelligence score of 3 or higher in the area that deals {@dice 7d8} psychic damage.",
         "On a hit, a target has muddled thoughts for 1 minute, or until it passes a passive save. During that time, it rolls a {@dice d6} and subtracts the number rolled from all its armour attack rolls and ability checks."
       ],
       "name": "Synaptic Static",
@@ -35376,7 +35113,7 @@
           "entries": [
             "Nonmagical rock of any sort in the target becomes an equal volume of thick, flowing mud that remains for the spell's duration.",
             "The ground in the spell's area becomes muddy enough that creatures can sink into it. Each foot that a creature moves through the mud costs 4 feet of movement, and any creature on the ground when you cast the spell must make a save. A creature must also make the save when it moves into the area for the first time on a turn or ends its turn there. On a failed save, a creature sinks into the mud and is {@condition restrained|sns}, though it can use an action to end the {@condition restrained|sns} condition on itself by pulling itself free of the mud.",
-            "If you cast the spell on a ceiling, the mud falls. Make a reflex attack against any creature under the mud when it falls that deals {@dice 3d12} bludgeoning damage."
+            "If you cast the spell on a ceiling, the mud falls. Make an area reflex attack against any creature under the mud when it falls that deals {@dice 3d12} bludgeoning damage."
           ]
         },
         {
@@ -35922,7 +35659,7 @@
           "items": [
             "You are immune to fire damage and have 50% resistance to cold damage.",
             "Any creature that moves into a space adjacent to you for the first time on a turn or ends its turn there suffers {@dice 1d10} fire harm.",
-            "You can use your action to create a line of fire 15 feet long and 5 feet wide extending from you in a direction you choose. Make a reflex attack against each creature in the line that deals {@dice 3d12} fire damage."
+            "You can use your action to create a line of fire 15 feet long and 5 feet wide extending from you in a direction you choose. Make an reflex attack against each creature in the line that deals {@dice 3d12} fire damage."
           ]
         }
       ],
@@ -35993,7 +35730,7 @@
             "You are immune to cold damage and have 50% resistance to fire damage.",
             "You can move across difficult terrain created by ice or snow without spending extra movement.",
             "The ground in a 10-foot radius around you is icy and is difficult terrain for creatures other than you. The radius moves with you.",
-            "You can use your action to create a 15-foot cone of freezing wind extending from your outstretched hand in a direction you choose. Make a fortitude attack against each creature in the cone that deals {@dice 5d6} cold damage. On a hit, a target has its Speed halved until the start of your next turn."
+            "You can use your action to create a 15-foot cone of freezing wind extending from your outstretched hand in a direction you choose. Make an area fortitude attack against each creature in the cone that deals {@dice 5d6} cold damage. On a hit, a target has its Speed halved until the start of your next turn."
           ]
         }
       ],
@@ -36155,7 +35892,7 @@
           "items": [
             "Ranged weapon attacks made against you have disadvantage on the attack roll.",
             "You gain a flying speed of 60 feet. If you are still flying when the spell ends, you fall, unless you can somehow prevent it.",
-            "You can use your action to create a 15-foot cube of swirling wind centered on a point within 60 feet of you. Make a fortitude attack against each creature in that area that deals {@dice 2d12} bludgeoning damage. On a hit against a Large or smaller target, that target is also pushed up to 10 feet away from the centre of the cube."
+            "You can use your action to create a 15-foot cube of swirling wind centered on a point within 60 feet of you. Make an area fortitude attack against each creature in that area that deals {@dice 2d12} bludgeoning damage. On a hit against a Large or smaller target, that target is also pushed up to 10 feet away from the centre of the cube."
           ]
         }
       ],
@@ -36226,7 +35963,7 @@
             "One creature that is not immune to being {@condition charmed|sns}"
           ]
         },
-        "You attempt to bind the target within an illusory cell that only it perceives. Make a will attack against the target that deals {@dice 9d8} psychic damage. On a hit, you make the area immediately around the target's space appear dangerous to it in some way. You might cause the target to perceive itself as being surrounded by fire, floating razors, or hideous maws filled with dripping teeth. Whatever form the illusion takes, the target can't sense anything beyond it and is {@condition restrained|sns} for the spell's duration. If the target is moved out of the illusion, makes a melee weapon attack through it, or reaches any part of its body through it, the target suffers {@dice 10d10} psychic harm, and the spell ends."
+        "You attempt to bind the target within an illusory cell that only it perceives. Make a ranged will attack against the target that deals {@dice 9d8} psychic damage. On a hit, you make the area immediately around the target's space appear dangerous to it in some way. You might cause the target to perceive itself as being surrounded by fire, floating razors, or hideous maws filled with dripping teeth. Whatever form the illusion takes, the target can't sense anything beyond it and is {@condition restrained|sns} for the spell's duration. If the target is moved out of the illusion, makes a melee weapon attack through it, or reaches any part of its body through it, the target suffers {@dice 10d10} psychic harm, and the spell ends."
       ],
       "name": "Mental Prison",
       "time": [
@@ -36340,7 +36077,7 @@
             "Up to five creatures"
           ]
         },
-        "The air quivers around the targets. Make a will attack against all unwilling targets. If a target is willing, use the attack's standard success outcome. The attack has the following outcomes:",
+        "The air quivers around the targets. Make an area will attack against all unwilling targets. If a target is willing, use the attack's standard success outcome. The attack has the following outcomes:",
         {
           "type": "list",
           "items": [
@@ -36906,7 +36643,7 @@
             "30-foot cube centered on a point within range"
           ]
         },
-        "You draw the moisture from every creature in the area. Make a fortitude attack against each non-construct, non-undead creature in the area that deals {@dice 9d12} necrotic damage.",
+        "You draw the moisture from every creature in the area. Make an area fortitude attack against each non-construct, non-undead creature in the area that deals {@dice 9d12} necrotic damage.",
         "Nonmagical plants in the area that aren't creatures, such as trees and shrubs, wither and die instantly."
       ],
       "name": "Horrid Wilting",
@@ -37214,7 +36951,7 @@
           ]
         },
         "You unleash the power of your mind to blast the intellect of the targets.",
-        "Make a will attack against each target that deals {@dice 10d10} psychic damage. On a hit, a target is {@condition debilitated|sns} until it passes a passive save. If a target is killed by this attack, its head explodes, assuming it has one."
+        "Make an area will attack against each target that deals {@dice 10d10} psychic damage. On a hit, a target is {@condition debilitated|sns} until it passes a passive save. If a target is killed by this attack, its head explodes, assuming it has one."
       ],
       "name": "Psychic Scream",
       "time": [
@@ -37264,367 +37001,6 @@
         "distance": {
           "type": "feet",
           "amount": 90
-        }
-      }
-    },
-    {
-      "school": "V",
-      "entries": [
-        {
-          "type": "entries",
-          "name": "Target",
-          "entries": [
-            "One creature"
-          ]
-        },
-        "You charge your hand (or similar appendage) with thunderous power. Make an armour attack against the target that deals {@dice 1d10} thunder damage. On a hit, the target is also pushed 5 feet away from you.",
-        "This spell's damage increases by {@dice 1d10} when you reach 5th level ({@dice 2d10}), 11th level ({@dice 3d10}), and 17th level ({@dice 4d10})."
-      ],
-      "name": "Thunder Punch",
-      "time": [
-        {
-          "number": 1,
-          "unit": "action"
-        }
-      ],
-      "duration": [
-        {
-          "type": "instant"
-        }
-      ],
-      "source": "sns",
-      "subschools": [
-        "melee",
-        "spell",
-        "thunder",
-        "arcane"
-      ],
-      "level": 0,
-      "components": {
-        "v": true,
-        "s": true
-      },
-      "classes": {
-        "fromClassList": [
-          {
-            "name": "Bard",
-            "source": "PHB"
-          },
-          {
-            "name": "Herald",
-            "source": "PHB"
-          },
-          {
-            "name": "Sorcerer",
-            "source": "PHB"
-          },
-          {
-            "name": "Wizard",
-            "source": "PHB"
-          }
-        ]
-      },
-      "range": {
-        "type": "point",
-        "distance": {
-          "type": "touch"
-        }
-      }
-    },
-    {
-      "school": "I",
-      "entries": [
-        "An illusory duplicate of you steps clumsily into an unoccupied space within range, presenting a tempting target before winking out of existence.",
-        "Make a will attack against each creature of your choice for which the duplicate is within reach, with the following outcomes:",
-        {
-          "type": "list",
-          "items": [
-            {
-              "type": "item",
-              "name": "Minor success",
-              "entries": [
-                "The target is distracted by the duplicate, gaining disadvantage on attacks of opportunity until its next turn."
-              ]
-            },
-            {
-              "type": "item",
-              "name": "Standard success",
-              "entries": [
-                "The target wastes its reaction attempting to attack the duplicate."
-              ]
-            },
-            {
-              "type": "item",
-              "name": "Critical success",
-              "entries": [
-                "As standard success, but the target is also {@condition weakened|sns} for 1 round."
-              ]
-            }
-          ]
-        }
-      ],
-      "name": "Darting Duplicate",
-      "time": [
-        {
-          "number": 1,
-          "unit": "action"
-        }
-      ],
-      "duration": [
-        {
-          "type": "instant"
-        }
-      ],
-      "source": "sns",
-      "subschools": [
-        "arcane",
-        "chaos"
-      ],
-      "level": 0,
-      "components": {
-        "v": true,
-        "s": true
-      },
-      "classes": {
-        "fromClassList": [
-          {
-            "name": "Bard",
-            "source": "PHB"
-          },
-          {
-            "name": "Sorcerer",
-            "source": "PHB"
-          },
-          {
-            "name": "Wizard",
-            "source": "PHB"
-          }
-        ]
-      },
-      "range": {
-        "type": "point",
-        "distance": {
-          "amount": 5,
-          "type": "feet"
-        }
-      }
-    },
-    {
-      "school": "E",
-      "entries": [
-        {
-          "type": "entries",
-          "name": "Target",
-          "entries": [
-            "One willing creature"
-          ]
-        },
-        "You awaken the target's bloodlust, forcing it to use its reaction to make a melee weapon attack with disadvantage against a creature of your choice within its reach."
-      ],
-      "name": "Call to Feast",
-      "time": [
-        {
-          "number": 1,
-          "unit": "action"
-        }
-      ],
-      "duration": [
-        {
-          "type": "instant"
-        }
-      ],
-      "source": "sns",
-      "subschools": [
-        "compulsion",
-        "weaponry"
-      ],
-      "level": 0,
-      "components": {
-        "v": true,
-        "s": false
-      },
-      "classes": {
-        "fromClassList": [
-          {
-            "name": "Artificer",
-            "source": "PHB"
-          },
-          {
-            "name": "Bard",
-            "source": "PHB"
-          },
-          {
-            "name": "Druid",
-            "source": "PHB"
-          }
-        ]
-      },
-      "range": {
-        "type": "point",
-        "distance": {
-          "amount": 30,
-          "type": "feet"
-        }
-      }
-    },
-    {
-      "school": "E",
-      "entries": [
-        {
-          "type": "entries",
-          "name": "Target",
-          "entries": [
-            "One creature"
-          ]
-        },
-        "You affix the target with a putrefying gaze. Make a will attack against it with the following outcomes:",
-        {
-          "type": "list",
-          "items": [
-            {
-              "type": "item",
-              "name": "Minor success",
-              "entries": [
-                "The target suffers 1 ongoing necrotic harm until it passes a passive save. This passive save has disadvantage while the target is within your line of sight."
-              ]
-            },
-            {
-              "type": "item",
-              "name": "Standard success",
-              "entries": [
-                "As minor success, but the ongoing necrotic harm increases to {@dice 1d4}."
-              ]
-            },
-            {
-              "type": "item",
-              "name": "Critical success",
-              "entries": [
-                "As minor success, but the ongoing necrotic harm increases to {@dice 1d6}."
-              ]
-            }
-          ]
-        }
-      ],
-      "name": "Eye of Rot",
-      "time": [
-        {
-          "number": 1,
-          "unit": "action"
-        }
-      ],
-      "duration": [
-        {
-          "type": "timed",
-          "duration": {
-            "type": "minute",
-            "amount": 1,
-            "upTo": true
-          },
-          "concentration": true
-        }
-      ],
-      "source": "sns",
-      "subschools": [
-        "necrotic",
-        "harm",
-        "ranged",
-        "affliction"
-      ],
-      "level": 0,
-      "components": {
-        "v": true,
-        "s": true
-      },
-      "classes": {
-        "fromClassList": [
-          {
-            "name": "Bard",
-            "source": "PHB"
-          },
-          {
-            "name": "Sorcerer",
-            "source": "PHB"
-          },
-          {
-            "name": "Warlock",
-            "source": "PHB"
-          }
-        ]
-      },
-      "range": {
-        "type": "point",
-        "distance": {
-          "amount": 120,
-          "type": "feet"
-        }
-      }
-    },
-    {
-      "school": "T",
-      "entries": [
-        {
-          "type": "entries",
-          "name": "Target",
-          "entries": [
-            "One creature"
-          ]
-        },
-        "You fling a rock at the target. Make an armour attack dealing {@dice 1d6} bludgeoning damage. On a hit, the target is knocked {@condition prone|sns}.",
-        "This spell's damage increases by {@dice 1d6} when you reach 5th level ({@dice 2d6}), 11th level ({@dice 3d6}), and 17th level ({@dice 4d6})."
-      ],
-      "name": "Rock Slam",
-      "time": [
-        {
-          "number": 1,
-          "unit": "action"
-        }
-      ],
-      "duration": [
-        {
-          "type": "instant"
-        }
-      ],
-      "source": "sns",
-      "subschools": [
-        "bludgeoning",
-        "ranged",
-        "spell",
-        "earth"
-      ],
-      "level": 0,
-      "components": {
-        "v": true,
-        "s": true
-      },
-      "classes": {
-        "fromClassList": [
-          {
-            "name": "Druid",
-            "source": "PHB"
-          },
-          {
-            "name": "Cleric",
-            "source": "PHB"
-          },
-          {
-            "name": "Herald",
-            "source": "PHB"
-          },
-          {
-            "name": "Sorcerer",
-            "source": "PHB"
-          },
-          {
-            "name": "Wizard",
-            "source": "PHB"
-          }
-        ]
-      },
-      "range": {
-        "type": "point",
-        "distance": {
-          "amount": 120,
-          "type": "feet"
         }
       }
     },
@@ -37692,205 +37068,6 @@
         "type": "point",
         "distance": {
           "type": "touch"
-        }
-      }
-    },
-    {
-      "school": "C",
-      "entries": [
-        {
-          "type": "entries",
-          "name": "Area",
-          "entries": [
-            "Line 30 feet long and 5 feet wide"
-          ]
-        },
-        "Freezing arctic wind blasts out from you. Make a reflex attack against each creature in the area, dealing {@dice 1d4} cold damage.",
-        "This spell's damage increases by {@dice 1d4} when you reach 5th level ({@dice 2d4}), 11th level ({@dice 3d4}), and 17th level ({@dice 4d4})."
-      ],
-      "name": "Arctic Breath",
-      "time": [
-        {
-          "number": 1,
-          "unit": "action"
-        }
-      ],
-      "duration": [
-        {
-          "type": "instant"
-        }
-      ],
-      "source": "sns",
-      "subschools": [
-        "cold",
-        "area",
-        "spell",
-        "arcane"
-      ],
-      "level": 0,
-      "components": {
-        "v": true,
-        "s": true
-      },
-      "classes": {
-        "fromClassList": [
-          {
-            "name": "Druid",
-            "source": "PHB"
-          },
-          {
-            "name": "Sorcerer",
-            "source": "PHB"
-          },
-          {
-            "name": "Wizard",
-            "source": "PHB"
-          }
-        ]
-      },
-      "range": {
-        "type": "point",
-        "distance": {
-          "type": "self"
-        }
-      }
-    },
-    {
-      "school": "T",
-      "entries": [
-        {
-          "type": "entries",
-          "name": "Target",
-          "entries": [
-            "One creature"
-          ]
-        },
-        "Make an armour attack against the target with the following outcomes:",
-        {
-          "type": "list",
-          "items": [
-            {
-              "type": "item",
-              "name": "Minor success",
-              "entries": [
-                "The next armour attack roll made against the target before the end of your next turn has a +1 bonus."
-              ]
-            },
-            {
-              "type": "item",
-              "name": "Standard success",
-              "entries": [
-                "The target's armour is reduced by 1 for 1 round."
-              ]
-            },
-            {
-              "type": "item",
-              "name": "Major success",
-              "entries": [
-                "The target's armour is reduced by 1 until it takes a short or long rest."
-              ]
-            },
-            {
-              "type": "item",
-              "name": "Critical success",
-              "entries": [
-                "As major success, but the armour penalty increases to 2."
-              ]
-            }
-          ]
-        }
-      ],
-      "name": "Caustic Coating",
-      "time": [
-        {
-          "number": 1,
-          "unit": "action"
-        }
-      ],
-      "duration": [
-        {
-          "type": "instant"
-        }
-      ],
-      "source": "sns",
-      "subschools": [
-        "melee",
-        "arcane"
-      ],
-      "level": 0,
-      "components": {
-        "v": false,
-        "s": true
-      },
-      "classes": {
-        "fromClassList": [
-          {
-            "name": "Druid",
-            "source": "PHB"
-          }
-        ]
-      },
-      "range": {
-        "type": "point",
-        "distance": {
-          "type": "touch"
-        }
-      }
-    },
-    {
-      "school": "T",
-      "entries": [
-        "You channel fiery power to form draconic wings. Make a reflex attack against all creatures adjacent to you that deals 1 fire damage. Additionally, you gain 30 feet of flying speed until the end of your turn, after which the wings fade away.",
-        "This spell's damage increases by 1 when you reach 5th level (2), 11th level (3), and 17th level (4)."
-      ],
-      "name": "Dragon Surge",
-      "time": [
-        {
-          "number": 1,
-          "unit": "action"
-        }
-      ],
-      "duration": [
-        {
-          "type": "instant"
-        }
-      ],
-      "source": "sns",
-      "subschools": [
-        "area",
-        "spell",
-        "fire",
-        "movement"
-      ],
-      "level": 0,
-      "components": {
-        "v": true,
-        "s": true
-      },
-      "classes": {
-        "fromClassList": [
-          {
-            "name": "Herald",
-            "source": "PHB"
-          },
-          {
-            "name": "Sorcerer",
-            "source": "PHB"
-          },
-          {
-            "name": "Warlock",
-            "source": "PHB"
-          },
-          {
-            "name": "Wizard",
-            "source": "PHB"
-          }
-        ]
-      },
-      "range": {
-        "type": "point",
-        "distance": {
-          "type": "self"
         }
       }
     }
