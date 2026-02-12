@@ -164,7 +164,7 @@
         },
         "Exploration Knacks|Ranger|sns|1|sns",
         "Familiar Terrain|Ranger|sns|1|sns",
-        "Studied Adversary|Ranger|sns|1|sns",
+        "Beast Friend|Ranger|sns|1|sns",
         "Combat Maneuvers|Ranger|sns|2|sns",
         "Stride and Seek|Ranger|sns|2|sns",
         "Trained Accuracy|Ranger|sns|2|sns",
@@ -180,8 +180,7 @@
           "classFeature": "First Subclass Tier 3|Ranger|sns|5|sns",
           "gainSubclassFeature": true
         },
-        "Adversarial Focus|Ranger|sns|6|sns",
-        "Game Hunting|Ranger|sns|6|sns",
+        "Hunter's Pet|Ranger|sns|6|sns",
         {
           "classFeature": "First Subclass Tier 4|Ranger|sns|7|sns",
           "gainSubclassFeature": true
@@ -189,7 +188,7 @@
         "Ability Score Improvement|Ranger|sns|8|sns",
         "Explorer's Instinct|Ranger|sns|8|sns",
         "Flash of Steel|Ranger|sns|9|sns",
-        "Hunter's Focus|Ranger|sns|9|sns",
+        "Stride and Seek Upgrade|Ranger|sns|9|sns",
         {
           "classFeature": "First Subclass Tier 5|Ranger|sns|9|sns",
           "gainSubclassFeature": true
@@ -200,6 +199,7 @@
         "Wilderness Lore|Ranger|sns|12|sns",
         "Guarded Post|Ranger|sns|13|sns",
         "Second Subclass Tier 2|Ranger|sns|13|sns",
+        "Loyalty's Reward|Ranger|sns|14|sns",
         "Tactical Advantage|Ranger|sns|14|sns",
         "Second Subclass Tier 3|Ranger|sns|15|sns",
         "Ability Score Improvement|Ranger|sns|16|sns",
@@ -255,25 +255,29 @@
           "type": "list",
           "items": [
             "Difficult terrain doesn't slow your group's travel.",
-            "Your group can't become lost except by magical means.",
-            "Even when you are engaged in another activity while traveling, you remain alert to danger. Your Perception for the purposes of avoiding ambushes increases by 2.",
-            "If you are traveling alone, you can move stealthily at a normal pace. This grants you advantage on Scout journey activity checks.",
-            "When you take the Harvest journey activity, you gain double the number of perk points you would usually acquire.",
+            "Your Perception for the purposes of avoiding ambushes increases by 2.",
             "While tracking other creatures, you also learn their exact number, their sizes, and how long ago they passed through the area."
           ]
         }
       ]
     },
     {
-      "name": "Studied Adversary",
+      "name": "Beast Friend",
       "source": "sns",
       "className": "Ranger",
       "classSource": "sns",
       "level": 1,
       "entries": [
-        "You have significant experience studying, tracking, hunting, and even communicating with your enemies. Choose a type of adversary: aberrations, beasts, celestials, constructs, dragons, elementals, fey, fiends, giants, monstrosities, oozes, plants, or undead. Alternatively, you can select two humanoid races as studied adversaries.",
-        "You have advantage on Survival checks to track your studied adversaries, as well as on ability checks to recall information about them. You also learn to communicate with basic words in a language of your choice that is spoken by your studied adversaries, if they speak one at all.",
-        "During a long rest, you can replace a current studied adversary with a new one."
+        "After a Befriend Animal journey activity, you can befriend and feed a Medium or Small beast of your choice, becoming its guardian ranger. It counts as a CR 1/4 minion and requires your concentration, though this concentration cannot be lost against your will. The beast tracks wounds and uses death saves as if it were a player character, but if it dies, it must be replaced with a new beast for this feature to function.",
+        "The beast also has the following benefits:",
+        {
+          "type": "list",
+          "items": [
+            "Whenever it rolls for initiative, it gains a number of temporary hit points equal to your level squared.",
+            "Its armour increases by an amount equal to half your proficiency bonus.",
+            "It adds your proficiency bonus to all damage it deals."
+          ]
+        }
       ]
     },
     {
@@ -295,13 +299,20 @@
       "classSource": "sns",
       "level": 2,
       "entries": [
-        "Your wilderness survival instincts guide your physical and mental training. You gain one of the following features at 2nd level. You gain the other feature when you reach 5th level in this class.",
+        "Your wilderness survival instincts guide your physical and mental training. You gain one of the following features at 2nd level. You gain another of your choice when you reach 5th level in this class.",
         {
           "type": "entries",
           "name": "Hunter's Target",
           "entries": [
             "You can use your bonus action to focus your attention on a specific enemy. Choose a creature you can see within 90 feet to mark as your quarry. For 1 hour, you are focused on this creature. You gain a +1 bonus to weapon armour attack rolls against the creature, and your weapon armour attacks against it deal an extra {@dice 1d6} damage. In addition, you have advantage on Perception and Survival checks you make to find it. If the creature drops to 0 hit points before the hour ends, you can use a bonus action to mark a new quarry.",
             "Once you use this feature, you can't use it again until you finish a short or long rest."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Resilient Companion",
+          "entries": [
+            "You beast friend's non-armour defences are increased by half your proficiency bonus."
           ]
         },
         {
@@ -321,7 +332,7 @@
       "classSource": "sns",
       "level": 5,
       "entries": [
-        "You gain the other feature from your Stride and Seek feature."
+        "You gain a second feature from your Stride and Seek feature."
       ]
     },
     {
@@ -566,24 +577,39 @@
       ]
     },
     {
-      "name": "Adversarial Focus",
+      "name": "Hunter's Pet",
       "source": "sns",
       "className": "Ranger",
       "classSource": "sns",
       "level": 6,
       "entries": [
-        "At 6th level you gain an additional studied adversary, and you gain a +1 bonus to weapon armour attack rolls made against your studied adversaries."
-      ]
-    },
-    {
-      "name": "Game Hunting",
-      "source": "sns",
-      "className": "Ranger",
-      "classSource": "sns",
-      "level": 6,
-      "entries": [
-        "At 6th level, you have advantage on Gather Component journey activity checks.",
-        "Additionally, being adjacent to a hostile creature doesn't impose disadvantage on your attack rolls with a net."
+        "At 6th level, your beast friend ignores resistances and immunities with its weapon attacks, and gains one of the following enhancements:",
+        {
+          "type": "list",
+          "items": [
+            {
+              "type": "item",
+              "name": "Camouflage",
+              "entries": [
+                "The beast can take the Hide action as a bonus action."
+              ]
+            },
+            {
+              "type": "item",
+              "name": "Celerity",
+              "entries": [
+                "The beast can take the Dash action as a bonus action."
+              ]
+            },
+            {
+              "type": "item",
+              "name": "Sturdiness",
+              "entries": [
+                "The beast can take the Block action as a bonus action."
+              ]
+            }
+          ]
+        }
       ]
     },
     {
@@ -608,13 +634,34 @@
       ]
     },
     {
-      "name": "Hunter's Focus",
+      "name": "Stride and Seek Upgrade",
       "source": "sns",
       "className": "Ranger",
       "classSource": "sns",
       "level": 9,
       "entries": [
-        "At 9th level, you can remain focused on your Hunter's Target for up to 8 hours."
+        "At 9th level, choose one of the following improvements to a Stride and Seek feature you have.",
+        {
+          "type": "entries",
+          "name": "Hunter's Target",
+          "entries": [
+            "You can remain focused on your Hunter's Target for up to 8 hours."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Resilient Companion",
+          "entries": [
+            "Your beast friend has a +1 bonus to its death saves."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Swift Feet",
+          "entries": [
+            "Your Swift Feet now lasts for up to 1 hour."
+          ]
+        }
       ]
     },
     {
@@ -698,6 +745,13 @@
         },
         {
           "type": "entries",
+          "name": "Guard Beast",
+          "entries": [
+            "Whenever a creature within distance of your best friend's Speed would make an armour attack against an ally, the beast can use its reaction to move up to its Speed into a space adjacent to the attacker and grant the attack disadvantage."
+          ]
+        },
+        {
+          "type": "entries",
           "name": "Hunter's Blind",
           "entries": [
             "You can spend 10 minutes constructing a natural shelter able to accommodate you. The shelter blends in with its surroundings, and as long as you don't move into or out of it, the shelter is indistinguishable from a natural object. It is designed to allow you to see out while inside, but prevent anyone outside from seeing in.",
@@ -707,13 +761,23 @@
       ]
     },
     {
+      "name": "Loyalty's Reward",
+      "source": "sns",
+      "className": "Ranger",
+      "classSource": "sns",
+      "level": 14,
+      "entries": [
+        "At 14th level, if damage reduces your beast friend to 0 hit points, it makes a save. On a success, it drops to 1 hit point instead. The beast can use this feature once between long rests."
+      ]
+    },
+    {
       "name": "Tactical Advantage",
       "source": "sns",
       "className": "Ranger",
       "classSource": "sns",
       "level": 14,
       "entries": [
-        "At 14th level you gain a third studied adversary. In addition, you can choose one of the following ranger tactics:",
+        "Also at 14th level, you can choose one of the following ranger tactics:",
         {
           "type": "entries",
           "name": "Covered Shot",
@@ -776,7 +840,7 @@
           "type": "entries",
           "name": "Beastly Attack",
           "entries": [
-            "Once on each of your turns, a beast that is friendly to you and able to see or hear you can use its reaction to make a single basic weapon attack."
+            "Once on each of your turns, your beast friend can use its reaction to make a single basic weapon attack."
           ]
         },
         {
@@ -828,7 +892,7 @@
           "type": "entries",
           "name": "Elemental Mastery",
           "entries": [
-            "By focusing on a specific natural element within 100 feet (air, fire, earth, water, or wood) you can attract similar essences to you. After 10 minutes of concentration, a creature of that element is drawn to your presence and becomes your loyal minion (despite not requiring concentration). This creature is based on a level 7 generic minion (https://homebrewery.naturalcrit.com/share/4FjimI1VqkgS), but with the following modifications:",
+            "By focusing on a specific natural element within 100 feet (air, fire, earth, water, or wood) you can attract similar essences to you. After 10 minutes of meditation, a creature of that element is drawn to your presence and obeys your commands. This creature is based on a CR 7 generic minion (https://homebrewery.naturalcrit.com/share/4FjimI1VqkgS), but with the following modifications:",
             {
               "type": "list",
               "items": [
@@ -839,7 +903,7 @@
                 "The guardian gains the Guard Life action: The guardian uses its Engulf on a willing, {@condition unconscious|sns}, or {@condition incapacitated|sns} ally without dealing damage. While engulfed, the ally is {@condition grappled|sns} but not {@condition restrained|sns}, can see and breathe normally, and has total cover. As soon as the ally takes an action, reaction, or bonus action, they are no longer engulfed. The guardian can release the ally at will (no action required)."
               ]
             },
-            "The creature is friendly to you and your companions, takes its turn immediately after yours, and obeys your verbal commands. The creature disappears after 1 hour, when it is reduced to 0 hit point, or you use a bonus action to dismiss it. Once you have used this feature, you can't do so again until you finish a long rest."
+            "The creature disappears after 1 hour, when it is reduced to 0 hit point, or you use a bonus action to dismiss it. Once you have used this feature, you can't do so again until you finish a long rest."
           ]
         },
         {
@@ -850,33 +914,25 @@
             {
               "type": "list",
               "items": [
-                "Enraged Fauna: Up to 3 Huge native creatures of up to CR 8 charge forward (use CR 8 generic minions - https://homebrewery.naturalcrit.com/share/4FjimI1VqkgS), bowling into your enemies. Choose any number of creatures you can see within 100 feet. Make a fortitude attack against each of them dealing 9d6 bludgeoning weapon damage. In addition, you can choose one of the Huge creatures to stay and fight. You can have only one such creature assist in this way at a time, and it retreats when bloodied or when you command it to leave. It counts as a minion, despite not requiring concentration.",
-                "Rushing Stamped: A Huge-sized horde of Small, Medium, and Large native creatures hurry through the area, traveling in a 30'-wide line from a direction you choose. Until the start of your next turn, the area is difficult terrain. In addition, make a reflex attack against each creature of your choice in the area that deals 5d8 bludgeoning weapon damage. On a hit, a target is knocked {@condition prone|sns} and {@condition debilitated|sns} until the start of your next turn. Otherwise, a target is {@condition rattled|sns} until the start of your next turn.",
-                "Swarming Pests: Several Medium-sized swarms of Tiny native creatures enter the spaces of up to 5 Small, Medium, or Large creatures you choose, or the space of a Huge or Gargantuan creature. Make a fortitude attack against each enemy creature in the swarm's area with the following outcomes:",
                 {
-                  "type": "list",
-                  "items": [
-                    {
-                      "type": "item",
-                      "name": "Minor success",
-                      "entries": [
-                        "The target is {@condition slowed|sns} until the start of your next turn."
-                      ]
-                    },
-                    {
-                      "type": "item",
-                      "name": "Standard success",
-                      "entries": [
-                        "The target becomes {@condition blinded|sns} and {@condition slowed|sns} until the start of your next turn, and loses concentration on any effect it is concentrating on."
-                      ]
-                    },
-                    {
-                      "type": "item",
-                      "name": "Critical success",
-                      "entries": [
-                        "As standard success, but the conditions last for 2 rounds instead."
-                      ]
-                    }
+                  "type": "item",
+                  "name": "Enraged Fauna",
+                  "entries": [
+                    "Up to 3 Huge native creatures of up to CR 8 charge forward (use CR 8 generic minions - https://homebrewery.naturalcrit.com/share/4FjimI1VqkgS), bowling into your enemies. Choose any number of creatures you can see within 100 feet to suffer {@dice 9d6} bludgeoning harm. In addition, you can choose one of the Huge creatures to stay and fight. You can have only one such creature assist in this way at a time, and it retreats when bloodied or when you command it to leave."
+                  ]
+                },
+                {
+                  "type": "item",
+                  "name": "Rushing Stampede",
+                  "entries": [
+                    "A Huge-sized horde of Small, Medium, and Large native creatures hurry through the area, traveling in a 30'-wide line from a direction you choose. Until the start of your next turn, the area is difficult terrain. In addition, each creature of your choice in the area suffers {@dice 5d8} bludgeoning harm. Each target must also make a save, becoming {@condition prone|sns} and {@condition debilitated|sns} until the start of your next turn on a fail. On a successful save, a target is {@condition rattled|sns} until the start of your next turn."
+                  ]
+                },
+                {
+                  "type": "item",
+                  "name": "Swarming Pests",
+                  "entries": [
+                    "Several Medium-sized swarms of Tiny native creatures enter the spaces of up to 5 Small, Medium, or Large creatures you choose, or the space of a Huge or Gargantuan creature. Each creature in the swarm's area becomes {@condition blinded|sns} and {@condition slowed|sns} until the start of your next turn, and loses concentration on any effect it is concentrating on."
                   ]
                 }
               ]
@@ -1095,16 +1151,6 @@
   ],
   "optionalfeature": [
     {
-      "name": "Beast Friend",
-      "source": "sns",
-      "featureType": [
-        "EK"
-      ],
-      "entries": [
-        "After a Befriend Animal journey activity, you can befriend and feed a Medium or smaller beast of your choice, becoming its guardian ranger (use the CR 1/8 generic minion - https://homebrewery.naturalcrit.com/share/4FjimI1VqkgS). It counts as a minion despite not requiring concentration. The beast won't attack except as a response to being attacked, but it can take other actions as normal and makes death saving throws. You can only be a guardian ranger to one beast at a time."
-      ]
-    },
-    {
       "name": "Build Shelter",
       "source": "sns",
       "featureType": [
@@ -1234,7 +1280,7 @@
         "EK"
       ],
       "entries": [
-        "By imitating how a beast or studied adversary sounds, looks, and moves, you gain advantage on Deception and Intimidation checks made to convince a creature that it is seeing or hearing that beast or studied adversary."
+        "By imitating how a beast sounds, looks, and moves, you gain advantage on Deception and Intimidation checks made to convince a creature that it is seeing or hearing that beast."
       ]
     },
     {
