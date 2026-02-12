@@ -209,6 +209,10 @@
         "Artificial Spellcasting|Artificer|sns|1|sns",
         "Craftsman|Artificer|sns|1|sns",
         "Tactical Chemistry|Artificer|sns|1|sns",
+        "Arcane Utilities|Artificer|sns|1|sns",
+        "Arcane Utilities (2)|Artificer|sns|5|sns",
+        "Arcane Utilities (3)|Artificer|sns|11|sns",
+        "Arcane Utilities (4)|Artificer|sns|17|sns",
         "Field Discoveries|Artificer|sns|2|sns",
         "Schematics|Artificer|sns|2|sns",
         {
@@ -542,6 +546,46 @@
       "level": 2,
       "entries": [
         "Experimentation is the key to scientific progress, and through your experiences and findings in the field you've discovered new skills and data. At 2nd level you gain one field discovery of your choice. The Field Discoveries column of the Artificer table shows when you learn more field discoveries. Unless otherwise noted, you can gain each field discovery only once."
+      ]
+    },
+    {
+      "name": "Arcane Utilities",
+      "source": "sns",
+      "className": "Artificer",
+      "classSource": "sns",
+      "level": 1,
+      "entries": [
+        "Also at 1st level, you learn certain capabilities based on your magical knowledge. You gain one {@filter Arcane Utility|optionalfeatures|feature type=au} now, and gain another at 5th, 11th, and 17th levels. You can only gain each utility once."
+      ]
+    },
+    {
+      "name": "Arcane Utilities (2)",
+      "source": "sns",
+      "className": "Artificer",
+      "classSource": "sns",
+      "level": 5,
+      "entries": [
+        "At 5th level, you gain a second {@filter Arcane Utility|optionalfeatures|feature type=au}."
+      ]
+    },
+    {
+      "name": "Arcane Utilities (3)",
+      "source": "sns",
+      "className": "Artificer",
+      "classSource": "sns",
+      "level": 11,
+      "entries": [
+        "At 11th level, you gain a third {@filter Arcane Utility|optionalfeatures|feature type=au}."
+      ]
+    },
+    {
+      "name": "Arcane Utilities (4)",
+      "source": "sns",
+      "className": "Artificer",
+      "classSource": "sns",
+      "level": 17,
+      "entries": [
+        "At 17th level, you gain a fourth {@filter Arcane Utility|optionalfeatures|feature type=au}."
       ]
     },
     {
