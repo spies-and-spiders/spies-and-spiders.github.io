@@ -4685,14 +4685,7 @@
     {
       "school": "C",
       "entries": [
-        "Until the spell ends, you can use an action to spit venom, making a ranged spell armour attack at a creature or object within 30 feet. The venom deals {@dice 4d8} poison damage and if the target is a creature, it is {@condition poisoned|sns} until the end of its next turn on a hit.",
-        {
-          "type": "entries",
-          "name": "Rare",
-          "entries": [
-            "Sidoneth's Vomitous Cobra's Spit. You can use an action to end the spell early, suffering {@dice 4d8} poison harm and spewing a 15-foot cone of poison. Make an area spell reflex attack against each creature in the area that deals {@dice 9d8} poison damage."
-          ]
-        }
+        "Until the spell ends, you can use an action to spit venom, making a ranged spell armour attack at a creature or object within 30 feet. The venom deals {@dice 4d8} poison damage and if the target is a creature, it is {@condition poisoned|sns} until the end of its next turn on a hit."
       ],
       "name": "Cobra's Spit",
       "time": [
@@ -4727,7 +4720,9 @@
       ],
       "subschools": [
         "attack",
-        "poison"
+        "poison",
+        "ranged",
+        "spell"
       ],
       "level": 3,
       "components": {
@@ -22628,38 +22623,12 @@
     {
       "school": "C",
       "entries": [
-        "Up to four seeds appear in your hand and are infused with magic for the duration. As an action, a creature can throw one of these seeds at a point up to 60 feet away. Regardless of who threw the seed, you make a ranged reflex spell attack against each creature adjacent to that point that deals {@dice 4d6} piercing damage. Depending on the material component used, a seed bomb also causes one of the following additional effects:",
+        "Up to four seeds appear in the pockets of any creatures of your choice within range, distributed as you wish. The seeds are infused with magic for the duration. As an action, a creature can throw one of these seeds at a point up to 30 feet away. The creature makes an area reflex spell attack against each creature adjacent to that point that deals {@dice 2d6} piercing damage. This attack always scales with the caster's statistics, not the attacker's. Additionally, a seed bomb also causes one of the following additional effects of your choice:",
         {
           "type": "list",
           "items": [
-            {
-              "type": "item",
-              "name": "Pinecone",
-              "entries": [
-                "Seed shrapnel explodes outward. If the attack scores a major success, the target is {@condition blinded|sns} until the end of its next turn."
-              ]
-            },
-            {
-              "type": "item",
-              "name": "Sunflower",
-              "entries": [
-                "Seeds enlarge into a blanket of pointy needles. The area affected by the exploding seed bomb becomes difficult terrain for the next minute."
-              ]
-            },
-            {
-              "type": "item",
-              "name": "Tumbleweed",
-              "entries": [
-                "The weeds unravel to latch around creatures. If the attack scores a major success, the target becomes {@condition grappled|sns} until the end of its next turn."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "entries",
-          "name": "Rare",
-          "entries": [
-            "Nevard's Psionic Seed Bomb. The seed bombs created by this spell explode with the cries of dying sproutlings and deal psychic damage instead of piercing damage."
+            "Seed shrapnel explodes outward. If the attack scores a major success, the target is {@condition blinded|sns} until the end of its next turn.",
+            "The seeds sprout into weeds that latch around creatures. If the attack scores a major success, the target becomes {@condition grappled|sns} until the end of its next turn."
           ]
         }
       ],
@@ -22667,7 +22636,8 @@
       "time": [
         {
           "number": 1,
-          "unit": "action"
+          "unit": "reaction",
+          "condition": "which you take when you roll for initiative"
         }
       ],
       "entriesHigherLevel": [
@@ -22695,16 +22665,15 @@
       ],
       "subschools": [
         "nature",
-        "weaponry"
+        "piercing",
+        "area",
+        "spell"
       ],
       "level": 2,
       "components": {
         "s": true,
         "m": {
-          "text": "tumbleweed"
-        },
-        "pinecone,": {
-          "text": "or sunflower head"
+          "text": "tumbleweed, pinecone, or sunflower head"
         }
       },
       "classes": {
@@ -22722,7 +22691,8 @@
       "range": {
         "type": "point",
         "distance": {
-          "type": "self"
+          "amount": 60,
+          "type": "feet"
         }
       }
     },

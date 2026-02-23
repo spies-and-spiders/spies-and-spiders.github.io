@@ -248,8 +248,7 @@
           "type": "list",
           "items": [
             "A slowed creature is {@condition sluggish|sns} and {@condition rattled|sns}.",
-            "Armour and reflex attacks against the creature have advantage.",
-            "On its turn, the creature can take either an action or a bonus action, not both."
+            "Armour and reflex attacks against the creature have advantage."
           ]
         }
       ],
