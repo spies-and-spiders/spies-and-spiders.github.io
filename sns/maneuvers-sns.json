@@ -7295,10 +7295,10 @@
             "The Empowered Attack feature"
           ]
         },
-        "Choose a number of 5-foot spaces equal to your Charisma modifier within 30 feet. Each space becomes occupied by a spirit entity with Armour equal to half your Charisma modifier, 22 hit points, and vulnerability to radiant damage. Each entity also has a reach of 5 feet and its own reaction. When a creature moves out of its reach, an entity can cause half of your main hand weapon's base damage as harm to the creature if your main hand weapon is a melee weapon. The entities cannot use any movement and cannot flank. The spaces they occupy are considered difficult terrain to any creature except you.",
+        "Choose a number of 5-foot spaces equal to your Charisma modifier within 30 feet. Each space becomes occupied by a spirit entity with Armour equal to half your Charisma modifier, 22 hit points, and vulnerability to radiant damage. Each entity also has a reach of 5 feet and its own reaction. When a creature moves out of its reach, an entity can react to cause half of your main hand weapon's base damage as harm to the creature if your main hand weapon is a melee weapon. The entities cannot use any movement and cannot flank. The spaces they occupy are considered difficult terrain to any creature except you.",
         "Additionally, while this stance is active, whenever you take the Attack action, you can make your attack from a chosen entity instead of from you. This stance ends early if all entities are destroyed."
       ],
-      "name": "Darkstalkers",
+      "name": "Darkstalker Stance",
       "time": [
         {
           "number": 1,
@@ -7515,10 +7515,10 @@
             "3 points"
           ]
         },
-        "Choose a number of 5-foot spaces equal to your Charisma modifier within 30 feet. These spaces become occupied with shadowy apparitions, which have Armour equal to half your Charisma modifier and 11 hit points. Each apparition also has a reach of 5 feet and its own reaction. When a creature moves out of its reach, an entity can deal half of your Charisma modifier as true damage to the creature, and you gain hit points equal to the damage dealt. You can also use your own reaction to direct an apparition to deal this damage again if it has already used its own. The apparitions cannot flank.",
+        "Choose a number of 5-foot spaces equal to your Charisma modifier within 30 feet. These spaces become occupied with shadowy apparitions, which have Armour equal to half your Charisma modifier and 11 hit points. Each apparition also has a reach of 5 feet and its own reaction. When a creature moves out of its reach, an apparition can react to cause necrotic harm equal to half of your Charisma modifier to the creature, and you gain hit points equal to the harm caused. You can also use your own reaction to direct an apparition to cause this harm again if it has already used its own. The apparitions cannot flank.",
         "While maintaining this stance, you can forgo your movement to instead move any apparition a number of feet up to your Speed. This can be split among multiple apparitions, as long as you have the movement available. The apparitions must stay within 30 feet of you or they vanish. This stance ends early if all apparitions are destroyed."
       ],
-      "name": "Hungry Ghosts",
+      "name": "Hungry Ghost Stance",
       "time": [
         {
           "number": 1,
