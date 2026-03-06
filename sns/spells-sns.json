@@ -11160,14 +11160,7 @@
             "Special"
           ]
         },
-        "Flames roar. Make an attack against each creature in the area that deals {@dice 10d8} fire damage. Objects in the area also take this damage and are ignited if unattended and flammable. If you choose, plant life in the area is unaffected. This spell's area consists of a contiguous group of ten 10-foot cubes in an arrangement you choose, with each cube adjacent to at least one other cube.",
-        {
-          "type": "entries",
-          "name": "Rare",
-          "entries": [
-            "Stekart's Delayed Fire Storm. This spell has a duration of 10 minutes. The flames do not immediately appear when the spell is cast. If a Small or larger creature enters the area of the spell, the flames appear and make the attack, ending the spell."
-          ]
-        }
+        "Flames roar. Make an area spell reflex attack against each creature in the area that deals {@dice 10d8} fire damage. Objects in the area also take this damage and are ignited if unattended and flammable. If you choose, plant life in the area is unaffected. This spell's area consists of a contiguous group of ten 10-foot cubes in an arrangement you choose, with each cube adjacent to at least one other cube."
       ],
       "name": "Fire Storm",
       "time": [
