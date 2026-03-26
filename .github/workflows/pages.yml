@@ -58,7 +58,7 @@ jobs:
          - name: Prepare search indexes
            run: |
             mkdir -p search
-            npm install --prefix node/
+            npm install
             node node/generate-search-index.js
 
          # Notably: remove anything which should not be added to the service worker manifest:
