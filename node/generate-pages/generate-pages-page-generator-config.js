@@ -30,8 +30,8 @@ class _PageGeneratorDmscreen extends PageGeneratorGeneric {
 	_filename = "page/template-page-dmscreen.hbs";
 	_page = UrlUtil.PG_DM_SCREEN;
 
-	_pageTitle = "DM Screen";
-	_navbarDescription = "Build a personalised DM screen.";
+	_pageTitle = "GM Screen";
+	_navbarDescription = "Build a personalised GM screen.";
 
 	_isFontAwesome = true;
 	_stylesheets = [

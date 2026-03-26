@@ -355,7 +355,7 @@ export class EncounterBuilderUi extends BaseComponent {
 
 			<div class="row">
 				<div class="w-100">
-					${Renderer.get().render(`{@note Additional columns will be imported into the DM Screen.}`)}
+					${Renderer.get().render(`{@note Additional columns will be imported into the GM Screen.}`)}
 				</div>
 			</div>
 		</div>`;

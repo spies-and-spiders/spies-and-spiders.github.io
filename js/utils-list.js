@@ -770,7 +770,7 @@ class SaveManager extends BaseComponent {
 			entity: {
 				...this._getNewSave_entity(),
 
-				// Used to e.g. reference encounters in the DM Screen timetracker
+				// Used to e.g. reference encounters in the GM Screen timetracker
 				saveId: CryptUtil.uid(),
 
 				manager_isSaved: false,

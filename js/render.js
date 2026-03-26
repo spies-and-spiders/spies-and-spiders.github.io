@@ -14039,7 +14039,7 @@ Renderer.hover = class {
 	 * @param [opts.fnGetPopoutSize] A function which gets a `{width: ..., height: ...}` object with dimensions for a
 	 * popout window.
 	 * @param [opts.isPopout] If the window should be immediately popped out.
-	 * @param [opts.compactReferenceData] Reference (e.g. page/source/hash/others) which can be used to load the contents into the DM screen.
+	 * @param [opts.compactReferenceData] Reference (e.g. page/source/hash/others) which can be used to load the contents into the GM screen.
 	 * @param [opts.sourceData] Source JSON (as raw as possible) used to construct this popout.
 	 * @param [opts.isResizeOnlyWidth]
 	 * @param [opts.isHideBottomBorder]
@@ -14134,7 +14134,7 @@ Renderer.hover = class {
 							return;
 						}
 
-						// handle DM screen integration
+						// handle GM screen integration
 						if (this._dmScreen && opts.compactReferenceData) {
 							const panel = this._dmScreen.getPanelPx(EventUtil.getClientX(evt), EventUtil.getClientY(evt));
 							if (!panel) return;
@@ -14172,7 +14172,7 @@ Renderer.hover = class {
 						drag.baseTop = parseFloat($hov.css("top"));
 						drag.baseLeft = parseFloat($hov.css("left"));
 
-						// handle DM screen integration
+						// handle GM screen integration
 						if (this._dmScreen) {
 							const panel = this._dmScreen.getPanelPx(EventUtil.getClientX(evt), EventUtil.getClientY(evt));
 							if (!panel) return;
