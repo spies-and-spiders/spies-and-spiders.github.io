@@ -1,4 +1,4 @@
-name: Build and Deploy Pages
+name: Build and Deploy Cloudflare Pages
 
 on:
   push:
