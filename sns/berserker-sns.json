@@ -1155,8 +1155,8 @@
         {
           "type": "list",
           "items": [
-            "?",
-            "?"
+            "The triggering attack deals additional base damage equal to your level, and you recover the same amount of hit points. If you are raging, the added damage and healing is granted to all of your attacks for the remainder of your rage.",
+            "The triggering attack deals additional damage equal to triple your level, and you lose a number of hit points equal to your level. If you are raging, the added damage and hit point loss is granted to all of your attacks for the remainder of your rage."
           ]
         }
       ]
