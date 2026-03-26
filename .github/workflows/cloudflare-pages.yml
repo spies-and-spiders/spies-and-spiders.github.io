@@ -1,0 +1,101 @@
+name: Build and Deploy Pages
+
+on:
+  push:
+    branches:
+      - '**'
+  # Allow running manually from the actions tab
+  workflow_dispatch:
+
+
+permissions:
+  contents: read
+
+concurrency:
+  group: "pages-${{ github.ref_name }}"
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      -  name: Checkout
+         uses: actions/checkout@master
+
+      -  name: Set Deployed Flag and Image Root
+         run: |
+           bash ./.github/set-img-root.sh ${{ github.repository_owner }}
+
+      - uses: DeLaGuardo/setup-clojure@13.6.0
+        with:
+          bb: latest
+      - name: Set updated time
+        run: cat sns/meta-sns.json | jq "._meta.dateLastModified = $(date +'%s')" > sns/meta-sns.json
+      - name: Generate merged homebrew JSON
+        run: bb .github/generate-merged-json.bb
+      - uses: actions/upload-artifact@v7
+        with:
+          name: sns.json
+          path: homebrew/sns.json
+
+      - name: Prepare SNS spells data
+        run: cat homebrew/sns.json | jq -c '.spell' > data/spells/spells-sns.json
+
+      - name: Prepare SNS bestiary data
+        run: cat homebrew/sns.json | jq -c '.monster' > data/bestiary/bestiary-sns.json
+
+      - uses: actions/setup-node@v6
+      - name: Prepare search indexes
+        run: |
+          mkdir -p search
+          npm install
+          node node/generate-search-index.js
+
+      # Notably: remove anything which should not be added to the service worker manifest:
+      #  - `homebrew`
+      #  - `prerelease`
+      -  name: Cleanup
+         run: |
+           rm -rf *.md *.zip scss spellcheck
+           ls -lah
+
+      -  name: Build Service Worker
+         run: |
+           node --version
+           npm --version
+           npm i
+           npm run build:sw:prod
+           sed -i 's/sw.js//g' .gitignore
+           sed -i 's/sw-injector.js//g' .gitignore
+
+      -  name: Set base URL
+         run: |
+           BRANCH="${{ github.ref_name }}"
+           SANITIZED=$(echo "$BRANCH" | sed 's/[^a-zA-Z0-9]/-/g' | tr '[:upper:]' '[:lower:]')
+           if [ "$BRANCH" = "main" ]; then
+              echo "VET_BASE_SITE_URL=https://spies.tools/" >> $GITHUB_ENV
+           else
+              echo "VET_BASE_SITE_URL=https://${SANITIZED}.sns-tools.pages.dev/" >> $GITHUB_ENV
+           fi
+
+      -  name: Build SEO Pages
+         env:
+           VET_SEO_IS_DEV_MODE: true
+           VET_BASE_SITE_URL: ${{ env.VET_BASE_SITE_URL }}
+           VET_SEO_IS_SKIP_UA_ETC: true
+         run: |
+           npm run build:seo -- ${{ github.ref_name }}
+
+      -  name: Cleanup
+         run: |
+           rm -rf node_modules node
+           ls -lah
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy . --project-name=sns-tools
+          gitHubToken: ${{ github.token }}

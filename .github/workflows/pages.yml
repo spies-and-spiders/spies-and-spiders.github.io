@@ -38,7 +38,6 @@ jobs:
          - uses: DeLaGuardo/setup-clojure@13.6.0
            with:
              bb: latest
-             github-token: ${{ secrets.GITHUB_TOKEN }}
          - name: Set updated time
            run: cat sns/meta-sns.json | jq "._meta.dateLastModified = $(date +'%s')" > sns/meta-sns.json
          - name: Generate merged homebrew JSON
