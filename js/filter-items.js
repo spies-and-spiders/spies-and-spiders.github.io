@@ -215,8 +215,8 @@ class PageFilterItems extends PageFilterEquipment {
 		if (!baseItem) return null;
 		let [name, source] = baseItem.split("__");
 		name = name.toTitleCase();
-		source = source || Parser.SRC_DMG;
-		if (source.toLowerCase() === Parser.SRC_PHB.toLowerCase()) return name;
+		source = source || Parser.SRC_SNS;
+		if (source.toLowerCase() === Parser.SRC_SNS.toLowerCase()) return name;
 		return `${name} (${Parser.sourceJsonToAbv(source)})`;
 	}
 
@@ -335,7 +335,7 @@ class PageFilterItems extends PageFilterEquipment {
 
 		const fBaseItemSelf = item._isBaseItem ? `${item.name}__${item.source}`.toLowerCase() : null;
 		item._fBaseItem = [
-			item.baseItem ? (item.baseItem.includes("|") ? item.baseItem.replace("|", "__") : `${item.baseItem}__${Parser.SRC_DMG}`).toLowerCase() : null,
+			item.baseItem ? (item.baseItem.includes("|") ? item.baseItem.replace("|", "__") : `${item.baseItem}__${Parser.SRC_SNS}`).toLowerCase() : null,
 			item._baseName ? `${item._baseName}__${item._baseSource || item.source}`.toLowerCase() : null,
 		].filter(Boolean);
 		item._fBaseItemAll = fBaseItemSelf ? [fBaseItemSelf, ...item._fBaseItem] : item._fBaseItem;

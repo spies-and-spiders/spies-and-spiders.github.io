@@ -68,13 +68,13 @@
         ],
         "weapons": [
           "simple",
-          "{@item hand crossbow|phb|hand crossbows}",
-          "{@item longsword|phb|longswords}",
-          "{@item rapier|phb|rapiers}",
-          "{@item shortsword|phb|shortswords}"
+          "{@item hand crossbow|sns|hand crossbows}",
+          "{@item longsword|sns|longswords}",
+          "{@item rapier|sns|rapiers}",
+          "{@item shortsword|sns|shortswords}"
         ],
         "tools": [
-          "two {@item musical instrument|PHB|musical instruments} of your choice, or 1 musical instrument and any other tool"
+          "two musical instruments of your choice, or 1 musical instrument and any other tool"
         ],
         "skills": [
           {
@@ -804,7 +804,7 @@
           "type": "entries",
           "name": "Spellcasting Focus",
           "entries": [
-            "You can use a {@item musical instrument|PHB} as a spellcasting focus for your bard spells."
+            "You can use a {@item musical instrument|sns} as a spellcasting focus for your bard spells."
           ]
         }
       ]

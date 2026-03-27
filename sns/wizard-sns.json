@@ -604,7 +604,7 @@
           "type": "entries",
           "name": "Spellcasting Focus",
           "entries": [
-            "You can use an {@item arcane focus|phb} as a spellcasting focus for your wizard spells."
+            "You can use an {@item arcane focus|sns} as a spellcasting focus for your wizard spells."
           ]
         }
       ]

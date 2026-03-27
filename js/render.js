@@ -4362,7 +4362,7 @@ Renderer.utils = class {
 							shortName: subclassShortName.trim(),
 							source: subclassSource
 								? subclassSource.trim()
-								: Parser.SRC_PHB,
+								: Parser.SRC_SNS,
 						},
 					};
 
@@ -5035,199 +5035,199 @@ Renderer.tag = class {
 
 	static TagAction = class extends this._TagPipedDisplayTextThird {
 		tagName = "action";
-		defaultSource = Parser.SRC_PHB;
+		defaultSource = Parser.SRC_SNS;
 		page = UrlUtil.PG_ACTIONS;
 	};
 
 	static TagBackground = class extends this._TagPipedDisplayTextThird {
 		tagName = "background";
-		defaultSource = Parser.SRC_PHB;
+		defaultSource = Parser.SRC_SNS;
 		page = UrlUtil.PG_BACKGROUNDS;
 	};
 
 	static TagBoon = class extends this._TagPipedDisplayTextThird {
 		tagName = "boon";
-		defaultSource = Parser.SRC_MTF;
+		defaultSource = Parser.SRC_SNS;
 		page = UrlUtil.PG_CULTS_BOONS;
 	};
 
 	static TagCharoption = class extends this._TagPipedDisplayTextThird {
 		tagName = "charoption";
-		defaultSource = Parser.SRC_MOT;
+		defaultSource = Parser.SRC_SNS;
 		page = UrlUtil.PG_CHAR_CREATION_OPTIONS;
 	};
 
 	static TagClass = class extends this._TagPipedDisplayTextThird {
 		tagName = "class";
-		defaultSource = Parser.SRC_PHB;
+		defaultSource = Parser.SRC_SNS;
 		page = UrlUtil.PG_CLASSES;
 	};
 
 	static TagCondition = class extends this._TagPipedDisplayTextThird {
 		tagName = "condition";
-		defaultSource = Parser.SRC_PHB;
+		defaultSource = Parser.SRC_SNS;
 		page = UrlUtil.PG_CONDITIONS_DISEASES;
 	};
 
 	static TagCreature = class extends this._TagPipedDisplayTextThird {
 		tagName = "creature";
-		defaultSource = Parser.SRC_MM;
+		defaultSource = Parser.SRC_SNS;
 		page = UrlUtil.PG_BESTIARY;
 	};
 
 	static TagCult = class extends this._TagPipedDisplayTextThird {
 		tagName = "cult";
-		defaultSource = Parser.SRC_MTF;
+		defaultSource = Parser.SRC_SNS;
 		page = UrlUtil.PG_CULTS_BOONS;
 	};
 
 	static TagDeck = class extends this._TagPipedDisplayTextThird {
 		tagName = "deck";
-		defaultSource = Parser.SRC_DMG;
+		defaultSource = Parser.SRC_SNS;
 		page = UrlUtil.PG_DECKS;
 	};
 
 	static TagDisease = class extends this._TagPipedDisplayTextThird {
 		tagName = "disease";
-		defaultSource = Parser.SRC_DMG;
+		defaultSource = Parser.SRC_SNS;
 		page = UrlUtil.PG_CONDITIONS_DISEASES;
 	};
 
 	static TagFeat = class extends this._TagPipedDisplayTextThird {
 		tagName = "feat";
-		defaultSource = Parser.SRC_PHB;
+		defaultSource = Parser.SRC_SNS;
 		page = UrlUtil.PG_FEATS;
 	};
 
 	static TagHazard = class extends this._TagPipedDisplayTextThird {
 		tagName = "hazard";
-		defaultSource = Parser.SRC_DMG;
+		defaultSource = Parser.SRC_SNS;
 		page = UrlUtil.PG_TRAPS_HAZARDS;
 	};
 
 	static TagItem = class extends this._TagPipedDisplayTextThird {
 		tagName = "item";
-		defaultSource = Parser.SRC_DMG;
+		defaultSource = Parser.SRC_SNS;
 		page = UrlUtil.PG_ITEMS;
 	};
 
 	static TagItemProperty = class extends this._TagPipedDisplayTextThird {
 		tagName = "itemProperty";
-		defaultSource = Parser.SRC_PHB;
+		defaultSource = Parser.SRC_SNS;
 		page = "itemProperty";
 	};
 
 	static TagItemMastery = class extends this._TagPipedDisplayTextThird {
 		tagName = "itemMastery";
-		defaultSource = Parser.SRC_XPHB;
+		defaultSource = Parser.SRC_SNS;
 		page = "itemMastery";
 	};
 
 	static TagLanguage = class extends this._TagPipedDisplayTextThird {
 		tagName = "language";
-		defaultSource = Parser.SRC_PHB;
+		defaultSource = Parser.SRC_SNS;
 		page = UrlUtil.PG_LANGUAGES;
 	};
 
 	static TagLegroup = class extends this._TagPipedDisplayTextThird {
 		tagName = "legroup";
-		defaultSource = Parser.SRC_MM;
+		defaultSource = Parser.SRC_SNS;
 		page = "legendaryGroup";
 	};
 
 	static TagObject = class extends this._TagPipedDisplayTextThird {
 		tagName = "object";
-		defaultSource = Parser.SRC_DMG;
+		defaultSource = Parser.SRC_SNS;
 		page = UrlUtil.PG_OBJECTS;
 	};
 
 	static TagOptfeature = class extends this._TagPipedDisplayTextThird {
 		tagName = "optfeature";
-		defaultSource = Parser.SRC_PHB;
+		defaultSource = Parser.SRC_SNS;
 		page = UrlUtil.PG_OPT_FEATURES;
 	};
 
 	static TagPsionic = class extends this._TagPipedDisplayTextThird {
 		tagName = "psionic";
-		defaultSource = Parser.SRC_UATMC;
+		defaultSource = Parser.SRC_SNS;
 		page = UrlUtil.PG_PSIONICS;
 	};
 
 	static TagRace = class extends this._TagPipedDisplayTextThird {
 		tagName = "race";
-		defaultSource = Parser.SRC_PHB;
+		defaultSource = Parser.SRC_SNS;
 		page = UrlUtil.PG_RACES;
 	};
 
 	static TagRecipe = class extends this._TagPipedDisplayTextThird {
 		tagName = "recipe";
-		defaultSource = Parser.SRC_HF;
+		defaultSource = Parser.SRC_SNS;
 		page = UrlUtil.PG_RECIPES;
 	};
 
 	static TagReward = class extends this._TagPipedDisplayTextThird {
 		tagName = "reward";
-		defaultSource = Parser.SRC_DMG;
+		defaultSource = Parser.SRC_SNS;
 		page = UrlUtil.PG_REWARDS;
 	};
 
 	static TagVehicle = class extends this._TagPipedDisplayTextThird {
 		tagName = "vehicle";
-		defaultSource = Parser.SRC_GoS;
+		defaultSource = Parser.SRC_SNS;
 		page = UrlUtil.PG_VEHICLES;
 	};
 
 	static TagVehupgrade = class extends this._TagPipedDisplayTextThird {
 		tagName = "vehupgrade";
-		defaultSource = Parser.SRC_GoS;
+		defaultSource = Parser.SRC_SNS;
 		page = UrlUtil.PG_VEHICLES;
 	};
 
 	static TagSense = class extends this._TagPipedDisplayTextThird {
 		tagName = "sense";
-		defaultSource = Parser.SRC_PHB;
+		defaultSource = Parser.SRC_SNS;
 		page = "sense";
 	};
 
 	static TagSkill = class extends this._TagPipedDisplayTextThird {
 		tagName = "skill";
-		defaultSource = Parser.SRC_PHB;
+		defaultSource = Parser.SRC_SNS;
 		page = "skill";
 	};
 
 	static TagSpell = class extends this._TagPipedDisplayTextThird {
 		tagName = "spell";
-		defaultSource = Parser.SRC_PHB;
+		defaultSource = Parser.SRC_SNS;
 		page = UrlUtil.PG_SPELLS;
 	};
 
 	static TagStatus = class extends this._TagPipedDisplayTextThird {
 		tagName = "status";
-		defaultSource = Parser.SRC_PHB;
+		defaultSource = Parser.SRC_SNS;
 		page = UrlUtil.PG_CONDITIONS_DISEASES;
 	};
 
 	static TagTable = class extends this._TagPipedDisplayTextThird {
 		tagName = "table";
-		defaultSource = Parser.SRC_DMG;
+		defaultSource = Parser.SRC_SNS;
 		page = UrlUtil.PG_TABLES;
 	};
 
 	static TagTrap = class extends this._TagPipedDisplayTextThird {
 		tagName = "trap";
-		defaultSource = Parser.SRC_DMG;
+		defaultSource = Parser.SRC_SNS;
 		page = UrlUtil.PG_TRAPS_HAZARDS;
 	};
 
 	static TagVariantrule = class extends this._TagPipedDisplayTextThird {
 		tagName = "variantrule";
-		defaultSource = Parser.SRC_DMG;
+		defaultSource = Parser.SRC_SNS;
 		page = UrlUtil.PG_VARIANTRULES;
 	};
 
 	static TagCite = class extends this._TagPipedDisplayTextThird {
 		tagName = "cite";
-		defaultSource = Parser.SRC_PHB;
+		defaultSource = Parser.SRC_SNS;
 		page = "citation";
 	};
 
@@ -5240,13 +5240,13 @@ Renderer.tag = class {
 
 	static TagCard = class extends this._TagPipedDisplayTextFourth {
 		tagName = "card";
-		defaultSource = Parser.SRC_DMG;
+		defaultSource = Parser.SRC_SNS;
 		page = "card";
 	};
 
 	static TagDeity = class extends this._TagPipedDisplayTextFourth {
 		tagName = "deity";
-		defaultSource = Parser.SRC_PHB;
+		defaultSource = Parser.SRC_SNS;
 		page = UrlUtil.PG_DEITIES;
 	};
 
@@ -5259,7 +5259,7 @@ Renderer.tag = class {
 
 	static TagSubclass = class extends this._TagPipedDisplayTextFifth {
 		tagName = "subclass";
-		defaultSource = Parser.SRC_PHB;
+		defaultSource = Parser.SRC_SNS;
 		page = UrlUtil.PG_CLASSES;
 	};
 
@@ -5272,7 +5272,7 @@ Renderer.tag = class {
 
 	static TagClassFeature = class extends this._TagPipedDisplayTextSixth {
 		tagName = "classFeature";
-		defaultSource = Parser.SRC_PHB;
+		defaultSource = Parser.SRC_SNS;
 		page = UrlUtil.PG_CLASSES;
 	};
 
@@ -5285,13 +5285,13 @@ Renderer.tag = class {
 
 	static TagSubclassFeature = class extends this._TagPipedDisplayTextEight {
 		tagName = "subclassFeature";
-		defaultSource = Parser.SRC_PHB;
+		defaultSource = Parser.SRC_SNS;
 		page = UrlUtil.PG_CLASSES;
 	};
 
 	static TagQuickref = class extends this._TagBaseAt {
 		tagName = "quickref";
-		defaultSource = Parser.SRC_PHB;
+		defaultSource = Parser.SRC_SNS;
 		page = UrlUtil.PG_QUICKREF;
 
 		_getStripped (tag, text) {
@@ -5342,7 +5342,7 @@ Renderer.tag = class {
 
 	static TagItemEntry = class extends this._TagBaseHash {
 		tagName = "itemEntry";
-		defaultSource = Parser.SRC_DMG;
+		defaultSource = Parser.SRC_SNS;
 	};
 
 	/* -------------------------------------------- */
@@ -6218,8 +6218,8 @@ Renderer.class = class {
 			.map(a => {
 				if (a.full) return Renderer.get().render(a.full);
 				if (a === "shield") {
-					if (styleHint === "classic") Renderer.get().render(`{@item shield|PHB|shields}`);
-					return Renderer.get().render(`{@item shield|XPHB|Shields}`);
+					if (styleHint === "classic") Renderer.get().render(`{@item shield|sns|shields}`);
+					return Renderer.get().render(`{@item shield|sns|Shields}`);
 				}
 				return Renderer.get().render(a);
 			});
@@ -6844,7 +6844,7 @@ Renderer.spell = class {
 			// Two formats are available: a string UID, or "class" object (object with a `className`, etc.).
 			(brew.class || [])
 				.forEach(c => {
-					c.source = c.source || Parser.SRC_PHB;
+					c.source = c.source || Parser.SRC_SNS;
 
 					(c.classSpells || [])
 						.forEach(itm => {
@@ -6864,7 +6864,7 @@ Renderer.spell = class {
 
 			(brew.subclass || [])
 				.forEach(sc => {
-					sc.classSource = sc.classSource || Parser.SRC_PHB;
+					sc.classSource = sc.classSource || Parser.SRC_SNS;
 					sc.shortName = sc.shortName || sc.name;
 					sc.source = sc.source || sc.classSource;
 
@@ -6940,7 +6940,7 @@ Renderer.spell = class {
 					tgt: MiscUtil.getOrSet(
 						this._cache.classes,
 						"class",
-						(itm.classSource || Parser.SRC_PHB).toLowerCase(),
+						(itm.classSource || Parser.SRC_SNS).toLowerCase(),
 						itm.className.toLowerCase(),
 						{},
 					),
@@ -6956,7 +6956,7 @@ Renderer.spell = class {
 
 			// region Individual spell
 			let [name, source] = `${itm}`.toLowerCase().split("|");
-			source = source || Parser.SRC_PHB.toLowerCase();
+			source = source || Parser.SRC_SNS.toLowerCase();
 
 			this._populate_fromClass_doAdd({
 				tgt: MiscUtil.getOrSet(
@@ -7025,7 +7025,7 @@ Renderer.spell = class {
 				tgt: MiscUtil.getOrSet(
 					this._cache.classes,
 					"group",
-					(itm.groupSource || Parser.SRC_PHB).toLowerCase(),
+					(itm.groupSource || Parser.SRC_SNS).toLowerCase(),
 					itm.groupName.toLowerCase(),
 					{},
 				),
@@ -9422,7 +9422,7 @@ Renderer.monster = class {
 			const vFtd = exampleSpellsFtd?.length ? {
 				type: "variant",
 				name: "Dragons as Innate Spellcasters",
-				source: Parser.SRC_FTD,
+				source: Parser.SRC_SNS,
 				entries: [
 					`${Renderer.monster.dragonCasterVariant.getSpellcasterDetailsPart(meta)}`,
 					`A suggested spell list is shown below, but you can also choose spells to reflect the dragon's character. A dragon who innately casts {@filter druid|spells|class=druid} spells feels different from one who casts {@filter warlock|spells|class=warlock} spells. You can also give a dragon spells of a higher level than this rule allows, but such a tweak might increase the dragon's challenge rating\u2014especially if those spells deal damage or impose conditions on targets.`,
@@ -9442,8 +9442,8 @@ Renderer.monster = class {
 					`{@note ${Renderer.monster.dragonCasterVariant.getSpellcasterDetailsPart({...meta, isSeeSpellsPageNote: true})}${exampleSpellsUnofficial?.length ? ` A selection of examples are shown below:` : ""}}`,
 				],
 			};
-			if (dragon.source !== Parser.SRC_MM) {
-				vBasic.source = Parser.SRC_MM;
+			if (dragon.source !== Parser.SRC_SNS) {
+				vBasic.source = Parser.SRC_SNS;
 				vBasic.page = 86;
 			}
 			if (exampleSpellsUnofficial) {
@@ -10722,7 +10722,7 @@ Renderer.item = class {
 	static _propertyMap = {};
 	static _addProperty (ent) {
 		const abvLookup = (ent.abbreviation || "UNK").toLowerCase();
-		const sourceLookup = (ent.source || Parser.SRC_PHB).toLowerCase();
+		const sourceLookup = (ent.source || Parser.SRC_SNS).toLowerCase();
 
 		if (this._propertyMap?.[sourceLookup]?.[abvLookup]) return;
 
@@ -10733,7 +10733,7 @@ Renderer.item = class {
 
 		// TODO(Future; 2025-Q2) remove once all prerelease/homebrew migrated
 		// Make a default-source alias for the property, for old data with un-migrated properties
-		const sourceLookupFallback = Parser.SRC_PHB.toLowerCase();
+		const sourceLookupFallback = Parser.SRC_SNS.toLowerCase();
 		if (sourceLookup === sourceLookupFallback) return;
 		if (this._propertyMap?.[sourceLookupFallback]?.[abvLookup]) return;
 		MiscUtil.set(this._propertyMap, sourceLookupFallback, abvLookup, cpy);
@@ -10746,7 +10746,7 @@ Renderer.item = class {
 		const out = this._propertyMap?.[source]?.[abbreviation]
 			// TODO(Future; 2025-Q2) remove once all prerelease/homebrew migrated
 			// Fall back on sourceless tag
-			|| this._propertyMap?.[Parser.SRC_PHB.toLowerCase()]?.[abbreviation];
+			|| this._propertyMap?.[Parser.SRC_SNS.toLowerCase()]?.[abbreviation];
 
 		if (!isIgnoreMissing && !out) {
 			if (!this._ERRORS_LOGGED_MISSING_PROPERTY[uid]) {
@@ -10764,7 +10764,7 @@ Renderer.item = class {
 	static _typeMap = {};
 	static _addType (ent) {
 		const abvLookup = (ent.abbreviation || "UNK").toLowerCase();
-		const sourceLookup = (ent.source || Parser.SRC_PHB).toLowerCase();
+		const sourceLookup = (ent.source || Parser.SRC_SNS).toLowerCase();
 
 		const existing = this._typeMap?.[sourceLookup]?.[abvLookup];
 		if (existing?.entries || existing?.entriesTemplate) return;
@@ -10782,7 +10782,7 @@ Renderer.item = class {
 
 		// TODO(Future; 2025-Q2) remove once all prerelease/homebrew migrated
 		// Make a default-source alias for the type, for old data with un-migrated types
-		const sourceLookupFallback = Parser.SRC_PHB.toLowerCase();
+		const sourceLookupFallback = Parser.SRC_SNS.toLowerCase();
 		if (sourceLookup === sourceLookupFallback) return;
 		if (this._typeMap?.[sourceLookupFallback]?.[abvLookup]) return;
 		MiscUtil.set(this._typeMap, sourceLookupFallback, abvLookup, cpy);
@@ -10795,7 +10795,7 @@ Renderer.item = class {
 		const out = this._typeMap?.[source]?.[abbreviation]
 			// TODO(Future; 2025-Q2) remove once all prerelease/homebrew migrated
 			// Fall back on sourceless tag
-			|| this._typeMap?.[Parser.SRC_PHB.toLowerCase()]?.[abbreviation];
+			|| this._typeMap?.[Parser.SRC_SNS.toLowerCase()]?.[abbreviation];
 		if (!isIgnoreMissing && !out) {
 			if (!this._ERRORS_LOGGED_MISSING_TYPE[uid]) {
 				this._ERRORS_LOGGED_MISSING_TYPE[uid] = true;
@@ -11124,10 +11124,10 @@ Renderer.item = class {
 		}
 
 		if (
-			baseItem.source !== Parser.SRC_PHB
-			&& baseItem.source !== Parser.SRC_XPHB
-			&& baseItem.source !== Parser.SRC_DMG
-			&& baseItem.source !== Parser.SRC_XDMG
+			baseItem.source !== Parser.SRC_SNS
+			&& baseItem.source !== Parser.SRC_SNS
+			&& baseItem.source !== Parser.SRC_SNS
+			&& baseItem.source !== Parser.SRC_SNS
 		) {
 			Renderer.item._initFullEntries(specificVariant);
 			specificVariant._fullEntries.unshift({
@@ -11344,7 +11344,7 @@ Renderer.item = class {
 				Renderer.item._initFullEntries(item);
 				const wrapped = styleHint === "classic"
 					? "The wearer has disadvantage on Dexterity ({@skill Stealth}) checks."
-					: "The wearer has {@variantrule Disadvantage|XPHB} on Dexterity ({@skill Stealth|XPHB}) checks.";
+					: "The wearer has {@variantrule Disadvantage|sns} on Dexterity ({@skill Stealth|sns}) checks.";
 				item._fullEntries.push({type: "wrapper", wrapped, data: {[VeCt.ENTDATA_ITEM_MERGED_ENTRY_TAG]: "type"}});
 			}
 			if (itemTypeAbv === Parser.ITM_TYP_ABV__HEAVY_ARMOR && item.strength) {
@@ -11354,25 +11354,25 @@ Renderer.item = class {
 		}
 		if (itemTypeAbv === Parser.ITM_TYP_ABV__SPELLCASTING_FOCUS) {
 			if (item._isItemGroup) {
-				if (item.scfType === "arcane" && item.source !== Parser.SRC_ERLW) {
+				if (item.scfType === "arcane" && item.source !== Parser.SRC_SNS) {
 					Renderer.item._initFullEntries(item);
 					const wrapped = styleHint === "classic"
 						? "An arcane focus is a special item\u2014an orb, a crystal, a rod, a specially constructed staff, a wand-like length of wood, or some similar item\u2014designed to channel the power of arcane spells. A {@class sorcerer}, {@class warlock}, or {@class wizard} can use such an item as a spellcasting focus."
-						: "An Arcane Focus takes a specific form and is bejeweled or carved to channel arcane magic. A {@class Sorcerer|XPHB}, {@class Warlock|XPHB}, or {@class Wizard|XPHB} can use such an item as a {@variantrule Spellcasting Focus|XPHB}.";
+						: "An Arcane Focus takes a specific form and is bejeweled or carved to channel arcane magic. A {@class Sorcerer|sns}, {@class Warlock|sns}, or {@class Wizard|sns} can use such an item as a {@variantrule Spellcasting Focus|sns}.";
 					item._fullEntries.push({type: "wrapper", wrapped, data: {[VeCt.ENTDATA_ITEM_MERGED_ENTRY_TAG]: "type.SCF"}});
 				}
 				if (item.scfType === "druid") {
 					Renderer.item._initFullEntries(item);
 					const wrapped = styleHint === "classic"
 						? "A druidic focus might be a sprig of mistletoe or holly, a wand or scepter made of yew or another special wood, a staff drawn whole out of a living tree, or a totem object incorporating feathers, fur, bones, and teeth from sacred animals. A {@class druid} can use such an object as a spellcasting focus."
-						: "A Druidic Focus takes a specific form and is carved, tied with ribbon, or painted to channel primal magic. A {@class Druid|XPHB} or {@class Ranger|XPHB} can use such an object as a {@variantrule Spellcasting Focus|XPHB}.";
+						: "A Druidic Focus takes a specific form and is carved, tied with ribbon, or painted to channel primal magic. A {@class Druid|sns} or {@class Ranger|sns} can use such an object as a {@variantrule Spellcasting Focus|sns}.";
 					item._fullEntries.push({type: "wrapper", wrapped, data: {[VeCt.ENTDATA_ITEM_MERGED_ENTRY_TAG]: "type.SCF"}});
 				}
 				if (item.scfType === "holy") {
 					Renderer.item._initFullEntries(item);
 					const wrapped = styleHint === "classic"
 						? "A holy symbol is a representation of a god or pantheon. It might be an amulet depicting a symbol representing a deity, the same symbol carefully engraved or inlaid as an emblem on a shield, or a tiny box holding a fragment of a sacred relic. A cleric or paladin can use a holy symbol as a spellcasting focus. To use the symbol in this way, the caster must hold it in hand, wear it visibly, or bear it on a shield."
-						: "A Holy Symbol takes a specific form and is bejeweled or painted to channel divine magic. A {@class Cleric|XPHB} or {@class Paladin|XPHB} can use a Holy Symbol as a {@variantrule Spellcasting Focus|XPHB}.";
+						: "A Holy Symbol takes a specific form and is bejeweled or painted to channel divine magic. A {@class Cleric|sns} or {@class Paladin|sns} can use a Holy Symbol as a {@variantrule Spellcasting Focus|sns}.";
 					item._fullEntries.push({type: "wrapper", wrapped, data: {[VeCt.ENTDATA_ITEM_MERGED_ENTRY_TAG]: "type.SCF"}});
 				}
 			} else {
@@ -11380,21 +11380,21 @@ Renderer.item = class {
 					Renderer.item._initFullEntries(item);
 					const wrapped = styleHint === "classic"
 						? "An arcane focus is a special item designed to channel the power of arcane spells. A {@class sorcerer}, {@class warlock}, or {@class wizard} can use such an item as a spellcasting focus."
-						: "An Arcane Focus takes a specific form and is bejeweled or carved to channel arcane magic. A {@class Sorcerer|XPHB}, {@class Warlock|XPHB}, or {@class Wizard|XPHB} can use such an item as a {@variantrule Spellcasting Focus|XPHB}.";
+						: "An Arcane Focus takes a specific form and is bejeweled or carved to channel arcane magic. A {@class Sorcerer|sns}, {@class Warlock|sns}, or {@class Wizard|sns} can use such an item as a {@variantrule Spellcasting Focus|sns}.";
 					item._fullEntries.push({type: "wrapper", wrapped, data: {[VeCt.ENTDATA_ITEM_MERGED_ENTRY_TAG]: "type.SCF"}});
 				}
 				if (item.scfType === "druid") {
 					Renderer.item._initFullEntries(item);
 					const wrapped = styleHint === "classic"
 						? "A {@class druid} can use this object as a spellcasting focus."
-						: "A Druidic Focus takes a specific form and is carved, tied with ribbon, or painted to channel primal magic. A {@class Druid|XPHB} or {@class Ranger|XPHB} can use such an object as a {@variantrule Spellcasting Focus|XPHB}.";
+						: "A Druidic Focus takes a specific form and is carved, tied with ribbon, or painted to channel primal magic. A {@class Druid|sns} or {@class Ranger|sns} can use such an object as a {@variantrule Spellcasting Focus|sns}.";
 					item._fullEntries.push({type: "wrapper", wrapped, data: {[VeCt.ENTDATA_ITEM_MERGED_ENTRY_TAG]: "type.SCF"}});
 				}
 				if (item.scfType === "holy") {
 					Renderer.item._initFullEntries(item);
 					const wrapped = styleHint === "classic"
 						? "A holy symbol is a representation of a god or pantheon. A {@class cleric} or {@class paladin} can use a holy symbol as a spellcasting focus. To use the symbol in this way, the caster must hold it in hand, wear it visibly, or bear it on a shield."
-						: "A Holy Symbol takes a specific form and is bejeweled or painted to channel divine magic. A {@class Cleric|XPHB} or {@class Paladin|XPHB} can use a Holy Symbol as a {@variantrule Spellcasting Focus|XPHB}.";
+						: "A Holy Symbol takes a specific form and is bejeweled or painted to channel divine magic. A {@class Cleric|sns} or {@class Paladin|sns} can use a Holy Symbol as a {@variantrule Spellcasting Focus|sns}.";
 					item._fullEntries.push({type: "wrapper", wrapped, data: {[VeCt.ENTDATA_ITEM_MERGED_ENTRY_TAG]: "type.SCF"}});
 				}
 			}
@@ -11427,7 +11427,7 @@ Renderer.item = class {
 		if (item.type === Parser.ITM_TYP__TOOL || item.type === Parser.ITM_TYP__ARTISAN_TOOL || item.type === Parser.ITM_TYP__INSTRUMENT || item.type === Parser.ITM_TYP__GAMING_SET) { // tools, artisan's tools, instruments, gaming sets
 			Renderer.item._initFullAdditionalEntries(item);
 			item._fullAdditionalEntries.push({type: "wrapper", wrapped: {type: "hr"}, data: {[VeCt.ENTDATA_ITEM_MERGED_ENTRY_TAG]: "type"}});
-			item._fullAdditionalEntries.push({type: "wrapper", wrapped: `{@note See the {@variantrule Tool Proficiencies|XGE} entry for more information.}`, data: {[VeCt.ENTDATA_ITEM_MERGED_ENTRY_TAG]: "type"}});
+			item._fullAdditionalEntries.push({type: "wrapper", wrapped: `{@note See the {@variantrule Tool Proficiencies|sns} entry for more information.}`, data: {[VeCt.ENTDATA_ITEM_MERGED_ENTRY_TAG]: "type"}});
 		}
 
 		// Add additional sources for all instruments and gaming sets
@@ -12619,7 +12619,7 @@ Renderer.charoption = class {
 
 	static _OPTION_TYPE_ENTRIES = {
 		"RF:B": `{@note You may replace the standard feature of your background with this feature.}`,
-		"CS": `{@note See the {@adventure Character Secrets|IDRotF|0|character secrets} section for more information.}`,
+		"CS": `{@note See the {@adventure Character Secrets|sns|0|character secrets} section for more information.}`,
 	};
 
 	static getOptionTypePreText (ent) {

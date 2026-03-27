@@ -737,7 +737,7 @@ export class ReqAttuneTagTag {
 
 		// "by a dwarf"
 		req = req.replace(/(?:(?:a|an) )?\b(Dragonborn|Dwarf|Elf|Gnome|Half-Elf|Half-Orc|Halfling|Human|Tiefling|Warforged)\b/gi, (...m) => {
-			const source = m[1].toLowerCase() === "warforged" ? Parser.SRC_ERLW : "";
+			const source = m[1].toLowerCase() === "warforged" ? Parser.SRC_SNS : "";
 			tags.push({race: `${m[1]}${source ? `|${source}` : ""}`.toLowerCase()});
 			return "";
 		});
@@ -765,7 +765,7 @@ export class ReqAttuneTagTag {
 
 		// "by a bard, cleric, druid, sorcerer, warlock, or wizard"
 		req = req.replace(new RegExp(`(?:(?:a|an) )?\\b${ConverterConst.STR_RE_CLASS}\\b`, "gi"), (...m) => {
-			const source = m.last().name.toLowerCase() === "artificer" ? Parser.SRC_TCE : null;
+			const source = m.last().name.toLowerCase() === "artificer" ? Parser.SRC_SNS : null;
 			tags.push({class: `${m.last().name}${source ? `|${source}` : ""}`.toLowerCase()});
 			return "";
 		});

@@ -328,8 +328,8 @@ export class AcConvert {
 				if (AcConvert._ITEM_LOOKUP[fromLow]) {
 					const itemMeta = AcConvert._ITEM_LOOKUP[fromLow];
 
-					if (itemMeta.isExact) return `{@item ${fromLow}${itemMeta.source === Parser.SRC_DMG ? "" : `|${itemMeta.source}`}}`;
-					return `{@item ${itemMeta.name}${itemMeta.source === Parser.SRC_DMG ? "|" : `|${itemMeta.source}`}|${fromLow}}`;
+					if (itemMeta.isExact) return `{@item ${fromLow}${itemMeta.source === Parser.SRC_SNS ? "" : `|${itemMeta.source}`}}`;
+					return `{@item ${itemMeta.name}${itemMeta.source === Parser.SRC_SNS ? "|" : `|${itemMeta.source}`}|${fromLow}}`;
 				}
 
 				if (/scraps of .*?armor/i.test(fromLow)) { // e.g. "scraps of hide armor"
@@ -1784,7 +1784,7 @@ export class SpellcastingTraitConvert {
 
 	static _parseSpell_getSourcePart (spellName) {
 		const source = SpellcastingTraitConvert._getSpellSource(spellName);
-		return `${source && source !== Parser.SRC_PHB ? `|${source}` : ""}`;
+		return `${source && source !== Parser.SRC_SNS ? `|${source}` : ""}`;
 	}
 
 	static _parseToHit (line) {
@@ -1858,7 +1858,7 @@ export class SpellcastingTraitConvert {
 	static _getSpellUids (str) {
 		const uids = [];
 		str.replace(/{@spell ([^}]+)}/gi, (...m) => {
-			const [name, source = Parser.SRC_PHB.toLowerCase()] = m[1].toLowerCase().split("|").map(it => it.trim());
+			const [name, source = Parser.SRC_SNS.toLowerCase()] = m[1].toLowerCase().split("|").map(it => it.trim());
 			uids.push(`${name}|${source}`);
 		});
 		return uids;
@@ -2122,7 +2122,7 @@ export class AttachedItemTag {
 				// If there is already something in the cache, prefer DMG + PHB entries, then official sources
 				const existing = this._WEAPON_DETAIL_CACHE[k];
 				if (
-					!(existing.source === Parser.SRC_DMG || existing.source === Parser.SRC_PHB)
+					!(existing.source === Parser.SRC_SNS || existing.source === Parser.SRC_SNS)
 					&& SourceUtil.isNonstandardSource(existing.source)
 				) {
 					this._WEAPON_DETAIL_CACHE[k] = cpy;

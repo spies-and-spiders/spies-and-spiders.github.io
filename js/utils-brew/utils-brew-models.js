@@ -25,7 +25,7 @@ export class _BrewDocContentMigrator {
 		json.subrace.forEach(sr => {
 			if (!sr.race) return;
 			sr.raceName = sr.race.name;
-			sr.raceSource = sr.race.source || sr.source || Parser.SRC_PHB;
+			sr.raceSource = sr.race.source || sr.source || Parser.SRC_SNS;
 		});
 	}
 
@@ -74,7 +74,7 @@ export class _BrewDocContentMigrator {
 	 *   their 2024-era counterparts
 	 */
 	static _mutMakeCompatible_subclass_oneSubclassCopies (json) {
-		const hasCopies = (json.subclass || []).some(sc => sc.source !== Parser.SRC_XPHB && sc.classSource === Parser.SRC_PHB);
+		const hasCopies = (json.subclass || []).some(sc => sc.source !== Parser.SRC_SNS && sc.classSource === Parser.SRC_SNS);
 		if (!hasCopies) return false;
 
 		const internalCopies = MiscUtil.getOrSet(json, "_meta", "internalCopies", []);
@@ -85,10 +85,10 @@ export class _BrewDocContentMigrator {
 		const depsSubclass = new Set();
 
 		json.subclass
-			.filter(sc => sc.source !== Parser.SRC_XPHB && sc.classSource === Parser.SRC_PHB)
+			.filter(sc => sc.source !== Parser.SRC_SNS && sc.classSource === Parser.SRC_SNS)
 			.forEach(sc => {
 				const scNxt = {
-					classSource: Parser.SRC_XPHB,
+					classSource: Parser.SRC_SNS,
 				};
 				this._PROPS_SUBCLASS_MAINTAIN.forEach(prop => scNxt[prop] = MiscUtil.copyFast(sc[prop]));
 				scNxt._copy = {
@@ -148,7 +148,7 @@ export class _BrewDocContentMigrator {
 							}
 
 							const scfNxt = {
-								classSource: Parser.SRC_XPHB,
+								classSource: Parser.SRC_SNS,
 								level: this._MIN_SUBCLASS_FEATURE_LEVEL,
 							};
 							this._PROPS_SUBCLASS_FEATURE_MAINTAIN.forEach(prop => scfNxt[prop] = MiscUtil.copyFast(unpacked[prop]));

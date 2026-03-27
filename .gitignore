@@ -20,8 +20,7 @@ sitemap.xml
 Thumbs.db
 .rsync-filter
 search/
-data/bestiary/bestiary-sns.json
-data/spells/spells-sns.json
+data/*/*-sns.json
 
 # Generated service worker files
 sw.js

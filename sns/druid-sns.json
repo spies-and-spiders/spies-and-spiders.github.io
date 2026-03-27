@@ -44,7 +44,7 @@
         "armor": [
           "light",
           "medium",
-          "{@item shield|phb|shields}"
+          "{@item shield|sns|shields}"
         ],
         "weapons": [
           "arcane staff",

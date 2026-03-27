@@ -87,7 +87,7 @@ export class GetBrewUi {
 		static mutateForFilters (brewInfo) {
 			brewInfo._fMisc = [];
 			if (brewInfo._brewAuthor && brewInfo._brewAuthor.toLowerCase().startsWith("sample -")) brewInfo._fMisc.push("Sample");
-			if (brewInfo.sources?.some(ab => ab.startsWith(Parser.SRC_UA_ONE_PREFIX))) brewInfo._fMisc.push("One D&D");
+			if (brewInfo.sources?.some(ab => ab.startsWith(Parser.SRC_SNS))) brewInfo._fMisc.push("One D&D");
 			if (brewInfo._brewIsPartnered) brewInfo._fMisc.push("Partnered");
 		}
 

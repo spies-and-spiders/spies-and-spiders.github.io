@@ -829,7 +829,7 @@ MakeCards.utils = class {
 			if (t.abbreviation === Parser.ITM_TYP_ABV__VEHICLE_WATER) {
 				const cpy = MiscUtil.copy(t);
 				cpy.abbreviation = Parser.ITM_TYP_ABV__VEHICLE_AIR;
-				cpy.source = Parser.SRC_DMG;
+				cpy.source = Parser.SRC_SNS;
 				MakeCards.utils._addItemType(cpy);
 			}
 			MakeCards.utils._addItemType(t);

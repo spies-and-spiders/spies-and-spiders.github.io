@@ -536,22 +536,22 @@ globalThis.SourceUtil = class {
 	static isPrereleaseSource (source) {
 		if (source == null) return false;
 		if (typeof PrereleaseUtil !== "undefined" && PrereleaseUtil.hasSourceJson(source)) return true;
-		return source.startsWith(Parser.SRC_UA_PREFIX)
-			|| source.startsWith(Parser.SRC_UA_ONE_PREFIX);
+		return source.startsWith(Parser.SRC_SNS)
+			|| source.startsWith(Parser.SRC_SNS);
 	}
 
 	static isNonstandardSourceWotc (source) {
 		return SourceUtil.isPrereleaseSource(source)
-			|| source.startsWith(Parser.SRC_PS_PREFIX)
-			|| source.startsWith(Parser.SRC_AL_PREFIX)
-			|| source.startsWith(Parser.SRC_MCVX_PREFIX)
+			|| source.startsWith(Parser.SRC_SNS)
+			|| source.startsWith(Parser.SRC_SNS)
+			|| source.startsWith(Parser.SRC_SNS)
 			|| Parser.SOURCES_NON_STANDARD_WOTC.has(source);
 	}
 
 	static _CLASSIC_THRESHOLD_TIMESTAMP = null;
 
 	static isClassicSource (source) {
-		this._CLASSIC_THRESHOLD_TIMESTAMP ||= new Date(Parser.sourceJsonToDate(Parser.SRC_XPHB));
+		this._CLASSIC_THRESHOLD_TIMESTAMP ||= new Date(Parser.sourceJsonToDate(Parser.SRC_SNS));
 		return new Date(Parser.sourceJsonToDate(source)) < this._CLASSIC_THRESHOLD_TIMESTAMP;
 	}
 
@@ -5869,7 +5869,7 @@ globalThis.DataUtil = {
 			opts = opts || {};
 			if (opts.isLower) uid = uid.toLowerCase();
 			let [abbreviation, source] = uid.split("|").map(it => it.trim());
-			source ||= opts.isLower ? Parser.SRC_PHB.toLowerCase() : Parser.SRC_PHB;
+			source ||= opts.isLower ? Parser.SRC_SNS.toLowerCase() : Parser.SRC_SNS;
 			return {
 				abbreviation,
 				source,
@@ -5878,7 +5878,7 @@ globalThis.DataUtil = {
 
 		static getUid (ent, {isMaintainCase = false, isRetainDefault = false} = {}) {
 			// <abbreviation>|<source>
-			const sourceDefault = Parser.SRC_PHB;
+			const sourceDefault = Parser.SRC_SNS;
 			const out = [
 				ent.abbreviation,
 				!isRetainDefault && (ent.source || "").toLowerCase() === sourceDefault.toLowerCase() ? "" : ent.source,
@@ -5900,7 +5900,7 @@ globalThis.DataUtil = {
 			opts = opts || {};
 			if (opts.isLower) uid = uid.toLowerCase();
 			let [abbreviation, source] = uid.split("|").map(it => it.trim());
-			source ||= opts.isLower ? Parser.SRC_PHB.toLowerCase() : Parser.SRC_PHB;
+			source ||= opts.isLower ? Parser.SRC_SNS.toLowerCase() : Parser.SRC_SNS;
 			return {
 				abbreviation,
 				source,
@@ -5909,7 +5909,7 @@ globalThis.DataUtil = {
 
 		static getUid (ent, {isMaintainCase = false, isRetainDefault = false} = {}) {
 			// <abbreviation>|<source>
-			const sourceDefault = Parser.SRC_PHB;
+			const sourceDefault = Parser.SRC_SNS;
 			const out = [
 				ent.abbreviation,
 				!isRetainDefault && (ent.source || "").toLowerCase() === sourceDefault.toLowerCase() ? "" : ent.source,
@@ -6194,8 +6194,8 @@ globalThis.DataUtil = {
 			opts = opts || {};
 			if (opts.isLower) uid = uid.toLowerCase();
 			let [shortName, className, classSource, source, displayText] = uid.split("|").map(it => it.trim());
-			classSource = classSource || (opts.isLower ? Parser.SRC_PHB.toLowerCase() : Parser.SRC_PHB);
-			source = source || (opts.isLower ? Parser.SRC_PHB.toLowerCase() : Parser.SRC_PHB);
+			classSource = classSource || (opts.isLower ? Parser.SRC_SNS.toLowerCase() : Parser.SRC_SNS);
+			source = source || (opts.isLower ? Parser.SRC_SNS.toLowerCase() : Parser.SRC_SNS);
 			return {
 				name: shortName, // (For display purposes only)
 				shortName,
@@ -6215,7 +6215,7 @@ globalThis.DataUtil = {
 			opts = opts || {};
 			if (opts.isLower) uid = uid.toLowerCase();
 			let [name, className, classSource, level, source, displayText] = uid.split("|").map(it => it.trim());
-			classSource = classSource || (opts.isLower ? Parser.SRC_PHB.toLowerCase() : Parser.SRC_PHB);
+			classSource = classSource || (opts.isLower ? Parser.SRC_SNS.toLowerCase() : Parser.SRC_SNS);
 			source = source || classSource;
 			level = Number(level);
 			return {
@@ -6238,7 +6238,7 @@ globalThis.DataUtil = {
 			return [
 				f.name,
 				f.className,
-				f.classSource === Parser.SRC_PHB ? "" : f.classSource, // assume the class has PHB source
+				f.classSource === Parser.SRC_SNS ? "" : f.classSource, // assume the class has PHB source
 				f.level,
 				f.source === f.classSource ? "" : f.source, // assume the class feature has the class source
 			].join("|").replace(/\|+$/, ""); // Trim trailing pipes
@@ -6253,8 +6253,8 @@ globalThis.DataUtil = {
 			opts = opts || {};
 			if (opts.isLower) uid = uid.toLowerCase();
 			let [name, className, classSource, subclassShortName, subclassSource, level, source, displayText] = uid.split("|").map(it => it.trim());
-			classSource = classSource || (opts.isLower ? Parser.SRC_PHB.toLowerCase() : Parser.SRC_PHB);
-			subclassSource = subclassSource || (opts.isLower ? Parser.SRC_PHB.toLowerCase() : Parser.SRC_PHB);
+			classSource = classSource || (opts.isLower ? Parser.SRC_SNS.toLowerCase() : Parser.SRC_SNS);
+			subclassSource = subclassSource || (opts.isLower ? Parser.SRC_SNS.toLowerCase() : Parser.SRC_SNS);
 			source = source || subclassSource;
 			level = Number(level);
 			return {
@@ -6279,9 +6279,9 @@ globalThis.DataUtil = {
 			return [
 				f.name,
 				f.className,
-				f.classSource === Parser.SRC_PHB ? "" : f.classSource, // assume the class has the PHB source
+				f.classSource === Parser.SRC_SNS ? "" : f.classSource, // assume the class has the PHB source
 				f.subclassShortName,
-				f.subclassSource === Parser.SRC_PHB ? "" : f.subclassSource, // assume the subclass has the PHB source
+				f.subclassSource === Parser.SRC_SNS ? "" : f.subclassSource, // assume the subclass has the PHB source
 				f.level,
 				f.source === f.subclassSource ? "" : f.source, // assume the feature has the same source as the subclass
 			].join("|").replace(/\|+$/, ""); // Trim trailing pipes
@@ -6568,7 +6568,7 @@ globalThis.DataUtil = {
 			opts = opts || {};
 			if (opts.isLower) uid = uid.toLowerCase();
 			let [name, source, ixChapter, ixHeader, displayText] = uid.split("|").map(it => it.trim());
-			source = source || (opts.isLower ? Parser.SRC_PHB.toLowerCase() : Parser.SRC_PHB);
+			source = source || (opts.isLower ? Parser.SRC_SNS.toLowerCase() : Parser.SRC_SNS);
 			ixChapter = Number(ixChapter || 0);
 			return {
 				name,

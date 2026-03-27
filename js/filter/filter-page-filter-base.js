@@ -60,16 +60,16 @@ export class PageFilterBase {
 		const nm = className.split("(")[0].trim();
 		const variantSuffix = isVariantClass ? ` [${definedInSource ? Parser.sourceJsonToAbv(definedInSource) : "Unknown"}]` : "";
 		const sourceSuffix = (
-			SourceUtil.isNonstandardSource(classSource || Parser.SRC_PHB)
-			|| (typeof PrereleaseUtil !== "undefined" && PrereleaseUtil.hasSourceJson(classSource || Parser.SRC_PHB))
-			|| (typeof BrewUtil2 !== "undefined" && BrewUtil2.hasSourceJson(classSource || Parser.SRC_PHB))
+			SourceUtil.isNonstandardSource(classSource || Parser.SRC_SNS)
+			|| (typeof PrereleaseUtil !== "undefined" && PrereleaseUtil.hasSourceJson(classSource || Parser.SRC_SNS))
+			|| (typeof BrewUtil2 !== "undefined" && BrewUtil2.hasSourceJson(classSource || Parser.SRC_SNS))
 		)
 			? ` (${Parser.sourceJsonToAbv(classSource)})` : "";
 		const name = `${nm}${variantSuffix}${sourceSuffix}`;
 
 		const opts = {
 			item: name,
-			group: SourceUtil.getFilterGroup(classSource || Parser.SRC_PHB),
+			group: SourceUtil.getFilterGroup(classSource || Parser.SRC_SNS),
 		};
 
 		if (isVariantClass) {

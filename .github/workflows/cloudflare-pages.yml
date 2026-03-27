@@ -30,44 +30,20 @@ jobs:
       - uses: DeLaGuardo/setup-clojure@13.6.0
         with:
           bb: latest
-      - name: Set updated time
-        run: cat sns/meta-sns.json | jq "._meta.dateLastModified = $(date +'%s')" > sns/meta-sns.json
-      - name: Generate merged homebrew JSON
-        run: bb .github/generate-merged-json.bb
-      - uses: actions/upload-artifact@v7
-        with:
-          name: sns.json
-          path: homebrew/sns.json
-
-      - name: Prepare SNS spells data
-        run: cat homebrew/sns.json | jq -c '.spell' > data/spells/spells-sns.json
-
-      - name: Prepare SNS bestiary data
-        run: cat homebrew/sns.json | jq -c '.monster' > data/bestiary/bestiary-sns.json
-
-      - uses: actions/setup-node@v6
-      - name: Prepare search indexes
-        run: |
-          mkdir -p search
-          npm install
-          node node/generate-search-index.js
 
       # Notably: remove anything which should not be added to the service worker manifest:
       #  - `homebrew`
       #  - `prerelease`
-      -  name: Cleanup
-         run: |
-           rm -rf *.md *.zip scss spellcheck
-           ls -lah
-
-      -  name: Build Service Worker
-         run: |
-           node --version
-           npm --version
-           npm i
-           npm run build:sw:prod
-           sed -i 's/sw.js//g' .gitignore
-           sed -i 's/sw-injector.js//g' .gitignore
+      - name: Cleanup
+        run: |
+          rm -rf *.md *.zip scss spellcheck
+          ls -lah
+      - name: Generate various JS files and data
+        run: ./scripts/generate-content.sh
+      - uses: actions/upload-artifact@v7
+        with:
+          name: sns.json
+          path: homebrew/sns.json
 
       -  name: Set base URL
          run: |

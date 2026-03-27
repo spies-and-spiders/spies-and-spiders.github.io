@@ -59,7 +59,7 @@ class PageFilterClassesBase extends PageFilterBase {
 	}
 
 	static mutateForFilters (cls) {
-		cls.source = cls.source || Parser.SRC_PHB;
+		cls.source = cls.source || Parser.SRC_SNS;
 		cls.subclasses = cls.subclasses || [];
 
 		cls._fSources = SourceFilter.getCompleteFilterSources(cls);
