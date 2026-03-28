@@ -140,7 +140,7 @@ class _PageGeneratorIndex extends PageGeneratorGeneric {
 	_page = "index.html";
 	_pageDescription = "A suite of tools for Spies & Spiders players and DMs.";
 
-	_navbarTitleHtml = `5e<span>tools</span>`;
+	_navbarTitleHtml = `spies<span>tools</span>`;
 	_navbarDescription = "A suite of tools for Spies & Spiders players and DMs.";
 	_navbarPageTitleStyleAdditional = "page__title--home";
 
