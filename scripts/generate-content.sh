@@ -21,7 +21,8 @@ bb .github/generate-merged-json.bb
 cat homebrew/sns.json | jq -c '{spell}' > data/spells/spells-sns.json
 cat homebrew/sns.json | jq -c '{monster}' > data/bestiary/bestiary-sns.json
 cat homebrew/sns.json | jq -c '{class,subclass,classFeature,subclassFeature}' > data/class/class-sns.json
-mkdir -p data/book && cat data/books.json | jq -c '{book}' > data/book/book-sns.json
+
+mkdir -p data/book && cat data/books.json | jq -c '{book,data}' > data/book/book-sns.json
 
 cat homebrew/sns.json | jq -c '{optionalfeature}' > data/optionalfeatures.json
 jq_inplace homebrew/sns.json -c 'del(.optionalfeature)'
