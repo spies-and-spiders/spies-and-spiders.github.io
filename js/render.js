@@ -11344,7 +11344,7 @@ Renderer.item = class {
 				Renderer.item._initFullEntries(item);
 				const wrapped = styleHint === "classic"
 					? "The wearer has disadvantage on Dexterity ({@skill Stealth}) checks."
-					: "The wearer has {@variantrule Disadvantage|sns} on Dexterity ({@skill Stealth|sns}) checks.";
+					: "The wearer has {@variantrule Disadvantage|sns} on Dexterity ({@skill Stealth}) checks.";
 				item._fullEntries.push({type: "wrapper", wrapped, data: {[VeCt.ENTDATA_ITEM_MERGED_ENTRY_TAG]: "type"}});
 			}
 			if (itemTypeAbv === Parser.ITM_TYP_ABV__HEAVY_ARMOR && item.strength) {
@@ -14802,6 +14802,10 @@ Renderer.hover = class {
 	static $getHoverContent_stats (page, toRender, opts, renderFnOpts) {
 		opts = opts || {};
 		if (page === UrlUtil.PG_RECIPES) opts = {...MiscUtil.copyFast(opts), isBookContent: true};
+
+		if (!toRender) {
+			return $$`<table class="w-100 stats ${opts.isBookContent ? `stats--book` : ""}"><tr><td colspan="6" class="p-2 ve-text-center">${Renderer.utils.HTML_NO_INFO}</td></tr></table>`;
+		}
 
 		const name = toRender._displayName || toRender.name;
 		const fnRender = opts.fnRender || Renderer.hover.getFnRenderCompact(page, {isStatic: opts.isStatic});

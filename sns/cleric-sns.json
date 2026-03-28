@@ -48,11 +48,11 @@
           {
             "choose": {
               "from": [
-                "{@skill History|sns}",
-                "{@skill Insight|sns}",
-                "{@skill Magiscience|sns}",
-                "{@skill Medicine|sns}",
-                "{@skill Persuasion|sns}"
+                "history",
+                "insight",
+                "magiscience",
+                "medicine",
+                "persuasion"
               ],
               "count": 2
             }

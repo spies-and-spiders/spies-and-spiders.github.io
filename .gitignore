@@ -19,8 +19,8 @@ sitemap.xml
 *.DS_Store
 Thumbs.db
 .rsync-filter
-search/
 data/*/*-sns.json
+data/generated/*.json
 
 # Generated service worker files
 sw.js
