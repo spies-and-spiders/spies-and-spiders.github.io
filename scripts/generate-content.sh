@@ -21,6 +21,7 @@ bb .github/generate-merged-json.bb
 cat homebrew/sns.json | jq -c '{spell}' > data/spells/spells-sns.json
 cat homebrew/sns.json | jq -c '{monster}' > data/bestiary/bestiary-sns.json
 cat homebrew/sns.json | jq -c '{class,subclass,classFeature,subclassFeature}' > data/class/class-sns.json
+cat data/books.json | jq -c '{book}' > data/book/book-sns.json
 
 cat homebrew/sns.json | jq -c '{optionalfeature}' > data/optionalfeatures.json
 jq_inplace homebrew/sns.json -c 'del(.optionalfeature)'
@@ -28,7 +29,6 @@ jq_inplace homebrew/sns.json -c 'del(.optionalfeature)'
 # Generate all relevant indexes and pages
 mkdir -p search
 npm install
-mkdir -p data/book
 npm run gen
 
 npm run build:sw:prod
