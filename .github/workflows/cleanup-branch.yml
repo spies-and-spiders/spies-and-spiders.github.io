@@ -2,6 +2,7 @@ name: Cleanup Branch Deployments
 
 on:
   delete:
+  workflow_dispatch:
 
 permissions:
   contents: read
