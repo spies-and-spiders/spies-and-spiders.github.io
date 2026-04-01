@@ -20,4 +20,6 @@ jobs:
         run: |
           npx wrangler pages deployment list --json --project-name sns-tools \
             | jq -r --arg branch "$BRANCH" '.[] | select(.Branch == $branch) | .Id' \
-            | xargs -I {} npx wrangler pages deployment delete {} --project-name sns-tools --force
+            | xargs -I {} curl -s -X DELETE \
+              "https://api.cloudflare.com/client/v4/accounts/${CLOUDFLARE_ACCOUNT_ID}/pages/projects/sns-tools/deployments/{}?force=true" \
+              -H "Authorization: Bearer ${CLOUDFLARE_API_TOKEN}"
