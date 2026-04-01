@@ -461,7 +461,7 @@ export class ConverterItem extends ConverterBase {
 		delete stats.armor;
 		delete stats.value;
 
-		stats.baseItem = `${baseItem.name.toLowerCase()}${baseItem.source === Parser.SRC_DMG ? "" : `|${baseItem.source.toLowerCase()}`}`;
+		stats.baseItem = `${baseItem.name.toLowerCase()}${baseItem.source === Parser.SRC_SNS ? "" : `|${baseItem.source.toLowerCase()}`}`;
 	}
 
 	static _GENERIC_REQUIRES_LOOKUP_WEAPON = {
@@ -504,7 +504,7 @@ export class ConverterItem extends ConverterBase {
 		"medium": ({styleHint}) => [{"type": styleHint === SITE_STYLE__ONE ? Parser.ITM_TYP__ODND_MEDIUM_ARMOR : Parser.ITM_TYP__MEDIUM_ARMOR}],
 		"heavy": ({styleHint}) => [{"type": styleHint === SITE_STYLE__ONE ? Parser.ITM_TYP__ODND_HEAVY_ARMOR : Parser.ITM_TYP__HEAVY_ARMOR}],
 
-		"hide": ({styleHint}) => [{"name": "Hide Armor", "source": styleHint === SITE_STYLE__ONE ? Parser.SRC_XPHB : Parser.SRC_PHB}],
+		"hide": ({styleHint}) => [{"name": "Hide Armor", "source": styleHint === SITE_STYLE__ONE ? Parser.SRC_SNS : Parser.SRC_SNS}],
 	};
 
 	static _setCleanTaglineInfo_getGenericRequires ({stats, str, options}) {
@@ -563,7 +563,7 @@ export class ConverterItem extends ConverterBase {
 	}
 
 	static _setQuarterstaffStats (stats) {
-		const cpyStatsQuarterstaff = MiscUtil.copy(ConverterItem._ALL_ITEMS.find(it => it.name === "Quarterstaff" && it.source === Parser.SRC_PHB));
+		const cpyStatsQuarterstaff = MiscUtil.copy(ConverterItem._ALL_ITEMS.find(it => it.name === "Quarterstaff" && it.source === Parser.SRC_SNS));
 
 		// remove unwanted properties
 		delete cpyStatsQuarterstaff.name;

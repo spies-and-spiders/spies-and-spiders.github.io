@@ -38,7 +38,7 @@ Renderer.dice = {
 
 	/* -------------------------------------------- */
 
-	// region DM Screen integration
+	// region GM Screen integration
 	_panel: null,
 	bindDmScreenPanel (panel, title) {
 		if (Renderer.dice._panel) { // there can only be one roller box
@@ -447,7 +447,7 @@ Renderer.dice = {
 		if ($roll.length) return $roll.attr("data-rollbox-last-rolled-by-name");
 
 		const name = document.title.replace("- sns-tools", "").trim();
-		return name === "DM Screen" ? "Dungeon Master" : name;
+		return name === "GM Screen" ? "Dungeon Master" : name;
 	},
 
 	_pRollerClick_$getTdsFromTotal ($ele, total) {

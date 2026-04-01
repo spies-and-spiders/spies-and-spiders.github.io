@@ -158,7 +158,7 @@ class LootGenUi extends BaseComponent {
 			.pMap(async letter => {
 				return {
 					letter,
-					tableEntry: await DataLoader.pCacheAndGet(UrlUtil.PG_TABLES, Parser.SRC_DMG, UrlUtil.URL_TO_HASH_BUILDER[UrlUtil.PG_TABLES]({name: `Magic Item Table ${letter}`, source: Parser.SRC_DMG})),
+					tableEntry: await DataLoader.pCacheAndGet(UrlUtil.PG_TABLES, Parser.SRC_SNS, UrlUtil.URL_TO_HASH_BUILDER[UrlUtil.PG_TABLES]({name: `Magic Item Table ${letter}`, source: Parser.SRC_SNS})),
 				};
 			});
 
@@ -250,7 +250,7 @@ class LootGenUi extends BaseComponent {
 
 							table: {
 								name: caption,
-								source: Parser.SRC_XGE,
+								source: Parser.SRC_SNS,
 								page: 135,
 								diceType: items.length,
 								table: items.map((it, i) => ({min: i + 1, max: i + 1, item: `{@item ${it.name}|${it.source}}`})),
@@ -356,7 +356,7 @@ class LootGenUi extends BaseComponent {
 
 			<hr class="hr-3">
 
-			<div class="ve-small italic">${this.constructor._er(`Based on the tables and rules in the {@book Dungeon Master's Guide|DMG|7|Treasure Tables}`)}, pages 133-149.</div>
+			<div class="ve-small italic">${this.constructor._er(`Based on the tables and rules in the {@book Dungeon Master's Guide|sns|7|Treasure Tables}`)}, pages 133-149.</div>
 		</div>`.appendTo(tabMeta.$wrpTab);
 	}
 
@@ -659,7 +659,7 @@ class LootGenUi extends BaseComponent {
 			if (tableMeta == null) return;
 
 			$dispHelp
-				.html(tableMeta.type === "DMG" ? this.constructor._er(`Based on the tables and rules in the {@book Dungeon Master's Guide|DMG|7|Treasure Tables}, pages 133-149.`) : this.constructor._er(`Tables auto-generated based on the rules in {@book Xanathar's Guide to Everything (Choosing Items Piecemeal)|XGE|2|choosing items piecemeal}, pages 135-136.`));
+				.html(tableMeta.type === "DMG" ? this.constructor._er(`Based on the tables and rules in the {@book Dungeon Master's Guide|sns|7|Treasure Tables}, pages 133-149.`) : this.constructor._er(`Tables auto-generated based on the rules in {@book Xanathar's Guide to Everything (Choosing Items Piecemeal)|sns|2|choosing items piecemeal}, pages 135-136.`));
 
 			$dispTable.html(this.constructor._er(tableMeta.tableEntry));
 		};
@@ -691,7 +691,7 @@ class LootGenUi extends BaseComponent {
 		const lootOutput = new this._ClsLootGenOutput({
 			type: `Treasure Table Roll: ${tableMeta.type === "DMG" ? tableMeta.tableEntry.caption : `${tableMeta.tier} ${tableMeta.rarity}`}`,
 			name: tableMeta.type === "DMG"
-				? `Rolled against {@b {@table ${tableMeta.tableEntry.caption}|${Parser.SRC_DMG}}}`
+				? `Rolled against {@b {@table ${tableMeta.tableEntry.caption}|${Parser.SRC_SNS}}}`
 				: `Rolled on the table for {@b ${tableMeta.tier} ${tableMeta.rarity}} items`,
 			magicItemsByTable: await this._lt_pDoHandleClickRollLoot_pGetMagicItemMetas({tableMeta}),
 		});
@@ -774,7 +774,7 @@ class LootGenUi extends BaseComponent {
 
 		$$`<div class="ve-flex-col py-2 px-3">
 			<p>
-				Generates a set of magical items for a party, based on the tables and rules in ${this.constructor._er(`{@book Xanathar's Guide to Everything|XGE|2|awarding magic items}`)}, pages 135-136.
+				Generates a set of magical items for a party, based on the tables and rules in ${this.constructor._er(`{@book Xanathar's Guide to Everything|sns|2|awarding magic items}`)}, pages 135-136.
 			</p>
 			<p><i>If &quot;Exact Level&quot; is selected, the output will include a proportional number of items for any partially-completed tier.</i></p>
 
@@ -944,7 +944,7 @@ class LootGenUi extends BaseComponent {
 
 			<hr class="hr-3">
 
-			<div class="ve-small italic">${this.constructor._er(`Based on the tables and rules in {@book Fizban's Treasury of Dragons|FTD|4|Creating a Hoard}`)}, pages 72.</div>
+			<div class="ve-small italic">${this.constructor._er(`Based on the tables and rules in {@book Fizban's Treasury of Dragons|sns|4|Creating a Hoard}`)}, pages 72.</div>
 		</div>`.appendTo(tabMeta.$wrpTab);
 	}
 
@@ -1434,7 +1434,7 @@ class LootGenOutput {
 					page: UrlUtil.PG_ITEMS,
 					entity: {
 						name: Renderer.stripTags(str).uppercaseFirst(),
-						source: Parser.SRC_FTD,
+						source: Parser.SRC_SNS,
 						type: Parser.ITM_TYP__OTHER,
 						rarity: "unknown",
 					},
@@ -1458,7 +1458,7 @@ class LootGenOutput {
 					entry.replace(/{@item ([^}]+)}/g, (...m) => {
 						cntFound++;
 						const [name, source] = m[1].toLowerCase().split("|").map(it => it.trim()).filter(Boolean);
-						const uid = `${name}|${source || Parser.SRC_DMG}`.toLowerCase();
+						const uid = `${name}|${source || Parser.SRC_SNS}`.toLowerCase();
 						uidToCount[uid] = (uidToCount[uid] || 0) + count;
 						return "";
 					});
@@ -1472,7 +1472,7 @@ class LootGenOutput {
 						count: 0,
 						item: {
 							name: Renderer.stripTags(entry).uppercaseFirst(),
-							source: Parser.SRC_DMG,
+							source: Parser.SRC_SNS,
 							type: Parser.ITM_TYP__OTHER,
 							rarity: "unknown",
 						},
@@ -1898,7 +1898,7 @@ class LootGenMagicItem extends BaseComponent {
 
 	static async _pGetMagicItemRoll_pGetItem ({nameOrUid}) {
 		nameOrUid = nameOrUid.replace(/{@item ([^}]+)}/g, (...m) => m[1]);
-		const uid = (nameOrUid.includes("|") ? nameOrUid : `${nameOrUid}|${Parser.SRC_DMG}`).toLowerCase();
+		const uid = (nameOrUid.includes("|") ? nameOrUid : `${nameOrUid}|${Parser.SRC_SNS}`).toLowerCase();
 		const [name, source] = uid.split("|");
 		return DataLoader.pCacheAndGet(UrlUtil.PG_ITEMS, source, UrlUtil.URL_TO_HASH_BUILDER[UrlUtil.PG_ITEMS]({name, source}));
 	}

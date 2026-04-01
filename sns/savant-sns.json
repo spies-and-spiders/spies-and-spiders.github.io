@@ -16,7 +16,6 @@
         "ref": 4
       },
       "startingProficiencies": {
-        "armor": [],
         "weapons": [
           "simple",
           "improvised"
@@ -25,16 +24,16 @@
           {
             "choose": {
               "from": [
-                "{@skill Brawn|sns}",
-                "{@skill Deception|sns}",
-                "{@skill Magiscience|sns}",
-                "{@skill History|sns}",
-                "{@skill Insight|sns}",
-                "{@skill Investigation|sns}",
-                "{@skill Medicine|sns}",
-                "{@skill Perception|sns}",
-                "{@skill Persuasion|sns}",
-                "{@skill Finesse|sns}"
+                "brawn",
+                "deception",
+                "magiscience",
+                "history",
+                "insight",
+                "investigation",
+                "medicine",
+                "perception",
+                "persuasion",
+                "finesse"
               ],
               "count": 3
             }

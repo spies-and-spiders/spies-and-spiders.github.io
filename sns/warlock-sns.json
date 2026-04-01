@@ -131,12 +131,12 @@
           {
             "choose": {
               "from": [
-                "{@skill Deception|sns}",
-                "{@skill History|sns}",
-                "{@skill Intimidation|sns}",
-                "{@skill Investigation|sns}",
-                "{@skill Magiscience|sns}",
-                "{@skill Nature|sns}"
+                "deception",
+                "history",
+                "intimidation",
+                "investigation",
+                "magiscience",
+                "nature"
               ],
               "count": 2
             }
@@ -325,6 +325,10 @@
         "Pact Magic|Warlock|sns|1|sns",
         "Eldritch Blast|Warlock|sns|1|sns",
         "Expanded Spell List (First)|Warlock|sns|1|sns",
+        "Arcane Utilities|Warlock|sns|1|sns",
+        "Arcane Utilities (2)|Warlock|sns|5|sns",
+        "Arcane Utilities (3)|Warlock|sns|11|sns",
+        "Arcane Utilities (4)|Warlock|sns|17|sns",
         "Eldritch Invocations|Warlock|sns|2|sns",
         "Secrets of Arcana|Warlock|sns|2|sns",
         "Pact Boon|Warlock|sns|3|sns",
@@ -499,6 +503,46 @@
     }
   ],
   "classFeature": [
+    {
+      "name": "Arcane Utilities",
+      "source": "sns",
+      "className": "Warlock",
+      "classSource": "sns",
+      "level": 1,
+      "entries": [
+        "Also at 1st level, you learn certain capabilities based on your magical knowledge. You gain one {@filter Arcane Utility|optionalfeatures|feature type=au} now, and gain another at 5th, 11th, and 17th levels. You can only gain each utility once."
+      ]
+    },
+    {
+      "name": "Arcane Utilities (2)",
+      "source": "sns",
+      "className": "Warlock",
+      "classSource": "sns",
+      "level": 5,
+      "entries": [
+        "At 5th level, you gain a second {@filter Arcane Utility|optionalfeatures|feature type=au}."
+      ]
+    },
+    {
+      "name": "Arcane Utilities (3)",
+      "source": "sns",
+      "className": "Warlock",
+      "classSource": "sns",
+      "level": 11,
+      "entries": [
+        "At 11th level, you gain a third {@filter Arcane Utility|optionalfeatures|feature type=au}."
+      ]
+    },
+    {
+      "name": "Arcane Utilities (4)",
+      "source": "sns",
+      "className": "Warlock",
+      "classSource": "sns",
+      "level": 17,
+      "entries": [
+        "At 17th level, you gain a fourth {@filter Arcane Utility|optionalfeatures|feature type=au}."
+      ]
+    },
     {
       "name": "First Subclass Tier 1",
       "source": "sns",
@@ -675,7 +719,7 @@
           "type": "entries",
           "name": "Spellcasting Focus",
           "entries": [
-            "You can use an {@item arcane focus|phb} as a spellcasting focus for your warlock spells."
+            "You can use an {@item arcane focus|sns} as a spellcasting focus for your warlock spells."
           ]
         }
       ]
@@ -1810,7 +1854,7 @@
       ],
       "entries": [
         "Choose one creature type from the following: aberration, celestial, elemental, fey, fiend, or undead. You are familiar with the intricacies of society and politics among those creatures, and you have advantage on checks made to interact with them or recall lore about them.",
-        "Additionally, you gain proficiency with your choice of either {@skill Magiscience|sns} or {@skill History|sns}. If you are already proficient in the chosen skill, you instead gain an expertise die."
+        "Additionally, you gain proficiency with your choice of either {@skill Magiscience} or {@skill History}. If you are already proficient in the chosen skill, you instead gain an expertise die."
       ]
     },
     {

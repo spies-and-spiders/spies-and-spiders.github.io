@@ -48,71 +48,14 @@
           {
             "choose": {
               "from": [
-                "{@skill History|sns}",
-                "{@skill Insight|sns}",
-                "{@skill Magiscience|sns}",
-                "{@skill Medicine|sns}",
-                "{@skill Persuasion|sns}"
+                "history",
+                "insight",
+                "magiscience",
+                "medicine",
+                "persuasion"
               ],
               "count": 2
             }
-          }
-        ]
-      },
-      "startingEquipment": {
-        "additionalFromBackground": true,
-        "default": [
-          "(a) a {@item mace|phb} or (b) a {@item warhammer|phb} (if proficient)",
-          "(a) {@item scale mail|phb}, (b) {@item leather armor|phb}, or (c) {@item chain mail|phb} (if proficient)",
-          "(a) a {@item light crossbow|phb} and {@item Crossbow Bolts (20)|phb|20 bolts} or (b) any {@filter simple weapon|items|source=phb|category=basic|type=simple weapon}",
-          "(a) a {@item priest's pack|phb} or (b) an {@item explorer's pack|phb}",
-          "A {@item shield|phb} and a {@item holy symbol|phb}"
-        ],
-        "goldAlternative": "{@dice 5d4 x 10|5d4 x 10|Starting Gold}",
-        "defaultData": [
-          {
-            "a": [
-              "mace|phb"
-            ],
-            "b": [
-              "warhammer|phb"
-            ]
-          },
-          {
-            "a": [
-              "scale mail|phb"
-            ],
-            "b": [
-              "leather armor|phb"
-            ],
-            "c": [
-              "chain mail|phb"
-            ]
-          },
-          {
-            "a": [
-              "light crossbow|phb",
-              "Crossbow Bolts (20)|phb"
-            ],
-            "b": [
-              {
-                "equipmentType": "weaponSimple"
-              }
-            ]
-          },
-          {
-            "a": [
-              "priest's pack|phb"
-            ],
-            "b": [
-              "explorer's pack|phb"
-            ]
-          },
-          {
-            "_": [
-              "shield|phb",
-              "holy symbol|phb"
-            ]
           }
         ]
       },
@@ -124,7 +67,7 @@
           "armor": [
             "light",
             "medium",
-            "{@item shield|phb|shields}"
+            "{@item shield|sns|shields}"
           ]
         }
       },
@@ -462,6 +405,10 @@
         "Defensive Blessing|Cleric|sns|1",
         "Sacred Call|Cleric|sns|1",
         "Spellcasting|Cleric|sns|1",
+        "Arcane Utilities|Cleric|sns|1|sns",
+        "Arcane Utilities (2)|Cleric|sns|5|sns",
+        "Arcane Utilities (3)|Cleric|sns|11|sns",
+        "Arcane Utilities (4)|Cleric|sns|17|sns",
         "Channel Divinity (1/rest)|Cleric|sns|2",
         "Principles of Devotion|Cleric|sns|2",
         "Signs of Faith|Cleric|sns|3",
@@ -730,7 +677,7 @@
       "classSource": "sns",
       "level": 1,
       "entries": [
-        "As a conduit for divine power, you can cast cleric spells. See {@book chapter 10|PHB|10} for the general rules of spellcasting and {@book chapter 11|PHB|11} for a selection of {@filter cleric spells|spells|class=cleric}.",
+        "As a conduit for divine power, you can cast cleric spells.",
         {
           "type": "entries",
           "name": "Cantrips",
@@ -759,7 +706,7 @@
           "type": "entries",
           "name": "Spellcasting Focus",
           "entries": [
-            "You can use a {@item holy symbol|phb} as a spellcasting focus for your cleric spells."
+            "You can use a {@item holy symbol|sns} as a spellcasting focus for your cleric spells."
           ]
         }
       ]
@@ -808,6 +755,46 @@
             "A turned creature must use its turns trying to move as far away from you as possible. It cannot willingly move to a space within 30 feet of you by moving towards you. It also cannot take reactions. On its action, it can use only the Dash action or try to escape any effect that prevents it from moving. If there's nowhere to move, the creature can use the Dodge action."
           ]
         }
+      ]
+    },
+    {
+      "name": "Arcane Utilities",
+      "source": "sns",
+      "className": "Cleric",
+      "classSource": "sns",
+      "level": 1,
+      "entries": [
+        "Also at 1st level, you learn certain capabilities based on your magical knowledge. You gain one {@filter Arcane Utility|optionalfeatures|feature type=au} now, and gain another at 5th, 11th, and 17th levels. You can only gain each utility once."
+      ]
+    },
+    {
+      "name": "Arcane Utilities (2)",
+      "source": "sns",
+      "className": "Cleric",
+      "classSource": "sns",
+      "level": 5,
+      "entries": [
+        "At 5th level, you gain a second {@filter Arcane Utility|optionalfeatures|feature type=au}."
+      ]
+    },
+    {
+      "name": "Arcane Utilities (3)",
+      "source": "sns",
+      "className": "Cleric",
+      "classSource": "sns",
+      "level": 11,
+      "entries": [
+        "At 11th level, you gain a third {@filter Arcane Utility|optionalfeatures|feature type=au}."
+      ]
+    },
+    {
+      "name": "Arcane Utilities (4)",
+      "source": "sns",
+      "className": "Cleric",
+      "classSource": "sns",
+      "level": 17,
+      "entries": [
+        "At 17th level, you gain a fourth {@filter Arcane Utility|optionalfeatures|feature type=au}."
       ]
     },
     {

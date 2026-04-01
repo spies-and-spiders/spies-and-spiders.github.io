@@ -2293,8 +2293,7 @@ class DataLoader {
 
 		this._doBuildSourceCaches();
 
-		return sourceClean.startsWith(_DataLoaderInternalUtil.getCleanSource({source: Parser.SRC_UA_PREFIX}))
-			|| sourceClean.startsWith(_DataLoaderInternalUtil.getCleanSource({source: Parser.SRC_UA_ONE_PREFIX}));
+		return false;
 	}
 
 	/* -------------------------------------------- */

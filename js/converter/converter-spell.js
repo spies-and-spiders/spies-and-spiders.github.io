@@ -323,7 +323,7 @@ export class ConverterSpell extends ConverterBase {
 				tgt.push(
 					...classNames.map(name => ({
 						name,
-						source: Parser.SRC_XPHB,
+						source: Parser.SRC_SNS,
 					})),
 				);
 				break;

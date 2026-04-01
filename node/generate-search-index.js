@@ -31,9 +31,6 @@ async function main () {
 	console.log("##### Creating alternate index: Spells... #####");
 	const indexAltSpells = await utS.UtilSearchIndex.pGetIndexAlternate("spell");
 	fs.writeFileSync("search/index-alt-spell.json", JSON.stringify(indexAltSpells), "utf8");
-	console.log("##### Creating Foundry index... #####");
-	const indexFoundry = await utS.UtilSearchIndex.pGetIndexFoundry();
-	fs.writeFileSync("search/index-foundry.json", JSON.stringify(indexFoundry), "utf8");
 
 	if (params.partnered) {
 		console.log("##### Creating partnered content index... #####");

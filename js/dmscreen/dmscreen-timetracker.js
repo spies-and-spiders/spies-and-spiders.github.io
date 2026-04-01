@@ -71,7 +71,7 @@ class TimeTrackerUtil {
 
 class TimeTrackerComponent extends BaseComponent {
 	/**
-	 * @param board DM Screen board.
+	 * @param board GM Screen board.
 	 * @param $wrpPanel Panel wrapper element for us to populate.
 	 * @param [opts] Options object.
 	 * @param [opts.isTemporary] If this object should not save state to the board.
@@ -1377,25 +1377,25 @@ class TimeTrackerRoot_Clock_Weather extends TimeTrackerComponent {
 			const hashes = [];
 			const fnGetHash = UrlUtil.URL_TO_HASH_BUILDER[UrlUtil.PG_TRAPS_HAZARDS];
 			if (this._state.temperature === TimeTrackerRoot_Clock_Weather._TEMPERATURES[0]) {
-				hashes.push(fnGetHash(({name: "Extreme Cold", source: Parser.SRC_DMG})));
+				hashes.push(fnGetHash(({name: "Extreme Cold", source: Parser.SRC_SNS})));
 			}
 
 			if (this._state.temperature === TimeTrackerRoot_Clock_Weather._TEMPERATURES.last()) {
-				hashes.push(fnGetHash(({name: "Extreme Heat", source: Parser.SRC_DMG})));
+				hashes.push(fnGetHash(({name: "Extreme Heat", source: Parser.SRC_SNS})));
 			}
 
 			if (["rain-heavy", "thunderstorm", "snow"].includes(this._state.precipitation)) {
-				hashes.push(fnGetHash(({name: "Heavy Precipitation", source: Parser.SRC_DMG})));
+				hashes.push(fnGetHash(({name: "Heavy Precipitation", source: Parser.SRC_SNS})));
 			}
 
 			if (TimeTrackerRoot_Clock_Weather._WIND_SPEEDS.indexOf(this._state.windSpeed) >= 3) {
-				hashes.push(fnGetHash(({name: "Strong Wind", source: Parser.SRC_DMG})));
+				hashes.push(fnGetHash(({name: "Strong Wind", source: Parser.SRC_SNS})));
 			}
 
 			$hovEnvEffects.show();
 			if (hashes.length === 1) {
 				const ele = $hovEnvEffects[0];
-				$hovEnvEffects.mouseover(evt => Renderer.hover.pHandleLinkMouseOver(evt, ele, {page: UrlUtil.PG_TRAPS_HAZARDS, source: Parser.SRC_DMG, hash: hashes[0]}));
+				$hovEnvEffects.mouseover(evt => Renderer.hover.pHandleLinkMouseOver(evt, ele, {page: UrlUtil.PG_TRAPS_HAZARDS, source: Parser.SRC_SNS, hash: hashes[0]}));
 				$hovEnvEffects.mouseleave(evt => Renderer.hover.handleLinkMouseLeave(evt, ele));
 				$hovEnvEffects.mousemove(evt => Renderer.hover.handleLinkMouseMove(evt, ele));
 			} else if (hashes.length) {
@@ -1404,8 +1404,8 @@ class TimeTrackerRoot_Clock_Weather extends TimeTrackerComponent {
 				$hovEnvEffects
 					.mouseover(async evt => {
 						// load the first on its own, to avoid racing to fill the cache
-						const first = await DataLoader.pCacheAndGet(UrlUtil.PG_TRAPS_HAZARDS, Parser.SRC_DMG, hashes[0]);
-						const others = await Promise.all(hashes.slice(1).map(hash => DataLoader.pCacheAndGet(UrlUtil.PG_TRAPS_HAZARDS, Parser.SRC_DMG, hash)));
+						const first = await DataLoader.pCacheAndGet(UrlUtil.PG_TRAPS_HAZARDS, Parser.SRC_SNS, hashes[0]);
+						const others = await Promise.all(hashes.slice(1).map(hash => DataLoader.pCacheAndGet(UrlUtil.PG_TRAPS_HAZARDS, Parser.SRC_SNS, hash)));
 						const allEntries = [first, ...others].map(it => ({type: "statblockInline", dataType: "hazard", data: MiscUtil.copy(it)}));
 						const toShow = {
 							type: "entries",

@@ -1624,7 +1624,7 @@ SearchUiUtil.NO_HOVER_CATEGORIES = new Set([
 	Parser.CAT_ID_PAGE,
 ]);
 
-// based on DM screen's AddMenuSearchTab
+// based on GM screen's AddMenuSearchTab
 class SearchWidget {
 	static getSearchNoResults () {
 		return `<div class="ui-search__message"><i>No results.</i></div>`;
@@ -2004,7 +2004,7 @@ class SearchWidget {
 				const isRename = hashName.toLowerCase() !== cpy.n.toLowerCase();
 				const pts = [
 					isRename ? hashName : cpy.n.toSpellCase(),
-					doc.s !== Parser.SRC_PHB ? doc.s : "",
+					doc.s !== Parser.SRC_SNS ? doc.s : "",
 					isRename ? cpy.n.toSpellCase() : "",
 				];
 				while (pts.at(-1) === "") pts.pop();
@@ -2072,7 +2072,7 @@ class SearchWidget {
 				fnTransform: doc => {
 					const cpy = MiscUtil.copyFast(doc);
 					Object.assign(cpy, SearchWidget.docToPageSourceHash(cpy));
-					cpy.tag = `{@feat ${doc.n}${doc.s !== Parser.SRC_PHB ? `|${doc.s}` : ""}}`;
+					cpy.tag = `{@feat ${doc.n}${doc.s !== Parser.SRC_SNS ? `|${doc.s}` : ""}}`;
 					return cpy;
 				},
 			},
@@ -2101,7 +2101,7 @@ class SearchWidget {
 				fnTransform: doc => {
 					const cpy = MiscUtil.copyFast(doc);
 					Object.assign(cpy, SearchWidget.docToPageSourceHash(cpy));
-					cpy.tag = `{@background ${doc.n}${doc.s !== Parser.SRC_PHB ? `|${doc.s}` : ""}}`;
+					cpy.tag = `{@background ${doc.n}${doc.s !== Parser.SRC_SNS ? `|${doc.s}` : ""}}`;
 					return cpy;
 				},
 			},
@@ -2133,7 +2133,7 @@ class SearchWidget {
 				fnTransform: doc => {
 					const cpy = MiscUtil.copyFast(doc);
 					Object.assign(cpy, SearchWidget.docToPageSourceHash(cpy));
-					cpy.tag = `{@race ${doc.n}${doc.s !== Parser.SRC_PHB ? `|${doc.s}` : ""}}`;
+					cpy.tag = `{@race ${doc.n}${doc.s !== Parser.SRC_SNS ? `|${doc.s}` : ""}}`;
 					return cpy;
 				},
 			},
@@ -2162,7 +2162,7 @@ class SearchWidget {
 				fnTransform: doc => {
 					const cpy = MiscUtil.copyFast(doc);
 					Object.assign(cpy, SearchWidget.docToPageSourceHash(cpy));
-					cpy.tag = `{@optfeature ${doc.n}${doc.s !== Parser.SRC_PHB ? `|${doc.s}` : ""}}`;
+					cpy.tag = `{@optfeature ${doc.n}${doc.s !== Parser.SRC_SNS ? `|${doc.s}` : ""}}`;
 					return cpy;
 				},
 			},
@@ -2233,7 +2233,7 @@ class SearchWidget {
 			fnTransform: doc => {
 				const cpy = MiscUtil.copyFast(doc);
 				Object.assign(cpy, SearchWidget.docToPageSourceHash(cpy));
-				cpy.tag = `{@creature ${doc.n}${doc.s !== Parser.SRC_MM ? `|${doc.s}` : ""}}`;
+				cpy.tag = `{@creature ${doc.n}${doc.s !== Parser.SRC_SNS ? `|${doc.s}` : ""}}`;
 				return cpy;
 			},
 		};
@@ -2282,7 +2282,7 @@ class SearchWidget {
 				fnTransform: doc => {
 					const cpy = MiscUtil.copyFast(doc);
 					Object.assign(cpy, SearchWidget.docToPageSourceHash(cpy));
-					cpy.tag = `{@item ${doc.n}${doc.s !== Parser.SRC_DMG ? `|${doc.s}` : ""}}`;
+					cpy.tag = `{@item ${doc.n}${doc.s !== Parser.SRC_SNS ? `|${doc.s}` : ""}}`;
 					return cpy;
 				},
 			},

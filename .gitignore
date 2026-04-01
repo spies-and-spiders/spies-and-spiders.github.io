@@ -19,9 +19,8 @@ sitemap.xml
 *.DS_Store
 Thumbs.db
 .rsync-filter
-search/
-data/bestiary/bestiary-sns.json
-data/spells/spells-sns.json
+data/*/*-sns.json
+data/generated/*.json
 
 # Generated service worker files
 sw.js

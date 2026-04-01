@@ -1,0 +1,26 @@
+name: Cleanup Branch Deployments
+
+on:
+  delete:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  delete-deployments:
+    if: github.event.ref_type == 'branch'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Delete Cloudflare Pages deployments for branch
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          BRANCH: ${{ github.event.ref }}
+        run: |
+          npx wrangler pages deployment list --json --project-name sns-tools \
+            | jq -r --arg branch "$BRANCH" '.[] | select(.Branch == $branch) | .Id' \
+            | xargs -I {} curl -s -X DELETE \
+              "https://api.cloudflare.com/client/v4/accounts/${CLOUDFLARE_ACCOUNT_ID}/pages/projects/sns-tools/deployments/{}?force=true" \
+              -H "Authorization: Bearer ${CLOUDFLARE_API_TOKEN}"
