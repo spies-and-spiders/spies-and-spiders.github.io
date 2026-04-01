@@ -11,14 +11,13 @@
       "source": "sns",
       "hd": {
         "number": 1,
-        "faces": 12
+        "faces": 8
       },
       "defences": {
         "frt": 2,
         "ref": 2
       },
       "startingProficiencies": {
-        "armor": [],
         "weapons": [
           "simple",
           "punching daggers",
