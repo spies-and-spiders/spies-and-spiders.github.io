@@ -1960,7 +1960,7 @@ export class ConverterCreature extends ConverterBase {
 
 				if (quantity > 1) pt = pt.toSingle();
 
-				const uid = `${pt}|${Parser.SRC_XPHB}`.toLowerCase();
+				const uid = `${pt}|${Parser.SRC_SNS}`.toLowerCase();
 				if (quantity === 1) out.push(uid);
 				else out.push({item: uid, quantity});
 			});

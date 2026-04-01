@@ -132,7 +132,7 @@ class InitTrackerPlayerViewV1 {
 			<div class="initp__initial row">
 				<div class="ve-col-12">
 					<p>
-						The Player View is part of a peer-to-peer (i.e., serverless) system to allow players to connect to a DM's <a href="dmscreen.html">DM Screen</a> initiative tracker. As a player, the usage is as follows:
+						The Player View is part of a peer-to-peer (i.e., serverless) system to allow players to connect to a DM's <a href="dmscreen.html">GM Screen</a> initiative tracker. As a player, the usage is as follows:
 					<ol>
 						<li>Enter a name into the "Player Name" field.</li>
 						<li>Paste a "server token," provided by a DM, into the "Server Token" field.</li>
@@ -237,7 +237,7 @@ class InitTrackerPlayerViewV0 {
 			<div class="initp__initial ve-flex">
 				<div class="ve-col-12">
 					<p>
-						The Player View is part of a peer-to-peer (i.e., serverless) system to allow players to connect to a DM's DM Screen initiative tracker. As a player, the usage is as follows:
+						The Player View is part of a peer-to-peer (i.e., serverless) system to allow players to connect to a DM's GM Screen initiative tracker. As a player, the usage is as follows:
 					<ol>
 						<li>Paste a "server token," provided by a DM, into the "Server Token" field, and click "Generate Client Token."</li>
 						<li>Wait for a token to appear in the "Client Token" field, copy it, and send it to the DM.</li>

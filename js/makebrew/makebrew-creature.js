@@ -1217,7 +1217,7 @@ export class CreatureBuilder extends BuilderBase {
 				const searchWidget = new SearchWidget(
 					{Item: SearchWidget.CONTENT_INDICES.Item},
 					(doc) => {
-						$iptFrom.val(`{@item ${doc.n}${doc.s !== Parser.SRC_DMG ? `|${doc.s}` : ""}}`.toLowerCase());
+						$iptFrom.val(`{@item ${doc.n}${doc.s !== Parser.SRC_SNS ? `|${doc.s}` : ""}}`.toLowerCase());
 						doUpdateState();
 						doClose();
 					},
@@ -3185,7 +3185,7 @@ export class CreatureBuilder extends BuilderBase {
 			})
 			.appendTo($rowInner);
 
-		this._legendaryGroupCache.filter(it => it.source).forEach((g, i) => this._$selLegendaryGroup.append(`<option value="${i}">${g.name}${g.source === Parser.SRC_MM ? "" : ` [${Parser.sourceJsonToAbv(g.source)}]`}</option>`));
+		this._legendaryGroupCache.filter(it => it.source).forEach((g, i) => this._$selLegendaryGroup.append(`<option value="${i}">${g.name}${g.source === Parser.SRC_SNS ? "" : ` [${Parser.sourceJsonToAbv(g.source)}]`}</option>`));
 
 		this._handleLegendaryGroupChange();
 

@@ -197,7 +197,7 @@ class UtilGenTables {
 			const tmpMeta = {
 				metaType: "class",
 				className: cls.name,
-				classSource: cls.source || Parser.SRC_PHB,
+				classSource: cls.source || Parser.SRC_SNS,
 				level: lvlI + 1,
 			};
 
@@ -222,7 +222,7 @@ class UtilGenTables {
 				tmpMeta: {
 					metaType: "classFluff",
 					className: cls.name,
-					classSource: cls.source || Parser.SRC_PHB,
+					classSource: cls.source || Parser.SRC_SNS,
 				},
 				section: cls.name,
 				data: {entries: cls.fluff},
@@ -265,11 +265,11 @@ class UtilGenTables {
 			const tmpMeta = {
 				metaType: "subclass",
 				className: sc.className,
-				classSource: sc.classSource || Parser.SRC_PHB,
+				classSource: sc.classSource || Parser.SRC_SNS,
 				level,
 				subclassName: sc.name,
 				subclassShortName: sc.shortName,
-				subclassSource: sc.source || sc.classSource || Parser.SRC_PHB,
+				subclassSource: sc.source || sc.classSource || Parser.SRC_SNS,
 
 				// Used to deduplicate headers
 				name: sc.name,

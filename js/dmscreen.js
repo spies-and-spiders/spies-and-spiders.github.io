@@ -531,7 +531,7 @@ class Board {
 			toLoad = await StorageUtil.pGet(VeCt.STORAGE_DMSCREEN);
 		} catch (e) {
 			JqueryUtil.doToast({
-				content: `Error when loading DM screen! Purged saved data. ${VeCt.STR_SEE_CONSOLE}`,
+				content: `Error when loading GM screen! Purged saved data. ${VeCt.STR_SEE_CONSOLE}`,
 				type: "danger",
 			});
 			await StorageUtil.pRemove(VeCt.STORAGE_DMSCREEN);
@@ -580,7 +580,7 @@ class Board {
 		$$($modalInner)`
 			<div class="py-2 w-100 h-100">
 				<div class="mb-2">
-					<b>Failed to load saved DM Screen.</b> ${VeCt.STR_SEE_CONSOLE}
+					<b>Failed to load saved GM Screen.</b> ${VeCt.STR_SEE_CONSOLE}
 				</div>
 
 				<div class="mb-2">
@@ -1729,7 +1729,7 @@ class Panel {
 		});
 		if (!page) return;
 
-		const pFnConfirmPanels = () => InputUiUtil.pGetUserBoolean({title: "Add as Panels", htmlDescription: "Adding entries one-per-panel may resize your DM Screen<br>Are you sure you want to add as panels?", textYes: "Yes", textNo: "Cancel"});
+		const pFnConfirmPanels = () => InputUiUtil.pGetUserBoolean({title: "Add as Panels", htmlDescription: "Adding entries one-per-panel may resize your GM Screen<br>Are you sure you want to add as panels?", textYes: "Yes", textNo: "Cancel"});
 
 		await ListUtilEntity.pDoUserInputLoadSublist({
 			page,
@@ -3839,7 +3839,7 @@ class NoteBox {
 						const str = beltStack.join("");
 						await Renderer.dice.pRoll2(str.replace(`[[`, "").replace(`]]`, ""), {
 							isUser: false,
-							name: "DM Screen",
+							name: "GM Screen",
 						});
 					} else if (bracesAtPos === 1 && braces === 0) {
 						const str = braceStack.join("");

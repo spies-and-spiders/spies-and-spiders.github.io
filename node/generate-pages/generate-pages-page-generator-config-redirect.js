@@ -1,7 +1,7 @@
 import {PageGeneratorRedirectBase} from "./generate-pages-page-generator.js";
 
-class _PageGenerator5etools extends PageGeneratorRedirectBase {
-	_page = "5etools.html";
+class _PageGeneratorSnsTools extends PageGeneratorRedirectBase {
+	_page = "sns-tools.html";
 
 	_pageDescription = "A suite of browser-based tools for Spies & Spiders players and DMs.";
 
@@ -10,5 +10,5 @@ class _PageGenerator5etools extends PageGeneratorRedirectBase {
 }
 
 export const PAGE_GENERATORS_REDIRECT = [
-	new _PageGenerator5etools(),
+	new _PageGeneratorSnsTools(),
 ];

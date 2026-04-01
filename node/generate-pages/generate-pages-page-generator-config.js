@@ -30,8 +30,8 @@ class _PageGeneratorDmscreen extends PageGeneratorGeneric {
 	_filename = "page/template-page-dmscreen.hbs";
 	_page = UrlUtil.PG_DM_SCREEN;
 
-	_pageTitle = "DM Screen";
-	_navbarDescription = "Build a personalised DM screen.";
+	_pageTitle = "GM Screen";
+	_navbarDescription = "Build a personalised GM screen.";
 
 	_isFontAwesome = true;
 	_stylesheets = [
@@ -140,7 +140,7 @@ class _PageGeneratorIndex extends PageGeneratorGeneric {
 	_page = "index.html";
 	_pageDescription = "A suite of tools for Spies & Spiders players and DMs.";
 
-	_navbarTitleHtml = `5e<span>tools</span>`;
+	_navbarTitleHtml = `spies<span>tools</span>`;
 	_navbarDescription = "A suite of tools for Spies & Spiders players and DMs.";
 	_navbarPageTitleStyleAdditional = "page__title--home";
 

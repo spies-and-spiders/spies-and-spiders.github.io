@@ -186,7 +186,7 @@ export class TaggerUtils {
 		const knownSpells = {};
 		strSpellcasting.replace(/{@spell ([^}]+)}/g, (...m) => {
 			let [spellName, spellSource] = m[1].split("|").map(it => it.toLowerCase());
-			spellSource = spellSource || Parser.SRC_PHB.toLowerCase();
+			spellSource = spellSource || Parser.SRC_SNS.toLowerCase();
 
 			(knownSpells[spellSource] = knownSpells[spellSource] || new Set()).add(spellName);
 		});
@@ -232,12 +232,12 @@ export class TagCondition extends ConverterTaggerInitializable {
 		const conditionData = await DataUtil.condition.loadJSON();
 
 		const conditionsXphb = conditionData.condition
-			.filter(cond => cond.source === Parser.SRC_XPHB);
+			.filter(cond => cond.source === Parser.SRC_SNS);
 
 		this._conditionMatcherCore = new RegExp(`\\b(?<name>${conditionsXphb.map(it => it.name).join("|")})\\b`, "g");
 
 		const conditionsPhb = conditionData.condition
-			.filter(cond => cond.source === Parser.SRC_PHB);
+			.filter(cond => cond.source === Parser.SRC_SNS);
 
 		const conditions = [
 			...conditionsPhb.map(it => it.name.toLowerCase().escapeRegexp()),
@@ -270,15 +270,15 @@ export class TagCondition extends ConverterTaggerInitializable {
 				const name = m[1];
 				if (styleHint === SITE_STYLE__CLASSIC) return `{@status ${name}}`;
 
-				if (name === "surprised") return `{@status ${name}|${Parser.SRC_XPHB}}`; // Surprised is never capitalized
-				return `{@status ${name.toTitleCase()}|${Parser.SRC_XPHB}}`;
+				if (name === "surprised") return `{@status ${name}|${Parser.SRC_SNS}}`; // Surprised is never capitalized
+				return `{@status ${name.toTitleCase()}|${Parser.SRC_SNS}}`;
 			})
 			.replace(this._STATUS_MATCHER_ALT, (...m) => {
 				const displayText = m[1];
 				const name = this._STATUS_MATCHER_ALT_REPLACEMENTS[m[1].toLowerCase()];
 
 				if (styleHint === SITE_STYLE__CLASSIC) return `{@status ${name}||${displayText}}`;
-				return `{@status ${name.toTitleCase()}|${Parser.SRC_XPHB}|${displayText.toTitleCase()}}`;
+				return `{@status ${name.toTitleCase()}|${Parser.SRC_SNS}|${displayText.toTitleCase()}}`;
 			})
 		;
 	}
@@ -287,7 +287,7 @@ export class TagCondition extends ConverterTaggerInitializable {
 		return str
 			.replace(this._conditionMatcherCore, (...m) => {
 				const {name} = m.at(-1);
-				return `{@condition ${name}|${Parser.SRC_XPHB}}`;
+				return `{@condition ${name}|${Parser.SRC_SNS}}`;
 			})
 		;
 	}
@@ -392,7 +392,7 @@ export class TagCondition extends ConverterTaggerInitializable {
 	static _collectInflictedConditions_withAllowlist ({inflictedAllowlist, inflictedSet, cond}) {
 		// Treat XPHB conditions as base
 		const [name, source] = cond.toLowerCase().split("|");
-		const condClean = !source || [Parser.SRC_PHB.toLowerCase(), Parser.SRC_XPHB.toLowerCase()].includes(source) ? name : `${name}|${source}`;
+		const condClean = !source || [Parser.SRC_SNS.toLowerCase(), Parser.SRC_SNS.toLowerCase()].includes(source) ? name : `${name}|${source}`;
 
 		if (!inflictedAllowlist || inflictedAllowlist.has(cond)) inflictedSet.add(condClean);
 		return "";
@@ -649,7 +649,7 @@ export class SkillTag extends ConverterTaggerInitializable {
 		const skillData = await DataLoader.pCacheAndGetAllSite("skill");
 
 		const coreSKills = [...skillData]
-			.filter(skill => skill.source === Parser.SRC_XPHB);
+			.filter(skill => skill.source === Parser.SRC_SNS);
 
 		this._RE_BASIC_XPHB = new RegExp(`\\b(?<name>${(coreSKills.map(skill => skill.name).join("|"))})\\b`, "g");
 	}
@@ -703,7 +703,7 @@ export class SkillTag extends ConverterTaggerInitializable {
 
 	static _fnTag_one (strMod) {
 		return strMod
-			.replace(this._RE_BASIC_XPHB, (...m) => `{@skill ${m.at(-1).name}|${Parser.SRC_XPHB}}`)
+			.replace(this._RE_BASIC_XPHB, (...m) => `{@skill ${m.at(-1).name}|${Parser.SRC_SNS}}`)
 		;
 	}
 
@@ -731,7 +731,7 @@ export class ActionTag extends ConverterTaggerInitializable {
 		const actionData = await DataUtil.action.loadJSON();
 
 		const coreActions = [...actionData.action]
-			.filter(action => action.source === Parser.SRC_XPHB);
+			.filter(action => action.source === Parser.SRC_SNS);
 
 		this._RE_BASIC_XPHB = new RegExp(`\\b(?<name>${(coreActions.map(action => action.name).join("|"))})\\b`, "g");
 	}
@@ -781,7 +781,7 @@ export class ActionTag extends ConverterTaggerInitializable {
 
 	static _fnTag_one (strMod) {
 		return strMod
-			.replace(this._RE_BASIC_XPHB, (...m) => `{@action ${m.at(-1).name}|${Parser.SRC_XPHB}}`)
+			.replace(this._RE_BASIC_XPHB, (...m) => `{@action ${m.at(-1).name}|${Parser.SRC_SNS}}`)
 		;
 	}
 
@@ -818,7 +818,7 @@ export class SenseTag extends ConverterTaggerInitializable {
 		const senseData = await DataLoader.pCacheAndGetAllSite("sense");
 
 		const coreSenses = [...senseData]
-			.filter(skill => skill.source === Parser.SRC_XPHB);
+			.filter(skill => skill.source === Parser.SRC_SNS);
 
 		this._RE_BASIC_XPHB = new RegExp(`\\b(?<name>${(coreSenses.map(sense => sense.name).join("|"))})\\b`, "g");
 	}
@@ -872,14 +872,14 @@ export class SenseTag extends ConverterTaggerInitializable {
 
 	static _fnTag_one (strMod) {
 		return strMod
-			.replace(this._RE_BASIC_XPHB, (...m) => `{@sense ${m.at(-1).name}|${Parser.SRC_XPHB}}`)
+			.replace(this._RE_BASIC_XPHB, (...m) => `{@sense ${m.at(-1).name}|${Parser.SRC_SNS}}`)
 		;
 	}
 
 	static _fnTag_classic (strMod) {
 		return strMod.replace(this._RE_BASIC, (...m) => {
 			const {name} = m.at(-1);
-			return `{@sense ${name}${name.toLowerCase() === "tremorsense" ? "|MM" : ""}}`;
+			return `{@sense ${name}${name.toLowerCase() === "tremorsense" ? "|sns" : ""}}`;
 		});
 	}
 }

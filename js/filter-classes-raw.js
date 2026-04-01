@@ -378,7 +378,7 @@ class ModalFilterClasses extends ModalFilterBase {
 
 	static async _pGetParentClass (sc) {
 		// Search in base classes
-		let baseClass = (await DataUtil.class.loadRawJSON()).class.find(bc => bc.name.toLowerCase() === sc.className.toLowerCase() && (bc.source.toLowerCase() || Parser.SRC_PHB) === sc.classSource.toLowerCase());
+		let baseClass = (await DataUtil.class.loadRawJSON()).class.find(bc => bc.name.toLowerCase() === sc.className.toLowerCase() && (bc.source.toLowerCase() || Parser.SRC_SNS) === sc.classSource.toLowerCase());
 
 		// Search in brew classes
 		baseClass = baseClass || await this._pGetParentClass_pPrerelease({sc});
@@ -398,7 +398,7 @@ class ModalFilterClasses extends ModalFilterBase {
 	static async _pGetParentClass_pPrereleaseBrew ({sc, brewUtil}) {
 		const brew = await brewUtil.pGetBrewProcessed();
 		return (brew.class || [])
-			.find(bc => bc.name.toLowerCase() === sc.className.toLowerCase() && (bc.source.toLowerCase() || Parser.SRC_PHB) === sc.classSource.toLowerCase());
+			.find(bc => bc.name.toLowerCase() === sc.className.toLowerCase() && (bc.source.toLowerCase() || Parser.SRC_SNS) === sc.classSource.toLowerCase());
 	}
 
 	static async pPostLoad (data, {...opts} = {}) {
@@ -425,9 +425,9 @@ class ModalFilterClasses extends ModalFilterBase {
 			// Do this sequentially, to avoid double-adding the same base classes
 			for (const sc of data.subclass) {
 				if (!sc.className) continue; // Subclass class name is required
-				sc.classSource = sc.classSource || Parser.SRC_PHB;
+				sc.classSource = sc.classSource || Parser.SRC_SNS;
 
-				let cls = data.class.find(it => (it.name || "").toLowerCase() === sc.className.toLowerCase() && (it.source || Parser.SRC_PHB).toLowerCase() === sc.classSource.toLowerCase());
+				let cls = data.class.find(it => (it.name || "").toLowerCase() === sc.className.toLowerCase() && (it.source || Parser.SRC_SNS).toLowerCase() === sc.classSource.toLowerCase());
 
 				if (!cls) {
 					cls = await this._pGetParentClass(sc);
@@ -451,7 +451,7 @@ class ModalFilterClasses extends ModalFilterBase {
 
 		// Clean and initialise fields; sort arrays
 		data.class.forEach(cls => {
-			cls.source = cls.source || Parser.SRC_PHB;
+			cls.source = cls.source || Parser.SRC_SNS;
 
 			cls.subclasses = cls.subclasses || [];
 
@@ -459,7 +459,7 @@ class ModalFilterClasses extends ModalFilterBase {
 				sc.name = sc.name || "(Unnamed subclass)";
 				sc.source = sc.source || cls.source;
 				sc.className = sc.className || cls.name;
-				sc.classSource = sc.classSource || cls.source || Parser.SRC_PHB;
+				sc.classSource = sc.classSource || cls.source || Parser.SRC_SNS;
 			});
 
 			cls.subclasses.sort((a, b) => SortUtil.ascSortLower(a.name, b.name) || SortUtil.ascSortLower(a.source || cls.source, b.source || cls.source));

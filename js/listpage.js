@@ -280,9 +280,9 @@ class SublistManager {
 			),
 			null,
 			new ContextUtil.Action(
-				"Send to DM Screen",
+				"Send to GM Screen",
 				(evt) => this._pDoSendSublistToDmScreen({evt}),
-				{title: "A DM Screen panel will be created for each entry. SHIFT to use tabs."},
+				{title: "A GM Screen panel will be created for each entry. SHIFT to use tabs."},
 			),
 			ExtensionUtil.ACTIVE
 				? new ContextUtil.Action(
@@ -787,7 +787,7 @@ class SublistManager {
 					isTabs: evt.shiftKey,
 				},
 			);
-			JqueryUtil.doToast(`${len} pin${len === 1 ? "" : "s"} will be loaded into the DM Screen on your next visit.`);
+			JqueryUtil.doToast(`${len} pin${len === 1 ? "" : "s"} will be loaded into the GM Screen on your next visit.`);
 		} catch (e) {
 			JqueryUtil.doToast(`Failed! ${VeCt.STR_SEE_CONSOLE}`);
 			setTimeout(() => { throw e; });

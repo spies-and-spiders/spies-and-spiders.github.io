@@ -584,7 +584,7 @@
           "type": "entries",
           "name": "Spellcasting Focus",
           "entries": [
-            "You can use a {@item holy symbol|phb} as a spellcasting focus for your herald spells."
+            "You can use a {@item holy symbol|sns} as a spellcasting focus for your herald spells."
           ]
         }
       ]

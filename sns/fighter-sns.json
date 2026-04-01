@@ -20,7 +20,7 @@
           "light",
           "medium",
           "heavy",
-          "{@item shield|phb|shields}"
+          "{@item shield|sns|shields}"
         ],
         "weapons": [
           "simple",
@@ -30,74 +30,18 @@
           {
             "choose": {
               "from": [
-                "{@skill Athletics|sns}",
-                "{@skill Brawn|sns}",
-                "{@skill Finesse|sns}",
-                "{@skill History|sns}",
-                "{@skill Insight|sns}",
-                "{@skill Intimidation|sns}",
-                "{@skill Nature|sns}",
-                "{@skill Perception|sns}",
-                "{@skill Survival|sns}"
+                "athletics",
+                "brawn",
+                "finesse",
+                "history",
+                "insight",
+                "intimidation",
+                "nature",
+                "perception",
+                "survival"
               ],
               "count": 2
             }
-          }
-        ]
-      },
-      "startingEquipment": {
-        "additionalFromBackground": true,
-        "default": [
-          "(a) {@item chain mail|phb} or (b) {@item leather armor|phb}, {@item longbow|phb}, and {@item arrows (20)|phb|20 arrows}",
-          "(a) a {@filter martial weapon|items|source=phb|category=basic|type=martial weapon} and a {@item shield|phb} or (b) two {@filter martial weapons|items|source=phb|category=basic|type=martial weapon}",
-          "(a) a {@item light crossbow|phb} and {@item crossbow bolts (20)|phb|20 bolts} or (b) two {@item handaxe|phb|handaxes}",
-          "(a) a {@item dungeoneer's pack|phb} or (b) an {@item explorer's pack|phb}"
-        ],
-        "goldAlternative": "{@dice 5d4 × 10|5d4 × 10|Starting Gold}",
-        "defaultData": [
-          {
-            "a": [
-              "chain mail|phb"
-            ],
-            "b": [
-              "leather armor|phb",
-              "longbow|phb",
-              "arrows (20)|phb"
-            ]
-          },
-          {
-            "a": [
-              {
-                "equipmentType": "weaponMartial"
-              },
-              "shield|phb"
-            ],
-            "b": [
-              {
-                "equipmentType": "weaponMartial",
-                "quantity": 2
-              }
-            ]
-          },
-          {
-            "a": [
-              "light crossbow|phb",
-              "crossbow bolts (20)|phb"
-            ],
-            "b": [
-              {
-                "item": "handaxe|phb",
-                "quantity": 2
-              }
-            ]
-          },
-          {
-            "a": [
-              "dungeoneer's pack|phb"
-            ],
-            "b": [
-              "explorer's pack|phb"
-            ]
           }
         ]
       },
@@ -114,7 +58,7 @@
           "armor": [
             "light",
             "medium",
-            "{@item shield|phb|shields}"
+            "{@item shield|sns|shields}"
           ],
           "weapons": [
             "simple",
@@ -1047,7 +991,7 @@
         "SK"
       ],
       "entries": [
-        "You gain a swimming speed equal to your Speed, and may spend 1 exertion to reroll a failed Strength or Dexterity check related to aquatic activity (such as {@skill Athletics|sns} checks to swim or {@skill Finesse|sns} checks to keep balance on a ship's deck). You may choose whether to use the new roll or the original. In addition, you add your proficiency bonus to the number of minutes you can hold your breath before suffocating, and can spend 1 exertion to hold your breath for additional minutes equal to your proficiency bonus"
+        "You gain a swimming speed equal to your Speed, and may spend 1 exertion to reroll a failed Strength or Dexterity check related to aquatic activity (such as {@skill Athletics} checks to swim or {@skill Finesse} checks to keep balance on a ship's deck). You may choose whether to use the new roll or the original. In addition, you add your proficiency bonus to the number of minutes you can hold your breath before suffocating, and can spend 1 exertion to hold your breath for additional minutes equal to your proficiency bonus"
       ]
     },
     {

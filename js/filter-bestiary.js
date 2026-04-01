@@ -413,7 +413,7 @@ class PageFilterBestiary extends PageFilterBase {
 	static _getSpellcasterMeta_stringHandler (spellSet, str) {
 		str.replace(PageFilterBestiary._RE_SPELL_TAG, (...m) => {
 			const parts = m[1].split("|").slice(0, 2);
-			parts[1] = parts[1] || Parser.SRC_PHB;
+			parts[1] = parts[1] || Parser.SRC_SNS;
 			spellSet.add(parts.join("|").toLowerCase());
 			return "";
 		});

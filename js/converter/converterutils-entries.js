@@ -192,7 +192,7 @@ export class SpellTag extends ConverterTaggerInitializable {
 				.replace(this._SPELL_NAME_REGEX_SPELL, (...m) => {
 					const spellMeta = this._getSpellMeta({name: m[1], styleHint});
 					if (!spellMeta) return m[0];
-					return `{@spell ${m[1]}${spellMeta.source !== Parser.SRC_PHB ? `|${spellMeta.source}` : ""}} ${m[2]}`;
+					return `{@spell ${m[1]}${spellMeta.source !== Parser.SRC_SNS ? `|${spellMeta.source}` : ""}} ${m[2]}`;
 				});
 		}
 
@@ -201,34 +201,34 @@ export class SpellTag extends ConverterTaggerInitializable {
 			.replace(/\b(antimagic field|dispel magic)\b/gi, (...m) => {
 				const spellMeta = this._getSpellMeta({name: m[1], styleHint});
 				if (!spellMeta) return m[0];
-				return `{@spell ${m[1]}${spellMeta.source !== Parser.SRC_PHB ? `|${spellMeta.source}` : ""}}`;
+				return `{@spell ${m[1]}${spellMeta.source !== Parser.SRC_SNS ? `|${spellMeta.source}` : ""}}`;
 			});
 
 		strMod = strMod
 			.replace(this._SPELL_NAME_REGEX_CAST, (...m) => {
 				const spellMeta = this._getSpellMeta({name: m.last().spell, styleHint});
 				if (!spellMeta) return m[0];
-				return `${m.last().prefix}{@spell ${m.last().spell}${spellMeta.source !== Parser.SRC_PHB ? `|${spellMeta.source}` : ""}}`;
+				return `${m.last().prefix}{@spell ${m.last().spell}${spellMeta.source !== Parser.SRC_SNS ? `|${spellMeta.source}` : ""}}`;
 			});
 
 		return strMod
 			.replace(this._SPELL_NAME_REGEX_AND, (...m) => {
 				const spellMeta = this._getSpellMeta({name: m[1], styleHint});
 				if (!spellMeta) return m[0];
-				return `{@spell ${m[1]}${spellMeta.source !== Parser.SRC_PHB ? `|${spellMeta.source}` : ""}} ${m[2]}`;
+				return `{@spell ${m[1]}${spellMeta.source !== Parser.SRC_SNS ? `|${spellMeta.source}` : ""}} ${m[2]}`;
 			})
 			.replace(/(spells(?:|[^.!?:{]*): )([^.!?]+)/gi, (...m) => {
 				const spellPart = m[2].replace(this._SPELL_NAME_REGEX, (...n) => {
 					const spellMeta = this._getSpellMeta({name: n[1], styleHint});
 					if (!spellMeta) return m[0];
-					return `{@spell ${n[1]}${spellMeta.source !== Parser.SRC_PHB ? `|${spellMeta.source}` : ""}}`;
+					return `{@spell ${n[1]}${spellMeta.source !== Parser.SRC_SNS ? `|${spellMeta.source}` : ""}}`;
 				});
 				return `${m[1]}${spellPart}`;
 			})
 			.replace(this._SPELL_NAME_REGEX_CAST, (...m) => {
 				const spellMeta = this._getSpellMeta({name: m.last().spell, styleHint});
 				if (!spellMeta) return m[0];
-				return `${m.last().prefix}{@spell ${m.last().spell}${spellMeta.source !== Parser.SRC_PHB ? `|${spellMeta.source}` : ""}}`;
+				return `${m.last().prefix}{@spell ${m.last().spell}${spellMeta.source !== Parser.SRC_SNS ? `|${spellMeta.source}` : ""}}`;
 			})
 		;
 	}
@@ -300,7 +300,7 @@ export class ItemTag extends ConverterTaggerInitializable {
 			propItemNamesRegexOther: "ITEM_NAMES_REGEX_OTHER__ONE",
 			propItemNamesRegexEquipment: "_ITEM_NAMES_REGEX_EQUIPMENT__ONE",
 			propItemNamesRegexStrict: "_ITEM_NAMES_REGEX_STRICT__ONE",
-			srcPhb: Parser.SRC_XPHB,
+			srcPhb: Parser.SRC_SNS,
 		});
 	}
 
@@ -316,7 +316,7 @@ export class ItemTag extends ConverterTaggerInitializable {
 			propItemNamesRegexTools: "_ITEM_NAMES_REGEX_TOOLS__CLASSIC",
 			propItemNamesRegexOther: "ITEM_NAMES_REGEX_OTHER__CLASSIC",
 			propItemNamesRegexEquipment: "_ITEM_NAMES_REGEX_EQUIPMENT__CLASSIC",
-			srcPhb: Parser.SRC_PHB,
+			srcPhb: Parser.SRC_SNS,
 		});
 	}
 
@@ -363,9 +363,9 @@ export class ItemTag extends ConverterTaggerInitializable {
 			.filter(it => {
 				if (it.type && this._TOOL_TYPES.has(DataUtil.itemType.unpackUid(it.type).abbreviation)) return false;
 				// Disallow specific items
-				if (it.name === "Wave" && it.source === Parser.SRC_DMG) return false;
+				if (it.name === "Wave" && it.source === Parser.SRC_SNS) return false;
 				// Allow all non-specific-variant DMG items
-				if (it.source === Parser.SRC_DMG && it.source === Parser.SRC_XDMG && !Renderer.item.isMundane(it) && it._category !== "Specific Variant") return true;
+				if (it.source === Parser.SRC_SNS && it.source === Parser.SRC_SNS && !Renderer.item.isMundane(it) && it._category !== "Specific Variant") return true;
 				// Allow "sufficiently complex name" items
 				return it.name.split(" ").length > 2;
 			})
@@ -467,7 +467,7 @@ export class ItemTag extends ConverterTaggerInitializable {
 			strMod = strMod
 				.replace(this._ITEM_NAMES_REGEX_TOOLS__CLASSIC, (...m) => {
 					const itemMeta = this._ITEM_NAMES__CLASSIC[m[1].toLowerCase()];
-					return `{@item ${m[1]}${itemMeta.source !== Parser.SRC_DMG ? `|${itemMeta.source}` : ""}}`;
+					return `{@item ${m[1]}${itemMeta.source !== Parser.SRC_SNS ? `|${itemMeta.source}` : ""}}`;
 				});
 		}
 
@@ -475,7 +475,7 @@ export class ItemTag extends ConverterTaggerInitializable {
 			strMod = strMod
 				.replace(this.ITEM_NAMES_REGEX_OTHER__CLASSIC, (...m) => {
 					const itemMeta = this._ITEM_NAMES__CLASSIC[m[1].toLowerCase()];
-					return `{@item ${m[1]}${itemMeta.source !== Parser.SRC_DMG ? `|${itemMeta.source}` : ""}}`;
+					return `{@item ${m[1]}${itemMeta.source !== Parser.SRC_SNS ? `|${itemMeta.source}` : ""}}`;
 				});
 		}
 
@@ -544,7 +544,7 @@ export class ItemTag extends ConverterTaggerInitializable {
 		return strMod
 			.replace(this._ITEM_NAMES_REGEX_EQUIPMENT__CLASSIC, (...m) => {
 				const itemMeta = this._ITEM_NAMES__CLASSIC[m[1].toLowerCase()];
-				return `{@item ${m[1]}${itemMeta.source !== Parser.SRC_DMG ? `|${itemMeta.source}` : ""}}`;
+				return `{@item ${m[1]}${itemMeta.source !== Parser.SRC_SNS ? `|${itemMeta.source}` : ""}}`;
 			})
 		;
 	}
@@ -605,7 +605,7 @@ export class TableTag {
 
 	static _fnTag (strMod) {
 		return strMod
-			.replace(/Wild Magic Surge table/g, `{@table Wild Magic Surge|PHB} table`)
+			.replace(/Wild Magic Surge table/g, `{@table Wild Magic Surge|sns} table`)
 		;
 	}
 }
@@ -649,7 +649,7 @@ export class HazardTag extends ConverterTaggerInitializable {
 		const hazardData = await DataLoader.pCacheAndGetAllSite("hazard");
 
 		const coreHazards = [...hazardData]
-			.filter(ent => ent.source === Parser.SRC_XPHB);
+			.filter(ent => ent.source === Parser.SRC_SNS);
 
 		this._RE_BASIC_XPHB = new RegExp(`\\b(?<name>${(coreHazards.map(ent => ent.name).join("|"))})\\b`, "g");
 	}
@@ -702,7 +702,7 @@ export class HazardTag extends ConverterTaggerInitializable {
 
 	static _fnTag_one (strMod) {
 		return strMod
-			.replace(this._RE_BASIC_XPHB, (...m) => `{@hazard ${m.at(-1).name}|${Parser.SRC_XPHB}}`)
+			.replace(this._RE_BASIC_XPHB, (...m) => `{@hazard ${m.at(-1).name}|${Parser.SRC_SNS}}`)
 		;
 	}
 
@@ -738,7 +738,7 @@ export class CreatureTag {
 		const fnTag = strMod => {
 			Object.entries(res)
 				.forEach(([source, re]) => {
-					strMod = strMod.replace(re, (...m) => `{@creature ${m[0]}${source !== Parser.SRC_DMG ? `|${source}` : ""}}`);
+					strMod = strMod.replace(re, (...m) => `{@creature ${m[0]}${source !== Parser.SRC_SNS ? `|${source}` : ""}}`);
 				});
 			return strMod;
 		};
@@ -865,7 +865,7 @@ export class CoreRuleTag extends ConverterTaggerInitializable {
 		const variantruleData = await DataUtil.variantrule.loadJSON();
 
 		const coreRules = [...variantruleData.variantrule]
-			.filter(rule => SourceUtil.getEntitySource(rule) === Parser.SRC_XPHB && rule.ruleType === "C" && !this._BLOCKLIST_XPHB.has(rule.name))
+			.filter(rule => SourceUtil.getEntitySource(rule) === Parser.SRC_SNS && rule.ruleType === "C" && !this._BLOCKLIST_XPHB.has(rule.name))
 			.map(rule => ({
 				...MiscUtil.copyFast(rule),
 				_sortWeight: rule.name.countSubstring(" "),
@@ -913,23 +913,23 @@ export class CoreRuleTag extends ConverterTaggerInitializable {
 			.replace(this._RE_BASIC_XPHB, (...m) => {
 				const {ruleName} = m.at(-1);
 				const rule = this._LOOKUP_XPHB[ruleName];
-				if (ruleName === rule.name) return `{@variantrule ${ruleName}|${Parser.SRC_XPHB}}`;
-				return `{@variantrule ${rule.name}|${Parser.SRC_XPHB}|${ruleName}}`;
+				if (ruleName === rule.name) return `{@variantrule ${ruleName}|${Parser.SRC_SNS}}`;
+				return `{@variantrule ${rule.name}|${Parser.SRC_SNS}|${ruleName}}`;
 			})
-			.replace(/{@variantrule Proficiency\|XPHB} Bonus/g, (...m) => {
-				return `{@variantrule Proficiency|XPHB|Proficiency Bonus}`;
+			.replace(/{@variantrule Proficiency\|sns} Bonus/g, (...m) => {
+				return `{@variantrule Proficiency|sns|Proficiency Bonus}`;
 			})
-			.replace(/Short or {@variantrule Long Rest\|XPHB}/g, (...m) => {
-				return `{@variantrule Short Rest|XPHB|Short} or {@variantrule Long Rest|XPHB}`;
+			.replace(/Short or {@variantrule Long Rest\|sns}/g, (...m) => {
+				return `{@variantrule Short Rest|sns|Short} or {@variantrule Long Rest|sns}`;
 			})
-			.replace(/(Half|Three-Quarters|Total) {@variantrule Cover\|XPHB}/g, (...m) => {
-				return `{@variantrule Cover|XPHB|${m[1]} Cover}`;
+			.replace(/(Half|Three-Quarters|Total) {@variantrule Cover\|sns}/g, (...m) => {
+				return `{@variantrule Cover|sns|${m[1]} Cover}`;
 			})
 			.replace(/\b(Cone|Cube|Cylinder|Emanation|Line|Sphere)\b/g, (...m) => {
-				return `{@variantrule ${m[1]} [Area of Effect]|XPHB|${m[1]}}`;
+				return `{@variantrule ${m[1]} [Area of Effect]|sns|${m[1]}}`;
 			})
 			.replace(/\b(Friendly|Hostile|Indifferent)\b/g, (...m) => {
-				return `{@variantrule ${m[1]} [Attitude]|XPHB|${m[1]}}`;
+				return `{@variantrule ${m[1]} [Attitude]|sns|${m[1]}}`;
 			})
 		;
 	}

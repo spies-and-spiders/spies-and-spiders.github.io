@@ -15,6 +15,8 @@ async function main () {
 
 	// Generate the search index at the end, as it catches data generated earlier
 	await (await import("./generate-search-index.js")).default;
+
+	await (await import("./generate-pages.js")).default;
 }
 
 main().catch(e => { throw e; });

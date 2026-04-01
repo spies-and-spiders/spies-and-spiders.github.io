@@ -68,7 +68,7 @@ class NavBar {
 		this._addElement_li(NavBar._CAT_PLAYER, "names.html", "Names");
 
 		this._addElement_dropdown(null, NavBar._CAT_DUNGEON_MASTER);
-		this._addElement_li(NavBar._CAT_DUNGEON_MASTER, "dmscreen.html", "DM Screen");
+		this._addElement_li(NavBar._CAT_DUNGEON_MASTER, "dmscreen.html", "GM Screen");
 		this._addElement_divider(NavBar._CAT_DUNGEON_MASTER);
 		this._addElement_dropdown(NavBar._CAT_DUNGEON_MASTER, NavBar._CAT_ADVENTURES, {isSide: true, page: "adventures.html"});
 		this._addElement_li(NavBar._CAT_ADVENTURES, "adventures.html", "View All/Homebrew");
@@ -164,7 +164,7 @@ class NavBar {
 			{
 				html: "Save State to File",
 				click: async (evt) => NavBar.InteractionManager._pOnClick_button_saveStateFile(evt),
-				title: "Save any locally-stored data (loaded homebrew, active blocklists, DM Screen configuration,...) to a file.",
+				title: "Save any locally-stored data (loaded homebrew, active blocklists, GM Screen configuration,...) to a file.",
 			},
 		);
 		this._addElement_button(
@@ -172,7 +172,7 @@ class NavBar {
 			{
 				html: "Load State from File",
 				click: async (evt) => NavBar.InteractionManager._pOnClick_button_loadStateFile(evt),
-				title: "Load previously-saved data (loaded homebrew, active blocklists, DM Screen configuration,...) from a file.",
+				title: "Load previously-saved data (loaded homebrew, active blocklists, GM Screen configuration,...) from a file.",
 			},
 		);
 		this._addElement_divider(NavBar._CAT_SETTINGS);

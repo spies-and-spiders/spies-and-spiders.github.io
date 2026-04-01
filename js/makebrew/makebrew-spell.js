@@ -86,7 +86,7 @@ export class SpellBuilder extends BuilderBase {
 				fromClassList: [
 					{
 						name: "Wizard",
-						source: Parser.SRC_PHB,
+						source: Parser.SRC_SNS,
 					},
 				],
 			},
@@ -119,7 +119,7 @@ export class SpellBuilder extends BuilderBase {
 				.forEach(srcJson => $sel.append(`<option value="${srcJson.escapeQuotes()}">${Parser.sourceJsonToFull(srcJson).escapeQuotes()}</option>`));
 
 			if (this._ui.allSources.indexOf(currSrcJson)) $sel.val(currSrcJson);
-			else $sel.val(Parser.SRC_PHB);
+			else $sel.val(Parser.SRC_SNS);
 
 			return $sel;
 		}).forEach($sel => $sel.change());
@@ -358,7 +358,7 @@ export class SpellBuilder extends BuilderBase {
 			.change(() => doUpdateState())
 			.val(os && os.page ? os.page : null);
 
-		const $selSource = this._$getSelSource("$selOtherSourceSources", doUpdateState, os ? os.source.escapeQuotes() : Parser.SRC_PHB);
+		const $selSource = this._$getSelSource("$selOtherSourceSources", doUpdateState, os ? os.source.escapeQuotes() : Parser.SRC_SNS);
 
 		const out = {getOtherSource};
 
@@ -781,8 +781,8 @@ export class SpellBuilder extends BuilderBase {
 	}
 
 	__$getClassesInputs (cb) {
-		const DEFAULT_CLASS = {name: "Wizard", source: Parser.SRC_PHB};
-		const DEFAULT_SUBCLASS = {name: "Evocation", source: Parser.SRC_PHB};
+		const DEFAULT_CLASS = {name: "Wizard", source: Parser.SRC_SNS};
+		const DEFAULT_SUBCLASS = {name: "Evocation", source: Parser.SRC_SNS};
 
 		const [$rowCls, $rowInnerCls] = BuilderUi.getLabelledRowTuple("Classes", {isMarked: true});
 		const [$rowSc, $rowInnerSc] = BuilderUi.getLabelledRowTuple("Subclasses", {isMarked: true});
@@ -977,8 +977,8 @@ export class SpellBuilder extends BuilderBase {
 			.change(() => doUpdateState())
 			.val(race ? race.baseName : null);
 
-		const $selSource = this._$getSelSource("$selRaceSources", doUpdateState, race ? race.source.escapeQuotes() : Parser.SRC_PHB);
-		const $selBaseSource = this._$getSelSource("$selBaseRaceSources", doUpdateState, race && race.baseSource ? race.baseSource.escapeQuotes() : Parser.SRC_PHB);
+		const $selSource = this._$getSelSource("$selRaceSources", doUpdateState, race ? race.source.escapeQuotes() : Parser.SRC_SNS);
+		const $selBaseSource = this._$getSelSource("$selBaseRaceSources", doUpdateState, race && race.baseSource ? race.baseSource.escapeQuotes() : Parser.SRC_SNS);
 
 		const out = {getRace};
 
@@ -987,7 +987,7 @@ export class SpellBuilder extends BuilderBase {
 			<div class="ve-flex-v-center mb-2"><span class="mr-2 mkbru__sub-name--33">Name</span>${$iptRace}</div>
 			<div class="ve-flex-v-center mb-2"><span class="mr-2 mkbru__sub-name--33">Source</span>${$selSource}</div>
 			<div class="ve-flex-v-center mb-2"><span class="mr-2 mkbru__sub-name--33 help" title="The name of the base race, e.g. &quot;Elf&quot;. This is used in filtering.">Base Name</span>${$iptBaseRace}</div>
-			<div class="ve-flex-v-center mb-2"><span class="mr-2 mkbru__sub-name--33 help" title="For example, the &quot;Elf&quot; base race has a source of &quot;${Parser.SRC_PHB}&quot;">Base Source</span>${$selBaseSource}</div>
+			<div class="ve-flex-v-center mb-2"><span class="mr-2 mkbru__sub-name--33 help" title="For example, the &quot;Elf&quot; base race has a source of &quot;${Parser.SRC_SNS}&quot;">Base Source</span>${$selBaseSource}</div>
 			${$wrpBtnRemove}
 		</div>`;
 		this.constructor.$getBtnRemoveRow(doUpdateState, raceRows, out, $wrp, "Species").appendTo($wrpBtnRemove);
@@ -1045,7 +1045,7 @@ export class SpellBuilder extends BuilderBase {
 			.change(() => doUpdateState())
 			.val(identObj ? identObj.name : null);
 
-		const $selSource = this._$getSelSource($propEles, doUpdateState, identObj ? identObj.source.escapeQuotes() : Parser.SRC_PHB);
+		const $selSource = this._$getSelSource($propEles, doUpdateState, identObj ? identObj.source.escapeQuotes() : Parser.SRC_SNS);
 
 		const out = {getIdentObject};
 

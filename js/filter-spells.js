@@ -311,15 +311,15 @@ class PageFilterSpells extends PageFilterBase {
 
 	static getRaceFilterItem (r) {
 		const addSuffix = (
-			r.source === Parser.SRC_DMG
-			|| SourceUtil.isNonstandardSource(r.source || Parser.SRC_PHB)
-			|| (typeof PrereleaseUtil !== "undefined" && PrereleaseUtil.hasSourceJson(r.source || Parser.SRC_PHB))
-			|| (typeof BrewUtil2 !== "undefined" && BrewUtil2.hasSourceJson(r.source || Parser.SRC_PHB))
+			r.source === Parser.SRC_SNS
+			|| SourceUtil.isNonstandardSource(r.source || Parser.SRC_SNS)
+			|| (typeof PrereleaseUtil !== "undefined" && PrereleaseUtil.hasSourceJson(r.source || Parser.SRC_SNS))
+			|| (typeof BrewUtil2 !== "undefined" && BrewUtil2.hasSourceJson(r.source || Parser.SRC_SNS))
 		) && !r.name.includes(Parser.sourceJsonToAbv(r.source));
 		const name = `${r.name}${addSuffix ? ` (${Parser.sourceJsonToAbv(r.source)})` : ""}`;
 		const opts = {
 			item: name,
-			group: SourceUtil.getFilterGroup(r.source || Parser.SRC_PHB),
+			group: SourceUtil.getFilterGroup(r.source || Parser.SRC_SNS),
 		};
 		if (r.baseName) opts.nest = r.baseName;
 		else opts.nest = "(No Subspecies)";

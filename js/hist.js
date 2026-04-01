@@ -44,7 +44,7 @@ class Hist {
 				else {
 					this.lastLoadedId = listItem.ix;
 					this._pLoadHash(listItem.ix);
-					document.title = `${listItem.name ? `${listItem.name} - ` : ""}5etools`;
+					document.title = `${listItem.name ? `${listItem.name} - ` : ""}Spies & Spiders`;
 				}
 			}
 		}
