@@ -203,6 +203,8 @@
         "Battle Defence|Berserker|sns|1|sns",
         "Developed Talents|Berserker|sns|1|sns",
         "Rage|Berserker|sns|1|sns",
+        "Feed the Anger|Berserker|sns|1|sns",
+        "Brutal Capability|Berserker|sns|1|sns",
         "Combat Maneuvers|Berserker|sns|2|sns",
         "Danger Sense|Berserker|sns|2|sns",
         "Furious Critical|Berserker|sns|2|sns",
@@ -484,7 +486,7 @@
       "classSource": "sns",
       "level": 1,
       "entries": [
-        "In battle, you give yourself over to the fury within. Starting at 1st level, while you are in combat, you are raging while bloodied or if you have taken damage since your last turn.",
+        "In battle, you give yourself over to the fury within. Starting at 1st level, while you are in combat, you are raging while bloodied or if you have been targeted by a damaging attack since your last turn.",
         "While raging, you gain the following effects:",
         {
           "type": "list",
@@ -503,6 +505,26 @@
             "You gain no benefit from temporary hit points."
           ]
         }
+      ]
+    },
+    {
+      "name": "Feed the Anger",
+      "source": "sns",
+      "className": "Berserker",
+      "classSource": "sns",
+      "level": 1,
+      "entries": [
+        "From 1st level, you gain the ability to beat your chest or your head, or otherwise harm yourself in order to viscerally force more fury from yourself. As a bonus action while healthy, reduce your hit points until you are bloodied. Then, gain rage hit points as if you had just started your turn while raging."
+      ]
+    },
+    {
+      "name": "Brutal Capability",
+      "source": "sns",
+      "className": "Berserker",
+      "classSource": "sns",
+      "level": 1,
+      "entries": [
+        "Also at 1st level, you gain an expertise die in all Strength checks."
       ]
     },
     {
@@ -540,7 +562,7 @@
           "type": "entries",
           "name": "Blinding Maneuver",
           "entries": [
-            "Your attack flings debris into the target's eyes, causes blood to run into their eyes, or otherwise impedes their vision. The target is {@condition blinded|sns} for a number of rounds equal to your proficiency bonus."
+            "Your attack flings debris into the target's eyes, causes blood to run into their eyes, or otherwise impedes their vision. The target is {@condition blinded|sns} for 1 round."
           ]
         },
         {
@@ -555,7 +577,7 @@
           "type": "entries",
           "name": "Deafening Blow",
           "entries": [
-            "The force of the blow leaves the target with a ringing sensation in their ears, muffling the world around them. The target is {@condition deafened|sns} for a number of rounds equal to half your proficiency bonus. If the target attempts to cast a spell while {@condition deafened|sns} in this way, it must pass a save in order to do so successfully."
+            "The force of the blow leaves the target with a ringing sensation in their ears, muffling the world around them. The target is {@condition deafened|sns} for a number of rounds equal to half your proficiency bonus. If the target attempts to cast a spell while {@condition deafened|sns} in this way, it must pass a save in order to do so successfully. If it fails, the spell has no effect, consuming its resources as usual. The caster may then use the same action it used to cast another spell with the same casting time as the failed spell, consuming resources as required. It cannot cast the failed spell again for the next minute."
           ]
         },
         {
@@ -570,7 +592,7 @@
           "name": "Elemental Wrath",
           "entries": [
             "Your fury is so great that it incites the very elements to join you. After dealing damage the weapon that dealt the blow is charged with acid, cold, fire, or lightning, chosen when you take this Furious Critical.",
-            "The weapon now deals an additional {@dice 1d6} damage of the chosen type. This effect lasts for a number of rounds equal to your proficiency bonus and does not stack with successive critical hits.",
+            "The weapon now deals an additional {@dice 1d6} damage of the chosen type. This effect lasts for the remainder of combat.",
             "This Furious Critical can be taken multiple times as you gain berserker levels, increasing the damage each time, but needing to meet a level prerequisite to be taken again; 2d6 at 10th level, 3d6 at 16th level, and 4d6 at 20th level.",
             "Whenever you finish a long rest, you may change the damage type."
           ]
@@ -586,7 +608,7 @@
           "type": "entries",
           "name": "Inspiring Flair",
           "entries": [
-            "Your sheer competence inspires your companions. Choose a creature that can sense you. That creature gains an expertise die on its next armour attack roll."
+            "Your sheer competence inspires your companions. Choose another creature that can sense you. That creature gains an expertise die on its next armour attack roll, which is added to the base d20 roll instead of the final result."
           ]
         },
         {
@@ -600,7 +622,7 @@
           "type": "entries",
           "name": "Knockdown Strike",
           "entries": [
-            "With the right angle, your attack knocks the target sprawling. The target makes a save or is knocked {@condition prone|sns}. This Furious Critical can be taken a second time to combine its effects with Overbearing Hit."
+            "With the right angle, your attack knocks the target sprawling. The target is knocked {@condition prone|sns} and pushed 30 feet away from you in a straight line."
           ]
         },
         {
@@ -613,16 +635,9 @@
         },
         {
           "type": "entries",
-          "name": "Overbearing Hit",
-          "entries": [
-            "The sheer strength behind your blow sends the target staggering backwards. The target is pushed 15 feet away from you in a straight line. This Furious Critical can be taken a second time to increase this distance to 30 feet."
-          ]
-        },
-        {
-          "type": "entries",
           "name": "Pinning Strike",
           "entries": [
-            "The profound force of your blow breaks the environment, crumbling the stone beneath your target's feet or knocking shattered timber over their legs. The target is {@condition grappled|sns}."
+            "The profound force of your blow breaks the environment, crumbling the stone beneath your target's feet or knocking shattered timber over their legs. The target is {@condition grappled|sns}, and {@condition restrained|sns} while grappled in this way."
           ]
         },
         {
@@ -636,7 +651,7 @@
           "type": "entries",
           "name": "Terrifying Force",
           "entries": [
-            "You focus your rage, unleashing a fear-inspiring strike. Each creature you choose within 60 feet that can sense you makes a save, becoming {@condition frightened|sns} of you for a number of rounds equal to half your proficiency bonus on a failure. The effects of this Furious Critical can be combined with any other."
+            "You focus your rage, unleashing a fear-inspiring strike. Each creature you choose within 60 feet that can sense you becomes {@condition frightened|sns} of you for a number of rounds equal to half your proficiency bonus. The effects of this Furious Critical can be combined with any other."
           ]
         },
         {
