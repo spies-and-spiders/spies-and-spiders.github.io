@@ -326,12 +326,12 @@
             }
           ]
         },
-        "Whenever you Expose a creature, you reveal a random weakness it has based on its creature type by rolling a {@dice d10} on one of the following tables. This weakness remains until the creature dies. If you attempt to Expose a creature while a creature is already Exposed by you, the existing Exposed weakness disappears.",
+        "Whenever you Expose a creature, you reveal a random weakness it has based on its creature type by rolling a {@dice d8} on one of the following tables. This weakness remains until the creature dies. If you attempt to Expose a creature while a creature is already Exposed by you, the existing Exposed weakness disappears.",
         {
           "type": "table",
           "caption": "Aberrations",
           "colLabels": [
-            "{@dice d10}",
+            "{@dice d8}",
             "Weakness"
           ],
           "colStyles": [
