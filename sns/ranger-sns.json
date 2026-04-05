@@ -1,7 +1,8 @@
 {
   "_meta": {
     "optionalFeatureTypes": {
-      "EK": "Exploration Knack"
+      "EK": "Exploration Knack",
+      "EW": "Exposed Weakness"
     }
   },
   "class": [
@@ -164,7 +165,7 @@
         },
         "Exploration Knacks|Ranger|sns|1|sns",
         "Familiar Terrain|Ranger|sns|1|sns",
-        "Beast Friend|Ranger|sns|1|sns",
+        "Expose Weakness|Ranger|sns|1|sns",
         "Combat Maneuvers|Ranger|sns|2|sns",
         "Stride and Seek|Ranger|sns|2|sns",
         "Trained Accuracy|Ranger|sns|2|sns",
@@ -262,20 +263,109 @@
       ]
     },
     {
-      "name": "Beast Friend",
+      "name": "Expose Weakness",
       "source": "sns",
       "className": "Ranger",
       "classSource": "sns",
       "level": 1,
       "entries": [
-        "After a Befriend Animal journey activity, you can befriend and feed a Medium or Small beast of your choice, becoming its guardian ranger. It counts as a CR 1/4 minion and requires your concentration, though this concentration cannot be lost against your will. The beast tracks wounds and uses death saves as if it were a player character, but if it dies, it must be replaced with a new beast for this feature to function.",
-        "The beast also has the following benefits:",
+        "At 1st level, by analysing patterns and drawing from your extensive experience, you gain the ability to expose a creature's weaknesses to you and your allies. Choose one of the following options to determine how you do so.",
         {
-          "type": "list",
-          "items": [
-            "Whenever it rolls for initiative, it gains a number of temporary hit points equal to your level squared.",
-            "Its armour increases by an amount equal to half your proficiency bonus.",
-            "It adds your proficiency bonus to all damage it deals."
+          "type": "entries",
+          "name": "Analyse and Study",
+          "entries": [
+            "Whenever you roll for initiative, choose a creature within 60 feet of you and make one of the following ability checks based on its creature type. The DC is equal to 10 + the creature's CR. On a success, the creature is Exposed.",
+            {
+              "type": "table",
+              "colLabels": [
+                "Check Skill",
+                "Creature Types"
+              ],
+              "colStyles": [
+                "col-6",
+                "col-6"
+              ],
+              "rows": [
+                [
+                  "History",
+                  "Giants, Humanoids"
+                ],
+                [
+                  "Magiscience",
+                  "Aberrations, Constructs, Elementals, Oozes"
+                ],
+                [
+                  "Nature",
+                  "Beasts, Dragons, Fey, Monstrosities, Plants"
+                ],
+                [
+                  "Religion",
+                  "Celestials, Fiends, Undead"
+                ]
+              ]
+            },
+            "You can use a reaction at the end of each of your turns to repeat the above ability check against a creature within 60 feet of you."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Observe Defences",
+          "entries": [
+            "Whenever you score a major hit against a creature, you can use your reaction to Expose that creature."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Observe Offence",
+          "entries": [
+            "Whenever a creature hits you, you can use your reaction to Expose that creature."
+          ]
+        },
+        "Whenever you Expose a creature, you reveal a random weakness it has based on its creature type by rolling a {@dice d10} on one of the following tables. This weakness remains until the creature dies. If you attempt to Expose a creature while a creature is already Exposed by you, the existing Exposed weakness disappears.",
+        {
+          "type": "table",
+          "caption": "Aberrations",
+          "colLabels": [
+            "{@dice d10}",
+            "Weakness"
+          ],
+          "colStyles": [
+            "col-2 text-center",
+            "col-10"
+          ],
+          "rows": [
+            [
+              "1",
+              "{@optfeature Bizarre Nature|sns}"
+            ],
+            [
+              "2",
+              "{@optfeature Cracked Exterior|sns}"
+            ],
+            [
+              "3",
+              "{@optfeature Foreign Interference|sns}"
+            ],
+            [
+              "4",
+              "{@optfeature Inferior Constitution|sns}"
+            ],
+            [
+              "5",
+              "{@optfeature Photonic Power|sns}"
+            ],
+            [
+              "6",
+              "{@optfeature Photophobia|sns}"
+            ],
+            [
+              "7",
+              "{@optfeature Psychic Agnosia|sns}"
+            ],
+            [
+              "8",
+              "{@optfeature Telepathic Presence|sns}"
+            ]
           ]
         }
       ]
@@ -1343,6 +1433,86 @@
       ],
       "entries": [
         "When traveling you may undertake two journey activities per day instead of one. Both activities must be from the following list: Befriend Creature, Gather Components, Harvest, Scout."
+      ]
+    },
+    {
+      "name": "Foreign Interference",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "The next time the aberration suffers a major hit that deals non-physical base damage, it loses the ability to score major successes with its attacks for the remainder of combat; its major successes are instead counted as standard successes."
+      ]
+    },
+    {
+      "name": "Telepathic Presence",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "Whenever a creature within 60 feet of the aberration gains a condition from a will attack, the aberration must make a save. On a fail, it gains the same condition until it passes a passive save."
+      ]
+    },
+    {
+      "name": "Photonic Power",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "Whenever the aberration targets a creature wearing metal armour or wielding a shield with a damaging attack, the target can use its reaction to partially reflect the attack, reducing the attack's success tier by 1. If a melee or ranged attack is reflected, the aberration also suffers the effects that this tier reduction removed from the attack. For example, a major success being reduced to a success will reflect the major effect, but a standard success becoming a minor success will reflect half the attack's damage."
+      ]
+    },
+    {
+      "name": "Bizarre Nature",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "The next time the aberration is healed by you or an ally, it loses the ability to score major successes with its attacks for the remainder of combat; its major successes are instead counted as standard successes."
+      ]
+    },
+    {
+      "name": "Psychic Agnosia",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "While an illusion spell is active within the aberration's line of sight, the aberration is {@condition confused|sns}."
+      ]
+    },
+    {
+      "name": "Cracked Exterior",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "Whenever the aberration suffers a major hit that deals physical base damage, the attacker can halve the attack's damage to reduce the aberration's armour by 1 for the remainder of combat."
+      ]
+    },
+    {
+      "name": "Inferior Constitution",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "While the aberration has a condition from a fortitude attack, it loses a number of hit points at the start of each of its turns equal to triple your proficiency bonus."
+      ]
+    },
+    {
+      "name": "Photophobia",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "Whenever the aberration changes from being within darkness to bright light, it uses its reaction to move up to its Speed away from the light source."
       ]
     }
   ]
