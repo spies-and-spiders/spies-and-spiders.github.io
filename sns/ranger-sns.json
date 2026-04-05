@@ -271,54 +271,59 @@
       "entries": [
         "At 1st level, by analysing patterns and drawing from your extensive experience, you gain the ability to expose a creature's weaknesses to you and your allies. Choose one of the following options to determine how you do so.",
         {
-          "type": "entries",
-          "name": "Analyse and Study",
-          "entries": [
-            "Whenever you roll for initiative, choose a creature within 60 feet of you and make one of the following ability checks based on its creature type. The DC is equal to 10 + the creature's CR. On a success, the creature is Exposed.",
+          "type": "list",
+          "items": [
             {
-              "type": "table",
-              "colLabels": [
-                "Check Skill",
-                "Creature Types"
-              ],
-              "colStyles": [
-                "col-6",
-                "col-6"
-              ],
-              "rows": [
-                [
-                  "History",
-                  "Giants, Humanoids"
-                ],
-                [
-                  "Magiscience",
-                  "Aberrations, Constructs, Elementals, Oozes"
-                ],
-                [
-                  "Nature",
-                  "Beasts, Dragons, Fey, Monstrosities, Plants"
-                ],
-                [
-                  "Religion",
-                  "Celestials, Fiends, Undead"
-                ]
+              "type": "entries",
+              "name": "Analyse and Study",
+              "entries": [
+                "Whenever you roll for initiative, choose a creature within 60 feet of you and make one of the following ability checks based on its creature type. The DC is equal to 10 + the creature's CR. On a success, the creature is Exposed.",
+                {
+                  "type": "table",
+                  "colLabels": [
+                    "Check Skill",
+                    "Creature Types"
+                  ],
+                  "colStyles": [
+                    "col-6",
+                    "col-6"
+                  ],
+                  "rows": [
+                    [
+                      "History",
+                      "Giants, Humanoids"
+                    ],
+                    [
+                      "Magiscience",
+                      "Aberrations, Constructs, Elementals, Oozes"
+                    ],
+                    [
+                      "Nature",
+                      "Beasts, Dragons, Fey, Monstrosities, Plants"
+                    ],
+                    [
+                      "Religion",
+                      "Celestials, Fiends, Undead"
+                    ]
+                  ]
+                },
+                "You can use a reaction at the end of each of your turns to repeat the above ability check against a creature within 60 feet of you."
               ]
             },
-            "You can use a reaction at the end of each of your turns to repeat the above ability check against a creature within 60 feet of you."
-          ]
-        },
-        {
-          "type": "entries",
-          "name": "Observe Defences",
-          "entries": [
-            "Whenever you score a major hit against a creature, you can use your reaction to Expose that creature."
-          ]
-        },
-        {
-          "type": "entries",
-          "name": "Observe Offence",
-          "entries": [
-            "Whenever a creature hits you, you can use your reaction to Expose that creature."
+            {
+              "type": "entries",
+              "name": "Observe Defences",
+              "entries": [
+                "Whenever you score a major hit against a creature, you can use your reaction to Expose that creature."
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "Observe Offence",
+              "entries": [
+                "Whenever a creature hits you, you can use your reaction to Expose that creature."
+              ]
+            }
           ]
         },
         "Whenever you Expose a creature, you reveal a random weakness it has based on its creature type by rolling a {@dice d10} on one of the following tables. This weakness remains until the creature dies. If you attempt to Expose a creature while a creature is already Exposed by you, the existing Exposed weakness disappears.",
