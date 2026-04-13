@@ -328,49 +328,105 @@
         },
         "Whenever you Expose a creature, you reveal a random weakness it has based on its creature type by rolling a {@dice d8} on one of the following tables. This weakness remains until the creature dies. If you attempt to Expose a creature while a creature is already Exposed by you, the existing Exposed weakness disappears.",
         {
-          "type": "table",
-          "caption": "Aberrations",
-          "colLabels": [
-            "{@dice d8}",
-            "Weakness"
-          ],
-          "colStyles": [
-            "col-2 text-center",
-            "col-10"
-          ],
-          "rows": [
-            [
-              "1",
-              "{@optfeature Bizarre Nature|sns}"
-            ],
-            [
-              "2",
-              "{@optfeature Cracked Exterior|sns}"
-            ],
-            [
-              "3",
-              "{@optfeature Foreign Interference|sns}"
-            ],
-            [
-              "4",
-              "{@optfeature Inferior Constitution|sns}"
-            ],
-            [
-              "5",
-              "{@optfeature Photonic Power|sns}"
-            ],
-            [
-              "6",
-              "{@optfeature Photophobia|sns}"
-            ],
-            [
-              "7",
-              "{@optfeature Psychic Agnosia|sns}"
-            ],
-            [
-              "8",
-              "{@optfeature Telepathic Presence|sns}"
-            ]
+          "type": "entries",
+          "name": "Aberrations",
+          "entries": [
+            {
+              "type": "table",
+              "colLabels": [
+                "{@dice d8}",
+                "Weakness"
+              ],
+              "colStyles": [
+                "col-2 text-center",
+                "col-10"
+              ],
+              "rows": [
+                [
+                  "1",
+                  "{@optfeature Bizarre Nature|sns}"
+                ],
+                [
+                  "2",
+                  "{@optfeature Cracked Exterior|sns}"
+                ],
+                [
+                  "3",
+                  "{@optfeature Foreign Interference|sns}"
+                ],
+                [
+                  "4",
+                  "{@optfeature Inferior Constitution|sns}"
+                ],
+                [
+                  "5",
+                  "{@optfeature Photonic Power|sns}"
+                ],
+                [
+                  "6",
+                  "{@optfeature Photophobia|sns}"
+                ],
+                [
+                  "7",
+                  "{@optfeature Psychic Agnosia|sns}"
+                ],
+                [
+                  "8",
+                  "{@optfeature Telepathic Presence|sns}"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Beasts",
+          "entries": [
+            {
+              "type": "table",
+              "colLabels": [
+                "{@dice d8}",
+                "Weakness"
+              ],
+              "colStyles": [
+                "col-2 text-center",
+                "col-10"
+              ],
+              "rows": [
+                [
+                  "1",
+                  "{@optfeature Bizarre Nature|sns}"
+                ],
+                [
+                  "2",
+                  "{@optfeature Cracked Exterior|sns}"
+                ],
+                [
+                  "3",
+                  "{@optfeature Foreign Interference|sns}"
+                ],
+                [
+                  "4",
+                  "{@optfeature Inferior Constitution|sns}"
+                ],
+                [
+                  "5",
+                  "{@optfeature Photonic Power|sns}"
+                ],
+                [
+                  "6",
+                  "{@optfeature Photophobia|sns}"
+                ],
+                [
+                  "7",
+                  "{@optfeature Psychic Agnosia|sns}"
+                ],
+                [
+                  "8",
+                  "{@optfeature Telepathic Presence|sns}"
+                ]
+              ]
+            }
           ]
         }
       ]
@@ -1457,7 +1513,7 @@
         "EW"
       ],
       "entries": [
-        "Whenever a creature within 60 feet of the aberration gains a condition from a will attack, the aberration must make a save. On a fail, it gains the same condition until it passes a passive save."
+        "Whenever a creature within 60 feet of the aberration gains any of the {@condition charmed|sns}, {@condition dominated|sns}, {@condition fixated|sns}, {@condition frightened|sns}, {@condition rattled|sns}, {@condition strife|sns}, or {@condition taunted|sns} conditions, the aberration must make a save. On a fail, it gains the same condition until it passes a passive save."
       ]
     },
     {
@@ -1507,7 +1563,7 @@
         "EW"
       ],
       "entries": [
-        "While the aberration has a condition from a fortitude attack, it loses a number of hit points at the start of each of its turns equal to triple your proficiency bonus."
+        "While the aberration has any of the {@condition debilitated|sns}, {@condition fatigue|sns}, {@condition poisoned|sns}, {@condition sluggish|sns}, or {@condition staggered|sns} conditions, it loses a number of hit points at the start of each of its turns equal to triple your proficiency bonus."
       ]
     },
     {
@@ -1518,6 +1574,66 @@
       ],
       "entries": [
         "Whenever the aberration changes from being within darkness to bright light, it uses its reaction to move up to its Speed away from the light source."
+      ]
+    },
+    {
+      "name": "1. Tunnel Vision",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "The beast has 50% vulnerability to the damage of melee attacks from creatures flanking it."
+      ]
+    },
+    {
+      "name": "2. Susceptible",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "As a bonus action, a creature within 30 feet of the beast can make a Nature check with DC equal to 10 + the beast's CR. On a success, the beast is {@condition dominated|sns} for the remainder of combat."
+      ]
+    },
+    {
+      "name": "3. Energy Vulnerability",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "The next time the beast suffers a major hit that deals non-physical base damage, it becomes {@condition slowed|sns} for the remainder of combat."
+      ]
+    },
+    {
+      "name": "4. Notable Smell",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "As a bonus action, a creature within 30 feet of the beast can make a Perception check with DC equal to 10 + the beast's CR. On a success, the beast's attacks have disadvantage against that creature for the remainder of combat."
+      ]
+    },
+    {
+      "name": "5. Taste for Flesh",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "The beast is always {@condition taunted|sns} by you or your ally wearing the lightest body armour type. If multiple creatures meet this condition, the beast is taunted by all of them."
+      ]
+    },
+    {
+      "name": "6. Righting Inability",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "Whenever the beast is knocked {@condition prone|sns}, it cannot stand up until it uses an action to do so. Additionally, it does not impose disadvantage on non-adjacent armour attacks while {@condition prone|sns}."
       ]
     }
   ]
