@@ -333,7 +333,7 @@
       "source": "sns",
       "page": 0,
       "entries": [
-        "A taunted creature must target at least the taunter with all attacks."
+        "A taunted creature must target at least the taunter with all attacks, so long as it is possible with at least one of the taunted creature's available attacks."
       ],
       "hasFluffImages": false
     },

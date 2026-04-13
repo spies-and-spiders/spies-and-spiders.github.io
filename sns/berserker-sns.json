@@ -45,149 +45,149 @@
       "classTableGroups": [
         {
           "colLabels": [
-            "Rages",
             "Rage Hit Points",
+            "Rage Damage",
             "{@filter Talents Known|optionalfeatures|feature type=dt}",
             "{@filter Maneuvers Known|spells|school=M}",
             "Maneuver Degree"
           ],
           "rows": [
             [
-              2,
+              "+3",
               "+2",
               1,
               0,
               0
             ],
             [
-              2,
+              "+3",
               "+2",
               1,
               2,
               "{@filter 1st|spells|school=M|level=1}"
             ],
             [
-              3,
+              "+4",
               "+2",
               2,
               3,
               "{@filter 1st|spells|school=M|level=1}"
             ],
             [
-              3,
+              "+4",
               "+2",
               2,
               3,
               "{@filter 1st|spells|school=M|level=1}"
             ],
             [
-              3,
+              "+5",
               "+2",
               2,
               4,
               "{@filter 2nd|spells|school=M|level=2}"
             ],
             [
-              4,
+              "+5",
               "+2",
               3,
               4,
               "{@filter 2nd|spells|school=M|level=2}"
             ],
             [
-              4,
+              "+6",
               "+2",
               3,
               5,
               "{@filter 2nd|spells|school=M|level=2}"
             ],
             [
-              4,
+              "+6",
               "+2",
               4,
               5,
               "{@filter 2nd|spells|school=M|level=2}"
             ],
             [
-              4,
-              "+4",
+              "+8",
+              "+3",
               4,
               6,
               "{@filter 3rd|spells|school=M|level=3}"
             ],
             [
-              4,
-              "+4",
+              "+8",
+              "+3",
               5,
               6,
               "{@filter 3rd|spells|school=M|level=3}"
             ],
             [
-              4,
-              "+4",
+              "+8",
+              "+3",
               5,
               7,
               "{@filter 3rd|spells|school=M|level=3}"
             ],
             [
-              5,
-              "+4",
+              "+8",
+              "+3",
               5,
               7,
               "{@filter 4th|spells|school=M|level=4}"
             ],
             [
-              5,
-              "+4",
+              "+9",
+              "+3",
               6,
               8,
               "{@filter 4th|spells|school=M|level=4}"
             ],
             [
-              5,
-              "+4",
+              "+9",
+              "+3",
               6,
               8,
               "{@filter 4th|spells|school=M|level=4}"
             ],
             [
-              5,
+              "+9",
+              "+3",
+              7,
+              9,
+              "{@filter 4th|spells|school=M|level=4}"
+            ],
+            [
+              "+10",
               "+4",
               7,
               9,
               "{@filter 4th|spells|school=M|level=4}"
             ],
             [
-              6,
-              "+5",
-              7,
-              9,
-              "{@filter 4th|spells|school=M|level=4}"
-            ],
-            [
-              6,
-              "+5",
+              "+10",
+              "+4",
               7,
               10,
               "{@filter 5th|spells|school=M|level=5}"
             ],
             [
-              6,
-              "+5",
+              "+11",
+              "+4",
               8,
               10,
               "{@filter 5th|spells|school=M|level=5}"
             ],
             [
-              6,
-              "+5",
+              "+11",
+              "+4",
               8,
               11,
               "{@filter 5th|spells|school=M|level=5}"
             ],
             [
-              "Unlimited",
-              "+12",
+              "+24",
+              "+4",
               9,
               11,
               "{@filter 5th|spells|school=M|level=5}"
@@ -203,6 +203,8 @@
         "Battle Defence|Berserker|sns|1|sns",
         "Developed Talents|Berserker|sns|1|sns",
         "Rage|Berserker|sns|1|sns",
+        "Feed the Anger|Berserker|sns|1|sns",
+        "Brutal Capability|Berserker|sns|1|sns",
         "Combat Maneuvers|Berserker|sns|2|sns",
         "Danger Sense|Berserker|sns|2|sns",
         "Furious Critical|Berserker|sns|2|sns",
@@ -272,7 +274,7 @@
         "Retaliation|Berserker|sns|Berserker|sns|9"
       ]
     },
-		{
+    {
       "name": "Heart-Eater",
       "shortName": "Heart-Eater",
       "source": "sns",
@@ -281,12 +283,12 @@
       "subclassFeatures": [
         "Heart-Eater|Berserker|sns|Heart-Eater|sns|1",
         "Bloodstriker|Berserker|sns|Heart-Eater|sns|3",
-				"Heart Hunter Improvement|Berserker|sns|Heart-Eater|sns|3",
+        "Heart Hunter Improvement|Berserker|sns|Heart-Eater|sns|3",
         "New Strong Feature|Berserker|sns|Heart-Eater|sns|5",
         "Heart Strike|Berserker|sns|Heart-Eater|sns|7",
-				"Heart Hunter Improvement|Berserker|sns|Heart-Eater|sns|7",
+        "Heart Hunter Improvement|Berserker|sns|Heart-Eater|sns|7",
         "Hard Dying|Berserker|sns|Heart-Eater|sns|9",
-				"Heart Hunter Improvement|Berserker|sns|Heart-Eater|sns|9"
+        "Heart Hunter Improvement|Berserker|sns|Heart-Eater|sns|9"
       ]
     }
   ],
@@ -442,542 +444,556 @@
       ]
     },
     {
-			"name": "Battle Defence",
-			"source": "sns",
-			"className": "Berserker",
-			"classSource": "sns",
-			"level": 1,
-			"entries": [
-				"Starting at 1st level, you decide on how best to protect yourself on the battlefield - relying on barbaric might or encased in weighty armaments. Choose one of the following options.",
-				{
-					"type": "entries",
-					"name": "Juggernaut",
-					"entries": [
-						"You gain proficiency with heavy armour."
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Rugged Defence",
-					"entries": [
-						"While you are not wearing any armour, your base armour is equal to half your fortitude. You can use a shield and still gain this benefit.",
-						"In addition, your Speed increases by 5 feet while you aren't wearing heavy armour. At 5th level, your speed increases by an additional 5 feet."
-					]
-				}
-			]
-		},
-		{
-			"name": "Developed Talents",
-			"source": "sns",
-			"className": "Berserker",
-			"classSource": "sns",
-			"level": 1,
-			"entries": [
-				"Whether in the ruins of an ancient civilisation, the barren terrain of the hinterlands, or the back alleys of a prosperous city, berserkers are adept at surviving and interacting with their environments.",
-				"At 1st level you gain a {@filter developed talent|optionalfeatures|feature type=dt} of your choice. The Talents Known column of the Berserker table shows when you learn more developed talents."
-			]
-		},
-		{
-			"name": "Rage",
-			"source": "sns",
-			"className": "Berserker",
-			"classSource": "sns",
-			"level": 1,
-			"entries": [
-				"In battle, you give yourself over to the fury within. Starting at 1st level, on your turn you can use a bonus action to enter a rage.",
-				"While raging, you gain the following effects:",
-				{
-					"type": "list",
-					"items": [
-						"You have advantage on Strength checks, and fortitude attacks against you have disadvantage.",
-						{
-							"type": "entries",
-							"entries": [
-								"At the start of your turn while raging, you gain a number of rage hit points that increases as you gain levels as a berserker, as shown in the Rage Hit Points column of the Berserker table. Whenever you take damage, you reduce your rage hit points first, then your regular hit points. Rage hit points stack each round until your rage ends, at which point they dissipate.",
-								"The maximum number of rage hit points you can have at one time is equal to 6 x your berserker level."
-							]
-						},
-						"You have 50% resistance to bludgeoning, piercing, and slashing damage.",
-						"If you are able to cast spells, you cannot cast them or concentrate on them while raging.",
-						"You gain no benefit from temporary hit points."
-					]
-				},
-				"Your rage lasts for 1 minute. It ends early if you become {@condition incapacitated|sns}. You can also end your rage on your turn as a bonus action.",
-				"Once you have raged the number of times shown for your berserker level in the Rages column of the Berserker table, you must finish a long rest before you can rage again."
-			]
-		},
-		{
-			"name": "Combat Maneuvers",
-			"source": "sns",
-			"className": "Berserker",
-			"classSource": "sns",
-			"level": 2,
-			"entries": [
-				"At 2nd level, you gain the ability to use combat maneuvers. You gain proficiency in two combat traditions from the following list: {@filter Adamant Mountain|spells|Subschool=adamant mountain|}, {@filter Mirror's Glint|spells|Subschool=mirror's glint|}, {@filter Rapid Current|spells|Subschool=rapid current|}, {@filter Tempered Iron|spells|Subschool=tempered iron|}, {@filter Tooth and Claw|spells|Subschool=tooth and claw|}. You can learn two maneuvers of your choice from traditions you are proficient with.",
-				"You gain an exertion pool equal to twice your proficiency bonus, regaining any spent exertion at the end of a short or long rest. You use your maneuvers by spending points from your exertion pool. The Manuevers Known column of the Berserker table shows when you learn more maneuvers from a tradition you are proficient with, while the Maneuver Degree column shows the highest degree you can select maneuvers from at a given level.",
-				"Additionally, whenever you take a long rest, you can replace any of your maneuvers with new ones of the same degree from a tradition you are proficient with."
-			]
-		},
-		{
-			"name": "Danger Sense",
-			"source": "sns",
-			"className": "Berserker",
-			"classSource": "sns",
-			"level": 2,
-			"entries": [
-				"At 2nd level, you gain an uncanny sense of when things nearby aren't as they should be, giving you an edge when you dodge away from danger. Reflex attacks from effects that you can see, such as traps and spells, have disadvantage against you. To gain this benefit, you cannot be {@condition blinded|sns}, {@condition deafened|sns}, or {@condition dazed|sns}."
-			]
-		},
-		{
-			"name": "Furious Critical",
-			"source": "sns",
-			"className": "Berserker",
-			"classSource": "sns",
-			"level": 2,
-			"entries": [
-				"Also at 2nd level you learn to maximise the effects of your mightiest blows, empowering your weapon armour critical hits. Choose one Furious Critical. At 4th level and every even berserker level after, you learn an additional Furious Critical.",
-				"Simple damage isn't all that a berserker can deal in combat. With just the right application of force, a berserker can inflict a number of conditions on their opponent. The attack must use a melee weapon that has the two-handed trait. Each Furious Critical can only be taken once and only one Furious Critical can be used per critical hit, unless otherwise stated.",
-				{
-					"type": "entries",
-					"name": "Blinding Maneuver",
-					"entries": [
-						"Your attack flings debris into the target's eyes, causes blood to run into their eyes, or otherwise impedes their vision. The target is {@condition blinded|sns} for a number of rounds equal to your proficiency bonus."
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Dazzling Prowess",
-					"entries": [
-						"Prerequisite: 6th level.",
-						"Your show of martial skill is so stunning that the target can only gape. The target makes a save, becoming {@condition debilitated|sns} until the end of your next turn on a failure."
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Deafening Blow",
-					"entries": [
-						"The force of the blow leaves the target with a ringing sensation in their ears, muffling the world around them. The target is {@condition deafened|sns} for a number of rounds equal to half your proficiency bonus. If the target attempts to cast a spell while {@condition deafened|sns} in this way, it must pass a save in order to do so successfully."
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Disorienting Strike",
-					"entries": [
-						"The force of your attack leaves your target seeing double. Your target treats all creatures as though they have half cover for a number of rounds equal to your proficiency bonus."
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Elemental Wrath",
-					"entries": [
-						"Your fury is so great that it incites the very elements to join you. After dealing damage the weapon that dealt the blow is charged with acid, cold, fire, or lightning, chosen when you take this Furious Critical.",
-						"The weapon now deals an additional {@dice 1d6} damage of the chosen type. This effect lasts for a number of rounds equal to your proficiency bonus and does not stack with successive critical hits.",
-						"This Furious Critical can be taken multiple times as you gain berserker levels, increasing the damage each time, but needing to meet a level prerequisite to be taken again; 2d6 at 10th level, 3d6 at 16th level, and 4d6 at 20th level.",
-						"Whenever you finish a long rest, you may change the damage type."
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Furious Momentum",
-					"entries": [
-						"Seizing on the fervor of a well-struck blow, you use your fury to fight all the harder. The next melee weapon attack you make before the end of your next turn has +3 critical hit range. Once you have used this feature, you cannot do so again until you have finished a short rest. Alternatively, you can expend one use of Rage to use this feature. The effects of this Furious Critical can be combined with any other."
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Inspiring Flair",
-					"entries": [
-						"Your sheer competence inspires your companions. Choose a creature that can sense you. That creature gains an expertise die on its next armour attack roll."
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Jockeying Blow",
-					"entries": [
-						"You can move up to 30 feet. This movement does not provoke opportunity attacks from the target of your attack. In addition, you gain advantage on any ability checks made to jump as part of this movement. The effects of this Furious Critical can be combined with any other."
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Knockdown Strike",
-					"entries": [
-						"With the right angle, your attack knocks the target sprawling. The target makes a save or is knocked {@condition prone|sns}. This Furious Critical can be taken a second time to combine its effects with Overbearing Hit."
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Mighty Blow",
-					"entries": [
-						"Prerequisite: 6th level",
-						"You know how to hit so it hurts the most. The attack deals additional damage equal to the die component of your weapon's damage. This Furious Critical can be taken again at 14th level and 18th level, adding more dice of damage."
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Overbearing Hit",
-					"entries": [
-						"The sheer strength behind your blow sends the target staggering backwards. The target is pushed 15 feet away from you in a straight line. This Furious Critical can be taken a second time to increase this distance to 30 feet."
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Pinning Strike",
-					"entries": [
-						"The profound force of your blow breaks the environment, crumbling the stone beneath your target's feet or knocking shattered timber over their legs. The target is {@condition grappled|sns}."
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Relentless Attack",
-					"entries": [
-						"Your blows fall down mercilessly. You may immediately make a save. On a success, add your weapon's damage to the attack's damage. On a critical success, in addition to adding that damage, you may also repeat this save. This save benefits from any improvements to critical hit range the attack had. The save can be repeated (after the first attempt) a maximum number of times equal to half your proficiency bonus. No other Furious Critical can be activated alongside this one."
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Terrifying Force",
-					"entries": [
-						"You focus your rage, unleashing a fear-inspiring strike. Each creature you choose within 60 feet that can sense you makes a save, becoming {@condition frightened|sns} of you for a number of rounds equal to half your proficiency bonus on a failure. The effects of this Furious Critical can be combined with any other."
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Vitalising Force",
-					"entries": [
-						"The thrill of your attack drives you to greater feats. Your Speed increases by 20 feet for 1 minute or until you use this Furious Critical again."
-					]
-				}
-			]
-		},
-		{
-			"name": "Versatile Exploration",
-			"source": "sns",
-			"className": "Berserker",
-			"classSource": "sns",
-			"level": 3,
-			"entries": [
-				"Beginning at 3rd level, whenever you learn a new developed talent, you can instead choose from fighter {@filter soldiering knacks|optionalfeatures|feature type=sk}."
-			]
-		},
-		{
-			"name": "Warrior Born",
-			"source": "sns",
-			"className": "Berserker",
-			"classSource": "sns",
-			"level": 3,
-			"entries": [
-				"Also at 3rd level, the ways of combat that have come naturally to you bring new and unexpected lessons. Choose one of the following.",
-				{
-					"type": "entries",
-					"name": "Agitate",
-					"entries": [
-						"Many battles have taught you how to spot aggressive body language like a pursed eyebrow, tensed temple, or portruding vein, and you've mastered using these cues to unsettle others outside of combat. As an action, make an Intimidation check opposed by the Insight check of a creature you can see and hear within 20 feet. On a success, you subtly press the creature to act out. What exactly the creature does - back away quickly, blurt out something compromising, draw a weapon, look towards a concealed or disguised companion, protectively touch something it is carrying - is at the DM's discretion.",
-						"Once you have used this feature, you cannot do so again until you finish a short or long rest."
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Fearsome Reputation",
-					"entries": [
-						"Word spreads of your prodigious strength or how terrifying you can be in battle. Whenever you are in a settlement, at least one commoner approaches you with a modest gift or bribe and beseeches you to help settle a feud, move a large obstacle, or otherwise make use of your impressive might. In addition to their offering, they are eager to tell you about their home and neighbours."
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Imposing Prowess",
-					"entries": [
-						"When an ally you can sense makes a Deception or Persuasion check, you can use your reaction to support them with an intimidating display of strength or unsettling glower. Your ally rerolls the check, gaining an expertise die on the roll.",
-						"Once you have used this feature, you cannot do so again until you finish a long rest."
-					]
-				}
-			]
-		},
-		{
-			"name": "Crushing Blows",
-			"source": "sns",
-			"className": "Berserker",
-			"classSource": "sns",
-			"level": 5,
-			"entries": [
-				"By 5th level your martial prowess is such that you are able to land attacks to the best effect, dealing devastating amounts of damage. Your melee weapon armour attacks have +1 critical hit range.",
-				"At 17th level, your melee weapon armour attacks have a further +1 critical hit range."
-			]
-		},
-		{
-			"name": "Empowered Attack",
-			"source": "sns",
-			"className": "Berserker",
-			"classSource": "sns",
-			"level": 5,
-			"entries": [
-				"From 5th level, when you use the Attack action, your main hand weapon's base damage is doubled. For example, a weapon with a damage of {@dice 1d6} + your Strength modifier deals {@dice 2d6} + double your Strength modifier instead."
-			]
-		},
+      "name": "Battle Defence",
+      "source": "sns",
+      "className": "Berserker",
+      "classSource": "sns",
+      "level": 1,
+      "entries": [
+        "Starting at 1st level, you decide on how best to protect yourself on the battlefield - relying on barbaric might or encased in weighty armaments. Choose one of the following options.",
+        {
+          "type": "entries",
+          "name": "Juggernaut",
+          "entries": [
+            "You gain proficiency with heavy armour."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Rugged Defence",
+          "entries": [
+            "While you are not wearing any armour, your base armour is equal to half your fortitude. You can use a shield and still gain this benefit.",
+            "In addition, your Speed increases by 5 feet while you aren't wearing heavy armour. At 5th level, your speed increases by an additional 5 feet."
+          ]
+        }
+      ]
+    },
     {
-			"name": "Battle Defence Improvement (Rugged Defence)",
-			"source": "sns",
-			"className": "Berserker",
-			"classSource": "sns",
-			"level": 5,
-			"entries": [
-				"At 5th level, if you chose the Rugged Defence option in the Battle Defence feature, your Speed increases by an additional 5 feet."
-			]
-		},
-		{
-			"name": "Martial Presence",
-			"source": "sns",
-			"className": "Berserker",
-			"classSource": "sns",
-			"level": 6,
-			"entries": [
-				"At 6th level your methodology to battle steeps further into the way you interact with others - and how they interact with you. Choose one of the following:",
-				{
-					"type": "entries",
-					"name": "Forceful",
-					"entries": [
-						"People respond favorably to your vigor. You can always choose to use your fortitude in place of your Charisma modifier when making Persuasion checks.",
-						"In addition, in every settlement you visit you inspire a number of followers equal to your proficiency bonus. Your followers perform minor tasks to help you while you are there, feed you and your allies, carry your belongings to nearby destination, share their mount animals, reveal some of their secrets to try and gain your favour, and ask you for help before turning to the authorities with a problem."
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Mighty",
-					"entries": [
-						"You turn your toughness into a tool when imposing upon others. You can always choose to use your fortitude in place of your Charisma modifier when making Intimidation checks.",
-						"In addition, when you enter a tavern or other social gathering, you can make a DC 15 Intimidation check while loudly declaring that you are looking for something or someone. On a success, most of the people there look at and otherwise point out whoever they believe is the person you are looking for or the person most likely to know about what you are seeking."
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Scary",
-					"entries": [
-						"It's commonly thought that it's best not to ask you for too much clarification or detail. You can always choose to use your fortitude in place of your Charisma modifier when making Deception checks.",
-						"In addition, when you fail a Deception check against a creature, it makes an Insight check against a DC equal to 10 + your Deception bonus. On a failure, it thinks twice about your dishonesty and your Deception check becomes a success. When performing the Scam journey activity, this causes your failures of any degree to have a 50% chance to be converted into a success."
-					]
-				}
-			]
-		},
-		{
-			"name": "Advanced Battle Defence",
-			"source": "sns",
-			"className": "Berserker",
-			"classSource": "sns",
-			"level": 7,
-			"entries": [
-				"By 7th level you have doubled down on your battle defence style. Choose one of the following.",
-				{
-					"type": "entries",
-					"name": "Enhanced Vitality",
-					"entries": [
-						"Whenever you are targeted by a damaging will attack, you can choose to convert it into a fortitude attack instead."
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Preternatural Agility",
-					"entries": [
-						"You can evade danger to an unbelievable degree. Whenever you are targeted by a damaging reflex attack, you reduce its success tier by 1."
-					]
-				}
-			]
-		},
-		{
-			"name": "School of the Open Road",
-			"source": "sns",
-			"className": "Berserker",
-			"classSource": "sns",
-			"level": 11,
-			"entries": [
-				"At 11th level your journeys have given you a wealth of practical experience and helpful bits of information. Choose one of the following.",
-				{
-					"type": "entries",
-					"name": "Don't Get Fooled Again",
-					"entries": [
-						"You've heard and seen (and perhaps told) enough lies that you spot them as easily as tells in battle. You can always choose to use your fortitude in place of your Wisdom modifier for Insight checks and gain an expertise die when rolling to detect a falsehood. This affects the Gossip journey activity.",
-						"In addition, you are seen as an arbiter of truth by those who have heard of your reputation and you may be called in to mediate a trail or question a suspected wrong-doer, even in larger settlements."
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Storyteller",
-					"entries": [
-						"You have an ear for interesting events, places, and people of the past. You can always use your fortitude in place of your Intelligence modifier when making History checks and gain an expertise die when the subject has something to do with war, battle, or martial prowess. This expertise die does not benefit the Chronicle journey activity.",
-						"In addition, your reputation means that people assume that you want to know the history (or perhaps gossip) of the settlement you're visiting. When you are at a tarvern or social gathering they are likely to approach you with tales of the baroness' last stand 50 years ago, or mention 'history in the making' in the form of the duke's child being rumoured to be a werewolf."
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Trial and Error",
-					"entries": [
-						"Between learning from both your own mistakes and those of others, you've collected considerable knowledge about the natural world. You can always choose to use your fortitude in place of your Intelligence modifier when making Nature checks and gain an expertise die on checks made to identify a plant or beast. This affects the Befriend Animal journey activity.",
-						"In addition, people see you as someone who loves a good survival story. When you are at a tavern or social gathering they are likely to approach you with information about local hazards or wildlife."
-					]
-				}
-			]
-		},
-		{
-			"name": "Notable Reputation",
-			"source": "sns",
-			"className": "Berserker",
-			"classSource": "sns",
-			"level": 13,
-			"entries": [
-				"At 13th level your name has spread far and wide, gaining you the respect of even important figures you've yet to meet. Choose one of the following.",
-				{
-					"type": "entries",
-					"name": "Armed Assistance",
-					"entries": [
-						"Mercenary groups make a point of making your acquaintance, especially in larger towns. As part of their hospitality they feed you and your companions, and provide a safe place to sleep, as well as offer to trade information and word of any jobs your group may be interested in. When these meetings go particularly well they might offer more tangible help in the form of scouting the area around a monster's den or distracting a group of bandits to give you an edge."
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Noble Curiosity",
-					"entries": [
-						"You reputation and ferocity have sparked the fascination of the nobility. A liveried servant is likely to approach you when you enter the holdings of such a noble and invite you to take part in their employer's hospitality. This includes lavish feasting, introductions to the rich and powerful, and offers of assistance such as mounts, the repair of your armour and weapons, and miscellaneous items worth less than 5 gold."
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Token of Gratitude",
-					"entries": [
-						"Word of your deeds is not just advantageous to you: many merchants are eager to capitalise on having done business with someone of your reputation. Upon recognising you, they offer up to 15% off of the listed price of a particular item in exchange for some sign of your presence such as a small token or autograph."
-					]
-				}
-			]
-		},
-		{
-			"name": "Prickly Mind",
-			"source": "sns",
-			"className": "Berserker",
-			"classSource": "sns",
-			"level": 15,
-			"entries": [
-				"Starting at 15th level, your reactions are so honed that you react even to magic trying to affect your mind. Whenever a creature would target you with an attack that could charm you, you can use your reaction to cause an amount of psychic harm equal to your proficiency bonus to the attacker. This backlash does not reveal the creature that tried to charm you.",
-				"In addition, your will increases by 1."
-			]
-		},
-		{
-			"name": "Reliable Might",
-			"source": "sns",
-			"className": "Berserker",
-			"classSource": "sns",
-			"level": 17,
-			"entries": [
-				"At 17th level, if your total for a Strength check is less than your Strength score, you can use your Strength score in place of the total."
-			]
-		},
-		{
-			"name": "Paragon of Rage",
-			"source": "sns",
-			"className": "Berserker",
-			"classSource": "sns",
-			"level": 20,
-			"entries": [
-				"At 20th level, you have reached the peak of brawn and stamina. Your Strength score increases by 4, and your maximum hit points increase by 8.",
-				"In addition, while raging you gain the following benefits:",
-				{
-					"type": "list",
-					"items": [
-						"Your size increases by one category (from Small to Medium, or Medium to Large), to a maximum size of Large. Your size doubles in all dimensions and your weight increases eightfold.",
-						"Whenever you use a basic maneuver alongside a melee weapon attack, you do not give the attack disadvantage.",
-						"You deal double damage to objects.",
-						"Your horizontal jump distance increases by 40 feet and your vertical jump distance increases by 20 feet.",
-						"You gain a {@dice d8} expertise die on Strength checks, and your fortitude increases by 2."
-					]
-				}
-			]
-		},
-		{
-			"name": "Furious Critical (2)",
-			"source": "sns",
-			"className": "Berserker",
-			"classSource": "sns",
-			"level": 4,
-			"entries": [
-				"At 4th level, you gain a second Furious Critical (see the 2nd-level Furious Critical feature)."
-			]
-		},
-		{
-			"name": "Furious Critical (3)",
-			"source": "sns",
-			"className": "Berserker",
-			"classSource": "sns",
-			"level": 6,
-			"entries": [
-				"At 6th level, you gain a third Furious Critical (see the 2nd-level Furious Critical feature)."
-			]
-		},
-		{
-			"name": "Furious Critical (4)",
-			"source": "sns",
-			"className": "Berserker",
-			"classSource": "sns",
-			"level": 8,
-			"entries": [
-				"At 8th level, you gain a fourth Furious Critical (see the 2nd-level Furious Critical feature)."
-			]
-		},
-		{
-			"name": "Furious Critical (5)",
-			"source": "sns",
-			"className": "Berserker",
-			"classSource": "sns",
-			"level": 10,
-			"entries": [
-				"At 10th level, you gain a fifth Furious Critical (see the 2nd-level Furious Critical feature)."
-			]
-		},
-		{
-			"name": "Furious Critical (6)",
-			"source": "sns",
-			"className": "Berserker",
-			"classSource": "sns",
-			"level": 12,
-			"entries": [
-				"At 12th level, you gain a sixth Furious Critical (see the 2nd-level Furious Critical feature)."
-			]
-		},
-		{
-			"name": "Furious Critical (7)",
-			"source": "sns",
-			"className": "Berserker",
-			"classSource": "sns",
-			"level": 14,
-			"entries": [
-				"At 14th level, you gain a seventh Furious Critical (see the 2nd-level Furious Critical feature)."
-			]
-		},
-		{
-			"name": "Furious Critical (8)",
-			"source": "sns",
-			"className": "Berserker",
-			"classSource": "sns",
-			"level": 16,
-			"entries": [
-				"At 16th level, you gain an eighth Furious Critical (see the 2nd-level Furious Critical feature)."
-			]
-		},
-		{
-			"name": "Furious Critical (9)",
-			"source": "sns",
-			"className": "Berserker",
-			"classSource": "sns",
-			"level": 18,
-			"entries": [
-				"At 18th level, you gain a ninth Furious Critical (see the 2nd-level Furious Critical feature)."
-			]
-		},
-		{
-			"name": "Crushing Blows (2)",
-			"source": "sns",
-			"className": "Berserker",
-			"classSource": "sns",
-			"level": 17,
-			"entries": [
-				"At 17th level, your melee weapon armour attacks have a further +1 critical hit range (for a total of +2)."
-			]
-		}
+      "name": "Developed Talents",
+      "source": "sns",
+      "className": "Berserker",
+      "classSource": "sns",
+      "level": 1,
+      "entries": [
+        "Whether in the ruins of an ancient civilisation, the barren terrain of the hinterlands, or the back alleys of a prosperous city, berserkers are adept at surviving and interacting with their environments.",
+        "At 1st level you gain a {@filter developed talent|optionalfeatures|feature type=dt} of your choice. The Talents Known column of the Berserker table shows when you learn more developed talents."
+      ]
+    },
+    {
+      "name": "Rage",
+      "source": "sns",
+      "className": "Berserker",
+      "classSource": "sns",
+      "level": 1,
+      "entries": [
+        "In battle, you give yourself over to the fury within. Starting at 1st level, while you are in combat, you are raging while bloodied or if you have been targeted by a damaging attack since your last turn.",
+        "While raging, you gain the following effects:",
+        {
+          "type": "list",
+          "items": [
+            "You have advantage on Strength checks, and fortitude attacks against you have disadvantage.",
+            {
+              "type": "entries",
+              "entries": [
+                "At the start of your turn while above 0 hit points and raging, you gain a number of rage hit points that increases as you gain levels as a berserker, as shown in the Rage Hit Points column of the Berserker table. Whenever you take damage, you reduce your rage hit points first, then your regular hit points. Rage hit points stack each round until combat ends, at which point they dissipate.",
+                "The maximum number of rage hit points you can have at one time is equal to 6 x your berserker level."
+              ]
+            },
+            "When you make a melee weapon attack governed by Strength or Dexterity, you gain a bonus to its damage that increases as you gain levels as a berserker, as shown in the Rage Damage column of the Berserker table.",
+            "You have 50% resistance to bludgeoning, piercing, and slashing damage.",
+            "You cannot cast spells or concentrate while raging.",
+            "You gain no benefit from temporary hit points."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Feed the Anger",
+      "source": "sns",
+      "className": "Berserker",
+      "classSource": "sns",
+      "level": 1,
+      "entries": [
+        "From 1st level, you gain the ability to beat your chest or your head, or otherwise harm yourself in order to viscerally force more fury from yourself. As a bonus action while healthy, reduce your hit points until you are bloodied. Then, gain rage hit points as if you had just started your turn while raging."
+      ]
+    },
+    {
+      "name": "Brutal Capability",
+      "source": "sns",
+      "className": "Berserker",
+      "classSource": "sns",
+      "level": 1,
+      "entries": [
+        "Also at 1st level, you gain an expertise die in all Strength checks."
+      ]
+    },
+    {
+      "name": "Combat Maneuvers",
+      "source": "sns",
+      "className": "Berserker",
+      "classSource": "sns",
+      "level": 2,
+      "entries": [
+        "At 2nd level, you gain the ability to use combat maneuvers. You gain proficiency in two combat traditions from the following list: {@filter Adamant Mountain|spells|Subschool=adamant mountain|}, {@filter Mirror's Glint|spells|Subschool=mirror's glint|}, {@filter Rapid Current|spells|Subschool=rapid current|}, {@filter Tempered Iron|spells|Subschool=tempered iron|}, {@filter Tooth and Claw|spells|Subschool=tooth and claw|}. You can learn two maneuvers of your choice from traditions you are proficient with.",
+        "You gain an exertion pool equal to twice your proficiency bonus, regaining any spent exertion at the end of a short or long rest. You use your maneuvers by spending points from your exertion pool. The Manuevers Known column of the Berserker table shows when you learn more maneuvers from a tradition you are proficient with, while the Maneuver Degree column shows the highest degree you can select maneuvers from at a given level.",
+        "Additionally, whenever you take a long rest, you can replace any of your maneuvers with new ones of the same degree from a tradition you are proficient with."
+      ]
+    },
+    {
+      "name": "Danger Sense",
+      "source": "sns",
+      "className": "Berserker",
+      "classSource": "sns",
+      "level": 2,
+      "entries": [
+        "At 2nd level, you gain an uncanny sense of when things nearby aren't as they should be, giving you an edge when you dodge away from danger. Reflex attacks from effects that you can see, such as traps and spells, have disadvantage against you. To gain this benefit, you cannot be {@condition blinded|sns}, {@condition deafened|sns}, or {@condition dazed|sns}."
+      ]
+    },
+    {
+      "name": "Furious Critical",
+      "source": "sns",
+      "className": "Berserker",
+      "classSource": "sns",
+      "level": 2,
+      "entries": [
+        "Also at 2nd level you learn to maximise the effects of your mightiest blows, empowering your weapon armour critical hits. Choose one Furious Critical. At 4th level and every even berserker level after, you learn an additional Furious Critical.",
+        "Simple damage isn't all that a berserker can deal in combat. With just the right application of force, a berserker can inflict a number of conditions on their opponent. The attack must use a melee weapon that has the two-handed trait. Each Furious Critical can only be taken once and only one Furious Critical can be used per critical hit, unless otherwise stated.",
+        {
+          "type": "entries",
+          "name": "Blinding Maneuver",
+          "entries": [
+            "Your attack flings debris into the target's eyes, causes blood to run into their eyes, or otherwise impedes their vision. The target is {@condition blinded|sns} for 1 round."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Dazzling Prowess",
+          "entries": [
+            "Prerequisite: 6th level.",
+            "Your show of martial skill is so stunning that the target can only gape. The target makes a save, becoming {@condition debilitated|sns} until the end of your next turn on a failure."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Deafening Blow",
+          "entries": [
+            "The force of the blow leaves the target with a ringing sensation in their ears, muffling the world around them. The target is {@condition deafened|sns} for a number of rounds equal to half your proficiency bonus. If the target attempts to cast a spell while {@condition deafened|sns} in this way, it must pass a save in order to do so successfully. If it fails, the spell has no effect, consuming its resources as usual. The caster may then use the same action it used to cast another spell with the same casting time as the failed spell, consuming resources as required. It cannot cast the failed spell again for the next minute."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Disorienting Strike",
+          "entries": [
+            "The force of your attack leaves your target seeing double. Your target treats all creatures as though they have half cover for a number of rounds equal to your proficiency bonus."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Elemental Wrath",
+          "entries": [
+            "Your fury is so great that it incites the very elements to join you. After dealing damage the weapon that dealt the blow is charged with acid, cold, fire, or lightning, chosen when you take this Furious Critical.",
+            "The weapon now deals an additional {@dice 1d6} damage of the chosen type. This effect lasts for the remainder of combat.",
+            "This Furious Critical can be taken multiple times as you gain berserker levels, increasing the damage each time, but needing to meet a level prerequisite to be taken again; 2d6 at 10th level, 3d6 at 16th level, and 4d6 at 20th level.",
+            "Whenever you finish a long rest, you may change the damage type."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Furious Momentum",
+          "entries": [
+            "Seizing on the fervor of a well-struck blow, you use your fury to fight all the harder. The next melee weapon attack you make before the end of your next turn has +3 critical hit range. Once you have used this feature while not raging, you cannot do so again until you have finished a short rest. The effects of this Furious Critical can be combined with any other."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Inspiring Flair",
+          "entries": [
+            "Your sheer competence inspires your companions. Choose another creature that can sense you. That creature gains an expertise die on its next armour attack roll, which is added to the base d20 roll instead of the final result."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Jockeying Blow",
+          "entries": [
+            "You can move up to 30 feet. This movement does not provoke opportunity attacks from the target of your attack. In addition, you gain advantage on any ability checks made to jump as part of this movement. The effects of this Furious Critical can be combined with any other."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Knockdown Strike",
+          "entries": [
+            "With the right angle, your attack knocks the target sprawling. The target is knocked {@condition prone|sns} and pushed 30 feet away from you in a straight line."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Mighty Blow",
+          "entries": [
+            "Prerequisite: 6th level",
+            "You know how to hit so it hurts the most. The attack deals additional damage equal to the die component of your weapon's damage. This Furious Critical can be taken again at 14th level and 18th level, adding more dice of damage."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Pinning Strike",
+          "entries": [
+            "The profound force of your blow breaks the environment, crumbling the stone beneath your target's feet or knocking shattered timber over their legs. The target is {@condition grappled|sns}, and {@condition restrained|sns} while grappled in this way."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Relentless Attack",
+          "entries": [
+            "Your blows fall down mercilessly. You may immediately make a save. On a success, add your weapon's damage to the attack's damage. On a critical success, in addition to adding that damage, you may also repeat this save. This save benefits from any improvements to critical hit range the attack had. The save can be repeated (after the first attempt) a maximum number of times equal to half your proficiency bonus. No other Furious Critical can be activated alongside this one."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Terrifying Force",
+          "entries": [
+            "You focus your rage, unleashing a fear-inspiring strike. Each creature you choose within 60 feet that can sense you becomes {@condition frightened|sns} of you for a number of rounds equal to half your proficiency bonus. The effects of this Furious Critical can be combined with any other."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Vitalising Force",
+          "entries": [
+            "The thrill of your attack drives you to greater feats. Your Speed increases by 20 feet for 1 minute or until you use this Furious Critical again."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Versatile Exploration",
+      "source": "sns",
+      "className": "Berserker",
+      "classSource": "sns",
+      "level": 3,
+      "entries": [
+        "Beginning at 3rd level, whenever you learn a new developed talent, you can instead choose from fighter {@filter soldiering knacks|optionalfeatures|feature type=sk}."
+      ]
+    },
+    {
+      "name": "Warrior Born",
+      "source": "sns",
+      "className": "Berserker",
+      "classSource": "sns",
+      "level": 3,
+      "entries": [
+        "Also at 3rd level, the ways of combat that have come naturally to you bring new and unexpected lessons. Choose one of the following.",
+        {
+          "type": "entries",
+          "name": "Agitate",
+          "entries": [
+            "Many battles have taught you how to spot aggressive body language like a pursed eyebrow, tensed temple, or portruding vein, and you've mastered using these cues to unsettle others outside of combat. As an action, make an Intimidation check opposed by the Insight check of a creature you can see and hear within 20 feet. On a success, you subtly press the creature to act out. What exactly the creature does - back away quickly, blurt out something compromising, draw a weapon, look towards a concealed or disguised companion, protectively touch something it is carrying - is at the DM's discretion.",
+            "Once you have used this feature, you cannot do so again until you finish a short or long rest."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Fearsome Reputation",
+          "entries": [
+            "Word spreads of your prodigious strength or how terrifying you can be in battle. Whenever you are in a settlement, at least one commoner approaches you with a modest gift or bribe and beseeches you to help settle a feud, move a large obstacle, or otherwise make use of your impressive might. In addition to their offering, they are eager to tell you about their home and neighbours."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Imposing Prowess",
+          "entries": [
+            "When an ally you can sense makes a Deception or Persuasion check, you can use your reaction to support them with an intimidating display of strength or unsettling glower. Your ally rerolls the check, gaining an expertise die on the roll.",
+            "Once you have used this feature, you cannot do so again until you finish a long rest."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Crushing Blows",
+      "source": "sns",
+      "className": "Berserker",
+      "classSource": "sns",
+      "level": 5,
+      "entries": [
+        "By 5th level your martial prowess is such that you are able to land attacks to the best effect, dealing devastating amounts of damage. Your melee weapon armour attacks have +1 critical hit range.",
+        "At 17th level, your melee weapon armour attacks have a further +1 critical hit range."
+      ]
+    },
+    {
+      "name": "Empowered Attack",
+      "source": "sns",
+      "className": "Berserker",
+      "classSource": "sns",
+      "level": 5,
+      "entries": [
+        "From 5th level, when you use the Attack action, your main hand weapon's base damage is doubled. For example, a weapon with a damage of {@dice 1d6} + your Strength modifier deals {@dice 2d6} + double your Strength modifier instead."
+      ]
+    },
+    {
+      "name": "Battle Defence Improvement (Rugged Defence)",
+      "source": "sns",
+      "className": "Berserker",
+      "classSource": "sns",
+      "level": 5,
+      "entries": [
+        "At 5th level, if you chose the Rugged Defence option in the Battle Defence feature, your Speed increases by an additional 5 feet."
+      ]
+    },
+    {
+      "name": "Martial Presence",
+      "source": "sns",
+      "className": "Berserker",
+      "classSource": "sns",
+      "level": 6,
+      "entries": [
+        "At 6th level your methodology to battle steeps further into the way you interact with others - and how they interact with you. Choose one of the following:",
+        {
+          "type": "entries",
+          "name": "Forceful",
+          "entries": [
+            "People respond favorably to your vigor. You can always choose to use your fortitude in place of your Charisma modifier when making Persuasion checks.",
+            "In addition, in every settlement you visit you inspire a number of followers equal to your proficiency bonus. Your followers perform minor tasks to help you while you are there, feed you and your allies, carry your belongings to nearby destination, share their mount animals, reveal some of their secrets to try and gain your favour, and ask you for help before turning to the authorities with a problem."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Mighty",
+          "entries": [
+            "You turn your toughness into a tool when imposing upon others. You can always choose to use your fortitude in place of your Charisma modifier when making Intimidation checks.",
+            "In addition, when you enter a tavern or other social gathering, you can make a DC 15 Intimidation check while loudly declaring that you are looking for something or someone. On a success, most of the people there look at and otherwise point out whoever they believe is the person you are looking for or the person most likely to know about what you are seeking."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Scary",
+          "entries": [
+            "It's commonly thought that it's best not to ask you for too much clarification or detail. You can always choose to use your fortitude in place of your Charisma modifier when making Deception checks.",
+            "In addition, when you fail a Deception check against a creature, it makes an Insight check against a DC equal to 10 + your Deception bonus. On a failure, it thinks twice about your dishonesty and your Deception check becomes a success. When performing the Scam journey activity, this causes your failures of any degree to have a 50% chance to be converted into a success."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Advanced Battle Defence",
+      "source": "sns",
+      "className": "Berserker",
+      "classSource": "sns",
+      "level": 7,
+      "entries": [
+        "By 7th level you have doubled down on your battle defence style. Choose one of the following.",
+        {
+          "type": "entries",
+          "name": "Enhanced Vitality",
+          "entries": [
+            "Whenever you are targeted by a damaging will attack, you can choose to convert it into a fortitude attack instead."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Preternatural Agility",
+          "entries": [
+            "You can evade danger to an unbelievable degree. Whenever you are targeted by a damaging reflex attack, you reduce its success tier by 1."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "School of the Open Road",
+      "source": "sns",
+      "className": "Berserker",
+      "classSource": "sns",
+      "level": 11,
+      "entries": [
+        "At 11th level your journeys have given you a wealth of practical experience and helpful bits of information. Choose one of the following.",
+        {
+          "type": "entries",
+          "name": "Don't Get Fooled Again",
+          "entries": [
+            "You've heard and seen (and perhaps told) enough lies that you spot them as easily as tells in battle. You can always choose to use your fortitude in place of your Wisdom modifier for Insight checks and gain an expertise die when rolling to detect a falsehood. This affects the Gossip journey activity.",
+            "In addition, you are seen as an arbiter of truth by those who have heard of your reputation and you may be called in to mediate a trail or question a suspected wrong-doer, even in larger settlements."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Storyteller",
+          "entries": [
+            "You have an ear for interesting events, places, and people of the past. You can always use your fortitude in place of your Intelligence modifier when making History checks and gain an expertise die when the subject has something to do with war, battle, or martial prowess. This expertise die does not benefit the Chronicle journey activity.",
+            "In addition, your reputation means that people assume that you want to know the history (or perhaps gossip) of the settlement you're visiting. When you are at a tarvern or social gathering they are likely to approach you with tales of the baroness' last stand 50 years ago, or mention 'history in the making' in the form of the duke's child being rumoured to be a werewolf."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Trial and Error",
+          "entries": [
+            "Between learning from both your own mistakes and those of others, you've collected considerable knowledge about the natural world. You can always choose to use your fortitude in place of your Intelligence modifier when making Nature checks and gain an expertise die on checks made to identify a plant or beast. This affects the Befriend Animal journey activity.",
+            "In addition, people see you as someone who loves a good survival story. When you are at a tavern or social gathering they are likely to approach you with information about local hazards or wildlife."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Notable Reputation",
+      "source": "sns",
+      "className": "Berserker",
+      "classSource": "sns",
+      "level": 13,
+      "entries": [
+        "At 13th level your name has spread far and wide, gaining you the respect of even important figures you've yet to meet. Choose one of the following.",
+        {
+          "type": "entries",
+          "name": "Armed Assistance",
+          "entries": [
+            "Mercenary groups make a point of making your acquaintance, especially in larger towns. As part of their hospitality they feed you and your companions, and provide a safe place to sleep, as well as offer to trade information and word of any jobs your group may be interested in. When these meetings go particularly well they might offer more tangible help in the form of scouting the area around a monster's den or distracting a group of bandits to give you an edge."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Noble Curiosity",
+          "entries": [
+            "You reputation and ferocity have sparked the fascination of the nobility. A liveried servant is likely to approach you when you enter the holdings of such a noble and invite you to take part in their employer's hospitality. This includes lavish feasting, introductions to the rich and powerful, and offers of assistance such as mounts, the repair of your armour and weapons, and miscellaneous items worth less than 5 gold."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Token of Gratitude",
+          "entries": [
+            "Word of your deeds is not just advantageous to you: many merchants are eager to capitalise on having done business with someone of your reputation. Upon recognising you, they offer up to 15% off of the listed price of a particular item in exchange for some sign of your presence such as a small token or autograph."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Prickly Mind",
+      "source": "sns",
+      "className": "Berserker",
+      "classSource": "sns",
+      "level": 15,
+      "entries": [
+        "Starting at 15th level, your reactions are so honed that you react even to magic trying to affect your mind. Whenever a creature would target you with an attack that could charm you, you can use your reaction to cause an amount of psychic harm equal to your proficiency bonus to the attacker. This backlash does not reveal the creature that tried to charm you.",
+        "In addition, your will increases by 1."
+      ]
+    },
+    {
+      "name": "Reliable Might",
+      "source": "sns",
+      "className": "Berserker",
+      "classSource": "sns",
+      "level": 17,
+      "entries": [
+        "At 17th level, if your total for a Strength check is less than your Strength score, you can use your Strength score in place of the total."
+      ]
+    },
+    {
+      "name": "Paragon of Rage",
+      "source": "sns",
+      "className": "Berserker",
+      "classSource": "sns",
+      "level": 20,
+      "entries": [
+        "At 20th level, you have reached the peak of brawn and stamina. Your Strength score increases by 4, and your maximum hit points increase by 8.",
+        "In addition, while raging you gain the following benefits:",
+        {
+          "type": "list",
+          "items": [
+            "Your size increases by one category (from Small to Medium, or Medium to Large), to a maximum size of Large. Your size doubles in all dimensions and your weight increases eightfold.",
+            "Whenever you use a basic maneuver alongside a melee weapon attack, you do not give the attack disadvantage.",
+            "You deal double damage to objects.",
+            "You are unaffected by the {@condition Weakened|sns} condition.",
+            "Your Speed increases by 15 feet.",
+            "Your horizontal jump distance increases by 40 feet and your vertical jump distance increases by 20 feet.",
+            "You gain a {@dice d8} expertise die on Strength checks, and your fortitude increases by 2."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Furious Critical (2)",
+      "source": "sns",
+      "className": "Berserker",
+      "classSource": "sns",
+      "level": 4,
+      "entries": [
+        "At 4th level, you gain a second Furious Critical (see the 2nd-level Furious Critical feature)."
+      ]
+    },
+    {
+      "name": "Furious Critical (3)",
+      "source": "sns",
+      "className": "Berserker",
+      "classSource": "sns",
+      "level": 6,
+      "entries": [
+        "At 6th level, you gain a third Furious Critical (see the 2nd-level Furious Critical feature)."
+      ]
+    },
+    {
+      "name": "Furious Critical (4)",
+      "source": "sns",
+      "className": "Berserker",
+      "classSource": "sns",
+      "level": 8,
+      "entries": [
+        "At 8th level, you gain a fourth Furious Critical (see the 2nd-level Furious Critical feature)."
+      ]
+    },
+    {
+      "name": "Furious Critical (5)",
+      "source": "sns",
+      "className": "Berserker",
+      "classSource": "sns",
+      "level": 10,
+      "entries": [
+        "At 10th level, you gain a fifth Furious Critical (see the 2nd-level Furious Critical feature)."
+      ]
+    },
+    {
+      "name": "Furious Critical (6)",
+      "source": "sns",
+      "className": "Berserker",
+      "classSource": "sns",
+      "level": 12,
+      "entries": [
+        "At 12th level, you gain a sixth Furious Critical (see the 2nd-level Furious Critical feature)."
+      ]
+    },
+    {
+      "name": "Furious Critical (7)",
+      "source": "sns",
+      "className": "Berserker",
+      "classSource": "sns",
+      "level": 14,
+      "entries": [
+        "At 14th level, you gain a seventh Furious Critical (see the 2nd-level Furious Critical feature)."
+      ]
+    },
+    {
+      "name": "Furious Critical (8)",
+      "source": "sns",
+      "className": "Berserker",
+      "classSource": "sns",
+      "level": 16,
+      "entries": [
+        "At 16th level, you gain an eighth Furious Critical (see the 2nd-level Furious Critical feature)."
+      ]
+    },
+    {
+      "name": "Furious Critical (9)",
+      "source": "sns",
+      "className": "Berserker",
+      "classSource": "sns",
+      "level": 18,
+      "entries": [
+        "At 18th level, you gain a ninth Furious Critical (see the 2nd-level Furious Critical feature)."
+      ]
+    },
+    {
+      "name": "Crushing Blows (2)",
+      "source": "sns",
+      "className": "Berserker",
+      "classSource": "sns",
+      "level": 17,
+      "entries": [
+        "At 17th level, your melee weapon armour attacks have a further +1 critical hit range (for a total of +2)."
+      ]
+    }
   ],
   "subclassFeature": [
     {
@@ -1109,7 +1125,7 @@
         "Starting at tier 5, when you are hit by an adjacent creature, you can use your reaction to make a melee weapon attack against that creature."
       ]
     },
-		{
+    {
       "name": "Heart-Eater",
       "source": "sns",
       "className": "Berserker",
@@ -1138,7 +1154,7 @@
       "level": 1,
       "entries": [
         "When you select this subclass at tier 1, you learn how to gruesomely take the power from a slain foe to become all the mightier. When you or an ally slays a living creature of a CR equal to half your level or higher, if it has died within the last minute you can use an action to strike into its body, rip out the heart, and take a massive bite. For a number of hours equal to half your level you gain an expertise die on ability checks.",
-				"Whether or not you are able to consume the heart of a creature is determined by the DM, and finding the heart of some creatures requires an Investigation or Medicine check (DC 10 + half the creature's CR)."
+        "Whether or not you are able to consume the heart of a creature is determined by the DM, and finding the heart of some creatures requires an Investigation or Medicine check (DC 10 + half the creature's CR)."
       ]
     },
     {
@@ -1171,24 +1187,24 @@
       "header": 2,
       "entries": [
         "At tier 2, you can tap into your fury to control the sanguine flow of a bloody combat. While you are raging, after you hit a bloodied living creature with a weapon attack, you can use a bonus action to do one of the following:",
-				{
-					"type": "entries",
-					"name": "Bloodtrack",
-					"entries": [
-						"For the next hour you know the direction and distance to the creature as long as you are both on the same plane of existence."
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Crimson Deflect",
-					"entries": [
-						"You capture the creature's blood in mid-air, forming a floating shield around you. Until the start of your next turn, your armour increases by an amount equal to half your proficiency bonus."
-					]
-				},
-				"Once you have used this feature a number of times equal to half your proficiency bonus, you cannot do so again until you finish a long rest."
+        {
+          "type": "entries",
+          "name": "Bloodtrack",
+          "entries": [
+            "For the next hour you know the direction and distance to the creature as long as you are both on the same plane of existence."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Crimson Deflect",
+          "entries": [
+            "You capture the creature's blood in mid-air, forming a floating shield around you. Until the start of your next turn, your armour increases by an amount equal to half your proficiency bonus."
+          ]
+        },
+        "Once you have used this feature a number of times equal to half your proficiency bonus, you cannot do so again until you finish a long rest."
       ]
     },
-		{
+    {
       "name": "Heart Hunter Improvement",
       "source": "sns",
       "className": "Berserker",
@@ -1227,7 +1243,7 @@
         "Starting at tier 4, you twist a strike at just the right moment to turn it into a devastating blow. When you hit with a melee weapon attack against a living creature, you can use your reaction to turn the attack into a critical hit. Once you have used this feature, you cannot do so again until you finish a short or long rest. Alternatively, when you use your Heart Hunter feature, instead of gaining its usual benefits, you can choose to regain the use of this feature."
       ]
     },
-		{
+    {
       "name": "Heart Hunter Improvement",
       "source": "sns",
       "className": "Berserker",
@@ -1251,10 +1267,10 @@
       "header": 2,
       "entries": [
         "At tier 5, you grow far beyond the blood that flows through your veins. When you are reduced to 0 hit points while raging, you can use your reaction to remain conscious for up to 1 minute so long as you are not dead. You continue to resolve the effects of dying as usual and begin to track your negative hit points. You immediately die when your negative hit points reach half your hit point maximum. Once you have used this feature, you cannot do so again until you finish a long rest.",
-				"If you die during this effect your body fades away, and {@dice 1d4} hours later you reappear bloodied in the last place you took a long rest, and you cannot use this feature again for a week."
+        "If you die during this effect your body fades away, and {@dice 1d4} hours later you reappear bloodied in the last place you took a long rest, and you cannot use this feature again for a week."
       ]
     },
-		{
+    {
       "name": "Heart Hunter Improvement",
       "source": "sns",
       "className": "Berserker",
@@ -1270,127 +1286,127 @@
   ],
   "optionalfeature": [
     {
-			"name": "Agile Sprinter",
-			"source": "sns",
-			"featureType": [
-				"DT"
-			],
-			"entries": [
-				"You are adept at traversing obstacles while running, able to efficiently and rapidly climb and leap between trees, vines, rooftops, and ropes. You gain an expertise die on Athletics and Finesse checks made to climb, run, and swing. This affects the Force March journey activity."
-			]
-		},
-		{
-			"name": "Flock Step",
-			"source": "sns",
-			"featureType": [
-				"DT"
-			],
-			"entries": [
-				"You are adept at reading the flow of creatures grouped together and can effortlessly sync into a herd or crowd. You gain an expertise die on Stealth checks made to hide amongst or blend in with a group of 5 or more creatures. This does not affect your journey activities."
-			]
-		},
-		{
-			"name": "Lead the Pack",
-			"source": "sns",
-			"featureType": [
-				"DT"
-			],
-			"prerequisite": [
-				{
-					"level": {
-						"level": 5,
-						"class": {
-							"name": "Berserker",
-							"source": "sns"
-						}
-					}
-				}
-			],
-			"entries": [
-				"Your unfaltering actions inspire your teammates to greater efforts. You gain an expertise die on Athletics or Finesse checks made to climb, jump, run, and swim. This affects the Force March journey activity. When your party makes a group Athletics check, you may apply the results of your roll to yourself and one ally. You can choose which ally to apply your result to after everyone has rolled, but must do so before the DM says whether you succeed or fail."
-			]
-		},
-		{
-			"name": "Mark of the Wilderness",
-			"source": "sns",
-			"featureType": [
-				"DT"
-			],
-			"entries": [
-				"You have traveled far and seen much, and those around you can tell. You gain an expertise die on Intimidation checks. In addition, you may always choose to use Strength when rolling an Intimidation or Persuasion check."
-			]
-		},
-		{
-			"name": "Natural Tracker",
-			"source": "sns",
-			"featureType": [
-				"DT"
-			],
-			"entries": [
-				"After making a connection with another creature, however tenuous, you make a connection that gives you an edge when pursuing it. After you spend at least 1 minute observing a creature, you gain an expertise die on checks made to track that specific creature."
-			]
-		},
-		{
-			"name": "Path of Blustery Autumns",
-			"source": "sns",
-			"featureType": [
-				"DT"
-			],
-			"entries": [
-				"Instead of fighting the sharp winds you have learned from them. You reduce the length of journeys your party undertakes by 1 day, to a minimum of 1. Additionally, you can choose to ignore difficult terrain outside of combat."
-			]
-		},
-		{
-			"name": "Path of Drowning Springs",
-			"source": "sns",
-			"featureType": [
-				"DT"
-			],
-			"prerequisite": [
-				{
-					"level": {
-						"level": 5,
-						"class": {
-							"name": "Berserker",
-							"source": "sns"
-						}
-					}
-				}
-			],
-			"entries": [
-				"The rains have taught you the ways of the overflowing rivers. You gain a swim speed equal to your Speed and can hold your breath for a number of minutes equal to 1 + twice your fortitude.",
-				"In addition, while swimming you can use a bonus action and spend one use of Rage to move your swim speed in a straight line."
-			]
-		},
-		{
-			"name": "Path of Lean Winters",
-			"source": "sns",
-			"featureType": [
-				"DT"
-			],
-			"entries": [
-				"The lessons of the snows have put you beyond mere cold and hunger. You ignore the penalties of cold weather on your journey activities. Additionally, you can go without Supply for a number of days equal to 3 + your fortitude (minimum 1) before suffering {@condition fatigue|sns}."
-			]
-		},
-		{
-			"name": "Path of Scorching Summers",
-			"source": "sns",
-			"featureType": [
-				"DT"
-			],
-			"entries": [
-				"By emulating the beasts of the desert you are above the concerns of heat and thirst. You ignore the penalties of hot weather on your journey activities. Additionally, whenever you would gain a level of {@condition fatigue|sns} from not consuming Supply, you may make a save, avoiding the {@condition fatigue|sns} on a success."
-			]
-		},
-		{
-			"name": "Sharpened Senses",
-			"source": "sns",
-			"featureType": [
-				"DT"
-			],
-			"entries": [
-				"Your time spent drawing on your rage has brought the world into sharp, relentless focus. You gain an expertise die on Investigation, Perception, or Survival checks made to follow a creature's trail."
-			]
-		}
+      "name": "Agile Sprinter",
+      "source": "sns",
+      "featureType": [
+        "DT"
+      ],
+      "entries": [
+        "You are adept at traversing obstacles while running, able to efficiently and rapidly climb and leap between trees, vines, rooftops, and ropes. You gain an expertise die on Athletics and Finesse checks made to climb, run, and swing. This affects the Force March journey activity."
+      ]
+    },
+    {
+      "name": "Flock Step",
+      "source": "sns",
+      "featureType": [
+        "DT"
+      ],
+      "entries": [
+        "You are adept at reading the flow of creatures grouped together and can effortlessly sync into a herd or crowd. You gain an expertise die on Stealth checks made to hide amongst or blend in with a group of 5 or more creatures. This does not affect your journey activities."
+      ]
+    },
+    {
+      "name": "Lead the Pack",
+      "source": "sns",
+      "featureType": [
+        "DT"
+      ],
+      "prerequisite": [
+        {
+          "level": {
+            "level": 5,
+            "class": {
+              "name": "Berserker",
+              "source": "sns"
+            }
+          }
+        }
+      ],
+      "entries": [
+        "Your unfaltering actions inspire your teammates to greater efforts. You gain an expertise die on Athletics or Finesse checks made to climb, jump, run, and swim. This affects the Force March journey activity. When your party makes a group Athletics check, you may apply the results of your roll to yourself and one ally. You can choose which ally to apply your result to after everyone has rolled, but must do so before the DM says whether you succeed or fail."
+      ]
+    },
+    {
+      "name": "Mark of the Wilderness",
+      "source": "sns",
+      "featureType": [
+        "DT"
+      ],
+      "entries": [
+        "You have traveled far and seen much, and those around you can tell. You gain an expertise die on Intimidation checks. In addition, you may always choose to use Strength when rolling an Intimidation or Persuasion check."
+      ]
+    },
+    {
+      "name": "Natural Tracker",
+      "source": "sns",
+      "featureType": [
+        "DT"
+      ],
+      "entries": [
+        "After making a connection with another creature, however tenuous, you make a connection that gives you an edge when pursuing it. After you spend at least 1 minute observing a creature, you gain an expertise die on checks made to track that specific creature."
+      ]
+    },
+    {
+      "name": "Path of Blustery Autumns",
+      "source": "sns",
+      "featureType": [
+        "DT"
+      ],
+      "entries": [
+        "Instead of fighting the sharp winds you have learned from them. You reduce the length of journeys your party undertakes by 1 day, to a minimum of 1. Additionally, you can choose to ignore difficult terrain outside of combat."
+      ]
+    },
+    {
+      "name": "Path of Drowning Springs",
+      "source": "sns",
+      "featureType": [
+        "DT"
+      ],
+      "prerequisite": [
+        {
+          "level": {
+            "level": 5,
+            "class": {
+              "name": "Berserker",
+              "source": "sns"
+            }
+          }
+        }
+      ],
+      "entries": [
+        "The rains have taught you the ways of the overflowing rivers. You gain a swim speed equal to your Speed and can hold your breath for a number of minutes equal to 1 + twice your fortitude.",
+        "In addition, while swimming you can use a bonus action and spend one use of Rage to move your swim speed in a straight line."
+      ]
+    },
+    {
+      "name": "Path of Lean Winters",
+      "source": "sns",
+      "featureType": [
+        "DT"
+      ],
+      "entries": [
+        "The lessons of the snows have put you beyond mere cold and hunger. You ignore the penalties of cold weather on your journey activities. Additionally, you can go without Supply for a number of days equal to 3 + your fortitude (minimum 1) before suffering {@condition fatigue|sns}."
+      ]
+    },
+    {
+      "name": "Path of Scorching Summers",
+      "source": "sns",
+      "featureType": [
+        "DT"
+      ],
+      "entries": [
+        "By emulating the beasts of the desert you are above the concerns of heat and thirst. You ignore the penalties of hot weather on your journey activities. Additionally, whenever you would gain a level of {@condition fatigue|sns} from not consuming Supply, you may make a save, avoiding the {@condition fatigue|sns} on a success."
+      ]
+    },
+    {
+      "name": "Sharpened Senses",
+      "source": "sns",
+      "featureType": [
+        "DT"
+      ],
+      "entries": [
+        "Your time spent drawing on your rage has brought the world into sharp, relentless focus. You gain an expertise die on Investigation, Perception, or Survival checks made to follow a creature's trail."
+      ]
+    }
   ]
 }
