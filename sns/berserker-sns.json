@@ -282,7 +282,7 @@
         "Heart-Eater|Berserker|sns|Heart-Eater|sns|1",
         "Bloodstriker|Berserker|sns|Heart-Eater|sns|3",
 				"Heart Hunter Improvement|Berserker|sns|Heart-Eater|sns|3",
-        "New Strong Feature|Berserker|sns|Heart-Eater|sns|5",
+        "Bloody Work|Berserker|sns|Heart-Eater|sns|5",
         "Heart Strike|Berserker|sns|Heart-Eater|sns|7",
 				"Heart Hunter Improvement|Berserker|sns|Heart-Eater|sns|7",
         "Hard Dying|Berserker|sns|Heart-Eater|sns|9",
@@ -1202,7 +1202,7 @@
       ]
     },
     {
-      "name": "New Strong Feature",
+      "name": "Bloody Work",
       "source": "sns",
       "className": "Berserker",
       "classSource": "sns",
@@ -1211,7 +1211,7 @@
       "level": 5,
       "header": 2,
       "entries": [
-        "?"
+        "At tier 3, you become bloodied at 75% of your maximum hit points instead of 50%. Additionally, while you are bloodied, your attacks deal additional base damage equal to your proficiency bonus."
       ]
     },
     {
