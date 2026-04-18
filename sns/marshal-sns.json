@@ -648,7 +648,7 @@
                   "type": "item",
                   "name": "Inexperienced",
                   "entries": [
-                    "Once per long rest, the diviner cast a {@filter cantrip or 1st-level spell from the cleric spell list|spells|level=0,1|class=Cleric} on you or an ally of your choosing."
+                    "Once per long rest, the diviner cast a {@filter cantrip or 1st-level spell from the cleric spell list|spells|level=0,1|class=Cleric (sns)} on you or an ally of your choosing."
                   ]
                 },
                 {
@@ -1129,7 +1129,7 @@
           "type": "entries",
           "name": "Laboratory",
           "entries": [
-            "You immediately learn one new cantrip or spell at the highest spell level which you have access to, chosen from a spell list you have access to. In addition, once between long rests you can use a bonus action to regain a spell slot of a level equal to half your proficiency bonus. You also gain one 1st-level spell slot, access to your choice of either the {@filter sorcerer|spells|level=1|class=Sorcerer}, {@filter warlock|spells|level=1|class=Warlock}, or {@filter wizard|spells|level=1|class=Wizard} spell list, and learn one new 1st-level spell from a spell list you have access to. The spell is governed by your Charisma, regardless of which list it came from.",
+            "You immediately learn one new cantrip or spell at the highest spell level which you have access to, chosen from a spell list you have access to. In addition, once between long rests you can use a bonus action to regain a spell slot of a level equal to half your proficiency bonus. You also gain one 1st-level spell slot, access to your choice of either the {@filter sorcerer|spells|level=1|class=Sorcerer (sns)}, {@filter warlock|spells|level=1|class=Warlock (sns)}, or {@filter wizard|spells|level=1|class=Wizard (sns)} spell list, and learn one new 1st-level spell from a spell list you have access to. The spell is governed by your Charisma, regardless of which list it came from.",
             "Finally, your Intelligence is increased by 1."
           ]
         },
