@@ -53,7 +53,7 @@
           "colLabels": [
             "{@filter Field Discoveries|optionalfeatures|feature type=fd}",
             "Infusion Limit",
-            "{@filter Cantrips Known|spells|level=0|class=Artificer|sns}",
+            "{@filter Cantrips Known|spells|level=0|class=Artificer (sns)}",
             "Spells Prepared",
             "Maximum Spell Level"
           ],
@@ -63,140 +63,140 @@
               0,
               2,
               2,
-              "{@filter 1st|spells|level=1|class=Artificer|sns}"
+              "{@filter 1st|spells|level=1|class=Artificer (sns)}"
             ],
             [
               1,
               2,
               2,
               2,
-              "{@filter 1st|spells|level=1|class=Artificer|sns}"
+              "{@filter 1st|spells|level=1|class=Artificer (sns)}"
             ],
             [
               1,
               3,
               2,
               2,
-              "{@filter 1st|spells|level=1|class=Artificer|sns}"
+              "{@filter 1st|spells|level=1|class=Artificer (sns)}"
             ],
             [
               2,
               3,
               3,
               2,
-              "{@filter 1st|spells|level=1|class=Artificer|sns}"
+              "{@filter 1st|spells|level=1|class=Artificer (sns)}"
             ],
             [
               2,
               3,
               3,
               2,
-              "{@filter 2nd|spells|level=2|class=Artificer|sns}"
+              "{@filter 2nd|spells|level=2|class=Artificer (sns)}"
             ],
             [
               2,
               4,
               3,
               3,
-              "{@filter 2nd|spells|level=2|class=Artificer|sns}"
+              "{@filter 2nd|spells|level=2|class=Artificer (sns)}"
             ],
             [
               3,
               4,
               3,
               3,
-              "{@filter 2nd|spells|level=2|class=Artificer|sns}"
+              "{@filter 2nd|spells|level=2|class=Artificer (sns)}"
             ],
             [
               3,
               4,
               3,
               3,
-              "{@filter 2nd|spells|level=2|class=Artificer|sns}"
+              "{@filter 2nd|spells|level=2|class=Artificer (sns)}"
             ],
             [
               3,
               4,
               3,
               3,
-              "{@filter 3rd|spells|level=3|class=Artificer|sns}"
-            ],
-            [
-              4,
-              5,
-              4,
-              4,
-              "{@filter 3rd|spells|level=3|class=Artificer|sns}"
+              "{@filter 3rd|spells|level=3|class=Artificer (sns)}"
             ],
             [
               4,
               5,
               4,
               4,
-              "{@filter 3rd|spells|level=3|class=Artificer|sns}"
+              "{@filter 3rd|spells|level=3|class=Artificer (sns)}"
             ],
             [
               4,
               5,
               4,
               4,
-              "{@filter 3rd|spells|level=3|class=Artificer|sns}"
+              "{@filter 3rd|spells|level=3|class=Artificer (sns)}"
+            ],
+            [
+              4,
+              5,
+              4,
+              4,
+              "{@filter 3rd|spells|level=3|class=Artificer (sns)}"
             ],
             [
               5,
               5,
               4,
               4,
-              "{@filter 4th|spells|level=4|class=Artificer|sns}"
+              "{@filter 4th|spells|level=4|class=Artificer (sns)}"
             ],
             [
               5,
               6,
               4,
               5,
-              "{@filter 4th|spells|level=4|class=Artificer|sns}"
+              "{@filter 4th|spells|level=4|class=Artificer (sns)}"
             ],
             [
               5,
               6,
               4,
               5,
-              "{@filter 4th|spells|level=4|class=Artificer|sns}"
+              "{@filter 4th|spells|level=4|class=Artificer (sns)}"
             ],
             [
               6,
               6,
               4,
               5,
-              "{@filter 4th|spells|level=4|class=Artificer|sns}"
+              "{@filter 4th|spells|level=4|class=Artificer (sns)}"
             ],
             [
               6,
               6,
               4,
               5,
-              "{@filter 5th|spells|level=5|class=Artificer|sns}"
+              "{@filter 5th|spells|level=5|class=Artificer (sns)}"
             ],
             [
               6,
               7,
               4,
               6,
-              "{@filter 5th|spells|level=5|class=Artificer|sns}"
+              "{@filter 5th|spells|level=5|class=Artificer (sns)}"
             ],
             [
               7,
               7,
               4,
               6,
-              "{@filter 5th|spells|level=5|class=Artificer|sns}"
+              "{@filter 5th|spells|level=5|class=Artificer (sns)}"
             ],
             [
               7,
               7,
               4,
               6,
-              "{@filter 5th|spells|level=5|class=Artificer|sns}"
+              "{@filter 5th|spells|level=5|class=Artificer (sns)}"
             ]
           ]
         }
@@ -393,7 +393,7 @@
           "type": "entries",
           "name": "Spell Inventions",
           "entries": [
-            "Whenever you prepare an {@filter artificer spell|spells|class=Artificer|sns}, you create a spell invention for that spell using your tools of artifice and whatever materials you have on hand.",
+            "Whenever you prepare an {@filter artificer spell|spells|class=Artificer (sns)}, you create a spell invention for that spell using your tools of artifice and whatever materials you have on hand.",
             "A spell invention is a unique experimental device that is esoteric and useless to other creatures, but in your hands can be used to cast the spell it was prepared for. You prepare a number of spells with a spell level no higher than your maximum spell level (both as shown on the Artificer table) chosen from the artificer spell list.",
             "You can change your list of prepared spells and replace or create new spell inventions whenever you finish a long rest by spending at least 10 minutes tinkering. Any spell inventions you've prepared previously are taken apart and integrated into the new ones, or fall apart due to a lack of maintenance. You can only have a maximum of 1 spell invention per spell you have prepared.",
             "You do not have spell slots, and instead utilise your spell inventions to cast spells. Whenever you cast a prepared artificer spell using a spell invention, you may cast it at a spell slot level up to your maximum spell level as shown on the Artificer table.",
@@ -1747,7 +1747,7 @@
         "FD"
       ],
       "entries": [
-        "You've been taking exact measurements of both natural and magical specimens, and believe true expressions of both can be reduced down to mathematics. When you select this field discovery you may select two {@filter 1st-level spells from the druid spell list|spells|level=1|class=Druid|sns}. These are considered artificer spells for you and you may add them to the list of spells you can prepare. If you are at least a 7th-level artificer when you select this field discovery, you may select 1st- or 2nd-level spells from the druid spell list instead. You may select this field discovery multiple times, choosing different druid spells each time."
+        "You've been taking exact measurements of both natural and magical specimens, and believe true expressions of both can be reduced down to mathematics. When you select this field discovery you may select two {@filter 1st-level spells from the druid spell list|spells|level=1|class=Druid (sns)}. These are considered artificer spells for you and you may add them to the list of spells you can prepare. If you are at least a 7th-level artificer when you select this field discovery, you may select 1st- or 2nd-level spells from the druid spell list instead. You may select this field discovery multiple times, choosing different druid spells each time."
       ]
     },
     {
