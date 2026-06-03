@@ -169,6 +169,7 @@
         "Combat Maneuvers|Ranger|sns|2|sns",
         "Stride and Seek|Ranger|sns|2|sns",
         "Trained Accuracy|Ranger|sns|2|sns",
+        "Exploitative|Ranger|sns|3|sns",
         {
           "classFeature": "First Subclass Tier 2|Ranger|sns|3|sns",
           "gainSubclassFeature": true
@@ -181,11 +182,12 @@
           "classFeature": "First Subclass Tier 3|Ranger|sns|5|sns",
           "gainSubclassFeature": true
         },
-        "Hunter's Pet|Ranger|sns|6|sns",
+        "Student of the Hunt|Ranger|sns|6|sns",
         {
           "classFeature": "First Subclass Tier 4|Ranger|sns|7|sns",
           "gainSubclassFeature": true
         },
+        "Flexible Exposure|Ranger|sns|7|sns",
         "Ability Score Improvement|Ranger|sns|8|sns",
         "Explorer's Instinct|Ranger|sns|8|sns",
         "Flash of Steel|Ranger|sns|9|sns",
@@ -200,7 +202,6 @@
         "Wilderness Lore|Ranger|sns|12|sns",
         "Guarded Post|Ranger|sns|13|sns",
         "Second Subclass Tier 2|Ranger|sns|13|sns",
-        "Loyalty's Reward|Ranger|sns|14|sns",
         "Tactical Advantage|Ranger|sns|14|sns",
         "Second Subclass Tier 3|Ranger|sns|15|sns",
         "Ability Score Improvement|Ranger|sns|16|sns",
@@ -1142,6 +1143,16 @@
       ]
     },
     {
+      "name": "Exploitative",
+      "source": "sns",
+      "className": "Ranger",
+      "classSource": "sns",
+      "level": 3,
+      "entries": [
+        "From 3rd level, you become adept at identifying specific weaknesses in your enemies that you and your allies can exploit. Whenever you Expose a creature, you roll two {@dice d8}s instead of one and can choose one of the results rolled for the weakness that is revealed."
+      ]
+    },
+    {
       "name": "First Subclass Tier 1",
       "source": "sns",
       "className": "Ranger",
@@ -1340,6 +1351,16 @@
       "level": 6,
       "entries": [
         "At 6th level, you gain an expertise die on checks made to track non-humanoid creatures, as well as on ability checks to recall information about them. Additionally, you learn one exotic language of your choice."
+      ]
+    },
+    {
+      "name": "Flexible Exposure",
+      "source": "sns",
+      "className": "Ranger",
+      "classSource": "sns",
+      "level": 7,
+      "entries": [
+        "At 7th level, you can choose one additional exposure application option from your Expose Weakness feature."
       ]
     },
     {
