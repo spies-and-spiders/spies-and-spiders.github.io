@@ -3349,7 +3349,7 @@
             "2 points"
           ]
         },
-        "When you hit a creature with a melee weapon attack on a natural roll of 18 or 19, you can use your reaction to turn the attack into a critical success."
+        "When you hit a creature with a melee weapon attack within 2 of your critical success range, you can use your reaction to turn the attack into a critical success."
       ],
       "name": "Twist the Blade",
       "time": [

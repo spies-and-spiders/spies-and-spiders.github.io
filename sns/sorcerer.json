@@ -69,7 +69,7 @@
           "colLabels": [
             "Sorcery Points",
             "{@filter Innovations Known|optionalfeatures|feature type=ai}",
-            "{@filter Cantrips Known|spells|level=0|class=Sorcerer}",
+            "{@filter Cantrips Known|spells|level=0|class=Sorcerer (sns)}",
             "Spells Prepared"
           ],
           "rows": [
@@ -198,15 +198,15 @@
         {
           "title": "Spell Slots per Spell Level",
           "colLabels": [
-            "{@filter 1st|spells|level=1|class=Sorcerer}",
-            "{@filter 2nd|spells|level=2|class=Sorcerer}",
-            "{@filter 3rd|spells|level=3|class=Sorcerer}",
-            "{@filter 4th|spells|level=4|class=Sorcerer}",
-            "{@filter 5th|spells|level=5|class=Sorcerer}",
-            "{@filter 6th|spells|level=6|class=Sorcerer}",
-            "{@filter 7th|spells|level=7|class=Sorcerer}",
-            "{@filter 8th|spells|level=8|class=Sorcerer}",
-            "{@filter 9th|spells|level=9|class=Sorcerer}"
+            "{@filter 1st|spells|level=1|class=Sorcerer (sns)}",
+            "{@filter 2nd|spells|level=2|class=Sorcerer (sns)}",
+            "{@filter 3rd|spells|level=3|class=Sorcerer (sns)}",
+            "{@filter 4th|spells|level=4|class=Sorcerer (sns)}",
+            "{@filter 5th|spells|level=5|class=Sorcerer (sns)}",
+            "{@filter 6th|spells|level=6|class=Sorcerer (sns)}",
+            "{@filter 7th|spells|level=7|class=Sorcerer (sns)}",
+            "{@filter 8th|spells|level=8|class=Sorcerer (sns)}",
+            "{@filter 9th|spells|level=9|class=Sorcerer (sns)}"
           ],
           "rowsSpellProgression": [
             [
@@ -657,7 +657,7 @@
           "type": "entries",
           "name": "Cantrips",
           "entries": [
-            "At 1st level, you know four cantrips of your choice from the {@filter sorcerer spell list|spells|level=0|class=sorcerer}. You learn additional sorcerer cantrips of your choice at higher levels, as shown in the Cantrips Known column of the Sorcerer table."
+            "At 1st level, you know four cantrips of your choice from the {@filter sorcerer spell list|spells|level=0|class=sorcerer (sns)}. You learn additional sorcerer cantrips of your choice at higher levels, as shown in the Cantrips Known column of the Sorcerer table."
           ]
         },
         {
@@ -665,7 +665,7 @@
           "name": "Preparing and Casting Spells",
           "entries": [
             "The Sorcerer table shows how many spell slots you have to cast your sorcerer spells of 1st level and higher. To cast one of these spells, you must expend a slot of the spell's level or higher. You regain all expended spell slots when you finish a long rest.",
-            "You prepare the list of sorcerer spells that are available for you to cast. To do so, choose a number of sorcerer spells from the {@filter sorcerer spell list|spells|class=sorcerer} equal to the value in the Spells Prepared column of the Sorcerer table. The spells must be of a level for which you have spell slots.",
+            "You prepare the list of sorcerer spells that are available for you to cast. To do so, choose a number of sorcerer spells from the {@filter sorcerer spell list|spells|class=sorcerer (sns)} equal to the value in the Spells Prepared column of the Sorcerer table. The spells must be of a level for which you have spell slots.",
             "For example, if you're a 3rd-level sorcerer, you have four 1st-level and two 2nd-level spell slots. Your list of prepared spells can include four spells of 1st or 2nd level, in any combination, chosen from the sorcerer spell list. If you prepare the 1st-level spell {@spell magic missile|sns}, you can cast it using a 1st-level or a 2nd-level slot. Casting the spell doesn't remove it from your list of prepared spells.",
             "You can change your list of prepared spells when you finish a long rest."
           ]

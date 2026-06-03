@@ -68,7 +68,7 @@
         {
           "colLabels": [
             "{@filter Studies Known|optionalfeatures|feature type=es}",
-            "{@filter Cantrips Known|spells|level=0|class=Wizard}"
+            "{@filter Cantrips Known|spells|level=0|class=Wizard (sns)}"
           ],
           "rows": [
             [
@@ -156,15 +156,15 @@
         {
           "title": "Spell Slots per Spell Level",
           "colLabels": [
-            "{@filter 1st|spells|level=1|class=Wizard}",
-            "{@filter 2nd|spells|level=2|class=Wizard}",
-            "{@filter 3rd|spells|level=3|class=Wizard}",
-            "{@filter 4th|spells|level=4|class=Wizard}",
-            "{@filter 5th|spells|level=5|class=Wizard}",
-            "{@filter 6th|spells|level=6|class=Wizard}",
-            "{@filter 7th|spells|level=7|class=Wizard}",
-            "{@filter 8th|spells|level=8|class=Wizard}",
-            "{@filter 9th|spells|level=9|class=Wizard}"
+            "{@filter 1st|spells|level=1|class=Wizard (sns)}",
+            "{@filter 2nd|spells|level=2|class=Wizard (sns)}",
+            "{@filter 3rd|spells|level=3|class=Wizard (sns)}",
+            "{@filter 4th|spells|level=4|class=Wizard (sns)}",
+            "{@filter 5th|spells|level=5|class=Wizard (sns)}",
+            "{@filter 6th|spells|level=6|class=Wizard (sns)}",
+            "{@filter 7th|spells|level=7|class=Wizard (sns)}",
+            "{@filter 8th|spells|level=8|class=Wizard (sns)}",
+            "{@filter 9th|spells|level=9|class=Wizard (sns)}"
           ],
           "rowsSpellProgression": [
             [
@@ -624,7 +624,7 @@
           "type": "entries",
           "name": "Cantrips",
           "entries": [
-            "At 1st level, you know three cantrips of your choice from the {@filter wizard spell list|spells|level=0|class=wizard}. You learn additional wizard cantrips of your choice at higher levels, as shown in the Cantrips Known column of the Wizard table."
+            "At 1st level, you know three cantrips of your choice from the {@filter wizard spell list|spells|level=0|class=wizard (sns)}. You learn additional wizard cantrips of your choice at higher levels, as shown in the Cantrips Known column of the Wizard table."
           ]
         },
         {
@@ -632,7 +632,7 @@
           "name": "Preparing and Casting Spells",
           "entries": [
             "The Wizard table shows how many spell slots you have to cast your wizard spells of 1st level and higher. To cast one of these spells, you must expend a slot of the spell's level or higher. You regain all expended spell slots when you finish a long rest.",
-            "You prepare the list of wizard spells that are available for you to cast. To do so, choose a number of wizard spells from the {@filter wizard spell list|spells|class=wizard} equal to your Intelligence modifier + your wizard level (minimum of one spell). The spells must be of a level for which you have spell slots.",
+            "You prepare the list of wizard spells that are available for you to cast. To do so, choose a number of wizard spells from the {@filter wizard spell list|spells|class=wizard (sns)} equal to your Intelligence modifier + your wizard level (minimum of one spell). The spells must be of a level for which you have spell slots.",
             "For example, if you're a 3rd-level wizard, you have four 1st-level and two 2nd-level spell slots. With an Intelligence of 16, your list of prepared spells can include six spells of 1st or 2nd level, in any combination, chosen from the wizard spell list. If you prepare the 1st-level spell {@spell magic missile|sns}, you can cast it using a 1st-level or a 2nd-level slot. Casting the spell doesn't remove it from your list of prepared spells.",
             "You can change your list of prepared spells when you finish a long rest."
           ]
@@ -731,7 +731,7 @@
       "level": 5,
       "entries": [
         "At 5th level, you have developed your spellcasting skill and honed it into spells that you consider to be your Signature Spells.",
-        "Choose one {@filter 1st-level wizard spell|spells|level=1|class=Wizard}. You always have this spell prepared, it doesn't count toward your maximum prepared spells, and you can cast this spell at its lowest level without expending a spell slot. Once you have cast a signature spell in this way, you must finish a short or long rest before you can do so again.",
+        "Choose one {@filter 1st-level wizard spell|spells|level=1|class=Wizard (sns)}. You always have this spell prepared, it doesn't count toward your maximum prepared spells, and you can cast this spell at its lowest level without expending a spell slot. Once you have cast a signature spell in this way, you must finish a short or long rest before you can do so again.",
         "At higher levels, you gain additional Signature Spells, each of which you can cast once between rests. At 10th level, you can choose one 2nd-level Signature spell. At 17th level, you can choose one 3rd-level Signature Spell. Each time you complete a long rest, you can replace one of your Signature Spells with another of the same level."
       ]
     },
@@ -742,7 +742,7 @@
       "classSource": "sns",
       "level": 10,
       "entries": [
-        "At 10th level, you learn another Signature Spell, which must be a {@filter 2nd-level wizard spell|spells|level=2|class=Wizard}."
+        "At 10th level, you learn another Signature Spell, which must be a {@filter 2nd-level wizard spell|spells|level=2|class=Wizard (sns)}."
       ]
     },
     {
@@ -752,7 +752,7 @@
       "classSource": "sns",
       "level": 17,
       "entries": [
-        "At 17th level, you learn another Signature Spell, which must be a {@filter 3rd-level wizard spell|spells|level=3|class=Wizard}."
+        "At 17th level, you learn another Signature Spell, which must be a {@filter 3rd-level wizard spell|spells|level=3|class=Wizard (sns)}."
       ]
     },
     {

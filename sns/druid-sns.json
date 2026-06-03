@@ -82,7 +82,7 @@
         {
           "colLabels": [
             "{@filter Secrets Known|optionalfeatures|feature type=sn}",
-            "{@filter Cantrips Known|spells|level=0|class=druid}"
+            "{@filter Cantrips Known|spells|level=0|class=druid (sns)}"
           ],
           "rows": [
             [
@@ -170,15 +170,15 @@
         {
           "title": "Spell Slots per Spell Level",
           "colLabels": [
-            "{@filter 1st|spells|level=1|class=druid}",
-            "{@filter 2nd|spells|level=2|class=druid}",
-            "{@filter 3rd|spells|level=3|class=druid}",
-            "{@filter 4th|spells|level=4|class=druid}",
-            "{@filter 5th|spells|level=5|class=druid}",
-            "{@filter 6th|spells|level=6|class=druid}",
-            "{@filter 7th|spells|level=7|class=druid}",
-            "{@filter 8th|spells|level=8|class=druid}",
-            "{@filter 9th|spells|level=9|class=druid}"
+            "{@filter 1st|spells|level=1|class=druid (sns)}",
+            "{@filter 2nd|spells|level=2|class=druid (sns)}",
+            "{@filter 3rd|spells|level=3|class=druid (sns)}",
+            "{@filter 4th|spells|level=4|class=druid (sns)}",
+            "{@filter 5th|spells|level=5|class=druid (sns)}",
+            "{@filter 6th|spells|level=6|class=druid (sns)}",
+            "{@filter 7th|spells|level=7|class=druid (sns)}",
+            "{@filter 8th|spells|level=8|class=druid (sns)}",
+            "{@filter 9th|spells|level=9|class=druid (sns)}"
           ],
           "rows": [
             [
@@ -710,14 +710,14 @@
           "type": "entries",
           "name": "Cantrips",
           "entries": [
-            "At 1st level, you know two cantrips of your choice from the {@filter druid spell list|spells|level=0|class=druid}. You learn additional druid cantrips of your choice at higher levels, as shown in the Cantrips Known column of the Druid table."
+            "At 1st level, you know two cantrips of your choice from the {@filter druid spell list|spells|level=0|class=druid (sns)}. You learn additional druid cantrips of your choice at higher levels, as shown in the Cantrips Known column of the Druid table."
           ]
         },
         {
           "type": "entries",
           "name": "Preparing and Casting Spells",
           "entries": [
-            "The Druid table shows how many spell slots you have to cast your {@filter druid spells|spells|class=druid} of 1st level and higher. To cast one of these druid spells, you must expend a slot of the spell's level or higher. You regain all expended spell slots when you finish a long rest.",
+            "The Druid table shows how many spell slots you have to cast your {@filter druid spells|spells|class=druid (sns)} of 1st level and higher. To cast one of these druid spells, you must expend a slot of the spell's level or higher. You regain all expended spell slots when you finish a long rest.",
             "You prepare the list of druid spells that are available for you to cast, choosing from the druid spell list. When you do so, choose a number of druid spells equal to your Wisdom modifier + your druid level (minimum of one spell). The spells must be of a level for which you have spell slots.",
             "For example, if you are a 3rd-level druid, you have four 1st-level and two 2nd-level spell slots. With a Wisdom of 16, your list of prepared spells can include six spells of 1st or 2nd level, in any combination. If you prepare the 1st-level spell {@spell cure wounds|sns}, you can cast it using a 1st-level or 2nd-level slot. Casting the spell doesn't remove it from your list of prepared spells.",
             "You can also change your list of prepared spells when you finish a long rest."

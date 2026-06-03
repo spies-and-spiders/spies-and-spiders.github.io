@@ -87,8 +87,8 @@
           "colLabels": [
             "Battle Hymns",
             "{@filter Tricks Known|optionalfeatures|feature type=at}",
-            "{@filter Cantrips Known|spells|level=0|class=bard}",
-            "{@filter Spells Known|spells|class=bard}"
+            "{@filter Cantrips Known|spells|level=0|class=bard (sns)}",
+            "{@filter Spells Known|spells|class=bard (sns)}"
           ],
           "rows": [
             [
@@ -216,15 +216,15 @@
         {
           "title": "Spell Slots per Spell Level",
           "colLabels": [
-            "{@filter 1st|spells|level=1|class=bard}",
-            "{@filter 2nd|spells|level=2|class=bard}",
-            "{@filter 3rd|spells|level=3|class=bard}",
-            "{@filter 4th|spells|level=4|class=bard}",
-            "{@filter 5th|spells|level=5|class=bard}",
-            "{@filter 6th|spells|level=6|class=bard}",
-            "{@filter 7th|spells|level=7|class=bard}",
-            "{@filter 8th|spells|level=8|class=bard}",
-            "{@filter 9th|spells|level=9|class=bard}"
+            "{@filter 1st|spells|level=1|class=bard (sns)}",
+            "{@filter 2nd|spells|level=2|class=bard (sns)}",
+            "{@filter 3rd|spells|level=3|class=bard (sns)}",
+            "{@filter 4th|spells|level=4|class=bard (sns)}",
+            "{@filter 5th|spells|level=5|class=bard (sns)}",
+            "{@filter 6th|spells|level=6|class=bard (sns)}",
+            "{@filter 7th|spells|level=7|class=bard (sns)}",
+            "{@filter 8th|spells|level=8|class=bard (sns)}",
+            "{@filter 9th|spells|level=9|class=bard (sns)}"
           ],
           "rows": [
             [
@@ -558,8 +558,8 @@
         {
           "type": "list",
           "items": [
-            "Percussion (Casabas, Castanets, Drums, Maracas): Any instrument played by being struck or scraped (either by other instruments or against each other) qualifies as a percussion instrument. When using this musical art as a spell focus, you double the ranges of {@filter bard spells from the sound school|spells|Subschool=sound|class=Bard}. A sound spell that has a range of Touch increases its range to 30 feet.",
-            "String Instruments (Dulcimer, Harp, Lute, Lyre, Violin): String instruments are played by plucking and twanging strings. When using this musical art as a spell focus, whenever you cast a bard spell from the {@filter movement or teleportation|spells|Subschool=movement;teleportation|class=Bard} school you can target an additional creature within 15 feet of you.",
+            "Percussion (Casabas, Castanets, Drums, Maracas): Any instrument played by being struck or scraped (either by other instruments or against each other) qualifies as a percussion instrument. When using this musical art as a spell focus, you double the ranges of {@filter bard spells from the sound school|spells|Subschool=sound|class=Bard (sns)}. A sound spell that has a range of Touch increases its range to 30 feet.",
+            "String Instruments (Dulcimer, Harp, Lute, Lyre, Violin): String instruments are played by plucking and twanging strings. When using this musical art as a spell focus, whenever you cast a bard spell from the {@filter movement or teleportation|spells|Subschool=movement;teleportation|class=Bard (sns)} school you can target an additional creature within 15 feet of you.",
             "Visual (Calligraphy, Dance, Light Manipulation, Shapes): There are many ways to undertake a visual performance whether through illustration, illusion magic, or legerdemain. When using this art as a spell focus, whenever you cast a bard spell you may choose to make an ally able to see you the point of origin of that spell. You must be able to see any targets of the spell to do this.",
             "Voice (Humming, Insults, Oration, Singing): Whenever you would lose concentration on a bard spell while using this musical art as a spell focus, including when reduced to 0 hit points, make a save. On a success, you do not lose concentration on that spell.",
             "Wind Instruments (Bagpipes, Flute, Horn, Ocarina, Trombone): Any instrument played by passing air through it qualifies as a wind instrument. When using this musical art as a spell focus, whenever you cast a bard spell you can make a Deception or Persuasion check. Any observers with a passive Insight score equal to or less than the result of your check do not see or hear you cast the spell. Once you have used this feature three times, you cannot do so again until you finish a long rest."
@@ -817,14 +817,14 @@
           "type": "entries",
           "name": "Cantrips",
           "entries": [
-            "You know two cantrips of your choice from the {@filter bard spell list|spells|level=0|class=bard}. You learn additional bard cantrips of your choice at higher levels, learning a 3rd cantrip at 4th level and a 4th at 10th level."
+            "You know two cantrips of your choice from the {@filter bard spell list|spells|level=0|class=bard (sns)}. You learn additional bard cantrips of your choice at higher levels, learning a 3rd cantrip at 4th level and a 4th at 10th level."
           ]
         },
         {
           "type": "entries",
           "name": "Spell Slots",
           "entries": [
-            "The Bard table shows how many spell slots you have to cast your {@filter bard spells|spells|class=bard} of 1st level and higher. To cast one of these spells, you must expend a slot of the spell's level or higher. You regain all expended spell slots when you finish a long rest.",
+            "The Bard table shows how many spell slots you have to cast your {@filter bard spells|spells|class=bard (sns)} of 1st level and higher. To cast one of these spells, you must expend a slot of the spell's level or higher. You regain all expended spell slots when you finish a long rest.",
             "For example, if you know the 1st-level spell {@spell cure wounds|sns} and have a 1st-level and a 2nd-level spell slot available, you can cast {@spell cure wounds|sns} using either slot."
           ]
         },
