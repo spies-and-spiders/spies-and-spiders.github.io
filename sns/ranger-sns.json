@@ -256,7 +256,7 @@
           "type": "list",
           "items": [
             "Difficult terrain doesn't slow your group's travel.",
-            "Your Perception for the purposes of avoiding ambushes increases by 2.",
+            "You gain an expertise die on Perception checks made to avoid ambushes.",
             "While tracking other creatures, you also learn their exact number, their sizes, and how long ago they passed through the area."
           ]
         }
