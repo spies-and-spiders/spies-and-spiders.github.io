@@ -86,27 +86,14 @@
       "weight": 0,
       "weaponCategory": "simple",
       "property": [
+        "C",
+        "RP",
+        "RSP",
         "OH"
       ],
-      "offhand": "if your main hand weapon is a melee weapon, it gains the Rapid trait and its damage die increases by 1 size",
-      "dmg1": "0",
+      "offhand": "Rapid and Responsive",
+      "dmg1": "1d4 + DEX",
       "dmgType": "P",
-      "weapon": true
-    },
-    {
-      "name": "Gauntlets",
-      "source": "sns",
-      "page": 0,
-      "type": "BR",
-      "rarity": "none",
-      "weight": 0,
-      "weaponCategory": "simple",
-      "property": [
-        "2H",
-        "U"
-      ],
-      "dmg1": "1d12 + STR",
-      "dmgType": "B",
       "weapon": true
     },
     {
@@ -134,10 +121,12 @@
       "weight": 0,
       "weaponCategory": "simple",
       "property": [
+        "TH",
         "OH"
       ],
-      "offhand": "if your main hand weapon is a melee weapon, it gains the Thrown (20’/60’) trait",
-      "dmg1": "0",
+      "range": "20/60",
+      "offhand": "Thrown (20'/60')",
+      "dmg1": "1d6 + STR",
       "dmgType": "S",
       "weapon": true
     },
@@ -182,10 +171,13 @@
       "weight": 0,
       "weaponCategory": "simple",
       "property": [
+        "O",
+        "RP",
+        "S",
         "OH"
       ],
-      "offhand": "if your main hand weapon is a melee weapon, it gains the Sweep trait and its damage die increases by 1 size",
-      "dmg1": "0",
+      "offhand": "Rapid and Sweep",
+      "dmg1": "1d4 + STR",
       "dmgType": "S",
       "weapon": true
     },
@@ -201,7 +193,7 @@
         "TH"
       ],
       "range": "40/120",
-      "dmg1": "1d6 + STR",
+      "dmg1": "1d4 + STR",
       "dmgType": "P",
       "weapon": true
     },
@@ -270,7 +262,7 @@
         "RN"
       ],
       "angle": "larger",
-      "range": "60/160",
+      "range": "30/80",
       "dmg1": "1d4 + STR",
       "dmgType": "B",
       "weapon": true
@@ -284,8 +276,10 @@
       "weight": 0,
       "weaponCategory": "martial",
       "property": [
-        "S"
+        "S",
+        "SC"
       ],
+      "scaling": "+2",
       "dmg1": "1d10 + STR",
       "dmgType": "S",
       "weapon": true
@@ -309,6 +303,28 @@
       "weapon": true
     },
     {
+      "name": "Brass Knuckles",
+      "source": "sns",
+      "page": 0,
+      "type": "BR",
+      "rarity": "none",
+      "weight": 0,
+      "weaponCategory": "martial",
+      "property": [
+        "A",
+        "C",
+        "DD",
+        "FR",
+        "U",
+        "OH"
+      ],
+      "angle": "smaller",
+      "offhand": "Angled (smaller) and Charged",
+      "dmg1": "1d4 + STR",
+      "dmgType": "B",
+      "weapon": true
+    },
+    {
       "name": "Bullwhip",
       "source": "sns",
       "page": 0,
@@ -317,8 +333,10 @@
       "weight": 0,
       "weaponCategory": "martial",
       "property": [
-        "RC"
+        "RC",
+        "SC"
       ],
+      "scaling": "+2",
       "dmg1": "1d10 + STR",
       "dmgType": "S",
       "weapon": true
@@ -332,10 +350,13 @@
       "weight": 0,
       "weaponCategory": "martial",
       "property": [
+        "PRR",
+        "RP",
+        "RSP",
         "OH"
       ],
-      "offhand": "if your main hand weapon is a melee weapon, it gains the Parrying trait",
-      "dmg1": "0",
+      "offhand": "Parrying",
+      "dmg1": "1d4 + DEX",
       "dmgType": "P",
       "weapon": true
     },
@@ -349,8 +370,10 @@
       "weaponCategory": "martial",
       "property": [
         "RSP",
-        "S"
+        "S",
+        "SC"
       ],
+      "scaling": "+1",
       "dmg1": "1d8 + STR",
       "dmgType": "B",
       "weapon": true
@@ -367,8 +390,10 @@
         "2H",
         "DD",
         "FR",
-        "RC"
+        "RC",
+        "SC"
       ],
+      "scaling": "+2",
       "dmg1": "1d10 + STR",
       "dmgType": "S",
       "weapon": true
@@ -383,8 +408,10 @@
       "weaponCategory": "martial",
       "property": [
         "2H",
-        "S"
+        "S",
+        "SC"
       ],
+      "scaling": "+4",
       "dmg1": "3d4 + STR",
       "dmgType": "S",
       "weapon": true
@@ -399,8 +426,10 @@
       "weaponCategory": "martial",
       "property": [
         "2H",
-        "RSP"
+        "RSP",
+        "SC"
       ],
+      "scaling": "+4",
       "dmg1": "3d4 + STR",
       "dmgType": "S",
       "weapon": true
@@ -415,8 +444,10 @@
       "weaponCategory": "martial",
       "property": [
         "2H",
-        "RC"
+        "RC",
+        "SC"
       ],
+      "scaling": "+4",
       "dmg1": "3d4 + STR",
       "dmgType": "S",
       "weapon": true
@@ -449,8 +480,10 @@
         "2H",
         "C",
         "DD",
-        "RC"
+        "RC",
+        "SC"
       ],
+      "scaling": "+2",
       "dmg1": "1d10 + STR",
       "dmgType": "P",
       "weapon": true
@@ -464,10 +497,14 @@
       "weight": 0,
       "weaponCategory": "martial",
       "property": [
+        "DD",
+        "RP",
+        "TH",
         "OH"
       ],
-      "offhand": "if your main hand weapon is a melee weapon, it gains the Deadly trait and its damage die increases by 1 size",
-      "dmg1": "0",
+      "range": "20/60",
+      "offhand": "Deadly and Rapid",
+      "dmg1": "1d4 + STR",
       "dmgType": "B",
       "weapon": true
     },
@@ -480,8 +517,10 @@
       "weight": 0,
       "weaponCategory": "martial",
       "property": [
-        "RSP"
+        "RSP",
+        "SC"
       ],
+      "scaling": "+2",
       "dmg1": "1d10 + STR",
       "dmgType": "S",
       "weapon": true
@@ -495,8 +534,10 @@
       "weight": 0,
       "weaponCategory": "martial",
       "property": [
-        "2H"
+        "2H",
+        "SC"
       ],
+      "scaling": "+5",
       "dmg1": "2d8 + STR",
       "dmgType": "B",
       "weapon": true
@@ -510,10 +551,14 @@
       "weight": 0,
       "weaponCategory": "martial",
       "property": [
+        "A",
+        "FT",
+        "FR",
         "OH"
       ],
-      "offhand": "if your main hand weapon is a melee weapon, it gains the Fatal trait",
-      "dmg1": "0",
+      "angle": "larger",
+      "offhand": "Fatal",
+      "dmg1": "1d4 + DEX",
       "dmgType": "P",
       "weapon": true
     },
@@ -544,9 +589,11 @@
       "property": [
         "2H",
         "TH",
-        "S"
+        "S",
+        "SC"
       ],
       "range": "20/60",
+      "scaling": "+2",
       "dmg1": "1d10 + DEX",
       "dmgType": "S",
       "weapon": true
@@ -578,8 +625,10 @@
       "property": [
         "FR",
         "RSP",
-        "S"
+        "S",
+        "OH"
       ],
+      "offhand": "Forceful, Sweep",
       "dmg1": "1d6 + STR",
       "dmgType": "S",
       "weapon": true
@@ -594,8 +643,10 @@
       "weaponCategory": "martial",
       "property": [
         "2H",
-        "DD"
+        "DD",
+        "SC"
       ],
+      "scaling": "+4",
       "dmg1": "3d4 + STR",
       "dmgType": "S",
       "weapon": true
@@ -610,8 +661,10 @@
       "weaponCategory": "martial",
       "property": [
         "O",
-        "RSP"
+        "RSP",
+        "SC"
       ],
+      "scaling": "+1",
       "dmg1": "1d8 + DEX",
       "dmgType": "S",
       "weapon": true
@@ -630,7 +683,7 @@
       ],
       "range": "20/60",
       "dmg1": "1d6 + DEX",
-      "dmgType": "S",
+      "dmgType": "P",
       "weapon": true
     },
     {
@@ -643,8 +696,10 @@
       "weaponCategory": "martial",
       "property": [
         "2H",
-        "TRG"
+        "TRG",
+        "SC"
       ],
+      "scaling": "+4",
       "dmg1": "3d4 + STR",
       "dmgType": "B",
       "weapon": true
@@ -659,9 +714,11 @@
       "weaponCategory": "martial",
       "property": [
         "2H",
-        "TH"
+        "TH",
+        "SC"
       ],
       "range": "40/120",
+      "scaling": "+2",
       "dmg1": "1d10 + STR",
       "dmgType": "P",
       "weapon": true
@@ -675,8 +732,10 @@
       "weight": 0,
       "weaponCategory": "martial",
       "property": [
-        "DD"
+        "DD",
+        "SC"
       ],
+      "scaling": "+2",
       "dmg1": "1d10 + STR",
       "dmgType": "B",
       "weapon": true
@@ -708,8 +767,10 @@
       "property": [
         "DD",
         "NL",
-        "RSP"
+        "RSP",
+        "SC"
       ],
+      "scaling": "+1",
       "dmg1": "1d8 + DEX",
       "dmgType": "S",
       "weapon": true
@@ -724,9 +785,11 @@
       "weaponCategory": "martial",
       "property": [
         "RN",
-        "2H"
+        "2H",
+        "SC"
       ],
       "range": "60/160",
+      "scaling": "+2",
       "dmg1": "1d10 + STR",
       "dmgType": "P",
       "weapon": true
@@ -751,24 +814,6 @@
       "weapon": true
     },
     {
-      "name": "Hand Crossbow",
-      "source": "sns",
-      "page": 0,
-      "type": "BW",
-      "rarity": "none",
-      "weight": 0,
-      "weaponCategory": "martial",
-      "property": [
-        "RN",
-        "OH"
-      ],
-      "offhand": "if your main hand weapon is a ranged weapon, its damage die increases by 2 sizes",
-      "range": "0/0",
-      "dmg1": "0",
-      "dmgType": "P",
-      "weapon": true
-    },
-    {
       "name": "Heavy Crossbow",
       "source": "sns",
       "page": 0,
@@ -778,10 +823,13 @@
       "weaponCategory": "martial",
       "property": [
         "RN",
+        "2H",
         "O",
-        "PRP"
+        "PRP",
+        "SC"
       ],
       "range": "60/160",
+      "scaling": "+3",
       "dmg1": "1d12 + DEX",
       "dmgType": "P",
       "weapon": true
@@ -796,9 +844,12 @@
       "weaponCategory": "martial",
       "property": [
         "RN",
-        "DD"
+        "2H",
+        "DD",
+        "SC"
       ],
       "range": "60/160",
+      "scaling": "+1",
       "dmg1": "1d8 + DEX",
       "dmgType": "P",
       "weapon": true
@@ -818,7 +869,7 @@
       ],
       "range": "30/80",
       "dmg1": "1d4 + STR",
-      "dmgType": "S",
+      "dmgType": "B",
       "weapon": true
     },
     {
@@ -832,11 +883,13 @@
       "property": [
         "RN",
         "2H",
-        "FT"
+        "FT",
+        "SC"
       ],
       "range": "30/80",
+      "scaling": "+1",
       "dmg1": "1d8 + DEX",
-      "dmgType": "S",
+      "dmgType": "P",
       "weapon": true
     },
     {
@@ -852,12 +905,14 @@
         "DL",
         "DP",
         "E",
+        "SC",
         "TR"
       ],
       "trigger": "immediately attack with this weapon, ignoring the Delayed trait",
       "range": "30/80",
-      "dmg1": "1d10 + STR",
-      "dmgType": "S",
+      "scaling": "+2",
+      "dmg1": "1d10 + DEX",
+      "dmgType": "P",
       "weapon": true
     }
   ],
@@ -917,7 +972,7 @@
           "type": "entries",
           "name": "Delayed",
           "entries": [
-            "When you make an attack with a delayed weapon, the attack itself doesn’t occur until the start of your next turn."
+            "When you make an attack with a delayed weapon, the attack itself doesn't occur until the start of your next turn."
           ]
         }
       ]
@@ -947,7 +1002,7 @@
           "type": "entries",
           "name": "Explosive",
           "entries": [
-            "When you make an attack with an explosive weapon, you do not attack the target. Instead, make a reflex attack against each creature adjacent to the weapon. These attacks deal the weapon’s damage."
+            "When you make an attack with an explosive weapon, you do not attack the target. Instead, make a reflex attack against each creature adjacent to the weapon. These attacks deal the weapon's damage."
           ]
         }
       ]
@@ -1022,7 +1077,7 @@
           "type": "entries",
           "name": "Offhand",
           "entries": [
-            "Offhand weapons can be wielded in your offhand, alongside a one-handed weapon in your main hand. The trait includes an effect that occurs while wielding the weapon."
+            "Offhand weapons can be wielded in your offhand, alongside a one-handed weapon in your main hand. The range type (ie. melee or ranged) of the weapons must match. While holding a weapon in your offhand, that weapon's base damage becomes 0. The trait includes at least one other trait that your main hand weapon gains while holding the weapon in your offhand."
           ]
         }
       ]
@@ -1052,7 +1107,7 @@
           "type": "entries",
           "name": "Parrying",
           "entries": [
-            "After a creature makes a damaging attack against you while you are wielding a parrying weapon, but before damage is dealt, you can use your reaction to reduce the attack’s success tier by 1."
+            "After a creature makes a damaging attack against you while you are wielding a parrying weapon, but before damage is dealt, you can use your reaction to reduce the attack's success tier by 1."
           ]
         }
       ]
@@ -1173,6 +1228,21 @@
           "name": "Sweep",
           "entries": [
             "Whenever you hit with a sweep weapon, your next attack with that weapon against a different target before the end of your next turn has advantage."
+          ]
+        }
+      ]
+    },
+    {
+      "abbreviation": "SC",
+      "source": "sns",
+      "page": 0,
+      "template": "{{prop_name_lower}} ({{item.scaling}})",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Scaling",
+          "entries": [
+            "The scaling trait includes a value. At 5th level, 11th level, and 17th level, a scaling weapon's base damage is increased by the value. This is cumulative. For example, a weapon with Scaling (+5) and a damage of 1d8 + STR will deal 1d8 + STR damage at 1st level, 1d8 + STR + 5 at 5th level, and 1d8 + STR + 10 at 11th level, and so on. Multiple instances of the scaling trait (for example, when an offhand weapon adds it to a weapon that already has the trait) stack together, adding their values together."
           ]
         }
       ]

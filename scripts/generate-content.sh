@@ -11,11 +11,11 @@ jq_inplace() {
 	jq "$@" "$file" > "$tmp" && mv "$tmp" "$file"
 }
 
-# Set updated time
-jq_inplace sns/meta-sns.json "._meta.dateLastModified = $(date +'%s')"
-
 # Generate merged homebrew JSON
 bb .github/generate-merged-json.bb
+
+# Set updated time
+jq_inplace homebrew/sns.json "._meta.dateLastModified = $(date +'%s')"
 
 # Prepare SNS data
 cat homebrew/sns.json | jq -c '{spell}' > data/spells/spells-sns.json

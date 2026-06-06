@@ -369,7 +369,6 @@ class _RenderBestiaryImplClassic extends _RenderBestiaryImplBase {
 		return {
 			htmlPtArmorClass: this._getHtmlParts_armorClass({mon, renderer, isInlinedToken}),
 
-			htmlPtSavingThrows: this._getHtmlParts_savingThrows({mon}),
 			htmlPtDamageImmunities: this._getHtmlParts_damageImmunities({mon}),
 			htmlPtConditionImmunities: this._getHtmlParts_conditionImmunities({mon}),
 
@@ -387,9 +386,6 @@ class _RenderBestiaryImplClassic extends _RenderBestiaryImplBase {
 
 	/* ----- */
 
-	_getHtmlParts_savingThrows ({mon}) {
-		return mon.save ? `<tr><td colspan="6"><strong>Saving Throws</strong> ${Renderer.monster.getSavesPart(mon)}</td></tr>` : "";
-	}
 
 	_getHtmlParts_damageImmunities ({mon}) {
 		return mon.immune ? `<tr><td colspan="6"><strong>Damage Immunities</strong> ${Parser.getFullImmRes(mon.immune)}</td></tr>` : "";
@@ -558,8 +554,6 @@ class _RenderBestiaryImplOne extends _RenderBestiaryImplBase {
 		return {
 			htmlPtArmorClass: this._getHtmlParts_armorClass({mon, renderer, isInlinedToken}),
 
-			htmlPtSavingThrows: this._getHtmlParts_savingThrows({mon, renderer}),
-
 			htmlPtImmunities: this._getHtmlParts_immunities({mon}),
 			htmlPtGear: this._getHtmlParts_gear({mon}),
 
@@ -577,15 +571,6 @@ class _RenderBestiaryImplOne extends _RenderBestiaryImplBase {
 			</div>
 		</td></tr>`;
 	}
-
-	/* ----- */
-
-	_getHtmlParts_savingThrows ({mon, renderer}) {
-		if (!mon.save?.special) return "";
-		return `<tr><td colspan="6"><strong>Saving Throws</strong> ${Renderer.monster.getSave(renderer, "special", mon.save.special)}</td></tr>`;
-	}
-
-	/* ----- */
 
 	_getHtmlParts_immunities ({mon}) {
 		const pt = Renderer.monster.getImmunitiesCombinedPart(mon);
