@@ -1,6 +1,6 @@
 import {BuilderBase} from "./makebrew-builder-base.js";
 import {BuilderUi} from "./makebrew-builderui.js";
-import {AttachedItemTag, CreatureSavingThrowTagger, DamageTypeTag, DragonAgeTag, LanguageTag, MiscTag, RechargeConvert, SenseFilterTag, SpellcastingTraitConvert, SpellcastingTypeTag, TagCreatureSubEntryInto, TagDc, TagHit, TagImmResVulnConditional, TraitActionTag} from "../converter/converterutils-creature.js";
+import {AttachedItemTag, CreatureSavingThrowTagger, DamageTypeTag, LanguageTag, MiscTag, RechargeConvert, SenseFilterTag, SpellcastingTraitConvert, SpellcastingTypeTag, TagCreatureSubEntryInto, TagDc, TagHit, TagImmResVulnConditional, TraitActionTag} from "../converter/converterutils-creature.js";
 import {DiceConvert, TagCondition} from "../converter/converterutils-tags.js";
 import {RenderBestiary} from "../render-bestiary.js";
 
@@ -428,7 +428,6 @@ export class CreatureBuilder extends BuilderBase {
 			CreatureSavingThrowTagger.tryRunRegionalsLairs(this._state);
 			MiscTag.tryRun(this._state);
 			TagImmResVulnConditional.tryRun(this._state);
-			DragonAgeTag.tryRun(this._state);
 			AttachedItemTag.tryRun(this._state);
 
 			this.renderOutput();
@@ -550,18 +549,6 @@ export class CreatureBuilder extends BuilderBase {
 			"group",
 		).appendTo(miscTab.$wrpTab);
 		this.__$getSoundClipInput(cb).appendTo(miscTab.$wrpTab);
-		BuilderUi.$getStateIptEnum(
-			"Dragon Casting Color",
-			cb,
-			this._state,
-			{
-				vals: Renderer.monster.dragonCasterVariant.getAvailableColors()
-					.sort(SortUtil.ascSortLower),
-				fnDisplay: (abv) => abv.toTitleCase(),
-				type: "string",
-			},
-			"dragonCastingColor",
-		).appendTo(miscTab.$wrpTab);
 		BuilderUi.$getStateIptBoolean("NPC", cb, this._state, {title: "If selected, this creature will be filtered out from the Bestiary list by default."}, "isNpc").appendTo(miscTab.$wrpTab);
 		BuilderUi.$getStateIptBoolean("Familiar", cb, this._state, {title: "If selected, this creature will be included when filtering for 'Familiar' in the Bestiary."}, "familiar").appendTo(miscTab.$wrpTab);
 		BuilderUi.$getStateIptStringArray(

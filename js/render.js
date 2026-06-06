@@ -8848,11 +8848,10 @@ class _RenderCompactBestiaryImplBase {
 	/* ----- */
 
 	_getCommonHtmlParts_variants ({mon, renderer}) {
-		if (!mon.variant && (!mon.dragonCastingColor || mon.spellcasting) && !mon.summonedBySpell) return "";
+		if (!mon.variant && !mon.summonedBySpell) return "";
 
 		return `<tr><td colspan="6" class="pb-2">
 		${mon.variant ? mon.variant.map(it => it.rendered || renderer.render(it)).join("") : ""}
-		${mon.dragonCastingColor ? Renderer.monster.dragonCasterVariant.getHtml(mon, {renderer}) : ""}
 		${mon.footer ? renderer.render({entries: mon.footer}) : ""}
 		${mon.summonedBySpell ? `<div><b>Summoned By:</b> ${renderer.render(`{@spell ${mon.summonedBySpell}}`)}<div>` : ""}
 		</td></tr>`;
@@ -9226,220 +9225,6 @@ Renderer.monster = class {
 		return renderer.render(`<span>${attr.uppercaseFirst()} {@savingThrow ${attr} ${mod}}</span>`);
 	}
 
-	static dragonCasterVariant = class {
-		// Community-created (legacy)
-		static _LVL_TO_COLOR_TO_SPELLS__UNOFFICIAL = {
-			2: {
-				black: ["darkness", "Melf's acid arrow", "fog cloud", "scorching ray"],
-				green: ["ray of sickness", "charm person", "detect thoughts", "invisibility", "suggestion"],
-				white: ["ice knife|XGE", "Snilloc's snowball swarm|XGE"],
-				brass: ["see invisibility", "magic mouth", "blindness/deafness", "sleep", "detect thoughts"],
-				bronze: ["gust of wind", "misty step", "locate object", "blur", "witch bolt", "thunderwave", "shield"],
-				copper: ["knock", "sleep", "detect thoughts", "blindness/deafness", "tasha's hideous laughter"],
-			},
-			3: {
-				blue: ["wall of sand|XGE", "thunder step|XGE", "lightning bolt", "blink", "magic missile", "slow"],
-				red: ["fireball", "scorching ray", "haste", "erupting earth|XGE", "Aganazzar's scorcher|XGE"],
-				gold: ["slow", "fireball", "dispel magic", "counterspell", "Aganazzar's scorcher|XGE", "shield"],
-				silver: ["sleet storm", "protection from energy", "catnap|XGE", "locate object", "identify", "Leomund's tiny hut"],
-			},
-			4: {
-				black: ["vitriolic sphere|XGE", "sickening radiance|XGE", "Evard's black tentacles", "blight", "hunger of Hadar"],
-				white: ["fire shield", "ice storm", "sleet storm"],
-				brass: ["charm monster|XGE", "sending", "wall of sand|XGE", "hypnotic pattern", "tongues"],
-				copper: ["polymorph", "greater invisibility", "confusion", "stinking cloud", "major image", "charm monster|XGE"],
-			},
-			5: {
-				blue: ["telekinesis", "hold monster", "dimension door", "wall of stone", "wall of force"],
-				green: ["cloudkill", "charm monster|XGE", "modify memory", "mislead", "hallucinatory terrain", "dimension door"],
-				bronze: ["steel wind strike|XGE", "control winds|XGE", "watery sphere|XGE", "storm sphere|XGE", "tidal wave|XGE"],
-				gold: ["hold monster", "immolation|XGE", "wall of fire", "greater invisibility", "dimension door"],
-				silver: ["cone of cold", "ice storm", "teleportation circle", "skill empowerment|XGE", "creation", "Mordenkainen's private sanctum"],
-			},
-			6: {
-				white: ["cone of cold", "wall of ice"],
-				brass: ["scrying", "Rary's telepathic bond", "Otto's irresistible dance", "legend lore", "hold monster", "dream"],
-			},
-			7: {
-				black: ["power word pain|XGE", "finger of death", "disintegrate", "hold monster"],
-				blue: ["chain lightning", "forcecage", "teleport", "etherealness"],
-				green: ["project image", "mirage arcane", "prismatic spray", "teleport"],
-				bronze: ["whirlwind|XGE", "chain lightning", "scatter|XGE", "teleport", "disintegrate", "lightning bolt"],
-				copper: ["symbol", "simulacrum", "reverse gravity", "project image", "Bigby's hand", "mental prison|XGE", "seeming"],
-				silver: ["Otiluke's freezing sphere", "prismatic spray", "wall of ice", "contingency", "arcane gate"],
-			},
-			8: {
-				gold: ["sunburst", "delayed blast fireball", "antimagic field", "teleport", "globe of invulnerability", "maze"],
-			},
-		};
-		// From Fizban's Treasury of Dragons
-		static _LVL_TO_COLOR_TO_SPELLS__FTD = {
-			1: {
-				deep: ["command", "dissonant whispers", "faerie fire"],
-			},
-			2: {
-				black: ["blindness/deafness", "create or destroy water"],
-				green: ["invisibility", "speak with animals"],
-				white: ["gust of wind"],
-				brass: ["create or destroy water", "speak with animals"],
-				bronze: ["beast sense", "detect thoughts", "speak with animals"],
-				copper: ["lesser restoration", "phantasmal force"],
-			},
-			3: {
-				blue: ["create or destroy water", "major image"],
-				red: ["bane", "heat metal", "hypnotic pattern", "suggestion"],
-				gold: ["bless", "cure wounds", "slow", "suggestion", "zone of truth"],
-				silver: ["beacon of hope", "calm emotions", "hold person", "zone of truth"],
-				deep: ["command", "dissonant whispers", "faerie fire", "water breathing"],
-			},
-			4: {
-				black: ["blindness/deafness", "create or destroy water", "plant growth"],
-				white: ["gust of wind"],
-				brass: ["create or destroy water", "speak with animals", "suggestion"],
-				copper: ["lesser restoration", "phantasmal force", "stone shape"],
-			},
-			5: {
-				blue: ["arcane eye", "create or destroy water", "major image"],
-				red: ["bane", "dominate person", "heat metal", "hypnotic pattern", "suggestion"],
-				green: ["invisibility", "plant growth", "speak with animals"],
-				bronze: ["beast sense", "control water", "detect thoughts", "speak with animals"],
-				gold: ["bless", "commune", "cure wounds", "geas", "slow", "suggestion", "zone of truth"],
-				silver: ["beacon of hope", "calm emotions", "hold person", "polymorph", "zone of truth"],
-			},
-			6: {
-				white: ["gust of wind", "ice storm"],
-				brass: ["create or destroy water", "locate creature", "speak with animals", "suggestion"],
-				deep: ["command", "dissonant whispers", "faerie fire", "passwall", "water breathing"],
-			},
-			7: {
-				black: ["blindness/deafness", "create or destroy water", "insect plague", "plant growth"],
-				blue: ["arcane eye", "create or destroy water", "major image", "project image"],
-				red: ["bane", "dominate person", "heat metal", "hypnotic pattern", "power word stun", "suggestion"],
-				green: ["invisibility", "mass suggestion", "plant growth", "speak with animals"],
-				bronze: ["beast sense", "control water", "detect thoughts", "heroes' feast", "speak with animals"],
-				copper: ["lesser restoration", "move earth", "phantasmal force", "stone shape"],
-				silver: ["beacon of hope", "calm emotions", "hold person", "polymorph", "teleport", "zone of truth"],
-			},
-			8: {
-				gold: ["bless", "commune", "cure wounds", "geas", "plane shift", "slow", "suggestion", "word of recall", "zone of truth"],
-			},
-		};
-
-		static getAvailableColors () {
-			const out = new Set();
-
-			const add = (lookup) => Object.values(lookup).forEach(obj => Object.keys(obj).forEach(k => out.add(k)));
-			add(Renderer.monster.dragonCasterVariant._LVL_TO_COLOR_TO_SPELLS__UNOFFICIAL);
-			add(Renderer.monster.dragonCasterVariant._LVL_TO_COLOR_TO_SPELLS__FTD);
-
-			return [...out].sort(SortUtil.ascSortLower);
-		}
-
-		static hasCastingColorVariant (dragon) {
-			// if the dragon already has a spellcasting trait specified, don't add a note about adding a spellcasting trait
-			return dragon.dragonCastingColor && !dragon.spellcasting;
-		}
-
-		static getMeta (dragon) {
-			const chaMod = Parser.getAbilityModNumber(dragon.cha);
-			const pb = Parser.crToPb(dragon.cr);
-			const maxSpellLevel = Math.floor(Parser.crToNumber(dragon.cr) / 3);
-
-			return {
-				chaMod,
-				pb,
-				maxSpellLevel,
-				spellSaveDc: pb + chaMod + 8,
-				spellToHit: pb + chaMod,
-				exampleSpellsUnofficial: Renderer.monster.dragonCasterVariant._getMeta_getExampleSpells({
-					dragon,
-					maxSpellLevel,
-					spellLookup: Renderer.monster.dragonCasterVariant._LVL_TO_COLOR_TO_SPELLS__UNOFFICIAL,
-				}),
-				exampleSpellsFtd: Renderer.monster.dragonCasterVariant._getMeta_getExampleSpells({
-					dragon,
-					maxSpellLevel,
-					spellLookup: Renderer.monster.dragonCasterVariant._LVL_TO_COLOR_TO_SPELLS__FTD,
-				}),
-			};
-		}
-
-		static _getMeta_getExampleSpells ({dragon, maxSpellLevel, spellLookup}) {
-			if (spellLookup[maxSpellLevel]?.[dragon.dragonCastingColor]) return spellLookup[maxSpellLevel][dragon.dragonCastingColor];
-
-			// If there's no exact match, try to find the next lowest
-			const flatKeys = Object.entries(spellLookup)
-				.map(([lvl, group]) => {
-					return Object.keys(group)
-						.map(color => `${lvl}${color}`);
-				})
-				.flat()
-				.mergeMap(it => ({[it]: true}));
-
-			while (--maxSpellLevel > -1) {
-				const lookupKey = `${maxSpellLevel}${dragon.dragonCastingColor}`;
-				if (flatKeys[lookupKey]) return spellLookup[maxSpellLevel][dragon.dragonCastingColor];
-			}
-			return [];
-		}
-
-		static getSpellcasterDetailsPart ({chaMod, maxSpellLevel, spellSaveDc, spellToHit, isSeeSpellsPageNote = false}) {
-			const levelString = maxSpellLevel === 0 ? `${chaMod === 1 ? "This" : "These"} spells are Cantrips.` : `${chaMod === 1 ? "The" : "Each"} spell's level can be no higher than ${Parser.spLevelToFull(maxSpellLevel)}.`;
-
-			return `This dragon can innately cast ${Parser.numberToText(chaMod)} spell${chaMod === 1 ? "" : "s"}, once per day${chaMod === 1 ? "" : " each"}, requiring no material components. ${levelString} The dragon's spell save DC is {@dc ${spellSaveDc}}, and it has {@hit ${spellToHit}} to hit with spell attacks.${isSeeSpellsPageNote ? ` See the {@filter spell page|spells|level=${[...new Array(maxSpellLevel + 1)].map((it, i) => i).join(";")}} for a list of spells the dragon is capable of casting.` : ""}`;
-		}
-
-		static getVariantEntries (dragon) {
-			if (!Renderer.monster.dragonCasterVariant.hasCastingColorVariant(dragon)) return [];
-
-			const meta = Renderer.monster.dragonCasterVariant.getMeta(dragon);
-			const {exampleSpellsUnofficial, exampleSpellsFtd} = meta;
-
-			const vFtd = exampleSpellsFtd?.length ? {
-				type: "variant",
-				name: "Dragons as Innate Spellcasters",
-				source: Parser.SRC_SNS,
-				entries: [
-					`${Renderer.monster.dragonCasterVariant.getSpellcasterDetailsPart(meta)}`,
-					`A suggested spell list is shown below, but you can also choose spells to reflect the dragon's character. A dragon who innately casts {@filter druid|spells|class=druid} spells feels different from one who casts {@filter warlock|spells|class=warlock} spells. You can also give a dragon spells of a higher level than this rule allows, but such a tweak might increase the dragon's challenge rating\u2014especially if those spells deal damage or impose conditions on targets.`,
-					{
-						type: "list",
-						items: exampleSpellsFtd.map(it => `{@spell ${it}}`),
-					},
-				],
-			} : null;
-
-			const vBasic = {
-				type: "variant",
-				name: "Dragons as Innate Spellcasters",
-				entries: [
-					"Dragons are innately magical creatures that can master a few spells as they age, using this variant.",
-					`A young or older dragon can innately cast a number of spells equal to its Charisma modifier. Each spell can be cast once per day, requiring no material components, and the spell's level can be no higher than one-third the dragon's challenge rating (rounded down). The dragon's bonus to hit with spell attacks is equal to its proficiency bonus + its Charisma bonus. The dragon's spell save DC equals 8 + its proficiency bonus + its Charisma modifier.`,
-					`{@note ${Renderer.monster.dragonCasterVariant.getSpellcasterDetailsPart({...meta, isSeeSpellsPageNote: true})}${exampleSpellsUnofficial?.length ? ` A selection of examples are shown below:` : ""}}`,
-				],
-			};
-			if (dragon.source !== Parser.SRC_SNS) {
-				vBasic.source = Parser.SRC_SNS;
-				vBasic.page = 86;
-			}
-			if (exampleSpellsUnofficial) {
-				const ls = {
-					type: "list",
-					style: "list-italic",
-					items: exampleSpellsUnofficial.map(it => `{@spell ${it}}`),
-				};
-				vBasic.entries.push(ls);
-			}
-
-			return [vFtd, vBasic].filter(Boolean);
-		}
-
-		static getHtml (dragon, {renderer = null} = {}) {
-			const variantEntrues = Renderer.monster.dragonCasterVariant.getVariantEntries(dragon);
-			if (!variantEntrues.length) return null;
-			return variantEntrues.map(it => renderer.render(it)).join("");
-		}
-	};
 
 	static getCrScaleTarget (
 		{
@@ -10059,13 +9844,11 @@ Renderer.monster = class {
 
 	static getRenderedVariants (mon, {renderer = null} = {}) {
 		renderer = renderer || Renderer.get();
-		const dragonVariant = Renderer.monster.dragonCasterVariant.getHtml(mon, {renderer});
 		const variants = mon.variant;
-		if (!variants && !dragonVariant) return null;
+		if (!variants) return null;
 
 		const rStack = [];
 		(variants || []).forEach(v => renderer.recursiveRender(v, rStack));
-		if (dragonVariant) rStack.push(dragonVariant);
 		return rStack.join("");
 	}
 

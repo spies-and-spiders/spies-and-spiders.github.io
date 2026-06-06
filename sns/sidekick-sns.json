@@ -25,14 +25,14 @@
           {
             "choose": {
               "from": [
-                "acrobatics",
-                "animal handling",
                 "athletics",
                 "brawn",
                 "engineering",
+                "finesse",
                 "history",
                 "insight",
                 "intimidation",
+                "nature",
                 "perception",
                 "survival"
               ],

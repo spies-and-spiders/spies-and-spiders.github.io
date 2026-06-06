@@ -2074,17 +2074,6 @@ export class TagImmResVulnConditional {
 	}
 }
 
-export class DragonAgeTag {
-	static tryRun (mon) {
-		const type = mon.type?.type ?? mon.type;
-		if (type !== "dragon") return;
-
-		mon.name.replace(/\b(?<age>young|adult|wyrmling|greatwyrm|ancient|aspect)\b/i, (...m) => {
-			mon.dragonAge = m.last().age.toLowerCase();
-		});
-	}
-}
-
 export class AttachedItemTag {
 	static _WEAPON_DETAIL_CACHE;
 

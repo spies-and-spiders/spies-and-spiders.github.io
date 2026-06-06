@@ -515,9 +515,6 @@ PropOrder._MONSTER = [
 
 	"environment",
 	"familiar",
-	"dragonCastingColor",
-	"dragonAge",
-
 	"tokenUrl",
 	"token",
 	"tokenHref",

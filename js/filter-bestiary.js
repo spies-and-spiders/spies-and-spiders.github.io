@@ -14,8 +14,6 @@ class PageFilterBestiary extends PageFilterBase {
 		"legendary",
 		"mythic",
 	];
-	static _DRAGON_AGES = ["wyrmling", "young", "adult", "ancient", "greatwyrm", "aspect"];
-
 	// region static
 	static sortMonsters (a, b, o) {
 		if (o.sortBy === "count") return SortUtil.ascSort(a.data.count, b.data.count) || SortUtil.compareListNames(a, b);
@@ -42,17 +40,6 @@ class PageFilterBestiary extends PageFilterBase {
 		}
 	}
 
-	static _ascSortDragonAgeFilter (a, b) {
-		a = a.item;
-		b = b.item;
-		const ixA = PageFilterBestiary._DRAGON_AGES.indexOf(a);
-		const ixB = PageFilterBestiary._DRAGON_AGES.indexOf(b);
-		if (~ixA && ~ixB) return SortUtil.ascSort(ixA, ixB);
-		if (~ixA) return Number.MIN_SAFE_INTEGER;
-		if (~ixB) return Number.MAX_SAFE_INTEGER;
-		return SortUtil.ascSortLower(a, b);
-	}
-
 	static getAllImmRest (toParse, key) {
 		const out = [];
 		for (const it of toParse) this._getAllImmRest_recurse(it, key, out); // Speed > safety
@@ -69,7 +56,6 @@ class PageFilterBestiary extends PageFilterBase {
 
 	static _getDamageTagDisplayText (tag) { return Parser.dmgTypeToFull(tag).toTitleCase(); }
 	static _getConditionDisplayText (uid) { return uid.split("|")[0].toTitleCase(); }
-	static _getAbilitySaveDisplayText (abl) { return `${abl.uppercaseFirst()} Save`; }
 	// endregion
 
 	constructor (opts) {
@@ -177,28 +163,6 @@ class PageFilterBestiary extends PageFilterBase {
 			items: [...Parser.CONDITIONS],
 		});
 		this._conditionsInflictedFilter = new MultiFilter({header: "Conditions Inflicted", filters: [this._conditionsInflictedFilterBase, this._conditionsInflictedFilterLegendary, this._conditionsInflictedFilterSpells]});
-		this._savingThrowForcedFilterBase = new Filter({
-			header: "Saving Throws Required by Traits/Actions",
-			displayFn: this.constructor._getAbilitySaveDisplayText,
-			displayFnMini: abl => `Requires ${this.constructor._getAbilitySaveDisplayText(abl)} (Trait/Action)`,
-			items: Parser.ABIL_ABVS.map(abl => Parser.attAbvToFull(abl).toLowerCase()),
-			itemSortFn: null,
-		});
-		this._savingThrowForcedFilterLegendary = new Filter({
-			header: "Saving Throws Required by Lair Actions/Regional Effects",
-			displayFn: this.constructor._getAbilitySaveDisplayText,
-			displayFnMini: abl => `Requires ${this.constructor._getAbilitySaveDisplayText(abl)} (Lair/Regional)`,
-			items: Parser.ABIL_ABVS.map(abl => Parser.attAbvToFull(abl).toLowerCase()),
-			itemSortFn: null,
-		});
-		this._savingThrowForcedFilterSpells = new Filter({
-			header: "Saving Throws Required by Spells",
-			displayFn: this.constructor._getAbilitySaveDisplayText,
-			displayFnMini: abl => `Requires ${this.constructor._getAbilitySaveDisplayText(abl)} (Spell)`,
-			items: Parser.ABIL_ABVS.map(abl => Parser.attAbvToFull(abl).toLowerCase()),
-			itemSortFn: null,
-		});
-		this._savingThrowForcedFilter = new MultiFilter({header: "Saving Throw Required", filters: [this._savingThrowForcedFilterBase, this._savingThrowForcedFilterLegendary, this._savingThrowForcedFilterSpells]});
 		this._senseFilter = new Filter({
 			header: "Senses",
 			displayFn: (it) => Parser.monSenseTagToFull(it).toTitleCase(),
@@ -210,12 +174,6 @@ class PageFilterBestiary extends PageFilterBase {
 			header: "Skills",
 			displayFn: (it) => it.toTitleCase(),
 			items: Object.keys(Parser.SKILL_TO_ATB_ABV),
-		});
-		this._saveFilter = new Filter({
-			header: "Saves",
-			displayFn: Parser.attAbvToFull,
-			items: [...Parser.ABIL_ABVS],
-			itemSortFn: null,
 		});
 		this._environmentFilter = new Filter({
 			header: "Environment",
@@ -260,17 +218,6 @@ class PageFilterBestiary extends PageFilterBase {
 		});
 		this._spellKnownFilter = new SearchableFilter({header: "Spells Known", displayFn: (it) => it.split("|")[0].toTitleCase(), itemSortFn: SortUtil.ascSortLower});
 		this._equipmentFilter = new SearchableFilter({header: "Equipment", displayFn: (it) => it.split("|")[0].toTitleCase(), itemSortFn: SortUtil.ascSortLower});
-		this._dragonAgeFilter = new Filter({
-			header: "Dragon Age",
-			items: [...PageFilterBestiary._DRAGON_AGES],
-			itemSortFn: PageFilterBestiary._ascSortDragonAgeFilter,
-			displayFn: (it) => it.toTitleCase(),
-		});
-		this._dragonCastingColor = new Filter({
-			header: "Dragon Casting Color",
-			items: [...Renderer.monster.dragonCasterVariant.getAvailableColors()],
-			displayFn: (it) => it.toTitleCase(),
-		});
 	}
 
 	static mutateForFilters (mon) {
@@ -289,8 +236,7 @@ class PageFilterBestiary extends PageFilterBase {
 		mon._fRes = mon.resist ? PageFilterBestiary.getAllImmRest(mon.resist, "resist") : [];
 		mon._fImm = mon.immune ? PageFilterBestiary.getAllImmRest(mon.immune, "immune") : [];
 		mon._fCondImm = mon.conditionImmune ? PageFilterBestiary.getAllImmRest(mon.conditionImmune, "conditionImmune") : [];
-		mon._fSave = mon.save ? Object.keys(mon.save) : [];
-		mon._fSkill = mon.skill ? Object.keys(mon.skill) : [];
+mon._fSkill = mon.skill ? Object.keys(mon.skill) : [];
 		mon._fSources = SourceFilter.getCompleteFilterSources(mon);
 		mon._fPassive = !isNaN(mon.passive) ? Number(mon.passive) : null;
 
@@ -498,11 +444,6 @@ class PageFilterBestiary extends PageFilterBase {
 		this._conditionsInflictedFilterBase.addItem(mon.conditionInflict);
 		this._conditionsInflictedFilterLegendary.addItem(mon.conditionInflictLegendary);
 		this._conditionsInflictedFilterSpells.addItem(mon.conditionInflictSpell);
-		this._savingThrowForcedFilterBase.addItem(mon.savingThrowForced);
-		this._savingThrowForcedFilterLegendary.addItem(mon.savingThrowForcedLegendary);
-		this._savingThrowForcedFilterSpells.addItem(mon.savingThrowForcedSpell);
-		this._dragonAgeFilter.addItem(mon.dragonAge);
-		this._dragonCastingColor.addItem(mon.dragonCastingColor);
 	}
 
 	async _pPopulateBoxOptions (opts) {
@@ -529,17 +470,13 @@ class PageFilterBestiary extends PageFilterBase {
 			this._sizeFilter,
 			this._speedFilter,
 			this._speedTypeFilter,
-			this._saveFilter,
 			this._skillFilter,
 			this._senseFilter,
 			this._passivePerceptionFilter,
 			this._languageFilter,
 			this._damageTypeFilter,
 			this._conditionsInflictedFilter,
-			this._savingThrowForcedFilter,
-			this._dragonAgeFilter,
-			this._dragonCastingColor,
-			this._defencesFilter,
+this._defencesFilter,
 			this._averageHpFilter,
 			this._abilityScoreFilter,
 			this._spellKnownFilter,
@@ -571,7 +508,6 @@ class PageFilterBestiary extends PageFilterBase {
 			m.size,
 			m._fSpeed,
 			m._fSpeedType,
-			m._fSave,
 			m._fSkill,
 			m.senseTags,
 			m._fPassive,
@@ -586,14 +522,7 @@ class PageFilterBestiary extends PageFilterBase {
 				m.conditionInflictLegendary,
 				m.conditionInflictSpell,
 			],
-			[
-				m.savingThrowForced,
-				m.savingThrowForcedLegendary,
-				m.savingThrowForcedSpell,
-			],
-			m.dragonAge,
-			m.dragonCastingColor,
-			[m._fArm, m._fWil, m._fRef, m._fFort],
+[m._fArm, m._fWil, m._fRef, m._fFort],
 			m._fHp,
 			[
 				m._fStr,
