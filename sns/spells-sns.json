@@ -6008,7 +6008,8 @@
         "poison",
         "thunder",
         "area",
-        "spell"
+        "spell",
+        "evil"
       ],
       "level": 1,
       "components": {
@@ -14880,8 +14881,8 @@
             "One creature"
           ]
         },
-        "You infect your target with an arcane disease. At any time after you cast this spell, as long as you are on the same plane of existence as the target, you can use an action to cause {@dice 7d10} necrotic harm to the target. If this damage would reduce the target to 0 hit points, you can choose to leave it with 1 hit point.",
-        "As part of dealing the damage, you may expend a 7th-level spell slot to sustain the disease. Otherwise, the spell ends. The spell ends when you die. Casting {@spell remove curse|sns}, {@spell greater restoration|sns}, or {@spell heal|sns} on the target allows the target to make a save, ending the disease on a success. Otherwise the disease can only be cured by a {@spell wish|sns} spell."
+        "You infect your target with an arcane disease. At any time after you cast this spell, as long as you are on the same plane of existence as the target, you can use an action to cause {@dice 7d10} necrotic harm to the target. If this harm would reduce the target to 0 hit points, you can choose to leave it with 1 hit point.",
+        "As part of causing the harm, you may expend a 7th-level spell slot to sustain the disease. Otherwise, the spell ends. The spell ends when you die. Casting {@spell remove curse|sns}, {@spell greater restoration|sns}, or {@spell heal|sns} on the target allows the target to make a save, ending the disease on a success. Otherwise the disease can only be cured by a {@spell wish|sns} spell."
       ],
       "name": "Inescapable Malady",
       "time": [
@@ -33079,7 +33080,7 @@
             "One creature"
           ]
         },
-        "You sacrifice some of your health to mend the target's injuries. You take {@dice 4d8} true damage and the target regains a number of hit points equal to triple the necrotic damage you take."
+        "You sacrifice some of your health to mend the target's injuries. You lose {@dice 4d8} hit points and the target regains a number of hit points equal to triple the amount you lost."
       ],
       "name": "Life Transference",
       "time": [
@@ -33093,7 +33094,7 @@
           "type": "entries",
           "name": "Cast at Higher Levels",
           "entries": [
-            "The damage increases by {@dice 1d8} for each slot level above 3rd."
+            "The hit points lost increases by {@dice 1d8} for each slot level above 3rd."
           ]
         }
       ],

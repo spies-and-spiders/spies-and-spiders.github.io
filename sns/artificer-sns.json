@@ -276,7 +276,7 @@
               "lesser restoration|sns"
             ],
             "9": [
-              "revivify|sns",
+              "life transference|sns",
               "venomous succor|sns"
             ],
             "13": [
@@ -285,7 +285,7 @@
             ],
             "17": [
               "greater restoration|sns",
-              "raise dead|sns"
+              "mass cure wounds|sns"
             ]
           }
         }
@@ -294,7 +294,6 @@
         "Stitcher|Artificer|sns|Stitcher|sns|1",
         "Corpse Storage|Artificer|sns|Stitcher|sns|3",
         "Medical Sutures|Artificer|sns|Stitcher|sns|5",
-        "Stitcher Major Effect #2|Artificer|sns|Stitcher|sns|5",
         "Advanced Grafting|Artificer|sns|Stitcher|sns|7",
         "Harness Death|Artificer|sns|Stitcher|sns|9"
       ]
@@ -1008,7 +1007,7 @@
         },
         {
           "type": "refSubclassFeature",
-          "subclassFeature": "Stitcher Major Effect #1|Artificer|sns|Stitcher|sns|1"
+          "subclassFeature": "Stitcher Major Effects|Artificer|sns|Stitcher|sns|1"
         }
       ]
     },
@@ -1045,7 +1044,7 @@
             ],
             [
               "9th",
-              "{@spell speak with dead|sns}, {@spell venomous succor|sns}"
+              "{@spell life transference|sns}, {@spell venomous succor|sns}"
             ],
             [
               "13th",
@@ -1053,7 +1052,7 @@
             ],
             [
               "17th",
-              "{@spell greater restoration|sns}, {@spell contagion|sns}"
+              "{@spell greater restoration|sns}, {@spell mass cure wounds|sns}"
             ]
           ]
         }
@@ -1070,7 +1069,7 @@
       "header": 1,
       "entries": [
         "Also at tier 1 you learn the secrets of giving life to dead flesh and become able to create a monstrous minion.",
-        "You can create this monstrous minion by spending 8 hours of uninterrupted work on a humanoid corpse that has been dead no more than 24 hours. This monstrous minion is unique and its exact appearance is up to you. It is a minion and requires your concentration to maintain, though remains maintained while you are {@condition unconscious|sns} as well. Your monstrous minion makes death saving throws upon reaching 0 hit points.",
+        "You can create this monstrous minion by spending a long rest working on a humanoid corpse that has been dead no more than 24 hours, or the corpse of a previously-killed monstrous minion. This monstrous minion is unique and its exact appearance is up to you. It is a minion and requires your concentration to maintain, but you cannot lose this concentration against your will. Your monstrous minion makes death saves and tracks wounds upon reaching 0 hit points.",
         "Your monstrous minion is a {@creature zombie|sns} with the following improvements.",
         {
           "type": "list",
@@ -1087,21 +1086,21 @@
           "type": "entries",
           "name": "Exploding Bile",
           "entries": [
-            "Your monstrous minion does not make death saving throws, and the first time it would make a death saving throw it instead explodes and is destroyed. The minion makes a reflex attack against creatures within 10 feet of it when it explodes, dealing {@dice 3d4} poison damage. This damage increases to {@dice 6d4} when you reach 11th level."
+            "Your monstrous minion does not make death saves or track wounds, and the first time it would make a death save it instead explodes and is destroyed. The minion makes a reflex attack against creatures within 10 feet of it when it explodes, dealing {@dice 3d4} poison damage. This damage increases to {@dice 6d4} when you reach 11th level."
           ]
         },
         {
           "type": "entries",
           "name": "Extra Arms",
           "entries": [
-            "Your monstrous minion gains a climb speed of 20 feet. In addition, creatures attempting to escape from a grapple by your monstrous minion have a penalty equal to your Intelligence modifier on the save. You must have access to at least one humanoid corpse that has been dead no more than 24 hours to graft this modification."
+            "Your monstrous minion gains a climb speed of 15 feet. In addition, creatures attempting to escape from a grapple by your monstrous minion have a penalty equal to your proficiency bonus on the save."
           ]
         },
         {
           "type": "entries",
           "name": "Extra Legs",
           "entries": [
-            "Your monstrous minion's Speed increases by 15 feet. You must have access to at least one additional humanoid corpse that has been dead no more than 24 hours to graaft this modification."
+            "Your monstrous minion's Speed increases by 10 feet."
           ]
         },
         {
@@ -1129,8 +1128,7 @@
           "type": "entries",
           "name": "Infectious Bite",
           "entries": [
-            "Your monstrous minion's Bite attack causes an additional {@dice 1d4} ongoing necrotic harm on a hit that persists, but does not stack, until the target regains hit points or is medically administered to with a {@dc 15} Medicine check. This harm increases to {@dice 2d4} when you reach 11th level.",
-            "If the target is a beast, dragon, giant, humanoid, or monstrosity and it dies while suffering from this effect, it rises as a zombie after 1 minute, gaining the Zombie Template (https://a5e.tools/rules/zombie-template). Zombies created in this way are hostile to all non-undead and are not under your control."
+            "Your monstrous minion's Bite attack causes an additional {@dice 1d4} ongoing necrotic harm on a hit that persists, but does not stack, until the target regains hit points or is medically administered to with a {@dc 15} Medicine check. This harm increases to {@dice 2d4} when you reach 11th level."
           ]
         },
         {
@@ -1157,7 +1155,7 @@
       ]
     },
     {
-      "name": "Stitcher Major Effect #1",
+      "name": "Stitcher Major Effects",
       "source": "sns",
       "className": "Artificer",
       "classSource": "sns",
@@ -1166,12 +1164,18 @@
       "level": 1,
       "header": 1,
       "entries": [
-        "If the triggering attack dealt damage, your monstrous minion's next attack before your next turn deals additional damage of your attack's base type equal to your level.",
-        "Otherwise, your monstrous minion gains +1 to all defences for 1 round."
+        "From tier 1, Stitcher Artificers have access to the following major effect options:",
+        {
+          "type": "list",
+          "items": [
+            "If the triggering attack dealt damage, your monstrous minion's next attack before your next turn deals additional damage of your attack's base type equal to your level. Otherwise, your monstrous minion gains +1 to all defences for 1 round.",
+            "Instead of you gaining this major effect option, your Monstrous Minion does instead: Your temporary hit points increase by an amount equal to double your master's level."
+          ]
+        }
       ]
     },
     {
-      "name": "Corpse Storage",
+      "name": "Exuding Gas",
       "source": "sns",
       "className": "Artificer",
       "classSource": "sns",
@@ -1180,12 +1184,11 @@
       "level": 3,
       "header": 2,
       "entries": [
-        "At tier 2, you gain access to a pocket dimension where you can only store the corpses of creatures that died within the past minute. You can do so as an action while adjacent to such a corpse. The next time you take a long rest, any corpses in this dimension are expelled back into the material location where they first entered the pocket dimension.",
-        "You can remove a corpse from this pocket dimension as a free action once on each of your turns, manifesting it in an unoccupied space of your choice within 60 feet of you."
+        "Starting at tier 2, you can have your monstrous minion release foul gases from its body that can be detonated by your {@spell corpse explosion|sns} spell. This allows you to target your monstrous minion with that spell as if it were a corpse, but when you cast the spell in this way it cannot {@condition poisoned|sns|poison} creatures."
       ]
     },
     {
-      "name": "Medical Sutures",
+      "name": "Dedicated Supplies",
       "source": "sns",
       "className": "Artificer",
       "classSource": "sns",
@@ -1194,30 +1197,7 @@
       "level": 5,
       "header": 2,
       "entries": [
-        "Starting at tier 3 you've turned your magiscience expertise towards first aid. You can create the following additional items using Tactical Chemistry:",
-        {
-          "type": "list",
-          "items": [
-            "bandage (used as a bonus action to end all ongoing harm on a creature)",
-            "healing satchel (used when you attempt to stabilise a dying creature with Medicine to set the minimum result of your check to 20)"
-          ]
-        },
-        "In addition, you can reattach a severed limb or body part. The limb or body part must be relatively intact and the injury must be no more than 8 hours old. The reattaching process takes 1 hour and requires a DC 14 Magiscience check. On a success the limb or body part is attached and functional with no further complications. On a failure the limb cannot be saved.",
-        "Alternatively, you can replace a lost limb or body part with a donor part. This donor part must be analogous to a missing part (an arm for an arm, a leg for a leg), and it must be from a humanoid creature of the same size. The reattaching process requires a DC 20 Magiscience check when performed in this way."
-      ]
-    },
-    {
-      "name": "Stitcher Major Effect #2",
-      "source": "sns",
-      "className": "Artificer",
-      "classSource": "sns",
-      "subclassShortName": "Stitcher",
-      "subclassSource": "sns",
-      "level": 5,
-      "header": 2,
-      "entries": [
-        "Instead of you gaining this major effect option, your Monstrous Minion does instead.",
-        "Your temporary hit points increase by an amount equal to double your master's level."
+        "At tier 3, you devise special spell inventions that provide dedicated support for your monstrous minion. You gain an additional spell invention each long rest, but the spells cast from it only target and affect your monstrous minion. Additionally, spells cast from this invention with a range of Self affect your monstrous minion instead of you, provided you are adjacent to the minion when the spell is cast."
       ]
     },
     {
@@ -1235,7 +1215,7 @@
           "type": "entries",
           "name": "Dragon Gullet",
           "entries": [
-            "You must have access to the corpse of a dragon that has been dead no more than 24 hours to graft this modification. Your monstrous minion gains the following breath weapon attack.",
+            "Your monstrous minion gains the following breath weapon attack.",
             {
               "type": "list",
               "items": [
@@ -1243,7 +1223,7 @@
                   "type": "item",
                   "name": "Stolen Breath (Recharge 5-6)",
                   "entries": [
-                    "The monster exhales the putrid and infected gullet of a fallen dragon in a 30-foot cone. It makes a reflex attack against each creature in the area, dealing {@dice 2d10} necrotic damage and {@dice 2d10} damage of the type the dragon breathed in life."
+                    "The monster exhales the putrid and infected gullet of a fallen dragon in a 30-foot cone. It makes a reflex attack against each creature in the area, dealing {@dice 1d10} necrotic damage and {@dice 2d10} damage of the type the dragon breathed in life."
                   ]
                 }
               ]
@@ -1254,28 +1234,28 @@
           "type": "entries",
           "name": "Giant Muscles",
           "entries": [
-            "You must have access to the corpse of a giant that has been dead no more than 24 hours to graft this modification. Your monstrous minion's Strength increases by 6. Note that its weapon attacks are governed by Strength."
+            "Your monstrous minion's Strength increases by 4. Note that its weapon attacks are governed by Strength."
           ]
         },
         {
           "type": "entries",
           "name": "Grim Duplicate",
           "entries": [
-            "You must have access to the corpse of a humanoid that has been dead no more than 24 hours to graft this modification. Your monstrous minion has the face and features of the humanoid used to make this modification. When you graft this modification, make a Magiscience check. Creatures must make a Perception check with a DC equal to the result of your check to visually determine that your minion is not the humanoid used to create it, realising it is a construct on a substantial success."
+            "Your monstrous minion has the face and features of the humanoid used to make this modification. When you graft this modification, make a Magiscience check. Creatures must make a Perception check with a DC equal to the result of your check to visually determine that your minion is not the humanoid used to create it, realising it is a construct on a substantial success."
           ]
         },
         {
           "type": "entries",
           "name": "Monstrous Part",
           "entries": [
-            "You must have access to the corpse of a monstrosity with a CR no greater than half your artificer level that has been dead no more than 24 hours to graft this modification. Your monstrous minion gains a trait or attack unique to that monstrosity, such as the barbed tail (and tail attack) of a manticore or the head (and gaze attack) of a yeti. The parts of a monstrosity that can grant an attack or trait are at the DM's discretion."
+            "Your monstrous minion gains a barbed tail that it can use to fling spikes at enemies as an action. This is a ranged weapon armour attack that targets a creature within 100/200 ft., dealing {@damage 1d4 + 3} piercing damage."
           ]
         },
         {
           "type": "entries",
-          "name": "Risen Beast",
+          "name": "Bestial Instincts",
           "entries": [
-            "You must have access to the corpse of a beast with a CR of 1 or less that has been dead no more than 24 hours to graft this modification. Your monstrous minion uses the statistic of the beast with the Zombie Template (https://a5e.tools/rules/zombie-template), gaining the other improvements found in the Monster Minion feature as normal."
+            "Your monstrous minion has advantage on armour attack rolls against creatures adjacent to an ally of the minion that is not {@condition incapacitated|sns}."
           ]
         }
       ]
@@ -1290,7 +1270,7 @@
       "level": 9,
       "header": 2,
       "entries": [
-        "At tier 5 you've harnessed death - mostly. You gain the {@spell Inescapable Malady|sns} spell and when you prepare your artificer spells you can prepare it and create a spell invention for it (or forgo it for a modification) in addition to your normal number of prepared spells. This spell counts as a 5th-level artificer spell for you and you can cast it without the usual material components, but a creature you target with it cannot be targeted by this feature again."
+        "At tier 5 you've harnessed death - mostly. You gain the {@spell Inescapable Malady|sns} spell and when you prepare your artificer spells you can prepare it and create a spell invention for it (or forgo it for a modification) in addition to your normal number of prepared spells. This spell counts as a 5th-level artificer spell for you (including for extending its effects) and you can cast it without the usual material components, but a creature you target with it cannot be targeted by this feature again."
       ]
     },
     {
@@ -1981,7 +1961,7 @@
             {
               "type": "list",
               "items": [
-                "The zombie's Speed increases by 10 feet for 1 round."
+                "The zombie may immediately shift 5 feet."
               ]
             }
           ]
