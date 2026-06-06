@@ -1752,7 +1752,8 @@
         "arcane",
         "attack",
         "melee",
-        "spell"
+        "spell",
+        "prismatic"
       ],
       "level": 1,
       "components": {
@@ -19986,7 +19987,8 @@
       "subschools": [
         "arcane",
         "divine",
-        "protection"
+        "protection",
+        "prismatic"
       ],
       "level": 2,
       "components": {
@@ -27647,7 +27649,8 @@
         "poison",
         "thunder",
         "ranged",
-        "spell"
+        "spell",
+        "prismatic"
       ],
       "level": 1,
       "components": {
@@ -28839,7 +28842,8 @@
         "cold",
         "fire",
         "lightning",
-        "thunder"
+        "thunder",
+        "prismatic"
       ],
       "level": 3,
       "components": {
@@ -30380,7 +30384,8 @@
         "cold",
         "fire",
         "lightning",
-        "thunder"
+        "thunder",
+        "prismatic"
       ],
       "level": 1,
       "components": {
@@ -32027,7 +32032,8 @@
       ],
       "source": "sns",
       "subschools": [
-        "area"
+        "area",
+        "prismatic"
       ],
       "level": 2,
       "components": {
@@ -33573,7 +33579,8 @@
         "fire",
         "lightning",
         "thunder",
-        "ranged"
+        "ranged",
+        "prismatic"
       ],
       "level": 4,
       "components": {
@@ -35532,7 +35539,7 @@
             "One creature"
           ]
         },
-        "You create a field of silvery light that surrounds the target. The field sheds dim light out to 5 feet. While surrounded by the field, a creature gains the following benefits:",
+        "You create a field of multi-coloured light that surrounds the target. The field sheds dim light out to 5 feet. While surrounded by the field, a creature gains the following benefits:",
         {
           "type": "list",
           "items": [
@@ -35561,7 +35568,7 @@
         },
         "As a bonus action on subsequent turns, you can move the field to another creature within 60 feet of the field."
       ],
-      "name": "Platinum Shield",
+      "name": "Prismatic Shield",
       "time": [
         {
           "number": 1,
@@ -35581,7 +35588,8 @@
       ],
       "source": "sns",
       "subschools": [
-        "protection"
+        "protection",
+        "prismatic"
       ],
       "level": 6,
       "components": {
@@ -36006,7 +36014,8 @@
       ],
       "source": "sns",
       "subschools": [
-        "protection"
+        "protection",
+        "prismatic"
       ],
       "level": 6,
       "components": {
