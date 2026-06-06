@@ -1043,7 +1043,7 @@ export class CreatureBuilder extends BuilderBase {
 	}
 
 	__$getAcInput (cb) {
-		const [$row, $rowInner] = BuilderUi.getLabelledRowTuple("Armor Class", {isMarked: true});
+		const [$row, $rowInner] = BuilderUi.getLabelledRowTuple("Armour Class", {isMarked: true});
 
 		const doUpdateState = () => {
 			this._state.ac = acRows.map($row => $row.getAc());
@@ -1056,7 +1056,7 @@ export class CreatureBuilder extends BuilderBase {
 		this._state.ac.forEach(ac => CreatureBuilder.__$getAcInput__getAcRow(ac, acRows, doUpdateState).$wrp.appendTo($wrpRows));
 
 		const $wrpBtnAdd = $(`<div></div>`).appendTo($rowInner);
-		$(`<button class="ve-btn ve-btn-xs ve-btn-default">Add Armor Class Source</button>`)
+		$(`<button class="ve-btn ve-btn-xs ve-btn-default">Add Armour Class Source</button>`)
 			.appendTo($wrpBtnAdd)
 			.click(() => {
 				CreatureBuilder.__$getAcInput__getAcRow(null, acRows, doUpdateState).$wrp.appendTo($wrpRows);
@@ -1109,8 +1109,8 @@ export class CreatureBuilder extends BuilderBase {
 		};
 
 		const $selMode = $(`<select class="form-control input-xs mkbru_mon__ac-split">
-				<option value="0">Unarmored</option>
-				<option value="1">Armor Class From...</option>
+				<option value="0">Unarmoured</option>
+				<option value="1">Armour Class From...</option>
 				<option value="2">Special</option>
 			</select>`).val(initialMode).change(() => {
 			switch ($selMode.val()) {
@@ -3567,8 +3567,8 @@ CreatureBuilder._ALIGNMENTS = [
 	["NX", "L", "G", "NY", "E"],
 ];
 CreatureBuilder._AC_COMMON = {
-	"Unarmored Defense": "unarmored defense",
-	"Natural Armor": "natural armor",
+	"Unarmoured Defense": "unarmoured defense",
+	"Natural Armour": "natural armour",
 };
 CreatureBuilder._LANGUAGE_BLOCKLIST = new Set(["CS", "X", "XX"]);
 CreatureBuilder._rowSortOrder = 0;

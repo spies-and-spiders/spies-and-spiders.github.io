@@ -1581,7 +1581,7 @@ RendererMarkdown.vehicle = class {
 
 			return [
 				`### Control: ${entry.name}`,
-				entriesMetaSection.entryArmorClass ? renderer.render(entriesMetaSection.entryArmorClass) : null,
+				entriesMetaSection.entryArmourClass ? renderer.render(entriesMetaSection.entryArmourClass) : null,
 				entriesMetaSection.entryHitPoints ? renderer.render(entriesMetaSection.entryHitPoints) : null,
 				RendererMarkdown.get().render({entries: entry.entries}),
 			]
@@ -1596,7 +1596,7 @@ RendererMarkdown.vehicle = class {
 
 			return [
 				`### ${entry.isControl ? `Control and ` : ""}Movement: ${entry.name}`,
-				entriesMetaSection.entryArmorClass ? renderer.render(entriesMetaSection.entryArmorClass) : null,
+				entriesMetaSection.entryArmourClass ? renderer.render(entriesMetaSection.entryArmourClass) : null,
 				entriesMetaSection.entryHitPoints ? renderer.render(entriesMetaSection.entryHitPoints) : null,
 				...(entry.locomotion || [])
 					.map(entry => RendererMarkdown.get().render(Renderer.vehicle.ship.getLocomotionEntries(entry))),
@@ -1614,7 +1614,7 @@ RendererMarkdown.vehicle = class {
 
 			return [
 				`### Weapons: ${entry.name}${entry.count ? ` (${entry.count})` : ""}`,
-				entriesMetaSection.entryArmorClass ? renderer.render(entriesMetaSection.entryArmorClass) : null,
+				entriesMetaSection.entryArmourClass ? renderer.render(entriesMetaSection.entryArmourClass) : null,
 				entriesMetaSection.entryHitPoints ? renderer.render(entriesMetaSection.entryHitPoints) : null,
 				RendererMarkdown.get().render({entries: entry.entries}),
 			]
@@ -1629,7 +1629,7 @@ RendererMarkdown.vehicle = class {
 
 			return [
 				`### ${entry.name}`,
-				entriesMetaSection.entryArmorClass ? renderer.render(entriesMetaSection.entryArmorClass) : null,
+				entriesMetaSection.entryArmourClass ? renderer.render(entriesMetaSection.entryArmourClass) : null,
 				entriesMetaSection.entryHitPoints ? renderer.render(entriesMetaSection.entryHitPoints) : null,
 				RendererMarkdown.get().render({entries: entry.entries}),
 			]
@@ -1660,7 +1660,7 @@ RendererMarkdown.vehicle = class {
 			...(entriesMetaShip.entriesOtherActions || [])
 				.map(entry => RendererMarkdown.vehicle.ship.getOtherSection_({entry})),
 			ent.hull ? "### Hull" : null,
-			entriesMetaSectionHull?.entryArmorClass ? renderer.render(entriesMetaSectionHull.entryArmorClass) : null,
+			entriesMetaSectionHull?.entryArmourClass ? renderer.render(entriesMetaSectionHull.entryArmourClass) : null,
 			entriesMetaSectionHull?.entryHitPoints ? renderer.render(entriesMetaSectionHull.entryHitPoints) : null,
 			...this._getLinesRendered_traits({ent, renderer}),
 			...(ent.control || [])
@@ -1688,7 +1688,7 @@ RendererMarkdown.vehicle = class {
 
 			return [
 				`### ${entriesMetaSectionWeapon.entryName}`,
-				entriesMetaSectionHpCost.entryArmorClass ? renderer.render(entriesMetaSectionHpCost.entryArmorClass) : null,
+				entriesMetaSectionHpCost.entryArmourClass ? renderer.render(entriesMetaSectionHpCost.entryArmourClass) : null,
 				entriesMetaSectionHpCost.entryHitPoints ? renderer.render(entriesMetaSectionHpCost.entryHitPoints) : null,
 				entriesMetaSectionHpCost.entryCost ? renderer.render(entriesMetaSectionHpCost.entryCost) : null,
 				RendererMarkdown.get().render({entries: entry.entries}),

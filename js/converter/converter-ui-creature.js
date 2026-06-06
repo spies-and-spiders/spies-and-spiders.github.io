@@ -51,7 +51,7 @@ export class CreatureConverterUi extends ConverterUiBase {
 CreatureConverterUi._SAMPLE_TEXT =
 	`Mammon
 Huge fiend (devil), lawful evil
-Armor Class 20 (natural armor)
+Armour Class 20 (natural armour)
 Hit Points 378 (28d12 + 196)
 Speed 50 ft.
 STR DEX CON INT WIS CHA
@@ -70,7 +70,7 @@ At will: charm person, detect magic, dispel magic, fabricate (Mammon can create 
 1/day: imprisonment (minimus containment only, inside gems), sunburst
 Spellcasting. Mammon is a 6th level spellcaster. His spellcasting ability is Intelligence (spell save DC 13; +5 to hit with spell attacks). He has the following wizard spells prepared:
 Cantrips (at will): fire bolt, light, mage hand, prestidigitation
-1st level (4 slots): mage armor, magic missile, shield
+1st level (4 slots): mage armour, magic missile, shield
 2nd level (3 slots): misty step, suggestion
 3rd level (3 slots): fly, lightning bolt
 Legendary Resistance (3/day). If Mammon fails a saving throw, he can choose to succeed instead.
@@ -91,7 +91,7 @@ CreatureConverterUi._SAMPLE_MARKDOWN =
 >## Lich
 >*Medium undead, any evil alignment*
 >___
->- **Armor Class** 17
+>- **Armour Class** 17
 >- **Hit Points** 135 (18d8 + 54)
 >- **Speed** 30 ft.
 >___

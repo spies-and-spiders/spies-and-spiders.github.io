@@ -54,7 +54,7 @@ export class TagJsons {
 							obj = SkillTag.tryRun(obj, {styleHint});
 							obj = SenseTag.tryRun(obj, {styleHint});
 							obj = SpellTag.tryRun(obj, {styleHint});
-							// items > actions, as "Hide Armor" can be mis-tagged as "Hide"
+							// items > actions, as "Hide Armour" can be mis-tagged as "Hide"
 							obj = ItemTag.tryRun(obj, {styleHint});
 							obj = ActionTag.tryRun(obj, {styleHint});
 							obj = TableTag.tryRun(obj, {styleHint});
@@ -330,9 +330,9 @@ export class ItemTag extends ConverterTaggerInitializable {
 	static _NON_EQUIPMENT_TYPES = new Set([
 		Parser.ITM_TYP_ABV__MELEE_WEAPON,
 		Parser.ITM_TYP_ABV__RANGED_WEAPON,
-		Parser.ITM_TYP_ABV__LIGHT_ARMOR,
-		Parser.ITM_TYP_ABV__MEDIUM_ARMOR,
-		Parser.ITM_TYP_ABV__HEAVY_ARMOR,
+		Parser.ITM_TYP_ABV__LIGHT_ARMOUR,
+		Parser.ITM_TYP_ABV__MEDIUM_ARMOUR,
+		Parser.ITM_TYP_ABV__HEAVY_ARMOUR,
 		Parser.ITM_TYP_ABV__SHIELD,
 	]);
 

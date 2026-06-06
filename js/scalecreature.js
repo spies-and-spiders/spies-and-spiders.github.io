@@ -747,7 +747,7 @@ globalThis.ScaleCreature = {
 		this._adjustSpellcasting(mon, crInNumber, toCr);
 
 		// adjust AC after DPR/etc, as DPR takes priority for adjusting DEX
-		this._armorClass.adjustAc(mon, crInNumber, toCr);
+		this._armourClass.adjustAc(mon, crInNumber, toCr);
 
 		// TODO update not-yet-scaled abilities
 
@@ -856,7 +856,7 @@ globalThis.ScaleCreature = {
 		});
 	},
 
-	_armorClass: {
+	_armourClass: {
 		_getEnchanted (item, baseMod) {
 			const out = [];
 			for (let i = 0; i < 3; ++i) {
@@ -873,12 +873,12 @@ globalThis.ScaleCreature = {
 		},
 
 		_getAllVariants (obj) {
-			return Object.keys(obj).map(armor => {
-				const mod = obj[armor];
+			return Object.keys(obj).map(armour => {
+				const mod = obj[armour];
 				return [{
-					tag: `${armor}|phb`,
+					tag: `${armour}|phb`,
 					mod,
-				}].concat(this._getEnchanted(armor, mod));
+				}].concat(this._getEnchanted(armour, mod));
 			}).reduce((a, b) => a.concat(b), []);
 		},
 
@@ -918,9 +918,9 @@ globalThis.ScaleCreature = {
 			name = name.trim().toLowerCase();
 			const toCheck = [this._HEAVY, this._MEDIUM, this._LIGHT, {shield: 2}];
 			for (const tc of toCheck) {
-				const armorKey = Object.keys(tc).find(k => name === k);
-				if (armorKey) {
-					const acBonus = tc[armorKey];
+				const armourKey = Object.keys(tc).find(k => name === k);
+				if (armourKey) {
+					const acBonus = tc[armourKey];
 					if (acBonus > 10) return acBonus - 10;
 				}
 			}
@@ -939,22 +939,22 @@ globalThis.ScaleCreature = {
 		_HEAVY: {
 			"ring mail": 14,
 			"chain mail": 16,
-			"splint armor": 17,
-			"plate armor": 18,
+			"splint armour": 17,
+			"plate armour": 18,
 		},
 		_MEDIUM: {
-			"hide armor": 12,
+			"hide armour": 12,
 			"chain shirt": 13,
 			"scale mail": 14,
 			"breastplate": 14,
-			"half plate armor": 15,
+			"half plate armour": 15,
 		},
 		_LIGHT: {
-			"padded armor": 11,
-			"leather armor": 11,
-			"studded leather armor": 12,
+			"padded armour": 11,
+			"leather armour": 11,
+			"studded leather armour": 12,
 		},
-		_MAGE_ARMOR: "@spell mage armor",
+		_MAGE_ARMOUR: "@spell mage armour",
 
 		_ALL_SHIELD_VARIANTS: null,
 		_ALL_HEAVY_VARIANTS: null,
@@ -992,10 +992,10 @@ globalThis.ScaleCreature = {
 
 			if (originalDexMod === currentDexMod) return;
 
-			// Handle mage armor, light armor, and medium armor.
-			//   Note that natural armor and "unarmored" also include DEX, but these are handled in the main loop.
+			// Handle mage armour, light armour, and medium armour.
+			//   Note that natural armour and "unarmoured" also include DEX, but these are handled in the main loop.
 
-			if (this._isMageArmor(acItem)) {
+			if (this._isMageArmour(acItem)) {
 				acItem._acBeforePreAdjustment = acItem.ac;
 				acItem.ac = 13 + Parser.getAbilityModNumber(mon.dex);
 				return;
@@ -1075,7 +1075,7 @@ globalThis.ScaleCreature = {
 				const enchToGive = Math.min(3, acItem._enchTotal);
 				acItem._enchTotal -= enchToGive;
 				acItem.ac += enchToGive + 1;
-				(acItem.from = acItem.from || []).unshift(`{@item +${enchToGive} leather armor}`);
+				(acItem.from = acItem.from || []).unshift(`{@item +${enchToGive} leather armour}`);
 
 				if (acItem._enchTotal > 0) acItem.ac += acItem._enchTotal; // as a fallback, add any remaining enchantment AC to the total
 			}
@@ -1096,8 +1096,8 @@ globalThis.ScaleCreature = {
 			return out;
 		},
 
-		_isMageArmor (acItem) {
-			return acItem.condition && acItem.condition.toLowerCase().includes(this._MAGE_ARMOR);
+		_isMageArmour (acItem) {
+			return acItem.condition && acItem.condition.toLowerCase().includes(this._MAGE_ARMOUR);
 		},
 
 		_getAdjustedAcItem_getAdjusted (mon, crIn, crOut, acItem, iter) {
@@ -1157,9 +1157,9 @@ globalThis.ScaleCreature = {
 				});
 			}
 
-			// for armored creatures, try to calculate the expected AC, and use this as a starting point for scaling
+			// for armoured creatures, try to calculate the expected AC, and use this as a starting point for scaling
 			const expectedBaseScore = mon.dexOld != null
-				? (getBaseGearBonus() + Math.min(Parser.getAbilityModNumber(mon.dexOld), getDexCap()) + (this._isMageArmor(acItem) ? 13 : 10))
+				? (getBaseGearBonus() + Math.min(Parser.getAbilityModNumber(mon.dexOld), getDexCap()) + (this._isMageArmour(acItem) ? 13 : 10))
 				: null;
 
 			let canAdjustDex = mon.dexOld == null;
@@ -1195,15 +1195,15 @@ globalThis.ScaleCreature = {
 				return true;
 			};
 
-			const handleNoArmor = () => {
+			const handleNoArmour = () => {
 				if (dexMismatch > 0) {
 					if (canAdjustDex) {
 						adjustDex();
 						return target;
 					} else {
-						return { // fill the gap with natural armor
+						return { // fill the gap with natural armour
 							ac: target,
-							from: ["natural armor"],
+							from: ["natural armour"],
 						};
 					}
 				} else if (dexMismatch < 0 && canAdjustDex) { // increase/reduce DEX to move the AC up/down
@@ -1214,16 +1214,16 @@ globalThis.ScaleCreature = {
 
 			// "FROM" ADJUSTERS ========================================================================================
 
-			const handleMageArmor = () => {
-				// if there's mage armor, try adjusting dex
-				if (this._isMageArmor(acItem)) {
+			const handleMageArmour = () => {
+				// if there's mage armour, try adjusting dex
+				if (this._isMageArmour(acItem)) {
 					if (canAdjustDex) {
 						acItem.ac = target;
 						delete acItem._acBeforePreAdjustment;
 						return adjustDex();
 					} else {
 						// We have already set the AC in the pre-adjustment step.
-						//   Mage armor means there was no other armor, so stop here.
+						//   Mage armour means there was no other armour, so stop here.
 						return true;
 					}
 				}
@@ -1290,9 +1290,9 @@ globalThis.ScaleCreature = {
 				return false;
 			};
 
-			// FIXME this can result in armor with strength requirements greater than the user can manage
-			const handleHeavyArmor = () => {
-				// if there's heavy armor, try adjusting it
+			// FIXME this can result in armour with strength requirements greater than the user can manage
+			const handleHeavyArmour = () => {
+				// if there's heavy armour, try adjusting it
 				const PL3_PLATE = 21;
 
 				const heavyTags = this._ALL_HEAVY_VARIANTS.map(it => it.tag);
@@ -1306,12 +1306,12 @@ globalThis.ScaleCreature = {
 				};
 
 				const getHeavy = (ac) => {
-					const nonEnch = Object.keys(this._HEAVY).find(armor => this._HEAVY[armor] === ac);
+					const nonEnch = Object.keys(this._HEAVY).find(armour => this._HEAVY[armour] === ac);
 					if (nonEnch) return `${nonEnch}|phb`;
 					switch (ac) {
-						case 19: return [`+1 plate armor|dmg`, `+2 splint armor|dmg`][RollerUtil.roll(1, ScaleCreature._rng)];
-						case 20: return `+2 plate armor|dmg`;
-						case PL3_PLATE: return `+3 plate armor|dmg`;
+						case 19: return [`+1 plate armour|dmg`, `+2 splint armour|dmg`][RollerUtil.roll(1, ScaleCreature._rng)];
+						case 20: return `+2 plate armour|dmg`;
+						case PL3_PLATE: return `+3 plate armour|dmg`;
 					}
 				};
 
@@ -1355,14 +1355,14 @@ globalThis.ScaleCreature = {
 								applyBeyondHeavyShieldUpgrade({idealShieldAc}); // try to upgrade the shield
 								return true;
 							} if (isHeavy(targetNoShield)) {
-								const bumpOne = targetNoShield === 15; // there's no heavy armor with 15 AC
+								const bumpOne = targetNoShield === 15; // there's no heavy armour with 15 AC
 								if (bumpOne) targetNoShield++;
 								acItem.from[i]._ = this._replaceTag(acItem.from[i]._, heavyTag, getHeavy(targetNoShield));
 								acItem.ac = target + (bumpOne ? 1 : 0);
 								delete acItem._acBeforePreAdjustment;
 								return true;
 							} else if (this._canDropShield(mon) && isHeavy(target)) {
-								const targetWithBump = target + (target === 15 ? 1 : 0); // there's no heavy armor with 15 AC
+								const targetWithBump = target + (target === 15 ? 1 : 0); // there's no heavy armour with 15 AC
 								acItem.from[i]._ = this._replaceTag(acItem.from[i]._, heavyTag, getHeavy(targetWithBump));
 								acItem.ac = targetWithBump;
 								delete acItem._acBeforePreAdjustment;
@@ -1374,7 +1374,7 @@ globalThis.ScaleCreature = {
 							} else { // drop to medium
 								const [tagBase, tagMod] = this._getAcBaseAndMod(this._LIGHT, heavyTag);
 								const tagAc = tagBase + tagMod;
-								acItem.from[i]._ = this._replaceTag(acItem.from[i]._, heavyTag, `half plate armor|phb`);
+								acItem.from[i]._ = this._replaceTag(acItem.from[i]._, heavyTag, `half plate armour|phb`);
 								acItem.ac = (acItem.ac - tagAc) + 15 + Math.min(2, Parser.getAbilityModNumber(mon.dex));
 								delete acItem._acBeforePreAdjustment;
 								return false;
@@ -1385,8 +1385,8 @@ globalThis.ScaleCreature = {
 				return false;
 			};
 
-			const handleMediumArmor = () => {
-				// if there's medium armor, try adjusting dex, then try adjusting it
+			const handleMediumArmour = () => {
+				// if there's medium armour, try adjusting dex, then try adjusting it
 				const mediumTags = this._ALL_MEDIUM_VARIANTS.map(it => it.tag);
 
 				const isMedium = (ac, asPos) => {
@@ -1396,17 +1396,17 @@ globalThis.ScaleCreature = {
 					return ac >= min && ac <= max;
 				};
 
-				const getMedium = (ac, curArmor) => {
+				const getMedium = (ac, curArmour) => {
 					const getByBase = (base) => {
 						switch (base) {
 							case 14:
 								return [`scale mail|phb`, `breastplate|phb`][RollerUtil.roll(1, ScaleCreature._rng)];
 							case 16:
-								return [`+1 half plate armor|dmg`, `+2 breastplate|dmg`, `+2 scale mail|dmg`][RollerUtil.roll(2, ScaleCreature._rng)];
+								return [`+1 half plate armour|dmg`, `+2 breastplate|dmg`, `+2 scale mail|dmg`][RollerUtil.roll(2, ScaleCreature._rng)];
 							case 17:
-								return `+2 half plate armor|dmg`;
+								return `+2 half plate armour|dmg`;
 							case 18:
-								return `+3 half plate armor|dmg`;
+								return `+3 half plate armour|dmg`;
 							default: {
 								const nonEnch = Object.keys(this._MEDIUM).find(it => this._MEDIUM[it] === base);
 								return `${nonEnch}|phb`;
@@ -1415,21 +1415,21 @@ globalThis.ScaleCreature = {
 					};
 
 					if (canAdjustDex) {
-						let fromArmor = curArmor.ac;
-						let maxFromArmor = fromArmor + 2;
-						let minFromArmor = fromArmor - 5;
+						let fromArmour = curArmour.ac;
+						let maxFromArmour = fromArmour + 2;
+						let minFromArmour = fromArmour - 5;
 
 						const withinDexRange = () => {
-							return ac >= minFromArmor && ac <= maxFromArmor;
+							return ac >= minFromArmour && ac <= maxFromArmour;
 						};
 
 						const getTotalAc = () => {
-							return fromArmor + Math.min(2, Parser.getAbilityModNumber(mon.dex));
+							return fromArmour + Math.min(2, Parser.getAbilityModNumber(mon.dex));
 						};
 
 						let loops = 0;
 						while (1) {
-							if (loops > 1000) throw new Error(`Failed to find valid light armor!`);
+							if (loops > 1000) throw new Error(`Failed to find valid light armour!`);
 
 							if (withinDexRange()) {
 								canAdjustDex = false;
@@ -1438,18 +1438,18 @@ globalThis.ScaleCreature = {
 								if (ac > getTotalAc()) mon.dex += 2;
 								else mon.dex -= 2;
 							} else {
-								if (ac < minFromArmor) fromArmor -= 1;
-								else fromArmor += 1;
-								if (fromArmor < 12 || fromArmor > 18) throw Error("Should never occur!"); // sanity check
-								maxFromArmor = fromArmor + 2;
-								minFromArmor = fromArmor - 5;
+								if (ac < minFromArmour) fromArmour -= 1;
+								else fromArmour += 1;
+								if (fromArmour < 12 || fromArmour > 18) throw Error("Should never occur!"); // sanity check
+								maxFromArmour = fromArmour + 2;
+								minFromArmour = fromArmour - 5;
 							}
 
 							if (getTotalAc() === ac) break;
 							loops++;
 						}
 
-						return getByBase(fromArmor);
+						return getByBase(fromArmour);
 					} else {
 						const dexOffset = Math.min(Parser.getAbilityModNumber(mon.dex), 2);
 						return getByBase(ac - dexOffset);
@@ -1474,7 +1474,7 @@ globalThis.ScaleCreature = {
 								this._dropShield(acItem);
 								return true;
 							} else if (canAdjustDex && isMedium(targetNoShield, true) === -1) { // drop to light
-								acItem.from[i]._ = this._replaceTag(acItem.from[i]._, mediumTag, `studded leather armor|phb`);
+								acItem.from[i]._ = this._replaceTag(acItem.from[i]._, mediumTag, `studded leather armour|phb`);
 								acItem.ac = (acItem.ac - tagAc - Math.min(2, Parser.getAbilityModNumber(mon.dex))) + 12 + Parser.getAbilityModNumber(mon.dex);
 								delete acItem._acBeforePreAdjustment;
 								return false;
@@ -1491,8 +1491,8 @@ globalThis.ScaleCreature = {
 				return false;
 			};
 
-			const handleLightArmor = () => {
-				// if there's light armor, try adjusting dex, then try adjusting it
+			const handleLightArmour = () => {
+				// if there's light armour, try adjusting dex, then try adjusting it
 				const lightTags = this._ALL_LIGHT_VARIANTS.map(it => it.tag);
 
 				const isLight = (ac, asPos) => {
@@ -1502,37 +1502,37 @@ globalThis.ScaleCreature = {
 					return ac >= min && ac <= max;
 				};
 
-				const getLight = (ac, curArmor) => {
+				const getLight = (ac, curArmour) => {
 					const getByBase = (base) => {
 						switch (base) {
 							case 11:
-								return [`padded armor|phb`, `leather armor|phb`][RollerUtil.roll(1, ScaleCreature._rng)];
+								return [`padded armour|phb`, `leather armour|phb`][RollerUtil.roll(1, ScaleCreature._rng)];
 							case 12:
-								return `studded leather armor|phb`;
+								return `studded leather armour|phb`;
 							case 13:
-								return [`+1 padded armor|dmg`, `+1 leather armor|dmg`][RollerUtil.roll(1, ScaleCreature._rng)];
+								return [`+1 padded armour|dmg`, `+1 leather armour|dmg`][RollerUtil.roll(1, ScaleCreature._rng)];
 							case 14:
-								return [`+2 padded armor|dmg`, `+2 leather armor|dmg`, `+1 studded leather armor|dmg`][RollerUtil.roll(2, ScaleCreature._rng)];
+								return [`+2 padded armour|dmg`, `+2 leather armour|dmg`, `+1 studded leather armour|dmg`][RollerUtil.roll(2, ScaleCreature._rng)];
 							case 15:
-								return `+2 studded leather armor|dmg`;
+								return `+2 studded leather armour|dmg`;
 						}
 					};
 
 					if (canAdjustDex) {
-						let fromArmor = curArmor.ac;
-						let minFromArmor = fromArmor - 5;
+						let fromArmour = curArmour.ac;
+						let minFromArmour = fromArmour - 5;
 
 						const withinDexRange = () => {
-							return ac >= minFromArmor;
+							return ac >= minFromArmour;
 						};
 
 						const getTotalAc = () => {
-							return fromArmor + Parser.getAbilityModNumber(mon.dex);
+							return fromArmour + Parser.getAbilityModNumber(mon.dex);
 						};
 
 						let loops = 0;
 						while (1) {
-							if (loops > 1000) throw new Error(`Failed to find valid light armor!`);
+							if (loops > 1000) throw new Error(`Failed to find valid light armour!`);
 
 							if (withinDexRange()) {
 								canAdjustDex = false;
@@ -1541,17 +1541,17 @@ globalThis.ScaleCreature = {
 								if (ac > getTotalAc()) mon.dex += 2;
 								else mon.dex -= 2;
 							} else {
-								if (ac < minFromArmor) fromArmor -= 1;
-								else fromArmor += 1;
-								if (fromArmor < 11 || fromArmor > 15) throw Error("Should never occur!"); // sanity check
-								minFromArmor = fromArmor - 5;
+								if (ac < minFromArmour) fromArmour -= 1;
+								else fromArmour += 1;
+								if (fromArmour < 11 || fromArmour > 15) throw Error("Should never occur!"); // sanity check
+								minFromArmour = fromArmour - 5;
 							}
 
 							if (getTotalAc() === ac) break;
 							loops++;
 						}
 
-						return getByBase(fromArmor);
+						return getByBase(fromArmour);
 					} else {
 						const dexOffset = Parser.getAbilityModNumber(mon.dex);
 						return getByBase(ac - dexOffset);
@@ -1575,9 +1575,9 @@ globalThis.ScaleCreature = {
 								delete acItem._acBeforePreAdjustment;
 								this._dropShield(acItem);
 								return true;
-							} else if (!canAdjustDex && isLight(targetNoShield, true) === -1) { // drop armor
+							} else if (!canAdjustDex && isLight(targetNoShield, true) === -1) { // drop armour
 								if (acItem.from.length === 1) { // revert to pure numerical
-									acItem._droppedArmor = true;
+									acItem._droppedArmour = true;
 									return -1;
 								} else { // revert to base 10
 									acItem.from.splice(i, 1);
@@ -1598,16 +1598,16 @@ globalThis.ScaleCreature = {
 				return false;
 			};
 
-			const handleNaturalArmor = () => {
-				// if there's natural armor, try adjusting dex, then try adjusting it
+			const handleNaturalArmour = () => {
+				// if there's natural armour, try adjusting dex, then try adjusting it
 
-				if (acItem.from && acItem.from.map(it => it._).includes("natural armor")) {
+				if (acItem.from && acItem.from.map(it => it._).includes("natural armour")) {
 					if (canAdjustDex) {
 						acItem.ac = target;
 						delete acItem._acBeforePreAdjustment;
 						return adjustDex();
 					} else {
-						acItem.ac = target; // natural armor of all modifiers is still just "natural armor," so this works
+						acItem.ac = target; // natural armour of all modifiers is still just "natural armour," so this works
 						delete acItem._acBeforePreAdjustment;
 						return true;
 					}
@@ -1615,14 +1615,14 @@ globalThis.ScaleCreature = {
 				return false;
 			};
 
-			if (acItem.ac && !acItem._droppedArmor) {
+			if (acItem.ac && !acItem._droppedArmour) {
 				const toRun = [
-					handleMageArmor,
+					handleMageArmour,
 					handleShield,
-					handleHeavyArmor,
-					handleMediumArmor,
-					handleLightArmor,
-					handleNaturalArmor,
+					handleHeavyArmour,
+					handleMediumArmour,
+					handleLightArmour,
+					handleNaturalArmour,
 				];
 				let lastVal = 0;
 				for (let i = 0; i < toRun.length; ++i) {
@@ -1638,7 +1638,7 @@ globalThis.ScaleCreature = {
 				}
 				return acItem;
 			} else {
-				return handleNoArmor();
+				return handleNoArmour();
 			}
 		},
 	},
@@ -2531,11 +2531,11 @@ globalThis.ScaleCreature = {
 globalThis.ScaleSummonedCreature = class {
 	static _mutSimpleSpecialAcItem (acItem) {
 		// Try to convert to "from" AC
-		const mSimpleNatural = /^(\d+) \(natural armor\)$/i.exec(acItem.special);
+		const mSimpleNatural = /^(\d+) \(natural armour\)$/i.exec(acItem.special);
 		if (mSimpleNatural) {
 			delete acItem.special;
 			acItem.ac = Number(mSimpleNatural[1]);
-			acItem.from = ["natural armor"];
+			acItem.from = ["natural armour"];
 		}
 	}
 
@@ -2591,7 +2591,7 @@ globalThis.ScaleSpellSummonedCreature = class extends globalThis.ScaleSummonedCr
 			if (!it.special) return it;
 
 			it.special = it.special
-				// "11 + the level of the spell (natural armor)"
+				// "11 + the level of the spell (natural armour)"
 				// "11 + the spell's level"
 				// "10 + 1 per spell level"
 				.replace(/(\d+)\s*\+\s*(?:the level of the spell|the spell's level|1 per spell level)/g, (...m) => Number(m[1]) + toSpellLevel)
@@ -2729,8 +2729,8 @@ globalThis.ScaleClassSummonedCreature = class extends globalThis.ScaleSummonedCr
 			if (!it.special) return it;
 
 			it.special = it.special
-				// "13 + PB (natural armor)"
-				// "13 plus PB (natural armor)"
+				// "13 + PB (natural armour)"
+				// "13 plus PB (natural armour)"
 				.replace(/(\d+)\s*(\+|plus)\s*PB\b/g, (...m) => Number(m[1]) + state.proficiencyBonus)
 			;
 

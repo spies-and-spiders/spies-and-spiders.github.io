@@ -18,7 +18,7 @@
         "ref": 2
       },
       "startingProficiencies": {
-        "armor": [
+        "armour": [
           "light",
           "medium",
           "{@item shield|sns|shields}"

@@ -121,7 +121,7 @@
         }
       ],
       "startingProficiencies": {
-        "armor": [
+        "armour": [
           "light"
         ],
         "weapons": [
@@ -1784,7 +1784,7 @@
       ]
     },
     {
-      "name": "Armor of Shadows",
+      "name": "Armour of Shadows",
       "source": "sns",
       "featureType": [
         "EI"
@@ -1826,7 +1826,7 @@
       ]
     },
     {
-      "name": "Cosmic Armory",
+      "name": "Cosmic Armoury",
       "source": "sns",
       "featureType": [
         "EI"

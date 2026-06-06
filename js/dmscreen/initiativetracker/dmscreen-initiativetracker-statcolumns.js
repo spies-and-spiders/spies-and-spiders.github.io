@@ -199,10 +199,10 @@ class InitiativeTrackerStatColumn_HpFormula extends _InitiativeTrackerStatColumn
 	}
 }
 
-class InitiativeTrackerStatColumn_ArmorClass extends _InitiativeTrackerStatColumnBase {
-	static get POPULATE_WITH () { return "armorClass"; }
+class InitiativeTrackerStatColumn_ArmourClass extends _InitiativeTrackerStatColumnBase {
+	static get POPULATE_WITH () { return "armourClass"; }
 	static GROUP = GROUP_BASE_STATS;
-	static NAME = "Armor Class";
+	static NAME = "Armour Class";
 	static ABV_DEFAULT = "AC";
 
 	_getInitialCellObj ({mon, fluff}) {
@@ -603,7 +603,7 @@ export class InitiativeTrackerStatColumnFactory {
 	static _initLookup () {
 		[
 			InitiativeTrackerStatColumn_HpFormula,
-			InitiativeTrackerStatColumn_ArmorClass,
+			InitiativeTrackerStatColumn_ArmourClass,
 			InitiativeTrackerStatColumn_PassivePerception,
 			InitiativeTrackerStatColumn_Speed,
 			InitiativeTrackerStatColumn_SpellDc,

@@ -3791,14 +3791,14 @@ Renderer.utils = class {
 			const parts = v.map(obj => {
 				return Object.entries(obj).map(([profType, prof]) => {
 					switch (profType) {
-						case "armor": {
+						case "armour": {
 							if (prof === "shield") {
 								if (isListMode) return styleHint === "classic" ? `Prof ${prof}` : `${prof.toTitleCase()} Trai.`;
 								return styleHint === "classic" ? `Proficiency with ${prof}s` : `${prof.toTitleCase()} Training`;
 							}
 
-							if (isListMode) return styleHint === "classic" ? `Prof ${Parser.armorFullToAbv(prof)} armor` : `${Parser.armorFullToAbv(prof).toTitleCase()} Armor Trai.`;
-							return styleHint === "classic" ? `Proficiency with ${prof} armor` : `${prof.toTitleCase()} Armor Training`;
+							if (isListMode) return styleHint === "classic" ? `Prof ${Parser.armourFullToAbv(prof)} armour` : `${Parser.armourFullToAbv(prof).toTitleCase()} Armour Trai.`;
+							return styleHint === "classic" ? `Proficiency with ${prof} armour` : `${prof.toTitleCase()} Armour Training`;
 						}
 						case "weapon": {
 							return isListMode ? `Prof ${Parser.weaponFullToAbv(prof)} weapon` : `Proficiency with a ${prof} weapon`;
@@ -6096,7 +6096,7 @@ class _RenderCompactClassesImplOne extends _RenderCompactClassesImplBase {
 			Renderer.class.getHtmlPtSkills(ent, {renderer, styleHint: this._style}),
 			Renderer.class.getHtmlPtWeaponProficiencies(ent, {renderer, styleHint: this._style}),
 			Renderer.class.getHtmlPtToolProficiencies(ent, {renderer, styleHint: this._style}),
-			Renderer.class.getHtmlPtArmorProficiencies(ent, {renderer, styleHint: this._style}),
+			Renderer.class.getHtmlPtArmourProficiencies(ent, {renderer, styleHint: this._style}),
 			Renderer.class.getHtmlPtStartingEquipment(ent, {renderer, styleHint: this._style}),
 		]
 			.filter(Boolean)
@@ -6202,17 +6202,17 @@ Renderer.class = class {
 	/* -------------------------------------------- */
 
 	/**
-	 * @param armorProfs
+	 * @param armourProfs
 	 * @param {"classic" | null} styleHint
 	 */
-	static getRenderedArmorProfs (armorProfs, {styleHint = null} = {}) {
+	static getRenderedArmourProfs (armourProfs, {styleHint = null} = {}) {
 		styleHint ||= VetoolsConfig.get("styleSwitcher", "style");
 
-		const [profsArmor, profsOther] = armorProfs
+		const [profsArmour, profsOther] = armourProfs
 			.segregate(it => ["light", "medium", "heavy"].includes(it));
 
-		const ptsArmor = profsArmor
-			.map((a, i, arr) => Renderer.get().render(`{@filter ${styleHint === "classic" ? a : a.toTitleCase()}${styleHint === "classic" || i === arr.length - 1 ? " armor" : ""}|items|type=${a} armor}`));
+		const ptsArmour = profsArmour
+			.map((a, i, arr) => Renderer.get().render(`{@filter ${styleHint === "classic" ? a : a.toTitleCase()}${styleHint === "classic" || i === arr.length - 1 ? " armour" : ""}|items|type=${a} armour}`));
 
 		const ptsOther = profsOther
 			.map(a => {
@@ -6226,14 +6226,14 @@ Renderer.class = class {
 
 		if (styleHint === "classic") {
 			return [
-				...ptsArmor,
+				...ptsArmour,
 				...ptsOther,
 			]
 				.join(", ");
 		}
 
 		return [
-			ptsArmor.joinConjunct(", ", " and "),
+			ptsArmour.joinConjunct(", ", " and "),
 			...ptsOther,
 		]
 			.joinConjunct(", ", " and ");
@@ -6343,12 +6343,12 @@ Renderer.class = class {
 		return `<div><b>Tool Proficiencies:</b> <span>${Renderer.class.getRenderedToolProfs(cls.startingProficiencies.tools, {styleHint})}</span></div>`;
 	}
 
-	static getHtmlPtArmorProficiencies (cls, {styleHint = null}) {
-		if (!cls.startingProficiencies?.armor) return "";
+	static getHtmlPtArmourProficiencies (cls, {styleHint = null}) {
+		if (!cls.startingProficiencies?.armour) return "";
 
 		styleHint ||= VetoolsConfig.get("styleSwitcher", "style");
 
-		return `<div><b>Armor Training:</b> <span>${Renderer.class.getRenderedArmorProfs(cls.startingProficiencies.armor, {styleHint})}</span></div>`;
+		return `<div><b>Armour Training:</b> <span>${Renderer.class.getRenderedArmourProfs(cls.startingProficiencies.armour, {styleHint})}</span></div>`;
 	}
 
 	static getHtmlPtStartingEquipment (cls, {renderer = null, styleHint = null}) {
@@ -8229,7 +8229,7 @@ Renderer.object = class {
 	static RENDERABLE_ENTRIES_PROP_ORDER__ATTRIBUTES = [
 		"entryCreatureCapacity",
 		"entryCargoCapacity",
-		"entryArmorClass",
+		"entryArmourClass",
 		"entryHitPoints",
 		"entrySpeed",
 		"entryAbilityScores",
@@ -8250,8 +8250,8 @@ Renderer.object = class {
 			entryCargoCapacity: ent.capCargo != null
 				? `{@b Cargo Capacity:} ${Renderer.vehicle.getShipCargoCapacity(ent)}`
 				: null,
-			entryArmorClass: ent.ac != null
-				? `{@b Armor Class:} ${ent.ac.special ?? ent.ac}`
+			entryArmourClass: ent.ac != null
+				? `{@b Armour Class:} ${ent.ac.special ?? ent.ac}`
 				: null,
 			entryHitPoints: ent.hp != null
 				? `{@b Hit Points:} ${ent.hp.special ?? ent.hp}`
@@ -10404,12 +10404,12 @@ Renderer.item = class {
 
 		if (item.mastery) damagePartsPre.push(`Mastery: ${item.mastery.map(it => renderer.render(`{@itemMastery ${it}}`)).join(", ")}`);
 
-		// armor
+		// armour
 		if (item.ac != null) {
-			const dexterityMax = (itemTypeAbv === Parser.ITM_TYP_ABV__MEDIUM_ARMOR && item.dexterityMax == null)
+			const dexterityMax = (itemTypeAbv === Parser.ITM_TYP_ABV__MEDIUM_ARMOUR && item.dexterityMax == null)
 				? 2
 				: item.dexterityMax;
-			const isAddDex = item.dexterityMax != null || ![Parser.ITM_TYP_ABV__HEAVY_ARMOR, Parser.ITM_TYP_ABV__SHIELD].includes(itemTypeAbv);
+			const isAddDex = item.dexterityMax != null || ![Parser.ITM_TYP_ABV__HEAVY_ARMOUR, Parser.ITM_TYP_ABV__SHIELD].includes(itemTypeAbv);
 
 			const prefix = itemTypeAbv === Parser.ITM_TYP_ABV__SHIELD ? "+" : "";
 			const suffix = isAddDex ? ` + Dex${dexterityMax ? ` (max ${dexterityMax})` : ""}` : "";
@@ -10555,10 +10555,10 @@ Renderer.item = class {
 		const fullType = Renderer.item.getItemTypeName(type);
 
 		const isSub = (typeListText.some(it => it.includes("weapon")) && fullType.includes("weapon"))
-			|| (typeListText.some(it => it.includes("armor")) && fullType.includes("armor"));
+			|| (typeListText.some(it => it.includes("armour")) && fullType.includes("armour"));
 
 		if (!showingBase && !!item.baseItem) (isSub ? subTypeHtml : typeHtml).push(`${fullType} (${Renderer.get().render(`{@item ${item.baseItem}}`)})`);
-		else if (typeAbv === Parser.ITM_TYP_ABV__SHIELD) (isSub ? subTypeHtml : typeHtml).push(Renderer.get().render(`armor ({@item shield|phb})`));
+		else if (typeAbv === Parser.ITM_TYP_ABV__SHIELD) (isSub ? subTypeHtml : typeHtml).push(Renderer.get().render(`armour ({@item shield|phb})`));
 		else (isSub ? subTypeHtml : typeHtml).push(fullType);
 
 		typeListText.push(fullType);
@@ -11283,7 +11283,7 @@ Renderer.item = class {
 		// Add blanket-added properties, to enable filter
 		if (genericVariant.inherits.propertyAdd) genericVariant.property = [...(genericVariant.property || []), ...genericVariant.inherits.propertyAdd];
 
-		if (genericVariant.requires.armor) genericVariant.armor = genericVariant.requires.armor;
+		if (genericVariant.requires.armour) genericVariant.armour = genericVariant.requires.armour;
 	}
 
 	static getItemTypeName (t) {
@@ -11320,7 +11320,7 @@ Renderer.item = class {
 			});
 		}
 		// The following could be encoded in JSON, but they depend on more than one JSON property; maybe fix if really bored later
-		if (itemTypeAbv === Parser.ITM_TYP_ABV__LIGHT_ARMOR || itemTypeAbv === Parser.ITM_TYP_ABV__MEDIUM_ARMOR || itemTypeAbv === Parser.ITM_TYP_ABV__HEAVY_ARMOR) {
+		if (itemTypeAbv === Parser.ITM_TYP_ABV__LIGHT_ARMOUR || itemTypeAbv === Parser.ITM_TYP_ABV__MEDIUM_ARMOUR || itemTypeAbv === Parser.ITM_TYP_ABV__HEAVY_ARMOUR) {
 			if (item.stealth) {
 				Renderer.item._initFullEntries(item);
 				const wrapped = styleHint === "classic"
@@ -11328,7 +11328,7 @@ Renderer.item = class {
 					: "The wearer has {@variantrule Disadvantage|sns} on Dexterity ({@skill Stealth}) checks.";
 				item._fullEntries.push({type: "wrapper", wrapped, data: {[VeCt.ENTDATA_ITEM_MERGED_ENTRY_TAG]: "type"}});
 			}
-			if (itemTypeAbv === Parser.ITM_TYP_ABV__HEAVY_ARMOR && item.strength) {
+			if (itemTypeAbv === Parser.ITM_TYP_ABV__HEAVY_ARMOUR && item.strength) {
 				Renderer.item._initFullEntries(item);
 				item._fullEntries.push({type: "wrapper", wrapped: `If the wearer has a Strength score lower than ${item.strength}, their speed is reduced by 10 feet.`, data: {[VeCt.ENTDATA_ITEM_MERGED_ENTRY_TAG]: "type"}});
 			}
@@ -12005,8 +12005,8 @@ Renderer.vehicle = class {
 
 		static getSectionHpEntriesMeta_ ({entry, isEach = false}) {
 			return {
-				entryArmorClass: entry.ac
-					? `{@b Armor Class} ${entry.ac}`
+				entryArmourClass: entry.ac
+					? `{@b Armour Class} ${entry.ac}`
 					: null,
 				entryHitPoints: entry.hp
 					? `{@b Hit Points} ${entry.hp}${isEach ? ` each` : ""}${entry.dt ? ` (damage threshold ${entry.dt})` : ""}${entry.hpNote ? `; ${entry.hpNote}` : ""}`
@@ -12018,7 +12018,7 @@ Renderer.vehicle = class {
 			const entriesMetaSection = Renderer.vehicle.ship.getSectionHpEntriesMeta_({entry, isEach});
 
 			const props = [
-				"entryArmorClass",
+				"entryArmourClass",
 				"entryHitPoints",
 			];
 
@@ -12116,7 +12116,7 @@ Renderer.vehicle = class {
 					colStyles: ["col-6", "col-6"],
 					rows: [
 						[
-							`{@b Armor Class:} ${ptAc}`,
+							`{@b Armour Class:} ${ptAc}`,
 							`{@b Cargo:} ${ent.capCargo ? `${ent.capCargo} ton${ent.capCargo === 1 ? "" : "s"}` : "\u2014"}`,
 						],
 						[
@@ -12193,7 +12193,7 @@ Renderer.vehicle = class {
 				: "\u2014";
 
 			return {
-				entryArmorClass: `{@b Armor Class:} ${entry.ac == null ? "\u2014" : entry.ac}`,
+				entryArmourClass: `{@b Armour Class:} ${entry.ac == null ? "\u2014" : entry.ac}`,
 				entryHitPoints: `{@b Hit Points:} ${entry.hp == null ? "\u2014" : entry.hp}`,
 				entryCost: `{@b Cost:} ${ptCosts}`,
 			};
@@ -12203,7 +12203,7 @@ Renderer.vehicle = class {
 			const entriesMetaSectionHpCost = Renderer.vehicle.spelljammer.getSectionHpCostEntriesMeta(entry);
 
 			return `
-				<div>${renderer.render(entriesMetaSectionHpCost.entryArmorClass)}</div>
+				<div>${renderer.render(entriesMetaSectionHpCost.entryArmourClass)}</div>
 				<div>${renderer.render(entriesMetaSectionHpCost.entryHitPoints)}</div>
 				<div class="mb-2">${renderer.render(entriesMetaSectionHpCost.entryCost)}</div>
 			`;
@@ -12314,7 +12314,7 @@ Renderer.vehicle = class {
 		static PROPS_RENDERABLE_ENTRIES_ATTRIBUTES = [
 			"entryCreatureCapacity",
 			"entryCargoCapacity",
-			"entryArmorClass",
+			"entryArmourClass",
 			"entryHitPoints",
 			"entrySpeed",
 		];
@@ -12335,7 +12335,7 @@ Renderer.vehicle = class {
 				entrySizeWeight: `{@i ${Parser.sizeAbvToFull(ent.size)} vehicle (${ent.weight.toLocaleString()} lb.)}`,
 				entryCreatureCapacity: `{@b Creature Capacity} ${Renderer.vehicle.getInfwarCreatureCapacity(ent)}`,
 				entryCargoCapacity: `{@b Cargo Capacity} ${Parser.weightToFull(ent.capCargo)}`,
-				entryArmorClass: `{@b Armor Class} ${ptAc}`,
+				entryArmourClass: `{@b Armour Class} ${ptAc}`,
 				entryHitPoints: `{@b Hit Points} ${ent.hp.hp}${ptDtMt ? ` (${ptDtMt})` : ""}`,
 				entrySpeed: `{@b Speed} ${ent.speed} ft.`,
 				entrySpeedNote: `[{@b Travel Pace} ${Math.floor(ent.speed / 10)} miles per hour (${Math.floor(ent.speed * 24 / 10)} miles per day)]`,
@@ -13368,7 +13368,7 @@ Renderer.generic = class {
 			};
 
 			case "anyWeapon": throw new Error(`Property handling for "anyWeapon" is unimplemented!`);
-			case "anyArmor": throw new Error(`Property handling for "anyArmor" is unimplemented!`);
+			case "anyArmour": throw new Error(`Property handling for "anyArmour" is unimplemented!`);
 
 			default: return null;
 		}

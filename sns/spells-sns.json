@@ -13727,7 +13727,7 @@
           "type": "entries",
           "name": "Target",
           "entries": [
-            "One metal object (such as a sword or a suit of metal armor)"
+            "One metal object (such as a sword or a suit of metal armour)"
           ]
         },
         "The target becomes oven hot. Any creature touching the target suffers {@dice 2d8} fire harm when the spell is cast. Until the spell ends, on subsequent turns you can use a bonus action to cause the same harm. If a creature is holding or wearing the target and suffers this harm, it makes a save or it drops the target. If a creature does not or cannot drop the target, it has disadvantage on armour attack rolls and ability checks until the start of your next turn."
@@ -16464,10 +16464,10 @@
           "type": "entries",
           "name": "Target",
           "entries": [
-            "A willing, unarmored creature"
+            "A willing, unarmoured creature"
           ]
         },
-        "Until the spell ends, the target is protected by a shimmering magical force. Its armour becomes equal to half its spellcasting ability modifier. The spell ends if the target dons armor, or if you use an action to dismiss it.",
+        "Until the spell ends, the target is protected by a shimmering magical force. Its armour becomes equal to half its spellcasting ability modifier. The spell ends if the target dons armour, or if you use an action to dismiss it.",
         {
           "type": "entries",
           "name": "Rare",
@@ -37507,7 +37507,7 @@
         {
           "arm": 3,
           "from": [
-            "natural armor"
+            "natural armour"
           ]
         }
       ],
@@ -37652,7 +37652,7 @@
         {
           "arm": 1,
           "from": [
-            "natural armor"
+            "natural armour"
           ]
         }
       ],
@@ -37888,7 +37888,7 @@
         {
           "arm": 3,
           "from": [
-            "natural armor"
+            "natural armour"
           ]
         }
       ],
@@ -37979,7 +37979,7 @@
         {
           "arm": 2,
           "from": [
-            "natural armor"
+            "natural armour"
           ]
         }
       ],
@@ -38089,7 +38089,7 @@
         {
           "arm": 1,
           "from": [
-            "plus half the spell's level (rounded up); natural armor"
+            "plus half the spell's level (rounded up); natural armour"
           ]
         }
       ],
@@ -38192,7 +38192,7 @@
         {
           "arm": 2,
           "from": [
-            "plus half the spell's level (rounded down); natural armor"
+            "plus half the spell's level (rounded down); natural armour"
           ]
         }
       ],
@@ -38364,7 +38364,7 @@
         {
           "arm": 1,
           "from": [
-            "natural armor"
+            "natural armour"
           ]
         }
       ],

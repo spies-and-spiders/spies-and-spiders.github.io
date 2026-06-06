@@ -871,7 +871,7 @@ PropOrder._BACKGROUND = [
 	"languageProficiencies",
 	"toolProficiencies",
 	"weaponProficiencies",
-	"armorProficiencies",
+	"armourProficiencies",
 	"skillToolLanguageProficiencies",
 	"expertise",
 
@@ -1111,7 +1111,7 @@ PropOrder._ENTRY_DATA_OBJECT = [
 	"languageProficiencies",
 	"skillProficiencies",
 	"weaponProficiencies",
-	"armorProficiencies",
+	"armourProficiencies",
 	"toolProficiencies",
 	"savingThrowProficiencies",
 
@@ -1541,7 +1541,7 @@ PropOrder._FEAT = [
 	"languageProficiencies",
 	"toolProficiencies",
 	"weaponProficiencies",
-	"armorProficiencies",
+	"armourProficiencies",
 	"skillToolLanguageProficiencies",
 	"savingThrowProficiencies",
 	"expertise",
@@ -1795,7 +1795,7 @@ PropOrder._ITEM = [
 	"rechargeAmount",
 	"charges",
 
-	"armor",
+	"armour",
 	"arrow",
 	"axe",
 	"barding",
@@ -2063,7 +2063,7 @@ PropOrder._OPTIONALFEATURE = [
 	"languageProficiencies",
 	"toolProficiencies",
 	"weaponProficiencies",
-	"armorProficiencies",
+	"armourProficiencies",
 	"skillToolLanguageProficiencies",
 	"expertise",
 
@@ -2185,7 +2185,7 @@ PropOrder._RACE_SUBRACE = [
 	"languageProficiencies",
 	"toolProficiencies",
 	"weaponProficiencies",
-	"armorProficiencies",
+	"armourProficiencies",
 	"skillToolLanguageProficiencies",
 	"expertise",
 

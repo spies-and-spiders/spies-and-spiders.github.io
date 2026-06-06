@@ -449,7 +449,7 @@ class MakeCards extends BaseComponent {
 		return [
 			this._ct_subtitle(Renderer.monster.getTypeAlignmentPart(mon)),
 			this._ct_rule(),
-			this._ct_property("Armor class", this._ct_htmlToText(Parser.acToFull(mon.ac))),
+			this._ct_property("Armour class", this._ct_htmlToText(Parser.acToFull(mon.ac))),
 			this._ct_property("Hit points", this._ct_htmlToText(Renderer.monster.getRenderedHp(mon.hp))),
 			...(mon.resource || []).map(res => this._ct_property(res.name, this._ct_htmlToText(Renderer.monster.getRenderedResource(res)))),
 			this._ct_property("Speed", this._ct_htmlToText(Parser.getSpeedString(mon))),
@@ -528,7 +528,7 @@ class MakeCards extends BaseComponent {
 
 		return [
 			typeRarityText ? this._ct_htmlToText(this._ct_subtitle(typeRarityText.uppercaseFirst())) : null,
-			ptDamage ? this._ct_property(ptDamage.startsWith("AC") ? "Armor Class" : "Damage", ptDamage) : null,
+			ptDamage ? this._ct_property(ptDamage.startsWith("AC") ? "Armour Class" : "Damage", ptDamage) : null,
 			ptProperties ? this._ct_property("Properties", ptProperties.uppercaseFirst()) : null,
 			subTypeText ? this._ct_property("Type", subTypeText.uppercaseFirst()) : null,
 			tierText ? this._ct_property("Tier", tierText.uppercaseFirst()) : null,
@@ -897,7 +897,7 @@ MakeCards.utils = class {
 		}
 
 		const itemTypeAbv = item.type ? DataUtil.itemType.unpackUid(item.type).abbreviation : null;
-		if (itemTypeAbv === Parser.ITM_TYP_ABV__LIGHT_ARMOR || itemTypeAbv === Parser.ITM_TYP_ABV__MEDIUM_ARMOR || itemTypeAbv === Parser.ITM_TYP_ABV__HEAVY_ARMOR) {
+		if (itemTypeAbv === Parser.ITM_TYP_ABV__LIGHT_ARMOUR || itemTypeAbv === Parser.ITM_TYP_ABV__MEDIUM_ARMOUR || itemTypeAbv === Parser.ITM_TYP_ABV__HEAVY_ARMOUR) {
 			if (item.resist) {
 				Renderer.item._initFullEntries(item);
 				item._fullEntries.push(`Resistance to ${item.resist} damage.`);
@@ -906,7 +906,7 @@ MakeCards.utils = class {
 				Renderer.item._initFullEntries(item);
 				item._fullEntries.push("Disadvantage on Stealth (Dexterity) checks.");
 			}
-			if (itemTypeAbv === Parser.ITM_TYP_ABV__HEAVY_ARMOR && item.strength) {
+			if (itemTypeAbv === Parser.ITM_TYP_ABV__HEAVY_ARMOUR && item.strength) {
 				Renderer.item._initFullEntries(item);
 				item._fullEntries.push(`Speed reduced by 10 feet if Strength score less than ${item.strength}.`);
 			}

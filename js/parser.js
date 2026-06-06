@@ -575,8 +575,8 @@ Parser.numMonstersToXpMult = function (num, playerCount = 3) {
 	} else return baseVal;
 };
 
-Parser.armorFullToAbv = function (armor) {
-	return Parser._parse_bToA(Parser.ARMOR_ABV_TO_FULL, armor);
+Parser.armourFullToAbv = function (armour) {
+	return Parser._parse_bToA(Parser.ARMOUR_ABV_TO_FULL, armour);
 };
 
 Parser.weaponFullToAbv = function (weapon) {
@@ -947,12 +947,12 @@ Parser.ITM_TYP_ABV__FOOD_AND_DRINK = "FD";
 Parser.ITM_TYP_ABV__ADVENTURING_GEAR = "G";
 Parser.ITM_TYP_ABV__GAMING_SET = "GS";
 Parser.ITM_TYP_ABV__GENERIC_VARIANT = "GV";
-Parser.ITM_TYP_ABV__HEAVY_ARMOR = "HA";
+Parser.ITM_TYP_ABV__HEAVY_ARMOUR = "HA";
 Parser.ITM_TYP_ABV__ILLEGAL_DRUG = "IDG";
 Parser.ITM_TYP_ABV__INSTRUMENT = "INS";
-Parser.ITM_TYP_ABV__LIGHT_ARMOR = "LA";
+Parser.ITM_TYP_ABV__LIGHT_ARMOUR = "LA";
 Parser.ITM_TYP_ABV__MELEE_WEAPON = "M";
-Parser.ITM_TYP_ABV__MEDIUM_ARMOR = "MA";
+Parser.ITM_TYP_ABV__MEDIUM_ARMOUR = "MA";
 Parser.ITM_TYP_ABV__MOUNT = "MNT";
 Parser.ITM_TYP_ABV__OTHER = "OTH";
 Parser.ITM_TYP_ABV__POTION = "P";
@@ -983,12 +983,12 @@ Parser.ITM_TYP__FOOD_AND_DRINK = "FD";
 Parser.ITM_TYP__ADVENTURING_GEAR = "G";
 Parser.ITM_TYP__GAMING_SET = "GS";
 Parser.ITM_TYP__GENERIC_VARIANT = "GV|DMG";
-Parser.ITM_TYP__HEAVY_ARMOR = "HA";
+Parser.ITM_TYP__HEAVY_ARMOUR = "HA";
 Parser.ITM_TYP__ILLEGAL_DRUG = "IDG|TDCSR";
 Parser.ITM_TYP__INSTRUMENT = "INS";
-Parser.ITM_TYP__LIGHT_ARMOR = "LA";
+Parser.ITM_TYP__LIGHT_ARMOUR = "LA";
 Parser.ITM_TYP__MELEE_WEAPON = "M";
-Parser.ITM_TYP__MEDIUM_ARMOR = "MA";
+Parser.ITM_TYP__MEDIUM_ARMOUR = "MA";
 Parser.ITM_TYP__MOUNT = "MNT";
 Parser.ITM_TYP__OTHER = "OTH";
 Parser.ITM_TYP__POTION = "P";
@@ -1018,11 +1018,11 @@ Parser.ITM_TYP__ODND_FOOD_AND_DRINK = "FD|XPHB";
 Parser.ITM_TYP__ODND_ADVENTURING_GEAR = "G|XPHB";
 Parser.ITM_TYP__ODND_GAMING_SET = "GS|XPHB";
 Parser.ITM_TYP__ODND_GENERIC_VARIANT = "GV|XDMG";
-Parser.ITM_TYP__ODND_HEAVY_ARMOR = "HA|XPHB";
+Parser.ITM_TYP__ODND_HEAVY_ARMOUR = "HA|XPHB";
 Parser.ITM_TYP__ODND_INSTRUMENT = "INS|XPHB";
-Parser.ITM_TYP__ODND_LIGHT_ARMOR = "LA|XPHB";
+Parser.ITM_TYP__ODND_LIGHT_ARMOUR = "LA|XPHB";
 Parser.ITM_TYP__ODND_MELEE_WEAPON = "M|XPHB";
-Parser.ITM_TYP__ODND_MEDIUM_ARMOR = "MA|XPHB";
+Parser.ITM_TYP__ODND_MEDIUM_ARMOUR = "MA|XPHB";
 Parser.ITM_TYP__ODND_MOUNT = "MNT|XPHB";
 Parser.ITM_TYP__ODND_POTION = "P|XPHB";
 Parser.ITM_TYP__ODND_RANGED_WEAPON = "R|XPHB";
@@ -2744,7 +2744,7 @@ Parser.XP_CHART_ALT = {
 	"30": 155000,
 };
 
-Parser.ARMOR_ABV_TO_FULL = {
+Parser.ARMOUR_ABV_TO_FULL = {
 	"l.": "light",
 	"m.": "medium",
 	"h.": "heavy",
@@ -2802,7 +2802,7 @@ Parser.VEHICLE_TYPE_TO_FULL = {
 	"SHP:F": "Ship Upgrade, Figurehead",
 	"SHP:O": "Ship Upgrade, Miscellaneous",
 	"IWM:W": "Infernal War Machine Variant, Weapon",
-	"IWM:A": "Infernal War Machine Upgrade, Armor",
+	"IWM:A": "Infernal War Machine Upgrade, Armour",
 	"IWM:G": "Infernal War Machine Upgrade, Gadget",
 };
 

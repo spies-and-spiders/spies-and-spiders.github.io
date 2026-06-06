@@ -200,10 +200,10 @@ export class ConverterCreature extends ConverterBase {
 				continue;
 			}
 
-			// armor class
+			// armour class
 			if (meta.ixToConvert === 2) {
 				const [ptAc, ptInit] = meta.curLine.split(/\s+Initiative\s*/).map(it => it.trim()).filter(Boolean);
-				stats.ac = ConverterUtils.getStatblockLineHeaderText({reStartStr: "(?:Armor Class|AC)", line: ptAc});
+				stats.ac = ConverterUtils.getStatblockLineHeaderText({reStartStr: "(?:Armour Class|AC)", line: ptAc});
 				if (ptInit) stats.initiative = ptInit;
 				continue;
 			}
@@ -1248,9 +1248,9 @@ export class ConverterCreature extends ConverterBase {
 				continue;
 			}
 
-			// armor class
+			// armour class
 			if (step === 2) {
-				stats.ac = ConverterUtilsMarkdown.getNoDashStarStar(meta.curLine).replace(/(?:Armor Class|AC)/g, "").trim();
+				stats.ac = ConverterUtilsMarkdown.getNoDashStarStar(meta.curLine).replace(/(?:Armour Class|AC)/g, "").trim();
 				step++;
 				continue;
 			}

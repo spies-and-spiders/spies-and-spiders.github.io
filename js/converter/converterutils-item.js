@@ -41,19 +41,19 @@ ConverterUtilsItem.BASIC_WEAPONS = [
 	"longbow",
 	"net",
 ];
-ConverterUtilsItem.BASIC_ARMORS = [
-	"padded armor",
-	"leather armor",
-	"studded leather armor",
-	"hide armor",
+ConverterUtilsItem.BASIC_ARMOURS = [
+	"padded armour",
+	"leather armour",
+	"studded leather armour",
+	"hide armour",
 	"chain shirt",
 	"scale mail",
 	"breastplate",
-	"half plate armor",
+	"half plate armour",
 	"ring mail",
 	"chain mail",
-	"splint armor",
-	"plate armor",
+	"splint armour",
+	"plate armour",
 	"shield",
 ];
 
@@ -322,7 +322,7 @@ export class BonusTag {
 			return opts.isVariant ? `{=bonusWeaponAttack}${m[2]}` : m[0];
 		});
 
-		strEntries = strEntries.replace(/\+\s*(\d)([^.]+(?:bonus )?(?:to|on)(?: your)? [^.]*(?:AC|Armor Class|armor class))/g, (...m) => {
+		strEntries = strEntries.replace(/\+\s*(\d)([^.]+(?:bonus )?(?:to|on)(?: your)? [^.]*(?:AC|Armour Class|armour class))/g, (...m) => {
 			obj.bonusAc = `+${m[1]}`;
 			return opts.isVariant ? `{=bonusAc}${m[2]}` : m[0];
 		});
@@ -353,7 +353,7 @@ export class BonusTag {
 			return opts.isVariant ? `{=bonusWeapon}${m[2]}` : m[0];
 		});
 
-		strEntries = strEntries.replace(BonusTag._RE_BASIC_ARMORS, (...m) => {
+		strEntries = strEntries.replace(BonusTag._RE_BASIC_ARMOURS, (...m) => {
 			obj.bonusAc = `+${m[1]}`;
 			return opts.isVariant ? `{=bonusAc}${m[2]}` : m[0];
 		});
@@ -365,7 +365,7 @@ export class BonusTag {
 			if (ConverterUtilsItem.BASIC_WEAPONS.includes(ptItem)) {
 				obj.bonusWeapon = `+${m[3]}`;
 				return opts.isVariant ? `${m[1]}${m[2]}{=bonusWeapon}${m[2]}` : m[0];
-			} else if (ConverterUtilsItem.BASIC_ARMORS.includes(ptItem)) {
+			} else if (ConverterUtilsItem.BASIC_ARMOURS.includes(ptItem)) {
 				obj.bonusAc = `+${m[3]}`;
 				return opts.isVariant ? `${m[1]}${m[2]}{=bonusAc}${m[2]}` : m[0];
 			}
@@ -380,7 +380,7 @@ export class BonusTag {
 			return opts.isVariant ? `{=bonusWeaponDamage}${m[2]}` : m[0];
 		});
 
-		strEntries = strEntries.replace(/(grants )\+\s*(\d)((?: to| on)?(?: your)? [^.]*(?:AC|Armor Class|armor class))/g, (...m) => {
+		strEntries = strEntries.replace(/(grants )\+\s*(\d)((?: to| on)?(?: your)? [^.]*(?:AC|Armour Class|armour class))/g, (...m) => {
 			obj.bonusAc = `+${m[2]}`;
 			return opts.isVariant ? `${m[1]}{=bonusAc}${m[3]}` : m[0];
 		});
@@ -454,7 +454,7 @@ export class BonusTag {
 	}
 }
 BonusTag._RE_BASIC_WEAPONS = new RegExp(`\\+\\s*(\\d)(\\s+(?:${ConverterUtilsItem.BASIC_WEAPONS.join("|")}|weapon))`);
-BonusTag._RE_BASIC_ARMORS = new RegExp(`\\+\\s*(\\d)(\\s+(?:${ConverterUtilsItem.BASIC_ARMORS.join("|")}|armor))`);
+BonusTag._RE_BASIC_ARMOURS = new RegExp(`\\+\\s*(\\d)(\\s+(?:${ConverterUtilsItem.BASIC_ARMOURS.join("|")}|armour))`);
 BonusTag._PT_SPEEDS = `(?<mode>walking|flying|swimming|climbing|burrowing)`;
 BonusTag._PT_SPEED_VALUE = `(?<value>\\d+)`;
 BonusTag._RE_SPEED_MULTIPLE = new RegExp(`(?<factor>double|triple|quadruple) your ${BonusTag._PT_SPEEDS} speed`, "gi");
@@ -475,8 +475,8 @@ export class BasicTextClean {
 					if (typeof it !== "string") return true;
 
 					if (/^\s*Proficiency with .*? allows you to add your proficiency bonus to the attack roll for any attack you make with it\.\s*$/i.test(it)) return false;
-					if (/^\s*A shield is made from wood or metal and is carried in one hand\. Wielding a shield increases your Armor Class by 2. You can benefit from only one shield at a time\.\s*$/i.test(it)) return false;
-					if (/^\s*This armor consists of a coat and leggings \(and perhaps a separate skirt\) of leather covered with overlapping pieces of metal, much like the scales of a fish\. The suit includes gauntlets\.\s*$/i.test(it)) return false;
+					if (/^\s*A shield is made from wood or metal and is carried in one hand\. Wielding a shield increases your Armour Class by 2. You can benefit from only one shield at a time\.\s*$/i.test(it)) return false;
+					if (/^\s*This armour consists of a coat and leggings \(and perhaps a separate skirt\) of leather covered with overlapping pieces of metal, much like the scales of a fish\. The suit includes gauntlets\.\s*$/i.test(it)) return false;
 
 					return true;
 				});

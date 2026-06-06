@@ -69,9 +69,9 @@ export class UtilsFoundryItem {
 		) return this._TYPE_CONSUMABLE;
 
 		if (
-			itemTypeAbv === Parser.ITM_TYP_ABV__HEAVY_ARMOR
-			|| itemTypeAbv === Parser.ITM_TYP_ABV__MEDIUM_ARMOR
-			|| itemTypeAbv === Parser.ITM_TYP_ABV__LIGHT_ARMOR
+			itemTypeAbv === Parser.ITM_TYP_ABV__HEAVY_ARMOUR
+			|| itemTypeAbv === Parser.ITM_TYP_ABV__MEDIUM_ARMOUR
+			|| itemTypeAbv === Parser.ITM_TYP_ABV__LIGHT_ARMOUR
 			|| itemTypeAbv === Parser.ITM_TYP_ABV__SHIELD
 			|| item.bardingType // Barding
 			|| itemTypeAbv === Parser.ITM_TYP_ABV__SPELLCASTING_FOCUS
