@@ -19,7 +19,7 @@ jq_inplace homebrew/sns.json "._meta.dateLastModified = $(date +'%s')"
 
 # Prepare SNS data
 cat homebrew/sns.json | jq -c '{spell}' > data/spells/spells-sns.json
-cat homebrew/sns.json | jq -c '{monster}' > data/bestiary/bestiary-sns.json
+jq -c -s '(.[0] | {monster}) * {monster: ([.[0].monster, .[1].monster] | add)}' homebrew/sns.json data/feats.json > data/bestiary/bestiary-sns.json
 cat homebrew/sns.json | jq -c '{class,subclass,classFeature,subclassFeature}' > data/class/class-sns.json
 
 mkdir -p data/book && cat data/books.json | jq -c '{book,data}' > data/book/book-sns.json
