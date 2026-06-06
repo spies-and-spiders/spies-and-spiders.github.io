@@ -133,12 +133,6 @@ class PageFilterBestiary extends PageFilterBase {
 			itemSortFn: SortUtil.ascSortLower,
 		});
 		this._sidekickTagFilter = new Filter({header: "Sidekick Tag", displayFn: StrUtil.toTitleCase});
-		this._alignmentFilter = new Filter({
-			header: "Alignment",
-			items: ["L", "NX", "C", "G", "NY", "E", "N", "U", "A", "No Alignment"],
-			displayFn: alignment => Parser.alignmentAbvToFull(alignment).toTitleCase(),
-			itemSortFn: null,
-		});
 		this._languageFilter = new Filter({
 			header: "Languages",
 			displayFn: (k) => Parser.monLanguageTagToFull(k).toTitleCase(),
@@ -290,17 +284,6 @@ class PageFilterBestiary extends PageFilterBase {
 		mon._fRef = _fDef(mon.ref, "ref");
 		mon._fFort = _fDef(mon.fort, "fort");
 		mon._fHp = mon.hp?.average ?? null;
-		if (mon.alignment) {
-			const tempAlign = typeof mon.alignment[0] === "object"
-				? Array.prototype.concat.apply([], mon.alignment.map(a => a.alignment))
-				: [...mon.alignment];
-			if (tempAlign.includes("N") && !tempAlign.includes("G") && !tempAlign.includes("E")) tempAlign.push("NY");
-			else if (tempAlign.includes("N") && !tempAlign.includes("L") && !tempAlign.includes("C")) tempAlign.push("NX");
-			else if (tempAlign.length === 1 && tempAlign.includes("N")) Array.prototype.push.apply(tempAlign, PageFilterBestiary._NEUT_ALIGNS);
-			mon._fAlign = tempAlign;
-		} else {
-			mon._fAlign = ["No Alignment"];
-		}
 		mon._fEnvironment = mon.environment || ["none"];
 		mon._fVuln = mon.vulnerable ? PageFilterBestiary.getAllImmRest(mon.vulnerable, "vulnerable") : [];
 		mon._fRes = mon.resist ? PageFilterBestiary.getAllImmRest(mon.resist, "resist") : [];
@@ -546,7 +529,6 @@ class PageFilterBestiary extends PageFilterBase {
 			this._sizeFilter,
 			this._speedFilter,
 			this._speedTypeFilter,
-			this._alignmentFilter,
 			this._saveFilter,
 			this._skillFilter,
 			this._senseFilter,
@@ -589,7 +571,6 @@ class PageFilterBestiary extends PageFilterBase {
 			m.size,
 			m._fSpeed,
 			m._fSpeedType,
-			m._fAlign,
 			m._fSave,
 			m._fSkill,
 			m.senseTags,

@@ -703,9 +703,6 @@
         "M"
       ],
       "type": "any",
-      "alignment": [
-        "U"
-      ],
       "hp": {
         "special": "12 + 12 times your proficiency bonus"
       },

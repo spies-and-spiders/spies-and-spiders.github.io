@@ -1413,9 +1413,6 @@
         "L"
       ],
       "type": "beast",
-      "alignment": [
-        "U"
-      ],
       "hp": {
         "special": "you continue to use your hit points and Hit Dice"
       },
@@ -1522,9 +1519,6 @@
           "air, earth, fire, or water"
         ]
       },
-      "alignment": [
-        "U"
-      ],
       "hp": {
         "special": "you continue to use your hit points and Hit Dice"
       },

@@ -37050,9 +37050,6 @@
         "S"
       ],
       "type": "beast",
-      "alignment": [
-        "U"
-      ],
       "hp": {
         "special": "22 (Air only) or 33 (Land and Water only) + 6 for each spell level above 2nd"
       },
@@ -37158,9 +37155,6 @@
           "air, earth, fire, or water"
         ]
       },
-      "alignment": [
-        "U"
-      ],
       "hp": {
         "special": "67 + 11 for each spell level above 4th"
       },
@@ -37282,9 +37276,6 @@
           "blink dog, satyr, or sprite"
         ]
       },
-      "alignment": [
-        "U"
-      ],
       "hp": {
         "special": "67 + 11 for each spell level above 4th"
       },
@@ -37391,9 +37382,6 @@
           "air, earth, fire, or water"
         ]
       },
-      "alignment": [
-        "U"
-      ],
       "hp": {
         "special": "67"
       },
@@ -37519,9 +37507,6 @@
           "hag, hound, or redcap"
         ]
       },
-      "alignment": [
-        "U"
-      ],
       "hp": {
         "special": "67"
       },
@@ -37659,9 +37644,6 @@
           "angel of battle, angel of protection, or angel of vengeance"
         ]
       },
-      "alignment": [
-        "U"
-      ],
       "hp": {
         "special": "67"
       },
@@ -37769,9 +37751,6 @@
         "type": "plant",
         "swarmSize": "L"
       },
-      "alignment": [
-        "U"
-      ],
       "hp": {
         "special": "244"
       },
@@ -37880,9 +37859,6 @@
         "T"
       ],
       "type": "construct",
-      "alignment": [
-        "U"
-      ],
       "hp": {
         "special": "11"
       },
@@ -37966,9 +37942,6 @@
         "M"
       ],
       "type": "construct",
-      "alignment": [
-        "U"
-      ],
       "hp": {
         "special": "45 + 16 for each spell level above 4th"
       },
@@ -38071,9 +38044,6 @@
         "L"
       ],
       "type": "dragon",
-      "alignment": [
-        "U"
-      ],
       "hp": {
         "special": "56 + 11 for each spell level above 5th"
       },
@@ -38169,9 +38139,6 @@
         "S"
       ],
       "type": "plant",
-      "alignment": [
-        "U"
-      ],
       "hp": {
         "special": "11"
       },
@@ -38248,9 +38215,6 @@
         "H"
       ],
       "type": "plant",
-      "alignment": [
-        "U"
-      ],
       "hp": {
         "special": "59"
       },

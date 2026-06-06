@@ -3413,7 +3413,6 @@ Renderer.utils = class {
 			"patron",
 			"spell",
 			"race",
-			"alignment",
 			"ability",
 			"proficiency",
 			"spellcasting",
@@ -3521,7 +3520,6 @@ Renderer.utils = class {
 								case "spellcastingFeature": return this._getHtml_spellcastingFeature({v, isListMode, isTextOnly, styleHint});
 								case "spellcastingPrepared": return this._getHtml_spellcastingPrepared({v, isListMode, isTextOnly, styleHint});
 								case "psionics": return this._getHtml_psionics({v, isListMode, isTextOnly, styleHint});
-								case "alignment": return this._getHtml_alignment({v, isListMode, isTextOnly, styleHint});
 								case "campaign": return this._getHtml_campaign({v, isListMode, isTextOnly, styleHint});
 								case "group": return this._getHtml_group({v, isListMode, isTextOnly, styleHint});
 								default: throw new Error(`Unhandled key: ${k}`);
@@ -3834,15 +3832,6 @@ Renderer.utils = class {
 			return isListMode
 				? "Psionics"
 				: (isTextOnly ? Renderer.stripTags : Renderer.get().render.bind(Renderer.get()))("Psionic Talent feature or Wild Talent feat");
-		}
-
-		static _getHtml_alignment ({v, isListMode}) {
-			return isListMode
-				? Parser.alignmentListToFull(v)
-					.replace(/\bany\b/gi, "").trim()
-					.replace(/\balignment\b/gi, "align").trim()
-					.toTitleCase()
-				: Parser.alignmentListToFull(v);
 		}
 
 		static _getHtml_campaign ({v, isListMode}) {
@@ -9565,7 +9554,7 @@ Renderer.monster = class {
 	static getTypeAlignmentPart (mon) {
 		const typeObj = Parser.monTypeToFullObj(mon.type);
 
-		return `${mon.level ? `${Parser.getOrdinalForm(mon.level)}-level ` : ""}${typeObj.asTextSidekick ? `${typeObj.asTextSidekick}; ` : ""}${Renderer.utils.getRenderedSize(mon.size)}${mon.sizeNote ? ` ${mon.sizeNote}` : ""} ${typeObj.asText}${mon.alignment ? `, ${mon.alignmentPrefix ? Renderer.get().render(mon.alignmentPrefix) : ""}${Parser.alignmentListToFull(mon.alignment).toTitleCase()}` : ""}`;
+		return `${mon.level ? `${Parser.getOrdinalForm(mon.level)}-level ` : ""}${typeObj.asTextSidekick ? `${typeObj.asTextSidekick}; ` : ""}${Renderer.utils.getRenderedSize(mon.size)}${mon.sizeNote ? ` ${mon.sizeNote}` : ""} ${typeObj.asText}`;
 	}
 
 	static _getInitiativePart_passive ({mon, initPassive}) {
