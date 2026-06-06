@@ -37076,11 +37076,6 @@
       "int": 4,
       "wis": 14,
       "cha": 5,
-      "save": {
-        "str": "+4",
-        "dex": "+0",
-        "wis": "+2"
-      },
       "senses": [
         "darkvision 60 ft."
       ],
@@ -37137,7 +37132,7 @@
       ],
       "wil": [
         {
-          "wil": 0
+          "wil": 2
         }
       ],
       "ref": [
@@ -37147,7 +37142,7 @@
       ],
       "fort": [
         {
-          "fort": 0
+          "fort": 4
         }
       ]
     },
@@ -37189,11 +37184,6 @@
       "int": 10,
       "wis": 10,
       "cha": 6,
-      "save": {
-        "str": "+2",
-        "dex": "+1",
-        "wis": "+0"
-      },
       "immune": [
         "fire (Fire only)",
         "poison"
@@ -37271,12 +37261,12 @@
       ],
       "ref": [
         {
-          "ref": 0
+          "ref": 1
         }
       ],
       "fort": [
         {
-          "fort": 0
+          "fort": 2
         }
       ]
     },
@@ -37313,11 +37303,6 @@
       "int": 10,
       "wis": 10,
       "cha": 15,
-      "save": {
-        "str": "+1",
-        "dex": "+2",
-        "wis": "+2"
-      },
       "senses": [
         "darkvision 60 ft."
       ],
@@ -37380,17 +37365,17 @@
       ],
       "wil": [
         {
-          "wil": 0
+          "wil": 2
         }
       ],
       "ref": [
         {
-          "ref": 0
+          "ref": 2
         }
       ],
       "fort": [
         {
-          "fort": 0
+          "fort": 1
         }
       ]
     },
@@ -37435,11 +37420,6 @@
       "int": 4,
       "wis": 10,
       "cha": 10,
-      "save": {
-        "str": "+4",
-        "dex": "+2",
-        "wis": "+0"
-      },
       "resist": [
         "cold (Water only)",
         "lightning and thunder (Air only)",
@@ -37518,12 +37498,12 @@
       ],
       "ref": [
         {
-          "ref": 0
+          "ref": 2
         }
       ],
       "fort": [
         {
-          "fort": 0
+          "fort": 4
         }
       ]
     },
@@ -37556,11 +37536,6 @@
       "int": 10,
       "wis": 12,
       "cha": 16,
-      "save": {
-        "str": "+2",
-        "dex": "+3",
-        "wis": "+3"
-      },
       "resist": [
         {
           "resist": [
@@ -37658,17 +37633,17 @@
       ],
       "wil": [
         {
-          "wil": 0
+          "wil": 3
         }
       ],
       "ref": [
         {
-          "ref": 0
+          "ref": 3
         }
       ],
       "fort": [
         {
-          "fort": 0
+          "fort": 2
         }
       ]
     },
@@ -37699,11 +37674,6 @@
       "int": 10,
       "wis": 14,
       "cha": 18,
-      "save": {
-        "str": "+4",
-        "dex": "+2",
-        "wis": "+4"
-      },
       "resist": [
         "radiant",
         "necrotic"
@@ -37775,17 +37745,17 @@
       ],
       "wil": [
         {
-          "wil": 0
+          "wil": 4
         }
       ],
       "ref": [
         {
-          "ref": 0
+          "ref": 2
         }
       ],
       "fort": [
         {
-          "fort": 0
+          "fort": 4
         }
       ]
     },
@@ -37814,11 +37784,6 @@
       "int": 10,
       "wis": 10,
       "cha": 7,
-      "save": {
-        "str": "+7",
-        "dex": "+0",
-        "wis": "+0"
-      },
       "vulnerable": [
         "fire"
       ],
@@ -37904,7 +37869,7 @@
       ],
       "fort": [
         {
-          "fort": 0
+          "fort": 7
         }
       ]
     },
@@ -37930,11 +37895,6 @@
       "int": 2,
       "wis": 10,
       "cha": 1,
-      "save": {
-        "str": "+0",
-        "dex": "+3",
-        "wis": "+0"
-      },
       "immune": [
         "poison",
         "psychic"
@@ -37990,7 +37950,7 @@
       ],
       "ref": [
         {
-          "ref": 0
+          "ref": 3
         }
       ],
       "fort": [
@@ -38020,11 +37980,6 @@
       "int": 14,
       "wis": 11,
       "cha": 5,
-      "save": {
-        "str": "+4",
-        "dex": "+2",
-        "wis": "+0"
-      },
       "resist": [
         "poison"
       ],
@@ -38100,12 +38055,12 @@
       ],
       "ref": [
         {
-          "ref": 0
+          "ref": 2
         }
       ],
       "fort": [
         {
-          "fort": 0
+          "fort": 4
         }
       ]
     },
@@ -38132,11 +38087,6 @@
       "int": 10,
       "wis": 14,
       "cha": 14,
-      "save": {
-        "str": "+4",
-        "dex": "+2",
-        "wis": "+2"
-      },
       "resist": [
         "acid, cold, fire, lightning, and poison (Chromatic and Metallic Only)",
         "force, necrotic, psychic, radiant, and thunder (Gem Only)"
@@ -38198,17 +38148,17 @@
       ],
       "wil": [
         {
-          "wil": 0
+          "wil": 2
         }
       ],
       "ref": [
         {
-          "ref": 0
+          "ref": 2
         }
       ],
       "fort": [
         {
-          "fort": 0
+          "fort": 4
         }
       ]
     },
@@ -38233,11 +38183,6 @@
       "int": 10,
       "wis": 10,
       "cha": 6,
-      "save": {
-        "str": "+0",
-        "dex": "+0",
-        "wis": "+0"
-      },
       "resist": [
         "piercing"
       ],
@@ -38317,11 +38262,6 @@
       "int": 10,
       "wis": 10,
       "cha": 7,
-      "save": {
-        "str": "+4",
-        "dex": "+0",
-        "wis": "+0"
-      },
       "resist": [
         "bludgeoning",
         "piercing"
@@ -38380,7 +38320,7 @@
       ],
       "fort": [
         {
-          "fort": 0
+          "fort": 4
         }
       ]
     }

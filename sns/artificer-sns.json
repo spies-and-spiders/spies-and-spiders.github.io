@@ -1830,15 +1830,9 @@
       },
       "str": 16,
       "dex": 12,
-      "con": 16,
       "int": 1,
       "wis": 6,
       "cha": 1,
-      "save": {
-        "str": "+3",
-        "dex": "+1",
-        "wis": "-2"
-      },
       "skill": {
         "athletics": "+5",
         "perception": "+0 (+1d4)"
@@ -1912,17 +1906,17 @@
       ],
       "wil": [
         {
-          "wil": 0
+          "wil": -2
         }
       ],
       "ref": [
         {
-          "ref": 0
+          "ref": 1
         }
       ],
       "fort": [
         {
-          "fort": 0
+          "fort": 3
         }
       ]
     },
@@ -1944,15 +1938,9 @@
       },
       "str": 12,
       "dex": 6,
-      "con": 16,
       "int": 3,
       "wis": 6,
       "cha": 4,
-      "save": {
-        "str": "+3",
-        "dex": "-2",
-        "wis": "-2"
-      },
       "immune": [
         "poison"
       ],
@@ -2011,17 +1999,17 @@
       ],
       "wil": [
         {
-          "wil": 0
+          "wil": -2
         }
       ],
       "ref": [
         {
-          "ref": 0
+          "ref": -2
         }
       ],
       "fort": [
         {
-          "fort": 0
+          "fort": 3
         }
       ]
     },
@@ -2047,11 +2035,6 @@
       "int": 10,
       "wis": 10,
       "cha": 10,
-      "save": {
-        "str": "+0",
-        "dex": "+0",
-        "wis": "+0"
-      },
       "immune": [
         "poison",
         "psychic"
@@ -2139,11 +2122,6 @@
       "int": 10,
       "wis": 10,
       "cha": 10,
-      "save": {
-        "str": "+0",
-        "dex": "+0",
-        "wis": "+0"
-      },
       "immune": [
         "poison",
         "psychic"

@@ -714,15 +714,9 @@
       },
       "str": 18,
       "dex": 10,
-      "con": 0,
       "int": 4,
       "wis": 14,
       "cha": 5,
-      "save": {
-        "str": "+4",
-        "dex": "+0",
-        "wis": "+2"
-      },
       "immune": [],
       "conditionImmune": [],
       "senses": [],
@@ -758,7 +752,7 @@
       ],
       "wil": [
         {
-          "wil": 0
+          "wil": 2
         }
       ],
       "ref": [
@@ -768,7 +762,7 @@
       ],
       "fort": [
         {
-          "fort": 0
+          "fort": 4
         }
       ]
     }
