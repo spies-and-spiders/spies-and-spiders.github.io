@@ -1,5 +1,5 @@
 {
-	"#makebrewCreatureTrait": "Shoutouts to CritterDB: https://github.com/haswellr/CritterDB/blob/master/server/public/data/creatureAbilities.json",
-	"makebrewCreatureTrait": [],
-	"makebrewCreatureAction": []
+  "#makebrewCreatureTrait": "Shoutouts to CritterDB: https://github.com/haswellr/CritterDB/blob/master/server/public/data/creatureAbilities.json",
+  "makebrewCreatureTrait": [],
+  "makebrewCreatureAction": []
 }

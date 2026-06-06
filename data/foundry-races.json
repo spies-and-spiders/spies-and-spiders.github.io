@@ -1,9 +1,9 @@
 {
-	"_meta": {
-		"internalCopies": [
-			"raceFeature"
-		]
-	},
-	"race": [],
-	"raceFeature": []
+  "_meta": {
+    "internalCopies": [
+      "raceFeature"
+    ]
+  },
+  "race": [],
+  "raceFeature": []
 }
