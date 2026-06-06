@@ -2687,20 +2687,30 @@ Parser.WEAPON_ABV_TO_FULL = {
 
 Parser.CONDITION_TO_COLOR = {
 	"Blinded": "#525252",
+	"Brittle": "#c8a84b",
 	"Charmed": "#f01789",
+	"Confused": "#d4517a",
+	"Dazed": "#5ba0a0",
 	"Deafened": "#ababab",
-	"Exhausted": "#947a47",
+	"Debilitated": "#8b1a1a",
+	"Dominated": "#7b2d8b",
+	"Doomed": "#2d0a0a",
+	"Fatigue": "#8a6e3a",
+	"Fixated": "#c9960c",
 	"Frightened": "#c9ca18",
 	"Grappled": "#8784a0",
 	"Incapacitated": "#3165a0",
-	"Invisible": "#7ad2d6",
-	"Paralyzed": "#c00900",
-	"Petrified": "#a0a0a0",
 	"Poisoned": "#4dc200",
 	"Prone": "#5e60a0",
+	"Rattled": "#e0b830",
 	"Restrained": "#d98000",
-	"Stunned": "#a23bcb",
+	"Slowed": "#4682b4",
+	"Sluggish": "#3d8b8b",
+	"Staggered": "#b84c00",
+	"Strife": "#7d3c98",
+	"Taunted": "#c0392b",
 	"Unconscious": "#3a40ad",
+	"Weakened": "#6b8a52",
 
 	"Concentration": "#009f7a",
 };
@@ -2848,7 +2858,7 @@ Parser.DMGTYPE_JSON_TO_FULL = {
 };
 
 Parser.DMG_TYPES = ["acid", "bludgeoning", "cold", "fire", "force", "lightning", "necrotic", "piercing", "poison", "psychic", "radiant", "slashing", "thunder"];
-Parser.CONDITIONS = ["blinded", "charmed", "deafened", "exhaustion", "frightened", "grappled", "incapacitated", "invisible", "paralyzed", "petrified", "poisoned", "prone", "restrained", "stunned", "unconscious"];
+Parser.CONDITIONS = ["blinded", "brittle", "charmed", "confused", "dazed", "deafened", "debilitated", "dominated", "doomed", "fatigue", "fixated", "frightened", "grappled", "incapacitated", "poisoned", "prone", "rattled", "restrained", "slowed", "sluggish", "staggered", "strife", "taunted", "unconscious", "weakened"];
 
 Parser.SENSES = [
 	{"name": "blindsight", "source": Parser.SRC_SNS},
