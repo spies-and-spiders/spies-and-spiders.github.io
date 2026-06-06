@@ -37053,11 +37053,6 @@
       "alignment": [
         "U"
       ],
-      "ac": [
-        {
-          "special": "half the level of the spell (rounded up)"
-        }
-      ],
       "hp": {
         "special": "22 (Air only) or 33 (Land and Water only) + 6 for each spell level above 2nd"
       },
@@ -37134,6 +37129,26 @@
             "{@atk mw} reach 5 ft., one target. {@damage 1d8 + 4} + the spell's level piercing damage. This damage is multiplied by half this spell's level. For example, at spell level 4, the damage is {@dice 2d8} + 8 + 8. Each of these multipliers counts as an instance of the Empowered Attack feature."
           ]
         }
+      ],
+      "arm": [
+        {
+          "special": "half the level of the spell (rounded up)"
+        }
+      ],
+      "wil": [
+        {
+          "wil": 0
+        }
+      ],
+      "ref": [
+        {
+          "ref": 0
+        }
+      ],
+      "fort": [
+        {
+          "fort": 0
+        }
       ]
     },
     {
@@ -37150,11 +37165,6 @@
       },
       "alignment": [
         "U"
-      ],
-      "ac": [
-        {
-          "special": "1 + half the level of the spell (rounded up)"
-        }
       ],
       "hp": {
         "special": "67 + 11 for each spell level above 4th"
@@ -37248,6 +37258,26 @@
             "{@atk mw} reach 5 ft., one target. 6 ({@damage 1d6 + 3}) bludgeoning damage (or fire damage for a Fire elemental) plus extra damage equal to spell slot level."
           ]
         }
+      ],
+      "arm": [
+        {
+          "special": "1 + half the level of the spell (rounded up)"
+        }
+      ],
+      "wil": [
+        {
+          "wil": 0
+        }
+      ],
+      "ref": [
+        {
+          "ref": 0
+        }
+      ],
+      "fort": [
+        {
+          "fort": 0
+        }
       ]
     },
     {
@@ -37264,11 +37294,6 @@
       },
       "alignment": [
         "U"
-      ],
-      "ac": [
-        {
-          "special": "2 + half the level of the spell"
-        }
       ],
       "hp": {
         "special": "67 + 11 for each spell level above 4th"
@@ -37347,6 +37372,26 @@
             "{@atk rw} range 40/160 ft., one target. 5 piercing damage plus extra damage equal to spell slot level. If this attack scores a major success against a creature, the target is {@condition poisoned|sns} for 1 minute. On a critical success, the {@condition poisoned|sns} target falls {@condition unconscious|sns} for the same duration, or until it takes damage or another creature uses an action to shake it awake."
           ]
         }
+      ],
+      "arm": [
+        {
+          "special": "2 + half the level of the spell"
+        }
+      ],
+      "wil": [
+        {
+          "wil": 0
+        }
+      ],
+      "ref": [
+        {
+          "ref": 0
+        }
+      ],
+      "fort": [
+        {
+          "fort": 0
+        }
       ]
     },
     {
@@ -37363,14 +37408,6 @@
       },
       "alignment": [
         "U"
-      ],
-      "ac": [
-        {
-          "ac": 3,
-          "from": [
-            "natural armor"
-          ]
-        }
       ],
       "hp": {
         "special": "67"
@@ -37465,6 +37502,29 @@
             "{@atk mw} reach 5 ft., one target. 26 ({@damage 4d8 + 8}) bludgeoning damage (or fire damage for a Fire elemental) plus extra damage equal to spell slot level."
           ]
         }
+      ],
+      "arm": [
+        {
+          "arm": 3,
+          "from": [
+            "natural armor"
+          ]
+        }
+      ],
+      "wil": [
+        {
+          "wil": 0
+        }
+      ],
+      "ref": [
+        {
+          "ref": 0
+        }
+      ],
+      "fort": [
+        {
+          "fort": 0
+        }
       ]
     },
     {
@@ -37481,14 +37541,6 @@
       },
       "alignment": [
         "U"
-      ],
-      "ac": [
-        {
-          "ac": 1,
-          "from": [
-            "natural armor"
-          ]
-        }
       ],
       "hp": {
         "special": "67"
@@ -37595,6 +37647,29 @@
             "The hound makes a will attack against one creature that can hear it that deals {@dice 2d10} psychic damage. On a hit, the target is {@condition frightened|sns} until the end of the hound's next turn. If the attack fails to hit, the target can't be affected by Terrifying Howl again for 1 minute."
           ]
         }
+      ],
+      "arm": [
+        {
+          "arm": 1,
+          "from": [
+            "natural armor"
+          ]
+        }
+      ],
+      "wil": [
+        {
+          "wil": 0
+        }
+      ],
+      "ref": [
+        {
+          "ref": 0
+        }
+      ],
+      "fort": [
+        {
+          "fort": 0
+        }
       ]
     },
     {
@@ -37611,14 +37686,6 @@
       },
       "alignment": [
         "U"
-      ],
-      "ac": [
-        {
-          "ac": 4,
-          "from": [
-            "or 5 for Angel of Protection"
-          ]
-        }
       ],
       "hp": {
         "special": "67"
@@ -37697,6 +37764,29 @@
             "A creature the celestial touches regains 19 ({@damage 2d10 + 8}) hit points. Alternatively, it can end one disease or neutralise on poison affecting the creature."
           ]
         }
+      ],
+      "arm": [
+        {
+          "arm": 4,
+          "from": [
+            "or 5 for Angel of Protection"
+          ]
+        }
+      ],
+      "wil": [
+        {
+          "wil": 0
+        }
+      ],
+      "ref": [
+        {
+          "ref": 0
+        }
+      ],
+      "fort": [
+        {
+          "fort": 0
+        }
       ]
     },
     {
@@ -37711,14 +37801,6 @@
       },
       "alignment": [
         "U"
-      ],
-      "ac": [
-        {
-          "ac": 3,
-          "from": [
-            "natural armor"
-          ]
-        }
       ],
       "hp": {
         "special": "244"
@@ -37801,6 +37883,29 @@
             "{@atk mw} reach 0 ft., all creatures in the swarm's space. 24 ({@damage 5d6 + 7}) slashing damage and the target is {@condition grappled|sns}. Slashing damage dealt by this attack ignores resistances and immunities."
           ]
         }
+      ],
+      "arm": [
+        {
+          "arm": 3,
+          "from": [
+            "natural armor"
+          ]
+        }
+      ],
+      "wil": [
+        {
+          "wil": 0
+        }
+      ],
+      "ref": [
+        {
+          "ref": 0
+        }
+      ],
+      "fort": [
+        {
+          "fort": 0
+        }
       ]
     },
     {
@@ -37812,14 +37917,6 @@
       "type": "construct",
       "alignment": [
         "U"
-      ],
-      "ac": [
-        {
-          "ac": 2,
-          "from": [
-            "natural armor"
-          ]
-        }
       ],
       "hp": {
         "special": "11"
@@ -37877,6 +37974,29 @@
             "{@atk mw} reach 5 ft., one target. 5 ({@damage 1d4 + 3}) bludgeoning damage."
           ]
         }
+      ],
+      "arm": [
+        {
+          "arm": 2,
+          "from": [
+            "natural armor"
+          ]
+        }
+      ],
+      "wil": [
+        {
+          "wil": 0
+        }
+      ],
+      "ref": [
+        {
+          "ref": 0
+        }
+      ],
+      "fort": [
+        {
+          "fort": 0
+        }
       ]
     },
     {
@@ -37888,14 +38008,6 @@
       "type": "construct",
       "alignment": [
         "U"
-      ],
-      "ac": [
-        {
-          "ac": 1,
-          "from": [
-            "plus half the spell's level (rounded up); natural armor"
-          ]
-        }
       ],
       "hp": {
         "special": "45 + 16 for each spell level above 4th"
@@ -37972,6 +38084,29 @@
             "When the construct takes damage, it makes a slam attack against a random creature adjacent to it. If no creature is within reach, the construct shifts up to half its Speed towards an enemy it can see."
           ]
         }
+      ],
+      "arm": [
+        {
+          "arm": 1,
+          "from": [
+            "plus half the spell's level (rounded up); natural armor"
+          ]
+        }
+      ],
+      "wil": [
+        {
+          "wil": 0
+        }
+      ],
+      "ref": [
+        {
+          "ref": 0
+        }
+      ],
+      "fort": [
+        {
+          "fort": 0
+        }
       ]
     },
     {
@@ -37983,14 +38118,6 @@
       "type": "dragon",
       "alignment": [
         "U"
-      ],
-      "ac": [
-        {
-          "ac": 2,
-          "from": [
-            "plus half the spell's level (rounded down); natural armor"
-          ]
-        }
       ],
       "hp": {
         "special": "56 + 11 for each spell level above 5th"
@@ -38060,6 +38187,29 @@
             "The dragon exhales destructive energy in a 30-foot cone. Make an area weapon reflex attack against each creature in that area that deals {@dice 5d6} damage of a type this dragon has 50% resistance to (your choice)."
           ]
         }
+      ],
+      "arm": [
+        {
+          "arm": 2,
+          "from": [
+            "plus half the spell's level (rounded down); natural armor"
+          ]
+        }
+      ],
+      "wil": [
+        {
+          "wil": 0
+        }
+      ],
+      "ref": [
+        {
+          "ref": 0
+        }
+      ],
+      "fort": [
+        {
+          "fort": 0
+        }
       ]
     },
     {
@@ -38071,11 +38221,6 @@
       "type": "plant",
       "alignment": [
         "U"
-      ],
-      "ac": [
-        {
-          "ac": -1
-        }
       ],
       "hp": {
         "special": "11"
@@ -38129,6 +38274,26 @@
             "{@atk mw} reach 5 ft., one target. {@damage 1d4 - 1} slashing damage."
           ]
         }
+      ],
+      "arm": [
+        {
+          "arm": -1
+        }
+      ],
+      "wil": [
+        {
+          "wil": 0
+        }
+      ],
+      "ref": [
+        {
+          "ref": 0
+        }
+      ],
+      "fort": [
+        {
+          "fort": 0
+        }
       ]
     },
     {
@@ -38140,14 +38305,6 @@
       "type": "plant",
       "alignment": [
         "U"
-      ],
-      "ac": [
-        {
-          "ac": 1,
-          "from": [
-            "natural armor"
-          ]
-        }
       ],
       "hp": {
         "special": "59"
@@ -38201,6 +38358,29 @@
           "entries": [
             "{@atk mw} reach 10 ft., one target. {@damage 3d6 + 4} bludgeoning damage."
           ]
+        }
+      ],
+      "arm": [
+        {
+          "arm": 1,
+          "from": [
+            "natural armor"
+          ]
+        }
+      ],
+      "wil": [
+        {
+          "wil": 0
+        }
+      ],
+      "ref": [
+        {
+          "ref": 0
+        }
+      ],
+      "fort": [
+        {
+          "fort": 0
         }
       ]
     }

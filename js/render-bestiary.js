@@ -367,7 +367,7 @@ class _RenderBestiaryImplClassic extends _RenderBestiaryImplBase {
 		},
 	) {
 		return {
-			htmlPtArmorClass: this._getHtmlParts_armorClass({mon, renderer, isInlinedToken}),
+			htmlPtDefences: this._getHtmlParts_defences({mon, renderer, isInlinedToken}),
 
 			htmlPtDamageImmunities: this._getHtmlParts_damageImmunities({mon}),
 			htmlPtConditionImmunities: this._getHtmlParts_conditionImmunities({mon}),
@@ -380,8 +380,15 @@ class _RenderBestiaryImplClassic extends _RenderBestiaryImplBase {
 
 	/* ----- */
 
-	_getHtmlParts_armorClass ({mon, renderer, isInlinedToken}) {
-		return `<tr><td colspan="6"><div ${isInlinedToken ? `class="stats__wrp-avoid-token"` : ""}><strong>Armor Class</strong> ${mon.ac == null ? "\u2014" : Parser.acToFull(mon.ac, {renderer})}</div></td></tr>`;
+	_getHtmlParts_defences ({mon, renderer, isInlinedToken}) {
+		const fmt = (key, label, val) => val == null ? null : `<strong>${label}</strong> ${Parser.acToFull(val, {renderer, key})}`;
+		const parts = [
+			fmt("arm", "Armour", mon.arm),
+			fmt("fort", "Fortitude", mon.fort),
+			fmt("ref", "Reflex", mon.ref),
+			fmt("wil", "Will", mon.wil),
+		].filter(Boolean).join(" &nbsp;&middot;&nbsp; ") || "\u2014";
+		return `<tr><td colspan="6"><div ${isInlinedToken ? `class="stats__wrp-avoid-token"` : ""}>${parts}</div></td></tr>`;
 	}
 
 	/* ----- */
@@ -465,7 +472,7 @@ class _RenderBestiaryImplClassic extends _RenderBestiaryImplBase {
 		});
 
 		const {
-			htmlPtArmorClass,
+			htmlPtDefences,
 
 			htmlPtDamageImmunities,
 			htmlPtConditionImmunities,
@@ -491,7 +498,7 @@ class _RenderBestiaryImplClassic extends _RenderBestiaryImplBase {
 
 		<tr><td colspan="6" class="py-0"><div class="ve-tbl-divider ${isInlinedToken ? `stats__wrp-avoid-token` : ""}"></div></td></tr>
 
-		${htmlPtArmorClass}
+		${htmlPtDefences}
 		${htmlPtHitPoints}
 		${htmlPtsResources.join("")}
 		${htmlPtSpeed}
@@ -550,7 +557,7 @@ class _RenderBestiaryImplOne extends _RenderBestiaryImplBase {
 		},
 	) {
 		return {
-			htmlPtArmorClass: this._getHtmlParts_armorClass({mon, renderer, isInlinedToken}),
+			htmlPtDefences: this._getHtmlParts_defences({mon, renderer, isInlinedToken}),
 
 			htmlPtImmunities: this._getHtmlParts_immunities({mon}),
 			htmlPtGear: this._getHtmlParts_gear({mon}),
@@ -561,10 +568,17 @@ class _RenderBestiaryImplOne extends _RenderBestiaryImplBase {
 
 	/* ----- */
 
-	_getHtmlParts_armorClass ({mon, renderer, isInlinedToken}) {
+	_getHtmlParts_defences ({mon, renderer, isInlinedToken}) {
+		const fmt = (key, abbr, label, val) => `<strong title="${label}">${abbr}</strong> ${val == null ? "\u2014" : Parser.acToFull(val, {renderer, key})}`;
+		const defPart = [
+			fmt("arm", "Arm", "Armour", mon.arm),
+			fmt("fort", "Fort", "Fortitude", mon.fort),
+			fmt("ref", "Ref", "Reflex", mon.ref),
+			fmt("wil", "Wil", "Will", mon.wil),
+		].join(" &nbsp;");
 		return `<tr><td colspan="6">
 			<div class="split-v-center ${isInlinedToken ? `stats__wrp-avoid-token` : ""}">
-				<div><strong title="Armor Class">AC</strong> ${mon.ac == null ? "\u2014" : Parser.acToFull(mon.ac, {renderer})}</div>
+				<div>${defPart}</div>
 				<div><strong>Initiative</strong> ${Renderer.monster.getInitiativePart(mon)}</div>
 			</div>
 		</td></tr>`;
@@ -644,7 +658,7 @@ class _RenderBestiaryImplOne extends _RenderBestiaryImplBase {
 		});
 
 		const {
-			htmlPtArmorClass,
+			htmlPtDefences,
 
 			htmlPtImmunities,
 			htmlPtGear,
@@ -669,7 +683,7 @@ class _RenderBestiaryImplOne extends _RenderBestiaryImplBase {
 
 		${htmlPtSizeTypeAlignment}
 
-		${htmlPtArmorClass}
+		${htmlPtDefences}
 		${htmlPtHitPoints}
 		${htmlPtsResources.join("")}
 		${htmlPtSpeed}

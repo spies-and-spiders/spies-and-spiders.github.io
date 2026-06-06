@@ -109,7 +109,15 @@ class PageFilterBestiary extends PageFilterBase {
 			filters: [this._strengthFilter, this._dexterityFilter, this._constitutionFilter, this._intelligenceFilter, this._wisdomFilter, this._charismaFilter],
 			isAddDropdownToggle: true,
 		});
-		this._acFilter = new RangeFilter({header: "Armor Class"});
+		this._armourFilter = new RangeFilter({header: "Armour"});
+		this._willFilter = new RangeFilter({header: "Will"});
+		this._reflexFilter = new RangeFilter({header: "Reflex"});
+		this._fortitudeFilter = new RangeFilter({header: "Fortitude"});
+		this._defencesFilter = new MultiFilter({
+			header: "Defences",
+			filters: [this._armourFilter, this._willFilter, this._reflexFilter, this._fortitudeFilter],
+			isAddDropdownToggle: true,
+		});
 		this._averageHpFilter = new RangeFilter({header: "Average Hit Points"});
 		this._typeFilter = new Filter({
 			header: "Type",
@@ -276,8 +284,11 @@ class PageFilterBestiary extends PageFilterBase {
 
 		this._mutateForFilters_speed(mon);
 
-		mon._fAc = (mon.ac || []).map(it => it.special ? null : (it.ac || it)).filter(it => it !== null);
-		if (!mon._fAc.length) mon._fAc = null;
+		const _fDef = (arr, key) => { const vals = (arr || []).map(it => it.special ? null : (it[key] != null ? it[key] : it)).filter(it => it !== null); return vals.length ? vals : null; };
+		mon._fArm = _fDef(mon.arm, "arm");
+		mon._fWil = _fDef(mon.wil, "wil");
+		mon._fRef = _fDef(mon.ref, "ref");
+		mon._fFort = _fDef(mon.fort, "fort");
 		mon._fHp = mon.hp?.average ?? null;
 		if (mon.alignment) {
 			const tempAlign = typeof mon.alignment[0] === "object"
@@ -309,15 +320,6 @@ class PageFilterBestiary extends PageFilterBase {
 
 		this._mutateForFilters_commonMisc(mon);
 		mon._fMisc.push(...mon.miscTags || []);
-		for (const it of (mon.trait || [])) {
-			if (it.name && it.name.startsWith("Unarmored Defense")) mon._fMisc.push("AC from Unarmored Defense");
-		}
-		for (const it of (mon.ac || [])) {
-			if (!it.from) continue;
-			if (it.from.includes("natural armor")) mon._fMisc.push("AC from Natural Armor");
-			if (it.from.some(x => x.startsWith("{@item "))) mon._fMisc.push("AC from Item(s)");
-			if (!mon._fMisc.includes("AC from Unarmored Defense") && it.from.includes("Unarmored Defense")) mon._fMisc.push("AC from Unarmored Defense");
-		}
 		if (mon.legendary) mon._fMisc.push("Legendary");
 		if (mon.familiar) mon._fMisc.push("Familiar");
 		if (mon.type.swarmSize) mon._fMisc.push("Swarm");
@@ -444,9 +446,9 @@ class PageFilterBestiary extends PageFilterBase {
 
 		const walker = this._getInitWalker();
 
-		for (const acItem of (mon.ac || [])) {
-			if (!acItem?.from?.length) continue;
-			for (const from of acItem.from) this._getEquipmentList_stringHandler(itemSet, from);
+		for (const armItem of (mon.arm || [])) {
+			if (!armItem?.from?.length) continue;
+			for (const from of armItem.from) this._getEquipmentList_stringHandler(itemSet, from);
 		}
 
 		for (const trait of (mon.trait || [])) {
@@ -486,7 +488,10 @@ class PageFilterBestiary extends PageFilterBase {
 		this._wisdomFilter.addItem(mon._fWis);
 		this._charismaFilter.addItem(mon._fCha);
 		this._speedFilter.addItem(mon._fSpeed);
-		(mon.ac || []).forEach(it => this._acFilter.addItem(it.ac || it));
+		(mon.arm || []).forEach(it => this._armourFilter.addItem(it.arm != null ? it.arm : it));
+		(mon.wil || []).forEach(it => this._willFilter.addItem(it.wil != null ? it.wil : it));
+		(mon.ref || []).forEach(it => this._reflexFilter.addItem(it.ref != null ? it.ref : it));
+		(mon.fort || []).forEach(it => this._fortitudeFilter.addItem(it.fort != null ? it.fort : it));
 		if (mon.hp?.average) this._averageHpFilter.addItem(mon.hp.average);
 		this._tagFilter.addItem(mon._pTypes.tags);
 		this._sidekickTypeFilter.addItem(mon._pTypes.typeSidekick);
@@ -552,7 +557,7 @@ class PageFilterBestiary extends PageFilterBase {
 			this._savingThrowForcedFilter,
 			this._dragonAgeFilter,
 			this._dragonCastingColor,
-			this._acFilter,
+			this._defencesFilter,
 			this._averageHpFilter,
 			this._abilityScoreFilter,
 			this._spellKnownFilter,
@@ -607,7 +612,7 @@ class PageFilterBestiary extends PageFilterBase {
 			],
 			m.dragonAge,
 			m.dragonCastingColor,
-			m._fAc,
+			[m._fArm, m._fWil, m._fRef, m._fFort],
 			m._fHp,
 			[
 				m._fStr,

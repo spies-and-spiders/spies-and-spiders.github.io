@@ -495,7 +495,7 @@ Parser.LANGUAGES_ALL = [
 	...Parser.LANGUAGES_SECRET,
 ].sort();
 
-Parser.acToFull = function (ac, {renderer = null, isHideFrom = false} = {}) {
+Parser.acToFull = function (ac, {renderer = null, isHideFrom = false, key = "ac"} = {}) {
 	if (typeof ac === "string") return ac; // handle classic format
 
 	renderer ||= Renderer.get();
@@ -510,7 +510,7 @@ Parser.acToFull = function (ac, {renderer = null, isHideFrom = false} = {}) {
 			if (inBraces) inBraces = false;
 
 			stack += cur.special;
-		} else if (cur.ac) {
+		} else if (cur[key] != null) {
 			const isNxtBraces = nxt && nxt.braces;
 
 			if (!inBraces && cur.braces) {
@@ -518,7 +518,7 @@ Parser.acToFull = function (ac, {renderer = null, isHideFrom = false} = {}) {
 				inBraces = true;
 			}
 
-			stack += cur.ac;
+			stack += cur[key];
 
 			if (!isHideFrom && cur.from) {
 				// always brace nested braces

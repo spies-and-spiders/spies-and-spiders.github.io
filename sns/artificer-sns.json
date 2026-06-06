@@ -1822,11 +1822,6 @@
       "alignment": [
         "U"
       ],
-      "ac": [
-        {
-          "ac": 4
-        }
-      ],
       "hp": {
         "special": "101"
       },
@@ -1909,6 +1904,26 @@
             "The automaton takes the Dash action."
           ]
         }
+      ],
+      "arm": [
+        {
+          "arm": 4
+        }
+      ],
+      "wil": [
+        {
+          "wil": 0
+        }
+      ],
+      "ref": [
+        {
+          "ref": 0
+        }
+      ],
+      "fort": [
+        {
+          "fort": 0
+        }
       ]
     },
     {
@@ -1920,11 +1935,6 @@
       "type": "undead",
       "alignment": [
         "U"
-      ],
-      "ac": [
-        {
-          "ac": -1
-        }
       ],
       "hp": {
         "special": "16"
@@ -1993,6 +2003,26 @@
             "{@atk mw} reach 5 ft., one {@condition grappled|sns} target. {@damage 1d10 + 1} piercing damage, and the zombie regains the same number of hit points."
           ]
         }
+      ],
+      "arm": [
+        {
+          "arm": -1
+        }
+      ],
+      "wil": [
+        {
+          "wil": 0
+        }
+      ],
+      "ref": [
+        {
+          "ref": 0
+        }
+      ],
+      "fort": [
+        {
+          "fort": 0
+        }
       ]
     },
     {
@@ -2004,11 +2034,6 @@
       "type": "construct",
       "alignment": [
         "U"
-      ],
-      "ac": [
-        {
-          "ac": 4
-        }
       ],
       "hp": {
         "special": "six times your level"
@@ -2070,6 +2095,26 @@
             "The cannon emits a burst of positive energy that grants itself and each creature of your choice within 10 feet of it a number of temporary hit points equal to {@dice 1d10} + your Intelligence modifier (minimum of +1)."
           ]
         }
+      ],
+      "arm": [
+        {
+          "arm": 4
+        }
+      ],
+      "wil": [
+        {
+          "wil": 0
+        }
+      ],
+      "ref": [
+        {
+          "ref": 0
+        }
+      ],
+      "fort": [
+        {
+          "fort": 0
+        }
       ]
     },
     {
@@ -2081,11 +2126,6 @@
       "type": "construct",
       "alignment": [
         "U"
-      ],
-      "ac": [
-        {
-          "ac": 4
-        }
       ],
       "hp": {
         "special": "12 times your level"
@@ -2146,6 +2186,26 @@
           "entries": [
             "The cannon emits a burst of positive energy that grants itself and each creature of your choice within 10 feet of it a number of temporary hit points equal to {@dice 2d10} + double your Intelligence modifier (minimum of +2)."
           ]
+        }
+      ],
+      "arm": [
+        {
+          "arm": 4
+        }
+      ],
+      "wil": [
+        {
+          "wil": 0
+        }
+      ],
+      "ref": [
+        {
+          "ref": 0
+        }
+      ],
+      "fort": [
+        {
+          "fort": 0
         }
       ]
     }

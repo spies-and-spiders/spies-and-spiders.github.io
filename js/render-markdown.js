@@ -846,7 +846,11 @@ RendererMarkdown.monster = class {
 
 		const monTypes = Parser.monTypeToFullObj(mon.type);
 		RendererMarkdown.get().isSkipStylingItemLinks = true;
-		const acPart = mon.ac == null ? "\u2014" : Parser.acToFull(mon.ac, {renderer: RendererMarkdown.get()});
+		const mdRenderer = RendererMarkdown.get();
+		const armPart = mon.arm == null ? "\u2014" : Parser.acToFull(mon.arm, {renderer: mdRenderer, key: "arm"});
+		const fortPart = mon.fort == null ? "\u2014" : Parser.acToFull(mon.fort, {renderer: mdRenderer, key: "fort"});
+		const refPart = mon.ref == null ? "\u2014" : Parser.acToFull(mon.ref, {renderer: mdRenderer, key: "ref"});
+		const wilPart = mon.wil == null ? "\u2014" : Parser.acToFull(mon.wil, {renderer: mdRenderer, key: "wil"});
 		RendererMarkdown.get().isSkipStylingItemLinks = false;
 		const resourcePart = mon.resource?.length
 			? mon.resource
@@ -895,7 +899,10 @@ RendererMarkdown.monster = class {
 >## ${mon._displayName || mon.name}
 >*${mon.level ? `${Parser.getOrdinalForm(mon.level)}-level ` : ""}${Renderer.utils.getRenderedSize(mon.size)} ${monTypes.asText}${mon.alignment ? `, ${mon.alignmentPrefix ? RendererMarkdown.get().render(mon.alignmentPrefix) : ""}${Parser.alignmentListToFull(mon.alignment)}` : ""}*
 >___
->- **Armor Class** ${acPart}
+>- **Armour** ${armPart}
+>- **Fortitude** ${fortPart}
+>- **Reflex** ${refPart}
+>- **Will** ${wilPart}
 >- **Hit Points** ${mon.hp == null ? "\u2014" : Renderer.monster.getRenderedHp(mon.hp, {isPlainText: true})}${resourcePart}
 >- **Speed** ${Parser.getSpeedString(mon)}
 >___

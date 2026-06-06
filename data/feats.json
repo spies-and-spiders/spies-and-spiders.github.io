@@ -706,11 +706,6 @@
       "alignment": [
         "U"
       ],
-      "ac": [
-        {
-          "special": "Your level divided by 4"
-        }
-      ],
       "hp": {
         "special": "12 + 12 times your proficiency bonus"
       },
@@ -754,6 +749,26 @@
           "entries": [
             "{@atk mw} reach 5 ft., one target. 5 + triple your level bludgeoning, piercing, or slashing damage."
           ]
+        }
+      ],
+      "arm": [
+        {
+          "special": "Your level divided by 4"
+        }
+      ],
+      "wil": [
+        {
+          "wil": 0
+        }
+      ],
+      "ref": [
+        {
+          "ref": 0
+        }
+      ],
+      "fort": [
+        {
+          "fort": 0
         }
       ]
     }

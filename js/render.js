@@ -8717,21 +8717,21 @@ class _RenderCompactBestiaryImplBase {
 	/* ----- */
 
 	_getCommonHtmlParts_attributeHeaders ({mon, isInlinedToken, isShowSpellLevelScaler, isShowClassLevelScaler}) {
-		const labelAc = this._style !== "classic" ? "AC" : "Armor Class";
-		const titleAc = this._style !== "classic" ? `title="Armor Class"` : "";
+		const isClassic = this._style === "classic";
 
-		const labelHp = this._style !== "classic" ? "HP" : "Hit Points";
-		const titleHp = this._style !== "classic" ? `title="Hit Points"` : "";
+		const labelHp = !isClassic ? "HP" : "Hit Points";
+		const titleHp = !isClassic ? `title="Hit Points"` : "";
 
-		const labelCr = isShowSpellLevelScaler ? "Spell Level" : isShowClassLevelScaler ? "Class Level" : (this._style !== "classic" ? "CR" : "Challenge");
-		const titleCr = isShowSpellLevelScaler ? "" : isShowClassLevelScaler ? "" : (this._style !== "classic" ? `title="Challenge Rating"` : "");
+		const labelCr = isShowSpellLevelScaler ? "Spell Level" : isShowClassLevelScaler ? "Class Level" : (!isClassic ? "CR" : "Challenge");
+		const titleCr = isShowSpellLevelScaler ? "" : isShowClassLevelScaler ? "" : (!isClassic ? `title="Challenge Rating"` : "");
 
-		const ptInitiative = this._style !== "classic" ? Renderer.monster.getInitiativePart(mon) : "";
-		const ptPb = this._style === "classic" ? Renderer.monster.getPbPart(mon) : "";
+		const ptPb = isClassic ? Renderer.monster.getPbPart(mon) : "";
 
 		return `<tr>
-			<th colspan="${this._style === "classic" ? "2" : "1"}" ${titleAc}>${labelAc}</th>
-			${ptInitiative ? `<th colspan="1" title="Initiative">Init.</th>` : ""}
+			<th colspan="1" title="Armour">${isClassic ? "Armour" : "Arm"}</th>
+			<th colspan="1" title="Fortitude">${isClassic ? "Fortitude" : "Fort"}</th>
+			<th colspan="1" title="Reflex">${isClassic ? "Reflex" : "Ref"}</th>
+			<th colspan="1" title="Will">${isClassic ? "Will" : "Wil"}</th>
 			<th colspan="2" ${titleHp}>${labelHp}</th>
 			<th colspan="2">Speed</th>
 			<th colspan="2" ${titleCr}>${labelCr}</th>
@@ -8768,14 +8768,18 @@ class _RenderCompactBestiaryImplBase {
 	}
 
 	_getCommonHtmlParts_attributeValues ({mon, opts, isInlinedToken, isShowCrScaler, isShowSpellLevelScaler, isShowClassLevelScaler}) {
-		const ptInitiative = this._style !== "classic" ? Renderer.monster.getInitiativePart(mon) : "";
-		const ptPb = this._style === "classic" ? Renderer.monster.getPbPart(mon) : "";
+		const isClassic = this._style === "classic";
+		const ptPb = isClassic ? Renderer.monster.getPbPart(mon) : "";
 
 		const ptCrSpellLevel = this._getCommonHtmlParts_crSpellLevel({mon, opts, isShowCrScaler, isShowSpellLevelScaler, isShowClassLevelScaler});
 
+		const fmtDef = (key, val) => val == null ? "\u2014" : Parser.acToFull(val, {key, isHideFrom: !isClassic});
+
 		return `<tr>
-			<td colspan="${this._style === "classic" ? "2" : "1"}">${mon.ac == null ? "\u2014" : Parser.acToFull(mon.ac, {isHideFrom: this._style !== "classic"})}</td>
-			${ptInitiative ? `<td colspan="1">${ptInitiative}</td>` : ""}
+			<td colspan="1">${fmtDef("arm", mon.arm)}</td>
+			<td colspan="1">${fmtDef("fort", mon.fort)}</td>
+			<td colspan="1">${fmtDef("ref", mon.ref)}</td>
+			<td colspan="1">${fmtDef("wil", mon.wil)}</td>
 			<td colspan="2">${mon.hp == null ? "\u2014" : Renderer.monster.getRenderedHp(mon.hp)}</td>
 			<td colspan="2">${Parser.getSpeedString(mon)}</td>
 			${ptCrSpellLevel}
