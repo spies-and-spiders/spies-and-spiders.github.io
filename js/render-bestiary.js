@@ -467,7 +467,6 @@ class _RenderBestiaryImplClassic extends _RenderBestiaryImplBase {
 		const {
 			htmlPtArmorClass,
 
-			htmlPtSavingThrows,
 			htmlPtDamageImmunities,
 			htmlPtConditionImmunities,
 
@@ -503,7 +502,6 @@ class _RenderBestiaryImplClassic extends _RenderBestiaryImplBase {
 
 		<tr><td colspan="6" class="py-0"><div class="ve-tbl-divider"></div></td></tr>
 
-		${htmlPtSavingThrows}
 		${htmlPtSkills}
 		${htmlPtVulnerabilities}
 		${htmlPtResistances}
@@ -648,8 +646,6 @@ class _RenderBestiaryImplOne extends _RenderBestiaryImplBase {
 		const {
 			htmlPtArmorClass,
 
-			htmlPtSavingThrows,
-
 			htmlPtImmunities,
 			htmlPtGear,
 
@@ -680,7 +676,6 @@ class _RenderBestiaryImplOne extends _RenderBestiaryImplBase {
 
 		${htmlPtAbilityScores}
 
-		${htmlPtSavingThrows}
 		${htmlPtSkills}
 		${htmlPtVulnerabilities}
 		${htmlPtResistances}

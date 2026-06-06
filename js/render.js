@@ -8880,7 +8880,6 @@ class _RenderCompactBestiaryImplClassic extends _RenderCompactBestiaryImplBase {
 		},
 	) {
 		return {
-			htmlPtSavingThrows: this._getHtmlParts_savingThrows({mon}),
 			htmlPtDamageImmunities: this._getHtmlParts_damageImmunities({mon}),
 			htmlPtConditionImmunities: this._getHtmlParts_conditionImmunities({mon}),
 
@@ -8889,10 +8888,6 @@ class _RenderCompactBestiaryImplClassic extends _RenderCompactBestiaryImplBase {
 	}
 
 	/* ----- */
-
-	_getHtmlParts_savingThrows ({mon}) {
-		return mon.save ? `<p><b>Saving Throws</b> ${Renderer.monster.getSavesPart(mon)}</p>` : "";
-	}
 
 	_getHtmlParts_damageImmunities ({mon}) {
 		return mon.immune ? `<p><b>Damage Imm.</b> ${Parser.getFullImmRes(mon.immune)}</p>` : "";
@@ -8978,7 +8973,6 @@ class _RenderCompactBestiaryImplClassic extends _RenderCompactBestiaryImplBase {
 		});
 
 		const {
-			htmlPtSavingThrows,
 			htmlPtDamageImmunities,
 			htmlPtConditionImmunities,
 
@@ -9009,7 +9003,6 @@ class _RenderCompactBestiaryImplClassic extends _RenderCompactBestiaryImplBase {
 			<tr><td colspan="6">
 				<div class="rd__compact-stat mt-2">
 					${htmlPtsResources.join("")}
-					${htmlPtSavingThrows}
 					${htmlPtSkills}
 					${htmlPtVulnerabilities}
 					${htmlPtResistances}
@@ -9046,8 +9039,6 @@ class _RenderCompactBestiaryImplOne extends _RenderCompactBestiaryImplBase {
 		},
 	) {
 		return {
-			htmlPtSavingThrows: this._getHtmlParts_savingThrows({mon, renderer}),
-
 			htmlPtImmunities: this._getHtmlParts_immunities({mon}),
 			htmlPtGear: this._getHtmlParts_gear({mon}),
 
@@ -9056,11 +9047,6 @@ class _RenderCompactBestiaryImplOne extends _RenderCompactBestiaryImplBase {
 	}
 
 	/* ----- */
-
-	_getHtmlParts_savingThrows ({mon, renderer}) {
-		if (!mon.save?.special) return "";
-		return `<p><b>Saving Throws</b> ${Renderer.monster.getSave(renderer, "special", mon.save.special)}</p>`;
-	}
 
 	_getHtmlParts_immunities ({mon}) {
 		const pt = Renderer.monster.getImmunitiesCombinedPart(mon);
@@ -9145,8 +9131,6 @@ class _RenderCompactBestiaryImplOne extends _RenderCompactBestiaryImplBase {
 		});
 
 		const {
-			htmlPtSavingThrows,
-
 			htmlPtImmunities,
 			htmlPtGear,
 
@@ -9175,7 +9159,6 @@ class _RenderCompactBestiaryImplOne extends _RenderCompactBestiaryImplBase {
 			<tr><td colspan="6">
 				<div class="rd__compact-stat mt-2">
 					${htmlPtsResources.join("")}
-					${htmlPtSavingThrows}
 					${htmlPtSkills}
 					${htmlPtVulnerabilities}
 					${htmlPtResistances}
@@ -9886,15 +9869,11 @@ Renderer.monster = class {
 		const ptSpecial = ptsSpecial.map(pt => `<tr><td colspan="6">${pt}</td></tr>`).join("");
 
 		const ptHeaders = Array.from(
-			{length: 12},
-			(_, i) => `<div class="ve-muted ve-text-center small-caps">${i % 4 === 2 ? "mod" : i % 4 === 3 ? "save" : ""}</div>`,
+			{length: 9},
+			(_, i) => `<div class="ve-muted ve-text-center small-caps">${i % 3 === 2 ? "mod" : ""}</div>`,
 		)
 			.join("");
 
-		Object.keys(mon.save || {})
-			.map(s => Renderer.monster.getSave(Renderer.get(), s, mon.save[s]));
-
-		let cntSpecialSaves = 0;
 		const ptsCells = Parser.ABIL_ABVS
 			.flatMap((abv, i) => {
 				const styleName = i < 3 ? "physical" : "mental";
@@ -9902,13 +9881,11 @@ Renderer.monster = class {
 				const numScore = abvsRemaining.includes(abv) ? mon[abv] : null;
 				const ptScore = numScore != null ? `${mon[abv]}` : `\u2013`;
 				const ptBonus = numScore != null ? Renderer.utils.getAbilityRoller(mon, abv, {isDisplayAsBonus: true}) : `\u2013`;
-				const ptSave = renderer.render(`{@savingThrow ${abv} ${mon.save?.[abv] == null ? Parser.getAbilityModNumber(ptScore) : mon.save[abv]}}`);
 
 				return [
 					`<div class="bold small-caps ve-text-right stats__disp-as-score stats__disp-as-score--label stats__disp-as-score--${styleName}">${abv.toTitleCase()}</div>`,
 					`<div class="ve-text-center stats__disp-as-score stats__disp-as-score--${styleName}">${ptScore}</div>`,
-					`<div class="ve-text-center stats__disp-as-bonus stats__disp-as-bonus--${styleName}">${ptBonus}</div>`,
-					`<div class="ve-text-center stats__disp-as-bonus stats__disp-as-bonus--${styleName} ${i % 3 !== 2 ? "mr-2" : ""}">${ptSave}</div>`,
+					`<div class="ve-text-center stats__disp-as-bonus stats__disp-as-bonus--${styleName} ${i % 3 !== 2 ? "mr-2" : ""}">${ptBonus}</div>`,
 				];
 			})
 			.join("");

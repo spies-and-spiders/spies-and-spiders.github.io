@@ -287,7 +287,7 @@ class PageFilterItems extends PageFilterEquipment {
 		this._bonusFilter = new Filter({
 			header: "Bonus",
 			items: [
-				"Armor Class", "Proficiency Bonus", "Spell Attacks", "Spell Save DC", "Saving Throws",
+				"Proficiency Bonus", "Spell Attacks", "Saving Throws",
 				...([...new Array(4)]).map((_, i) => `Weapon Attack and Damage Rolls${i ? ` (+${i})` : ""}`),
 				...([...new Array(4)]).map((_, i) => `Weapon Attack Rolls${i ? ` (+${i})` : ""}`),
 				...([...new Array(4)]).map((_, i) => `Weapon Damage Rolls${i ? ` (+${i})` : ""}`),
@@ -341,13 +341,11 @@ class PageFilterItems extends PageFilterEquipment {
 		item._fBaseItemAll = fBaseItemSelf ? [fBaseItemSelf, ...item._fBaseItem] : item._fBaseItem;
 
 		item._fBonus = [];
-		if (item.bonusAc) item._fBonus.push("Armor Class");
 		this._mutateForFilters_bonusWeapon({prop: "bonusWeapon", item, text: "Weapon Attack and Damage Rolls"});
 		this._mutateForFilters_bonusWeapon({prop: "bonusWeaponAttack", item, text: "Weapon Attack Rolls"});
 		this._mutateForFilters_bonusWeapon({prop: "bonusWeaponDamage", item, text: "Weapon Damage Rolls"});
 		if (item.bonusWeaponCritDamage) item._fBonus.push("Weapon Critical Damage");
 		if (item.bonusSpellAttack) item._fBonus.push("Spell Attacks");
-		if (item.bonusSpellSaveDc) item._fBonus.push("Spell Save DC");
 		if (item.bonusSavingThrow) item._fBonus.push("Saving Throws");
 		if (item.bonusProficiencyBonus) item._fBonus.push("Proficiency Bonus");
 
