@@ -395,9 +395,6 @@
         }
       },
       "conditionInflict": [
-        "debilitated",
-        "frightened",
-        "poisoned"
       ]
     },
     {
@@ -558,7 +555,6 @@
         }
       },
       "conditionInflict": [
-        "incapacitated"
       ]
     },
     {
@@ -718,7 +714,6 @@
         }
       },
       "conditionInflict": [
-        "incapacitated"
       ]
     },
     {
@@ -2410,7 +2405,10 @@
         "distance": {
           "type": "special"
         }
-      }
+      },
+      "conditionInflict": [
+        "blinded"
+      ]
     },
     {
       "school": "M",
@@ -2559,7 +2557,10 @@
         "distance": {
           "type": "special"
         }
-      }
+      },
+      "conditionInflict": [
+        "staggered"
+      ]
     },
     {
       "school": "M",
@@ -3938,7 +3939,10 @@
         "distance": {
           "type": "special"
         }
-      }
+      },
+      "conditionInflict": [
+        "grappled"
+      ]
     },
     {
       "school": "M",
@@ -4543,6 +4547,10 @@
           "type": "special"
         }
       },
+      "conditionInflict": [
+        "prone",
+        "debilitated"
+      ],
       "defence": [
         "armour"
       ]
@@ -5131,9 +5139,6 @@
         }
       },
       "conditionInflict": [
-        "charmed",
-        "poisoned",
-        "restrained"
       ]
     },
     {
@@ -5377,10 +5382,6 @@
         }
       },
       "conditionInflict": [
-        "charmed",
-        "debilitated",
-        "frightened",
-        "poisoned"
       ]
     },
     {
@@ -5742,7 +5743,8 @@
       "conditionInflict": [
         "confused",
         "debilitated",
-        "rattled"
+        "rattled",
+        "sluggish"
       ]
     },
     {
@@ -6266,7 +6268,7 @@
           ]
         },
         "Make a melee weapon attack against a creature.",
-        "On a major success, you release a mighty roar that shakes the very earth and firmament in a 30-foot cube centered on you. Each hostile creature in the area suffers psychic harm equal to twice your proficiency bonus and it becomes {@condition frightened|sns} until the end of its next turn. On a standard success, the same creatures suffer half as much psychic harm and do not become {@condition frightened|sns}."
+        "On a major success, you release a mighty roar that shakes the very earth and firmament in a 30-foot cube centered on you. Each hostile creature in the area suffers psychic harm equal to twice your proficiency bonus and becomes {@condition frightened|sns} until the end of its next turn. On a standard success, the same creatures suffer half as much psychic harm and do not become {@condition frightened|sns}."
       ],
       "name": "Bloody Roar",
       "time": [
@@ -6425,7 +6427,6 @@
         }
       },
       "conditionInflict": [
-        "prone"
       ]
     },
     {
@@ -6885,7 +6886,10 @@
         "distance": {
           "type": "special"
         }
-      }
+      },
+      "conditionInflict": [
+        "debilitated"
+      ]
     },
     {
       "school": "M",
@@ -7156,7 +7160,10 @@
         "distance": {
           "type": "special"
         }
-      }
+      },
+      "conditionInflict": [
+        "dazed"
+      ]
     },
     {
       "school": "M",
@@ -7194,7 +7201,6 @@
         }
       },
       "conditionInflict": [
-        "fatigue"
       ]
     },
     {
@@ -7341,8 +7347,7 @@
         "armour"
       ],
       "conditionInflict": [
-        "blinded",
-        "fatigue"
+        "blinded"
       ]
     },
     {
@@ -8245,14 +8250,14 @@
             "5 points"
           ]
         },
-        "When you activate this maneuver, roll a Persuasion check. Then choose up to six creatures within 30 feet of you that can hear you. You can choose which of the following two effects to apply to each target.",
+        "When you activate this maneuver, roll a {@skill Persuasion|sns} check. Then choose up to six creatures within 30 feet of you that can hear you. You can choose which of the following two effects to apply to each target.",
         {
           "type": "list",
           "items": [
             {
               "type": "item",
               "entries": [
-                "If your Persuasion check was equal to or greater than the creature's passive Insight, the creature must make a disadvantaged save, becoming {@condition fixated|sns} for 1 minute on a fail. This effect requires concentration like a spell and ends early if you lose concentration or if the creature can no longer hear you.",
+                "If your {@skill Persuasion|sns} check was equal to or greater than the creature's passive {@skill Insight|sns}, the creature must make a disadvantaged save, becoming {@condition fixated|sns} for 1 minute on a fail. This effect requires concentration like a spell and ends early if you lose concentration or if the creature can no longer hear you.",
                 "While {@condition fixated|sns} in this way, any ally who is not within 10 feet of you is considered to be hidden from the creature. An ally remains hidden until they reveal their position, such as by touching or attacking the creature or producing a lot of noise."
               ]
             },
@@ -8289,7 +8294,7 @@
         }
       },
       "conditionInflict": [
-        "charmed"
+        "fixated"
       ]
     },
     {
@@ -8518,7 +8523,6 @@
         }
       },
       "conditionInflict": [
-        "fixated",
         "rattled"
       ]
     },
@@ -8745,8 +8749,7 @@
         }
       },
       "conditionInflict": [
-        "fixated",
-        "incapacitated"
+        "fixated"
       ]
     },
     {
@@ -8786,7 +8789,6 @@
         }
       },
       "conditionInflict": [
-        "incapacitated",
         "prone"
       ]
     },
@@ -9448,7 +9450,6 @@
         }
       },
       "conditionInflict": [
-        "incapacitated"
       ]
     },
     {
@@ -9683,9 +9684,6 @@
         }
       },
       "conditionInflict": [
-        "charmed",
-        "poisoned",
-        "restrained"
       ]
     },
     {
@@ -9724,7 +9722,6 @@
         }
       },
       "conditionInflict": [
-        "fatigue"
       ]
     },
     {
