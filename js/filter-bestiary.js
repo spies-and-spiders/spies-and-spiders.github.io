@@ -218,6 +218,7 @@ class PageFilterBestiary extends PageFilterBase {
 		});
 		this._spellKnownFilter = new SearchableFilter({header: "Spells Known", displayFn: (it) => it.split("|")[0].toTitleCase(), itemSortFn: SortUtil.ascSortLower});
 		this._equipmentFilter = new SearchableFilter({header: "Equipment", displayFn: (it) => it.split("|")[0].toTitleCase(), itemSortFn: SortUtil.ascSortLower});
+		this._majorEffectCountFilter = new RangeFilter({header: "Major Effect Count", min: 0, max: 0});
 	}
 
 	static mutateForFilters (mon) {
@@ -288,6 +289,7 @@ mon._fSkill = mon.skill ? Object.keys(mon.skill) : [];
 		else mon._fLanguageTags = ["None"];
 
 		mon._fEquipment = this._getEquipmentList(mon);
+		mon._fMajorEffectCount = mon.majorEffect?.length ?? 0;
 	}
 
 	static _mutateForFilters_speed (mon) {
@@ -438,6 +440,7 @@ mon._fSkill = mon.skill ? Object.keys(mon.skill) : [];
 		this._equipmentFilter.addItem(mon._fEquipment);
 		if (mon._versionBase_isVersion) this._miscFilter.addItem("Is Variant");
 		this._miscFilter.addItem(mon._fMisc);
+		this._majorEffectCountFilter.addItem(mon._fMajorEffectCount);
 		this._damageTypeFilterBase.addItem(mon.damageTags);
 		this._damageTypeFilterLegendary.addItem(mon.damageTagsLegendary);
 		this._damageTypeFilterSpells.addItem(mon.damageTagsSpell);
@@ -481,6 +484,7 @@ this._defencesFilter,
 			this._abilityScoreFilter,
 			this._spellKnownFilter,
 			this._equipmentFilter,
+			this._majorEffectCountFilter,
 		];
 	}
 
@@ -534,6 +538,7 @@ this._defencesFilter,
 			],
 			m._fSpellsKnown,
 			m._fEquipment,
+			m._fMajorEffectCount,
 		);
 	}
 }

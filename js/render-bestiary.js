@@ -375,6 +375,7 @@ class _RenderBestiaryImplClassic extends _RenderBestiaryImplBase {
 			htmlPtPb: this._getHtmlParts_pb({mon}),
 
 			htmlPtTraits: this._getHtmlParts_traits({mon, entsTrait}),
+			htmlPtMajorEffect: this._getHtmlParts_majorEffect({mon}),
 		};
 	}
 
@@ -415,6 +416,15 @@ class _RenderBestiaryImplClassic extends _RenderBestiaryImplBase {
 	_getHtmlParts_traits ({mon, entsTrait}) {
 		return `${entsTrait?.length ? `<tr><td colspan="6" class="py-0"><div class="ve-tbl-divider mb-0"></div></td></tr>` : ""}
 		${entsTrait?.length ? this._getRenderedSection({prop: "trait", entries: entsTrait}) : ""}`;
+	}
+
+	_getHtmlParts_majorEffect ({mon}) {
+		if (!mon.majorEffect?.length) return "";
+		const renderer = Renderer.get();
+		const renderStack = [];
+		renderer.setFirstSection(true).recursiveRender({type: "list", items: mon.majorEffect}, renderStack, {depth: 2});
+		return `<tr><td colspan="6" class="py-0"><div class="ve-tbl-divider mb-0"></div></td></tr>
+		<tr><td colspan="6" class="stats__sect-row-inner">${renderStack.join("")}</td></tr>`;
 	}
 
 	/* -------------------------------------------- */
@@ -480,6 +490,7 @@ class _RenderBestiaryImplClassic extends _RenderBestiaryImplBase {
 			htmlPtPb,
 
 			htmlPtTraits,
+			htmlPtMajorEffect,
 		} = this._getHtmlParts({
 			mon,
 			renderer,
@@ -526,6 +537,7 @@ class _RenderBestiaryImplClassic extends _RenderBestiaryImplBase {
 		<tr>${opts.selSummonClassLevel ? $$`<td colspan="6"><strong class="mr-2">Class Level</strong> ${opts.selSummonClassLevel}</td>` : ""}</tr>
 
 		${htmlPtTraits}
+		${htmlPtMajorEffect}
 		${htmlPtActions}
 		${htmlPtBonusActions}
 		${htmlPtReactions}
@@ -563,6 +575,7 @@ class _RenderBestiaryImplOne extends _RenderBestiaryImplBase {
 			htmlPtGear: this._getHtmlParts_gear({mon}),
 
 			htmlPtTraits: this._getHtmlParts_traits({mon, entsTrait}),
+			htmlPtMajorEffect: this._getHtmlParts_majorEffect({mon}),
 		};
 	}
 
@@ -601,6 +614,15 @@ class _RenderBestiaryImplOne extends _RenderBestiaryImplBase {
 	_getHtmlParts_traits ({mon, entsTrait}) {
 		return `${entsTrait?.length ? `${this._getRenderedSectionHeader({mon, title: "Traits", prop: "trait"})}
 		${this._getRenderedSection({prop: "trait", entries: entsTrait})}` : ""}`;
+	}
+
+	_getHtmlParts_majorEffect ({mon}) {
+		if (!mon.majorEffect?.length) return "";
+		const renderer = Renderer.get();
+		const renderStack = [];
+		renderer.setFirstSection(true).recursiveRender({type: "list", items: mon.majorEffect}, renderStack, {depth: 2});
+		return `${this._getRenderedSectionHeader({mon, title: "Major Effects", prop: "majorEffect"})}
+		<tr><td colspan="6" class="stats__sect-row-inner">${renderStack.join("")}</td></tr>`;
 	}
 
 	/* -------------------------------------------- */
@@ -664,6 +686,7 @@ class _RenderBestiaryImplOne extends _RenderBestiaryImplBase {
 			htmlPtGear,
 
 			htmlPtTraits,
+			htmlPtMajorEffect,
 		} = this._getHtmlParts({
 			mon,
 			renderer,
@@ -706,6 +729,7 @@ class _RenderBestiaryImplOne extends _RenderBestiaryImplBase {
 		<tr>${opts.selSummonClassLevel ? $$`<td colspan="6"><strong class="mr-2">Class Level</strong> ${opts.selSummonClassLevel}</td>` : ""}</tr>
 
 		${htmlPtTraits}
+		${htmlPtMajorEffect}
 		${htmlPtActions}
 		${htmlPtBonusActions}
 		${htmlPtReactions}

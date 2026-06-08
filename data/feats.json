@@ -721,19 +721,6 @@
       "languages": [
         "understands the languages you speak"
       ],
-      "trait": [
-        {
-          "name": "—MAJOR EFFECTS—",
-          "entries": [
-            {
-              "type": "list",
-              "items": [
-                "The target's armour is reduced by 1 for 1 round."
-              ]
-            }
-          ]
-        }
-      ],
       "action": [
         {
           "name": "Melee attack",
@@ -761,6 +748,9 @@
         {
           "fort": 4
         }
+      ],
+      "majorEffect": [
+        "The target's armour is reduced by 1 for 1 round."
       ]
     }
   ]

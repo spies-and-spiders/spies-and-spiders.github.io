@@ -1861,19 +1861,6 @@
       "languages": [
         "understands any known by its creator but cannot speak"
       ],
-      "trait": [
-        {
-          "name": "—MAJOR EFFECTS—",
-          "entries": [
-            {
-              "type": "list",
-              "items": [
-                "The automaton heals 20 hit points."
-              ]
-            }
-          ]
-        }
-      ],
       "action": [
         {
           "name": "Slam",
@@ -1915,6 +1902,9 @@
         {
           "fort": 3
         }
+      ],
+      "majorEffect": [
+        "The automaton heals 20 hit points."
       ]
     },
     {
@@ -1947,17 +1937,6 @@
       ],
       "passive": 8,
       "trait": [
-        {
-          "name": "—MAJOR EFFECTS—",
-          "entries": [
-            {
-              "type": "list",
-              "items": [
-                "The zombie may immediately shift 5 feet."
-              ]
-            }
-          ]
-        },
         {
           "name": "Undead Fortitude (1/Day)",
           "entries": [
@@ -2005,6 +1984,9 @@
         {
           "fort": 3
         }
+      ],
+      "majorEffect": [
+        "The zombie may immediately shift 5 feet."
       ]
     },
     {
@@ -2032,17 +2014,6 @@
       ],
       "passive": 10,
       "trait": [
-        {
-          "name": "—MAJOR EFFECTS—",
-          "entries": [
-            {
-              "type": "list",
-              "items": [
-                "The cannon recovers hit points equal to your level. If it is already on full hit points, it instead gains that amount of temporary hit points."
-              ]
-            }
-          ]
-        },
         {
           "name": "Sustainable Engineering",
           "entries": [
@@ -2089,6 +2060,9 @@
         {
           "fort": 0
         }
+      ],
+      "majorEffect": [
+        "The cannon recovers hit points equal to your level. If it is already on full hit points, it instead gains that amount of temporary hit points."
       ]
     },
     {
@@ -2116,17 +2090,6 @@
       ],
       "passive": 10,
       "trait": [
-        {
-          "name": "—MAJOR EFFECTS—",
-          "entries": [
-            {
-              "type": "list",
-              "items": [
-                "The cannon recovers hit points equal to your level. If it is already on full hit points, it instead gains that amount of temporary hit points."
-              ]
-            }
-          ]
-        },
         {
           "name": "Sustainable Engineering",
           "entries": [
@@ -2173,6 +2136,9 @@
         {
           "fort": 0
         }
+      ],
+      "majorEffect": [
+        "The cannon recovers hit points equal to your level. If it is already on full hit points, it instead gains that amount of temporary hit points."
       ]
     }
   ]

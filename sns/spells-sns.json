@@ -37082,17 +37082,6 @@
       ],
       "trait": [
         {
-          "name": "—MAJOR EFFECTS—",
-          "entries": [
-            {
-              "type": "list",
-              "items": [
-                "The target's armour is reduced by 1 for 1 round."
-              ]
-            }
-          ]
-        },
-        {
           "type": "entries",
           "name": "Flyby (Air Only)",
           "entries": [
@@ -37141,6 +37130,9 @@
         {
           "fort": 4
         }
+      ],
+      "majorEffect": [
+        "The target's armour is reduced by 1 for 1 round."
       ]
     },
     {
@@ -37203,17 +37195,6 @@
       ],
       "trait": [
         {
-          "name": "—MAJOR EFFECTS—",
-          "entries": [
-            {
-              "type": "list",
-              "items": [
-                "The target's armour is reduced by 1 for 1 round."
-              ]
-            }
-          ]
-        },
-        {
           "type": "entries",
           "name": "Amorphous Form (Air, Fire, and Water Only)",
           "entries": [
@@ -37262,6 +37243,9 @@
         {
           "fort": 2
         }
+      ],
+      "majorEffect": [
+        "The target's armour is reduced by 1 for 1 round."
       ]
     },
     {
@@ -37303,17 +37287,6 @@
         "sylvan"
       ],
       "trait": [
-        {
-          "name": "—MAJOR EFFECTS—",
-          "entries": [
-            {
-              "type": "list",
-              "items": [
-                "The target's armour is reduced by 1 for 1 round."
-              ]
-            }
-          ]
-        },
         {
           "type": "entries",
           "name": "Keen Hearing and Smell (Blink Dog Only)",
@@ -37368,6 +37341,9 @@
         {
           "fort": 1
         }
+      ],
+      "majorEffect": [
+        "The target's armour is reduced by 1 for 1 round."
       ]
     },
     {
@@ -37438,17 +37414,6 @@
       ],
       "trait": [
         {
-          "name": "—MAJOR EFFECTS—",
-          "entries": [
-            {
-              "type": "list",
-              "items": [
-                "The target's armour is reduced by 1 for 1 round."
-              ]
-            }
-          ]
-        },
-        {
           "type": "entries",
           "name": "Amorphous Form (Air, Fire, and Water Only)",
           "entries": [
@@ -37493,6 +37458,9 @@
         {
           "fort": 4
         }
+      ],
+      "majorEffect": [
+        "The target's armour is reduced by 1 for 1 round."
       ]
     },
     {
@@ -37540,19 +37508,6 @@
       "languages": [
         "common",
         "sylvan"
-      ],
-      "trait": [
-        {
-          "name": "—MAJOR EFFECTS—",
-          "entries": [
-            {
-              "type": "list",
-              "items": [
-                "The target's armour is reduced by 1 for 1 round."
-              ]
-            }
-          ]
-        }
       ],
       "action": [
         {
@@ -37630,6 +37585,9 @@
         {
           "fort": 2
         }
+      ],
+      "majorEffect": [
+        "The target's armour is reduced by 1 for 1 round."
       ]
     },
     {
@@ -37673,17 +37631,6 @@
         "common"
       ],
       "trait": [
-        {
-          "name": "—MAJOR EFFECTS—",
-          "entries": [
-            {
-              "type": "list",
-              "items": [
-                "The target's armour is reduced by 1 for 1 round."
-              ]
-            }
-          ]
-        },
         {
           "name": "Inescapable Strike (Angel of Vengeance Only)",
           "entries": [
@@ -37739,6 +37686,9 @@
         {
           "fort": 4
         }
+      ],
+      "majorEffect": [
+        "The target's armour is reduced by 1 for 1 round."
       ]
     },
     {
@@ -37784,17 +37734,6 @@
         "sylvan"
       ],
       "trait": [
-        {
-          "name": "—MAJOR EFFECTS—",
-          "entries": [
-            {
-              "type": "list",
-              "items": [
-                "The target's armour is reduced by 1 for 1 round."
-              ]
-            }
-          ]
-        },
         {
           "name": "Magic Resistance",
           "entries": [
@@ -37850,6 +37789,9 @@
         {
           "fort": 7
         }
+      ],
+      "majorEffect": [
+        "The target's armour is reduced by 1 for 1 round."
       ]
     },
     {
@@ -37890,19 +37832,6 @@
       ],
       "passive": 10,
       "languages": [],
-      "trait": [
-        {
-          "name": "—MAJOR EFFECTS—",
-          "entries": [
-            {
-              "type": "list",
-              "items": [
-                "The target's armour is reduced by 1 for 1 round."
-              ]
-            }
-          ]
-        }
-      ],
       "action": [
         {
           "name": "Slam",
@@ -37933,6 +37862,9 @@
         {
           "fort": 0
         }
+      ],
+      "majorEffect": [
+        "The target's armour is reduced by 1 for 1 round."
       ]
     },
     {
@@ -37973,17 +37905,6 @@
         "understands the languages you speak"
       ],
       "trait": [
-        {
-          "name": "—MAJOR EFFECTS—",
-          "entries": [
-            {
-              "type": "list",
-              "items": [
-                "The target's armour is reduced by 1 for 1 round."
-              ]
-            }
-          ]
-        },
         {
           "name": "Heated Body (Metal Only)",
           "entries": [
@@ -38035,6 +37956,9 @@
         {
           "fort": 4
         }
+      ],
+      "majorEffect": [
+        "The target's armour is reduced by 1 for 1 round."
       ]
     },
     {
@@ -38076,17 +38000,6 @@
         "understands the languages you speak"
       ],
       "trait": [
-        {
-          "name": "—MAJOR EFFECTS—",
-          "entries": [
-            {
-              "type": "list",
-              "items": [
-                "The target's armour is reduced by 1 for 1 round."
-              ]
-            }
-          ]
-        },
         {
           "name": "Shared Resistances",
           "entries": [
@@ -38130,6 +38043,9 @@
         {
           "fort": 4
         }
+      ],
+      "majorEffect": [
+        "The target's armour is reduced by 1 for 1 round."
       ]
     },
     {
@@ -38161,17 +38077,6 @@
         "one language known by its creator"
       ],
       "trait": [
-        {
-          "name": "—MAJOR EFFECTS—",
-          "entries": [
-            {
-              "type": "list",
-              "items": [
-                "The target's armour is reduced by 1 for 1 round."
-              ]
-            }
-          ]
-        },
         {
           "name": "False Appearance",
           "entries": [
@@ -38206,6 +38111,9 @@
         {
           "fort": 0
         }
+      ],
+      "majorEffect": [
+        "The target's armour is reduced by 1 for 1 round."
       ]
     },
     {
@@ -38238,17 +38146,6 @@
         "one language known by its creator"
       ],
       "trait": [
-        {
-          "name": "—MAJOR EFFECTS—",
-          "entries": [
-            {
-              "type": "list",
-              "items": [
-                "The target's armour is reduced by 1 for 1 round."
-              ]
-            }
-          ]
-        },
         {
           "name": "False Appearance",
           "entries": [
@@ -38286,6 +38183,9 @@
         {
           "fort": 4
         }
+      ],
+      "majorEffect": [
+        "The target's armour is reduced by 1 for 1 round."
       ]
     }
   ]
