@@ -29,7 +29,7 @@
         {
           "type": "list",
           "items": [
-            "You gain a d6 expertise die on {@skill Athletics}, {@skill Brawn}, and {@skill Finesse} checks.",
+            "You gain a d6 expertise die on {@skill Athletics}, {@skill Brawn}, and {@skill Finesse} checks. This does not benefit your journey activity checks.",
             "You cannot be knocked prone or grappled against your will.",
             "You gain climbing and swimming speed equal to your Speed.",
             "You can make a running long jump or running high jump from standing still."
@@ -79,7 +79,7 @@
         {
           "type": "list",
           "items": [
-            "If you move at least 10 feet straight toward a creature and then hit it with a melee attack on the same turn, the attack deals additional damage equal to double your proficiency bonus and gains the following major effect: The target is knocked prone and takes additional damage equal to triple your highest ability modifier.",
+            "If you move at least 10 feet straight toward a creature and then hit it with a melee attack on the same turn, the attack deals additional damage equal to double your proficiency bonus and also adds the following effect on a major success: The target is knocked prone and takes additional damage equal to triple your highest ability modifier.",
             "Against opportunity attacks, you have +1 armour and resistance equal to your level."
           ]
         }
@@ -108,6 +108,22 @@
       "page": 0,
       "category": "G",
       "entries": [
+        "You have sacrificed some of your training with might and magic in exchange for overwhelming your foes with an onslaught of pain, gaining the following effects:",
+        {
+          "type": "list",
+          "items": [
+            "Your damaging attacks always deal 0 damage, but they cause 1 harm of their base damage type.",
+            "The first time between each of your turns that you cause harm with a unique effect, your outgoing harm increases by an amount equal to your proficiency bonus until your next turn."
+          ]
+        }
+      ],
+      "name": "Cruel"
+    },
+    {
+      "source": "sns",
+      "page": 0,
+      "category": "G",
+      "entries": [
         "You have learned to shed some of your immediate power in order to leave lingering wounds on your foes, gaining the following effects:",
         {
           "type": "list",
@@ -124,7 +140,7 @@
       "page": 0,
       "category": "G",
       "entries": [
-        "After a creature makes an attack against you, but before the attack is resolved, you can downgrade the success tier of the creature’s attacks against you by 1 for the remainder of the turn as a feat action, which also downgrades the triggering attack."
+        "After a creature makes an attack against you, but before the attack is resolved, you can downgrade the success tier of the creature's attacks against you by 1 for the remainder of the turn as a feat action, which also downgrades the triggering attack."
       ],
       "name": "Defensive Duelist"
     },
@@ -156,7 +172,7 @@
           "type": "list",
           "items": [
             "You have advantage on Perception and Investigation checks made to detect the presence of hidden traps and secret doors.",
-            "Whenever you gain loot from a combat in a non-outdoor location (at the DM’s discretion), make a save. On a success, gain 1 additional loot roll.",
+            "Whenever your party gains any amount of loot from a combat in a non-outdoor location (at the DM's discretion), you have a 50% chance to gain one additional unit of loot.",
             "Once per short rest, you can recover a single resource when you roll for initiative that would usually be recovered after a short rest.",
             "Once per long rest, you can recover a single resource after a short rest that would usually be recovered after a long rest."
           ]
@@ -217,7 +233,7 @@
           "items": [
             "You have advantage on attack rolls against creatures you are grappling.",
             "Whenever you use the Grapple maneuver against a creature you are already grappling, it knocks the target prone and restrains them until the original grapple ends.",
-            "Creatures that are one size larger than you don’t automatically succeed on checks to escape your grapple."
+            "Creatures that are one size larger than you don't automatically succeed on checks to escape your grapple."
           ]
         }
       ],
@@ -234,7 +250,7 @@
           "items": [
             "Whenever you score a standard or higher success with a two-handed weapon attack, you may push the target 5 feet.",
             "Whenever you deal non-critical damage with a two-handed weapon attack against a prone target, add your critical damage bonus.",
-            "Your critical damage bonus with two-handed weapon attacks is increased by the attack’s ability modifier."
+            "Your critical damage bonus with two-handed weapon attacks is increased by the attack's ability modifier."
           ]
         }
       ],
@@ -249,9 +265,10 @@
         {
           "type": "list",
           "items": [
-            "You gain a d6 expertise die in Medicine.",
+            "You gain an expertise die in Medicine. This does not benefit your Journey Activity checks.",
+            "Whenever you revive a living creature on 0 hit points, it recovers additional hit points equal to 20% of its maximum hit points.",
             "As an action, you can heal a creature within your reach for 1d10 hit points. This amount increases by an additional d10 at 5th (2d10), 11th (3d10), and 17th (4d10) levels. You can do this a number of times equal to your proficiency bonus, recovering all uses at the end of a short or long rest.",
-            "Whenever you heal a creature as part of a standard action, they recover an additional number of hit points equal to your level."
+            "Whenever you heal a creature as part of a limited standard action, they recover an additional number of hit points equal to your level."
           ]
         }
       ],
@@ -301,7 +318,7 @@
             "You always know which way is north.",
             "You always know the number of hours left before the next sunrise or sunset.",
             "You can accurately recall anything you have seen or heard within the past year.",
-            "You gain an expertise die in the following skills: {@skiill Magiscience|sns}, {@skill History}, {@skill Nature}, and {@skill Survival}.",
+            "You gain an expertise die in {@skill History}, {@skiill Magiscience|sns}, and, {@skill Nature}. This does not benefit your Journey Activity checks.",
             "You may telepathically communicate with any creature within 60 feet of you in your line of sight that can understand a language. They may respond in the same way for the next 6 seconds."
           ]
         }
@@ -371,7 +388,7 @@
           ]
         }
       ],
-      "name": "Master Traveler (deprecated)"
+      "name": "Master Traveler"
     },
     {
       "source": "sns",
@@ -421,7 +438,7 @@
           "items": [
             "You have advantage on attack rolls against any unmounted creature that is smaller than your mount.",
             "You have +1 reflex.",
-            "If you both enter and exit a hostile creature’s reach during the same turn as you hit it with a weapon attack, you do not provoke an opportunity attack."
+            "If you both enter and exit a hostile creature's reach during the same turn as you hit it with a weapon attack, you do not provoke an opportunity attack."
           ]
         }
       ],
@@ -437,7 +454,7 @@
           "type": "list",
           "items": [
             "You gain an amount of damage barrier equal to your level plus your proficiency bonus.",
-            "Whenever damage you take from a creature is reduced by your barrier, that creature takes thorns damage equal to the amount reduced plus your highest Defence.",
+            "Whenever damage you take from a creature is reduced by your barrier, that creature suffers force harm equal to the amount reduced plus your highest Defence.",
             "Your barriers replenish at both the start and end of each of your turns."
           ]
         }
@@ -464,7 +481,7 @@
           "type": "list",
           "items": [
             "You make opportunity attacks with advantage.",
-            "Your opportunity attacks gain the following major effect: the target’s speed becomes 0 for the rest of the turn.",
+            "Your opportunity attacks gain the following major effect: the target's speed becomes 0 for the rest of the turn.",
             "When a creature adjacent to you makes an attack against a target other than you, you can use a feat action to make an attack against the attacker."
           ]
         }
@@ -481,7 +498,7 @@
           "type": "list",
           "items": [
             "Increase the critical success range of your damaging ranged attacks by 1.",
-            "Attacking at a long range doesn’t impose disadvantage on your ranged weapon attack rolls, and the ranges of your damaging ranged spells are doubled.",
+            "Attacking at a long range doesn't impose disadvantage on your ranged weapon attack rolls, and the ranges of your damaging ranged spells are doubled.",
             "Your damaging ranged attacks no longer have disadvantage when targeting prone creatures.",
             "Your damaging ranged attacks have advantage while you have height advantage against your target.",
             "Your damaging ranged attacks ignore penalties from terrain and weather, such as shooting through water or heavy winds."
@@ -529,7 +546,7 @@
             "You can attempt to hide while in dim light or if you have at least half cover from the creature from which you are hiding.",
             "Dim light doesn't impose disadvantage on your Perception checks relying on sight.",
             "You gain 60 feet of darkvision.",
-            "You gain a d6 expertise die on {@skill Finesse} checks."
+            "You gain a d6 expertise die on {@skill Finesse} checks. This does not benefit your Journey Activity checks."
           ]
         }
       ],
@@ -544,11 +561,11 @@
         {
           "type": "list",
           "items": [
-            "You gain a d6 expertise die in Deception, Insight, and Persuasion.",
-            "You have advantage on Deception and Performance checks when trying to pass yourself off as another person.",
+            "You gain a d6 expertise die in {@skill Deception}, {@skill Insight}, and {@skill Persuasion}. This does not benefit your Journey Activity checks.",
+            "You have advantage on {@skill Deception} checks when trying to pass yourself off as another person.",
             "You can mimic the speech of another person or the sounds made by other creatures. You must have heard the person speaking, or heard the creature make the sound, for at least 1 minute. A successful Insight check contested by your Deception check allows a listener to determine that the effect is faked.",
             "If you can see a creature's mouth while it is speaking a language you know, you are able to read its lips to understand what it is saying.",
-            "You can spend a day in a civilised area making a Charisma-based History or Investigation check to crowdsource information about the area and its well-known inhabitants."
+            "You can spend a day in a civilised area making a Charisma-based {@skill History} or {@skill Investigation} check to crowdsource information about the area and its well-known inhabitants."
           ]
         }
       ],
@@ -601,7 +618,7 @@
             "The Summoned Minion acts in its own turn after yours, and requires you to telepathically command it. If you provide it with no commands, it spends its turn taking the Dodge action and doing nothing else."
           ]
         },
-        "See {@creature Summoned Creature|sns} stat block."
+        "See {@creature Summoned Minion|sns} stat block."
       ],
       "name": "Summoner"
     },
@@ -614,9 +631,10 @@
         {
           "type": "list",
           "items": [
-            "Whenever you take damage that brings you to 0 hit points, you are knocked prone and dying as usual, but you do not become unconcious and cannot receive healing until the end of your next turn.",
-            "During the first turn you take after being reduced to 0 hit points, you may stand up from prone as a free action, and need not make any death saving throws.",
-            "The first time after each short rest that you receive healing while on 0 hit points, you are healed for an additional 35% of your maximum hit points."
+            "Whenever you take damage that brings you to 0 hit points, you are knocked prone and make a death save as usual, but you do not become unconcious or incapacitated, and cannot have your hit points exceed 0, until the end of your next turn.",
+            "During the first turn you take after being reduced to 0 hit points, you may stand up from prone as a free action.",
+            "You ignore the first two Wounds you would gain each combat.",
+            "The first time after each short rest that you receive healing while on 0 hit points, you are healed for an additional 20% of your maximum hit points."
           ]
         }
       ],
@@ -668,7 +686,7 @@
         {
           "type": "list",
           "items": [
-            "When a hostile creature’s movement provokes an opportunity attack from you, you can use your reaction to cast a spell at the creature instead of making an opportunity attack. The spell must have a casting time of 1 action and must target only that creature.",
+            "When a hostile creature's movement provokes an opportunity attack from you, you can use your reaction to cast a spell at the creature instead of making an opportunity attack. The spell must have a casting time of 1 action and must target only that creature.",
             "If you have cast a spell since the start of your last turn, you have +1 armour.",
             "You have advantage on damaging spell attacks against creatures adjacent to you."
           ]
@@ -688,7 +706,7 @@
             "While you are within 10 feet of at least one of your minions, you and your minions have +1 armour.",
             "While you are at least 15 feet away from at least one of your minions, you and your minions add 1 to your attack rolls.",
             "Whenever you roll for initiative, the next 5 attacks made by your minions deal additional damage equal to your proficiency bonus. This effect does not stack across multiple initiative rolls.",
-            "Your minions’ critical damage bonus is increased by their highest ability score modifier."
+            "Your minions' critical damage bonus is increased by their highest ability score modifier."
           ]
         }
       ],
@@ -697,7 +715,7 @@
   ],
   "monster": [
     {
-      "name": "Summoner Feat Minion",
+      "name": "Summoned Minion",
       "source": "sns",
       "size": [
         "M"
