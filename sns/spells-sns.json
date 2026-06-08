@@ -37938,7 +37938,9 @@
       ],
       "majorEffect": [
         "The target's armour is reduced by 1 for 1 round."
-      ]
+      ],
+      "summonedBySpell": "Conjure Animals|sns",
+      "summonedBySpellLevel": 3
     },
     {
       "name": "Minor Elemental",
@@ -38051,7 +38053,9 @@
       ],
       "majorEffect": [
         "The target's armour is reduced by 1 for 1 round."
-      ]
+      ],
+      "summonedBySpell": "Conjure Minor Elementals|sns",
+      "summonedBySpellLevel": 4
     },
     {
       "name": "Woodland Being",
@@ -38149,7 +38153,9 @@
       ],
       "majorEffect": [
         "The target's armour is reduced by 1 for 1 round."
-      ]
+      ],
+      "summonedBySpell": "Conjure Woodland Beings|sns",
+      "summonedBySpellLevel": 4
     },
     {
       "name": "Conjured Elemental",
@@ -38266,7 +38272,9 @@
       ],
       "majorEffect": [
         "The target's armour is reduced by 1 for 1 round."
-      ]
+      ],
+      "summonedBySpell": "Conjure Elemental|sns",
+      "summonedBySpellLevel": 5
     },
     {
       "name": "Fey Creature",
@@ -38393,7 +38401,9 @@
       ],
       "majorEffect": [
         "The target's armour is reduced by 1 for 1 round."
-      ]
+      ],
+      "summonedBySpell": "Conjure Fey|sns",
+      "summonedBySpellLevel": 6
     },
     {
       "name": "Celestial Creature",
@@ -38494,7 +38504,9 @@
       ],
       "majorEffect": [
         "The target's armour is reduced by 1 for 1 round."
-      ]
+      ],
+      "summonedBySpell": "Conjure Celestial|sns",
+      "summonedBySpellLevel": 7
     },
     {
       "name": "Grove Swarm",
@@ -38597,7 +38609,9 @@
       ],
       "majorEffect": [
         "The target's armour is reduced by 1 for 1 round."
-      ]
+      ],
+      "summonedBySpell": "Forest Army|sns",
+      "summonedBySpellLevel": 9
     },
     {
       "name": "Tiny Servant",
@@ -38670,7 +38684,9 @@
       ],
       "majorEffect": [
         "The target's armour is reduced by 1 for 1 round."
-      ]
+      ],
+      "summonedBySpell": "Tiny Servant|sns",
+      "summonedBySpellLevel": 3
     },
     {
       "name": "Construct Spirit",
@@ -38764,7 +38780,9 @@
       ],
       "majorEffect": [
         "The target's armour is reduced by 1 for 1 round."
-      ]
+      ],
+      "summonedBySpell": "Summon Construct|sns",
+      "summonedBySpellLevel": 4
     },
     {
       "name": "Draconic Spirit",
@@ -38851,7 +38869,9 @@
       ],
       "majorEffect": [
         "The target's armour is reduced by 1 for 1 round."
-      ]
+      ],
+      "summonedBySpell": "Summon Draconic Spirit|sns",
+      "summonedBySpellLevel": 5
     },
     {
       "name": "Awakened Shrub",
@@ -38919,7 +38939,9 @@
       ],
       "majorEffect": [
         "The target's armour is reduced by 1 for 1 round."
-      ]
+      ],
+      "summonedBySpell": "Awaken|sns",
+      "summonedBySpellLevel": 5
     },
     {
       "name": "Awakened Tree",
@@ -38991,7 +39013,9 @@
       ],
       "majorEffect": [
         "The target's armour is reduced by 1 for 1 round."
-      ]
+      ],
+      "summonedBySpell": "Awaken|sns",
+      "summonedBySpellLevel": 5
     }
   ]
 }
