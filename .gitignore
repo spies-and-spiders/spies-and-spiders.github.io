@@ -37,4 +37,3 @@ markdown/config.json
 # Clojure related files
 .clj-kondo/.cache
 .lsp
-
