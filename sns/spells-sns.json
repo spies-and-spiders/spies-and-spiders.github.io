@@ -1392,6 +1392,9 @@
           }
         ]
       },
+      "conditionInflict": [
+        "restrained"
+      ],
       "range": {
         "type": "point",
         "distance": {
@@ -2086,6 +2089,9 @@
           }
         ]
       },
+      "conditionInflict": [
+        "unconscious"
+      ],
       "range": {
         "type": "point",
         "distance": {
@@ -4548,6 +4554,9 @@
           }
         ]
       },
+      "conditionInflict": [
+        "poisoned"
+      ],
       "range": {
         "type": "point",
         "distance": {
@@ -15207,7 +15216,8 @@
           ]
         },
         "A creature reduced to 0 hit points by an infernal weapon immediately dies in a gruesome fashion.",
-        "For example, a creature killed by an ice spear might freeze solid, then shatter into a thousand pieces. Each creature of your choice within 60 feet of the creature and who can see it when it dies must make a save. On a fail, a creature becomes {@condition frightened|sns} until the end of your next turn."],
+        "For example, a creature killed by an ice spear might freeze solid, then shatter into a thousand pieces. Each creature of your choice within 60 feet of the creature and who can see it when it dies must make a save. On a fail, a creature becomes {@condition frightened|sns} until the end of your next turn."
+      ],
       "name": "Infernal Weapon",
       "time": [
         {
@@ -17805,10 +17815,14 @@
           }
         ]
       },
+      "conditionInflict": [
+        "grappled"
+      ],
       "range": {
         "type": "point",
         "distance": {
           "amount": 60,
+          "type": "feet"
           "type": "feet"
         }
       }
@@ -20817,6 +20831,9 @@
           }
         ]
       },
+      "conditionInflict": [
+        "sluggish"
+      ],
       "range": {
         "type": "point",
         "distance": {
@@ -25750,6 +25767,9 @@
           }
         ]
       },
+      "conditionInflict": [
+        "blinded"
+      ],
       "range": {
         "type": "point",
         "distance": {
@@ -28501,6 +28521,9 @@
           }
         ]
       },
+      "conditionInflict": [
+        "prone"
+      ],
       "range": {
         "type": "point",
         "distance": {
@@ -28591,56 +28614,6 @@
       "defence": [
         "armour"
       ]
-    },
-    {
-      "school": "V",
-      "entries": [
-        "The next time you hit with a melee weapon attack during this spell's duration, your attack deals an extra {@dice 1d6} psychic damage. Additionally, if the target is a creature and the attack scored a major success, the target is {@condition frightened|sns} until the spell ends. As an action, the creature can make a Wisdom check against your standard DC to steel its resolve and end this spell."
-      ],
-      "name": "Thunderous Smite",
-      "time": [
-        {
-          "number": 1,
-          "unit": "bonus"
-        }
-      ],
-      "duration": [
-        {
-          "type": "timed",
-          "duration": {
-            "type": "minute",
-            "amount": 1,
-            "upTo": true
-          },
-          "concentration": true
-        }
-      ],
-      "source": "sns",
-      "damageInflict": [
-        "psychic"
-      ],
-      "subschools": [
-        "psychic"
-      ],
-      "level": 1,
-      "components": {
-        "v": true,
-        "s": false
-      },
-      "classes": {
-        "fromClassList": [
-          {
-            "name": "Herald",
-            "source": "sns"
-          }
-        ]
-      },
-      "range": {
-        "type": "point",
-        "distance": {
-          "type": "self"
-        }
-      }
     },
     {
       "meta": {
@@ -32447,6 +32420,11 @@
           }
         ]
       },
+      "conditionInflict": [
+        "charmed",
+        "blinded",
+        "dazed"
+      ],
       "range": {
         "type": "point",
         "distance": {
