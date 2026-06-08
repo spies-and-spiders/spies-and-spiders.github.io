@@ -181,7 +181,10 @@
           "amount": 120,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "armour"
+      ]
     },
     {
       "school": "C",
@@ -253,7 +256,10 @@
           "amount": 60,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "reflex"
+      ]
     },
     {
       "school": "A",
@@ -786,7 +792,10 @@
           "amount": 30,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "will"
+      ]
     },
     {
       "meta": {
@@ -1564,7 +1573,10 @@
           "amount": 120,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "armour"
+      ]
     },
     {
       "school": "A",
@@ -2308,7 +2320,10 @@
           "amount": 30,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "will"
+      ]
     },
     {
       "school": "A",
@@ -2420,7 +2435,10 @@
           "amount": 60,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "will"
+      ]
     },
     {
       "school": "T",
@@ -2731,7 +2749,10 @@
         "distance": {
           "type": "touch"
         }
-      }
+      },
+      "defence": [
+        "will"
+      ]
     },
     {
       "school": "C",
@@ -3037,7 +3058,10 @@
           "amount": 30,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "fortitude"
+      ]
     },
     {
       "school": "N",
@@ -3141,7 +3165,10 @@
           "amount": 30,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "fortitude"
+      ]
     },
     {
       "school": "T",
@@ -3422,7 +3449,10 @@
         "distance": {
           "type": "self"
         }
-      }
+      },
+      "defence": [
+        "reflex"
+      ]
     },
     {
       "school": "A",
@@ -3579,7 +3609,10 @@
         "distance": {
           "type": "special"
         }
-      }
+      },
+      "defence": [
+        "reflex"
+      ]
     },
     {
       "school": "E",
@@ -3693,7 +3726,10 @@
           "amount": 60,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "will"
+      ]
     },
     {
       "meta": {
@@ -3828,7 +3864,10 @@
           "amount": 120,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "reflex"
+      ]
     },
     {
       "school": "E",
@@ -3936,7 +3975,10 @@
           "amount": 60,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "will"
+      ]
     },
     {
       "school": "E",
@@ -4044,7 +4086,10 @@
           "amount": 30,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "will"
+      ]
     },
     {
       "school": "N",
@@ -4192,7 +4237,10 @@
           "amount": 120,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "fortitude"
+      ]
     },
     {
       "school": "D",
@@ -4473,7 +4521,10 @@
         "distance": {
           "type": "self"
         }
-      }
+      },
+      "defence": [
+        "armour"
+      ]
     },
     {
       "school": "I",
@@ -4654,7 +4705,10 @@
           "amount": 60,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "will"
+      ]
     },
     {
       "meta": {
@@ -4936,7 +4990,10 @@
         "distance": {
           "type": "self"
         }
-      }
+      },
+      "defence": [
+        "fortitude"
+      ]
     },
     {
       "school": "E",
@@ -5047,7 +5104,10 @@
           "amount": 120,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "will"
+      ]
     },
     {
       "school": "C",
@@ -5646,7 +5706,10 @@
         "distance": {
           "type": "touch"
         }
-      }
+      },
+      "defence": [
+        "armour"
+      ]
     },
     {
       "school": "V",
@@ -6025,7 +6088,10 @@
           "amount": 60,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "fortitude"
+      ]
     },
     {
       "school": "A",
@@ -6937,7 +7003,10 @@
         "distance": {
           "type": "touch"
         }
-      }
+      },
+      "defence": [
+        "fortitude"
+      ]
     },
     {
       "school": "A",
@@ -7077,7 +7146,10 @@
           "amount": 120,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "reflex"
+      ]
     },
     {
       "school": "C",
@@ -7517,7 +7589,10 @@
           "amount": 30,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "will"
+      ]
     },
     {
       "school": "C",
@@ -7723,7 +7798,10 @@
           "amount": 60,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "reflex"
+      ]
     },
     {
       "school": "A",
@@ -7821,7 +7899,10 @@
         "distance": {
           "type": "self"
         }
-      }
+      },
+      "defence": [
+        "armour"
+      ]
     },
     {
       "school": "A",
@@ -8196,7 +8277,10 @@
           "amount": 60,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "will"
+      ]
     },
     {
       "school": "E",
@@ -8423,7 +8507,10 @@
           "amount": 30,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "will"
+      ]
     },
     {
       "school": "I",
@@ -8518,7 +8605,10 @@
         "distance": {
           "type": "special"
         }
-      }
+      },
+      "defence": [
+        "will"
+      ]
     },
     {
       "school": "A",
@@ -8995,7 +9085,10 @@
           "amount": 30,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "fortitude"
+      ]
     },
     {
       "school": "T",
@@ -9166,7 +9259,10 @@
           "amount": 120,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "fortitude"
+      ]
     },
     {
       "school": "E",
@@ -9252,7 +9348,10 @@
           "amount": 60,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "will"
+      ]
     },
     {
       "school": "T",
@@ -9516,7 +9615,10 @@
         "distance": {
           "type": "self"
         }
-      }
+      },
+      "defence": [
+        "will"
+      ]
     },
     {
       "school": "T",
@@ -9673,7 +9775,10 @@
           "amount": 60,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "reflex"
+      ]
     },
     {
       "school": "C",
@@ -9928,7 +10033,10 @@
         "distance": {
           "type": "self"
         }
-      }
+      },
+      "defence": [
+        "will"
+      ]
     },
     {
       "school": "T",
@@ -10103,7 +10211,10 @@
           "amount": 120,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "will"
+      ]
     },
     {
       "meta": {
@@ -10427,7 +10538,10 @@
           "amount": 60,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "fortitude"
+      ]
     },
     {
       "school": "V",
@@ -10506,7 +10620,10 @@
           "amount": 120,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "reflex"
+      ]
     },
     {
       "school": "V",
@@ -10582,7 +10699,10 @@
           "amount": 120,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "armour"
+      ]
     },
     {
       "school": "V",
@@ -10748,7 +10868,10 @@
           "amount": 120,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "reflex"
+      ]
     },
     {
       "school": "V",
@@ -10831,7 +10954,10 @@
         "distance": {
           "type": "self"
         }
-      }
+      },
+      "defence": [
+        "armour"
+      ]
     },
     {
       "school": "V",
@@ -10903,7 +11029,10 @@
           "amount": 60,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "reflex"
+      ]
     },
     {
       "school": "C",
@@ -11851,7 +11980,10 @@
           "amount": 120,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "fortitude"
+      ]
     },
     {
       "school": "T",
@@ -12114,7 +12246,10 @@
           "amount": 60,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "will"
+      ]
     },
     {
       "meta": {
@@ -12653,7 +12788,10 @@
           "amount": 60,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "reflex"
+      ]
     },
     {
       "school": "I",
@@ -12970,7 +13108,10 @@
           "amount": 120,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "armour"
+      ]
     },
     {
       "school": "V",
@@ -13340,7 +13481,10 @@
           "amount": 60,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "fortitude"
+      ]
     },
     {
       "school": "A",
@@ -13993,7 +14137,10 @@
           "amount": 30,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "will"
+      ]
     },
     {
       "school": "E",
@@ -14100,7 +14247,10 @@
           "amount": 60,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "will"
+      ]
     },
     {
       "school": "E",
@@ -14219,7 +14369,10 @@
           "amount": 60,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "will"
+      ]
     },
     {
       "school": "A",
@@ -14387,7 +14540,10 @@
           "amount": 120,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "will"
+      ]
     },
     {
       "school": "V",
@@ -14468,7 +14624,10 @@
           "amount": 300,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "reflex"
+      ]
     },
     {
       "meta": {
@@ -14743,7 +14902,10 @@
           "amount": 30,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "will"
+      ]
     },
     {
       "school": "C",
@@ -14974,7 +15136,10 @@
         "distance": {
           "type": "self"
         }
-      }
+      },
+      "defence": [
+        "armour"
+      ]
     },
     {
       "school": "N",
@@ -15466,7 +15631,10 @@
           "amount": 30,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "will"
+      ]
     },
     {
       "school": "T",
@@ -15911,7 +16079,10 @@
           "amount": 60,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "fortitude"
+      ]
     },
     {
       "school": "V",
@@ -16014,7 +16185,10 @@
         "distance": {
           "type": "touch"
         }
-      }
+      },
+      "defence": [
+        "reflex"
+      ]
     },
     {
       "school": "V",
@@ -16094,7 +16268,10 @@
         "distance": {
           "type": "self"
         }
-      }
+      },
+      "defence": [
+        "reflex"
+      ]
     },
     {
       "meta": {
@@ -16651,7 +16828,10 @@
           "amount": 120,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "will"
+      ]
     },
     {
       "school": "V",
@@ -17297,7 +17477,10 @@
           "amount": 60,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "will"
+      ]
     },
     {
       "school": "C",
@@ -17563,7 +17746,10 @@
           "amount": 1,
           "type": "miles"
         }
-      }
+      },
+      "defence": [
+        "reflex"
+      ]
     },
     {
       "school": "A",
@@ -18063,7 +18249,10 @@
           "amount": 30,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "will"
+      ]
     },
     {
       "school": "V",
@@ -18619,7 +18808,10 @@
           "amount": 120,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "will"
+      ]
     },
     {
       "school": "E",
@@ -18919,7 +19111,10 @@
           "amount": 60,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "will"
+      ]
     },
     {
       "school": "C",
@@ -19035,7 +19230,10 @@
         "distance": {
           "type": "touch"
         }
-      }
+      },
+      "defence": [
+        "armour"
+      ]
     },
     {
       "school": "T",
@@ -20243,7 +20441,10 @@
         "distance": {
           "type": "self"
         }
-      }
+      },
+      "defence": [
+        "armour"
+      ]
     },
     {
       "school": "T",
@@ -20436,7 +20637,10 @@
           "amount": 60,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "armour"
+      ]
     },
     {
       "school": "V",
@@ -20502,7 +20706,10 @@
           "amount": 60,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "armour"
+      ]
     },
     {
       "school": "T",
@@ -20727,7 +20934,10 @@
           "amount": 30,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "reflex"
+      ]
     },
     {
       "school": "A",
@@ -20982,7 +21192,10 @@
           "amount": 60,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "reflex"
+      ]
     },
     {
       "school": "A",
@@ -21115,7 +21328,10 @@
           "amount": 120,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "armour"
+      ]
     },
     {
       "school": "D",
@@ -21259,7 +21475,10 @@
         "distance": {
           "type": "self"
         }
-      }
+      },
+      "defence": [
+        "will"
+      ]
     },
     {
       "school": "E",
@@ -21334,7 +21553,10 @@
         "distance": {
           "type": "self"
         }
-      }
+      },
+      "defence": [
+        "will"
+      ]
     },
     {
       "school": "C",
@@ -21619,7 +21841,10 @@
           "amount": 30,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "will"
+      ]
     },
     {
       "school": "V",
@@ -21830,7 +22055,10 @@
           "amount": 60,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "fortitude"
+      ]
     },
     {
       "school": "V",
@@ -21918,7 +22146,10 @@
           "amount": 120,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "armour"
+      ]
     },
     {
       "school": "A",
@@ -22562,7 +22793,10 @@
           "amount": 120,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "will"
+      ]
     },
     {
       "school": "T",
@@ -22661,7 +22895,10 @@
         "distance": {
           "type": "touch"
         }
-      }
+      },
+      "defence": [
+        "fortitude"
+      ]
     },
     {
       "school": "N",
@@ -23732,7 +23969,10 @@
         "distance": {
           "type": "sight"
         }
-      }
+      },
+      "defence": [
+        "fortitude"
+      ]
     },
     {
       "school": "E",
@@ -23842,7 +24082,10 @@
           "amount": 30,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "will"
+      ]
     },
     {
       "school": "V",
@@ -23926,7 +24169,10 @@
         "distance": {
           "type": "self"
         }
-      }
+      },
+      "defence": [
+        "fortitude"
+      ]
     },
     {
       "school": "V",
@@ -24003,7 +24249,10 @@
           "amount": 120,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "fortitude"
+      ]
     },
     {
       "school": "A",
@@ -24138,7 +24387,10 @@
         "distance": {
           "type": "touch"
         }
-      }
+      },
+      "defence": [
+        "fortitude"
+      ]
     },
     {
       "school": "E",
@@ -24770,7 +25022,10 @@
         "distance": {
           "type": "self"
         }
-      }
+      },
+      "defence": [
+        "fortitude"
+      ]
     },
     {
       "school": "T",
@@ -25355,7 +25610,10 @@
           "amount": 120,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "reflex"
+      ]
     },
     {
       "meta": {
@@ -25510,7 +25768,10 @@
         "distance": {
           "type": "self"
         }
-      }
+      },
+      "defence": [
+        "armour"
+      ]
     },
     {
       "school": "V",
@@ -25644,7 +25905,10 @@
           "amount": 60,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "will"
+      ]
     },
     {
       "school": "V",
@@ -25735,7 +25999,10 @@
           "amount": 120,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "reflex"
+      ]
     },
     {
       "school": "V",
@@ -25982,7 +26249,10 @@
           "amount": 120,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "reflex"
+      ]
     },
     {
       "school": "V",
@@ -26155,7 +26425,10 @@
           "amount": 120,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "reflex"
+      ]
     },
     {
       "school": "A",
@@ -26644,7 +26917,10 @@
           "amount": 120,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "will"
+      ]
     },
     {
       "school": "T",
@@ -26922,7 +27198,10 @@
           "amount": 120,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "fortitude"
+      ]
     },
     {
       "school": "C",
@@ -27518,7 +27797,10 @@
         "distance": {
           "type": "self"
         }
-      }
+      },
+      "defence": [
+        "fortitude"
+      ]
     },
     {
       "school": "V",
@@ -27599,7 +27881,10 @@
           "amount": 90,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "armour"
+      ]
     },
     {
       "school": "E",
@@ -27681,7 +27966,10 @@
           "amount": 30,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "will"
+      ]
     },
     {
       "school": "E",
@@ -27735,7 +28023,10 @@
           "amount": 60,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "will"
+      ]
     },
     {
       "school": "V",
@@ -27792,7 +28083,10 @@
           "type": "feet",
           "amount": 60
         }
-      }
+      },
+      "defence": [
+        "reflex"
+      ]
     },
     {
       "school": "E",
@@ -27931,7 +28225,10 @@
           "type": "feet",
           "amount": 60
         }
-      }
+      },
+      "defence": [
+        "armour"
+      ]
     },
     {
       "school": "V",
@@ -28121,7 +28418,10 @@
           "type": "feet",
           "amount": 30
         }
-      }
+      },
+      "defence": [
+        "armour"
+      ]
     },
     {
       "school": "V",
@@ -28456,7 +28756,10 @@
           "amount": 120,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "will"
+      ]
     },
     {
       "school": "I",
@@ -28557,7 +28860,10 @@
           "amount": 60,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "will"
+      ]
     },
     {
       "school": "V",
@@ -29109,7 +29415,10 @@
           "type": "feet",
           "amount": 30
         }
-      }
+      },
+      "defence": [
+        "will"
+      ]
     },
     {
       "school": "C",
@@ -29405,7 +29714,10 @@
         "distance": {
           "type": "self"
         }
-      }
+      },
+      "defence": [
+        "fortitude"
+      ]
     },
     {
       "school": "C",
@@ -29567,7 +29879,10 @@
         "distance": {
           "type": "sight"
         }
-      }
+      },
+      "defence": [
+        "fortitude"
+      ]
     },
     {
       "school": "V",
@@ -29908,7 +30223,10 @@
           "type": "feet",
           "amount": 30
         }
-      }
+      },
+      "defence": [
+        "fortitude"
+      ]
     },
     {
       "school": "C",
@@ -29976,7 +30294,10 @@
           "type": "feet",
           "amount": 30
         }
-      }
+      },
+      "defence": [
+        "fortitude"
+      ]
     },
     {
       "school": "V",
@@ -30043,7 +30364,10 @@
         "distance": {
           "type": "self"
         }
-      }
+      },
+      "defence": [
+        "fortitude"
+      ]
     },
     {
       "school": "V",
@@ -30108,7 +30432,10 @@
           "type": "feet",
           "amount": 5
         }
-      }
+      },
+      "defence": [
+        "fortitude"
+      ]
     },
     {
       "school": "T",
@@ -30457,7 +30784,10 @@
           "type": "feet",
           "amount": 60
         }
-      }
+      },
+      "defence": [
+        "reflex"
+      ]
     },
     {
       "school": "N",
@@ -30551,7 +30881,10 @@
           "type": "feet",
           "amount": 60
         }
-      }
+      },
+      "defence": [
+        "will"
+      ]
     },
     {
       "school": "V",
@@ -30666,7 +30999,10 @@
           "type": "feet",
           "amount": 120
         }
-      }
+      },
+      "defence": [
+        "armour"
+      ]
     },
     {
       "school": "V",
@@ -30731,7 +31067,10 @@
           "type": "feet",
           "amount": 10
         }
-      }
+      },
+      "defence": [
+        "reflex"
+      ]
     },
     {
       "school": "V",
@@ -30791,7 +31130,10 @@
         "distance": {
           "type": "self"
         }
-      }
+      },
+      "defence": [
+        "fortitude"
+      ]
     },
     {
       "school": "C",
@@ -30864,7 +31206,10 @@
           "type": "feet",
           "amount": 60
         }
-      }
+      },
+      "defence": [
+        "armour"
+      ]
     },
     {
       "school": "E",
@@ -31068,7 +31413,10 @@
         "distance": {
           "type": "self"
         }
-      }
+      },
+      "defence": [
+        "reflex"
+      ]
     },
     {
       "school": "V",
@@ -31134,7 +31482,10 @@
         "distance": {
           "type": "self"
         }
-      }
+      },
+      "defence": [
+        "reflex"
+      ]
     },
     {
       "school": "C",
@@ -31346,7 +31697,10 @@
         "distance": {
           "type": "touch"
         }
-      }
+      },
+      "defence": [
+        "reflex"
+      ]
     },
     {
       "school": "C",
@@ -31517,7 +31871,10 @@
           "type": "feet",
           "amount": 300
         }
-      }
+      },
+      "defence": [
+        "fortitude"
+      ]
     },
     {
       "school": "C",
@@ -31710,7 +32067,10 @@
           "type": "feet",
           "amount": 30
         }
-      }
+      },
+      "defence": [
+        "fortitude"
+      ]
     },
     {
       "school": "D",
@@ -31784,7 +32144,10 @@
           "type": "feet",
           "amount": 60
         }
-      }
+      },
+      "defence": [
+        "will"
+      ]
     },
     {
       "school": "I",
@@ -31987,7 +32350,10 @@
           "type": "feet",
           "amount": 60
         }
-      }
+      },
+      "defence": [
+        "fortitude"
+      ]
     },
     {
       "school": "V",
@@ -32053,7 +32419,10 @@
         "distance": {
           "type": "self"
         }
-      }
+      },
+      "defence": [
+        "fortitude"
+      ]
     },
     {
       "school": "I",
@@ -32249,7 +32618,10 @@
           "type": "feet",
           "amount": 90
         }
-      }
+      },
+      "defence": [
+        "reflex"
+      ]
     },
     {
       "school": "C",
@@ -32342,7 +32714,10 @@
           "type": "feet",
           "amount": 90
         }
-      }
+      },
+      "defence": [
+        "fortitude"
+      ]
     },
     {
       "school": "V",
@@ -32544,7 +32919,10 @@
           "type": "feet",
           "amount": 60
         }
-      }
+      },
+      "defence": [
+        "fortitude"
+      ]
     },
     {
       "school": "T",
@@ -32784,7 +33162,10 @@
           "type": "feet",
           "amount": 120
         }
-      }
+      },
+      "defence": [
+        "will"
+      ]
     },
     {
       "school": "T",
@@ -32855,7 +33236,10 @@
           "type": "feet",
           "amount": 120
         }
-      }
+      },
+      "defence": [
+        "reflex"
+      ]
     },
     {
       "school": "T",
@@ -33184,7 +33568,10 @@
           "type": "feet",
           "amount": 90
         }
-      }
+      },
+      "defence": [
+        "fortitude"
+      ]
     },
     {
       "school": "C",
@@ -33247,7 +33634,10 @@
           "type": "feet",
           "amount": 120
         }
-      }
+      },
+      "defence": [
+        "reflex"
+      ]
     },
     {
       "school": "T",
@@ -33534,7 +33924,10 @@
           "type": "feet",
           "amount": 90
         }
-      }
+      },
+      "defence": [
+        "fortitude"
+      ]
     },
     {
       "school": "A",
@@ -33766,7 +34159,10 @@
           "type": "feet",
           "amount": 120
         }
-      }
+      },
+      "defence": [
+        "will"
+      ]
     },
     {
       "school": "N",
@@ -34077,7 +34473,10 @@
           "type": "feet",
           "amount": 150
         }
-      }
+      },
+      "defence": [
+        "reflex"
+      ]
     },
     {
       "school": "C",
@@ -34365,7 +34764,10 @@
           "type": "feet",
           "amount": 60
         }
-      }
+      },
+      "defence": [
+        "reflex"
+      ]
     },
     {
       "school": "C",
@@ -34482,7 +34884,10 @@
         "distance": {
           "type": "touch"
         }
-      }
+      },
+      "defence": [
+        "fortitude"
+      ]
     },
     {
       "school": "C",
@@ -34608,7 +35013,10 @@
           "type": "feet",
           "amount": 90
         }
-      }
+      },
+      "defence": [
+        "reflex"
+      ]
     },
     {
       "school": "V",
@@ -34728,7 +35136,10 @@
           "type": "feet",
           "amount": 60
         }
-      }
+      },
+      "defence": [
+        "fortitude"
+      ]
     },
     {
       "school": "T",
@@ -34983,7 +35394,10 @@
           "type": "feet",
           "amount": 120
         }
-      }
+      },
+      "defence": [
+        "will"
+      ]
     },
     {
       "school": "T",
@@ -35065,7 +35479,10 @@
           "type": "feet",
           "amount": 120
         }
-      }
+      },
+      "defence": [
+        "reflex"
+      ]
     },
     {
       "school": "V",
@@ -35139,7 +35556,11 @@
           "type": "feet",
           "amount": 120
         }
-      }
+      },
+      "defence": [
+        "armour",
+        "fortitude"
+      ]
     },
     {
       "school": "V",
@@ -35306,7 +35727,10 @@
           "type": "feet",
           "amount": 120
         }
-      }
+      },
+      "defence": [
+        "reflex"
+      ]
     },
     {
       "school": "T",
@@ -35608,7 +36032,10 @@
         "distance": {
           "type": "self"
         }
-      }
+      },
+      "defence": [
+        "reflex"
+      ]
     },
     {
       "school": "T",
@@ -35678,7 +36105,10 @@
         "distance": {
           "type": "self"
         }
-      }
+      },
+      "defence": [
+        "fortitude"
+      ]
     },
     {
       "school": "T",
@@ -35771,7 +36201,10 @@
         "distance": {
           "type": "self"
         }
-      }
+      },
+      "defence": [
+        "reflex"
+      ]
     },
     {
       "school": "T",
@@ -35841,7 +36274,10 @@
         "distance": {
           "type": "self"
         }
-      }
+      },
+      "defence": [
+        "fortitude"
+      ]
     },
     {
       "school": "I",
@@ -35907,7 +36343,10 @@
           "type": "feet",
           "amount": 60
         }
-      }
+      },
+      "defence": [
+        "will"
+      ]
     },
     {
       "school": "A",
@@ -36040,7 +36479,10 @@
           "type": "feet",
           "amount": 30
         }
-      }
+      },
+      "defence": [
+        "will"
+      ]
     },
     {
       "school": "N",
@@ -36581,7 +37023,10 @@
           "type": "feet",
           "amount": 150
         }
-      }
+      },
+      "defence": [
+        "fortitude"
+      ]
     },
     {
       "school": "I",
@@ -36664,7 +37109,10 @@
           "type": "feet",
           "amount": 120
         }
-      }
+      },
+      "defence": [
+        "will"
+      ]
     },
     {
       "school": "V",
@@ -36893,7 +37341,10 @@
           "type": "feet",
           "amount": 90
         }
-      }
+      },
+      "defence": [
+        "will"
+      ]
     },
     {
       "school": "V",
