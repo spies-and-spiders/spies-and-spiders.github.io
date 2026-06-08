@@ -795,6 +795,10 @@
       },
       "defence": [
         "will"
+      ],
+      "conditionInflict": [
+        "charmed",
+        "dominated"
       ]
     },
     {
@@ -1576,6 +1580,9 @@
       },
       "defence": [
         "armour"
+      ],
+      "conditionInflict": [
+        "grappled"
       ]
     },
     {
@@ -2222,7 +2229,10 @@
         "distance": {
           "type": "touch"
         }
-      }
+      },
+      "conditionInflict": [
+        "charmed"
+      ]
     },
     {
       "school": "E",
@@ -2438,6 +2448,10 @@
       },
       "defence": [
         "will"
+      ],
+      "conditionInflict": [
+        "dazed",
+        "debilitated"
       ]
     },
     {
@@ -2752,6 +2766,9 @@
       },
       "defence": [
         "will"
+      ],
+      "conditionInflict": [
+        "debilitated"
       ]
     },
     {
@@ -2831,7 +2848,10 @@
           "amount": 60,
           "type": "feet"
         }
-      }
+      },
+      "conditionInflict": [
+        "restrained"
+      ]
     },
     {
       "school": "V",
@@ -3168,6 +3188,10 @@
       },
       "defence": [
         "fortitude"
+      ],
+      "conditionInflict": [
+        "blinded",
+        "deafened"
       ]
     },
     {
@@ -3978,6 +4002,10 @@
       },
       "defence": [
         "will"
+      ],
+      "conditionInflict": [
+        "charmed",
+        "dominated"
       ]
     },
     {
@@ -4089,6 +4117,10 @@
       },
       "defence": [
         "will"
+      ],
+      "conditionInflict": [
+        "charmed",
+        "dominated"
       ]
     },
     {
@@ -4605,7 +4637,10 @@
         "distance": {
           "type": "self"
         }
-      }
+      },
+      "conditionInflict": [
+        "blinded"
+      ]
     },
     {
       "school": "E",
@@ -4708,6 +4743,10 @@
       },
       "defence": [
         "will"
+      ],
+      "conditionInflict": [
+        "prone",
+        "sluggish"
       ]
     },
     {
@@ -5107,6 +5146,10 @@
       },
       "defence": [
         "will"
+      ],
+      "conditionInflict": [
+        "confused",
+        "frightened"
       ]
     },
     {
@@ -5570,7 +5613,10 @@
         "distance": {
           "type": "self"
         }
-      }
+      },
+      "conditionInflict": [
+        "strife"
+      ]
     },
     {
       "school": "N",
@@ -5709,6 +5755,12 @@
       },
       "defence": [
         "armour"
+      ],
+      "conditionInflict": [
+        "blinded",
+        "confused",
+        "debilitated",
+        "rattled"
       ]
     },
     {
@@ -6091,6 +6143,9 @@
       },
       "defence": [
         "fortitude"
+      ],
+      "conditionInflict": [
+        "poisoned"
       ]
     },
     {
@@ -6535,7 +6590,11 @@
         "distance": {
           "type": "self"
         }
-      }
+      },
+      "conditionInflict": [
+        "debilitated",
+        "prone"
+      ]
     },
     {
       "school": "V",
@@ -6751,7 +6810,10 @@
           "amount": 60,
           "type": "feet"
         }
-      }
+      },
+      "conditionInflict": [
+        "blinded"
+      ]
     },
     {
       "school": "T",
@@ -7902,6 +7964,11 @@
       },
       "defence": [
         "armour"
+      ],
+      "conditionInflict": [
+        "charmed",
+        "debilitated",
+        "frightened"
       ]
     },
     {
@@ -8180,7 +8247,12 @@
           "amount": 30,
           "type": "feet"
         }
-      }
+      },
+      "conditionInflict": [
+        "blinded",
+        "deafened",
+        "debilitated"
+      ]
     },
     {
       "school": "E",
@@ -8280,6 +8352,10 @@
       },
       "defence": [
         "will"
+      ],
+      "conditionInflict": [
+        "charmed",
+        "dominated"
       ]
     },
     {
@@ -8510,6 +8586,9 @@
       },
       "defence": [
         "will"
+      ],
+      "conditionInflict": [
+        "frightened"
       ]
     },
     {
@@ -8608,6 +8687,10 @@
       },
       "defence": [
         "will"
+      ],
+      "conditionInflict": [
+        "fatigue",
+        "strife"
       ]
     },
     {
@@ -8778,7 +8861,10 @@
           "amount": 500,
           "type": "feet"
         }
-      }
+      },
+      "conditionInflict": [
+        "prone"
+      ]
     },
     {
       "school": "C",
@@ -8847,7 +8933,10 @@
           "amount": 120,
           "type": "feet"
         }
-      }
+      },
+      "conditionInflict": [
+        "debilitated"
+      ]
     },
     {
       "school": "T",
@@ -9262,6 +9351,10 @@
       },
       "defence": [
         "fortitude"
+      ],
+      "conditionInflict": [
+        "debilitated",
+        "restrained"
       ]
     },
     {
@@ -9351,6 +9444,9 @@
       },
       "defence": [
         "will"
+      ],
+      "conditionInflict": [
+        "incapacitated"
       ]
     },
     {
@@ -9618,6 +9714,10 @@
       },
       "defence": [
         "will"
+      ],
+      "conditionInflict": [
+        "frightened",
+        "unconscious"
       ]
     },
     {
@@ -9778,6 +9878,10 @@
       },
       "defence": [
         "reflex"
+      ],
+      "conditionInflict": [
+        "rattled",
+        "staggered"
       ]
     },
     {
@@ -9932,7 +10036,10 @@
         "distance": {
           "type": "self"
         }
-      }
+      },
+      "conditionInflict": [
+        "frightened"
+      ]
     },
     {
       "school": "I",
@@ -10036,6 +10143,10 @@
       },
       "defence": [
         "will"
+      ],
+      "conditionInflict": [
+        "debilitated",
+        "frightened"
       ]
     },
     {
@@ -10271,7 +10382,11 @@
           "amount": 30,
           "type": "feet"
         }
-      }
+      },
+      "conditionInflict": [
+        "blinded",
+        "deafened"
+      ]
     },
     {
       "school": "C",
@@ -12249,6 +12364,9 @@
       },
       "defence": [
         "will"
+      ],
+      "conditionInflict": [
+        "charmed"
       ]
     },
     {
@@ -12791,6 +12909,9 @@
       },
       "defence": [
         "reflex"
+      ],
+      "conditionInflict": [
+        "prone"
       ]
     },
     {
@@ -13194,7 +13315,10 @@
         "distance": {
           "type": "self"
         }
-      }
+      },
+      "conditionInflict": [
+        "sluggish"
+      ]
     },
     {
       "school": "V",
@@ -13327,7 +13451,10 @@
         "distance": {
           "type": "touch"
         }
-      }
+      },
+      "conditionInflict": [
+        "frightened"
+      ]
     },
     {
       "school": "I",
@@ -13816,7 +13943,10 @@
         "distance": {
           "type": "self"
         }
-      }
+      },
+      "conditionInflict": [
+        "frightened"
+      ]
     },
     {
       "school": "T",
@@ -14140,6 +14270,11 @@
       },
       "defence": [
         "will"
+      ],
+      "conditionInflict": [
+        "dazed",
+        "debilitated",
+        "prone"
       ]
     },
     {
@@ -14250,6 +14385,9 @@
       },
       "defence": [
         "will"
+      ],
+      "conditionInflict": [
+        "staggered"
       ]
     },
     {
@@ -14372,6 +14510,9 @@
       },
       "defence": [
         "will"
+      ],
+      "conditionInflict": [
+        "staggered"
       ]
     },
     {
@@ -14439,7 +14580,10 @@
         "distance": {
           "type": "self"
         }
-      }
+      },
+      "conditionInflict": [
+        "blinded"
+      ]
     },
     {
       "school": "I",
@@ -14543,6 +14687,12 @@
       },
       "defence": [
         "will"
+      ],
+      "conditionInflict": [
+        "charmed",
+        "dazed",
+        "debilitated",
+        "sluggish"
       ]
     },
     {
@@ -14905,6 +15055,10 @@
       },
       "defence": [
         "will"
+      ],
+      "conditionInflict": [
+        "restrained",
+        "sluggish"
       ]
     },
     {
@@ -15139,6 +15293,11 @@
       },
       "defence": [
         "armour"
+      ],
+      "conditionInflict": [
+        "confused",
+        "frightened",
+        "slowed"
       ]
     },
     {
@@ -15295,7 +15454,10 @@
           "amount": 300,
           "type": "feet"
         }
-      }
+      },
+      "conditionInflict": [
+        "frightened"
+      ]
     },
     {
       "meta": {
@@ -15634,6 +15796,10 @@
       },
       "defence": [
         "will"
+      ],
+      "conditionInflict": [
+        "sluggish",
+        "staggered"
       ]
     },
     {
@@ -15906,7 +16072,10 @@
         "distance": {
           "type": "self"
         }
-      }
+      },
+      "conditionInflict": [
+        "frightened"
+      ]
     },
     {
       "school": "A",
@@ -16082,6 +16251,10 @@
       },
       "defence": [
         "fortitude"
+      ],
+      "conditionInflict": [
+        "restrained",
+        "sluggish"
       ]
     },
     {
@@ -16831,6 +17004,9 @@
       },
       "defence": [
         "will"
+      ],
+      "conditionInflict": [
+        "charmed"
       ]
     },
     {
@@ -16906,7 +17082,10 @@
           "amount": 120,
           "type": "feet"
         }
-      }
+      },
+      "conditionInflict": [
+        "rattled"
+      ]
     },
     {
       "meta": {
@@ -17614,7 +17793,10 @@
         "distance": {
           "type": "touch"
         }
-      }
+      },
+      "conditionInflict": [
+        "prone"
+      ]
     },
     {
       "school": "C",
@@ -18019,7 +18201,10 @@
         "distance": {
           "type": "self"
         }
-      }
+      },
+      "conditionInflict": [
+        "blinded"
+      ]
     },
     {
       "school": "I",
@@ -18252,6 +18437,10 @@
       },
       "defence": [
         "will"
+      ],
+      "conditionInflict": [
+        "charmed",
+        "dazed"
       ]
     },
     {
@@ -18581,7 +18770,10 @@
           "amount": 30,
           "type": "feet"
         }
-      }
+      },
+      "conditionInflict": [
+        "prone"
+      ]
     },
     {
       "school": "A",
@@ -18811,6 +19003,9 @@
       },
       "defence": [
         "will"
+      ],
+      "conditionInflict": [
+        "frightened"
       ]
     },
     {
@@ -19233,6 +19428,10 @@
       },
       "defence": [
         "armour"
+      ],
+      "conditionInflict": [
+        "debilitated",
+        "unconscious"
       ]
     },
     {
@@ -19395,7 +19594,10 @@
         "distance": {
           "type": "touch"
         }
-      }
+      },
+      "conditionInflict": [
+        "poisoned"
+      ]
     },
     {
       "school": "E",
@@ -19532,7 +19734,12 @@
           "amount": 60,
           "type": "feet"
         }
-      }
+      },
+      "conditionInflict": [
+        "blinded",
+        "deafened",
+        "rattled"
+      ]
     },
     {
       "school": "V",
@@ -19730,7 +19937,11 @@
         "distance": {
           "type": "self"
         }
-      }
+      },
+      "conditionInflict": [
+        "blinded",
+        "restrained"
+      ]
     },
     {
       "school": "A",
@@ -19865,7 +20076,11 @@
           "amount": 60,
           "type": "feet"
         }
-      }
+      },
+      "conditionInflict": [
+        "blinded",
+        "restrained"
+      ]
     },
     {
       "school": "A",
@@ -20232,7 +20447,11 @@
         "distance": {
           "type": "touch"
         }
-      }
+      },
+      "conditionInflict": [
+        "charmed",
+        "frightened"
+      ]
     },
     {
       "school": "A",
@@ -20550,7 +20769,10 @@
         "distance": {
           "type": "self"
         }
-      }
+      },
+      "conditionInflict": [
+        "frightened"
+      ]
     },
     {
       "school": "N",
@@ -21556,6 +21778,9 @@
       },
       "defence": [
         "will"
+      ],
+      "conditionInflict": [
+        "deafened"
       ]
     },
     {
@@ -21684,7 +21909,11 @@
           "amount": 60,
           "type": "feet"
         }
-      }
+      },
+      "conditionInflict": [
+        "blinded",
+        "grappled"
+      ]
     },
     {
       "school": "D",
@@ -22409,7 +22638,10 @@
           "amount": 120,
           "type": "feet"
         }
-      }
+      },
+      "conditionInflict": [
+        "deafened"
+      ]
     },
     {
       "school": "I",
@@ -22621,7 +22853,10 @@
           "amount": 60,
           "type": "feet"
         }
-      }
+      },
+      "conditionInflict": [
+        "unconscious"
+      ]
     },
     {
       "school": "C",
@@ -22698,7 +22933,10 @@
           "amount": 120,
           "type": "feet"
         }
-      }
+      },
+      "conditionInflict": [
+        "prone"
+      ]
     },
     {
       "school": "T",
@@ -22796,6 +23034,12 @@
       },
       "defence": [
         "will"
+      ],
+      "conditionInflict": [
+        "debilitated",
+        "rattled",
+        "slowed",
+        "weakened"
       ]
     },
     {
@@ -22959,7 +23203,10 @@
         "distance": {
           "type": "touch"
         }
-      }
+      },
+      "conditionInflict": [
+        "rattled"
+      ]
     },
     {
       "meta": {
@@ -23460,7 +23707,10 @@
           "amount": 60,
           "type": "feet"
         }
-      }
+      },
+      "conditionInflict": [
+        "rattled"
+      ]
     },
     {
       "school": "V",
@@ -23633,7 +23883,10 @@
           "amount": 120,
           "type": "feet"
         }
-      }
+      },
+      "conditionInflict": [
+        "debilitated"
+      ]
     },
     {
       "school": "T",
@@ -23972,6 +24225,9 @@
       },
       "defence": [
         "fortitude"
+      ],
+      "conditionInflict": [
+        "deafened"
       ]
     },
     {
@@ -24172,6 +24428,9 @@
       },
       "defence": [
         "fortitude"
+      ],
+      "conditionInflict": [
+        "blinded"
       ]
     },
     {
@@ -24252,6 +24511,9 @@
       },
       "defence": [
         "fortitude"
+      ],
+      "conditionInflict": [
+        "blinded"
       ]
     },
     {
@@ -24390,6 +24652,13 @@
       },
       "defence": [
         "fortitude"
+      ],
+      "conditionInflict": [
+        "confused",
+        "dazed",
+        "debilitated",
+        "frightened",
+        "unconscious"
       ]
     },
     {
@@ -24472,7 +24741,11 @@
         "distance": {
           "type": "self"
         }
-      }
+      },
+      "conditionInflict": [
+        "debilitated",
+        "frightened"
+      ]
     },
     {
       "school": "T",
@@ -24562,7 +24835,10 @@
           "amount": 60,
           "type": "feet"
         }
-      }
+      },
+      "conditionInflict": [
+        "restrained"
+      ]
     },
     {
       "meta": {
@@ -26092,7 +26368,13 @@
           "amount": 120,
           "type": "feet"
         }
-      }
+      },
+      "conditionInflict": [
+        "blinded",
+        "deafened",
+        "grappled",
+        "restrained"
+      ]
     },
     {
       "school": "V",
@@ -26169,7 +26451,10 @@
           "amount": 120,
           "type": "feet"
         }
-      }
+      },
+      "conditionInflict": [
+        "prone"
+      ]
     },
     {
       "school": "V",
@@ -26825,7 +27110,10 @@
           "amount": 60,
           "type": "feet"
         }
-      }
+      },
+      "conditionInflict": [
+        "restrained"
+      ]
     },
     {
       "school": "I",
@@ -26920,6 +27208,10 @@
       },
       "defence": [
         "will"
+      ],
+      "conditionInflict": [
+        "frightened",
+        "sluggish"
       ]
     },
     {
@@ -26996,7 +27288,10 @@
         "distance": {
           "type": "self"
         }
-      }
+      },
+      "conditionInflict": [
+        "sluggish"
+      ]
     },
     {
       "school": "V",
@@ -27119,7 +27414,10 @@
           "amount": 30,
           "type": "feet"
         }
-      }
+      },
+      "conditionInflict": [
+        "incapacitated"
+      ]
     },
     {
       "school": "V",
@@ -27404,7 +27702,11 @@
           "amount": 150,
           "type": "miles"
         }
-      }
+      },
+      "conditionInflict": [
+        "charmed",
+        "prone"
+      ]
     },
     {
       "meta": {
@@ -27472,7 +27774,10 @@
         "distance": {
           "type": "self"
         }
-      }
+      },
+      "conditionInflict": [
+        "incapacitated"
+      ]
     },
     {
       "school": "E",
@@ -27545,7 +27850,10 @@
           "amount": 60,
           "type": "feet"
         }
-      }
+      },
+      "conditionInflict": [
+        "charmed"
+      ]
     },
     {
       "school": "A",
@@ -28228,6 +28536,9 @@
       },
       "defence": [
         "armour"
+      ],
+      "conditionInflict": [
+        "poisoned"
       ]
     },
     {
@@ -28526,7 +28837,11 @@
         "distance": {
           "type": "touch"
         }
-      }
+      },
+      "conditionInflict": [
+        "blinded",
+        "deafened"
+      ]
     },
     {
       "school": "V",
@@ -28759,6 +29074,10 @@
       },
       "defence": [
         "will"
+      ],
+      "conditionInflict": [
+        "charmed",
+        "dominated"
       ]
     },
     {
@@ -28967,7 +29286,10 @@
         "distance": {
           "type": "self"
         }
-      }
+      },
+      "conditionInflict": [
+        "blinded"
+      ]
     },
     {
       "school": "V",
@@ -29164,7 +29486,11 @@
         "distance": {
           "type": "touch"
         }
-      }
+      },
+      "conditionInflict": [
+        "blinded",
+        "incapacitated"
+      ]
     },
     {
       "school": "C",
@@ -29228,7 +29554,10 @@
           "type": "feet",
           "amount": 150
         }
-      }
+      },
+      "conditionInflict": [
+        "blinded"
+      ]
     },
     {
       "school": "A",
@@ -29418,6 +29747,9 @@
       },
       "defence": [
         "will"
+      ],
+      "conditionInflict": [
+        "dominated"
       ]
     },
     {
@@ -29610,7 +29942,10 @@
         "distance": {
           "type": "self"
         }
-      }
+      },
+      "conditionInflict": [
+        "dazed"
+      ]
     },
     {
       "school": "A",
@@ -29717,6 +30052,9 @@
       },
       "defence": [
         "fortitude"
+      ],
+      "conditionInflict": [
+        "prone"
       ]
     },
     {
@@ -30716,7 +31054,10 @@
         "distance": {
           "type": "touch"
         }
-      }
+      },
+      "conditionInflict": [
+        "charmed"
+      ]
     },
     {
       "school": "T",
@@ -30884,6 +31225,11 @@
       },
       "defence": [
         "will"
+      ],
+      "conditionInflict": [
+        "debilitated",
+        "frightened",
+        "rattled"
       ]
     },
     {
@@ -31070,6 +31416,9 @@
       },
       "defence": [
         "reflex"
+      ],
+      "conditionInflict": [
+        "prone"
       ]
     },
     {
@@ -31319,7 +31668,10 @@
         "distance": {
           "type": "touch"
         }
-      }
+      },
+      "conditionInflict": [
+        "restrained"
+      ]
     },
     {
       "school": "V",
@@ -32070,6 +32422,9 @@
       },
       "defence": [
         "fortitude"
+      ],
+      "conditionInflict": [
+        "restrained"
       ]
     },
     {
@@ -32353,6 +32708,10 @@
       },
       "defence": [
         "fortitude"
+      ],
+      "conditionInflict": [
+        "blinded",
+        "debilitated"
       ]
     },
     {
@@ -32717,6 +33076,9 @@
       },
       "defence": [
         "fortitude"
+      ],
+      "conditionInflict": [
+        "sluggish"
       ]
     },
     {
@@ -33067,7 +33429,10 @@
           "type": "feet",
           "amount": 30
         }
-      }
+      },
+      "conditionInflict": [
+        "unconscious"
+      ]
     },
     {
       "school": "E",
@@ -33165,6 +33530,9 @@
       },
       "defence": [
         "will"
+      ],
+      "conditionInflict": [
+        "dominated"
       ]
     },
     {
@@ -33637,6 +34005,9 @@
       },
       "defence": [
         "reflex"
+      ],
+      "conditionInflict": [
+        "prone"
       ]
     },
     {
@@ -34162,6 +34533,9 @@
       },
       "defence": [
         "will"
+      ],
+      "conditionInflict": [
+        "dazed"
       ]
     },
     {
@@ -34280,7 +34654,10 @@
           "type": "feet",
           "amount": 120
         }
-      }
+      },
+      "conditionInflict": [
+        "fatigue"
+      ]
     },
     {
       "school": "V",
@@ -34539,7 +34916,11 @@
           "type": "feet",
           "amount": 90
         }
-      }
+      },
+      "conditionInflict": [
+        "prone",
+        "restrained"
+      ]
     },
     {
       "school": "T",
@@ -34623,7 +35004,10 @@
           "type": "feet",
           "amount": 300
         }
-      }
+      },
+      "conditionInflict": [
+        "prone"
+      ]
     },
     {
       "school": "V",
@@ -34887,6 +35271,9 @@
       },
       "defence": [
         "fortitude"
+      ],
+      "conditionInflict": [
+        "blinded"
       ]
     },
     {
@@ -34950,7 +35337,11 @@
           "type": "feet",
           "amount": 90
         }
-      }
+      },
+      "conditionInflict": [
+        "prone",
+        "restrained"
+      ]
     },
     {
       "school": "V",
@@ -35482,6 +35873,9 @@
       },
       "defence": [
         "reflex"
+      ],
+      "conditionInflict": [
+        "restrained"
       ]
     },
     {
@@ -35560,6 +35954,9 @@
       "defence": [
         "armour",
         "fortitude"
+      ],
+      "conditionInflict": [
+        "blinded"
       ]
     },
     {
@@ -35645,7 +36042,11 @@
           "type": "feet",
           "amount": 120
         }
-      }
+      },
+      "conditionInflict": [
+        "prone",
+        "restrained"
+      ]
     },
     {
       "school": "T",
@@ -35730,6 +36131,10 @@
       },
       "defence": [
         "reflex"
+      ],
+      "conditionInflict": [
+        "prone",
+        "restrained"
       ]
     },
     {
@@ -35872,7 +36277,10 @@
         "distance": {
           "type": "touch"
         }
-      }
+      },
+      "conditionInflict": [
+        "sluggish"
+      ]
     },
     {
       "school": "A",
@@ -36204,6 +36612,11 @@
       },
       "defence": [
         "reflex"
+      ],
+      "conditionInflict": [
+        "debilitated",
+        "prone",
+        "sluggish"
       ]
     },
     {
@@ -36346,6 +36759,9 @@
       },
       "defence": [
         "will"
+      ],
+      "conditionInflict": [
+        "restrained"
       ]
     },
     {
@@ -36482,6 +36898,9 @@
       },
       "defence": [
         "will"
+      ],
+      "conditionInflict": [
+        "sluggish"
       ]
     },
     {
@@ -36628,7 +37047,10 @@
         "distance": {
           "type": "self"
         }
-      }
+      },
+      "conditionInflict": [
+        "fatigue"
+      ]
     },
     {
       "school": "V",
@@ -36964,7 +37386,10 @@
           "type": "feet",
           "amount": 300
         }
-      }
+      },
+      "conditionInflict": [
+        "restrained"
+      ]
     },
     {
       "school": "N",
@@ -37112,6 +37537,11 @@
       },
       "defence": [
         "will"
+      ],
+      "conditionInflict": [
+        "debilitated",
+        "frightened",
+        "sluggish"
       ]
     },
     {
@@ -37344,6 +37774,9 @@
       },
       "defence": [
         "will"
+      ],
+      "conditionInflict": [
+        "debilitated"
       ]
     },
     {

@@ -74,7 +74,10 @@
         "If the creature chooses to roll over in order to dislodge you, it becomes {@condition prone|sns}, but its attack to dislodge you has advantage."
       ],
       "source": "sns",
-      "school": "M"
+      "school": "M",
+      "conditionInflict": [
+        "prone"
+      ]
     },
     {
       "range": {
@@ -121,7 +124,10 @@
         }
       ],
       "source": "sns",
-      "school": "M"
+      "school": "M",
+      "conditionInflict": [
+        "grappled"
+      ]
     },
     {
       "range": {
@@ -154,7 +160,10 @@
         "The target must be within your reach and be no more than one size category larger than you. You knock the target {@condition prone|sns}."
       ],
       "source": "sns",
-      "school": "M"
+      "school": "M",
+      "conditionInflict": [
+        "prone"
+      ]
     },
     {
       "range": {
@@ -303,6 +312,9 @@
       },
       "defence": [
         "armour"
+      ],
+      "conditionInflict": [
+        "prone"
       ]
     },
     {
@@ -342,6 +354,9 @@
       },
       "defence": [
         "armour"
+      ],
+      "conditionInflict": [
+        "prone"
       ]
     },
     {
@@ -378,7 +393,12 @@
         "distance": {
           "type": "special"
         }
-      }
+      },
+      "conditionInflict": [
+        "debilitated",
+        "frightened",
+        "poisoned"
+      ]
     },
     {
       "school": "M",
@@ -497,6 +517,9 @@
       },
       "defence": [
         "armour"
+      ],
+      "conditionInflict": [
+        "staggered"
       ]
     },
     {
@@ -533,7 +556,10 @@
         "distance": {
           "type": "special"
         }
-      }
+      },
+      "conditionInflict": [
+        "incapacitated"
+      ]
     },
     {
       "school": "M",
@@ -609,7 +635,12 @@
         "distance": {
           "type": "special"
         }
-      }
+      },
+      "conditionInflict": [
+        "debilitated",
+        "incapacitated",
+        "staggered"
+      ]
     },
     {
       "school": "M",
@@ -685,7 +716,10 @@
         "distance": {
           "type": "special"
         }
-      }
+      },
+      "conditionInflict": [
+        "incapacitated"
+      ]
     },
     {
       "school": "M",
@@ -731,6 +765,9 @@
       },
       "defence": [
         "fortitude"
+      ],
+      "conditionInflict": [
+        "prone"
       ]
     },
     {
@@ -1355,6 +1392,9 @@
       },
       "defence": [
         "armour"
+      ],
+      "conditionInflict": [
+        "prone"
       ]
     },
     {
@@ -1571,7 +1611,10 @@
         "distance": {
           "type": "special"
         }
-      }
+      },
+      "conditionInflict": [
+        "sluggish"
+      ]
     },
     {
       "school": "M",
@@ -1888,6 +1931,9 @@
       },
       "defence": [
         "armour"
+      ],
+      "conditionInflict": [
+        "blinded"
       ]
     },
     {
@@ -2430,6 +2476,9 @@
       },
       "defence": [
         "will"
+      ],
+      "conditionInflict": [
+        "staggered"
       ]
     },
     {
@@ -2653,6 +2702,9 @@
       },
       "defence": [
         "armour"
+      ],
+      "conditionInflict": [
+        "blinded"
       ]
     },
     {
@@ -3337,6 +3389,10 @@
       },
       "defence": [
         "reflex"
+      ],
+      "conditionInflict": [
+        "prone",
+        "sluggish"
       ]
     },
     {
@@ -4127,6 +4183,10 @@
       },
       "defence": [
         "fortitude"
+      ],
+      "conditionInflict": [
+        "prone",
+        "sluggish"
       ]
     },
     {
@@ -4163,7 +4223,10 @@
         "distance": {
           "type": "special"
         }
-      }
+      },
+      "conditionInflict": [
+        "restrained"
+      ]
     },
     {
       "school": "M",
@@ -4202,6 +4265,9 @@
       },
       "defence": [
         "armour"
+      ],
+      "conditionInflict": [
+        "prone"
       ]
     },
     {
@@ -4558,6 +4624,9 @@
       },
       "defence": [
         "armour"
+      ],
+      "conditionInflict": [
+        "prone"
       ]
     },
     {
@@ -4706,6 +4775,11 @@
       "defence": [
         "armour",
         "will"
+      ],
+      "conditionInflict": [
+        "debilitated",
+        "frightened",
+        "sluggish"
       ]
     },
     {
@@ -4779,7 +4853,10 @@
         "distance": {
           "type": "special"
         }
-      }
+      },
+      "conditionInflict": [
+        "prone"
+      ]
     },
     {
       "school": "M",
@@ -4897,6 +4974,11 @@
       },
       "defence": [
         "armour"
+      ],
+      "conditionInflict": [
+        "confused",
+        "prone",
+        "slowed"
       ]
     },
     {
@@ -5047,7 +5129,12 @@
         "distance": {
           "type": "special"
         }
-      }
+      },
+      "conditionInflict": [
+        "charmed",
+        "poisoned",
+        "restrained"
+      ]
     },
     {
       "school": "M",
@@ -5132,7 +5219,10 @@
         "distance": {
           "type": "special"
         }
-      }
+      },
+      "conditionInflict": [
+        "frightened"
+      ]
     },
     {
       "school": "M",
@@ -5285,7 +5375,13 @@
         "distance": {
           "type": "special"
         }
-      }
+      },
+      "conditionInflict": [
+        "charmed",
+        "debilitated",
+        "frightened",
+        "poisoned"
+      ]
     },
     {
       "school": "M",
@@ -5369,6 +5465,9 @@
       },
       "defence": [
         "armour"
+      ],
+      "conditionInflict": [
+        "debilitated"
       ]
     },
     {
@@ -5639,6 +5738,11 @@
       },
       "defence": [
         "armour"
+      ],
+      "conditionInflict": [
+        "confused",
+        "debilitated",
+        "rattled"
       ]
     },
     {
@@ -5948,6 +6052,9 @@
       },
       "defence": [
         "armour"
+      ],
+      "conditionInflict": [
+        "prone"
       ]
     },
     {
@@ -6024,7 +6131,10 @@
         "distance": {
           "type": "special"
         }
-      }
+      },
+      "conditionInflict": [
+        "fatigue"
+      ]
     },
     {
       "school": "M",
@@ -6183,6 +6293,9 @@
       },
       "defence": [
         "armour"
+      ],
+      "conditionInflict": [
+        "frightened"
       ]
     },
     {
@@ -6310,7 +6423,10 @@
         "distance": {
           "type": "special"
         }
-      }
+      },
+      "conditionInflict": [
+        "prone"
+      ]
     },
     {
       "school": "M",
@@ -6348,7 +6464,10 @@
         "distance": {
           "type": "special"
         }
-      }
+      },
+      "conditionInflict": [
+        "frightened"
+      ]
     },
     {
       "school": "M",
@@ -7073,7 +7192,10 @@
         "distance": {
           "type": "special"
         }
-      }
+      },
+      "conditionInflict": [
+        "fatigue"
+      ]
     },
     {
       "school": "M",
@@ -7174,6 +7296,10 @@
       },
       "defence": [
         "reflex"
+      ],
+      "conditionInflict": [
+        "prone",
+        "sluggish"
       ]
     },
     {
@@ -7213,6 +7339,10 @@
       },
       "defence": [
         "armour"
+      ],
+      "conditionInflict": [
+        "blinded",
+        "fatigue"
       ]
     },
     {
@@ -7249,7 +7379,10 @@
         "distance": {
           "type": "special"
         }
-      }
+      },
+      "conditionInflict": [
+        "prone"
+      ]
     },
     {
       "school": "M",
@@ -7285,7 +7418,10 @@
         "distance": {
           "type": "special"
         }
-      }
+      },
+      "conditionInflict": [
+        "prone"
+      ]
     },
     {
       "school": "M",
@@ -7594,6 +7730,9 @@
       },
       "defence": [
         "armour"
+      ],
+      "conditionInflict": [
+        "restrained"
       ]
     },
     {
@@ -7633,6 +7772,9 @@
       },
       "defence": [
         "armour"
+      ],
+      "conditionInflict": [
+        "rattled"
       ]
     },
     {
@@ -7672,6 +7814,9 @@
       },
       "defence": [
         "reflex"
+      ],
+      "conditionInflict": [
+        "rattled"
       ]
     },
     {
@@ -8142,7 +8287,10 @@
         "distance": {
           "type": "special"
         }
-      }
+      },
+      "conditionInflict": [
+        "charmed"
+      ]
     },
     {
       "school": "M",
@@ -8246,6 +8394,10 @@
       },
       "defence": [
         "will"
+      ],
+      "conditionInflict": [
+        "frightened",
+        "rattled"
       ]
     },
     {
@@ -8320,7 +8472,10 @@
         "distance": {
           "type": "special"
         }
-      }
+      },
+      "conditionInflict": [
+        "fixated"
+      ]
     },
     {
       "school": "M",
@@ -8361,7 +8516,11 @@
         "distance": {
           "type": "special"
         }
-      }
+      },
+      "conditionInflict": [
+        "fixated",
+        "rattled"
+      ]
     },
     {
       "school": "M",
@@ -8584,7 +8743,11 @@
         "distance": {
           "type": "special"
         }
-      }
+      },
+      "conditionInflict": [
+        "fixated",
+        "incapacitated"
+      ]
     },
     {
       "school": "M",
@@ -8621,7 +8784,11 @@
         "distance": {
           "type": "special"
         }
-      }
+      },
+      "conditionInflict": [
+        "incapacitated",
+        "prone"
+      ]
     },
     {
       "school": "M",
@@ -8657,7 +8824,10 @@
         "distance": {
           "type": "special"
         }
-      }
+      },
+      "conditionInflict": [
+        "fixated"
+      ]
     },
     {
       "school": "M",
@@ -8736,6 +8906,10 @@
       },
       "defence": [
         "armour"
+      ],
+      "conditionInflict": [
+        "blinded",
+        "deafened"
       ]
     },
     {
@@ -9011,6 +9185,9 @@
       },
       "defence": [
         "reflex"
+      ],
+      "conditionInflict": [
+        "grappled"
       ]
     },
     {
@@ -9269,7 +9446,10 @@
         "distance": {
           "type": "special"
         }
-      }
+      },
+      "conditionInflict": [
+        "incapacitated"
+      ]
     },
     {
       "school": "M",
@@ -9382,7 +9562,10 @@
         "distance": {
           "type": "special"
         }
-      }
+      },
+      "conditionInflict": [
+        "prone"
+      ]
     },
     {
       "school": "M",
@@ -9498,7 +9681,12 @@
         "distance": {
           "type": "special"
         }
-      }
+      },
+      "conditionInflict": [
+        "charmed",
+        "poisoned",
+        "restrained"
+      ]
     },
     {
       "school": "M",
@@ -9534,7 +9722,10 @@
         "distance": {
           "type": "special"
         }
-      }
+      },
+      "conditionInflict": [
+        "fatigue"
+      ]
     },
     {
       "school": "M",
