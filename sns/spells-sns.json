@@ -181,7 +181,10 @@
           "amount": 120,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "armour"
+      ]
     },
     {
       "school": "C",
@@ -253,7 +256,10 @@
           "amount": 60,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "reflex"
+      ]
     },
     {
       "school": "A",
@@ -786,7 +792,14 @@
           "amount": 30,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "will"
+      ],
+      "conditionInflict": [
+        "charmed",
+        "dominated"
+      ]
     },
     {
       "meta": {
@@ -1183,7 +1196,7 @@
             "10-foot radius sphere"
           ]
         },
-        "An {@condition invisible} sphere of antimagic forms around you, moving with you and suppressing all magical effects within it. At the DM's discretion, sufficiently powerful artifacts and deities may be able to ignore the sphere's effects.",
+        "An invisible sphere of antimagic forms around you, moving with you and suppressing all magical effects within it. At the DM's discretion, sufficiently powerful artifacts and deities may be able to ignore the sphere's effects.",
         {
           "type": "entries",
           "name": "Area Suppression",
@@ -1379,6 +1392,9 @@
           }
         ]
       },
+      "conditionInflict": [
+        "restrained"
+      ],
       "range": {
         "type": "point",
         "distance": {
@@ -1390,7 +1406,7 @@
     {
       "school": "D",
       "entries": [
-        "Until the spell ends, you create an {@condition invisible}, floating magical eye that hovers in the air and sends you visual information. The eye has normal vision, darkvision to a range of 30 feet, and it can look in every direction.",
+        "Until the spell ends, you create an invisible, floating magical eye that hovers in the air and sends you visual information. The eye has normal vision, darkvision to a range of 30 feet, and it can look in every direction.",
         "You can use an action to move the eye up to 30 feet in any direction as long as it remains on the same plane of existence. The eye can pass through openings as small as 1 inch across but otherwise its movement is blocked by solid barriers.",
         {
           "type": "entries",
@@ -1564,7 +1580,13 @@
           "amount": 120,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "armour"
+      ],
+      "conditionInflict": [
+        "grappled"
+      ]
     },
     {
       "school": "A",
@@ -1947,7 +1969,7 @@
     {
       "school": "T",
       "entries": [
-        "You throw your head back and howl like a beast, embracing your most basic impulses. Until the spell ends your hair grows, your features become more feral, and sharp claws grow on your fingers. You gain a +1 bonus to armour, your Speed increases by 10 feet, you have advantage on Perception checks, and the damage die of your unarmed attacks is {@dice 1d8} and they deal slashing damage. You may choose either Strength or Dexterity to govern your unarmed attacks. Additionally, you gain an instance of the Empowered Attack feature for your unarmed attacks. If you are hit by a silvered weapon, you must make a save, losing concentration on a fail."
+        "You throw your head back and howl like a beast, embracing your most basic impulses. Until the spell ends your hair grows, your features become more feral, and sharp claws grow on your fingers. You gain a +1 bonus to armour, your Speed increases by 10 feet, you have advantage on {@skill Perception} checks, and the damage die of your unarmed attacks is {@dice 1d8} and they deal slashing damage. You may choose either Strength or Dexterity to govern your unarmed attacks. Additionally, you gain an instance of the Empowered Attack feature for your unarmed attacks. If you are hit by a silvered weapon, you must make a save, losing concentration on a fail."
       ],
       "name": "Aspect of the Moon",
       "time": [
@@ -2060,6 +2082,9 @@
           }
         ]
       },
+      "conditionInflict": [
+        "unconscious"
+      ],
       "range": {
         "type": "point",
         "distance": {
@@ -2203,7 +2228,10 @@
         "distance": {
           "type": "touch"
         }
-      }
+      },
+      "conditionInflict": [
+        "charmed"
+      ]
     },
     {
       "school": "E",
@@ -2301,7 +2329,10 @@
           "amount": 30,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "will"
+      ]
     },
     {
       "school": "A",
@@ -2413,7 +2444,14 @@
           "amount": 60,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "will"
+      ],
+      "conditionInflict": [
+        "dazed",
+        "debilitated"
+      ]
     },
     {
       "school": "T",
@@ -2724,7 +2762,13 @@
         "distance": {
           "type": "touch"
         }
-      }
+      },
+      "defence": [
+        "will"
+      ],
+      "conditionInflict": [
+        "debilitated"
+      ]
     },
     {
       "school": "C",
@@ -2803,7 +2847,10 @@
           "amount": 60,
           "type": "feet"
         }
-      }
+      },
+      "conditionInflict": [
+        "restrained"
+      ]
     },
     {
       "school": "V",
@@ -3030,7 +3077,10 @@
           "amount": 30,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "fortitude"
+      ]
     },
     {
       "school": "N",
@@ -3134,7 +3184,14 @@
           "amount": 30,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "fortitude"
+      ],
+      "conditionInflict": [
+        "blinded",
+        "deafened"
+      ]
     },
     {
       "school": "T",
@@ -3415,7 +3472,10 @@
         "distance": {
           "type": "self"
         }
-      }
+      },
+      "defence": [
+        "reflex"
+      ]
     },
     {
       "school": "A",
@@ -3572,7 +3632,10 @@
         "distance": {
           "type": "special"
         }
-      }
+      },
+      "defence": [
+        "reflex"
+      ]
     },
     {
       "school": "E",
@@ -3686,7 +3749,10 @@
           "amount": 60,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "will"
+      ]
     },
     {
       "meta": {
@@ -3821,7 +3887,10 @@
           "amount": 120,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "reflex"
+      ]
     },
     {
       "school": "E",
@@ -3929,7 +3998,14 @@
           "amount": 60,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "will"
+      ],
+      "conditionInflict": [
+        "charmed",
+        "dominated"
+      ]
     },
     {
       "school": "E",
@@ -4037,7 +4113,14 @@
           "amount": 30,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "will"
+      ],
+      "conditionInflict": [
+        "charmed",
+        "dominated"
+      ]
     },
     {
       "school": "N",
@@ -4185,7 +4268,10 @@
           "amount": 120,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "fortitude"
+      ]
     },
     {
       "school": "D",
@@ -4197,10 +4283,10 @@
             "Location familiar to you (a place visited or seen before) or an obvious and unfamiliar location (behind a door, around a corner, and so on)"
           ]
         },
-        "An {@condition invisible} sensor is created within the spell's range. The sensor remains there for the duration, and it cannot be targeted or attacked.",
+        "An invisible sensor is created within the spell's range. The sensor remains there for the duration, and it cannot be targeted or attacked.",
         "Choose seeing or hearing when you cast the spell.",
         "You may use that sense through the sensor as if you were there. As an action, you may switch which sense you are using through the sensor.",
-        "A creature able to see {@condition invisible} things (from the {@spell see invisibility|sns} spell or truesight, for instance) sees a 4-inch diameter glowing, ethereal orb."
+        "A creature able to see invisible things (from the {@spell see invisibility|sns} spell or truesight, for instance) sees a 4-inch diameter glowing, ethereal orb."
       ],
       "name": "Clairvoyance",
       "time": [
@@ -4461,12 +4547,18 @@
           }
         ]
       },
+      "conditionInflict": [
+        "poisoned"
+      ],
       "range": {
         "type": "point",
         "distance": {
           "type": "self"
         }
-      }
+      },
+      "defence": [
+        "armour"
+      ]
     },
     {
       "school": "I",
@@ -4547,7 +4639,10 @@
         "distance": {
           "type": "self"
         }
-      }
+      },
+      "conditionInflict": [
+        "blinded"
+      ]
     },
     {
       "school": "E",
@@ -4647,7 +4742,14 @@
           "amount": 60,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "will"
+      ],
+      "conditionInflict": [
+        "prone",
+        "sluggish"
+      ]
     },
     {
       "meta": {
@@ -4929,7 +5031,10 @@
         "distance": {
           "type": "self"
         }
-      }
+      },
+      "defence": [
+        "fortitude"
+      ]
     },
     {
       "school": "E",
@@ -5040,7 +5145,14 @@
           "amount": 120,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "will"
+      ],
+      "conditionInflict": [
+        "confused",
+        "frightened"
+      ]
     },
     {
       "school": "C",
@@ -5503,7 +5615,9 @@
         "distance": {
           "type": "self"
         }
-      }
+      },
+      "conditionInflict": [
+      ]
     },
     {
       "school": "N",
@@ -5639,7 +5753,17 @@
         "distance": {
           "type": "touch"
         }
-      }
+      },
+      "defence": [
+        "armour"
+      ],
+      "conditionInflict": [
+        "disease",
+        "blinded",
+        "confused",
+        "debilitated",
+        "rattled"
+      ]
     },
     {
       "school": "V",
@@ -6018,7 +6142,13 @@
           "amount": 60,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "fortitude"
+      ],
+      "conditionInflict": [
+        "poisoned"
+      ]
     },
     {
       "school": "A",
@@ -6462,7 +6592,11 @@
         "distance": {
           "type": "self"
         }
-      }
+      },
+      "conditionInflict": [
+        "debilitated",
+        "prone"
+      ]
     },
     {
       "school": "V",
@@ -6614,14 +6748,7 @@
           ]
         },
         "Magical darkness heavily obscures darkvision and blocks nonmagical light in the area. The darkness spreads around corners. If any of the area overlaps with magical light created by a spell of 2nd-level or lower, the spell that created the light is dispelled.",
-        "When cast on an object that is in your possession or unattended, the darkness emanates from it and moves with it. Completely covering the object with something that is not transparent blocks the darkness.",
-        {
-          "type": "entries",
-          "name": "Rare",
-          "entries": [
-            "Cyneburg's Blinding Darkness. A creature that moves out of the darkness must make a save or be {@condition blinded|sns} for 1 minute, or until it passes a passive save."
-          ]
-        }
+        "When cast on an object that is in your possession or unattended, the darkness emanates from it and moves with it. Completely covering the object with something that is not transparent blocks the darkness."
       ],
       "name": "Darkness",
       "time": [
@@ -6678,7 +6805,9 @@
           "amount": 60,
           "type": "feet"
         }
-      }
+      },
+      "conditionInflict": [
+      ]
     },
     {
       "school": "T",
@@ -6930,7 +7059,10 @@
         "distance": {
           "type": "touch"
         }
-      }
+      },
+      "defence": [
+        "fortitude"
+      ]
     },
     {
       "school": "A",
@@ -7070,7 +7202,10 @@
           "amount": 120,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "reflex"
+      ]
     },
     {
       "school": "C",
@@ -7300,7 +7435,7 @@
             "Self"
           ]
         },
-        "On the round you cast it, and as an action on subsequent turns until the spell ends, you can attempt to sense the presence of poisons, poisonous creatures, and disease by making a Perception check. On a success you identify the type of each poison or disease within range. Typically noticing and identifying a poison or disease is a DC 10 check, but the DM may use {@dc 15} for uncommon afflictions, {@dc 20} for rare afflictions, or {@dc 25} for afflictions that are truly unique. On a failed check, this casting of the spell cannot sense that specific poison or disease.",
+        "On the round you cast it, and as an action on subsequent turns until the spell ends, you can attempt to sense the presence of poisons, poisonous creatures, and disease by making a {@skill Perception} check. On a success you identify the type of each poison or disease within range. Typically noticing and identifying a poison or disease is a DC 10 check, but the DM may use {@dc 15} for uncommon afflictions, {@dc 20} for rare afflictions, or {@dc 25} for afflictions that are truly unique. On a failed check, this casting of the spell cannot sense that specific poison or disease.",
         "The spell penetrates most barriers but is blocked by 3 feet of wood or dirt, 1 foot of stone, 1 inch of common metal, or a thin sheet of lead."
       ],
       "name": "Detect Poison and Disease",
@@ -7510,7 +7645,10 @@
           "amount": 30,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "will"
+      ]
     },
     {
       "school": "C",
@@ -7716,7 +7854,10 @@
           "amount": 60,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "reflex"
+      ]
     },
     {
       "school": "A",
@@ -7814,7 +7955,13 @@
         "distance": {
           "type": "self"
         }
-      }
+      },
+      "defence": [
+        "armour"
+      ],
+      "conditionInflict": [
+        "debilitated"
+      ]
     },
     {
       "school": "A",
@@ -8092,7 +8239,12 @@
           "amount": 30,
           "type": "feet"
         }
-      }
+      },
+      "conditionInflict": [
+        "blinded",
+        "deafened",
+        "debilitated"
+      ]
     },
     {
       "school": "E",
@@ -8189,7 +8341,14 @@
           "amount": 60,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "will"
+      ],
+      "conditionInflict": [
+        "charmed",
+        "dominated"
+      ]
     },
     {
       "school": "E",
@@ -8416,7 +8575,13 @@
           "amount": 30,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "will"
+      ],
+      "conditionInflict": [
+        "frightened"
+      ]
     },
     {
       "school": "I",
@@ -8511,7 +8676,14 @@
         "distance": {
           "type": "special"
         }
-      }
+      },
+      "defence": [
+        "will"
+      ],
+      "conditionInflict": [
+        "fatigue",
+        "strife"
+      ]
     },
     {
       "school": "A",
@@ -8681,20 +8853,16 @@
           "amount": 500,
           "type": "feet"
         }
-      }
+      },
+      "conditionInflict": [
+        "prone"
+      ]
     },
     {
       "school": "C",
       "entries": [
         "A black, nonreflective, incorporeal 10-foot cube appears in an unoccupied space that you can see. Its space can be in midair if you so desire. The area is a persistent zone that causes {@dice 2d10} psychic harm.",
-        "As a bonus action, you can move the cube up to 10 feet in any direction to a space you can see. The cube cannot be made to pass through other creatures in this way.",
-        {
-          "type": "entries",
-          "name": "Rare",
-          "entries": [
-            "Kreven's Stunning Eldritch Cube. A creature that takes 15 or more damage from this spell is {@condition debilitated|sns} until the end of its next turn."
-          ]
-        }
+        "As a bonus action, you can move the cube up to 10 feet in any direction to a space you can see. The cube cannot be made to pass through other creatures in this way."
       ],
       "name": "Eldritch Cube",
       "time": [
@@ -8750,7 +8918,9 @@
           "amount": 120,
           "type": "feet"
         }
-      }
+      },
+      "conditionInflict": [
+      ]
     },
     {
       "school": "T",
@@ -8988,7 +9158,10 @@
           "amount": 30,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "fortitude"
+      ]
     },
     {
       "school": "T",
@@ -9159,7 +9332,14 @@
           "amount": 120,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "fortitude"
+      ],
+      "conditionInflict": [
+        "debilitated",
+        "restrained"
+      ]
     },
     {
       "school": "E",
@@ -9179,21 +9359,21 @@
               "type": "item",
               "name": "Minor success",
               "entries": [
-                "Until the spell ends, the target has a -1 penalty to Perception checks made to perceive any creature other than you."
+                "Until the spell ends, the target has a -1 penalty to {@skill Perception} checks made to perceive any creature other than you."
               ]
             },
             {
               "type": "item",
               "name": "Standard success",
               "entries": [
-                "As minor success, but the target has disadvantage on those Perception checks instead of -1."
+                "As minor success, but the target has disadvantage on those {@skill Perception} checks instead of -1."
               ]
             },
             {
               "type": "item",
               "name": "Critical success",
               "entries": [
-                "As standard success, but the target automatically fails those Perception checks instead."
+                "As standard success, but the target automatically fails those {@skill Perception} checks instead."
               ]
             }
           ]
@@ -9245,7 +9425,12 @@
           "amount": 60,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "will"
+      ],
+      "conditionInflict": [
+      ]
     },
     {
       "school": "T",
@@ -9509,7 +9694,14 @@
         "distance": {
           "type": "self"
         }
-      }
+      },
+      "defence": [
+        "will"
+      ],
+      "conditionInflict": [
+        "frightened",
+        "unconscious"
+      ]
     },
     {
       "school": "T",
@@ -9605,14 +9797,7 @@
           ]
         },
         "Until the spell ends, outlined objects and creatures shed dim light in a 10-foot radius.",
-        "Any armour attack roll against an outlined object or creature has advantage. The outline also negates the benefits of invisibility on affected creatures and objects.",
-        {
-          "type": "entries",
-          "name": "Rare",
-          "entries": [
-            "Beshela's Rattling Faerie Fire. When an affected creature is damaged by a weapon armour attack it takes {@dice 1d4} additional psychic damage and is {@condition rattled|sns} until the end of its next turn."
-          ]
-        }
+        "Any armour attack roll against an outlined object or creature has advantage. The outline also negates the benefits of invisibility on affected creatures and objects."
       ],
       "name": "Faerie Fire",
       "time": [
@@ -9666,7 +9851,13 @@
           "amount": 60,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "reflex"
+      ],
+      "conditionInflict": [
+        "staggered"
+      ]
     },
     {
       "school": "C",
@@ -9679,8 +9870,8 @@
           ]
         },
         "You conjure a phantasmal watchdog. Until the spell ends, the hound remains in the area unless you spend an action to dismiss it or you move more than 100 feet away from it.",
-        "The hound is {@condition invisible} except to you and can't be harmed. When a Small or larger creature enters the area without speaking a password you specify when casting the spell, the hound starts barking loudly.",
-        "The hound sees {@condition invisible} creatures, can see into the Ethereal Plane, and is immune to illusions.",
+        "The hound is invisible except to you and can't be harmed. When a Small or larger creature enters the area without speaking a password you specify when casting the spell, the hound starts barking loudly.",
+        "The hound sees invisible creatures, can see into the Ethereal Plane, and is immune to illusions.",
         "At the start of each of your turns, the hound bites a hostile creature of your choice that is within the area, causing {@dice 2d8} piercing harm, treated as if caused by you.",
         {
           "type": "entries",
@@ -9820,7 +10011,10 @@
         "distance": {
           "type": "self"
         }
-      }
+      },
+      "conditionInflict": [
+        "frightened"
+      ]
     },
     {
       "school": "I",
@@ -9921,7 +10115,14 @@
         "distance": {
           "type": "self"
         }
-      }
+      },
+      "defence": [
+        "will"
+      ],
+      "conditionInflict": [
+        "debilitated",
+        "frightened"
+      ]
     },
     {
       "school": "T",
@@ -10096,7 +10297,10 @@
           "amount": 120,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "will"
+      ]
     },
     {
       "meta": {
@@ -10153,7 +10357,11 @@
           "amount": 30,
           "type": "feet"
         }
-      }
+      },
+      "conditionInflict": [
+        "blinded",
+        "deafened"
+      ]
     },
     {
       "school": "C",
@@ -10420,7 +10628,10 @@
           "amount": 60,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "fortitude"
+      ]
     },
     {
       "school": "V",
@@ -10499,7 +10710,10 @@
           "amount": 120,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "reflex"
+      ]
     },
     {
       "school": "V",
@@ -10575,7 +10789,10 @@
           "amount": 120,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "armour"
+      ]
     },
     {
       "school": "V",
@@ -10741,7 +10958,10 @@
           "amount": 120,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "reflex"
+      ]
     },
     {
       "school": "V",
@@ -10824,7 +11044,10 @@
         "distance": {
           "type": "self"
         }
-      }
+      },
+      "defence": [
+        "armour"
+      ]
     },
     {
       "school": "V",
@@ -10896,7 +11119,10 @@
           "amount": 60,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "reflex"
+      ]
     },
     {
       "school": "C",
@@ -11844,7 +12070,10 @@
           "amount": 120,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "fortitude"
+      ]
     },
     {
       "school": "T",
@@ -12107,7 +12336,13 @@
           "amount": 60,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "will"
+      ],
+      "conditionInflict": [
+        "charmed"
+      ]
     },
     {
       "meta": {
@@ -12646,7 +12881,13 @@
           "amount": 60,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "reflex"
+      ],
+      "conditionInflict": [
+        "prone"
+      ]
     },
     {
       "school": "I",
@@ -12658,7 +12899,7 @@
             "One creature"
           ]
         },
-        "The target is {@condition invisible}. Anything the target is carrying or wearing is also {@condition invisible} as long as it remains in the target's possession."
+        "The target is invisible. Anything the target is carrying or wearing is also invisible as long as it remains in the target's possession."
       ],
       "name": "Greater Invisibility",
       "time": [
@@ -12963,7 +13204,10 @@
           "amount": 120,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "armour"
+      ]
     },
     {
       "school": "V",
@@ -13046,7 +13290,10 @@
         "distance": {
           "type": "self"
         }
-      }
+      },
+      "conditionInflict": [
+        "sluggish"
+      ]
     },
     {
       "school": "V",
@@ -13179,7 +13426,10 @@
         "distance": {
           "type": "touch"
         }
-      }
+      },
+      "conditionInflict": [
+        "frightened"
+      ]
     },
     {
       "school": "I",
@@ -13333,7 +13583,10 @@
           "amount": 60,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "fortitude"
+      ]
     },
     {
       "school": "A",
@@ -13665,7 +13918,10 @@
         "distance": {
           "type": "self"
         }
-      }
+      },
+      "conditionInflict": [
+        "frightened"
+      ]
     },
     {
       "school": "T",
@@ -13986,7 +14242,15 @@
           "amount": 30,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "will"
+      ],
+      "conditionInflict": [
+        "dazed",
+        "debilitated",
+        "prone"
+      ]
     },
     {
       "school": "E",
@@ -14093,7 +14357,13 @@
           "amount": 60,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "will"
+      ],
+      "conditionInflict": [
+        "staggered"
+      ]
     },
     {
       "school": "E",
@@ -14212,7 +14482,13 @@
           "amount": 60,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "will"
+      ],
+      "conditionInflict": [
+        "staggered"
+      ]
     },
     {
       "school": "A",
@@ -14279,7 +14555,10 @@
         "distance": {
           "type": "self"
         }
-      }
+      },
+      "conditionInflict": [
+        "blinded"
+      ]
     },
     {
       "school": "I",
@@ -14380,7 +14659,16 @@
           "amount": 120,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "will"
+      ],
+      "conditionInflict": [
+        "charmed",
+        "dazed",
+        "debilitated",
+        "sluggish"
+      ]
     },
     {
       "school": "V",
@@ -14461,7 +14749,10 @@
           "amount": 300,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "reflex"
+      ]
     },
     {
       "meta": {
@@ -14736,7 +15027,14 @@
           "amount": 30,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "will"
+      ],
+      "conditionInflict": [
+        "restrained",
+        "sluggish"
+      ]
     },
     {
       "school": "C",
@@ -14911,15 +15209,7 @@
           ]
         },
         "A creature reduced to 0 hit points by an infernal weapon immediately dies in a gruesome fashion.",
-        "For example, a creature killed by an ice spear might freeze solid, then shatter into a thousand pieces. Each creature of your choice within 60 feet of the creature and who can see it when it dies must make a save. On a fail, a creature becomes {@condition frightened|sns} until the end of your next turn.",
-        {
-          "type": "entries",
-          "name": "Rare",
-          "entries": [
-            "Roav's Malevolent Infernal Weapon. The spell may take a third form.",
-            "Malevolent Maul: The weapon deals psychic damage. On a critical success, the target is {@condition confused|sns} until it passes a passive save."
-          ]
-        }
+        "For example, a creature killed by an ice spear might freeze solid, then shatter into a thousand pieces. Each creature of your choice within 60 feet of the creature and who can see it when it dies must make a save. On a fail, a creature becomes {@condition frightened|sns} until the end of your next turn."
       ],
       "name": "Infernal Weapon",
       "time": [
@@ -14967,7 +15257,14 @@
         "distance": {
           "type": "self"
         }
-      }
+      },
+      "defence": [
+        "armour"
+      ],
+      "conditionInflict": [
+        "frightened",
+        "slowed"
+      ]
     },
     {
       "school": "N",
@@ -15043,14 +15340,7 @@
             "20-foot radius sphere"
           ]
         },
-        "A roiling cloud of insects appears, biting and stinging any creatures it touches. The cloud lightly obscures its area, spreads around corners, and is considered difficult terrain. When the cloud appears and a creature is in it, when a creature enters the cloud for the first time on a turn, or when a creature ends its turn within the cloud it suffers {@dice 4d6} piercing harm.",
-        {
-          "type": "entries",
-          "name": "Rare",
-          "entries": [
-            "Roav's Infernal Insect Plague. The spell summons hellish insects from the depths of the realms infernal. When a creature takes damage from this spell it becomes {@condition frightened|sns} of the swarm until the spell ends, even after it leaves the cloud."
-          ]
-        }
+        "A roiling cloud of insects appears, biting and stinging any creatures it touches. The cloud lightly obscures its area, spreads around corners, and is considered difficult terrain. When the cloud appears and a creature is in it, when a creature enters the cloud for the first time on a turn, or when a creature ends its turn within the cloud it suffers {@dice 4d6} piercing harm."
       ],
       "name": "Insect Plague",
       "time": [
@@ -15123,7 +15413,9 @@
           "amount": 300,
           "type": "feet"
         }
-      }
+      },
+      "conditionInflict": [
+      ]
     },
     {
       "meta": {
@@ -15285,12 +15577,12 @@
             "One creature"
           ]
         },
-        "You wreathe a creature in an illusory veil, making it {@condition invisible}. Anything the target is carrying or wearing is also {@condition invisible} as long as it remains in the target's possession. The spell's effects end for a target that attacks or casts a spell.",
+        "You wreathe a creature in an illusory veil, making it invisible. Anything the target is carrying or wearing is also invisible as long as it remains in the target's possession. The spell's effects end for a target that attacks or casts a spell.",
         {
           "type": "entries",
           "name": "Rare",
           "entries": [
-            "Ravjahani's Imparted Invisibility. Until the spell ends, any object that the target picks up becomes {@condition invisible} even after it is dropped."
+            "Ravjahani's Imparted Invisibility. Until the spell ends, any object that the target picks up becomes invisible even after it is dropped."
           ]
         }
       ],
@@ -15459,7 +15751,14 @@
           "amount": 30,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "will"
+      ],
+      "conditionInflict": [
+        "sluggish",
+        "staggered"
+      ]
     },
     {
       "school": "T",
@@ -15731,7 +16030,10 @@
         "distance": {
           "type": "self"
         }
-      }
+      },
+      "conditionInflict": [
+        "frightened"
+      ]
     },
     {
       "school": "A",
@@ -15904,7 +16206,14 @@
           "amount": 60,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "fortitude"
+      ],
+      "conditionInflict": [
+        "restrained",
+        "sluggish"
+      ]
     },
     {
       "school": "V",
@@ -16007,7 +16316,10 @@
         "distance": {
           "type": "touch"
         }
-      }
+      },
+      "defence": [
+        "reflex"
+      ]
     },
     {
       "school": "V",
@@ -16087,7 +16399,10 @@
         "distance": {
           "type": "self"
         }
-      }
+      },
+      "defence": [
+        "reflex"
+      ]
     },
     {
       "meta": {
@@ -16568,7 +16883,7 @@
         },
         "Your body becomes catatonic as your soul enters the vessel used as a material component. While within this vessel, you're aware of your surroundings as if you physically occupied the same space.",
         "The only action you can take is to project your soul within range, whether to return to your living body (and end the spell) or to possess a humanoid.",
-        "You may not target creatures protected by {@spell protection from good and evil|sns} or {@spell magic circle|sns} spells. Make a will attack against a creature you try to possess with the following outcomes:",
+        "You may not target creatures protected by {@spell protection from evil and good|sns} or {@spell magic circle|sns} spells. Make a will attack against a creature you try to possess with the following outcomes:",
         {
           "type": "list",
           "items": [
@@ -16644,7 +16959,13 @@
           "amount": 120,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "will"
+      ],
+      "conditionInflict": [
+        "charmed"
+      ]
     },
     {
       "school": "V",
@@ -16656,14 +16977,7 @@
             "Up to three creatures"
           ]
         },
-        "A trio of glowing darts of magical force unerringly and simultaneously strike the targets, each causing {@dice 1d4+1} force harm.",
-        {
-          "type": "entries",
-          "name": "Rare",
-          "entries": [
-            "Kreven's Ruinous Magic Missile. Creatures harmed by this spell must make a save or become {@condition rattled|sns} until the end of your next turn."
-          ]
-        }
+        "A trio of glowing darts of magical force unerringly and simultaneously strike the targets, each causing {@dice 1d4+1} force harm."
       ],
       "name": "Magic Missile",
       "time": [
@@ -16719,7 +17033,9 @@
           "amount": 120,
           "type": "feet"
         }
-      }
+      },
+      "conditionInflict": [
+      ]
     },
     {
       "meta": {
@@ -16870,7 +17186,7 @@
     {
       "school": "C",
       "entries": [
-        "You conjure an extradimensional residence within range. It has one entrance that is in a place of your choosing, has a faint luster to it, and is 5 feet wide and 10 feet tall. You and any designated creature may enter your mansion while the portal is open. You may open and close the portal while you are within 30 feet of it. Once closed the entrance is {@condition invisible}. The entrance leads to an opulent entrance hall, with many doors and halls coming from it. The atmosphere is welcoming, warm, and comfortable, and the whole place is sparkling clean.",
+        "You conjure an extradimensional residence within range. It has one entrance that is in a place of your choosing, has a faint luster to it, and is 5 feet wide and 10 feet tall. You and any designated creature may enter your mansion while the portal is open. You may open and close the portal while you are within 30 feet of it. Once closed the entrance is invisible. The entrance leads to an opulent entrance hall, with many doors and halls coming from it. The atmosphere is welcoming, warm, and comfortable, and the whole place is sparkling clean.",
         "The floor plan of the residence is up to you, but it must be made up of fifty or fewer 10-foot cubes.",
         "The furniture and decor are chosen by you. The residence contains enough food to provide Supply for a number of people equal to 5 x your proficiency bonus. A staff of translucent, lustrous servants dwell within the residence. They may otherwise look how you wish. These servants obey your commands without question, and can perform the same nonhostile actions as a human servant—they might carry objects, prepare and serve food and drinks, clean, make simple repairs, and so on. Servants have access to the entire mansion but may not leave.",
         "All objects and furnishings belonging to the mansion evaporate into shimmering smoke when they leave it. Any creature within the mansion when the spell ends is expelled into an unoccupied space near the entrance."
@@ -17290,7 +17606,10 @@
           "amount": 60,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "will"
+      ]
     },
     {
       "school": "C",
@@ -17363,7 +17682,7 @@
           ]
         },
         "Until the spell ends, you meld yourself and your carried equipment into the target stone. Using your movement, you may enter the stone from any point you can touch. No trace of your presence is visible or detectable by nonmagical senses.",
-        "Within the stone, you can't see outside it and have disadvantage on Perception checks made to hear beyond it. You are aware of time passing, and may cast spells upon yourself. You may use your movement only to step out of the target where you entered it, ending the spell.",
+        "Within the stone, you can't see outside it and have disadvantage on {@skill Perception} checks made to hear beyond it. You are aware of time passing, and may cast spells upon yourself. You may use your movement only to step out of the target where you entered it, ending the spell.",
         "If the target is damaged such that its shape changes and you no longer fit within it, you are expelled and suffer {@dice 6d6} bludgeoning harm. Complete destruction of the target, or its transmutation into another substance, expels you and you suffer 50 bludgeoning harm. When expelled you fall {@condition prone|sns} into the closest unoccupied space near your entrance point.",
         {
           "type": "entries",
@@ -17424,7 +17743,10 @@
         "distance": {
           "type": "touch"
         }
-      }
+      },
+      "conditionInflict": [
+        "prone"
+      ]
     },
     {
       "school": "C",
@@ -17486,6 +17808,9 @@
           }
         ]
       },
+      "conditionInflict": [
+        "grappled"
+      ],
       "range": {
         "type": "point",
         "distance": {
@@ -17556,7 +17881,10 @@
           "amount": 1,
           "type": "miles"
         }
-      }
+      },
+      "defence": [
+        "reflex"
+      ]
     },
     {
       "school": "A",
@@ -17763,14 +18091,7 @@
         "A copy's armour is 0, and when it is hit by an attack a copy is destroyed.",
         "It may be destroyed only by an armour attack that hits it.",
         "All other damage and effects have no impact.",
-        "Attacking creatures that have truesight, cannot see, have blindsight, or rely on other nonvisual senses are unaffected by this spell.",
-        {
-          "type": "entries",
-          "name": "Rare",
-          "entries": [
-            "Beshela's Blinding Mirror Image. When one of your illusory copies is destroyed, it explodes in a brilliant flash of light. A creature that destroys an illusory copy must succeed on a save or be {@condition blinded|sns} until the start of its next turn."
-          ]
-        }
+        "Attacking creatures that have truesight, cannot see, have blindsight, or rely on other nonvisual senses are unaffected by this spell."
       ],
       "name": "Mirror Image",
       "time": [
@@ -17826,12 +18147,14 @@
         "distance": {
           "type": "self"
         }
-      }
+      },
+      "conditionInflict": [
+      ]
     },
     {
       "school": "I",
       "entries": [
-        "You become {@condition invisible}. At the same time, an illusory copy of you appears where you're standing.",
+        "You become invisible. At the same time, an illusory copy of you appears where you're standing.",
         "This invisibility ends when you cast a spell but the copy lasts until the spell ends.",
         "You can use an action to move your copy up to twice your Speed, have it speak, make gestures, or behave however you'd like.",
         "You may see and hear through your copy. Until the spell ends, you can use a bonus action to switch between your copy's senses and your own, or back again. While using your copy's senses you are blind and deaf to your body's surroundings.",
@@ -18056,7 +18379,14 @@
           "amount": 30,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "will"
+      ],
+      "conditionInflict": [
+        "charmed",
+        "dazed"
+      ]
     },
     {
       "school": "V",
@@ -18305,40 +18635,7 @@
         },
         "Until the spell ends, you create a passage extending into the target surface. When creating the passage you define its dimensions, as long as they do not exceed 5 feet in width, 8 feet in height, or 20 feet in depth.",
         "The appearance of the passage has no effect on the stability of the surrounding environment.",
-        "Any creatures or objects within the passage when the spell ends are expelled without harm into unoccupied spaces near where the spell was cast.",
-        {
-          "type": "entries",
-          "name": "Rare",
-          "entries": [
-            "Ravjahani's Trapped Passwall. Within a number of rounds equal to your proficiency bonus, the passage left by this spell (which can be as minimal as an inch depression) becomes trapped. Choose one of the following.",
-            {
-              "type": "list",
-              "items": [
-                {
-                  "type": "item",
-                  "name": "Slippy",
-                  "entries": [
-                    "One side of the passage is covered in slippery soap. When a creature enters the passage's area or first moves through the area on a turn it must make a save or fall {@condition prone|sns}."
-                  ]
-                },
-                {
-                  "type": "item",
-                  "name": "Sticky",
-                  "entries": [
-                    "Goo covers one side of the passage, making it difficult terrain."
-                  ]
-                },
-                {
-                  "type": "item",
-                  "name": "Subtle",
-                  "entries": [
-                    "An illusion covers the passage making it appear as if nothing has happened to the target surface. The illusion does not hold up to physical inspection. A creature that tries to push against the illusion, for example, instead passes straight through the figment. To see through your illusion without such an inspection, a creature must use its action to make an Investigation check against your standard DC."
-                  ]
-                }
-              ]
-            }
-          ]
-        }
+        "Any creatures or objects within the passage when the spell ends are expelled without harm into unoccupied spaces near where the spell was cast."
       ],
       "name": "Passwall",
       "time": [
@@ -18385,7 +18682,9 @@
           "amount": 30,
           "type": "feet"
         }
-      }
+      },
+      "conditionInflict": [
+      ]
     },
     {
       "school": "A",
@@ -18612,7 +18911,13 @@
           "amount": 120,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "will"
+      ],
+      "conditionInflict": [
+        "frightened"
+      ]
     },
     {
       "school": "E",
@@ -18912,7 +19217,10 @@
           "amount": 60,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "will"
+      ]
     },
     {
       "school": "C",
@@ -19028,7 +19336,14 @@
         "distance": {
           "type": "touch"
         }
-      }
+      },
+      "defence": [
+        "armour"
+      ],
+      "conditionInflict": [
+        "debilitated",
+        "unconscious"
+      ]
     },
     {
       "school": "T",
@@ -19190,7 +19505,10 @@
         "distance": {
           "type": "touch"
         }
-      }
+      },
+      "conditionInflict": [
+        "poisoned"
+      ]
     },
     {
       "school": "E",
@@ -19271,14 +19589,7 @@
             "One creature"
           ]
         },
-        "You utter a powerful word that {@condition debilitated|sns|debilitates} a target with 168 hit points or less until they pass a passive save. If the target has more than 168 hit points, it is instead {@condition rattled|sns} until the end of its next turn.",
-        {
-          "type": "entries",
-          "name": "Rare",
-          "entries": [
-            "Kreven's Maiming Power Word Debilitate. When a target succeeds on its passive save, its movement is halved and it is either {@condition blinded|sns} or {@condition deafened|sns} (your choice) until the end of its next turn."
-          ]
-        }
+        "You utter a powerful word that {@condition debilitated|sns|debilitates} a target with 168 hit points or less until they pass a passive save. If the target has more than 168 hit points, it is instead {@condition rattled|sns} until the end of its next turn."
       ],
       "name": "Power Word Debilitate",
       "time": [
@@ -19327,7 +19638,11 @@
           "amount": 60,
           "type": "feet"
         }
-      }
+      },
+      "conditionInflict": [
+        "debilitated",
+        "rattled"
+      ]
     },
     {
       "school": "V",
@@ -19525,7 +19840,11 @@
         "distance": {
           "type": "self"
         }
-      }
+      },
+      "conditionInflict": [
+        "blinded",
+        "restrained"
+      ]
     },
     {
       "school": "A",
@@ -19660,7 +19979,11 @@
           "amount": 60,
           "type": "feet"
         }
-      }
+      },
+      "conditionInflict": [
+        "blinded",
+        "restrained"
+      ]
     },
     {
       "school": "A",
@@ -20027,7 +20350,9 @@
         "distance": {
           "type": "touch"
         }
-      }
+      },
+      "conditionInflict": [
+      ]
     },
     {
       "school": "A",
@@ -20236,7 +20561,10 @@
         "distance": {
           "type": "self"
         }
-      }
+      },
+      "defence": [
+        "armour"
+      ]
     },
     {
       "school": "T",
@@ -20342,7 +20670,10 @@
         "distance": {
           "type": "self"
         }
-      }
+      },
+      "conditionInflict": [
+        "frightened"
+      ]
     },
     {
       "school": "N",
@@ -20429,7 +20760,10 @@
           "amount": 60,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "armour"
+      ]
     },
     {
       "school": "V",
@@ -20489,13 +20823,19 @@
           }
         ]
       },
+      "conditionInflict": [
+        "sluggish"
+      ],
       "range": {
         "type": "point",
         "distance": {
           "amount": 60,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "armour"
+      ]
     },
     {
       "school": "T",
@@ -20720,7 +21060,10 @@
           "amount": 30,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "reflex"
+      ]
     },
     {
       "school": "A",
@@ -20867,7 +21210,7 @@
           ]
         },
         "One end of the target rope rises into the air until it hangs perpendicular to the ground. At the upper end, a nearly imperceptible entrance opens to an extradimensional space that can fit up to 8 Medium or smaller creatures. The entrance can be reached by climbing the rope. Once inside, the rope can be pulled into the extradimensional space.",
-        "No effects can cross into or out of the extradimensional space. Creatures inside the extradimensional space can see out of a 3-foot-by5-foot window centered on its entrance. Creatures outside the space can spot the entrance with a Perception check against your standard DC. If they can reach it, creatures can pass in and out of the space.",
+        "No effects can cross into or out of the extradimensional space. Creatures inside the extradimensional space can see out of a 3-foot-by5-foot window centered on its entrance. Creatures outside the space can spot the entrance with a {@skill Perception} check against your standard DC. If they can reach it, creatures can pass in and out of the space.",
         "When the spell ends, anything inside the extradimensional space falls to the ground."
       ],
       "name": "Rope Trick",
@@ -20975,7 +21318,10 @@
           "amount": 60,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "reflex"
+      ]
     },
     {
       "school": "A",
@@ -21108,7 +21454,10 @@
           "amount": 120,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "armour"
+      ]
     },
     {
       "school": "D",
@@ -21175,7 +21524,7 @@
               "type": "item",
               "name": "Standard success",
               "entries": [
-                "You can see and hear the target through an {@condition invisible} sensor that appears within 10 feet of it and moves with the target. Any creature who can see invisibility perceives the sensor as a fist-sized glowing orb hovering in the air. Creatures cannot see or hear you through the sensor.",
+                "You can see and hear the target through an invisible sensor that appears within 10 feet of it and moves with the target. Any creature who can see invisibility perceives the sensor as a fist-sized glowing orb hovering in the air. Creatures cannot see or hear you through the sensor.",
                 "If you choose to target a location, the sensor appears at that location and is immobile."
               ]
             },
@@ -21252,7 +21601,10 @@
         "distance": {
           "type": "self"
         }
-      }
+      },
+      "defence": [
+        "will"
+      ]
     },
     {
       "school": "E",
@@ -21327,7 +21679,13 @@
         "distance": {
           "type": "self"
         }
-      }
+      },
+      "defence": [
+        "will"
+      ],
+      "conditionInflict": [
+        "deafened"
+      ]
     },
     {
       "school": "C",
@@ -21455,12 +21813,16 @@
           "amount": 60,
           "type": "feet"
         }
-      }
+      },
+      "conditionInflict": [
+        "blinded",
+        "grappled"
+      ]
     },
     {
       "school": "D",
       "entries": [
-        "You can see {@condition invisible} creatures and objects, and you can see into the Ethereal Plane. Ethereal creatures and objects appear translucent."
+        "You can see invisible creatures and objects, and you can see into the Ethereal Plane. Ethereal creatures and objects appear translucent."
       ],
       "name": "See Invisibility",
       "time": [
@@ -21612,7 +21974,10 @@
           "amount": 30,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "will"
+      ]
     },
     {
       "school": "V",
@@ -21690,7 +22055,7 @@
             "One willing creature or object"
           ]
         },
-        "You magically hide away a willing creature or object. The target becomes {@condition invisible}, and it cannot be traced or detected by divination or scrying sensors. If the target is a living creature, it falls into a state of suspended animation and stops aging.",
+        "You magically hide away a willing creature or object. The target becomes invisible, and it cannot be traced or detected by divination or scrying sensors. If the target is a living creature, it falls into a state of suspended animation and stops aging.",
         "The spell ends when the target takes damage or a condition you set occurs. The condition can be anything you choose, like a set amount of time or a specific event, but it must occur within or be visible within 1 mile of the target."
       ],
       "name": "Sequester",
@@ -21823,7 +22188,10 @@
           "amount": 60,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "fortitude"
+      ]
     },
     {
       "school": "V",
@@ -21911,7 +22279,10 @@
           "amount": 120,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "armour"
+      ]
     },
     {
       "school": "A",
@@ -22171,7 +22542,10 @@
           "amount": 120,
           "type": "feet"
         }
-      }
+      },
+      "conditionInflict": [
+        "deafened"
+      ]
     },
     {
       "school": "I",
@@ -22383,7 +22757,10 @@
           "amount": 60,
           "type": "feet"
         }
-      }
+      },
+      "conditionInflict": [
+        "unconscious"
+      ]
     },
     {
       "school": "C",
@@ -22460,7 +22837,10 @@
           "amount": 120,
           "type": "feet"
         }
-      }
+      },
+      "conditionInflict": [
+        "prone"
+      ]
     },
     {
       "school": "T",
@@ -22555,7 +22935,16 @@
           "amount": 120,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "will"
+      ],
+      "conditionInflict": [
+        "debilitated",
+        "rattled",
+        "slowed",
+        "weakened"
+      ]
     },
     {
       "school": "T",
@@ -22654,7 +23043,10 @@
         "distance": {
           "type": "touch"
         }
-      }
+      },
+      "defence": [
+        "fortitude"
+      ]
     },
     {
       "school": "N",
@@ -22666,15 +23058,7 @@
             "One living creature with 0 hit points"
           ]
         },
-        "A jolt of healing energy flows through the target. Revive the target with 40% of its maximum hit points instead of 30%.",
-        {
-          "type": "entries",
-          "name": "Rare",
-          "entries": [
-            "Komanov's Costly Spare the Dying. For the next 3 rounds, at the start of its turn the target rolls {@dice 1d20}, regaining 1 hit point on a result of 20.",
-            "Whether or not it regains any hit points, for the next 24 hours the target is {@condition rattled|sns}."
-          ]
-        }
+        "A jolt of healing energy flows through the target. Revive the target with 40% of its maximum hit points instead of 30%."
       ],
       "name": "Spare the Dying",
       "time": [
@@ -22715,7 +23099,9 @@
         "distance": {
           "type": "touch"
         }
-      }
+      },
+      "conditionInflict": [
+      ]
     },
     {
       "meta": {
@@ -23010,12 +23396,12 @@
           ]
         },
         "You cause sharp spikes and thorns to sprout in the area, making it difficult terrain. When a creature enters or moves within the area, it suffers {@dice 2d4} piercing harm for every 5 feet it travels.",
-        "Your magic causes the ground to look natural. A creature that can't see the area when the spell is cast can spot the hazardous terrain just before entering it by making a Perception check against your standard DC.",
+        "Your magic causes the ground to look natural. A creature that can't see the area when the spell is cast can spot the hazardous terrain just before entering it by making a {@skill Perception} check against your standard DC.",
         {
           "type": "entries",
           "name": "Rare",
           "entries": [
-            "Sidoneth's Sneaky Spike Growth. The spikes and thorns created by this spell are {@condition invisible} and a creature cannot perceive them until it has been damaged by this spell."
+            "Sidoneth's Sneaky Spike Growth. The spikes and thorns created by this spell are invisible and a creature cannot perceive them until it has been damaged by this spell."
           ]
         }
       ],
@@ -23152,14 +23538,7 @@
       "school": "V",
       "entries": [
         "You create a floating, incandescent weapon with an appearance of your choosing and use it to attack your enemies. On the round you cast it, a creature of your choice adjacent to the weapon suffers force harm equal to your spellcasting ability modifier.",
-        "As a bonus action on subsequent turns until the spell ends, you can move the weapon up to 20 feet and deal the harm to a creature adjacent to it.",
-        {
-          "type": "entries",
-          "name": "Rare",
-          "entries": [
-            "Komanov's Fell Spiritual Weapon. The weapon deals necrotic damage instead of force damage, and when it rolls maximum damage its target is {@condition rattled|sns} until the end of your next turn."
-          ]
-        }
+        "As a bonus action on subsequent turns until the spell ends, you can move the weapon up to 20 feet and deal the harm to a creature adjacent to it."
       ],
       "name": "Spiritual Weapon",
       "time": [
@@ -23216,7 +23595,9 @@
           "amount": 60,
           "type": "feet"
         }
-      }
+      },
+      "conditionInflict": [
+      ]
     },
     {
       "school": "V",
@@ -23229,7 +23610,7 @@
           ]
         },
         "You throw a mushroom at a point within range and detonate it, creating a cloud of spores that fills the area. The cloud of spores travels around corners, and the area is considered lightly obscured for everyone except you. Creatures and objects within the area are covered in spores.",
-        "Until the spell ends, you know the exact location of all affected objects and creatures. Any armour attack roll you make against an affected creature or object has advantage, and the affected creatures and objects can't benefit from being {@condition invisible}.",
+        "Until the spell ends, you know the exact location of all affected objects and creatures. Any armour attack roll you make against an affected creature or object has advantage, and the affected creatures and objects can't benefit from being invisible.",
         {
           "type": "entries",
           "name": "Rare",
@@ -23389,7 +23770,10 @@
           "amount": 120,
           "type": "feet"
         }
-      }
+      },
+      "conditionInflict": [
+        "debilitated"
+      ]
     },
     {
       "school": "T",
@@ -23725,7 +24109,13 @@
         "distance": {
           "type": "sight"
         }
-      }
+      },
+      "defence": [
+        "fortitude"
+      ],
+      "conditionInflict": [
+        "deafened"
+      ]
     },
     {
       "school": "E",
@@ -23835,7 +24225,10 @@
           "amount": 30,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "will"
+      ]
     },
     {
       "school": "V",
@@ -23919,7 +24312,13 @@
         "distance": {
           "type": "self"
         }
-      }
+      },
+      "defence": [
+        "fortitude"
+      ],
+      "conditionInflict": [
+        "blinded"
+      ]
     },
     {
       "school": "V",
@@ -23996,7 +24395,13 @@
           "amount": 120,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "fortitude"
+      ],
+      "conditionInflict": [
+        "blinded"
+      ]
     },
     {
       "school": "A",
@@ -24131,7 +24536,17 @@
         "distance": {
           "type": "touch"
         }
-      }
+      },
+      "defence": [
+        "fortitude"
+      ],
+      "conditionInflict": [
+        "confused",
+        "dazed",
+        "debilitated",
+        "frightened",
+        "unconscious"
+      ]
     },
     {
       "school": "E",
@@ -24145,14 +24560,7 @@
         },
         "You quietly play a tragedy, a song that fills those around you with magical sorrow. Each creature in the area makes a save at the start of its turn. On a fail, a creature suffers {@dice 2d4} psychic harm, it is {@condition debilitated|sns} for that turn due to its crying, and it can't take reactions until the start of its next turn. Creatures that are immune to the {@condition charmed|sns} condition automatically succeed on this save.",
         "If a creature other than you hears the entire song (remaining within the spell's area from the casting through the duration) it is so wracked with sadness that it is {@condition debilitated|sns} for {@dice 1d4} rounds.",
-        "You cannot cast another spell with material components while concentrating on this spell.",
-        {
-          "type": "entries",
-          "name": "Rare",
-          "entries": [
-            "Koren's Pervading Tearful Sonnet. This spell deals double the normal damage against {@condition frightened|sns} creatures."
-          ]
-        }
+        "You cannot cast another spell with material components while concentrating on this spell."
       ],
       "name": "Tearful Sonnet",
       "time": [
@@ -24213,7 +24621,10 @@
         "distance": {
           "type": "self"
         }
-      }
+      },
+      "conditionInflict": [
+        "debilitated"
+      ]
     },
     {
       "school": "T",
@@ -24303,7 +24714,10 @@
           "amount": 60,
           "type": "feet"
         }
-      }
+      },
+      "conditionInflict": [
+        "restrained"
+      ]
     },
     {
       "meta": {
@@ -24763,7 +25177,10 @@
         "distance": {
           "type": "self"
         }
-      }
+      },
+      "defence": [
+        "fortitude"
+      ]
     },
     {
       "school": "T",
@@ -25342,13 +25759,19 @@
           }
         ]
       },
+      "conditionInflict": [
+        "blinded"
+      ],
       "range": {
         "type": "point",
         "distance": {
           "amount": 120,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "reflex"
+      ]
     },
     {
       "meta": {
@@ -25356,7 +25779,7 @@
       },
       "school": "C",
       "entries": [
-        "You create an {@condition invisible}, mindless, shapeless force to perform simple tasks. The servant appears in an unoccupied space on the ground that you can see and endures until it takes damage, moves more than 60 feet away from you, or the spell ends. It has 0 in all defences, a Strength of 2, and it can't attack.",
+        "You create an invisible, mindless, shapeless force to perform simple tasks. The servant appears in an unoccupied space on the ground that you can see and endures until it takes damage, moves more than 60 feet away from you, or the spell ends. It has 0 in all defences, a Strength of 2, and it can't attack.",
         "You can use a bonus action to mentally command it to move up to 15 feet and interact with an object.",
         "The servant can do anything a humanoid servant can do — fetching things, cleaning, mending, folding clothes, lighting fires, serving food, pouring wine, and so on. Once given a command the servant performs the task to the best of its ability until the task is completed, then waits for its next command.",
         {
@@ -25503,7 +25926,10 @@
         "distance": {
           "type": "self"
         }
-      }
+      },
+      "defence": [
+        "armour"
+      ]
     },
     {
       "school": "V",
@@ -25637,7 +26063,10 @@
           "amount": 60,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "will"
+      ]
     },
     {
       "school": "V",
@@ -25728,7 +26157,10 @@
           "amount": 120,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "reflex"
+      ]
     },
     {
       "school": "V",
@@ -25818,7 +26250,13 @@
           "amount": 120,
           "type": "feet"
         }
-      }
+      },
+      "conditionInflict": [
+        "blinded",
+        "deafened",
+        "grappled",
+        "restrained"
+      ]
     },
     {
       "school": "V",
@@ -25830,17 +26268,10 @@
             "Special"
           ]
         },
-        "You create an {@condition invisible} wall of force at a point you choose. The wall is a horizontal or vertical barrier, or at an angle, centred on a space within your line of sight. It can be free floating or resting on a solid surface. You can form it into a hemispherical dome or a sphere, either with a radius of up to 10 feet. You may also choose to create a flat surface made up of a contiguous group of ten 10-foot square sections. The wall is 1/4 inch thick.",
+        "You create an invisible wall of force at a point you choose. The wall is a horizontal or vertical barrier, or at an angle, centred on a space within your line of sight. It can be free floating or resting on a solid surface. You can form it into a hemispherical dome or a sphere, either with a radius of up to 10 feet. You may also choose to create a flat surface made up of a contiguous group of ten 10-foot square sections. The wall is 1/4 inch thick.",
         "If the wall enters a creature's space when it appears, the creature is pushed to one side of the wall (your choice), but when a creature would be surrounded on all sides by the wall (or the wall and another solid surface), it can use its reaction to make a save. On a success, it can move up to its Speed to escape. Any creature without a special sense like blindsight has disadvantage on this save.",
         "Nothing can physically pass through the wall.",
-        "It can be destroyed with {@spell dispel magic|sns} cast using a spell slot of at least 5th-level or by being dealt at least 28 force damage at once. It is otherwise immune to damage. The wall also extends into the Ethereal Plane, blocking ethereal travel through it.",
-        {
-          "type": "entries",
-          "name": "Rare",
-          "entries": [
-            "Aurana's Superior Forcewall. Creatures pushed to one side of the wall are knocked {@condition prone|sns}. The wall can be destroyed with a {@spell dispel magic|sns} cast using a spell slot of at least 6th-level or by being dealt at least 56 force damage at once. It is otherwise immune to damage."
-          ]
-        }
+        "It can be destroyed with {@spell dispel magic|sns} cast using a spell slot of at least 5th-level or by being dealt at least 28 force damage at once. It is otherwise immune to damage. The wall also extends into the Ethereal Plane, blocking ethereal travel through it."
       ],
       "name": "Wall of Force",
       "time": [
@@ -25895,7 +26326,9 @@
           "amount": 120,
           "type": "feet"
         }
-      }
+      },
+      "conditionInflict": [
+      ]
     },
     {
       "school": "V",
@@ -25975,7 +26408,10 @@
           "amount": 120,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "reflex"
+      ]
     },
     {
       "school": "V",
@@ -26148,7 +26584,10 @@
           "amount": 120,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "reflex"
+      ]
     },
     {
       "school": "A",
@@ -26545,7 +26984,10 @@
           "amount": 60,
           "type": "feet"
         }
-      }
+      },
+      "conditionInflict": [
+        "restrained"
+      ]
     },
     {
       "school": "I",
@@ -26637,7 +27079,14 @@
           "amount": 120,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "will"
+      ],
+      "conditionInflict": [
+        "frightened",
+        "sluggish"
+      ]
     },
     {
       "school": "T",
@@ -26713,7 +27162,9 @@
         "distance": {
           "type": "self"
         }
-      }
+      },
+      "conditionInflict": [
+      ]
     },
     {
       "school": "V",
@@ -26836,7 +27287,9 @@
           "amount": 30,
           "type": "feet"
         }
-      }
+      },
+      "conditionInflict": [
+      ]
     },
     {
       "school": "V",
@@ -26915,7 +27368,10 @@
           "amount": 120,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "fortitude"
+      ]
     },
     {
       "school": "C",
@@ -27118,7 +27574,11 @@
           "amount": 150,
           "type": "miles"
         }
-      }
+      },
+      "conditionInflict": [
+        "charmed",
+        "prone"
+      ]
     },
     {
       "meta": {
@@ -27186,7 +27646,9 @@
         "distance": {
           "type": "self"
         }
-      }
+      },
+      "conditionInflict": [
+      ]
     },
     {
       "school": "E",
@@ -27259,7 +27721,9 @@
           "amount": 60,
           "type": "feet"
         }
-      }
+      },
+      "conditionInflict": [
+      ]
     },
     {
       "school": "A",
@@ -27511,7 +27975,10 @@
         "distance": {
           "type": "self"
         }
-      }
+      },
+      "defence": [
+        "fortitude"
+      ]
     },
     {
       "school": "V",
@@ -27592,7 +28059,10 @@
           "amount": 90,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "armour"
+      ]
     },
     {
       "school": "E",
@@ -27674,7 +28144,10 @@
           "amount": 30,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "will"
+      ]
     },
     {
       "school": "E",
@@ -27728,7 +28201,10 @@
           "amount": 60,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "will"
+      ]
     },
     {
       "school": "V",
@@ -27785,7 +28261,10 @@
           "type": "feet",
           "amount": 60
         }
-      }
+      },
+      "defence": [
+        "reflex"
+      ]
     },
     {
       "school": "E",
@@ -27924,7 +28403,13 @@
           "type": "feet",
           "amount": 60
         }
-      }
+      },
+      "defence": [
+        "armour"
+      ],
+      "conditionInflict": [
+        "poisoned"
+      ]
     },
     {
       "school": "V",
@@ -28028,6 +28513,9 @@
           }
         ]
       },
+      "conditionInflict": [
+        "prone"
+      ],
       "range": {
         "type": "point",
         "distance": {
@@ -28114,57 +28602,10 @@
           "type": "feet",
           "amount": 30
         }
-      }
-    },
-    {
-      "school": "V",
-      "entries": [
-        "The next time you hit with a melee weapon attack during this spell's duration, your attack deals an extra {@dice 1d6} psychic damage. Additionally, if the target is a creature and the attack scored a major success, the target is {@condition frightened|sns} until the spell ends. As an action, the creature can make a Wisdom check against your standard DC to steel its resolve and end this spell."
-      ],
-      "name": "Thunderous Smite",
-      "time": [
-        {
-          "number": 1,
-          "unit": "bonus"
-        }
-      ],
-      "duration": [
-        {
-          "type": "timed",
-          "duration": {
-            "type": "minute",
-            "amount": 1,
-            "upTo": true
-          },
-          "concentration": true
-        }
-      ],
-      "source": "sns",
-      "damageInflict": [
-        "psychic"
-      ],
-      "subschools": [
-        "psychic"
-      ],
-      "level": 1,
-      "components": {
-        "v": true,
-        "s": false
       },
-      "classes": {
-        "fromClassList": [
-          {
-            "name": "Herald",
-            "source": "sns"
-          }
-        ]
-      },
-      "range": {
-        "type": "point",
-        "distance": {
-          "type": "self"
-        }
-      }
+      "defence": [
+        "armour"
+      ]
     },
     {
       "meta": {
@@ -28219,12 +28660,14 @@
         "distance": {
           "type": "touch"
         }
-      }
+      },
+      "conditionInflict": [
+      ]
     },
     {
       "school": "V",
       "entries": [
-        "The next time you hit a creature with a melee weapon attack before this spell ends, the weapon gleams with astral radiance and the attack deals an extra {@dice 2d6} radiant damage to the target. On a hit, the target becomes visible if it's {@condition invisible}, and the target sheds dim light in a 5-foot radius and can't become {@condition invisible} until the spell ends."
+        "The next time you hit a creature with a melee weapon attack before this spell ends, the weapon gleams with astral radiance and the attack deals an extra {@dice 2d6} radiant damage to the target. On a hit, the target becomes visible if it's invisible, and the target sheds dim light in a 5-foot radius and can't become invisible until the spell ends."
       ],
       "name": "Branding Smite",
       "time": [
@@ -28449,7 +28892,14 @@
           "amount": 120,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "will"
+      ],
+      "conditionInflict": [
+        "charmed",
+        "dominated"
+      ]
     },
     {
       "school": "I",
@@ -28550,7 +29000,10 @@
           "amount": 60,
           "type": "feet"
         }
-      }
+      },
+      "defence": [
+        "will"
+      ]
     },
     {
       "school": "V",
@@ -28654,7 +29107,10 @@
         "distance": {
           "type": "self"
         }
-      }
+      },
+      "conditionInflict": [
+        "blinded"
+      ]
     },
     {
       "school": "V",
@@ -28851,7 +29307,11 @@
         "distance": {
           "type": "touch"
         }
-      }
+      },
+      "conditionInflict": [
+        "blinded",
+        "incapacitated"
+      ]
     },
     {
       "school": "C",
@@ -28915,7 +29375,10 @@
           "type": "feet",
           "amount": 150
         }
-      }
+      },
+      "conditionInflict": [
+        "blinded"
+      ]
     },
     {
       "school": "A",
@@ -29102,7 +29565,13 @@
           "type": "feet",
           "amount": 30
         }
-      }
+      },
+      "defence": [
+        "will"
+      ],
+      "conditionInflict": [
+        "dominated"
+      ]
     },
     {
       "school": "C",
@@ -29294,7 +29763,10 @@
         "distance": {
           "type": "self"
         }
-      }
+      },
+      "conditionInflict": [
+        "dazed"
+      ]
     },
     {
       "school": "A",
@@ -29398,7 +29870,13 @@
         "distance": {
           "type": "self"
         }
-      }
+      },
+      "defence": [
+        "fortitude"
+      ],
+      "conditionInflict": [
+        "prone"
+      ]
     },
     {
       "school": "C",
@@ -29560,7 +30038,10 @@
         "distance": {
           "type": "sight"
         }
-      }
+      },
+      "defence": [
+        "fortitude"
+      ]
     },
     {
       "school": "V",
@@ -29901,7 +30382,10 @@
           "type": "feet",
           "amount": 30
         }
-      }
+      },
+      "defence": [
+        "fortitude"
+      ]
     },
     {
       "school": "C",
@@ -29969,7 +30453,10 @@
           "type": "feet",
           "amount": 30
         }
-      }
+      },
+      "defence": [
+        "fortitude"
+      ]
     },
     {
       "school": "V",
@@ -30036,7 +30523,10 @@
         "distance": {
           "type": "self"
         }
-      }
+      },
+      "defence": [
+        "fortitude"
+      ]
     },
     {
       "school": "V",
@@ -30101,7 +30591,10 @@
           "type": "feet",
           "amount": 5
         }
-      }
+      },
+      "defence": [
+        "fortitude"
+      ]
     },
     {
       "school": "T",
@@ -30382,7 +30875,9 @@
         "distance": {
           "type": "touch"
         }
-      }
+      },
+      "conditionInflict": [
+      ]
     },
     {
       "school": "T",
@@ -30450,7 +30945,10 @@
           "type": "feet",
           "amount": 60
         }
-      }
+      },
+      "defence": [
+        "reflex"
+      ]
     },
     {
       "school": "N",
@@ -30544,7 +31042,15 @@
           "type": "feet",
           "amount": 60
         }
-      }
+      },
+      "defence": [
+        "will"
+      ],
+      "conditionInflict": [
+        "debilitated",
+        "frightened",
+        "rattled"
+      ]
     },
     {
       "school": "V",
@@ -30659,7 +31165,10 @@
           "type": "feet",
           "amount": 120
         }
-      }
+      },
+      "defence": [
+        "armour"
+      ]
     },
     {
       "school": "V",
@@ -30724,7 +31233,13 @@
           "type": "feet",
           "amount": 10
         }
-      }
+      },
+      "defence": [
+        "reflex"
+      ],
+      "conditionInflict": [
+        "prone"
+      ]
     },
     {
       "school": "V",
@@ -30784,7 +31299,10 @@
         "distance": {
           "type": "self"
         }
-      }
+      },
+      "defence": [
+        "fortitude"
+      ]
     },
     {
       "school": "C",
@@ -30857,7 +31375,10 @@
           "type": "feet",
           "amount": 60
         }
-      }
+      },
+      "defence": [
+        "armour"
+      ]
     },
     {
       "school": "E",
@@ -30915,7 +31436,7 @@
       "school": "A",
       "entries": [
         "As you cast this spell, you use the rope to create a circle with a 5-foot radius on the ground or the floor. When you finish casting, the rope disappears and the circle becomes a magic trap.",
-        "This trap is nearly {@condition invisible}, requiring a successful Investigation check against your standard DC to be discerned.",
+        "This trap is nearly invisible, requiring a successful Investigation check against your standard DC to be discerned.",
         "The trap triggers when a Small, Medium, or Large creature moves onto the ground or the floor in the spell's radius. That creature must make a save, being magically hoisted in the air on a fail, leaving it hanging upside down 3 feet above the ground or the floor. The creature is {@condition restrained|sns} there until either the spell ends or it passes a passive save. Alternatively, the creature or someone else who can reach it can use an action make an Arcana check against your standard DC. On a success, the {@condition restrained|sns} effect ends.",
         "After the trap is triggered, the spell ends when no creature is {@condition restrained|sns} by it."
       ],
@@ -30967,7 +31488,10 @@
         "distance": {
           "type": "touch"
         }
-      }
+      },
+      "conditionInflict": [
+        "restrained"
+      ]
     },
     {
       "school": "V",
@@ -31061,7 +31585,10 @@
         "distance": {
           "type": "self"
         }
-      }
+      },
+      "defence": [
+        "reflex"
+      ]
     },
     {
       "school": "V",
@@ -31127,7 +31654,10 @@
         "distance": {
           "type": "self"
         }
-      }
+      },
+      "defence": [
+        "reflex"
+      ]
     },
     {
       "school": "C",
@@ -31339,7 +31869,10 @@
         "distance": {
           "type": "touch"
         }
-      }
+      },
+      "defence": [
+        "reflex"
+      ]
     },
     {
       "school": "C",
@@ -31510,7 +32043,10 @@
           "type": "feet",
           "amount": 300
         }
-      }
+      },
+      "defence": [
+        "fortitude"
+      ]
     },
     {
       "school": "C",
@@ -31703,7 +32239,13 @@
           "type": "feet",
           "amount": 30
         }
-      }
+      },
+      "defence": [
+        "fortitude"
+      ],
+      "conditionInflict": [
+        "restrained"
+      ]
     },
     {
       "school": "D",
@@ -31715,7 +32257,7 @@
             "One creature"
           ]
         },
-        "You reach into the target's mind. Make a ranged will attack against the target that deals {@dice 4d6} psychic damage. On a hit, you always know the target's location until the spell ends, but only while the two of you are on the same plane of existence. While you have this knowledge, the target can't become hidden from you, and if it's {@condition invisible|sns}, it gains no benefit from that condition against you."
+        "You reach into the target's mind. Make a ranged will attack against the target that deals {@dice 4d6} psychic damage. On a hit, you always know the target's location until the spell ends, but only while the two of you are on the same plane of existence. While you have this knowledge, the target can't become hidden from you, and if it's invisible, it gains no benefit from that condition against you."
       ],
       "name": "Mind Spike",
       "time": [
@@ -31777,7 +32319,10 @@
           "type": "feet",
           "amount": 60
         }
-      }
+      },
+      "defence": [
+        "will"
+      ]
     },
     {
       "school": "I",
@@ -31867,6 +32412,11 @@
           }
         ]
       },
+      "conditionInflict": [
+        "charmed",
+        "blinded",
+        "dazed"
+      ],
       "range": {
         "type": "point",
         "distance": {
@@ -31980,7 +32530,14 @@
           "type": "feet",
           "amount": 60
         }
-      }
+      },
+      "defence": [
+        "fortitude"
+      ],
+      "conditionInflict": [
+        "blinded",
+        "debilitated"
+      ]
     },
     {
       "school": "V",
@@ -32046,7 +32603,10 @@
         "distance": {
           "type": "self"
         }
-      }
+      },
+      "defence": [
+        "fortitude"
+      ]
     },
     {
       "school": "I",
@@ -32242,7 +32802,10 @@
           "type": "feet",
           "amount": 90
         }
-      }
+      },
+      "defence": [
+        "reflex"
+      ]
     },
     {
       "school": "C",
@@ -32335,7 +32898,13 @@
           "type": "feet",
           "amount": 90
         }
-      }
+      },
+      "defence": [
+        "fortitude"
+      ],
+      "conditionInflict": [
+        "sluggish"
+      ]
     },
     {
       "school": "V",
@@ -32537,7 +33106,10 @@
           "type": "feet",
           "amount": 60
         }
-      }
+      },
+      "defence": [
+        "fortitude"
+      ]
     },
     {
       "school": "T",
@@ -32682,7 +33254,10 @@
           "type": "feet",
           "amount": 30
         }
-      }
+      },
+      "conditionInflict": [
+        "unconscious"
+      ]
     },
     {
       "school": "E",
@@ -32777,7 +33352,13 @@
           "type": "feet",
           "amount": 120
         }
-      }
+      },
+      "defence": [
+        "will"
+      ],
+      "conditionInflict": [
+        "dominated"
+      ]
     },
     {
       "school": "T",
@@ -32848,7 +33429,10 @@
           "type": "feet",
           "amount": 120
         }
-      }
+      },
+      "defence": [
+        "reflex"
+      ]
     },
     {
       "school": "T",
@@ -33177,7 +33761,10 @@
           "type": "feet",
           "amount": 90
         }
-      }
+      },
+      "defence": [
+        "fortitude"
+      ]
     },
     {
       "school": "C",
@@ -33240,7 +33827,13 @@
           "type": "feet",
           "amount": 120
         }
-      }
+      },
+      "defence": [
+        "reflex"
+      ],
+      "conditionInflict": [
+        "prone"
+      ]
     },
     {
       "school": "T",
@@ -33527,7 +34120,10 @@
           "type": "feet",
           "amount": 90
         }
-      }
+      },
+      "defence": [
+        "fortitude"
+      ]
     },
     {
       "school": "A",
@@ -33759,7 +34355,13 @@
           "type": "feet",
           "amount": 120
         }
-      }
+      },
+      "defence": [
+        "will"
+      ],
+      "conditionInflict": [
+        "dazed"
+      ]
     },
     {
       "school": "N",
@@ -33824,7 +34426,7 @@
           ]
         },
         "Dim, greenish light spreads within the area. The area spreads around corners, and it lasts until the spell ends.",
-        "The area is a persistent zone that forces creatures to make a save. On a fail, a creature suffers {@dice 4d10} radiant harm, gains one level of {@condition fatigue|sns}, and emits a dim, greenish light in a 5-foot radius. This light makes it impossible for the creature to benefit from being {@condition invisible}. The light and any levels of {@condition fatigue|sns} caused by this spell go away when the spell ends."
+        "The area is a persistent zone that forces creatures to make a save. On a fail, a creature suffers {@dice 4d10} radiant harm, gains one level of {@condition fatigue|sns}, and emits a dim, greenish light in a 5-foot radius. This light makes it impossible for the creature to benefit from being invisible. The light and any levels of {@condition fatigue|sns} caused by this spell go away when the spell ends."
       ],
       "name": "Sickening Radiance",
       "time": [
@@ -33877,7 +34479,10 @@
           "type": "feet",
           "amount": 120
         }
-      }
+      },
+      "conditionInflict": [
+        "fatigue"
+      ]
     },
     {
       "school": "V",
@@ -33891,7 +34496,7 @@
         },
         "An area of whirling air springs into existence. The area remains for the spell's duration. Each creature in the area when it appears or that ends its turn there suffers {@dice 1d8} bludgeoning harm. The area is difficult terrain.",
         "Until the spell ends, you can use a bonus action on each of your turns to cause a bolt of lightning to leap from the centre of the area towards one creature you choose within 60 feet of the centre. That creature must make a save, which has disadvantage if it is within the area. On a fail, the creature suffers {@dice 4d6} lightning harm.",
-        "Creatures within 30 feet of the area have disadvantage on Perception checks made to listen."
+        "Creatures within 30 feet of the area have disadvantage on {@skill Perception} checks made to listen."
       ],
       "name": "Storm Sphere",
       "time": [
@@ -34070,7 +34675,10 @@
           "type": "feet",
           "amount": 150
         }
-      }
+      },
+      "defence": [
+        "reflex"
+      ]
     },
     {
       "school": "C",
@@ -34133,7 +34741,11 @@
           "type": "feet",
           "amount": 90
         }
-      }
+      },
+      "conditionInflict": [
+        "prone",
+        "restrained"
+      ]
     },
     {
       "school": "T",
@@ -34217,7 +34829,10 @@
           "type": "feet",
           "amount": 300
         }
-      }
+      },
+      "conditionInflict": [
+        "prone"
+      ]
     },
     {
       "school": "V",
@@ -34358,7 +34973,10 @@
           "type": "feet",
           "amount": 60
         }
-      }
+      },
+      "defence": [
+        "reflex"
+      ]
     },
     {
       "school": "C",
@@ -34475,7 +35093,13 @@
         "distance": {
           "type": "touch"
         }
-      }
+      },
+      "defence": [
+        "fortitude"
+      ],
+      "conditionInflict": [
+        "blinded"
+      ]
     },
     {
       "school": "C",
@@ -34538,7 +35162,11 @@
           "type": "feet",
           "amount": 90
         }
-      }
+      },
+      "conditionInflict": [
+        "prone",
+        "restrained"
+      ]
     },
     {
       "school": "V",
@@ -34601,7 +35229,10 @@
           "type": "feet",
           "amount": 90
         }
-      }
+      },
+      "defence": [
+        "reflex"
+      ]
     },
     {
       "school": "V",
@@ -34721,7 +35352,10 @@
           "type": "feet",
           "amount": 60
         }
-      }
+      },
+      "defence": [
+        "fortitude"
+      ]
     },
     {
       "school": "T",
@@ -34976,7 +35610,10 @@
           "type": "feet",
           "amount": 120
         }
-      }
+      },
+      "defence": [
+        "will"
+      ]
     },
     {
       "school": "T",
@@ -35058,7 +35695,13 @@
           "type": "feet",
           "amount": 120
         }
-      }
+      },
+      "defence": [
+        "reflex"
+      ],
+      "conditionInflict": [
+        "restrained"
+      ]
     },
     {
       "school": "V",
@@ -35132,7 +35775,14 @@
           "type": "feet",
           "amount": 120
         }
-      }
+      },
+      "defence": [
+        "armour",
+        "fortitude"
+      ],
+      "conditionInflict": [
+        "blinded"
+      ]
     },
     {
       "school": "V",
@@ -35217,7 +35867,11 @@
           "type": "feet",
           "amount": 120
         }
-      }
+      },
+      "conditionInflict": [
+        "prone",
+        "restrained"
+      ]
     },
     {
       "school": "T",
@@ -35299,7 +35953,14 @@
           "type": "feet",
           "amount": 120
         }
-      }
+      },
+      "defence": [
+        "reflex"
+      ],
+      "conditionInflict": [
+        "prone",
+        "restrained"
+      ]
     },
     {
       "school": "T",
@@ -35441,7 +36102,10 @@
         "distance": {
           "type": "touch"
         }
-      }
+      },
+      "conditionInflict": [
+        "sluggish"
+      ]
     },
     {
       "school": "A",
@@ -35601,7 +36265,10 @@
         "distance": {
           "type": "self"
         }
-      }
+      },
+      "defence": [
+        "reflex"
+      ]
     },
     {
       "school": "T",
@@ -35671,7 +36338,10 @@
         "distance": {
           "type": "self"
         }
-      }
+      },
+      "defence": [
+        "fortitude"
+      ]
     },
     {
       "school": "T",
@@ -35764,7 +36434,15 @@
         "distance": {
           "type": "self"
         }
-      }
+      },
+      "defence": [
+        "reflex"
+      ],
+      "conditionInflict": [
+        "debilitated",
+        "prone",
+        "sluggish"
+      ]
     },
     {
       "school": "T",
@@ -35834,7 +36512,10 @@
         "distance": {
           "type": "self"
         }
-      }
+      },
+      "defence": [
+        "fortitude"
+      ]
     },
     {
       "school": "I",
@@ -35900,7 +36581,13 @@
           "type": "feet",
           "amount": 60
         }
-      }
+      },
+      "defence": [
+        "will"
+      ],
+      "conditionInflict": [
+        "restrained"
+      ]
     },
     {
       "school": "A",
@@ -36033,7 +36720,13 @@
           "type": "feet",
           "amount": 30
         }
-      }
+      },
+      "defence": [
+        "will"
+      ],
+      "conditionInflict": [
+        "sluggish"
+      ]
     },
     {
       "school": "N",
@@ -36179,7 +36872,9 @@
         "distance": {
           "type": "self"
         }
-      }
+      },
+      "conditionInflict": [
+      ]
     },
     {
       "school": "V",
@@ -36515,7 +37210,10 @@
           "type": "feet",
           "amount": 300
         }
-      }
+      },
+      "conditionInflict": [
+        "restrained"
+      ]
     },
     {
       "school": "N",
@@ -36574,7 +37272,10 @@
           "type": "feet",
           "amount": 150
         }
-      }
+      },
+      "defence": [
+        "fortitude"
+      ]
     },
     {
       "school": "I",
@@ -36657,7 +37358,15 @@
           "type": "feet",
           "amount": 120
         }
-      }
+      },
+      "defence": [
+        "will"
+      ],
+      "conditionInflict": [
+        "debilitated",
+        "frightened",
+        "sluggish"
+      ]
     },
     {
       "school": "V",
@@ -36886,7 +37595,13 @@
           "type": "feet",
           "amount": 90
         }
-      }
+      },
+      "defence": [
+        "will"
+      ],
+      "conditionInflict": [
+        "debilitated"
+      ]
     },
     {
       "school": "V",
@@ -37047,7 +37762,9 @@
       ],
       "majorEffect": [
         "The target's armour is reduced by 1 for 1 round."
-      ]
+      ],
+      "summonedBySpell": "Conjure Animals|sns",
+      "summonedBySpellLevel": 3
     },
     {
       "name": "Minor Elemental",
@@ -37160,7 +37877,9 @@
       ],
       "majorEffect": [
         "The target's armour is reduced by 1 for 1 round."
-      ]
+      ],
+      "summonedBySpell": "Conjure Minor Elementals|sns",
+      "summonedBySpellLevel": 4
     },
     {
       "name": "Woodland Being",
@@ -37205,7 +37924,7 @@
           "type": "entries",
           "name": "Keen Hearing and Smell (Blink Dog Only)",
           "entries": [
-            "The blink dog has advantage on Perception checks that rely on hearing or smell."
+            "The blink dog has advantage on {@skill Perception} checks that rely on hearing or smell."
           ]
         },
         {
@@ -37258,7 +37977,9 @@
       ],
       "majorEffect": [
         "The target's armour is reduced by 1 for 1 round."
-      ]
+      ],
+      "summonedBySpell": "Conjure Woodland Beings|sns",
+      "summonedBySpellLevel": 4
     },
     {
       "name": "Conjured Elemental",
@@ -37375,7 +38096,9 @@
       ],
       "majorEffect": [
         "The target's armour is reduced by 1 for 1 round."
-      ]
+      ],
+      "summonedBySpell": "Conjure Elemental|sns",
+      "summonedBySpellLevel": 5
     },
     {
       "name": "Fey Creature",
@@ -37502,7 +38225,9 @@
       ],
       "majorEffect": [
         "The target's armour is reduced by 1 for 1 round."
-      ]
+      ],
+      "summonedBySpell": "Conjure Fey|sns",
+      "summonedBySpellLevel": 6
     },
     {
       "name": "Celestial Creature",
@@ -37603,7 +38328,9 @@
       ],
       "majorEffect": [
         "The target's armour is reduced by 1 for 1 round."
-      ]
+      ],
+      "summonedBySpell": "Conjure Celestial|sns",
+      "summonedBySpellLevel": 7
     },
     {
       "name": "Grove Swarm",
@@ -37706,7 +38433,9 @@
       ],
       "majorEffect": [
         "The target's armour is reduced by 1 for 1 round."
-      ]
+      ],
+      "summonedBySpell": "Forest Army|sns",
+      "summonedBySpellLevel": 9
     },
     {
       "name": "Tiny Servant",
@@ -37779,7 +38508,9 @@
       ],
       "majorEffect": [
         "The target's armour is reduced by 1 for 1 round."
-      ]
+      ],
+      "summonedBySpell": "Tiny Servant|sns",
+      "summonedBySpellLevel": 3
     },
     {
       "name": "Construct Spirit",
@@ -37873,7 +38604,9 @@
       ],
       "majorEffect": [
         "The target's armour is reduced by 1 for 1 round."
-      ]
+      ],
+      "summonedBySpell": "Summon Construct|sns",
+      "summonedBySpellLevel": 4
     },
     {
       "name": "Draconic Spirit",
@@ -37960,7 +38693,9 @@
       ],
       "majorEffect": [
         "The target's armour is reduced by 1 for 1 round."
-      ]
+      ],
+      "summonedBySpell": "Summon Draconic Spirit|sns",
+      "summonedBySpellLevel": 5
     },
     {
       "name": "Awakened Shrub",
@@ -38028,7 +38763,9 @@
       ],
       "majorEffect": [
         "The target's armour is reduced by 1 for 1 round."
-      ]
+      ],
+      "summonedBySpell": "Awaken|sns",
+      "summonedBySpellLevel": 5
     },
     {
       "name": "Awakened Tree",
@@ -38100,7 +38837,9 @@
       ],
       "majorEffect": [
         "The target's armour is reduced by 1 for 1 round."
-      ]
+      ],
+      "summonedBySpell": "Awaken|sns",
+      "summonedBySpellLevel": 5
     }
   ]
 }
