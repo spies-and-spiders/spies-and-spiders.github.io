@@ -1880,7 +1880,7 @@
             "1 point"
           ]
         },
-        "Until the start of your next turn, when you see a creature within 5 feet of you cast a spell you can use your reaction to make either an opportunity attack or a Sleight of Hand check against it."
+        "Until the start of your next turn, when you see a creature within 5 feet of you cast a spell you can use your reaction to make either an opportunity attack or a Finesse check against it."
       ],
       "name": "Anticipate Spell",
       "time": [
@@ -1916,7 +1916,7 @@
             "1 point"
           ]
         },
-        "You gain an expertise die on Deception and Sleight of Hand checks made in combat."
+        "You gain an expertise die on Deception and Finesse checks made in combat."
       ],
       "name": "Deceptive Stance",
       "time": [
@@ -1955,7 +1955,7 @@
             "1 point"
           ]
         },
-        "When a creature hits you with a melee weapon attack, you can use your reaction to make a Sleight of Hand check against it."
+        "When a creature hits you with a melee weapon attack, you can use your reaction to make a Finesse check against it."
       ],
       "name": "Painful Pickpocket",
       "time": [
@@ -2063,7 +2063,7 @@
             "2 points"
           ]
         },
-        "Make a reflex attack against a creature within your reach with the following outcomes:. On a failure, it reacts to a strike from you that never comes. As long as you remain within the target's reach, until the start of your next turn it cannot attack any creature other than you.",
+        "Make a reflex attack against a creature within your reach with the following outcomes. On a failure, it reacts to a strike from you that never comes. As long as you remain within the target's reach, until the start of your next turn it cannot attack any creature other than you.",
         {
           "type": "list",
           "items": [
@@ -2126,7 +2126,7 @@
             "1 point"
           ]
         },
-        "Choose a creature you can see. On a hit with your next melee weapon attack against it before the start of your next turn, you can also make a Sleight of Hand check against the creature."
+        "Choose a creature you can see. On a hit with your next melee weapon attack against it before the start of your next turn, you can also make a Finesse check against the creature."
       ],
       "name": "Mugging Hit",
       "time": [
@@ -2198,7 +2198,7 @@
             "2 points"
           ]
         },
-        "Make a melee weapon attack using the result of a disadvantaged Sleight of Hand check instead of your usual attack roll."
+        "Make a melee weapon attack using the result of a disadvantaged Finesse check instead of your usual attack roll."
       ],
       "name": "Feinting Strike",
       "time": [
@@ -2234,7 +2234,7 @@
             "1 point"
           ]
         },
-        "When a creature is within your reach, you can use your reaction to make a Sleight of Hand check against it."
+        "When a creature is within your reach, you can use your reaction to make a Finesse check against it."
       ],
       "name": "Pickpocket",
       "time": [
@@ -2270,7 +2270,7 @@
             "2 points"
           ]
         },
-        "After you hit a creature with a melee weapon attack, you can spend 1 exertion to make a Sleight of Hand check. Reduce the result by the target's armour, and if it succeeds against a DC of 15, the target is {@condition blinded|sns}.",
+        "After you hit a creature with a melee weapon attack, you can spend 1 exertion to make a Finesse check. Reduce the result by the target's armour, and if it succeeds against a DC of 15, the target is {@condition blinded|sns}.",
         "At the beginning of each of its turns, the {@condition blinded|sns} creature can make a save to recover from its blindness."
       ],
       "name": "Blinding Blow Stance",
@@ -2373,7 +2373,7 @@
             "2 points"
           ]
         },
-        "When a creature moves into your reach you can use your reaction to make a Sleight of Hand check. Reduce the result by the creature's armour, and if it succeeds against a DC of 15, the creature is {@condition restrained|sns} until the start of its next turn."
+        "When a creature moves into your reach you can use your reaction to make a Finesse check. Reduce the result by the creature's armour, and if it succeeds against a DC of 15, the creature is {@condition restrained|sns} until the start of its next turn."
       ],
       "name": "Steal Momentum",
       "time": [
@@ -2416,8 +2416,8 @@
             "The Empowered Attack feature"
           ]
         },
-        "Make a Sleight of Hand check. Reduce the result by the armour of a creature within reach that is wearing armour, and if it succeeds against a DC of 15, the creature is {@condition staggered|sns}. At the beginning of each of its turns, a creature {@condition staggered|sns} by this maneuver can make a save, ending the effect on itself on a success.",
-        "Your sleight of hand check has advantage if the creature is wearing heavy armour."
+        "Make a Finesse check. Reduce the result by the armour of a creature within reach that is wearing armour, and if it succeeds against a DC of 15, the creature is {@condition staggered|sns}. At the beginning of each of its turns, a creature {@condition staggered|sns} by this maneuver can make a save, ending the effect on itself on a success.",
+        "Your Finesse check has advantage if the creature is wearing heavy armour."
       ],
       "name": "Armour Lock",
       "time": [
@@ -6675,580 +6675,6 @@
           "type": "entries",
           "name": "Points",
           "entries": [
-            "2 points"
-          ]
-        },
-        "When a creature makes an armour attack against you, you can use your reaction to make a Deception or nonmusical Performance check with disadvantage, opposed by its Insight check. On a success, the creature is briefly perplexed and targets a different creature with the attack instead."
-      ],
-      "name": "Don't Hit Me",
-      "time": [
-        {
-          "number": 1,
-          "unit": "reaction"
-        }
-      ],
-      "duration": [
-        {
-          "type": "instant"
-        }
-      ],
-      "source": "sns",
-      "subschools": [
-        "Comedic Jabs"
-      ],
-      "level": 1,
-      "range": {
-        "type": "point",
-        "distance": {
-          "type": "special"
-        }
-      }
-    },
-    {
-      "school": "M",
-      "entries": [
-        {
-          "type": "entries",
-          "name": "Points",
-          "entries": [
-            "3 points"
-          ]
-        },
-        "When a creature makes an armour attack against you, you can use your reaction to make a Deception check with advantage opposed by its Insight check. On a success, the creature is briefly perplexed and not sure you're an enemy, targeting a different creature with the attack instead.",
-        "In addition, until the end of your next turn the creature treats you as an ally (instead of an enemy) for the purposes of passives and other effects, and it cannot target you with attacks. The effects of this combat maneuver end early if you damage the creature."
-      ],
-      "name": "Instant Allyship",
-      "time": [
-        {
-          "number": 1,
-          "unit": "reaction"
-        }
-      ],
-      "duration": [
-        {
-          "type": "instant"
-        }
-      ],
-      "source": "sns",
-      "subschools": [
-        "Comedic Jabs"
-      ],
-      "level": 5,
-      "range": {
-        "type": "point",
-        "distance": {
-          "type": "special"
-        }
-      }
-    },
-    {
-      "school": "M",
-      "entries": [
-        {
-          "type": "entries",
-          "name": "Points",
-          "entries": [
-            "1 point"
-          ]
-        },
-        "You gain an expertise die on Acrobatics and nonmusical Performance checks."
-      ],
-      "name": "Jovial Stance",
-      "time": [
-        {
-          "number": 1,
-          "unit": "bonus"
-        }
-      ],
-      "duration": [
-        {
-          "type": "permanent",
-          "ends": [
-            "stance"
-          ]
-        }
-      ],
-      "source": "sns",
-      "subschools": [
-        "Comedic Jabs"
-      ],
-      "level": 1,
-      "range": {
-        "type": "point",
-        "distance": {
-          "type": "special"
-        }
-      }
-    },
-    {
-      "school": "M",
-      "entries": [
-        {
-          "type": "entries",
-          "name": "Points",
-          "entries": [
-            "3 points"
-          ]
-        },
-        "Choose a creature able to see you and make a nonmusical Performance check opposed by its Insight check. On a success, your antics force it to laugh uncontrollably, making it {@condition dazed|sns} until the start of your next turn. After you have used Just a Giggle against a creature, until the end of combat it has advantage on Insight checks to resist this maneuver."
-      ],
-      "name": "Just a Giggle",
-      "time": [
-        {
-          "number": 1,
-          "unit": "action"
-        }
-      ],
-      "duration": [
-        {
-          "type": "instant"
-        }
-      ],
-      "source": "sns",
-      "subschools": [
-        "Comedic Jabs"
-      ],
-      "level": 3,
-      "range": {
-        "type": "point",
-        "distance": {
-          "type": "special"
-        }
-      }
-    },
-    {
-      "school": "M",
-      "entries": [
-        {
-          "type": "entries",
-          "name": "Points",
-          "entries": [
-            "6 points"
-          ]
-        },
-        "Make a nonmusical Performance check, gaining a number of rapt onlookers equal to half the result (at the DM's discretion, the amount of potential onlookers may be limited by your location). At the end of your routine, roll {@dice 1d20} and add 1 per rapt onlooker. On a result of 20 or higher, you gain inspiration. If you do not roll a natural 20 on either roll, you suffer a level of {@condition fatigue|sns}. Rapt onlookers (including those who are enemies) have disadvantage on Perception and Insight checks until the start of your next turn."
-      ],
-      "name": "Make Them Laugh",
-      "time": [
-        {
-          "number": 1,
-          "unit": "action"
-        }
-      ],
-      "duration": [
-        {
-          "type": "instant"
-        }
-      ],
-      "source": "sns",
-      "subschools": [
-        "Comedic Jabs"
-      ],
-      "level": 5,
-      "range": {
-        "type": "point",
-        "distance": {
-          "type": "special"
-        }
-      }
-    },
-    {
-      "school": "M",
-      "entries": [
-        {
-          "type": "entries",
-          "name": "Points",
-          "entries": [
-            "1 point"
-          ]
-        },
-        "Make a Deception check opposed by the Insight check of a creature able to see you. On a success, until the end of your next turn the creature treats you as an ally (instead of an enemy) for the purposes of traits and other effects. The creature can still target you with attacks, and the effects of this combat maneuver end early if you damage it."
-      ],
-      "name": "Old Pal",
-      "time": [
-        {
-          "number": 1,
-          "unit": "bonus"
-        }
-      ],
-      "duration": [
-        {
-          "type": "instant"
-        }
-      ],
-      "source": "sns",
-      "subschools": [
-        "Comedic Jabs"
-      ],
-      "level": 3,
-      "range": {
-        "type": "point",
-        "distance": {
-          "type": "special"
-        }
-      }
-    },
-    {
-      "school": "M",
-      "entries": [
-        {
-          "type": "entries",
-          "name": "Points",
-          "entries": [
-            "2 points"
-          ]
-        },
-        "When a creature no more than one size category larger than you uses a basic maneuver against you or targets you with a melee weapon attack, you can use your reaction to fall {@condition prone|sns} and make an advantaged melee reflex attack against the creature with the following outcomes:",
-        {
-          "type": "list",
-          "items": [
-            {
-              "type": "item",
-              "name": "Minor success",
-              "entries": [
-                "The target is {@condition sluggish|sns} for 1 round."
-              ]
-            },
-            {
-              "type": "item",
-              "name": "Standard success",
-              "entries": [
-                "The target also falls {@condition prone|sns}."
-              ]
-            },
-            {
-              "type": "item",
-              "name": "Critical success",
-              "entries": [
-                "As standard success, but the target is also {@condition sluggish|sns} for 1 round."
-              ]
-            }
-          ]
-        }
-      ],
-      "name": "Partner Fall",
-      "time": [
-        {
-          "number": 1,
-          "unit": "reaction"
-        }
-      ],
-      "duration": [
-        {
-          "type": "instant"
-        }
-      ],
-      "source": "sns",
-      "subschools": [
-        "Comedic Jabs"
-      ],
-      "level": 3,
-      "range": {
-        "type": "point",
-        "distance": {
-          "type": "special"
-        }
-      }
-    },
-    {
-      "school": "M",
-      "entries": [
-        {
-          "type": "entries",
-          "name": "Points",
-          "entries": [
-            "2 points"
-          ]
-        },
-        "When you activate this maneuver, you take the Attack action. This attack must target a creature and be made using an improvised weapon that includes food. If you don't have food with you, you can gain one level of {@condition fatigue|sns} instead by using your rations. On a hit, the creature is {@condition blinded|sns} until either the start of its next turn or until it uses its reaction to wipe its eyes clean (whichever is first). Until the creature uses a bonus action to entirely clean its face, you gain an expertise die on Intimidation checks made against the creature."
-      ],
-      "name": "Pie to the Face",
-      "time": [
-        {
-          "number": 1,
-          "unit": "action"
-        }
-      ],
-      "duration": [
-        {
-          "type": "instant"
-        }
-      ],
-      "source": "sns",
-      "subschools": [
-        "Comedic Jabs"
-      ],
-      "level": 1,
-      "range": {
-        "type": "point",
-        "distance": {
-          "type": "special"
-        }
-      }
-    },
-    {
-      "school": "M",
-      "entries": [
-        {
-          "type": "entries",
-          "name": "Points",
-          "entries": [
-            "2 points"
-          ]
-        },
-        "When you fall {@condition prone|sns} you can use your reaction to force an adjacent creature to make a save, falling {@condition prone|sns} with you on a fail."
-      ],
-      "name": "Pratfall Pull",
-      "time": [
-        {
-          "number": 1,
-          "unit": "reaction"
-        }
-      ],
-      "duration": [
-        {
-          "type": "instant"
-        }
-      ],
-      "source": "sns",
-      "subschools": [
-        "Comedic Jabs"
-      ],
-      "level": 2,
-      "range": {
-        "type": "point",
-        "distance": {
-          "type": "special"
-        }
-      }
-    },
-    {
-      "school": "M",
-      "entries": [
-        {
-          "type": "entries",
-          "name": "Points",
-          "entries": [
-            "2 points"
-          ]
-        },
-        "You spread ball bearings, caltrops, or oil into a 5-foot square. If a creature is in the area, it makes a save with advantage (or normally if you spend an additional 1 exertion). On a fail against ball bearings or oil the creature falls {@condition prone|sns}, or on a failure against caltrops it suffers {@dice 1d4} piercing harm that reduces its Speed by 10 feet until it regains at least 1 hit point."
-      ],
-      "name": "Quick Spill",
-      "time": [
-        {
-          "number": 1,
-          "unit": "bonus"
-        }
-      ],
-      "duration": [
-        {
-          "type": "instant"
-        }
-      ],
-      "source": "sns",
-      "subschools": [
-        "Comedic Jabs"
-      ],
-      "level": 1,
-      "range": {
-        "type": "point",
-        "distance": {
-          "type": "special"
-        }
-      }
-    },
-    {
-      "school": "M",
-      "entries": [
-        {
-          "type": "entries",
-          "name": "Points",
-          "entries": [
-            "3 points"
-          ]
-        },
-        "Make a Persuasion check opposed by the Insight check of a creature within your reach. On a success, the creature drinks whatever item you are offering to it, whether that it a potion, poison, or otherwise. Any alchemical item (such as an acid flask or alchemist's fire) deals four times as much damage or harm as normal when a creature drinks it in this way, although any ongoing harm is only doubled."
-      ],
-      "name": "Quick, Drink This",
-      "time": [
-        {
-          "number": 1,
-          "unit": "action"
-        }
-      ],
-      "duration": [
-        {
-          "type": "instant"
-        }
-      ],
-      "source": "sns",
-      "subschools": [
-        "Comedic Jabs"
-      ],
-      "level": 4,
-      "range": {
-        "type": "point",
-        "distance": {
-          "type": "special"
-        }
-      }
-    },
-    {
-      "school": "M",
-      "entries": [
-        {
-          "type": "entries",
-          "name": "Points",
-          "entries": [
-            "4 points"
-          ]
-        },
-        "Until the end of your next turn, creatures able to see your routine have disadvantage on Insight checks, and non-armour attacks from enchantment spells have advantage against them."
-      ],
-      "name": "Really Very Funny",
-      "time": [
-        {
-          "number": 1,
-          "unit": "action"
-        }
-      ],
-      "duration": [
-        {
-          "type": "instant"
-        }
-      ],
-      "source": "sns",
-      "subschools": [
-        "Comedic Jabs"
-      ],
-      "level": 4,
-      "range": {
-        "type": "point",
-        "distance": {
-          "type": "special"
-        }
-      }
-    },
-    {
-      "school": "M",
-      "entries": [
-        {
-          "type": "entries",
-          "name": "Points",
-          "entries": [
-            "3 points"
-          ]
-        },
-        "As long as you are able to speak, did not cast a spell with vocalised components on your last turn, and have an ally who can hear and respond to you, once per round you can reduce the damage you take from an attack by an amount equal to your proficiency bonus.",
-        "In addition, when you use this stance to reduce the damage you take, you can choose to fall {@condition prone|sns} to reduce the amount of damage you take by an amount equal to twice your proficiency bonus instead."
-      ],
-      "name": "Rolling with the Punches",
-      "time": [
-        {
-          "number": 1,
-          "unit": "bonus"
-        }
-      ],
-      "duration": [
-        {
-          "type": "permanent",
-          "ends": [
-            "stance"
-          ]
-        }
-      ],
-      "source": "sns",
-      "subschools": [
-        "Comedic Jabs"
-      ],
-      "level": 3,
-      "range": {
-        "type": "point",
-        "distance": {
-          "type": "special"
-        }
-      }
-    },
-    {
-      "school": "M",
-      "entries": [
-        {
-          "type": "entries",
-          "name": "Points",
-          "entries": [
-            "2 points"
-          ]
-        },
-        "You splash an acid vial, alchemist's fire, or similar liquid onto an adjacent target, but instead of you making an armour attack, the target makes a save. On a successful save, count your action as what the attack's standard success would usually be. On a fail, count your action as what the attack's critical success would usually be."
-      ],
-      "name": "Splash of Humour",
-      "time": [
-        {
-          "number": 1,
-          "unit": "action"
-        }
-      ],
-      "duration": [
-        {
-          "type": "instant"
-        }
-      ],
-      "source": "sns",
-      "subschools": [
-        "Comedic Jabs"
-      ],
-      "level": 2,
-      "range": {
-        "type": "point",
-        "distance": {
-          "type": "special"
-        }
-      }
-    },
-    {
-      "school": "M",
-      "entries": [
-        {
-          "type": "entries",
-          "name": "Points",
-          "entries": [
-            "2 points"
-          ]
-        },
-        "Make a Persuasion or nonmusical Performance check opposed by the Insight check of a creature within reach. On a success, as long as the creature has a free hand and is able to understand you, it takes the object you offer to it. On a substantial success, the creature does not need to be able to understand you."
-      ],
-      "name": "This is Yours",
-      "time": [
-        {
-          "number": 1,
-          "unit": "action"
-        }
-      ],
-      "duration": [
-        {
-          "type": "instant"
-        }
-      ],
-      "source": "sns",
-      "subschools": [
-        "Comedic Jabs"
-      ],
-      "level": 2,
-      "range": {
-        "type": "point",
-        "distance": {
-          "type": "special"
-        }
-      }
-    },
-    {
-      "school": "M",
-      "entries": [
-        {
-          "type": "entries",
-          "name": "Points",
-          "entries": [
             "1 point"
           ]
         },
@@ -8229,7 +7655,7 @@
             "2 points"
           ]
         },
-        "When you activate this maneuver, you make a save. If you have proficiency with Performance, you gain an expertise die on the save. On a success, you can move through the space of an adjacent creature of your choice freely until the end of the turn, and you don't provoke opportunity attacks from it until the beginning of your next turn."
+        "When you activate this maneuver, you make a save. If you have proficiency with Finesse, you gain an expertise die on the save. On a success, you can move through the space of an adjacent creature of your choice freely until the end of the turn, and you don't provoke opportunity attacks from it until the beginning of your next turn."
       ],
       "name": "Stylish Tumble",
       "time": [
@@ -8377,7 +7803,7 @@
             "2 points"
           ]
         },
-        "Choose one creature within 30 feet that can see you. Make a Performance check against the creature's passive Insight. On a success, the creature is {@condition fixated|sns} on you until the start of your next turn."
+        "Choose one creature within 30 feet that can see you. Make a Persuasion check against the creature's passive Insight. On a success, the creature is {@condition fixated|sns} on you until the start of your next turn."
       ],
       "name": "Wink and Smile",
       "time": [
