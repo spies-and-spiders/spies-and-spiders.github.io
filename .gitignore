@@ -33,3 +33,7 @@ markdown/config.json
 
 # Log files
 *.log
+
+# Clojure related files
+.clj-kondo/.cache
+.lsp

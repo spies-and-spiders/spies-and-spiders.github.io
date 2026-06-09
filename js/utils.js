@@ -5433,7 +5433,6 @@ globalThis.DataUtil = {
 			soundClip: true,
 			altArt: true,
 			variant: true,
-			dragonCastingColor: true,
 			familiar: true,
 		};
 

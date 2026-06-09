@@ -3413,7 +3413,6 @@ Renderer.utils = class {
 			"patron",
 			"spell",
 			"race",
-			"alignment",
 			"ability",
 			"proficiency",
 			"spellcasting",
@@ -3521,7 +3520,6 @@ Renderer.utils = class {
 								case "spellcastingFeature": return this._getHtml_spellcastingFeature({v, isListMode, isTextOnly, styleHint});
 								case "spellcastingPrepared": return this._getHtml_spellcastingPrepared({v, isListMode, isTextOnly, styleHint});
 								case "psionics": return this._getHtml_psionics({v, isListMode, isTextOnly, styleHint});
-								case "alignment": return this._getHtml_alignment({v, isListMode, isTextOnly, styleHint});
 								case "campaign": return this._getHtml_campaign({v, isListMode, isTextOnly, styleHint});
 								case "group": return this._getHtml_group({v, isListMode, isTextOnly, styleHint});
 								default: throw new Error(`Unhandled key: ${k}`);
@@ -3791,14 +3789,14 @@ Renderer.utils = class {
 			const parts = v.map(obj => {
 				return Object.entries(obj).map(([profType, prof]) => {
 					switch (profType) {
-						case "armor": {
+						case "armour": {
 							if (prof === "shield") {
 								if (isListMode) return styleHint === "classic" ? `Prof ${prof}` : `${prof.toTitleCase()} Trai.`;
 								return styleHint === "classic" ? `Proficiency with ${prof}s` : `${prof.toTitleCase()} Training`;
 							}
 
-							if (isListMode) return styleHint === "classic" ? `Prof ${Parser.armorFullToAbv(prof)} armor` : `${Parser.armorFullToAbv(prof).toTitleCase()} Armor Trai.`;
-							return styleHint === "classic" ? `Proficiency with ${prof} armor` : `${prof.toTitleCase()} Armor Training`;
+							if (isListMode) return styleHint === "classic" ? `Prof ${Parser.armourFullToAbv(prof)} armour` : `${Parser.armourFullToAbv(prof).toTitleCase()} Armour Trai.`;
+							return styleHint === "classic" ? `Proficiency with ${prof} armour` : `${prof.toTitleCase()} Armour Training`;
 						}
 						case "weapon": {
 							return isListMode ? `Prof ${Parser.weaponFullToAbv(prof)} weapon` : `Proficiency with a ${prof} weapon`;
@@ -3834,15 +3832,6 @@ Renderer.utils = class {
 			return isListMode
 				? "Psionics"
 				: (isTextOnly ? Renderer.stripTags : Renderer.get().render.bind(Renderer.get()))("Psionic Talent feature or Wild Talent feat");
-		}
-
-		static _getHtml_alignment ({v, isListMode}) {
-			return isListMode
-				? Parser.alignmentListToFull(v)
-					.replace(/\bany\b/gi, "").trim()
-					.replace(/\balignment\b/gi, "align").trim()
-					.toTitleCase()
-				: Parser.alignmentListToFull(v);
 		}
 
 		static _getHtml_campaign ({v, isListMode}) {
@@ -6096,7 +6085,7 @@ class _RenderCompactClassesImplOne extends _RenderCompactClassesImplBase {
 			Renderer.class.getHtmlPtSkills(ent, {renderer, styleHint: this._style}),
 			Renderer.class.getHtmlPtWeaponProficiencies(ent, {renderer, styleHint: this._style}),
 			Renderer.class.getHtmlPtToolProficiencies(ent, {renderer, styleHint: this._style}),
-			Renderer.class.getHtmlPtArmorProficiencies(ent, {renderer, styleHint: this._style}),
+			Renderer.class.getHtmlPtArmourProficiencies(ent, {renderer, styleHint: this._style}),
 			Renderer.class.getHtmlPtStartingEquipment(ent, {renderer, styleHint: this._style}),
 		]
 			.filter(Boolean)
@@ -6202,17 +6191,17 @@ Renderer.class = class {
 	/* -------------------------------------------- */
 
 	/**
-	 * @param armorProfs
+	 * @param armourProfs
 	 * @param {"classic" | null} styleHint
 	 */
-	static getRenderedArmorProfs (armorProfs, {styleHint = null} = {}) {
+	static getRenderedArmourProfs (armourProfs, {styleHint = null} = {}) {
 		styleHint ||= VetoolsConfig.get("styleSwitcher", "style");
 
-		const [profsArmor, profsOther] = armorProfs
+		const [profsArmour, profsOther] = armourProfs
 			.segregate(it => ["light", "medium", "heavy"].includes(it));
 
-		const ptsArmor = profsArmor
-			.map((a, i, arr) => Renderer.get().render(`{@filter ${styleHint === "classic" ? a : a.toTitleCase()}${styleHint === "classic" || i === arr.length - 1 ? " armor" : ""}|items|type=${a} armor}`));
+		const ptsArmour = profsArmour
+			.map((a, i, arr) => Renderer.get().render(`{@filter ${styleHint === "classic" ? a : a.toTitleCase()}${styleHint === "classic" || i === arr.length - 1 ? " armour" : ""}|items|type=${a} armour}`));
 
 		const ptsOther = profsOther
 			.map(a => {
@@ -6226,14 +6215,14 @@ Renderer.class = class {
 
 		if (styleHint === "classic") {
 			return [
-				...ptsArmor,
+				...ptsArmour,
 				...ptsOther,
 			]
 				.join(", ");
 		}
 
 		return [
-			ptsArmor.joinConjunct(", ", " and "),
+			ptsArmour.joinConjunct(", ", " and "),
 			...ptsOther,
 		]
 			.joinConjunct(", ", " and ");
@@ -6343,12 +6332,12 @@ Renderer.class = class {
 		return `<div><b>Tool Proficiencies:</b> <span>${Renderer.class.getRenderedToolProfs(cls.startingProficiencies.tools, {styleHint})}</span></div>`;
 	}
 
-	static getHtmlPtArmorProficiencies (cls, {styleHint = null}) {
-		if (!cls.startingProficiencies?.armor) return "";
+	static getHtmlPtArmourProficiencies (cls, {styleHint = null}) {
+		if (!cls.startingProficiencies?.armour) return "";
 
 		styleHint ||= VetoolsConfig.get("styleSwitcher", "style");
 
-		return `<div><b>Armor Training:</b> <span>${Renderer.class.getRenderedArmorProfs(cls.startingProficiencies.armor, {styleHint})}</span></div>`;
+		return `<div><b>Armour Training:</b> <span>${Renderer.class.getRenderedArmourProfs(cls.startingProficiencies.armour, {styleHint})}</span></div>`;
 	}
 
 	static getHtmlPtStartingEquipment (cls, {renderer = null, styleHint = null}) {
@@ -8229,7 +8218,7 @@ Renderer.object = class {
 	static RENDERABLE_ENTRIES_PROP_ORDER__ATTRIBUTES = [
 		"entryCreatureCapacity",
 		"entryCargoCapacity",
-		"entryArmorClass",
+		"entryArmourClass",
 		"entryHitPoints",
 		"entrySpeed",
 		"entryAbilityScores",
@@ -8250,8 +8239,8 @@ Renderer.object = class {
 			entryCargoCapacity: ent.capCargo != null
 				? `{@b Cargo Capacity:} ${Renderer.vehicle.getShipCargoCapacity(ent)}`
 				: null,
-			entryArmorClass: ent.ac != null
-				? `{@b Armor Class:} ${ent.ac.special ?? ent.ac}`
+			entryArmourClass: ent.ac != null
+				? `{@b Armour Class:} ${ent.ac.special ?? ent.ac}`
 				: null,
 			entryHitPoints: ent.hp != null
 				? `{@b Hit Points:} ${ent.hp.special ?? ent.hp}`
@@ -8717,21 +8706,21 @@ class _RenderCompactBestiaryImplBase {
 	/* ----- */
 
 	_getCommonHtmlParts_attributeHeaders ({mon, isInlinedToken, isShowSpellLevelScaler, isShowClassLevelScaler}) {
-		const labelAc = this._style !== "classic" ? "AC" : "Armor Class";
-		const titleAc = this._style !== "classic" ? `title="Armor Class"` : "";
+		const isClassic = this._style === "classic";
 
-		const labelHp = this._style !== "classic" ? "HP" : "Hit Points";
-		const titleHp = this._style !== "classic" ? `title="Hit Points"` : "";
+		const labelHp = !isClassic ? "HP" : "Hit Points";
+		const titleHp = !isClassic ? `title="Hit Points"` : "";
 
-		const labelCr = isShowSpellLevelScaler ? "Spell Level" : isShowClassLevelScaler ? "Class Level" : (this._style !== "classic" ? "CR" : "Challenge");
-		const titleCr = isShowSpellLevelScaler ? "" : isShowClassLevelScaler ? "" : (this._style !== "classic" ? `title="Challenge Rating"` : "");
+		const labelCr = isShowSpellLevelScaler ? "Spell Level" : isShowClassLevelScaler ? "Class Level" : (!isClassic ? "CR" : "Challenge");
+		const titleCr = isShowSpellLevelScaler ? "" : isShowClassLevelScaler ? "" : (!isClassic ? `title="Challenge Rating"` : "");
 
-		const ptInitiative = this._style !== "classic" ? Renderer.monster.getInitiativePart(mon) : "";
-		const ptPb = this._style === "classic" ? Renderer.monster.getPbPart(mon) : "";
+		const ptPb = isClassic ? Renderer.monster.getPbPart(mon) : "";
 
 		return `<tr>
-			<th colspan="${this._style === "classic" ? "2" : "1"}" ${titleAc}>${labelAc}</th>
-			${ptInitiative ? `<th colspan="1" title="Initiative">Init.</th>` : ""}
+			<th colspan="1" title="Armour">${isClassic ? "Armour" : "Arm"}</th>
+			<th colspan="1" title="Fortitude">${isClassic ? "Fortitude" : "Fort"}</th>
+			<th colspan="1" title="Reflex">${isClassic ? "Reflex" : "Ref"}</th>
+			<th colspan="1" title="Will">${isClassic ? "Will" : "Wil"}</th>
 			<th colspan="2" ${titleHp}>${labelHp}</th>
 			<th colspan="2">Speed</th>
 			<th colspan="2" ${titleCr}>${labelCr}</th>
@@ -8768,14 +8757,18 @@ class _RenderCompactBestiaryImplBase {
 	}
 
 	_getCommonHtmlParts_attributeValues ({mon, opts, isInlinedToken, isShowCrScaler, isShowSpellLevelScaler, isShowClassLevelScaler}) {
-		const ptInitiative = this._style !== "classic" ? Renderer.monster.getInitiativePart(mon) : "";
-		const ptPb = this._style === "classic" ? Renderer.monster.getPbPart(mon) : "";
+		const isClassic = this._style === "classic";
+		const ptPb = isClassic ? Renderer.monster.getPbPart(mon) : "";
 
 		const ptCrSpellLevel = this._getCommonHtmlParts_crSpellLevel({mon, opts, isShowCrScaler, isShowSpellLevelScaler, isShowClassLevelScaler});
 
+		const fmtDef = (key, val) => val == null ? "\u2014" : Parser.acToFull(val, {key, isHideFrom: !isClassic});
+
 		return `<tr>
-			<td colspan="${this._style === "classic" ? "2" : "1"}">${mon.ac == null ? "\u2014" : Parser.acToFull(mon.ac, {isHideFrom: this._style !== "classic"})}</td>
-			${ptInitiative ? `<td colspan="1">${ptInitiative}</td>` : ""}
+			<td colspan="1">${fmtDef("arm", mon.arm)}</td>
+			<td colspan="1">${fmtDef("fort", mon.fort)}</td>
+			<td colspan="1">${fmtDef("ref", mon.ref)}</td>
+			<td colspan="1">${fmtDef("wil", mon.wil)}</td>
 			<td colspan="2">${mon.hp == null ? "\u2014" : Renderer.monster.getRenderedHp(mon.hp)}</td>
 			<td colspan="2">${Parser.getSpeedString(mon)}</td>
 			${ptCrSpellLevel}
@@ -8855,11 +8848,10 @@ class _RenderCompactBestiaryImplBase {
 	/* ----- */
 
 	_getCommonHtmlParts_variants ({mon, renderer}) {
-		if (!mon.variant && (!mon.dragonCastingColor || mon.spellcasting) && !mon.summonedBySpell) return "";
+		if (!mon.variant && !mon.summonedBySpell) return "";
 
 		return `<tr><td colspan="6" class="pb-2">
 		${mon.variant ? mon.variant.map(it => it.rendered || renderer.render(it)).join("") : ""}
-		${mon.dragonCastingColor ? Renderer.monster.dragonCasterVariant.getHtml(mon, {renderer}) : ""}
 		${mon.footer ? renderer.render({entries: mon.footer}) : ""}
 		${mon.summonedBySpell ? `<div><b>Summoned By:</b> ${renderer.render(`{@spell ${mon.summonedBySpell}}`)}<div>` : ""}
 		</td></tr>`;
@@ -8880,7 +8872,6 @@ class _RenderCompactBestiaryImplClassic extends _RenderCompactBestiaryImplBase {
 		},
 	) {
 		return {
-			htmlPtSavingThrows: this._getHtmlParts_savingThrows({mon}),
 			htmlPtDamageImmunities: this._getHtmlParts_damageImmunities({mon}),
 			htmlPtConditionImmunities: this._getHtmlParts_conditionImmunities({mon}),
 
@@ -8889,10 +8880,6 @@ class _RenderCompactBestiaryImplClassic extends _RenderCompactBestiaryImplBase {
 	}
 
 	/* ----- */
-
-	_getHtmlParts_savingThrows ({mon}) {
-		return mon.save ? `<p><b>Saving Throws</b> ${Renderer.monster.getSavesPart(mon)}</p>` : "";
-	}
 
 	_getHtmlParts_damageImmunities ({mon}) {
 		return mon.immune ? `<p><b>Damage Imm.</b> ${Parser.getFullImmRes(mon.immune)}</p>` : "";
@@ -8978,7 +8965,6 @@ class _RenderCompactBestiaryImplClassic extends _RenderCompactBestiaryImplBase {
 		});
 
 		const {
-			htmlPtSavingThrows,
 			htmlPtDamageImmunities,
 			htmlPtConditionImmunities,
 
@@ -9009,7 +8995,6 @@ class _RenderCompactBestiaryImplClassic extends _RenderCompactBestiaryImplBase {
 			<tr><td colspan="6">
 				<div class="rd__compact-stat mt-2">
 					${htmlPtsResources.join("")}
-					${htmlPtSavingThrows}
 					${htmlPtSkills}
 					${htmlPtVulnerabilities}
 					${htmlPtResistances}
@@ -9046,8 +9031,6 @@ class _RenderCompactBestiaryImplOne extends _RenderCompactBestiaryImplBase {
 		},
 	) {
 		return {
-			htmlPtSavingThrows: this._getHtmlParts_savingThrows({mon, renderer}),
-
 			htmlPtImmunities: this._getHtmlParts_immunities({mon}),
 			htmlPtGear: this._getHtmlParts_gear({mon}),
 
@@ -9056,11 +9039,6 @@ class _RenderCompactBestiaryImplOne extends _RenderCompactBestiaryImplBase {
 	}
 
 	/* ----- */
-
-	_getHtmlParts_savingThrows ({mon, renderer}) {
-		if (!mon.save?.special) return "";
-		return `<p><b>Saving Throws</b> ${Renderer.monster.getSave(renderer, "special", mon.save.special)}</p>`;
-	}
 
 	_getHtmlParts_immunities ({mon}) {
 		const pt = Renderer.monster.getImmunitiesCombinedPart(mon);
@@ -9145,8 +9123,6 @@ class _RenderCompactBestiaryImplOne extends _RenderCompactBestiaryImplBase {
 		});
 
 		const {
-			htmlPtSavingThrows,
-
 			htmlPtImmunities,
 			htmlPtGear,
 
@@ -9175,7 +9151,6 @@ class _RenderCompactBestiaryImplOne extends _RenderCompactBestiaryImplBase {
 			<tr><td colspan="6">
 				<div class="rd__compact-stat mt-2">
 					${htmlPtsResources.join("")}
-					${htmlPtSavingThrows}
 					${htmlPtSkills}
 					${htmlPtVulnerabilities}
 					${htmlPtResistances}
@@ -9250,220 +9225,6 @@ Renderer.monster = class {
 		return renderer.render(`<span>${attr.uppercaseFirst()} {@savingThrow ${attr} ${mod}}</span>`);
 	}
 
-	static dragonCasterVariant = class {
-		// Community-created (legacy)
-		static _LVL_TO_COLOR_TO_SPELLS__UNOFFICIAL = {
-			2: {
-				black: ["darkness", "Melf's acid arrow", "fog cloud", "scorching ray"],
-				green: ["ray of sickness", "charm person", "detect thoughts", "invisibility", "suggestion"],
-				white: ["ice knife|XGE", "Snilloc's snowball swarm|XGE"],
-				brass: ["see invisibility", "magic mouth", "blindness/deafness", "sleep", "detect thoughts"],
-				bronze: ["gust of wind", "misty step", "locate object", "blur", "witch bolt", "thunderwave", "shield"],
-				copper: ["knock", "sleep", "detect thoughts", "blindness/deafness", "tasha's hideous laughter"],
-			},
-			3: {
-				blue: ["wall of sand|XGE", "thunder step|XGE", "lightning bolt", "blink", "magic missile", "slow"],
-				red: ["fireball", "scorching ray", "haste", "erupting earth|XGE", "Aganazzar's scorcher|XGE"],
-				gold: ["slow", "fireball", "dispel magic", "counterspell", "Aganazzar's scorcher|XGE", "shield"],
-				silver: ["sleet storm", "protection from energy", "catnap|XGE", "locate object", "identify", "Leomund's tiny hut"],
-			},
-			4: {
-				black: ["vitriolic sphere|XGE", "sickening radiance|XGE", "Evard's black tentacles", "blight", "hunger of Hadar"],
-				white: ["fire shield", "ice storm", "sleet storm"],
-				brass: ["charm monster|XGE", "sending", "wall of sand|XGE", "hypnotic pattern", "tongues"],
-				copper: ["polymorph", "greater invisibility", "confusion", "stinking cloud", "major image", "charm monster|XGE"],
-			},
-			5: {
-				blue: ["telekinesis", "hold monster", "dimension door", "wall of stone", "wall of force"],
-				green: ["cloudkill", "charm monster|XGE", "modify memory", "mislead", "hallucinatory terrain", "dimension door"],
-				bronze: ["steel wind strike|XGE", "control winds|XGE", "watery sphere|XGE", "storm sphere|XGE", "tidal wave|XGE"],
-				gold: ["hold monster", "immolation|XGE", "wall of fire", "greater invisibility", "dimension door"],
-				silver: ["cone of cold", "ice storm", "teleportation circle", "skill empowerment|XGE", "creation", "Mordenkainen's private sanctum"],
-			},
-			6: {
-				white: ["cone of cold", "wall of ice"],
-				brass: ["scrying", "Rary's telepathic bond", "Otto's irresistible dance", "legend lore", "hold monster", "dream"],
-			},
-			7: {
-				black: ["power word pain|XGE", "finger of death", "disintegrate", "hold monster"],
-				blue: ["chain lightning", "forcecage", "teleport", "etherealness"],
-				green: ["project image", "mirage arcane", "prismatic spray", "teleport"],
-				bronze: ["whirlwind|XGE", "chain lightning", "scatter|XGE", "teleport", "disintegrate", "lightning bolt"],
-				copper: ["symbol", "simulacrum", "reverse gravity", "project image", "Bigby's hand", "mental prison|XGE", "seeming"],
-				silver: ["Otiluke's freezing sphere", "prismatic spray", "wall of ice", "contingency", "arcane gate"],
-			},
-			8: {
-				gold: ["sunburst", "delayed blast fireball", "antimagic field", "teleport", "globe of invulnerability", "maze"],
-			},
-		};
-		// From Fizban's Treasury of Dragons
-		static _LVL_TO_COLOR_TO_SPELLS__FTD = {
-			1: {
-				deep: ["command", "dissonant whispers", "faerie fire"],
-			},
-			2: {
-				black: ["blindness/deafness", "create or destroy water"],
-				green: ["invisibility", "speak with animals"],
-				white: ["gust of wind"],
-				brass: ["create or destroy water", "speak with animals"],
-				bronze: ["beast sense", "detect thoughts", "speak with animals"],
-				copper: ["lesser restoration", "phantasmal force"],
-			},
-			3: {
-				blue: ["create or destroy water", "major image"],
-				red: ["bane", "heat metal", "hypnotic pattern", "suggestion"],
-				gold: ["bless", "cure wounds", "slow", "suggestion", "zone of truth"],
-				silver: ["beacon of hope", "calm emotions", "hold person", "zone of truth"],
-				deep: ["command", "dissonant whispers", "faerie fire", "water breathing"],
-			},
-			4: {
-				black: ["blindness/deafness", "create or destroy water", "plant growth"],
-				white: ["gust of wind"],
-				brass: ["create or destroy water", "speak with animals", "suggestion"],
-				copper: ["lesser restoration", "phantasmal force", "stone shape"],
-			},
-			5: {
-				blue: ["arcane eye", "create or destroy water", "major image"],
-				red: ["bane", "dominate person", "heat metal", "hypnotic pattern", "suggestion"],
-				green: ["invisibility", "plant growth", "speak with animals"],
-				bronze: ["beast sense", "control water", "detect thoughts", "speak with animals"],
-				gold: ["bless", "commune", "cure wounds", "geas", "slow", "suggestion", "zone of truth"],
-				silver: ["beacon of hope", "calm emotions", "hold person", "polymorph", "zone of truth"],
-			},
-			6: {
-				white: ["gust of wind", "ice storm"],
-				brass: ["create or destroy water", "locate creature", "speak with animals", "suggestion"],
-				deep: ["command", "dissonant whispers", "faerie fire", "passwall", "water breathing"],
-			},
-			7: {
-				black: ["blindness/deafness", "create or destroy water", "insect plague", "plant growth"],
-				blue: ["arcane eye", "create or destroy water", "major image", "project image"],
-				red: ["bane", "dominate person", "heat metal", "hypnotic pattern", "power word stun", "suggestion"],
-				green: ["invisibility", "mass suggestion", "plant growth", "speak with animals"],
-				bronze: ["beast sense", "control water", "detect thoughts", "heroes' feast", "speak with animals"],
-				copper: ["lesser restoration", "move earth", "phantasmal force", "stone shape"],
-				silver: ["beacon of hope", "calm emotions", "hold person", "polymorph", "teleport", "zone of truth"],
-			},
-			8: {
-				gold: ["bless", "commune", "cure wounds", "geas", "plane shift", "slow", "suggestion", "word of recall", "zone of truth"],
-			},
-		};
-
-		static getAvailableColors () {
-			const out = new Set();
-
-			const add = (lookup) => Object.values(lookup).forEach(obj => Object.keys(obj).forEach(k => out.add(k)));
-			add(Renderer.monster.dragonCasterVariant._LVL_TO_COLOR_TO_SPELLS__UNOFFICIAL);
-			add(Renderer.monster.dragonCasterVariant._LVL_TO_COLOR_TO_SPELLS__FTD);
-
-			return [...out].sort(SortUtil.ascSortLower);
-		}
-
-		static hasCastingColorVariant (dragon) {
-			// if the dragon already has a spellcasting trait specified, don't add a note about adding a spellcasting trait
-			return dragon.dragonCastingColor && !dragon.spellcasting;
-		}
-
-		static getMeta (dragon) {
-			const chaMod = Parser.getAbilityModNumber(dragon.cha);
-			const pb = Parser.crToPb(dragon.cr);
-			const maxSpellLevel = Math.floor(Parser.crToNumber(dragon.cr) / 3);
-
-			return {
-				chaMod,
-				pb,
-				maxSpellLevel,
-				spellSaveDc: pb + chaMod + 8,
-				spellToHit: pb + chaMod,
-				exampleSpellsUnofficial: Renderer.monster.dragonCasterVariant._getMeta_getExampleSpells({
-					dragon,
-					maxSpellLevel,
-					spellLookup: Renderer.monster.dragonCasterVariant._LVL_TO_COLOR_TO_SPELLS__UNOFFICIAL,
-				}),
-				exampleSpellsFtd: Renderer.monster.dragonCasterVariant._getMeta_getExampleSpells({
-					dragon,
-					maxSpellLevel,
-					spellLookup: Renderer.monster.dragonCasterVariant._LVL_TO_COLOR_TO_SPELLS__FTD,
-				}),
-			};
-		}
-
-		static _getMeta_getExampleSpells ({dragon, maxSpellLevel, spellLookup}) {
-			if (spellLookup[maxSpellLevel]?.[dragon.dragonCastingColor]) return spellLookup[maxSpellLevel][dragon.dragonCastingColor];
-
-			// If there's no exact match, try to find the next lowest
-			const flatKeys = Object.entries(spellLookup)
-				.map(([lvl, group]) => {
-					return Object.keys(group)
-						.map(color => `${lvl}${color}`);
-				})
-				.flat()
-				.mergeMap(it => ({[it]: true}));
-
-			while (--maxSpellLevel > -1) {
-				const lookupKey = `${maxSpellLevel}${dragon.dragonCastingColor}`;
-				if (flatKeys[lookupKey]) return spellLookup[maxSpellLevel][dragon.dragonCastingColor];
-			}
-			return [];
-		}
-
-		static getSpellcasterDetailsPart ({chaMod, maxSpellLevel, spellSaveDc, spellToHit, isSeeSpellsPageNote = false}) {
-			const levelString = maxSpellLevel === 0 ? `${chaMod === 1 ? "This" : "These"} spells are Cantrips.` : `${chaMod === 1 ? "The" : "Each"} spell's level can be no higher than ${Parser.spLevelToFull(maxSpellLevel)}.`;
-
-			return `This dragon can innately cast ${Parser.numberToText(chaMod)} spell${chaMod === 1 ? "" : "s"}, once per day${chaMod === 1 ? "" : " each"}, requiring no material components. ${levelString} The dragon's spell save DC is {@dc ${spellSaveDc}}, and it has {@hit ${spellToHit}} to hit with spell attacks.${isSeeSpellsPageNote ? ` See the {@filter spell page|spells|level=${[...new Array(maxSpellLevel + 1)].map((it, i) => i).join(";")}} for a list of spells the dragon is capable of casting.` : ""}`;
-		}
-
-		static getVariantEntries (dragon) {
-			if (!Renderer.monster.dragonCasterVariant.hasCastingColorVariant(dragon)) return [];
-
-			const meta = Renderer.monster.dragonCasterVariant.getMeta(dragon);
-			const {exampleSpellsUnofficial, exampleSpellsFtd} = meta;
-
-			const vFtd = exampleSpellsFtd?.length ? {
-				type: "variant",
-				name: "Dragons as Innate Spellcasters",
-				source: Parser.SRC_SNS,
-				entries: [
-					`${Renderer.monster.dragonCasterVariant.getSpellcasterDetailsPart(meta)}`,
-					`A suggested spell list is shown below, but you can also choose spells to reflect the dragon's character. A dragon who innately casts {@filter druid|spells|class=druid} spells feels different from one who casts {@filter warlock|spells|class=warlock} spells. You can also give a dragon spells of a higher level than this rule allows, but such a tweak might increase the dragon's challenge rating\u2014especially if those spells deal damage or impose conditions on targets.`,
-					{
-						type: "list",
-						items: exampleSpellsFtd.map(it => `{@spell ${it}}`),
-					},
-				],
-			} : null;
-
-			const vBasic = {
-				type: "variant",
-				name: "Dragons as Innate Spellcasters",
-				entries: [
-					"Dragons are innately magical creatures that can master a few spells as they age, using this variant.",
-					`A young or older dragon can innately cast a number of spells equal to its Charisma modifier. Each spell can be cast once per day, requiring no material components, and the spell's level can be no higher than one-third the dragon's challenge rating (rounded down). The dragon's bonus to hit with spell attacks is equal to its proficiency bonus + its Charisma bonus. The dragon's spell save DC equals 8 + its proficiency bonus + its Charisma modifier.`,
-					`{@note ${Renderer.monster.dragonCasterVariant.getSpellcasterDetailsPart({...meta, isSeeSpellsPageNote: true})}${exampleSpellsUnofficial?.length ? ` A selection of examples are shown below:` : ""}}`,
-				],
-			};
-			if (dragon.source !== Parser.SRC_SNS) {
-				vBasic.source = Parser.SRC_SNS;
-				vBasic.page = 86;
-			}
-			if (exampleSpellsUnofficial) {
-				const ls = {
-					type: "list",
-					style: "list-italic",
-					items: exampleSpellsUnofficial.map(it => `{@spell ${it}}`),
-				};
-				vBasic.entries.push(ls);
-			}
-
-			return [vFtd, vBasic].filter(Boolean);
-		}
-
-		static getHtml (dragon, {renderer = null} = {}) {
-			const variantEntrues = Renderer.monster.dragonCasterVariant.getVariantEntries(dragon);
-			if (!variantEntrues.length) return null;
-			return variantEntrues.map(it => renderer.render(it)).join("");
-		}
-	};
 
 	static getCrScaleTarget (
 		{
@@ -9578,7 +9339,7 @@ Renderer.monster = class {
 	static getTypeAlignmentPart (mon) {
 		const typeObj = Parser.monTypeToFullObj(mon.type);
 
-		return `${mon.level ? `${Parser.getOrdinalForm(mon.level)}-level ` : ""}${typeObj.asTextSidekick ? `${typeObj.asTextSidekick}; ` : ""}${Renderer.utils.getRenderedSize(mon.size)}${mon.sizeNote ? ` ${mon.sizeNote}` : ""} ${typeObj.asText}${mon.alignment ? `, ${mon.alignmentPrefix ? Renderer.get().render(mon.alignmentPrefix) : ""}${Parser.alignmentListToFull(mon.alignment).toTitleCase()}` : ""}`;
+		return `${mon.level ? `${Parser.getOrdinalForm(mon.level)}-level ` : ""}${typeObj.asTextSidekick ? `${typeObj.asTextSidekick}; ` : ""}${Renderer.utils.getRenderedSize(mon.size)}${mon.sizeNote ? ` ${mon.sizeNote}` : ""} ${typeObj.asText}`;
 	}
 
 	static _getInitiativePart_passive ({mon, initPassive}) {
@@ -9886,15 +9647,11 @@ Renderer.monster = class {
 		const ptSpecial = ptsSpecial.map(pt => `<tr><td colspan="6">${pt}</td></tr>`).join("");
 
 		const ptHeaders = Array.from(
-			{length: 12},
-			(_, i) => `<div class="ve-muted ve-text-center small-caps">${i % 4 === 2 ? "mod" : i % 4 === 3 ? "save" : ""}</div>`,
+			{length: 9},
+			(_, i) => `<div class="ve-muted ve-text-center small-caps">${i % 3 === 2 ? "mod" : ""}</div>`,
 		)
 			.join("");
 
-		Object.keys(mon.save || {})
-			.map(s => Renderer.monster.getSave(Renderer.get(), s, mon.save[s]));
-
-		let cntSpecialSaves = 0;
 		const ptsCells = Parser.ABIL_ABVS
 			.flatMap((abv, i) => {
 				const styleName = i < 3 ? "physical" : "mental";
@@ -9902,13 +9659,11 @@ Renderer.monster = class {
 				const numScore = abvsRemaining.includes(abv) ? mon[abv] : null;
 				const ptScore = numScore != null ? `${mon[abv]}` : `\u2013`;
 				const ptBonus = numScore != null ? Renderer.utils.getAbilityRoller(mon, abv, {isDisplayAsBonus: true}) : `\u2013`;
-				const ptSave = renderer.render(`{@savingThrow ${abv} ${mon.save?.[abv] == null ? Parser.getAbilityModNumber(ptScore) : mon.save[abv]}}`);
 
 				return [
 					`<div class="bold small-caps ve-text-right stats__disp-as-score stats__disp-as-score--label stats__disp-as-score--${styleName}">${abv.toTitleCase()}</div>`,
 					`<div class="ve-text-center stats__disp-as-score stats__disp-as-score--${styleName}">${ptScore}</div>`,
-					`<div class="ve-text-center stats__disp-as-bonus stats__disp-as-bonus--${styleName}">${ptBonus}</div>`,
-					`<div class="ve-text-center stats__disp-as-bonus stats__disp-as-bonus--${styleName} ${i % 3 !== 2 ? "mr-2" : ""}">${ptSave}</div>`,
+					`<div class="ve-text-center stats__disp-as-bonus stats__disp-as-bonus--${styleName} ${i % 3 !== 2 ? "mr-2" : ""}">${ptBonus}</div>`,
 				];
 			})
 			.join("");
@@ -10089,13 +9844,11 @@ Renderer.monster = class {
 
 	static getRenderedVariants (mon, {renderer = null} = {}) {
 		renderer = renderer || Renderer.get();
-		const dragonVariant = Renderer.monster.dragonCasterVariant.getHtml(mon, {renderer});
 		const variants = mon.variant;
-		if (!variants && !dragonVariant) return null;
+		if (!variants) return null;
 
 		const rStack = [];
 		(variants || []).forEach(v => renderer.recursiveRender(v, rStack));
-		if (dragonVariant) rStack.push(dragonVariant);
 		return rStack.join("");
 	}
 
@@ -10423,12 +10176,12 @@ Renderer.item = class {
 
 		if (item.mastery) damagePartsPre.push(`Mastery: ${item.mastery.map(it => renderer.render(`{@itemMastery ${it}}`)).join(", ")}`);
 
-		// armor
+		// armour
 		if (item.ac != null) {
-			const dexterityMax = (itemTypeAbv === Parser.ITM_TYP_ABV__MEDIUM_ARMOR && item.dexterityMax == null)
+			const dexterityMax = (itemTypeAbv === Parser.ITM_TYP_ABV__MEDIUM_ARMOUR && item.dexterityMax == null)
 				? 2
 				: item.dexterityMax;
-			const isAddDex = item.dexterityMax != null || ![Parser.ITM_TYP_ABV__HEAVY_ARMOR, Parser.ITM_TYP_ABV__SHIELD].includes(itemTypeAbv);
+			const isAddDex = item.dexterityMax != null || ![Parser.ITM_TYP_ABV__HEAVY_ARMOUR, Parser.ITM_TYP_ABV__SHIELD].includes(itemTypeAbv);
 
 			const prefix = itemTypeAbv === Parser.ITM_TYP_ABV__SHIELD ? "+" : "";
 			const suffix = isAddDex ? ` + Dex${dexterityMax ? ` (max ${dexterityMax})` : ""}` : "";
@@ -10574,10 +10327,10 @@ Renderer.item = class {
 		const fullType = Renderer.item.getItemTypeName(type);
 
 		const isSub = (typeListText.some(it => it.includes("weapon")) && fullType.includes("weapon"))
-			|| (typeListText.some(it => it.includes("armor")) && fullType.includes("armor"));
+			|| (typeListText.some(it => it.includes("armour")) && fullType.includes("armour"));
 
 		if (!showingBase && !!item.baseItem) (isSub ? subTypeHtml : typeHtml).push(`${fullType} (${Renderer.get().render(`{@item ${item.baseItem}}`)})`);
-		else if (typeAbv === Parser.ITM_TYP_ABV__SHIELD) (isSub ? subTypeHtml : typeHtml).push(Renderer.get().render(`armor ({@item shield|phb})`));
+		else if (typeAbv === Parser.ITM_TYP_ABV__SHIELD) (isSub ? subTypeHtml : typeHtml).push(Renderer.get().render(`armour ({@item shield|phb})`));
 		else (isSub ? subTypeHtml : typeHtml).push(fullType);
 
 		typeListText.push(fullType);
@@ -11302,7 +11055,7 @@ Renderer.item = class {
 		// Add blanket-added properties, to enable filter
 		if (genericVariant.inherits.propertyAdd) genericVariant.property = [...(genericVariant.property || []), ...genericVariant.inherits.propertyAdd];
 
-		if (genericVariant.requires.armor) genericVariant.armor = genericVariant.requires.armor;
+		if (genericVariant.requires.armour) genericVariant.armour = genericVariant.requires.armour;
 	}
 
 	static getItemTypeName (t) {
@@ -11339,7 +11092,7 @@ Renderer.item = class {
 			});
 		}
 		// The following could be encoded in JSON, but they depend on more than one JSON property; maybe fix if really bored later
-		if (itemTypeAbv === Parser.ITM_TYP_ABV__LIGHT_ARMOR || itemTypeAbv === Parser.ITM_TYP_ABV__MEDIUM_ARMOR || itemTypeAbv === Parser.ITM_TYP_ABV__HEAVY_ARMOR) {
+		if (itemTypeAbv === Parser.ITM_TYP_ABV__LIGHT_ARMOUR || itemTypeAbv === Parser.ITM_TYP_ABV__MEDIUM_ARMOUR || itemTypeAbv === Parser.ITM_TYP_ABV__HEAVY_ARMOUR) {
 			if (item.stealth) {
 				Renderer.item._initFullEntries(item);
 				const wrapped = styleHint === "classic"
@@ -11347,7 +11100,7 @@ Renderer.item = class {
 					: "The wearer has {@variantrule Disadvantage|sns} on Dexterity ({@skill Stealth}) checks.";
 				item._fullEntries.push({type: "wrapper", wrapped, data: {[VeCt.ENTDATA_ITEM_MERGED_ENTRY_TAG]: "type"}});
 			}
-			if (itemTypeAbv === Parser.ITM_TYP_ABV__HEAVY_ARMOR && item.strength) {
+			if (itemTypeAbv === Parser.ITM_TYP_ABV__HEAVY_ARMOUR && item.strength) {
 				Renderer.item._initFullEntries(item);
 				item._fullEntries.push({type: "wrapper", wrapped: `If the wearer has a Strength score lower than ${item.strength}, their speed is reduced by 10 feet.`, data: {[VeCt.ENTDATA_ITEM_MERGED_ENTRY_TAG]: "type"}});
 			}
@@ -12024,8 +11777,8 @@ Renderer.vehicle = class {
 
 		static getSectionHpEntriesMeta_ ({entry, isEach = false}) {
 			return {
-				entryArmorClass: entry.ac
-					? `{@b Armor Class} ${entry.ac}`
+				entryArmourClass: entry.ac
+					? `{@b Armour Class} ${entry.ac}`
 					: null,
 				entryHitPoints: entry.hp
 					? `{@b Hit Points} ${entry.hp}${isEach ? ` each` : ""}${entry.dt ? ` (damage threshold ${entry.dt})` : ""}${entry.hpNote ? `; ${entry.hpNote}` : ""}`
@@ -12037,7 +11790,7 @@ Renderer.vehicle = class {
 			const entriesMetaSection = Renderer.vehicle.ship.getSectionHpEntriesMeta_({entry, isEach});
 
 			const props = [
-				"entryArmorClass",
+				"entryArmourClass",
 				"entryHitPoints",
 			];
 
@@ -12135,7 +11888,7 @@ Renderer.vehicle = class {
 					colStyles: ["col-6", "col-6"],
 					rows: [
 						[
-							`{@b Armor Class:} ${ptAc}`,
+							`{@b Armour Class:} ${ptAc}`,
 							`{@b Cargo:} ${ent.capCargo ? `${ent.capCargo} ton${ent.capCargo === 1 ? "" : "s"}` : "\u2014"}`,
 						],
 						[
@@ -12212,7 +11965,7 @@ Renderer.vehicle = class {
 				: "\u2014";
 
 			return {
-				entryArmorClass: `{@b Armor Class:} ${entry.ac == null ? "\u2014" : entry.ac}`,
+				entryArmourClass: `{@b Armour Class:} ${entry.ac == null ? "\u2014" : entry.ac}`,
 				entryHitPoints: `{@b Hit Points:} ${entry.hp == null ? "\u2014" : entry.hp}`,
 				entryCost: `{@b Cost:} ${ptCosts}`,
 			};
@@ -12222,7 +11975,7 @@ Renderer.vehicle = class {
 			const entriesMetaSectionHpCost = Renderer.vehicle.spelljammer.getSectionHpCostEntriesMeta(entry);
 
 			return `
-				<div>${renderer.render(entriesMetaSectionHpCost.entryArmorClass)}</div>
+				<div>${renderer.render(entriesMetaSectionHpCost.entryArmourClass)}</div>
 				<div>${renderer.render(entriesMetaSectionHpCost.entryHitPoints)}</div>
 				<div class="mb-2">${renderer.render(entriesMetaSectionHpCost.entryCost)}</div>
 			`;
@@ -12333,7 +12086,7 @@ Renderer.vehicle = class {
 		static PROPS_RENDERABLE_ENTRIES_ATTRIBUTES = [
 			"entryCreatureCapacity",
 			"entryCargoCapacity",
-			"entryArmorClass",
+			"entryArmourClass",
 			"entryHitPoints",
 			"entrySpeed",
 		];
@@ -12354,7 +12107,7 @@ Renderer.vehicle = class {
 				entrySizeWeight: `{@i ${Parser.sizeAbvToFull(ent.size)} vehicle (${ent.weight.toLocaleString()} lb.)}`,
 				entryCreatureCapacity: `{@b Creature Capacity} ${Renderer.vehicle.getInfwarCreatureCapacity(ent)}`,
 				entryCargoCapacity: `{@b Cargo Capacity} ${Parser.weightToFull(ent.capCargo)}`,
-				entryArmorClass: `{@b Armor Class} ${ptAc}`,
+				entryArmourClass: `{@b Armour Class} ${ptAc}`,
 				entryHitPoints: `{@b Hit Points} ${ent.hp.hp}${ptDtMt ? ` (${ptDtMt})` : ""}`,
 				entrySpeed: `{@b Speed} ${ent.speed} ft.`,
 				entrySpeedNote: `[{@b Travel Pace} ${Math.floor(ent.speed / 10)} miles per hour (${Math.floor(ent.speed * 24 / 10)} miles per day)]`,
@@ -13387,7 +13140,7 @@ Renderer.generic = class {
 			};
 
 			case "anyWeapon": throw new Error(`Property handling for "anyWeapon" is unimplemented!`);
-			case "anyArmor": throw new Error(`Property handling for "anyArmor" is unimplemented!`);
+			case "anyArmour": throw new Error(`Property handling for "anyArmour" is unimplemented!`);
 
 			default: return null;
 		}

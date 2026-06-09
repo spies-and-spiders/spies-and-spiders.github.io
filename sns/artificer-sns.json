@@ -18,7 +18,7 @@
       },
       "spellcastingAbility": "int",
       "startingProficiencies": {
-        "armor": [
+        "armour": [
           "light",
           "medium",
           "shields"
@@ -1819,14 +1819,6 @@
         "M"
       ],
       "type": "construct",
-      "alignment": [
-        "U"
-      ],
-      "ac": [
-        {
-          "ac": 4
-        }
-      ],
       "hp": {
         "special": "101"
       },
@@ -1835,15 +1827,9 @@
       },
       "str": 16,
       "dex": 12,
-      "con": 16,
       "int": 1,
       "wis": 6,
       "cha": 1,
-      "save": {
-        "str": "+3",
-        "dex": "+1",
-        "wis": "-2"
-      },
       "skill": {
         "athletics": "+5",
         "perception": "+0 (+1d4)"
@@ -1875,19 +1861,6 @@
       "languages": [
         "understands any known by its creator but cannot speak"
       ],
-      "trait": [
-        {
-          "name": "—MAJOR EFFECTS—",
-          "entries": [
-            {
-              "type": "list",
-              "items": [
-                "The automaton heals 20 hit points."
-              ]
-            }
-          ]
-        }
-      ],
       "action": [
         {
           "name": "Slam",
@@ -1909,6 +1882,29 @@
             "The automaton takes the Dash action."
           ]
         }
+      ],
+      "arm": [
+        {
+          "arm": 4
+        }
+      ],
+      "wil": [
+        {
+          "wil": -2
+        }
+      ],
+      "ref": [
+        {
+          "ref": 1
+        }
+      ],
+      "fort": [
+        {
+          "fort": 3
+        }
+      ],
+      "majorEffect": [
+        "The automaton heals 20 hit points."
       ]
     },
     {
@@ -1918,14 +1914,6 @@
         "M"
       ],
       "type": "undead",
-      "alignment": [
-        "U"
-      ],
-      "ac": [
-        {
-          "ac": -1
-        }
-      ],
       "hp": {
         "special": "16"
       },
@@ -1934,15 +1922,9 @@
       },
       "str": 12,
       "dex": 6,
-      "con": 16,
       "int": 3,
       "wis": 6,
       "cha": 4,
-      "save": {
-        "str": "+3",
-        "dex": "-2",
-        "wis": "-2"
-      },
       "immune": [
         "poison"
       ],
@@ -1955,17 +1937,6 @@
       ],
       "passive": 8,
       "trait": [
-        {
-          "name": "—MAJOR EFFECTS—",
-          "entries": [
-            {
-              "type": "list",
-              "items": [
-                "The zombie may immediately shift 5 feet."
-              ]
-            }
-          ]
-        },
         {
           "name": "Undead Fortitude (1/Day)",
           "entries": [
@@ -1993,6 +1964,29 @@
             "{@atk mw} reach 5 ft., one {@condition grappled|sns} target. {@damage 1d10 + 1} piercing damage, and the zombie regains the same number of hit points."
           ]
         }
+      ],
+      "arm": [
+        {
+          "arm": -1
+        }
+      ],
+      "wil": [
+        {
+          "wil": -2
+        }
+      ],
+      "ref": [
+        {
+          "ref": -2
+        }
+      ],
+      "fort": [
+        {
+          "fort": 3
+        }
+      ],
+      "majorEffect": [
+        "The zombie may immediately shift 5 feet."
       ]
     },
     {
@@ -2002,14 +1996,6 @@
         "S"
       ],
       "type": "construct",
-      "alignment": [
-        "U"
-      ],
-      "ac": [
-        {
-          "ac": 4
-        }
-      ],
       "hp": {
         "special": "six times your level"
       },
@@ -2022,28 +2008,12 @@
       "int": 10,
       "wis": 10,
       "cha": 10,
-      "save": {
-        "str": "+0",
-        "dex": "+0",
-        "wis": "+0"
-      },
       "immune": [
         "poison",
         "psychic"
       ],
       "passive": 10,
       "trait": [
-        {
-          "name": "—MAJOR EFFECTS—",
-          "entries": [
-            {
-              "type": "list",
-              "items": [
-                "The cannon recovers hit points equal to your level. If it is already on full hit points, it instead gains that amount of temporary hit points."
-              ]
-            }
-          ]
-        },
         {
           "name": "Sustainable Engineering",
           "entries": [
@@ -2070,6 +2040,29 @@
             "The cannon emits a burst of positive energy that grants itself and each creature of your choice within 10 feet of it a number of temporary hit points equal to {@dice 1d10} + your Intelligence modifier (minimum of +1)."
           ]
         }
+      ],
+      "arm": [
+        {
+          "arm": 4
+        }
+      ],
+      "wil": [
+        {
+          "wil": 0
+        }
+      ],
+      "ref": [
+        {
+          "ref": 0
+        }
+      ],
+      "fort": [
+        {
+          "fort": 0
+        }
+      ],
+      "majorEffect": [
+        "The cannon recovers hit points equal to your level. If it is already on full hit points, it instead gains that amount of temporary hit points."
       ]
     },
     {
@@ -2079,14 +2072,6 @@
         "M"
       ],
       "type": "construct",
-      "alignment": [
-        "U"
-      ],
-      "ac": [
-        {
-          "ac": 4
-        }
-      ],
       "hp": {
         "special": "12 times your level"
       },
@@ -2099,28 +2084,12 @@
       "int": 10,
       "wis": 10,
       "cha": 10,
-      "save": {
-        "str": "+0",
-        "dex": "+0",
-        "wis": "+0"
-      },
       "immune": [
         "poison",
         "psychic"
       ],
       "passive": 10,
       "trait": [
-        {
-          "name": "—MAJOR EFFECTS—",
-          "entries": [
-            {
-              "type": "list",
-              "items": [
-                "The cannon recovers hit points equal to your level. If it is already on full hit points, it instead gains that amount of temporary hit points."
-              ]
-            }
-          ]
-        },
         {
           "name": "Sustainable Engineering",
           "entries": [
@@ -2147,6 +2116,29 @@
             "The cannon emits a burst of positive energy that grants itself and each creature of your choice within 10 feet of it a number of temporary hit points equal to {@dice 2d10} + double your Intelligence modifier (minimum of +2)."
           ]
         }
+      ],
+      "arm": [
+        {
+          "arm": 4
+        }
+      ],
+      "wil": [
+        {
+          "wil": 0
+        }
+      ],
+      "ref": [
+        {
+          "ref": 0
+        }
+      ],
+      "fort": [
+        {
+          "fort": 0
+        }
+      ],
+      "majorEffect": [
+        "The cannon recovers hit points equal to your level. If it is already on full hit points, it instead gains that amount of temporary hit points."
       ]
     }
   ]

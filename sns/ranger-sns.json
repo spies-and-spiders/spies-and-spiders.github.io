@@ -1,7 +1,8 @@
 {
   "_meta": {
     "optionalFeatureTypes": {
-      "EK": "Exploration Knack"
+      "EK": "Exploration Knack",
+      "EW": "Exposed Weakness"
     }
   },
   "class": [
@@ -17,7 +18,7 @@
         "ref": 2
       },
       "startingProficiencies": {
-        "armor": [
+        "armour": [
           "light",
           "medium",
           "{@item shield|sns|shields}"
@@ -30,7 +31,6 @@
           {
             "choose": {
               "from": [
-                "animal handling",
                 "athletics",
                 "brawn",
                 "engineering",
@@ -164,10 +164,11 @@
         },
         "Exploration Knacks|Ranger|sns|1|sns",
         "Familiar Terrain|Ranger|sns|1|sns",
-        "Studied Adversary|Ranger|sns|1|sns",
+        "Expose Weakness|Ranger|sns|1|sns",
         "Combat Maneuvers|Ranger|sns|2|sns",
         "Stride and Seek|Ranger|sns|2|sns",
         "Trained Accuracy|Ranger|sns|2|sns",
+        "Exploitative|Ranger|sns|3|sns",
         {
           "classFeature": "First Subclass Tier 2|Ranger|sns|3|sns",
           "gainSubclassFeature": true
@@ -180,16 +181,16 @@
           "classFeature": "First Subclass Tier 3|Ranger|sns|5|sns",
           "gainSubclassFeature": true
         },
-        "Adversarial Focus|Ranger|sns|6|sns",
-        "Game Hunting|Ranger|sns|6|sns",
+        "Student of the Hunt|Ranger|sns|6|sns",
         {
           "classFeature": "First Subclass Tier 4|Ranger|sns|7|sns",
           "gainSubclassFeature": true
         },
+        "Flexible Exposure|Ranger|sns|7|sns",
         "Ability Score Improvement|Ranger|sns|8|sns",
         "Explorer's Instinct|Ranger|sns|8|sns",
         "Flash of Steel|Ranger|sns|9|sns",
-        "Hunter's Focus|Ranger|sns|9|sns",
+        "Stride and Seek Upgrade|Ranger|sns|9|sns",
         {
           "classFeature": "First Subclass Tier 5|Ranger|sns|9|sns",
           "gainSubclassFeature": true
@@ -269,25 +270,791 @@
           "type": "list",
           "items": [
             "Difficult terrain doesn't slow your group's travel.",
-            "Your group can't become lost except by magical means.",
-            "Even when you are engaged in another activity while traveling, you remain alert to danger. Your Perception for the purposes of avoiding ambushes increases by 2.",
-            "If you are traveling alone, you can move stealthily at a normal pace. This grants you advantage on Scout journey activity checks.",
-            "When you take the Harvest journey activity, you gain double the number of perk points you would usually acquire.",
+            "You gain an expertise die on Perception checks made to avoid ambushes.",
             "While tracking other creatures, you also learn their exact number, their sizes, and how long ago they passed through the area."
           ]
         }
       ]
     },
     {
-      "name": "Studied Adversary",
+      "name": "Expose Weakness",
       "source": "sns",
       "className": "Ranger",
       "classSource": "sns",
       "level": 1,
       "entries": [
-        "You have significant experience studying, tracking, hunting, and even communicating with your enemies. Choose a type of adversary: aberrations, beasts, celestials, constructs, dragons, elementals, fey, fiends, giants, monstrosities, oozes, plants, or undead. Alternatively, you can select two humanoid races as studied adversaries.",
-        "You have advantage on Survival checks to track your studied adversaries, as well as on ability checks to recall information about them. You also learn to communicate with basic words in a language of your choice that is spoken by your studied adversaries, if they speak one at all.",
-        "During a long rest, you can replace a current studied adversary with a new one."
+        "At 1st level, by analysing patterns and drawing from your extensive experience, you gain the ability to expose a creature's weaknesses to you and your allies. Choose one of the following options to determine how you do so.",
+        {
+          "type": "list",
+          "items": [
+            {
+              "type": "entries",
+              "name": "Analyse and Study",
+              "entries": [
+                "Whenever you roll for initiative, choose a creature within 60 feet of you and make one of the following ability checks based on its creature type. The DC is equal to 10 + the creature's CR. On a success, the creature is Exposed.",
+                {
+                  "type": "table",
+                  "colLabels": [
+                    "Check Skill",
+                    "Creature Types"
+                  ],
+                  "colStyles": [
+                    "col-6",
+                    "col-6"
+                  ],
+                  "rows": [
+                    [
+                      "History",
+                      "Celestials, Fiends, Undead"
+                    ],
+                    [
+                      "Magiscience",
+                      "Aberrations, Constructs, Elementals, Oozes"
+                    ],
+                    [
+                      "Medicine",
+                      "Giants, Humanoids"
+                    ],
+                    [
+                      "Nature",
+                      "Beasts, Dragons, Fey, Monstrosities, Plants"
+                    ]
+                  ]
+                },
+                "You can use a reaction at the end of each of your turns to repeat the above ability check against a creature within 60 feet of you."
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "Observe Defences",
+              "entries": [
+                "Whenever you score a major hit against a creature, you can use your reaction to Expose that creature."
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "Observe Offence",
+              "entries": [
+                "Whenever a creature hits you, you can use your reaction to Expose that creature."
+              ]
+            }
+          ]
+        },
+        "Whenever you Expose a creature, you reveal a random weakness it has based on its creature type by rolling a {@dice d8} on one of the following tables. This weakness remains until the creature dies. If you attempt to Expose a creature while a creature is already Exposed by you, the existing Exposed weakness disappears.",
+        {
+          "type": "entries",
+          "name": "Aberrations",
+          "entries": [
+            {
+              "type": "table",
+              "colLabels": [
+                "{@dice d8}",
+                "Weakness"
+              ],
+              "colStyles": [
+                "col-2 text-center",
+                "col-10"
+              ],
+              "rows": [
+                [
+                  "1",
+                  "{@optfeature Bizarre Nature|sns}"
+                ],
+                [
+                  "2",
+                  "{@optfeature Cracked Exterior|sns}"
+                ],
+                [
+                  "3",
+                  "{@optfeature Foreign Interference|sns}"
+                ],
+                [
+                  "4",
+                  "{@optfeature Inferior Constitution|sns}"
+                ],
+                [
+                  "5",
+                  "{@optfeature Photonic Power|sns}"
+                ],
+                [
+                  "6",
+                  "{@optfeature Photophobia|sns}"
+                ],
+                [
+                  "7",
+                  "{@optfeature Psychic Agnosia|sns}"
+                ],
+                [
+                  "8",
+                  "{@optfeature Telepathic Presence|sns}"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Beasts",
+          "entries": [
+            {
+              "type": "table",
+              "colLabels": [
+                "{@dice d8}",
+                "Weakness"
+              ],
+              "colStyles": [
+                "col-2 text-center",
+                "col-10"
+              ],
+              "rows": [
+                [
+                  "1",
+                  "{@optfeature Acquisitive|sns}"
+                ],
+                [
+                  "2",
+                  "{@optfeature Energy Vulnerability|sns}"
+                ],
+                [
+                  "3",
+                  "{@optfeature Notable Smell|sns}"
+                ],
+                [
+                  "4",
+                  "{@optfeature Righting Inability|sns}"
+                ],
+                [
+                  "5",
+                  "{@optfeature Susceptible|sns}"
+                ],
+                [
+                  "6",
+                  "{@optfeature Taste for Flesh|sns}"
+                ],
+                [
+                  "7",
+                  "{@optfeature Tunnel Vision|sns}"
+                ],
+                [
+                  "8",
+                  "{@optfeature Weak Joints|sns}"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Celestials",
+          "entries": [
+            {
+              "type": "table",
+              "colLabels": [
+                "{@dice d8}",
+                "Weakness"
+              ],
+              "colStyles": [
+                "col-2 text-center",
+                "col-10"
+              ],
+              "rows": [
+                [
+                  "1",
+                  "{@optfeature Bound by Prayer|sns}"
+                ],
+                [
+                  "2",
+                  "{@optfeature Covenant of Truth|sns}"
+                ],
+                [
+                  "3",
+                  "{@optfeature Decorative Garb|sns}"
+                ],
+                [
+                  "4",
+                  "{@optfeature Egotistical Pride|sns}"
+                ],
+                [
+                  "5",
+                  "{@optfeature Empathic Manifestation|sns}"
+                ],
+                [
+                  "6",
+                  "{@optfeature Energy Overload|sns}"
+                ],
+                [
+                  "7",
+                  "{@optfeature Heavenly Purity|sns}"
+                ],
+                [
+                  "8",
+                  "{@optfeature Relentless Pursuit|sns}"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Constructs",
+          "entries": [
+            {
+              "type": "table",
+              "colLabels": [
+                "{@dice d8}",
+                "Weakness"
+              ],
+              "colStyles": [
+                "col-2 text-center",
+                "col-10"
+              ],
+              "rows": [
+                [
+                  "1",
+                  "{@optfeature Energy Disruption|sns}"
+                ],
+                [
+                  "2",
+                  "{@optfeature Exploitable|sns}"
+                ],
+                [
+                  "3",
+                  "{@optfeature Flawed Construction|sns}"
+                ],
+                [
+                  "4",
+                  "{@optfeature Programmed Attack Patterns|sns}"
+                ],
+                [
+                  "5",
+                  "{@optfeature Programmed Movements|sns}"
+                ],
+                [
+                  "6",
+                  "{@optfeature Puppetable|sns}"
+                ],
+                [
+                  "7",
+                  "{@optfeature Sentinel Configuration|sns}"
+                ],
+                [
+                  "8",
+                  "{@optfeature Weak Bindings|sns}"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Dragons",
+          "entries": [
+            {
+              "type": "table",
+              "colLabels": [
+                "{@dice d8}",
+                "Weakness"
+              ],
+              "colStyles": [
+                "col-2 text-center",
+                "col-10"
+              ],
+              "rows": [
+                [
+                  "1",
+                  "{@optfeature Blindspot|sns}"
+                ],
+                [
+                  "2",
+                  "{@optfeature Cracked Scales|sns}"
+                ],
+                [
+                  "3",
+                  "{@optfeature Fragile Polarity|sns}"
+                ],
+                [
+                  "4",
+                  "{@optfeature Insular|sns}"
+                ],
+                [
+                  "5",
+                  "{@optfeature Intense Polarity|sns}"
+                ],
+                [
+                  "6",
+                  "{@optfeature Lingering Potency|sns}"
+                ],
+                [
+                  "7",
+                  "{@optfeature Long Neck|sns}"
+                ],
+                [
+                  "8",
+                  "{@optfeature Obsessed with Control|sns}"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Elementals",
+          "entries": [
+            {
+              "type": "table",
+              "colLabels": [
+                "{@dice d8}",
+                "Weakness"
+              ],
+              "colStyles": [
+                "col-2 text-center",
+                "col-10"
+              ],
+              "rows": [
+                [
+                  "1",
+                  "{@optfeature Delicate|sns}"
+                ],
+                [
+                  "2",
+                  "{@optfeature Feeble Core|sns}"
+                ],
+                [
+                  "3",
+                  "{@optfeature Fragile Attunement|sns}"
+                ],
+                [
+                  "4",
+                  "{@optfeature Grounding Glyph|sns}"
+                ],
+                [
+                  "5",
+                  "{@optfeature Hypertangible|sns}"
+                ],
+                [
+                  "6",
+                  "{@optfeature Merinthophobia|sns}"
+                ],
+                [
+                  "7",
+                  "{@optfeature Unstable Presence|sns}"
+                ],
+                [
+                  "8",
+                  "{@optfeature Weak Bonds|sns}"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Fey",
+          "entries": [
+            {
+              "type": "table",
+              "colLabels": [
+                "{@dice d8}",
+                "Weakness"
+              ],
+              "colStyles": [
+                "col-2 text-center",
+                "col-10"
+              ],
+              "rows": [
+                [
+                  "1",
+                  "{@optfeature Bound to Reflections|sns}"
+                ],
+                [
+                  "2",
+                  "{@optfeature Choreomania|sns}"
+                ],
+                [
+                  "3",
+                  "{@optfeature Entitled Freedom|sns}"
+                ],
+                [
+                  "4",
+                  "{@optfeature Gilded Pact|sns}"
+                ],
+                [
+                  "5",
+                  "{@optfeature Occult Reality|sns}"
+                ],
+                [
+                  "6",
+                  "{@optfeature Sacred Sprout|sns}"
+                ],
+                [
+                  "7",
+                  "{@optfeature Self-Blindness|sns}"
+                ],
+                [
+                  "8",
+                  "{@optfeature Twisted by Words|sns}"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Fiends",
+          "entries": [
+            {
+              "type": "table",
+              "colLabels": [
+                "{@dice d8}",
+                "Weakness"
+              ],
+              "colStyles": [
+                "col-2 text-center",
+                "col-10"
+              ],
+              "rows": [
+                [
+                  "1",
+                  "{@optfeature Dessicated Flesh|sns}"
+                ],
+                [
+                  "2",
+                  "{@optfeature Energy Sensitivity|sns}"
+                ],
+                [
+                  "3",
+                  "{@optfeature Fuelled by Fury|sns}"
+                ],
+                [
+                  "4",
+                  "{@optfeature Looking for a Challenge|sns}"
+                ],
+                [
+                  "5",
+                  "{@optfeature Melophobia|sns}"
+                ],
+                [
+                  "6",
+                  "{@optfeature Reckless|sns}"
+                ],
+                [
+                  "7",
+                  "{@optfeature See No Evil|sns}"
+                ],
+                [
+                  "8",
+                  "{@optfeature Unholy Nature|sns}"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Giants",
+          "entries": [
+            {
+              "type": "table",
+              "colLabels": [
+                "{@dice d8}",
+                "Weakness"
+              ],
+              "colStyles": [
+                "col-2 text-center",
+                "col-10"
+              ],
+              "rows": [
+                [
+                  "1",
+                  "{@optfeature All Bluster|sns}"
+                ],
+                [
+                  "2",
+                  "{@optfeature Allometry|sns}"
+                ],
+                [
+                  "3",
+                  "{@optfeature Analysis Paralysis|sns}"
+                ],
+                [
+                  "4",
+                  "{@optfeature Fragile Origin|sns}"
+                ],
+                [
+                  "5",
+                  "{@optfeature Humanoid Allergy|sns}"
+                ],
+                [
+                  "6",
+                  "{@optfeature Muscular Pride|sns}"
+                ],
+                [
+                  "7",
+                  "{@optfeature Partial to Pretty Lights|sns}"
+                ],
+                [
+                  "8",
+                  "{@optfeature Toxic Emotions|sns}"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Humanoids",
+          "entries": [
+            {
+              "type": "table",
+              "colLabels": [
+                "{@dice d8}",
+                "Weakness"
+              ],
+              "colStyles": [
+                "col-2 text-center",
+                "col-10"
+              ],
+              "rows": [
+                [
+                  "1",
+                  "{@optfeature Clumsy|sns}"
+                ],
+                [
+                  "2",
+                  "{@optfeature Fragile Mind|sns}"
+                ],
+                [
+                  "3",
+                  "{@optfeature Left Exposed|sns}"
+                ],
+                [
+                  "4",
+                  "{@optfeature Pinned Down|sns}"
+                ],
+                [
+                  "5",
+                  "{@optfeature Poor Attention Span|sns}"
+                ],
+                [
+                  "6",
+                  "{@optfeature Shellshock|sns}"
+                ],
+                [
+                  "7",
+                  "{@optfeature Unfamiliar Footing|sns}"
+                ],
+                [
+                  "8",
+                  "{@optfeature Vulnerable to Greater Forces|sns}"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Monstrosities",
+          "entries": [
+            {
+              "type": "table",
+              "colLabels": [
+                "{@dice d8}",
+                "Weakness"
+              ],
+              "colStyles": [
+                "col-2 text-center",
+                "col-10"
+              ],
+              "rows": [
+                [
+                  "1",
+                  "{@optfeature Easy Quarry|sns}"
+                ],
+                [
+                  "2",
+                  "{@optfeature Exposed Weapons|sns}"
+                ],
+                [
+                  "3",
+                  "{@optfeature Ravenous Hunger|sns}"
+                ],
+                [
+                  "4",
+                  "{@optfeature Sciophobia|sns}"
+                ],
+                [
+                  "5",
+                  "{@optfeature Targetable Weapon|sns}"
+                ],
+                [
+                  "6",
+                  "{@optfeature Telegraphed Attacks|sns}"
+                ],
+                [
+                  "7",
+                  "{@optfeature Violent Compulsions|sns}"
+                ],
+                [
+                  "8",
+                  "{@optfeature Vulnerable Joints|sns}"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Oozes",
+          "entries": [
+            {
+              "type": "table",
+              "colLabels": [
+                "{@dice d8}",
+                "Weakness"
+              ],
+              "colStyles": [
+                "col-2 text-center",
+                "col-10"
+              ],
+              "rows": [
+                [
+                  "1",
+                  "{@optfeature Disrupted Viscosity|sns}"
+                ],
+                [
+                  "2",
+                  "{@optfeature Energy Brittling|sns}"
+                ],
+                [
+                  "3",
+                  "{@optfeature Explosive Reaction|sns}"
+                ],
+                [
+                  "4",
+                  "{@optfeature Immiscible|sns}"
+                ],
+                [
+                  "5",
+                  "{@optfeature Osmotic Drain|sns}"
+                ],
+                [
+                  "6",
+                  "{@optfeature Reactive Cohesion|sns}"
+                ],
+                [
+                  "7",
+                  "{@optfeature Solvent Shock|sns}"
+                ],
+                [
+                  "8",
+                  "{@optfeature Stunted Kinetics|sns}"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Plants",
+          "entries": [
+            {
+              "type": "table",
+              "colLabels": [
+                "{@dice d8}",
+                "Weakness"
+              ],
+              "colStyles": [
+                "col-2 text-center",
+                "col-10"
+              ],
+              "rows": [
+                [
+                  "1",
+                  "{@optfeature Epiphyte|sns}"
+                ],
+                [
+                  "2",
+                  "{@optfeature Exposed Roots|sns}"
+                ],
+                [
+                  "3",
+                  "{@optfeature Genetic Weakness|sns}"
+                ],
+                [
+                  "4",
+                  "{@optfeature Lengthy Extrusions|sns}"
+                ],
+                [
+                  "5",
+                  "{@optfeature Poor Mobility|sns}"
+                ],
+                [
+                  "6",
+                  "{@optfeature Sustaining Root|sns}"
+                ],
+                [
+                  "7",
+                  "{@optfeature Thriving Instincts|sns}"
+                ],
+                [
+                  "8",
+                  "{@optfeature Vulnerable to Pests|sns}"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Undead",
+          "entries": [
+            {
+              "type": "table",
+              "colLabels": [
+                "{@dice d8}",
+                "Weakness"
+              ],
+              "colStyles": [
+                "col-2 text-center",
+                "col-10"
+              ],
+              "rows": [
+                [
+                  "1",
+                  "{@optfeature Attachment to Surroundings|sns}"
+                ],
+                [
+                  "2",
+                  "{@optfeature Brittle Body|sns}"
+                ],
+                [
+                  "3",
+                  "{@optfeature Leaking Animation Magic|sns}"
+                ],
+                [
+                  "4",
+                  "{@optfeature Life Snuffer|sns}"
+                ],
+                [
+                  "5",
+                  "{@optfeature Remnants of the Past|sns}"
+                ],
+                [
+                  "6",
+                  "{@optfeature Trauma-Bound|sns}"
+                ],
+                [
+                  "7",
+                  "{@optfeature Unholy Protection|sns}"
+                ],
+                [
+                  "8",
+                  "{@optfeature Vulnerable Head|sns}"
+                ]
+              ]
+            }
+          ]
+        }
       ]
     },
     {
@@ -383,9 +1150,19 @@
           "type": "entries",
           "name": "Accuracy Reserve",
           "entries": [
-            "If you have not moved since the beginning of your last turn, you gain a +1 bonus to weapon armour attack rolls until the end of your turn. You lose this bonus if you move."
+            "If you have not moved since the start of your last turn, you gain a +1 bonus to weapon armour attack rolls during your turn."
           ]
         }
+      ]
+    },
+    {
+      "name": "Exploitative",
+      "source": "sns",
+      "className": "Ranger",
+      "classSource": "sns",
+      "level": 3,
+      "entries": [
+        "From 3rd level, you become adept at identifying specific weaknesses in your enemies that you and your allies can exploit. Whenever you Expose a creature, you roll two {@dice d8}s instead of one and can choose one of the results rolled for the weakness that is revealed."
       ]
     },
     {
@@ -580,24 +1357,23 @@
       ]
     },
     {
-      "name": "Adversarial Focus",
+      "name": "Student of the Hunt",
       "source": "sns",
       "className": "Ranger",
       "classSource": "sns",
       "level": 6,
       "entries": [
-        "At 6th level you gain an additional studied adversary, and you gain a +1 bonus to weapon armour attack rolls made against your studied adversaries."
+        "At 6th level, you gain an expertise die on checks made to track non-humanoid creatures, as well as on ability checks to recall information about them. Additionally, you learn one exotic language of your choice."
       ]
     },
     {
-      "name": "Game Hunting",
+      "name": "Flexible Exposure",
       "source": "sns",
       "className": "Ranger",
       "classSource": "sns",
-      "level": 6,
+      "level": 7,
       "entries": [
-        "At 6th level, you have advantage on Gather Component journey activity checks.",
-        "Additionally, being adjacent to a hostile creature doesn't impose disadvantage on your attack rolls with a net."
+        "At 7th level, you can choose one additional exposure application option from your Expose Weakness feature."
       ]
     },
     {
@@ -622,13 +1398,27 @@
       ]
     },
     {
-      "name": "Hunter's Focus",
+      "name": "Stride and Seek Upgrade",
       "source": "sns",
       "className": "Ranger",
       "classSource": "sns",
       "level": 9,
       "entries": [
-        "At 9th level, you can remain focused on your Hunter's Target for up to 8 hours."
+        "At 9th level, choose one of the following improvements to a Stride and Seek feature you have.",
+        {
+          "type": "entries",
+          "name": "Hunter's Target",
+          "entries": [
+            "You can remain focused on your Hunter's Target for up to 8 hours."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Swift Feet",
+          "entries": [
+            "Your Swift Feet now lasts for up to 1 hour."
+          ]
+        }
       ]
     },
     {
@@ -727,7 +1517,7 @@
       "classSource": "sns",
       "level": 14,
       "entries": [
-        "At 14th level you gain a third studied adversary. In addition, you can choose one of the following ranger tactics:",
+        "At 14th level, you can choose one of the following ranger tactics:",
         {
           "type": "entries",
           "name": "Covered Shot",
@@ -790,7 +1580,7 @@
           "type": "entries",
           "name": "Beastly Attack",
           "entries": [
-            "Once on each of your turns, a beast that is friendly to you and able to see or hear you can use its reaction to make a single basic weapon attack."
+            "Once on each of your turns, a beast that is friendly to you and able to sense you can use its reaction to make a single basic weapon attack."
           ]
         },
         {
@@ -842,7 +1632,7 @@
           "type": "entries",
           "name": "Elemental Mastery",
           "entries": [
-            "By focusing on a specific natural element within 100 feet (air, fire, earth, water, or wood) you can attract similar essences to you. After 10 minutes of concentration, a creature of that element is drawn to your presence and becomes your loyal minion (despite not requiring concentration). This creature is based on a level 7 generic minion (https://homebrewery.naturalcrit.com/share/4FjimI1VqkgS), but with the following modifications:",
+            "By focusing on a specific natural element within 100 feet (air, fire, earth, water, or wood) you can attract similar essences to you. After 10 minutes of meditation, a creature of that element is drawn to your presence and obeys your commands. This creature is based on a CR 7 generic minion (https://homebrewery.naturalcrit.com/share/4FjimI1VqkgS), but with the following modifications:",
             {
               "type": "list",
               "items": [
@@ -853,7 +1643,7 @@
                 "The guardian gains the Guard Life action: The guardian uses its Engulf on a willing, {@condition unconscious|sns}, or {@condition incapacitated|sns} ally without dealing damage. While engulfed, the ally is {@condition grappled|sns} but not {@condition restrained|sns}, can see and breathe normally, and has total cover. As soon as the ally takes an action, reaction, or bonus action, they are no longer engulfed. The guardian can release the ally at will (no action required)."
               ]
             },
-            "The creature is friendly to you and your companions, takes its turn immediately after yours, and obeys your verbal commands. The creature disappears after 1 hour, when it is reduced to 0 hit point, or you use a bonus action to dismiss it. Once you have used this feature, you can't do so again until you finish a long rest."
+            "The creature disappears after 1 hour, when it is reduced to 0 hit point, or you use a bonus action to dismiss it. Once you have used this feature, you can't do so again until you finish a long rest."
           ]
         },
         {
@@ -864,33 +1654,25 @@
             {
               "type": "list",
               "items": [
-                "Enraged Fauna: Up to 3 Huge native creatures of up to CR 8 charge forward (use CR 8 generic minions - https://homebrewery.naturalcrit.com/share/4FjimI1VqkgS), bowling into your enemies. Choose any number of creatures you can see within 100 feet. Make a fortitude attack against each of them dealing 9d6 bludgeoning weapon damage. In addition, you can choose one of the Huge creatures to stay and fight. You can have only one such creature assist in this way at a time, and it retreats when bloodied or when you command it to leave. It counts as a minion, despite not requiring concentration.",
-                "Rushing Stamped: A Huge-sized horde of Small, Medium, and Large native creatures hurry through the area, traveling in a 30'-wide line from a direction you choose. Until the start of your next turn, the area is difficult terrain. In addition, make a reflex attack against each creature of your choice in the area that deals 5d8 bludgeoning weapon damage. On a hit, a target is knocked {@condition prone|sns} and {@condition debilitated|sns} until the start of your next turn. Otherwise, a target is {@condition rattled|sns} until the start of your next turn.",
-                "Swarming Pests: Several Medium-sized swarms of Tiny native creatures enter the spaces of up to 5 Small, Medium, or Large creatures you choose, or the space of a Huge or Gargantuan creature. Make a fortitude attack against each enemy creature in the swarm's area with the following outcomes:",
                 {
-                  "type": "list",
-                  "items": [
-                    {
-                      "type": "item",
-                      "name": "Minor success",
-                      "entries": [
-                        "The target is {@condition slowed|sns} until the start of your next turn."
-                      ]
-                    },
-                    {
-                      "type": "item",
-                      "name": "Standard success",
-                      "entries": [
-                        "The target becomes {@condition blinded|sns} and {@condition slowed|sns} until the start of your next turn, and loses concentration on any effect it is concentrating on."
-                      ]
-                    },
-                    {
-                      "type": "item",
-                      "name": "Critical success",
-                      "entries": [
-                        "As standard success, but the conditions last for 2 rounds instead."
-                      ]
-                    }
+                  "type": "item",
+                  "name": "Enraged Fauna",
+                  "entries": [
+                    "Up to 3 Huge native creatures of up to CR 8 charge forward (use CR 8 generic minions - https://homebrewery.naturalcrit.com/share/4FjimI1VqkgS), bowling into your enemies. Choose any number of creatures you can see within 100 feet to suffer {@dice 9d6} bludgeoning harm. In addition, you can choose one of the Huge creatures to stay and fight. You can have only one such creature assist in this way at a time, and it retreats when bloodied or when you command it to leave."
+                  ]
+                },
+                {
+                  "type": "item",
+                  "name": "Rushing Stampede",
+                  "entries": [
+                    "A Huge-sized horde of Small, Medium, and Large native creatures hurry through the area, traveling in a 30'-wide line from a direction you choose. Until the start of your next turn, the area is difficult terrain. In addition, each creature of your choice in the area suffers {@dice 5d8} bludgeoning harm. Each target must also make a save, becoming {@condition prone|sns} and {@condition debilitated|sns} until the start of your next turn on a fail. On a successful save, a target is {@condition rattled|sns} until the start of your next turn."
+                  ]
+                },
+                {
+                  "type": "item",
+                  "name": "Swarming Pests",
+                  "entries": [
+                    "Several Medium-sized swarms of Tiny native creatures enter the spaces of up to 5 Small, Medium, or Large creatures you choose, or the space of a Huge or Gargantuan creature. Each creature in the swarm's area becomes {@condition blinded|sns} and {@condition slowed|sns} until the start of your next turn, and loses concentration on any effect it is concentrating on."
                   ]
                 }
               ]
@@ -1238,7 +2020,7 @@
         "EK"
       ],
       "entries": [
-        "After a Befriend Animal journey activity, you can befriend and feed a Medium or smaller beast of your choice, becoming its guardian ranger (use the CR 1/8 generic minion - https://homebrewery.naturalcrit.com/share/4FjimI1VqkgS). It counts as a minion despite not requiring concentration. The beast won't attack except as a response to being attacked, but it can take other actions as normal and makes death saving throws. You can only be a guardian ranger to one beast at a time."
+        "After a Befriend Animal journey activity, you can befriend and feed a Medium or smaller beast of your choice, becoming its guardian ranger (use the CR 1/8 generic minion - https://homebrewery.naturalcrit.com/share/4FjimI1VqkgS). It counts as a minion and requires your concentration, but you cannot lose this concentration against your will. The beast won't attack except as a response to being attacked, but it can take other actions as normal and makes death saving throws. You can only be a guardian ranger to one beast at a time."
       ]
     },
     {
@@ -1371,7 +2153,7 @@
         "EK"
       ],
       "entries": [
-        "By imitating how a beast or studied adversary sounds, looks, and moves, you gain advantage on Deception and Intimidation checks made to convince a creature that it is seeing or hearing that beast or studied adversary."
+        "By imitating how a non-humanoid creature sounds, looks, and moves, you gain advantage on Deception and Intimidation checks made to convince a creature that it is seeing or hearing that beast."
       ]
     },
     {
@@ -1434,6 +2216,1126 @@
       ],
       "entries": [
         "When traveling you may undertake two journey activities per day instead of one. Both activities must be from the following list: Befriend Creature, Gather Components, Harvest, Scout."
+      ]
+    },
+    {
+      "name": "Foreign Interference",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "The next time the aberration suffers a major hit that deals non-physical base damage, it loses the ability to score major successes with its attacks for the remainder of combat; its major successes are instead counted as standard successes."
+      ]
+    },
+    {
+      "name": "Telepathic Presence",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "Whenever a creature within 60 feet of the aberration gains any of the {@condition charmed|sns}, {@condition dominated|sns}, {@condition fixated|sns}, {@condition frightened|sns}, {@condition rattled|sns}, {@condition strife|sns}, or {@condition taunted|sns} conditions, the aberration must make a save. On a fail, it gains the same condition until it passes a passive save."
+      ]
+    },
+    {
+      "name": "Photonic Power",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "Whenever the aberration targets a creature wearing metal armour or wielding a shield with a damaging attack, the target can use its reaction to partially reflect the attack, reducing the attack's success tier by 1. If a melee or ranged attack is reflected, the aberration also suffers the effects that this tier reduction removed from the attack. For example, a major success being reduced to a success will reflect the major effect, but a standard success becoming a minor success will reflect half the attack's damage."
+      ]
+    },
+    {
+      "name": "Bizarre Nature",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "The next time the aberration is healed by you or an ally, it loses the ability to score major and critical successes with its attacks for the remainder of combat; such successes are instead counted as standard successes."
+      ]
+    },
+    {
+      "name": "Psychic Agnosia",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "While an illusion spell is active within the aberration's line of sight, the aberration is {@condition confused|sns} and includes itself in options for the condition's free attack."
+      ]
+    },
+    {
+      "name": "Cracked Exterior",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "Whenever the aberration suffers a major hit that deals physical base damage, the attacker can halve the attack's damage to reduce the aberration's armour by 1 for the remainder of combat."
+      ]
+    },
+    {
+      "name": "Inferior Constitution",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "While the aberration has any of the {@condition debilitated|sns}, {@condition fatigue|sns}, {@condition poisoned|sns}, {@condition sluggish|sns}, or {@condition staggered|sns} conditions, it loses a number of hit points at the start of each of its turns equal to quadruple your proficiency bonus."
+      ]
+    },
+    {
+      "name": "Photophobia",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "Whenever the aberration changes from being within darkness to bright light, it uses its reaction to move up to its Speed away from the light source. Additionally, opportunity attacks have advantage against it when it is moving in this way."
+      ]
+    },
+    {
+      "name": "Tunnel Vision",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "The beast has 50% vulnerability to the damage of melee attacks from creatures flanking it."
+      ]
+    },
+    {
+      "name": "Susceptible",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "As a bonus action, a creature within 30 feet of the beast can make a Nature check with DC equal to 10 + the beast's CR. On a success, the beast is {@condition dominated|sns} for the remainder of combat."
+      ]
+    },
+    {
+      "name": "Energy Vulnerability",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "The next time the beast suffers a major hit that deals non-physical base damage, it becomes {@condition slowed|sns} for the remainder of combat."
+      ]
+    },
+    {
+      "name": "Notable Smell",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "As a bonus action, a creature within 30 feet of the beast can make a Perception check with DC equal to 10 + the beast's CR. On a success, the beast's attacks have disadvantage against that creature for the remainder of combat."
+      ]
+    },
+    {
+      "name": "Taste for Flesh",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "The beast is always {@condition taunted|sns} by your ally (including yourself) wearing the lightest body armour type. If multiple creatures meet this condition, the beast is taunted by all of them."
+      ]
+    },
+    {
+      "name": "Righting Inability",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "Whenever the beast is knocked {@condition prone|sns}, it cannot stand up until it uses an action to do so. Additionally, it does not impose disadvantage on non-adjacent armour attacks while {@condition prone|sns}."
+      ]
+    },
+    {
+      "name": "Acquisitive",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "The beast is always {@condition taunted|sns} by your ally (including yourself) holding the most gold. If multiple creatures meet this condition, the beast is taunted by all of them."
+      ]
+    },
+    {
+      "name": "Weak Joints",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "c"
+      ]
+    },
+    {
+      "name": "Empathic Manifestation",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "The next time an ally of the celestial dies within 120 feet of it, the celestial gains 50% vulnerability to physical damage for the remainder of combat. If this effect is not active and the celestial has no allies within 120 feet of it, physical attacks against it instead deal additional base damage equal to the celestial's CR."
+      ]
+    },
+    {
+      "name": "Relentless Pursuit",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "The celestial is always {@condition taunted|sns} by your ally (including yourself) that it believes to have committed the most evil deed within the last century. It does not learn what this deed is."
+      ]
+    },
+    {
+      "name": "Egotistical Pride",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "While the celestial is {@condition prone|sns}, it has 50% vulnerability to physical damage and incoming attacks against it have +1 critical success range."
+      ]
+    },
+    {
+      "name": "Heavenly Purity",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "The celestial is always {@condition taunted|sns} by your ally (including yourself) that last dealt non-physical (except radiant) damage to it."
+      ]
+    },
+    {
+      "name": "Bound by Prayer",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "As a bonus action, a creature within 30 feet of the celestial can make a History check with DC equal to 10 + the celestial's CR. On a success, the celestial becomes {@condition slowed|sns} for the remainder of combat."
+      ]
+    },
+    {
+      "name": "Decorative Garb",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "A creature can target the celestial with the {@spell grab on|sns} basic maneuver, regardless of size difference. Only one creature can grab onto the celestial in this way at a time, and while doing so, the celestial cannot make attacks against the grabber unless it rolls over to do so, has disadvantage on all attacks, and deals double damage to its grabber if it manages to dislodge them."
+      ]
+    },
+    {
+      "name": "Covenant of Truth",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "As a bonus action, a creature within 30 feet of the celestial can knowingly speak a lie, making a Deception check with DC equal to 10 + the celestial's CR. On a failure, the celestial's armour is reduced by 3 for the remainder of combat. This effect does not stack."
+      ]
+    },
+    {
+      "name": "Energy Overload",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "Whenever the celestial takes non-physical damage, it emits a burst of power, granting you and allies within 10 feet of it a number of temporary hit points equal to its CR plus your proficiency bonus."
+      ]
+    },
+    {
+      "name": "Programmed Attack Patterns",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "The construct has disadvantage on attack rolls against creatures that are proficient with all weapons the construct is wielding (if it is unarmed, it counts as wielding Brass Knuckles)."
+      ]
+    },
+    {
+      "name": "Exploitable",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "As a bonus action, a creature adjacent to the construct can make a Magiscience check with DC equal to 10 + the construct's CR. On a success, the construct gains 50% vulnerability to damage for the remainder of combat."
+      ]
+    },
+    {
+      "name": "Flawed Construction",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "As a bonus action, a creature within 30 feet of the construct can make a Perception check with DC equal to 10 + the construct's CR. On a success, that creature's attacks against the construct have +5 critical success range for the remainder of combat."
+      ]
+    },
+    {
+      "name": "Puppetable",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "The next time the construct is directly affected by a transmutation spell, it becomes {@condition dominated|sns} for the remainder of combat."
+      ]
+    },
+    {
+      "name": "Energy Disruption",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "The next time the construct suffers a major hit that deals non-physical base damage, it loses the ability to score major successes with its attacks for the remainder of combat; its major successes are instead counted as standard successes."
+      ]
+    },
+    {
+      "name": "Programmed Movements",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "Creatures proficient in medium or heavy armour have advantage on attack rolls against the construct."
+      ]
+    },
+    {
+      "name": "Sentinel Configuration",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "The construct's intercept range increases to 30 feet, and whenever it has the opportunity to intercept an attack against one of its allies, it does so. Additionally, whenever the construct intercepts an attack, its armour is reduced by 1 for the remainder of combat. While the construct has no allies within 30 feet of it, armour attacks against it have +1 critical success range."
+      ]
+    },
+    {
+      "name": "Weak Bindings",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "The next time a {@filter spell with the negation subschool|spells|Subschool=negation} is cast on the construct, or its area includes the construct, the construct becomes {@condition restrained|sns} by the caster and {@condition brittle|sns} for the remainder of combat."
+      ]
+    },
+    {
+      "name": "Obsessed with Control",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "While the dragon is {@condition charmed|sns}, {@condition dominated|sns}, {@condition fixated|sns}, {@condition frightened|sns}, or {@condition taunted|sns}, it loses a number of hit points at the start of each of its turns equal to quadruple your proficiency bonus."
+      ]
+    },
+    {
+      "name": "Lingering Potency",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "Whenever the dragon deals physical damage, it gains 50% vulnerability to the next instance of the same damage type from a weapon attack before its next turn. Whenever it deals non-physical damage, it gains similar vulnerability but for spell attacks instead."
+      ]
+    },
+    {
+      "name": "Intense Polarity",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "The next time the dragon suffers a major hit that deals non-physical base damage of a type that the dragon cannot deal itself, it becomes {@condition restrained|sns} by its attacker and {@condition slowed|sns} for the remainder of combat."
+      ]
+    },
+    {
+      "name": "Insular",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "Whenever the dragon suffers a major hit that deals non-physical base damage of a type that the dragon cannot deal itself, it becomes {@condition frightened|sns} of the attacker for the remainder of combat."
+      ]
+    },
+    {
+      "name": "Long Neck",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "While the dragon is {@condition grappled|sns}, it cannot score major successes with its attacks; its major successes are instead counted as standard successes."
+      ]
+    },
+    {
+      "name": "Cracked Scales",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "Whenever the dragon suffers a major hit that deals physical base damage of a type that the dragon cannot deal itself, that hit's base damage is added again as true damage."
+      ]
+    },
+    {
+      "name": "Fragile Polarity",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "The next time the dragon suffers a major hit that deals non-physical base damage of a type that the dragon cannot deal itself, it loses the ability to score major and critical successes with its attacks for the remainder of combat; its major and critical successes are instead counted as standard successes."
+      ]
+    },
+    {
+      "name": "Blindspot",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "Creatures with height advantage against the dragon have advantage on their attack rolls against it."
+      ]
+    },
+    {
+      "name": "Grounding Glyph",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "When this weakness is first exposed, you identify a glyph located on a random space near the elemental. The glyph fits into the space as required by its non-creature contents, such as being on a wall's surface, the bottom of a table, or floating in space. This space is determined by rolling a {@dice d8} and a {@dice d12}. The {@dice d12} shows the number of 5-foot spaces away from the elemental the space is, in a cardinal direction defined by the {@dice d8} (1 is north, 2 is northeast, 3 is east, and so on in clockwise order). A creature can use a bonus action on the glyph's space to immediately cause the elemental to lose hit points equal to 6 times your proficiency bonus."
+      ]
+    },
+    {
+      "name": "Fragile Attunement",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "The next time the elemental suffers a major hit that deals non-physical base damage of a type that the elemental cannot deal itself, it loses the ability to score major and critical successes with its attacks for the remainder of combat; its major and critical successes are instead counted as standard successes."
+      ]
+    },
+    {
+      "name": "Merinthophobia",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "While the elemental is {@condition grappled|sns}, it is also {@condition restrained|sns} and {@condition frightened|sns} of its grappler."
+      ]
+    },
+    {
+      "name": "Weak Bonds",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "The next time the elemental suffers a major hit that deals non-physical base damage of a type that the elemental cannot deal itself, it becomes {@condition restrained|sns} by the attacker and {@condition slowed|sns} for the remainder of combat."
+      ]
+    },
+    {
+      "name": "Unstable Presence",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "The elemental's concentration is occupied by this weakness for the remainder of combat. Whenever its concentration would otherwise be broken, it loses hit points equal to quadruple your proficiency bonus."
+      ]
+    },
+    {
+      "name": "Delicate",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "The next time the elemental suffers a major hit that deals physical base damage of a type that the elemental cannot deal itself, it gains 50% vulnerability to physical damage for the remainder of combat."
+      ]
+    },
+    {
+      "name": "Hypertangible",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "Whenever the elemental suffers a major hit that deals physical base damage of a type that the elemental cannot deal itself, that hit's base damage is added again as true damage."
+      ]
+    },
+    {
+      "name": "Feeble Core",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "The elemental has disadvantage with attack rolls against creatures wearing medium or heavy armour."
+      ]
+    },
+    {
+      "name": "Occult Reality",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "While an illusion spell is active within the fey's line of sight, the fey has disadvantage on attack rolls."
+      ]
+    },
+    {
+      "name": "Sacred Sprout",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "When this weakness is first exposed, a tiny plant resembling the fey sprouts in a random space near the fey. The plant fits into the space as required by its non-creature contents, such as growing out of a wall's surface, a table's top, or floating in space. This space is determined by rolling a {@dice d8} and a {@dice d12}. The {@dice d12} shows the number of 5-foot spaces away from the fey the space is, in a cardinal direction defined by the {@dice d8} (1 is north, 2 is northeast, 3 is east, and so on in clockwise order). A creature can use a bonus action on the plant's space to immediately cause the fey to lose hit points equal to 6 times your proficiency bonus."
+      ]
+    },
+    {
+      "name": "Twisted by Words",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "As a bonus action, a creature within 30 feet of the fey can make a Persuasion check with DC equal to 10 + the fey's CR. On a success, the fey becomes {@condition poisoned|sns} for the remainder of combat, and fortitude attacks against it have advantage for the same duration."
+      ]
+    },
+    {
+      "name": "Entitled Freedom",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "While the fey is {@condition grappled|sns}, it is also {@condition dazed|sns}."
+      ]
+    },
+    {
+      "name": "Choreomania",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "As a bonus action, a creature within 30 feet of the fey can start singing, making a Charisma check with DC equal to 6 + the fey's CR. On a success, the fey cannot stop itself from dancing for the remainder of combat. While it is dancing, all spell attacks against it have advantage."
+      ]
+    },
+    {
+      "name": "Self-Blindness",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "Creatures wearing metal armour or wielding a shield are considered invisible to the fey."
+      ]
+    },
+    {
+      "name": "Gilded Pact",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "As a bonus action, a creature adjacent to the fey may gift it a gold piece, causing it to be {@condition dominated|sns} for the remainder of combat."
+      ]
+    },
+    {
+      "name": "Bound to Reflections",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "While the fey is within 10 feet of a source of dim or brighter light, a creature also within that area can use its bonus action to force the fey to repeat its last movement exactly. If this movement would cause it to collide with a small or larger creature, object, or structure, it stops and takes damage as if it were being pushed."
+      ]
+    },
+    {
+      "name": "Dessicated Flesh",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "Whenever the fiend is directly affected by a {@filter spell with the air subschool|spells|Subschool=air}, it loses hit points equal to quadruple your proficiency bonus."
+      ]
+    },
+    {
+      "name": "Fuelled by Fury",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "The fiend has a -3 penalty to its attack rolls for the remainder of combat. Whenever a major success is scored against the fiend, it gains a +1 bonus to attack rolls for the remainder of combat."
+      ]
+    },
+    {
+      "name": "Reckless",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "Whenever the fiend fails to hit a creature taking the Block action with any damaging attack, the attack targets itself instead, using the same final attack roll result but increasing the attack's success tier by 1."
+      ]
+    },
+    {
+      "name": "Melophobia",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "As a bonus action, a creature within 30 feet of the fiend can start singing, making a Charisma check with DC equal to 6 + the fiend's CR. On a success, the fiend has disadvantage on attack rolls against the singer and creatures adjacent to the singer for the remainder of combat."
+      ]
+    },
+    {
+      "name": "See No Evil",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "The fiend cannot score major or critical successes with its attacks against creatures with their eyes closed; such attacks are instead counted as standard successes."
+      ]
+    },
+    {
+      "name": "Looking for a Challenge",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "The fiend has disadvantage with attacks against creatures with a condition."
+      ]
+    },
+    {
+      "name": "Energy Sensitivity",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "The next time the fiend suffers a major hit that deals non-physical base damage, it loses the ability to score major successes with its attacks for the remainder of combat; its major successes are instead counted as standard successes."
+      ]
+    },
+    {
+      "name": "Unholy Nature",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "As a bonus action, a creature can say a silent prayer, making a History check with DC equal to 10 + the fiend's CR. On a success, that creature gains 50% resistance to the fiend's damage for the remainder of combat."
+      ]
+    },
+    {
+      "name": "Analysis Paralysis",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "The giant has disadvantage on attack rolls while at least three hostile Medium or smaller creatures are adjacent to it."
+      ]
+    },
+    {
+      "name": "All Bluster",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "The giant has disadvantage on attack rolls against creatures with at least 3 will."
+      ]
+    },
+    {
+      "name": "Fragile Origin",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "Whenever the giant suffers a major hit that deals non-physical base damage of a type that the giant cannot deal itself, it has disadvantage on attack rolls against the attacker for the remainder of combat."
+      ]
+    },
+    {
+      "name": "Muscular Pride",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "The giant is always {@condition taunted|sns} by your ally (including yourself) with the highest Strength score."
+      ]
+    },
+    {
+      "name": "Partial to Pretty Lights",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "The next time a {@filter spell with the prismatic subschool|spells|Subschool=prismatic} produces an effect within 60 feet of the giant and within its line of sight, the giant becomes {@condition dominated|sns} by the caster for the remainder of combat."
+      ]
+    },
+    {
+      "name": "Humanoid Allergy",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "Whenever the giant starts its turn adjacent to a humanoid, it must make a save. On a fail, the giant's concentration is occupied by this weakness for the remainder of combat. Whenever its concentration would otherwise be broken during this effect, it loses hit points equal to 6 times your proficiency bonus."
+      ]
+    },
+    {
+      "name": "Toxic Emotions",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "While the giant is {@condition charmed|sns}, {@condition dominated|sns}, {@condition fixated|sns}, {@condition frightened|sns}, or {@condition taunted|sns}, it is also {@condition weakened|sns}."
+      ]
+    },
+    {
+      "name": "Allometry",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "While the giant has any of the {@condition debilitated|sns}, {@condition fatigue|sns}, {@condition poisoned|sns}, {@condition sluggish|sns}, or {@condition staggered|sns} conditions, it cannot score major successes with its attacks; such major successes are instead counted as standard successes."
+      ]
+    },
+    {
+      "name": "Clumsy",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "Whenever the humanoid targets a creature wearing metal armour or wielding a shield with a damaging attack, the target can use its reaction to partially reflect the attack, reducing the attack's success tier by 1. If a melee or ranged attack is reflected, the humanoid also suffers the effects that this tier reduction removed from the attack. For example, a major success being reduced to a success will reflect the major effect, but a standard success becoming a minor success will reflect half the attack's damage."
+      ]
+    },
+    {
+      "name": "Unfamiliar Footing",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "Attack rolls have advantage against the humanoid while it is standing in difficult terrain."
+      ]
+    },
+    {
+      "name": "Vulnerable to Greater Forces",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "The next time the humanoid suffers a major hit that deals non-physical base damage, it loses the ability to score major successes with its attacks for the remainder of combat; its major successes are instead counted as standard successes."
+      ]
+    },
+    {
+      "name": "Poor Attention Span",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "The humanoid is always {@condition taunted|sns} by the creature that last attacked it."
+      ]
+    },
+    {
+      "name": "Shellshock",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "The next time the humanoid suffers a major hit that deals non-physical base damage, it becomes {@condition restrained|sns} by the attacker for the remainder of combat."
+      ]
+    },
+    {
+      "name": "Fragile Mind",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "While the humanoid has any of the {@condition charmed|sns}, {@condition dominated|sns}, {@condition fixated|sns}, {@condition frightened|sns}, {@condition rattled|sns}, {@condition strife|sns}, or {@condition taunted|sns} conditions, it gains 50% vulnerability to non-physical damage."
+      ]
+    },
+    {
+      "name": "Pinned Down",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "While the humanoid is adjacent to at least two hostile creatures, it loses the ability to score major successes with its attacks; such major successes are instead counted as standard successes."
+      ]
+    },
+    {
+      "name": "Left Exposed",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "Whenever the humanoid makes an attack roll with disadvantage, the next attack roll against it has advantage."
+      ]
+    },
+    {
+      "name": "Targetable Weapon",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "Whenever a creature makes a damaging melee attack against the monstrosity, the attacker can impose disadvantage on its attack roll. If the attack still hits, the monstrosity loses the ability to score major and critical successes with its attacks for the remainder of combat; its major and critical successes are instead counted as standard successes."
+      ]
+    },
+    {
+      "name": "Vulnerable Joints",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "The next time the monstrosity suffers a major hit that deals non-physical base damage, it becomes {@condition restrained|sns} by the attacker for the remainder of combat."
+      ]
+    },
+    {
+      "name": "Violent Compulsions",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "While the monstrosity is {@condition charmed|sns}, it is also {@condition dominated|sns} by the charmer. Additionally, whenever the monstrosity is forced by another creature to make an attack as a free action, that attack roll has advantage."
+      ]
+    },
+    {
+      "name": "Ravenous Hunger",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "While adjacent to a corpse or {@condition prone|sns} creature and within 30 feet of the monstrosity, a creature can use its bonus action to make a Persuasion check with DC equal to 10 + the monstrosity's CR. On a success, the monstrosity is {@condition taunted|sns} by the corpse or {@condition prone|sns} creature until the monstrosity is hurt or the {@condition prone|sns} creature stands up."
+      ]
+    },
+    {
+      "name": "Easy Quarry",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "The monstrosity gains 50% vulnerability to ranged weapon damage for the remainder of combat."
+      ]
+    },
+    {
+      "name": "Telegraphed Attacks",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "Whenever the monstrosity fails to hit a creature taking the Block action with any damaging attack, the target can use its reaction to make an attack against the monstrosity that only targets the monstrosity (range restrictions still apply). The monstrosity has 50% vulnerability to such an attack."
+      ]
+    },
+    {
+      "name": "Sciophobia",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "Whenever the monstrosity changes from being within bright light to darkness, it becomes {@condition frightened|sns} of you and {@condition brittle|sns} until it re-enters bright light."
+      ]
+    },
+    {
+      "name": "Exposed Weapons",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "The next time the monstrosity suffers a major hit that deals physical base damage, it loses the ability to score major successes with its attacks for the remainder of combat; its major successes are instead counted as standard successes."
+      ]
+    },
+    {
+      "name": "Explosive Reaction",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "Whenever a {@filter spell with the water subschool|spells|Subschool=water} is cast on the ooze, or its area includes the ooze, the ooze loses hit points equal to 8 times your proficiency bonus."
+      ]
+    },
+    {
+      "name": "Stunted Kinetics",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "Whenever the ooze suffers a major hit that deals non-physical base damage, it has disadvantage on attack rolls against the attacker for the remainder of combat."
+      ]
+    },
+    {
+      "name": "Immiscible",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "The next time a {@filter spell with the earth subschool|spells|Subschool=earth} is cast on the ooze, or its area includes the ooze, the ooze loses the ability to score major successes with its attacks for the remainder of combat; its major successes are instead counted as standard successes."
+      ]
+    },
+    {
+      "name": "Reactive Cohesion",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "The next time the ooze suffers a major hit that deals non-physical base damage, if there is another ooze within 60 feet of it, it immediately is absorbed into the closest one, increasing the other ooze's size by one step, adding its current hit points to the other ooze's total, and being effectively destroyed. If there is not another ooze within 60 feet, the ooze instead becomes {@condition weakened|sns} for the remainder of combat."
+      ]
+    },
+    {
+      "name": "Solvent Shock",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "The next time the ooze suffers a major hit that deals non-physical base damage, it becomes {@condition slowed|sns} for the remainder of combat."
+      ]
+    },
+    {
+      "name": "Energy Brittling",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "The next time the ooze suffers a major hit that deals non-physical base damage, it gains 50% vulnerability to non-physical damage for the remainder of combat."
+      ]
+    },
+    {
+      "name": "Disrupted Viscosity",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "Whenever the ooze is pushed or knocked {@condition prone|sns}, it loses hit points equal to quadruple your proficiency bonus."
+      ]
+    },
+    {
+      "name": "Osmotic Drain",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "Whenever the ooze changes from being within darkness to bright light, it becomes {@condition debilitated|sns} until it returns to darkness."
+      ]
+    },
+    {
+      "name": "Vulnerable to Pests",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "The plant gains 50% vulnerability to the damage of minions and {@filter spells with the beasts subschool|spells|Subschool=beasts} for the remainder of combat."
+      ]
+    },
+    {
+      "name": "Genetic Weakness",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "As a bonus action, a creature within 30 feet of the plant can make a Nature check with DC equal to 10 + the plant's CR. On a success, the plant gains 50% vulnerability to non-physical damage for the remainder of combat."
+      ]
+    },
+    {
+      "name": "Sustaining Root",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "When this weakness is first exposed, a root emerges in a random space near the plant. The root fits into the space as required by its non-creature contents, such as growing out of a wall's surface, a table's top, or folds in empty space. This space is determined by rolling a {@dice d8} and a {@dice d12}. The {@dice d12} shows the number of 5-foot spaces away from the plant the space is, in a cardinal direction defined by the {@dice d8} (1 is north, 2 is northeast, 3 is east, and so on in clockwise order). A creature can use a bonus action on the root's space to remove the plant's ability to score major successes with its attacks for 1 round; such major successes are instead counted as standard successes."
+      ]
+    },
+    {
+      "name": "Lengthy Extrusions",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "The plant has disadvantage with attack rolls against Small or smaller and {@condition prone|sns} creatures."
+      ]
+    },
+    {
+      "name": "Epiphyte",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "The next time an ally of the plant dies within 120 feet of it, the plant becomes {@condition frightened|sns} of the creature responsible for the ally's death for the remainder of combat. If this effect is not active and the plant has no allies within 120 feet of it, it is instead {@condition rattled|sns} and {@condition sluggish|sns}."
+      ]
+    },
+    {
+      "name": "Exposed Roots",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "The plant gains 50% vulnerability to the damage of armour attacks from adjacent creatures."
+      ]
+    },
+    {
+      "name": "Poor Mobility",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "Fortitude and reflex attack rolls have advantage against the plant."
+      ]
+    },
+    {
+      "name": "Thriving Instincts",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "The next time the plant is healed by you or an ally, it becomes {@condition dominated|sns} by the healer for the remainder of combat."
+      ]
+    },
+    {
+      "name": "Brittle Body",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "The undead gains 50% vulnerability to critical damage."
+      ]
+    },
+    {
+      "name": "Trauma-Bound",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "A creature within 60 feet of the undead can use a bonus action to attempt to convince the undead that its pain and trauma is understood, making a contested Deception check against the undead's Insight. If the undead loses this contest, it loses the ability to score major successes with its attacks for the remainder of combat; its major successes are instead counted as standard successes."
+      ]
+    },
+    {
+      "name": "Vulnerable Head",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "Whenever a creature makes a damaging armour attack against the monstrosity, the attacker can impose disadvantage on its attack roll. If they do so, the attack's final base damage is added again as true damage."
+      ]
+    },
+    {
+      "name": "Life Snuffer",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "The undead is always {@condition taunted|sns} by your ally (including yourself) with the most current hit points."
+      ]
+    },
+    {
+      "name": "Remnants of the Past",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "When the undead dies, it awards one additional loot."
+      ]
+    },
+    {
+      "name": "Leaking Animation Magic",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "Whenever the undead suffers a major hit that deals non-physical base damage, the attacker rolls on the wild magic table (TEMP while no S&S version available: http://dnd2024.wikidot.com/sorcerer:wild-magic-sorcery)."
+      ]
+    },
+    {
+      "name": "Unholy Protection",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "As a bonus action, a creature within 60 feet of the undead can say a silent prayer, making a History check with DC equal to 10 + the undead's CR. On a success, spell attack rolls have advantage against the undead for the remainder of combat."
+      ]
+    },
+    {
+      "name": "Attachment to Surroundings",
+      "source": "sns",
+      "featureType": [
+        "EW"
+      ],
+      "entries": [
+        "Damage against the undead is tripled from improvised weapons that were within 60 feet of the undead when this combat started."
       ]
     }
   ]

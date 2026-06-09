@@ -37,7 +37,7 @@ class PageFilterFeats extends PageFilterBase {
 		this._benefitsFilter = new Filter({
 			header: "Benefits",
 			items: [
-				"Armor Proficiency",
+				"Armour Proficiency",
 				"Language Proficiency",
 				"Skill Proficiency",
 				"Spellcasting",
@@ -79,7 +79,7 @@ class PageFilterFeats extends PageFilterBase {
 			feat.conditionImmune ? "Condition Immunity" : null,
 			feat.skillProficiencies ? "Skill Proficiency" : null,
 			feat.additionalSpells ? "Spellcasting" : null,
-			feat.armorProficiencies ? "Armor Proficiency" : null,
+			feat.armourProficiencies ? "Armour Proficiency" : null,
 			feat.weaponProficiencies ? "Weapon Proficiency" : null,
 			feat.toolProficiencies ? "Tool Proficiency" : null,
 			feat.languageProficiencies ? "Language Proficiency" : null,

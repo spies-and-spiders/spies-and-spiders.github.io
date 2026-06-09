@@ -1,9 +1,9 @@
 {
-	"_meta": {
-		"internalCopies": [
-			"deck"
-		]
-	},
-	"deck": [],
-	"card": []
+  "_meta": {
+    "internalCopies": [
+      "deck"
+    ]
+  },
+  "deck": [],
+  "card": []
 }

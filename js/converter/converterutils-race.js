@@ -38,8 +38,8 @@ export class RaceTraitTag {
 					ent,
 					{
 						string: (str) => {
-							if (/\barmor class\b/i.test(str) || /\bac\b/i.test(str)) {
-								traitTags.add("Natural Armor");
+							if (/\barmour class\b/i.test(str) || /\bac\b/i.test(str)) {
+								traitTags.add("Natural Armour");
 							}
 
 							if (
@@ -59,8 +59,8 @@ export class RaceTraitTag {
 									found = true;
 								}
 
-								if (/\b(light|medium|heavy) armor\b/i.test(str)) {
-									traitTags.add("Armor Proficiency");
+								if (/\b(light|medium|heavy) armour\b/i.test(str)) {
+									traitTags.add("Armour Proficiency");
 									found = true;
 								}
 

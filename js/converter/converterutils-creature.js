@@ -41,9 +41,9 @@ export class AcConvert {
 			let fromClean = fromRaw;
 
 			// region Handle alternates of the form:
-			//   - `natural armor; 22 in shield form`
-			//   - `natural armor; 16 while flying`
-			//   - `natural armor; 18 with hardened by flame`
+			//   - `natural armour; 22 in shield form`
+			//   - `natural armour; 16 while flying`
+			//   - `natural armour; 18 with hardened by flame`
 			//   - `shield; ac 12 without shield`
 			fromClean = fromClean
 				.replace(/^(?<from>.+); (?:(?:ac )?(?<nxtVal>\d+) (?<nxtCond>in .*? form|while .*?|includes .*?|without .*?|with .*?))$/i, (...m) => {
@@ -57,7 +57,7 @@ export class AcConvert {
 			// endregion
 
 			// region Handle alternates of the form:
-			//   - `medium armor; includes shield`
+			//   - `medium armour; includes shield`
 			fromClean = fromClean
 				.replace(/^(?<from>.+); (?:(?<nxtCond>includes .*?))$/i, (...m) => {
 					cur.condition = `(${m.last().nxtCond})`;
@@ -120,14 +120,14 @@ export class AcConvert {
 				.forEach(fromLow => {
 					switch (fromLow) {
 						// literally nothing
-						case "unarmored": break;
+						case "unarmoured": break;
 
 						// everything else
 						default: {
 							const simpleFrom = this._getSimpleFrom({fromLow, traitNames});
 							if (simpleFrom) return froms.push(simpleFrom);
 
-							// Special parsing for barding, as the pre-barding armor type might not exactly match our known
+							// Special parsing for barding, as the pre-barding armour type might not exactly match our known
 							//   barding names (e.g. "chainmail barding")
 							const mWithBarding = /^(?<ac>\d+) with (?<name>(?<type>.*?) barding)$/.exec(fromLow);
 							if (mWithBarding) {
@@ -136,7 +136,7 @@ export class AcConvert {
 									simpleFromBarding = simpleFromBarding
 										.replace(/{@item ([^}]+)}/, (...m) => {
 											let [name, source, displayName] = m[1].split("|");
-											name = `${name.replace(/ armor$/i, "")} barding`;
+											name = `${name.replace(/ armour$/i, "")} barding`;
 
 											if (mWithBarding.groups.name === name) return `{@item ${name}${source ? `|${source}` : ""}}`;
 											return `{@item ${name}${source ? `|${source}` : "|"}|${mWithBarding.groups.name}}`;
@@ -152,12 +152,12 @@ export class AcConvert {
 								}
 							}
 
-							if (fromLow.endsWith("with mage armor") || fromLow.endsWith("with barkskin")) {
+							if (fromLow.endsWith("with mage armour") || fromLow.endsWith("with barkskin")) {
 								const numMatch = /(\d+) with (.*)/.exec(fromLow);
 								if (!numMatch) throw new Error("Spell AC but no leading number?");
 
 								let spell = null;
-								if (numMatch[2] === "mage armor") spell = `{@spell mage armor}`;
+								if (numMatch[2] === "mage armour") spell = `{@spell mage armour}`;
 								else if (numMatch[2] === "barkskin") spell = `{@spell barkskin}`;
 								else throw new Error(`Unhandled spell! ${numMatch[2]}`);
 
@@ -187,8 +187,8 @@ export class AcConvert {
 			if (froms.length || cur.condition) {
 				if (froms.length) {
 					cur.from = froms
-						// Ensure "Unarmored Defense" is always properly capitalized
-						.map(it => it.toLowerCase() === "unarmored defense" ? "Unarmored Defense" : it);
+						// Ensure "Unarmoured Defense" is always properly capitalized
+						.map(it => it.toLowerCase() === "unarmoured defense" ? "Unarmoured Defense" : it);
 				}
 				nuAc.push(cur);
 			} else {
@@ -216,32 +216,32 @@ export class AcConvert {
 	static _getSimpleFrom ({fromLow, traitNames}) {
 		switch (fromLow) {
 			// region unhandled/other
-			case "unarmored defense":
+			case "unarmoured defense":
 			case "suave defense":
-			case "armor scraps":
+			case "armour scraps":
 			case "barding scraps":
-			case "patchwork armor":
-			case "see natural armor feature":
+			case "patchwork armour":
+			case "see natural armour feature":
 			case "barkskin trait":
 			case "sylvan warrior":
 			case "cage":
 			case "chains":
 			case "coin mail":
-			case "crude armored coat":
-			case "improvised armor":
+			case "crude armoured coat":
+			case "improvised armour":
 			case "magic robes":
-			case "makeshift armor":
-			case "natural and mystic armor":
-			case "padded armor":
+			case "makeshift armour":
+			case "natural and mystic armour":
+			case "padded armour":
 			case "padded leather":
 			case "parrying dagger":
-			case "plant fiber armor":
-			case "plus armor worn":
-			case "rag armor":
+			case "plant fiber armour":
+			case "plus armour worn":
+			case "rag armour":
 			case "ring of protection +2":
 			case "see below":
-			case "wicker armor":
-			case "bone armor":
+			case "wicker armour":
+			case "bone armour":
 			case "deflection":
 			case "mental defense":
 			case "blood aegis":
@@ -260,50 +260,50 @@ export class AcConvert {
 			case "canny defense": // Dungeons of Drakkenheim
 				return fromLow;
 
-			case "plate armor of bhaal": return "plate armor of Bhaal";
+			case "plate armour of bhaal": return "plate armour of Bhaal";
 				// endregion
 
 			// region homebrew
 			// "Flee, Mortals!" retainers
-			case "light armor":
-			case "medium armor":
-			case "heavy armor":
+			case "light armour":
+			case "medium armour":
+			case "heavy armour":
 				return fromLow;
 			// "Flee, Mortals!"
 			case "issenblau plating":
-			case "psionic power armor":
+			case "psionic power armour":
 			case "precog reflexes":
 			case "pathfinder's boots":
 				return fromLow;
 				// endregion
 
 			// region au naturel
-			case "natural armor":
+			case "natural armour":
 			case "natural armour":
 			case "natural":
-				return "natural armor";
+				return "natural armour";
 				// endregion
 
 			// region spells
 			case "foresight bonus": return `{@spell foresight} bonus`;
 			case "natural barkskin": return `natural {@spell barkskin}`;
-			case "mage armor": return "{@spell mage armor}";
+			case "mage armour": return "{@spell mage armour}";
 			// endregion
 
-			// region armor (mostly handled by the item lookup; these are mis-named exceptions (usually for homebrew))
+			// region armour (mostly handled by the item lookup; these are mis-named exceptions (usually for homebrew))
 			case "chainmail":
-			case "chain armor":
+			case "chain armour":
 				return "{@item chain mail|phb}";
 
 			case "plate mail":
 			case "platemail":
 			case "full plate":
-				return "{@item plate armor|phb}";
+				return "{@item plate armour|phb}";
 
-			case "half-plate": return "{@item half plate armor|phb}";
+			case "half-plate": return "{@item half plate armour|phb}";
 
-			case "scale armor": return "{@item scale mail|phb}";
-			case "splint armor": return "{@item splint armor|phb}";
+			case "scale armour": return "{@item scale mail|phb}";
+			case "splint armour": return "{@item splint armour|phb}";
 			case "chain shirt": return "{@item chain shirt|phb}";
 			case "shields": return "{@item shield|phb|shields}";
 
@@ -332,7 +332,7 @@ export class AcConvert {
 					return `{@item ${itemMeta.name}${itemMeta.source === Parser.SRC_SNS ? "|" : `|${itemMeta.source}`}|${fromLow}}`;
 				}
 
-				if (/scraps of .*?armor/i.test(fromLow)) { // e.g. "scraps of hide armor"
+				if (/scraps of .*?armour/i.test(fromLow)) { // e.g. "scraps of hide armour"
 					return fromLow;
 				}
 
@@ -358,9 +358,9 @@ export class AcConvert {
 				if (!ent.type) return false;
 				const {abbreviation} = DataUtil.itemType.unpackUid(ent.type);
 				return [
-					Parser.ITM_TYP_ABV__HEAVY_ARMOR,
-					Parser.ITM_TYP_ABV__MEDIUM_ARMOR,
-					Parser.ITM_TYP_ABV__LIGHT_ARMOR,
+					Parser.ITM_TYP_ABV__HEAVY_ARMOUR,
+					Parser.ITM_TYP_ABV__MEDIUM_ARMOUR,
+					Parser.ITM_TYP_ABV__LIGHT_ARMOUR,
 					Parser.ITM_TYP_ABV__SHIELD,
 				].includes(abbreviation);
 			})
@@ -368,13 +368,13 @@ export class AcConvert {
 				const lowName = it.name.toLowerCase();
 				AcConvert._ITEM_LOOKUP[lowName] = {source: it.source, isExact: true};
 
-				const noArmorName = lowName.replace(/(^|\s)(?:armor|mail)(\s|$)/g, "$1$2").trim().replace(/\s+/g, " ");
-				if (noArmorName !== lowName) {
-					AcConvert._ITEM_LOOKUP[noArmorName] = {source: it.source, name: lowName};
+				const noArmourName = lowName.replace(/(^|\s)(?:armour|mail)(\s|$)/g, "$1$2").trim().replace(/\s+/g, " ");
+				if (noArmourName !== lowName) {
+					AcConvert._ITEM_LOOKUP[noArmourName] = {source: it.source, name: lowName};
 				}
 
 				handlePlusName(it, lowName);
-				handlePlusName(it, noArmorName);
+				handlePlusName(it, noArmourName);
 			});
 	}
 }
@@ -2071,17 +2071,6 @@ export class TagImmResVulnConditional {
 		}
 
 		if (obj[prop]) obj[prop].forEach(it => this._handleProp_recurse(it, prop));
-	}
-}
-
-export class DragonAgeTag {
-	static tryRun (mon) {
-		const type = mon.type?.type ?? mon.type;
-		if (type !== "dragon") return;
-
-		mon.name.replace(/\b(?<age>young|adult|wyrmling|greatwyrm|ancient|aspect)\b/i, (...m) => {
-			mon.dragonAge = m.last().age.toLowerCase();
-		});
 	}
 }
 

@@ -410,22 +410,19 @@ Parser.levelToPb = function (level) {
 
 Parser.SKILL_TO_ATB_ABV = {
 	"athletics": "str",
-	"acrobatics": "dex",
-	"sleight of hand": "dex",
+	"brawn": "str",
+	"finesse": "dex",
 	"stealth": "dex",
-	"arcana": "int",
 	"history": "int",
-	"investigation": "int",
+	"magiscience": "int",
+	"medicine": "int",
 	"nature": "int",
-	"religion": "int",
-	"animal handling": "wis",
 	"insight": "wis",
-	"medicine": "wis",
+	"investigation": "wis",
 	"perception": "wis",
 	"survival": "wis",
 	"deception": "cha",
 	"intimidation": "cha",
-	"performance": "cha",
 	"persuasion": "cha",
 };
 
@@ -435,22 +432,19 @@ Parser.skillToAbilityAbv = function (skill) {
 
 Parser.SKILL_TO_SHORT = {
 	"athletics": "ath",
-	"acrobatics": "acro",
-	"sleight of hand": "soh",
+	"brawn": "brwn",
+	"finesse": "fnes",
 	"stealth": "slth",
-	"arcana": "arc",
 	"history": "hist",
-	"investigation": "invn",
-	"nature": "natr",
-	"religion": "reli",
-	"animal handling": "hndl",
-	"insight": "ins",
+	"magiscience": "mgsc",
 	"medicine": "med",
+	"nature": "natr",
+	"insight": "ins",
+	"investigation": "invn",
 	"perception": "perp",
 	"survival": "surv",
 	"deception": "decp",
 	"intimidation": "intm",
-	"performance": "perf",
 	"persuasion": "pers",
 };
 
@@ -495,7 +489,7 @@ Parser.LANGUAGES_ALL = [
 	...Parser.LANGUAGES_SECRET,
 ].sort();
 
-Parser.acToFull = function (ac, {renderer = null, isHideFrom = false} = {}) {
+Parser.acToFull = function (ac, {renderer = null, isHideFrom = false, key = "ac"} = {}) {
 	if (typeof ac === "string") return ac; // handle classic format
 
 	renderer ||= Renderer.get();
@@ -510,7 +504,7 @@ Parser.acToFull = function (ac, {renderer = null, isHideFrom = false} = {}) {
 			if (inBraces) inBraces = false;
 
 			stack += cur.special;
-		} else if (cur.ac) {
+		} else if (cur[key] != null) {
 			const isNxtBraces = nxt && nxt.braces;
 
 			if (!inBraces && cur.braces) {
@@ -518,7 +512,7 @@ Parser.acToFull = function (ac, {renderer = null, isHideFrom = false} = {}) {
 				inBraces = true;
 			}
 
-			stack += cur.ac;
+			stack += cur[key];
 
 			if (!isHideFrom && cur.from) {
 				// always brace nested braces
@@ -575,8 +569,8 @@ Parser.numMonstersToXpMult = function (num, playerCount = 3) {
 	} else return baseVal;
 };
 
-Parser.armorFullToAbv = function (armor) {
-	return Parser._parse_bToA(Parser.ARMOR_ABV_TO_FULL, armor);
+Parser.armourFullToAbv = function (armour) {
+	return Parser._parse_bToA(Parser.ARMOUR_ABV_TO_FULL, armour);
 };
 
 Parser.weaponFullToAbv = function (weapon) {
@@ -947,12 +941,12 @@ Parser.ITM_TYP_ABV__FOOD_AND_DRINK = "FD";
 Parser.ITM_TYP_ABV__ADVENTURING_GEAR = "G";
 Parser.ITM_TYP_ABV__GAMING_SET = "GS";
 Parser.ITM_TYP_ABV__GENERIC_VARIANT = "GV";
-Parser.ITM_TYP_ABV__HEAVY_ARMOR = "HA";
+Parser.ITM_TYP_ABV__HEAVY_ARMOUR = "HA";
 Parser.ITM_TYP_ABV__ILLEGAL_DRUG = "IDG";
 Parser.ITM_TYP_ABV__INSTRUMENT = "INS";
-Parser.ITM_TYP_ABV__LIGHT_ARMOR = "LA";
+Parser.ITM_TYP_ABV__LIGHT_ARMOUR = "LA";
 Parser.ITM_TYP_ABV__MELEE_WEAPON = "M";
-Parser.ITM_TYP_ABV__MEDIUM_ARMOR = "MA";
+Parser.ITM_TYP_ABV__MEDIUM_ARMOUR = "MA";
 Parser.ITM_TYP_ABV__MOUNT = "MNT";
 Parser.ITM_TYP_ABV__OTHER = "OTH";
 Parser.ITM_TYP_ABV__POTION = "P";
@@ -983,12 +977,12 @@ Parser.ITM_TYP__FOOD_AND_DRINK = "FD";
 Parser.ITM_TYP__ADVENTURING_GEAR = "G";
 Parser.ITM_TYP__GAMING_SET = "GS";
 Parser.ITM_TYP__GENERIC_VARIANT = "GV|DMG";
-Parser.ITM_TYP__HEAVY_ARMOR = "HA";
+Parser.ITM_TYP__HEAVY_ARMOUR = "HA";
 Parser.ITM_TYP__ILLEGAL_DRUG = "IDG|TDCSR";
 Parser.ITM_TYP__INSTRUMENT = "INS";
-Parser.ITM_TYP__LIGHT_ARMOR = "LA";
+Parser.ITM_TYP__LIGHT_ARMOUR = "LA";
 Parser.ITM_TYP__MELEE_WEAPON = "M";
-Parser.ITM_TYP__MEDIUM_ARMOR = "MA";
+Parser.ITM_TYP__MEDIUM_ARMOUR = "MA";
 Parser.ITM_TYP__MOUNT = "MNT";
 Parser.ITM_TYP__OTHER = "OTH";
 Parser.ITM_TYP__POTION = "P";
@@ -1018,11 +1012,11 @@ Parser.ITM_TYP__ODND_FOOD_AND_DRINK = "FD|XPHB";
 Parser.ITM_TYP__ODND_ADVENTURING_GEAR = "G|XPHB";
 Parser.ITM_TYP__ODND_GAMING_SET = "GS|XPHB";
 Parser.ITM_TYP__ODND_GENERIC_VARIANT = "GV|XDMG";
-Parser.ITM_TYP__ODND_HEAVY_ARMOR = "HA|XPHB";
+Parser.ITM_TYP__ODND_HEAVY_ARMOUR = "HA|XPHB";
 Parser.ITM_TYP__ODND_INSTRUMENT = "INS|XPHB";
-Parser.ITM_TYP__ODND_LIGHT_ARMOR = "LA|XPHB";
+Parser.ITM_TYP__ODND_LIGHT_ARMOUR = "LA|XPHB";
 Parser.ITM_TYP__ODND_MELEE_WEAPON = "M|XPHB";
-Parser.ITM_TYP__ODND_MEDIUM_ARMOR = "MA|XPHB";
+Parser.ITM_TYP__ODND_MEDIUM_ARMOUR = "MA|XPHB";
 Parser.ITM_TYP__ODND_MOUNT = "MNT|XPHB";
 Parser.ITM_TYP__ODND_POTION = "P|XPHB";
 Parser.ITM_TYP__ODND_RANGED_WEAPON = "R|XPHB";
@@ -2128,71 +2122,6 @@ Parser.charCreationOptionTypeToFull = function (type) {
 	return type;
 };
 
-Parser._ALIGNMENT_ABV_TO_FULL = {
-	"L": "lawful",
-	"N": "neutral",
-	"NX": "neutral (law/chaos axis)",
-	"NY": "neutral (good/evil axis)",
-	"C": "chaotic",
-	"G": "good",
-	"E": "evil",
-	// "special" values
-	"U": "unaligned",
-	"A": "any alignment",
-};
-
-Parser.alignmentAbvToFull = function (alignment) {
-	if (!alignment) return null; // used in sidekicks
-
-	if (typeof alignment === "object") {
-		// use in MTF Sacred Statue
-		if (alignment.special != null) return alignment.special;
-
-		// e.g. `{alignment: ["N", "G"], chance: 50}` or `{alignment: ["N", "G"]}`
-		return `${Parser.alignmentListToFull(alignment.alignment)}${alignment.chance ? ` (${alignment.chance}%)` : ""}${alignment.note ? ` (${alignment.note})` : ""}`;
-	}
-
-	alignment = alignment.toUpperCase();
-	return Parser._ALIGNMENT_ABV_TO_FULL[alignment] ?? alignment;
-};
-
-Parser.alignmentListToFull = function (alignList) {
-	if (!alignList) return "";
-
-	if (alignList.some(it => typeof it !== "string")) {
-		if (alignList.some(it => typeof it === "string")) throw new Error(`Mixed alignment types: ${JSON.stringify(alignList)}`);
-
-		// filter out any nonexistent alignments, as we don't care about "alignment does not exist" if there are other alignments
-		return alignList
-			.filter(it => it.alignment === undefined || it.alignment != null)
-			.map(it => it.special != null || it.chance != null || it.note != null ? Parser.alignmentAbvToFull(it) : Parser.alignmentListToFull(it.alignment)).join(" or ");
-	}
-
-	// assume all single-length arrays can be simply parsed
-	if (alignList.length === 1) return Parser.alignmentAbvToFull(alignList[0]);
-	// a pair of abv's, e.g. "L" "G"
-	if (alignList.length === 2) {
-		return alignList.map(a => Parser.alignmentAbvToFull(a)).join(" ");
-	}
-	if (alignList.length === 3) {
-		if (alignList.includes("NX") && alignList.includes("NY") && alignList.includes("N")) return "any neutral alignment";
-	}
-	// longer arrays should have a custom mapping
-	if (alignList.length === 5) {
-		if (!alignList.includes("G")) return "any non-good alignment";
-		if (!alignList.includes("E")) return "any non-evil alignment";
-		if (!alignList.includes("L")) return "any non-lawful alignment";
-		if (!alignList.includes("C")) return "any non-chaotic alignment";
-	}
-	if (alignList.length === 4) {
-		if (!alignList.includes("L") && !alignList.includes("NX")) return "any chaotic alignment";
-		if (!alignList.includes("G") && !alignList.includes("NY")) return "any evil alignment";
-		if (!alignList.includes("C") && !alignList.includes("NX")) return "any lawful alignment";
-		if (!alignList.includes("E") && !alignList.includes("NY")) return "any good alignment";
-	}
-	throw new Error(`Unmapped alignment: ${JSON.stringify(alignList)}`);
-};
-
 Parser.weightToFull = function (lbs, isSmallUnit) {
 	const tons = Math.floor(lbs / 2000);
 	lbs = lbs - (2000 * tons);
@@ -2744,7 +2673,7 @@ Parser.XP_CHART_ALT = {
 	"30": 155000,
 };
 
-Parser.ARMOR_ABV_TO_FULL = {
+Parser.ARMOUR_ABV_TO_FULL = {
 	"l.": "light",
 	"m.": "medium",
 	"h.": "heavy",
@@ -2758,20 +2687,30 @@ Parser.WEAPON_ABV_TO_FULL = {
 
 Parser.CONDITION_TO_COLOR = {
 	"Blinded": "#525252",
+	"Brittle": "#c8a84b",
 	"Charmed": "#f01789",
+	"Confused": "#d4517a",
+	"Dazed": "#5ba0a0",
 	"Deafened": "#ababab",
-	"Exhausted": "#947a47",
+	"Debilitated": "#8b1a1a",
+	"Dominated": "#7b2d8b",
+	"Doomed": "#2d0a0a",
+	"Fatigue": "#8a6e3a",
+	"Fixated": "#c9960c",
 	"Frightened": "#c9ca18",
 	"Grappled": "#8784a0",
 	"Incapacitated": "#3165a0",
-	"Invisible": "#7ad2d6",
-	"Paralyzed": "#c00900",
-	"Petrified": "#a0a0a0",
 	"Poisoned": "#4dc200",
 	"Prone": "#5e60a0",
+	"Rattled": "#e0b830",
 	"Restrained": "#d98000",
-	"Stunned": "#a23bcb",
+	"Slowed": "#4682b4",
+	"Sluggish": "#3d8b8b",
+	"Staggered": "#b84c00",
+	"Strife": "#7d3c98",
+	"Taunted": "#c0392b",
 	"Unconscious": "#3a40ad",
+	"Weakened": "#6b8a52",
 
 	"Concentration": "#009f7a",
 };
@@ -2802,7 +2741,7 @@ Parser.VEHICLE_TYPE_TO_FULL = {
 	"SHP:F": "Ship Upgrade, Figurehead",
 	"SHP:O": "Ship Upgrade, Miscellaneous",
 	"IWM:W": "Infernal War Machine Variant, Weapon",
-	"IWM:A": "Infernal War Machine Upgrade, Armor",
+	"IWM:A": "Infernal War Machine Upgrade, Armour",
 	"IWM:G": "Infernal War Machine Upgrade, Gadget",
 };
 
@@ -2919,7 +2858,7 @@ Parser.DMGTYPE_JSON_TO_FULL = {
 };
 
 Parser.DMG_TYPES = ["acid", "bludgeoning", "cold", "fire", "force", "lightning", "necrotic", "piercing", "poison", "psychic", "radiant", "slashing", "thunder"];
-Parser.CONDITIONS = ["blinded", "charmed", "deafened", "exhaustion", "frightened", "grappled", "incapacitated", "invisible", "paralyzed", "petrified", "poisoned", "prone", "restrained", "stunned", "unconscious"];
+Parser.CONDITIONS = ["blinded", "brittle", "charmed", "confused", "dazed", "deafened", "debilitated", "dominated", "doomed", "fatigue", "fixated", "frightened", "grappled", "incapacitated", "poisoned", "prone", "rattled", "restrained", "slowed", "sluggish", "staggered", "strife", "taunted", "unconscious", "weakened"];
 
 Parser.SENSES = [
 	{"name": "blindsight", "source": Parser.SRC_SNS},

@@ -16,7 +16,7 @@
         "frt": 4
       },
       "startingProficiencies": {
-        "armor": [
+        "armour": [
           "light",
           "medium",
           "heavy",
@@ -44,27 +44,6 @@
             }
           }
         ]
-      },
-      "multiclassing": {
-        "requirements": {
-          "or": [
-            {
-              "str": 13,
-              "dex": 13
-            }
-          ]
-        },
-        "proficienciesGained": {
-          "armor": [
-            "light",
-            "medium",
-            "{@item shield|sns|shields}"
-          ],
-          "weapons": [
-            "simple",
-            "martial"
-          ]
-        }
       },
       "classTableGroups": [
         {

@@ -1,3 +1,39 @@
 {
-	"table": []
+  "table": [
+    {
+      "name": "Skills",
+      "source": "sns",
+      "type": "table",
+      "colLabels": [
+        "Ability",
+        "Skills"
+      ],
+      "colStyles": [
+        "col-2",
+        "col-10"
+      ],
+      "rows": [
+        [
+          "Strength",
+          "{@skill Athletics}, {@skill Brawn}"
+        ],
+        [
+          "Dexterity",
+          "{@skill Finesse}, {@skill Stealth}"
+        ],
+        [
+          "Intelligence",
+          "{@skill History}, {@skill Magiscience}, {@skill Medicine}, {@skill Nature}"
+        ],
+        [
+          "Wisdom",
+          "{@skill Insight}, {@skill Investigation}, {@skill Perception}, {@skill Survival}"
+        ],
+        [
+          "Charisma",
+          "{@skill Deception}, {@skill Intimidation}, {@skill Persuasion}"
+        ]
+      ]
+    }
+  ]
 }

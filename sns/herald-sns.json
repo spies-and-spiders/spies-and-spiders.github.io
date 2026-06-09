@@ -19,7 +19,7 @@
       "casterProgression": "1/2",
       "preparedSpells": "<$level$> / 2 + <$cha_mod$>",
       "startingProficiencies": {
-        "armor": [
+        "armour": [
           "light",
           "medium",
           "heavy",

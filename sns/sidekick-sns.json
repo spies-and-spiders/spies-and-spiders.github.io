@@ -11,7 +11,7 @@
         "frt": 4
       },
       "startingProficiencies": {
-        "armor": [
+        "armour": [
           "light",
           "medium",
           "heavy",
@@ -25,14 +25,14 @@
           {
             "choose": {
               "from": [
-                "acrobatics",
-                "animal handling",
                 "athletics",
                 "brawn",
                 "engineering",
+                "finesse",
                 "history",
                 "insight",
                 "intimidation",
+                "nature",
                 "perception",
                 "survival"
               ],

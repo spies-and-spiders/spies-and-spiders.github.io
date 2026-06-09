@@ -165,11 +165,11 @@ export class ConverterFeatureBase extends ConverterBase {
 				return;
 			}
 
-			const mArmor = /^(?<armorType>Light|Medium|Heavy) Armor (?:Training|Proficiency)$/i.exec(pt)
-				|| /^(?<armorType>Shield) (?:Training|Proficiency)$/i.exec(pt);
-			if (mArmor) {
+			const mArmour = /^(?<armourType>Light|Medium|Heavy) Armour (?:Training|Proficiency)$/i.exec(pt)
+				|| /^(?<armourType>Shield) (?:Training|Proficiency)$/i.exec(pt);
+			if (mArmour) {
 				pre.proficiency ||= [{}];
-				pre.proficiency[0].armor = mArmor.groups.armorType.toLowerCase();
+				pre.proficiency[0].armour = mArmour.groups.armourType.toLowerCase();
 				return;
 			}
 

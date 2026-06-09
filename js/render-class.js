@@ -158,8 +158,8 @@ class _RenderClassesSidebarImplBase {
 			? `<div>When you gain a level in a class other than your first, you gain only some of that class's starting proficiencies.</div>`
 			: "";
 
-		const ptMcProfsArmor = mc.proficienciesGained?.armor
-			? `<div><b>${this._style === SITE_STYLE__CLASSIC ? "Armor" : "Armor Training"}:</b> ${Renderer.class.getRenderedArmorProfs(mc.proficienciesGained.armor, {styleHint: this._style})}</div>`
+		const ptMcProfsArmour = mc.proficienciesGained?.armour
+			? `<div><b>${this._style === SITE_STYLE__CLASSIC ? "Armour" : "Armour Training"}:</b> ${Renderer.class.getRenderedArmourProfs(mc.proficienciesGained.armour, {styleHint: this._style})}</div>`
 			: "";
 
 		const ptMcProfsWeapons = mc.proficienciesGained?.weapons
@@ -176,7 +176,7 @@ class _RenderClassesSidebarImplBase {
 
 		const ptsProfs = this._style === SITE_STYLE__CLASSIC
 			? [
-				ptMcProfsArmor,
+				ptMcProfsArmour,
 				ptMcProfsWeapons,
 				ptMcProfsTools,
 				ptMcProfsSkills,
@@ -185,7 +185,7 @@ class _RenderClassesSidebarImplBase {
 				ptMcProfsSkills,
 				ptMcProfsWeapons,
 				ptMcProfsTools,
-				ptMcProfsArmor,
+				ptMcProfsArmour,
 			];
 
 		const ptMcEntries = mc.entries
@@ -308,7 +308,7 @@ class _RenderClassesSidebarImplClassic extends _RenderClassesSidebarImplBase {
 			tag: "tr",
 			html: `<td colspan="6" class="cls-side__section">
 				<h5 class="cls-side__section-head">Proficiencies</h5>
-				<div><b>Armor:</b> <span>${profs.armor ? Renderer.class.getRenderedArmorProfs(profs.armor, {styleHint: this._style}) : "none"}</span></div>
+				<div><b>Armour:</b> <span>${profs.armour ? Renderer.class.getRenderedArmourProfs(profs.armour, {styleHint: this._style}) : "none"}</span></div>
 				<div><b>Weapons:</b> <span>${profs.weapons ? Renderer.class.getRenderedWeaponProfs(profs.weapons, {styleHint: this._style}) : "none"}</span></div>
 				<div><b>Tools:</b> <span>${profs.tools ? Renderer.class.getRenderedToolProfs(profs.tools, {styleHint: this._style}) : "none"}</span></div>
 				<div><b>Saving Throws:</b> <span>${cls.proficiency ? cls.proficiency.map(p => Parser.attAbvToFull(p)).join(", ") : "none"}</span></div>
@@ -394,7 +394,7 @@ class _RenderClassesSidebarImplOne extends _RenderClassesSidebarImplBase {
 			Renderer.class.getHtmlPtSkills(cls, {renderer, styleHint: this._style}),
 			Renderer.class.getHtmlPtWeaponProficiencies(cls, {renderer, styleHint: this._style}),
 			Renderer.class.getHtmlPtToolProficiencies(cls, {renderer, styleHint: this._style}),
-			Renderer.class.getHtmlPtArmorProficiencies(cls, {renderer, styleHint: this._style}),
+			Renderer.class.getHtmlPtArmourProficiencies(cls, {renderer, styleHint: this._style}),
 			Renderer.class.getHtmlPtStartingEquipment(cls, {renderer, styleHint: this._style}),
 		]
 			.filter(Boolean)

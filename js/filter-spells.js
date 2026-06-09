@@ -133,8 +133,7 @@ class PageFilterSpells extends PageFilterBase {
 		return SortUtil.ascSortLower(a, b);
 	}
 
-	static getFilterAbilitySave (ability) { return `${ability.uppercaseFirst()} Save`; }
-	static getFilterAbilityCheck (ability) { return `${ability.uppercaseFirst()} Check`; }
+	static getFilterDefence (def) { return def.uppercaseFirst(); }
 
 	static _mutMetaFilterObj (s) {
 		this._mutateForFilters_commonMisc(s);
@@ -397,16 +396,10 @@ class PageFilterSpells extends PageFilterBase {
 			displayFn: Parser.spAttackTypeToFull,
 			itemSortFn: null,
 		});
-		this._saveFilter = new Filter({
-			header: "Saving Throw",
-			items: ["strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma"],
-			displayFn: PageFilterSpells.getFilterAbilitySave,
-			itemSortFn: null,
-		});
-		this._checkFilter = new Filter({
-			header: "Ability Check",
-			items: ["strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma"],
-			displayFn: PageFilterSpells.getFilterAbilityCheck,
+		this._defenceFilter = new Filter({
+			header: "Defences Targeted",
+			items: ["armour", "reflex", "fortitude", "will"],
+			displayFn: PageFilterSpells.getFilterDefence,
 			itemSortFn: null,
 		});
 		this._timeFilter = new Filter({
@@ -570,8 +563,7 @@ class PageFilterSpells extends PageFilterBase {
 			this._damageFilter,
 			this._conditionFilter,
 			this._spellAttackFilter,
-			this._saveFilter,
-			this._checkFilter,
+			this._defenceFilter,
 			this._timeFilter,
 			this._durationFilter,
 			this._rangeFilter,
@@ -601,8 +593,7 @@ class PageFilterSpells extends PageFilterBase {
 			s.damageInflict,
 			s.conditionInflict,
 			s.spellAttack,
-			s.savingThrow,
-			s.abilityCheck,
+			s.defence,
 			s._fTimeType,
 			s._fDurationType,
 			s._fRangeType,

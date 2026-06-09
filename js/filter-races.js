@@ -52,14 +52,14 @@ class PageFilterRaces extends PageFilterBase {
 			header: "Traits",
 			items: [
 				"Amphibious",
-				"Armor Proficiency",
+				"Armour Proficiency",
 				"Blindsight",
 				"Darkvision", "Superior Darkvision",
 				"Dragonmark",
 				"Feat",
 				"Improved Resting",
 				"Monstrous Race",
-				"Natural Armor",
+				"Natural Armour",
 				"Natural Weapon",
 				"NPC Race",
 				"Powerful Build",
@@ -135,7 +135,7 @@ class PageFilterRaces extends PageFilterBase {
 			r.toolProficiencies ? "Tool Proficiency" : null,
 			r.feats ? "Feat" : null,
 			r.additionalSpells ? "Spellcasting" : null,
-			r.armorProficiencies ? "Armor Proficiency" : null,
+			r.armourProficiencies ? "Armour Proficiency" : null,
 			r.weaponProficiencies ? "Weapon Proficiency" : null,
 		].filter(it => it);
 		r._fTraits.push(...(r.traitTags || []));

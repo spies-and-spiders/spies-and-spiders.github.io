@@ -41,7 +41,7 @@
         4
       ],
       "startingProficiencies": {
-        "armor": [
+        "armour": [
           "light",
           "medium",
           "{@item shield|sns|shields}"
@@ -1413,14 +1413,6 @@
         "L"
       ],
       "type": "beast",
-      "alignment": [
-        "U"
-      ],
-      "ac": [
-        {
-          "special": "half your Wisdom modifier"
-        }
-      ],
       "hp": {
         "special": "you continue to use your hit points and Hit Dice"
       },
@@ -1441,7 +1433,6 @@
       },
       "str": 0,
       "dex": 0,
-      "con": 0,
       "int": 0,
       "wis": 0,
       "cha": 0,
@@ -1494,6 +1485,26 @@
             "{@atk mw} reach 5 ft., one target. {@dice 1d4} + your Wisdom modifier bludgeoning, piercing, or slashing damage. This damage is increased to {@dice 2d4} + double your Wisdom modifier from 5th level onwards, which counts as the attack being affected by the Empowered Attack feature."
           ]
         }
+      ],
+      "arm": [
+        {
+          "special": "half your Wisdom modifier"
+        }
+      ],
+      "wil": [
+        {
+          "wil": 0
+        }
+      ],
+      "ref": [
+        {
+          "ref": 0
+        }
+      ],
+      "fort": [
+        {
+          "fort": 0
+        }
       ]
     },
     {
@@ -1508,14 +1519,6 @@
           "air, earth, fire, or water"
         ]
       },
-      "alignment": [
-        "U"
-      ],
-      "ac": [
-        {
-          "special": "half your Wisdom modifier"
-        }
-      ],
       "hp": {
         "special": "you continue to use your hit points and Hit Dice"
       },
@@ -1536,7 +1539,6 @@
       },
       "str": 0,
       "dex": 0,
-      "con": 0,
       "int": 0,
       "wis": 0,
       "cha": 0,
@@ -1588,6 +1590,26 @@
           "entries": [
             "{@atk mw} reach 5 ft., one target. {@dice 6d6} + triple your Wisdom modifier bludgeoning damage (or fire damage for a Fire elemental). This attack counts as having two instances of the Empowered Attack feature affecting it."
           ]
+        }
+      ],
+      "arm": [
+        {
+          "special": "half your Wisdom modifier"
+        }
+      ],
+      "wil": [
+        {
+          "wil": 0
+        }
+      ],
+      "ref": [
+        {
+          "ref": 0
+        }
+      ],
+      "fort": [
+        {
+          "fort": 0
         }
       ]
     }

@@ -1,8 +1,8 @@
 {
-	"_meta": {
-		"internalCopies": [
-			"itemFluff"
-		]
-	},
-	"itemFluff": []
+  "_meta": {
+    "internalCopies": [
+      "itemFluff"
+    ]
+  },
+  "itemFluff": []
 }

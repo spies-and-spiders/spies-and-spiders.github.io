@@ -247,7 +247,6 @@
           }
         ]
       },
-      "savingThrow": [],
       "range": {
         "type": "point",
         "distance": {
@@ -781,7 +780,6 @@
           }
         ]
       },
-      "savingThrow": [],
       "range": {
         "type": "point",
         "distance": {
@@ -1381,7 +1379,6 @@
           }
         ]
       },
-      "savingThrow": [],
       "range": {
         "type": "point",
         "distance": {
@@ -1752,7 +1749,8 @@
         "arcane",
         "attack",
         "melee",
-        "spell"
+        "spell",
+        "prismatic"
       ],
       "level": 1,
       "components": {
@@ -2304,7 +2302,6 @@
           }
         ]
       },
-      "savingThrow": [],
       "range": {
         "type": "point",
         "distance": {
@@ -2417,7 +2414,6 @@
           }
         ]
       },
-      "savingThrow": [],
       "range": {
         "type": "point",
         "distance": {
@@ -2730,7 +2726,6 @@
           }
         ]
       },
-      "savingThrow": [],
       "range": {
         "type": "point",
         "distance": {
@@ -2809,7 +2804,6 @@
           }
         ]
       },
-      "savingThrow": [],
       "range": {
         "type": "point",
         "distance": {
@@ -2886,7 +2880,6 @@
           }
         ]
       },
-      "savingThrow": [],
       "range": {
         "type": "point",
         "distance": {
@@ -3038,7 +3031,6 @@
           }
         ]
       },
-      "savingThrow": [],
       "range": {
         "type": "point",
         "distance": {
@@ -3143,7 +3135,6 @@
           }
         ]
       },
-      "savingThrow": [],
       "range": {
         "type": "point",
         "distance": {
@@ -3426,7 +3417,6 @@
           }
         ]
       },
-      "savingThrow": [],
       "range": {
         "type": "point",
         "distance": {
@@ -3584,7 +3574,6 @@
           }
         ]
       },
-      "savingThrow": [],
       "range": {
         "type": "point",
         "distance": {
@@ -3698,7 +3687,6 @@
           }
         ]
       },
-      "savingThrow": [],
       "range": {
         "type": "point",
         "distance": {
@@ -3834,7 +3822,6 @@
           }
         ]
       },
-      "savingThrow": [],
       "range": {
         "type": "point",
         "distance": {
@@ -3943,7 +3930,6 @@
           }
         ]
       },
-      "savingThrow": [],
       "range": {
         "type": "point",
         "distance": {
@@ -4052,7 +4038,6 @@
           }
         ]
       },
-      "savingThrow": [],
       "range": {
         "type": "point",
         "distance": {
@@ -4201,7 +4186,6 @@
           }
         ]
       },
-      "savingThrow": [],
       "range": {
         "type": "point",
         "distance": {
@@ -4415,7 +4399,6 @@
           }
         ]
       },
-      "savingThrow": [],
       "range": {
         "type": "point",
         "distance": {
@@ -4665,7 +4648,6 @@
           }
         ]
       },
-      "savingThrow": [],
       "range": {
         "type": "point",
         "distance": {
@@ -4949,7 +4931,6 @@
           }
         ]
       },
-      "savingThrow": [],
       "range": {
         "type": "point",
         "distance": {
@@ -5060,7 +5041,6 @@
           }
         ]
       },
-      "savingThrow": [],
       "range": {
         "type": "point",
         "distance": {
@@ -5661,7 +5641,6 @@
           }
         ]
       },
-      "savingThrow": [],
       "range": {
         "type": "point",
         "distance": {
@@ -6040,7 +6019,6 @@
           }
         ]
       },
-      "savingThrow": [],
       "range": {
         "type": "point",
         "distance": {
@@ -6486,7 +6464,6 @@
           }
         ]
       },
-      "savingThrow": [],
       "range": {
         "type": "point",
         "distance": {
@@ -7094,7 +7071,6 @@
           }
         ]
       },
-      "savingThrow": [],
       "range": {
         "type": "point",
         "distance": {
@@ -7535,7 +7511,6 @@
           }
         ]
       },
-      "savingThrow": [],
       "range": {
         "type": "point",
         "distance": {
@@ -7742,7 +7717,6 @@
           }
         ]
       },
-      "savingThrow": [],
       "range": {
         "type": "point",
         "distance": {
@@ -8216,7 +8190,6 @@
           }
         ]
       },
-      "savingThrow": [],
       "range": {
         "type": "point",
         "distance": {
@@ -8295,7 +8268,6 @@
           }
         ]
       },
-      "savingThrow": [],
       "range": {
         "type": "point",
         "distance": {
@@ -8369,7 +8341,6 @@
           }
         ]
       },
-      "savingThrow": [],
       "range": {
         "type": "point",
         "distance": {
@@ -8446,7 +8417,6 @@
           }
         ]
       },
-      "savingThrow": [],
       "range": {
         "type": "point",
         "distance": {
@@ -8781,7 +8751,6 @@
           }
         ]
       },
-      "savingThrow": [],
       "range": {
         "type": "point",
         "distance": {
@@ -9020,7 +8989,6 @@
           }
         ]
       },
-      "savingThrow": [],
       "range": {
         "type": "point",
         "distance": {
@@ -9278,7 +9246,6 @@
           }
         ]
       },
-      "savingThrow": [],
       "range": {
         "type": "point",
         "distance": {
@@ -9544,7 +9511,6 @@
           }
         ]
       },
-      "savingThrow": [],
       "range": {
         "type": "point",
         "distance": {
@@ -9701,7 +9667,6 @@
           }
         ]
       },
-      "savingThrow": [],
       "range": {
         "type": "point",
         "distance": {
@@ -9958,7 +9923,6 @@
           }
         ]
       },
-      "savingThrow": [],
       "range": {
         "type": "point",
         "distance": {
@@ -10133,7 +10097,6 @@
           }
         ]
       },
-      "savingThrow": [],
       "range": {
         "type": "point",
         "distance": {
@@ -10458,7 +10421,6 @@
           }
         ]
       },
-      "savingThrow": [],
       "range": {
         "type": "point",
         "distance": {
@@ -10538,7 +10500,6 @@
           }
         ]
       },
-      "savingThrow": [],
       "range": {
         "type": "point",
         "distance": {
@@ -10781,7 +10742,6 @@
           }
         ]
       },
-      "savingThrow": [],
       "range": {
         "type": "point",
         "distance": {
@@ -10937,7 +10897,6 @@
           }
         ]
       },
-      "savingThrow": [],
       "range": {
         "type": "point",
         "distance": {
@@ -11886,7 +11845,6 @@
           }
         ]
       },
-      "savingThrow": [],
       "range": {
         "type": "point",
         "distance": {
@@ -12150,7 +12108,6 @@
           }
         ]
       },
-      "savingThrow": [],
       "range": {
         "type": "point",
         "distance": {
@@ -13091,7 +13048,6 @@
           }
         ]
       },
-      "savingThrow": [],
       "range": {
         "type": "point",
         "distance": {
@@ -13378,7 +13334,6 @@
           }
         ]
       },
-      "savingThrow": [],
       "range": {
         "type": "point",
         "distance": {
@@ -13726,7 +13681,7 @@
           "type": "entries",
           "name": "Target",
           "entries": [
-            "One metal object (such as a sword or a suit of metal armor)"
+            "One metal object (such as a sword or a suit of metal armour)"
           ]
         },
         "The target becomes oven hot. Any creature touching the target suffers {@dice 2d8} fire harm when the spell is cast. Until the spell ends, on subsequent turns you can use a bonus action to cause the same harm. If a creature is holding or wearing the target and suffers this harm, it makes a save or it drops the target. If a creature does not or cannot drop the target, it has disadvantage on armour attack rolls and ability checks until the start of your next turn."
@@ -14032,7 +13987,6 @@
           }
         ]
       },
-      "savingThrow": [],
       "range": {
         "type": "point",
         "distance": {
@@ -14140,7 +14094,6 @@
           }
         ]
       },
-      "savingThrow": [],
       "range": {
         "type": "point",
         "distance": {
@@ -14260,7 +14213,6 @@
           }
         ]
       },
-      "savingThrow": [],
       "range": {
         "type": "point",
         "distance": {
@@ -14510,7 +14462,6 @@
           }
         ]
       },
-      "savingThrow": [],
       "range": {
         "type": "point",
         "distance": {
@@ -14786,7 +14737,6 @@
           }
         ]
       },
-      "savingThrow": [],
       "range": {
         "type": "point",
         "distance": {
@@ -14862,7 +14812,6 @@
           }
         ]
       },
-      "savingThrow": [],
       "range": {
         "type": "point",
         "distance": {
@@ -15511,7 +15460,6 @@
           }
         ]
       },
-      "savingThrow": [],
       "range": {
         "type": "point",
         "distance": {
@@ -15957,7 +15905,6 @@
           }
         ]
       },
-      "savingThrow": [],
       "range": {
         "type": "point",
         "distance": {
@@ -16062,7 +16009,6 @@
           }
         ]
       },
-      "savingThrow": [],
       "range": {
         "type": "point",
         "distance": {
@@ -16143,7 +16089,6 @@
           }
         ]
       },
-      "savingThrow": [],
       "range": {
         "type": "point",
         "distance": {
@@ -16463,10 +16408,10 @@
           "type": "entries",
           "name": "Target",
           "entries": [
-            "A willing, unarmored creature"
+            "A willing, unarmoured creature"
           ]
         },
-        "Until the spell ends, the target is protected by a shimmering magical force. Its armour becomes equal to half its spellcasting ability modifier. The spell ends if the target dons armor, or if you use an action to dismiss it.",
+        "Until the spell ends, the target is protected by a shimmering magical force. Its armour becomes equal to half its spellcasting ability modifier. The spell ends if the target dons armour, or if you use an action to dismiss it.",
         {
           "type": "entries",
           "name": "Rare",
@@ -17346,7 +17291,6 @@
           }
         ]
       },
-      "savingThrow": [],
       "range": {
         "type": "point",
         "distance": {
@@ -17613,7 +17557,6 @@
           }
         ]
       },
-      "savingThrow": [],
       "range": {
         "type": "point",
         "distance": {
@@ -18114,7 +18057,6 @@
           }
         ]
       },
-      "savingThrow": [],
       "range": {
         "type": "point",
         "distance": {
@@ -18201,7 +18143,6 @@
           }
         ]
       },
-      "savingThrow": [],
       "range": {
         "type": "point",
         "distance": {
@@ -18972,7 +18913,6 @@
           }
         ]
       },
-      "savingThrow": [],
       "range": {
         "type": "point",
         "distance": {
@@ -19587,7 +19527,6 @@
           }
         ]
       },
-      "savingThrow": [],
       "range": {
         "type": "point",
         "distance": {
@@ -19986,7 +19925,8 @@
       "subschools": [
         "arcane",
         "divine",
-        "protection"
+        "protection",
+        "prismatic"
       ],
       "level": 2,
       "components": {
@@ -20490,7 +20430,6 @@
           }
         ]
       },
-      "savingThrow": [],
       "range": {
         "type": "point",
         "distance": {
@@ -20782,7 +20721,6 @@
           }
         ]
       },
-      "savingThrow": [],
       "range": {
         "type": "point",
         "distance": {
@@ -21038,7 +20976,6 @@
           }
         ]
       },
-      "savingThrow": [],
       "range": {
         "type": "point",
         "distance": {
@@ -21317,7 +21254,6 @@
           }
         ]
       },
-      "savingThrow": [],
       "range": {
         "type": "point",
         "distance": {
@@ -21393,7 +21329,6 @@
           }
         ]
       },
-      "savingThrow": [],
       "range": {
         "type": "point",
         "distance": {
@@ -21889,7 +21824,6 @@
           }
         ]
       },
-      "savingThrow": [],
       "range": {
         "type": "point",
         "distance": {
@@ -22622,7 +22556,6 @@
           }
         ]
       },
-      "savingThrow": [],
       "range": {
         "type": "point",
         "distance": {
@@ -22723,7 +22656,6 @@
           }
         ]
       },
-      "savingThrow": [],
       "range": {
         "type": "point",
         "distance": {
@@ -23216,7 +23148,6 @@
           }
         ]
       },
-      "savingThrow": [],
       "range": {
         "type": "point",
         "distance": {
@@ -23905,7 +23836,6 @@
           }
         ]
       },
-      "savingThrow": [],
       "range": {
         "type": "point",
         "distance": {
@@ -23991,7 +23921,6 @@
           }
         ]
       },
-      "savingThrow": [],
       "range": {
         "type": "point",
         "distance": {
@@ -24068,7 +23997,6 @@
           }
         ]
       },
-      "savingThrow": [],
       "range": {
         "type": "point",
         "distance": {
@@ -24837,7 +24765,6 @@
           }
         ]
       },
-      "savingThrow": [],
       "range": {
         "type": "point",
         "distance": {
@@ -25640,7 +25567,6 @@
           }
         ]
       },
-      "savingThrow": [],
       "range": {
         "type": "point",
         "distance": {
@@ -25712,7 +25638,6 @@
           }
         ]
       },
-      "savingThrow": [],
       "range": {
         "type": "point",
         "distance": {
@@ -26621,7 +26546,6 @@
           }
         ]
       },
-      "savingThrow": [],
       "range": {
         "type": "point",
         "distance": {
@@ -27464,7 +27388,6 @@
           }
         ]
       },
-      "savingThrow": [],
       "range": {
         "type": "point",
         "distance": {
@@ -27647,7 +27570,8 @@
         "poison",
         "thunder",
         "ranged",
-        "spell"
+        "spell",
+        "prismatic"
       ],
       "level": 1,
       "components": {
@@ -28839,7 +28763,8 @@
         "cold",
         "fire",
         "lightning",
-        "thunder"
+        "thunder",
+        "prismatic"
       ],
       "level": 3,
       "components": {
@@ -30380,7 +30305,8 @@
         "cold",
         "fire",
         "lightning",
-        "thunder"
+        "thunder",
+        "prismatic"
       ],
       "level": 1,
       "components": {
@@ -32027,7 +31953,8 @@
       ],
       "source": "sns",
       "subschools": [
-        "area"
+        "area",
+        "prismatic"
       ],
       "level": 2,
       "components": {
@@ -33573,7 +33500,8 @@
         "fire",
         "lightning",
         "thunder",
-        "ranged"
+        "ranged",
+        "prismatic"
       ],
       "level": 4,
       "components": {
@@ -35532,7 +35460,7 @@
             "One creature"
           ]
         },
-        "You create a field of silvery light that surrounds the target. The field sheds dim light out to 5 feet. While surrounded by the field, a creature gains the following benefits:",
+        "You create a field of multi-coloured light that surrounds the target. The field sheds dim light out to 5 feet. While surrounded by the field, a creature gains the following benefits:",
         {
           "type": "list",
           "items": [
@@ -35561,7 +35489,7 @@
         },
         "As a bonus action on subsequent turns, you can move the field to another creature within 60 feet of the field."
       ],
-      "name": "Platinum Shield",
+      "name": "Prismatic Shield",
       "time": [
         {
           "number": 1,
@@ -35581,7 +35509,8 @@
       ],
       "source": "sns",
       "subschools": [
-        "protection"
+        "protection",
+        "prismatic"
       ],
       "level": 6,
       "components": {
@@ -36006,7 +35935,8 @@
       ],
       "source": "sns",
       "subschools": [
-        "protection"
+        "protection",
+        "prismatic"
       ],
       "level": 6,
       "components": {
@@ -37041,14 +36971,6 @@
         "S"
       ],
       "type": "beast",
-      "alignment": [
-        "U"
-      ],
-      "ac": [
-        {
-          "special": "half the level of the spell (rounded up)"
-        }
-      ],
       "hp": {
         "special": "22 (Air only) or 33 (Land and Water only) + 6 for each spell level above 2nd"
       },
@@ -37069,15 +36991,9 @@
       },
       "str": 18,
       "dex": 11,
-      "con": 16,
       "int": 4,
       "wis": 14,
       "cha": 5,
-      "save": {
-        "str": "+4",
-        "dex": "+0",
-        "wis": "+2"
-      },
       "senses": [
         "darkvision 60 ft."
       ],
@@ -37086,17 +37002,6 @@
         "understands the languages you speak"
       ],
       "trait": [
-        {
-          "name": "—MAJOR EFFECTS—",
-          "entries": [
-            {
-              "type": "list",
-              "items": [
-                "The target's armour is reduced by 1 for 1 round."
-              ]
-            }
-          ]
-        },
         {
           "type": "entries",
           "name": "Flyby (Air Only)",
@@ -37126,6 +37031,29 @@
             "{@atk mw} reach 5 ft., one target. {@damage 1d8 + 4} + the spell's level piercing damage. This damage is multiplied by half this spell's level. For example, at spell level 4, the damage is {@dice 2d8} + 8 + 8. Each of these multipliers counts as an instance of the Empowered Attack feature."
           ]
         }
+      ],
+      "arm": [
+        {
+          "special": "half the level of the spell (rounded up)"
+        }
+      ],
+      "wil": [
+        {
+          "wil": 2
+        }
+      ],
+      "ref": [
+        {
+          "ref": 0
+        }
+      ],
+      "fort": [
+        {
+          "fort": 4
+        }
+      ],
+      "majorEffect": [
+        "The target's armour is reduced by 1 for 1 round."
       ]
     },
     {
@@ -37140,14 +37068,6 @@
           "air, earth, fire, or water"
         ]
       },
-      "alignment": [
-        "U"
-      ],
-      "ac": [
-        {
-          "special": "1 + half the level of the spell (rounded up)"
-        }
-      ],
       "hp": {
         "special": "67 + 11 for each spell level above 4th"
       },
@@ -37168,15 +37088,9 @@
       },
       "str": 12,
       "dex": 12,
-      "con": 15,
       "int": 10,
       "wis": 10,
       "cha": 6,
-      "save": {
-        "str": "+2",
-        "dex": "+1",
-        "wis": "+0"
-      },
       "immune": [
         "fire (Fire only)",
         "poison"
@@ -37201,17 +37115,6 @@
         "terran (Earth only)"
       ],
       "trait": [
-        {
-          "name": "—MAJOR EFFECTS—",
-          "entries": [
-            {
-              "type": "list",
-              "items": [
-                "The target's armour is reduced by 1 for 1 round."
-              ]
-            }
-          ]
-        },
         {
           "type": "entries",
           "name": "Amorphous Form (Air, Fire, and Water Only)",
@@ -37241,6 +37144,29 @@
             "{@atk mw} reach 5 ft., one target. 6 ({@damage 1d6 + 3}) bludgeoning damage (or fire damage for a Fire elemental) plus extra damage equal to spell slot level."
           ]
         }
+      ],
+      "arm": [
+        {
+          "special": "1 + half the level of the spell (rounded up)"
+        }
+      ],
+      "wil": [
+        {
+          "wil": 0
+        }
+      ],
+      "ref": [
+        {
+          "ref": 1
+        }
+      ],
+      "fort": [
+        {
+          "fort": 2
+        }
+      ],
+      "majorEffect": [
+        "The target's armour is reduced by 1 for 1 round."
       ]
     },
     {
@@ -37255,14 +37181,6 @@
           "blink dog, satyr, or sprite"
         ]
       },
-      "alignment": [
-        "U"
-      ],
-      "ac": [
-        {
-          "special": "2 + half the level of the spell"
-        }
-      ],
       "hp": {
         "special": "67 + 11 for each spell level above 4th"
       },
@@ -37278,15 +37196,9 @@
       },
       "str": 12,
       "dex": 15,
-      "con": 12,
       "int": 10,
       "wis": 10,
       "cha": 15,
-      "save": {
-        "str": "+1",
-        "dex": "+2",
-        "wis": "+2"
-      },
       "senses": [
         "darkvision 60 ft."
       ],
@@ -37296,17 +37208,6 @@
         "sylvan"
       ],
       "trait": [
-        {
-          "name": "—MAJOR EFFECTS—",
-          "entries": [
-            {
-              "type": "list",
-              "items": [
-                "The target's armour is reduced by 1 for 1 round."
-              ]
-            }
-          ]
-        },
         {
           "type": "entries",
           "name": "Keen Hearing and Smell (Blink Dog Only)",
@@ -37341,6 +37242,29 @@
             "{@atk rw} range 40/160 ft., one target. 5 piercing damage plus extra damage equal to spell slot level. If this attack scores a major success against a creature, the target is {@condition poisoned|sns} for 1 minute. On a critical success, the {@condition poisoned|sns} target falls {@condition unconscious|sns} for the same duration, or until it takes damage or another creature uses an action to shake it awake."
           ]
         }
+      ],
+      "arm": [
+        {
+          "special": "2 + half the level of the spell"
+        }
+      ],
+      "wil": [
+        {
+          "wil": 2
+        }
+      ],
+      "ref": [
+        {
+          "ref": 2
+        }
+      ],
+      "fort": [
+        {
+          "fort": 1
+        }
+      ],
+      "majorEffect": [
+        "The target's armour is reduced by 1 for 1 round."
       ]
     },
     {
@@ -37355,17 +37279,6 @@
           "air, earth, fire, or water"
         ]
       },
-      "alignment": [
-        "U"
-      ],
-      "ac": [
-        {
-          "ac": 3,
-          "from": [
-            "natural armor"
-          ]
-        }
-      ],
       "hp": {
         "special": "67"
       },
@@ -37389,15 +37302,9 @@
       },
       "str": 18,
       "dex": 14,
-      "con": 16,
       "int": 4,
       "wis": 10,
       "cha": 10,
-      "save": {
-        "str": "+4",
-        "dex": "+2",
-        "wis": "+0"
-      },
       "resist": [
         "cold (Water only)",
         "lightning and thunder (Air only)",
@@ -37428,17 +37335,6 @@
       ],
       "trait": [
         {
-          "name": "—MAJOR EFFECTS—",
-          "entries": [
-            {
-              "type": "list",
-              "items": [
-                "The target's armour is reduced by 1 for 1 round."
-              ]
-            }
-          ]
-        },
-        {
           "type": "entries",
           "name": "Amorphous Form (Air, Fire, and Water Only)",
           "entries": [
@@ -37460,6 +37356,32 @@
             "{@atk mw} reach 5 ft., one target. 26 ({@damage 4d8 + 8}) bludgeoning damage (or fire damage for a Fire elemental) plus extra damage equal to spell slot level."
           ]
         }
+      ],
+      "arm": [
+        {
+          "arm": 3,
+          "from": [
+            "natural armour"
+          ]
+        }
+      ],
+      "wil": [
+        {
+          "wil": 0
+        }
+      ],
+      "ref": [
+        {
+          "ref": 2
+        }
+      ],
+      "fort": [
+        {
+          "fort": 4
+        }
+      ],
+      "majorEffect": [
+        "The target's armour is reduced by 1 for 1 round."
       ]
     },
     {
@@ -37474,17 +37396,6 @@
           "hag, hound, or redcap"
         ]
       },
-      "alignment": [
-        "U"
-      ],
-      "ac": [
-        {
-          "ac": 1,
-          "from": [
-            "natural armor"
-          ]
-        }
-      ],
       "hp": {
         "special": "67"
       },
@@ -37496,15 +37407,9 @@
       },
       "str": 14,
       "dex": 16,
-      "con": 14,
       "int": 10,
       "wis": 12,
       "cha": 16,
-      "save": {
-        "str": "+2",
-        "dex": "+3",
-        "wis": "+3"
-      },
       "resist": [
         {
           "resist": [
@@ -37524,19 +37429,6 @@
       "languages": [
         "common",
         "sylvan"
-      ],
-      "trait": [
-        {
-          "name": "—MAJOR EFFECTS—",
-          "entries": [
-            {
-              "type": "list",
-              "items": [
-                "The target's armour is reduced by 1 for 1 round."
-              ]
-            }
-          ]
-        }
       ],
       "action": [
         {
@@ -37591,6 +37483,32 @@
             "The hound makes a will attack against one creature that can hear it that deals {@dice 2d10} psychic damage. On a hit, the target is {@condition frightened|sns} until the end of the hound's next turn. If the attack fails to hit, the target can't be affected by Terrifying Howl again for 1 minute."
           ]
         }
+      ],
+      "arm": [
+        {
+          "arm": 1,
+          "from": [
+            "natural armour"
+          ]
+        }
+      ],
+      "wil": [
+        {
+          "wil": 3
+        }
+      ],
+      "ref": [
+        {
+          "ref": 3
+        }
+      ],
+      "fort": [
+        {
+          "fort": 2
+        }
+      ],
+      "majorEffect": [
+        "The target's armour is reduced by 1 for 1 round."
       ]
     },
     {
@@ -37605,17 +37523,6 @@
           "angel of battle, angel of protection, or angel of vengeance"
         ]
       },
-      "alignment": [
-        "U"
-      ],
-      "ac": [
-        {
-          "ac": 4,
-          "from": [
-            "or 5 for Angel of Protection"
-          ]
-        }
-      ],
       "hp": {
         "special": "67"
       },
@@ -37625,15 +37532,9 @@
       },
       "str": 18,
       "dex": 14,
-      "con": 16,
       "int": 10,
       "wis": 14,
       "cha": 18,
-      "save": {
-        "str": "+4",
-        "dex": "+2",
-        "wis": "+4"
-      },
       "resist": [
         "radiant",
         "necrotic"
@@ -37651,17 +37552,6 @@
         "common"
       ],
       "trait": [
-        {
-          "name": "—MAJOR EFFECTS—",
-          "entries": [
-            {
-              "type": "list",
-              "items": [
-                "The target's armour is reduced by 1 for 1 round."
-              ]
-            }
-          ]
-        },
         {
           "name": "Inescapable Strike (Angel of Vengeance Only)",
           "entries": [
@@ -37694,6 +37584,32 @@
             "A creature the celestial touches regains 19 ({@damage 2d10 + 8}) hit points. Alternatively, it can end one disease or neutralise on poison affecting the creature."
           ]
         }
+      ],
+      "arm": [
+        {
+          "arm": 4,
+          "from": [
+            "or 5 for Angel of Protection"
+          ]
+        }
+      ],
+      "wil": [
+        {
+          "wil": 4
+        }
+      ],
+      "ref": [
+        {
+          "ref": 2
+        }
+      ],
+      "fort": [
+        {
+          "fort": 4
+        }
+      ],
+      "majorEffect": [
+        "The target's armour is reduced by 1 for 1 round."
       ]
     },
     {
@@ -37706,17 +37622,6 @@
         "type": "plant",
         "swarmSize": "L"
       },
-      "alignment": [
-        "U"
-      ],
-      "ac": [
-        {
-          "ac": 3,
-          "from": [
-            "natural armor"
-          ]
-        }
-      ],
       "hp": {
         "special": "244"
       },
@@ -37726,15 +37631,9 @@
       },
       "str": 25,
       "dex": 6,
-      "con": 18,
       "int": 10,
       "wis": 10,
       "cha": 7,
-      "save": {
-        "str": "+7",
-        "dex": "+0",
-        "wis": "+0"
-      },
       "vulnerable": [
         "fire"
       ],
@@ -37756,17 +37655,6 @@
         "sylvan"
       ],
       "trait": [
-        {
-          "name": "—MAJOR EFFECTS—",
-          "entries": [
-            {
-              "type": "list",
-              "items": [
-                "The target's armour is reduced by 1 for 1 round."
-              ]
-            }
-          ]
-        },
         {
           "name": "Magic Resistance",
           "entries": [
@@ -37799,6 +37687,32 @@
             "{@atk mw} reach 0 ft., all creatures in the swarm's space. 24 ({@damage 5d6 + 7}) slashing damage and the target is {@condition grappled|sns}. Slashing damage dealt by this attack ignores resistances and immunities."
           ]
         }
+      ],
+      "arm": [
+        {
+          "arm": 3,
+          "from": [
+            "natural armour"
+          ]
+        }
+      ],
+      "wil": [
+        {
+          "wil": 0
+        }
+      ],
+      "ref": [
+        {
+          "ref": 0
+        }
+      ],
+      "fort": [
+        {
+          "fort": 7
+        }
+      ],
+      "majorEffect": [
+        "The target's armour is reduced by 1 for 1 round."
       ]
     },
     {
@@ -37808,17 +37722,6 @@
         "T"
       ],
       "type": "construct",
-      "alignment": [
-        "U"
-      ],
-      "ac": [
-        {
-          "ac": 2,
-          "from": [
-            "natural armor"
-          ]
-        }
-      ],
       "hp": {
         "special": "11"
       },
@@ -37828,15 +37731,9 @@
       },
       "str": 4,
       "dex": 16,
-      "con": 10,
       "int": 2,
       "wis": 10,
       "cha": 1,
-      "save": {
-        "str": "+0",
-        "dex": "+3",
-        "wis": "+0"
-      },
       "immune": [
         "poison",
         "psychic"
@@ -37856,19 +37753,6 @@
       ],
       "passive": 10,
       "languages": [],
-      "trait": [
-        {
-          "name": "—MAJOR EFFECTS—",
-          "entries": [
-            {
-              "type": "list",
-              "items": [
-                "The target's armour is reduced by 1 for 1 round."
-              ]
-            }
-          ]
-        }
-      ],
       "action": [
         {
           "name": "Slam",
@@ -37876,6 +37760,32 @@
             "{@atk mw} reach 5 ft., one target. 5 ({@damage 1d4 + 3}) bludgeoning damage."
           ]
         }
+      ],
+      "arm": [
+        {
+          "arm": 2,
+          "from": [
+            "natural armour"
+          ]
+        }
+      ],
+      "wil": [
+        {
+          "wil": 0
+        }
+      ],
+      "ref": [
+        {
+          "ref": 3
+        }
+      ],
+      "fort": [
+        {
+          "fort": 0
+        }
+      ],
+      "majorEffect": [
+        "The target's armour is reduced by 1 for 1 round."
       ]
     },
     {
@@ -37885,17 +37795,6 @@
         "M"
       ],
       "type": "construct",
-      "alignment": [
-        "U"
-      ],
-      "ac": [
-        {
-          "ac": 1,
-          "from": [
-            "plus half the spell's level (rounded up); natural armor"
-          ]
-        }
-      ],
       "hp": {
         "special": "45 + 16 for each spell level above 4th"
       },
@@ -37904,15 +37803,9 @@
       },
       "str": 18,
       "dex": 10,
-      "con": 18,
       "int": 14,
       "wis": 11,
       "cha": 5,
-      "save": {
-        "str": "+4",
-        "dex": "+2",
-        "wis": "+0"
-      },
       "resist": [
         "poison"
       ],
@@ -37933,17 +37826,6 @@
         "understands the languages you speak"
       ],
       "trait": [
-        {
-          "name": "—MAJOR EFFECTS—",
-          "entries": [
-            {
-              "type": "list",
-              "items": [
-                "The target's armour is reduced by 1 for 1 round."
-              ]
-            }
-          ]
-        },
         {
           "name": "Heated Body (Metal Only)",
           "entries": [
@@ -37972,6 +37854,32 @@
             "When the construct takes damage, it makes a slam attack against a random creature adjacent to it. If no creature is within reach, the construct shifts up to half its Speed towards an enemy it can see."
           ]
         }
+      ],
+      "arm": [
+        {
+          "arm": 1,
+          "from": [
+            "plus half the spell's level (rounded up); natural armour"
+          ]
+        }
+      ],
+      "wil": [
+        {
+          "wil": 0
+        }
+      ],
+      "ref": [
+        {
+          "ref": 2
+        }
+      ],
+      "fort": [
+        {
+          "fort": 4
+        }
+      ],
+      "majorEffect": [
+        "The target's armour is reduced by 1 for 1 round."
       ]
     },
     {
@@ -37981,17 +37889,6 @@
         "L"
       ],
       "type": "dragon",
-      "alignment": [
-        "U"
-      ],
-      "ac": [
-        {
-          "ac": 2,
-          "from": [
-            "plus half the spell's level (rounded down); natural armor"
-          ]
-        }
-      ],
       "hp": {
         "special": "56 + 11 for each spell level above 5th"
       },
@@ -38002,15 +37899,9 @@
       },
       "str": 19,
       "dex": 14,
-      "con": 17,
       "int": 10,
       "wis": 14,
       "cha": 14,
-      "save": {
-        "str": "+4",
-        "dex": "+2",
-        "wis": "+2"
-      },
       "resist": [
         "acid, cold, fire, lightning, and poison (Chromatic and Metallic Only)",
         "force, necrotic, psychic, radiant, and thunder (Gem Only)"
@@ -38031,17 +37922,6 @@
       ],
       "trait": [
         {
-          "name": "—MAJOR EFFECTS—",
-          "entries": [
-            {
-              "type": "list",
-              "items": [
-                "The target's armour is reduced by 1 for 1 round."
-              ]
-            }
-          ]
-        },
-        {
           "name": "Shared Resistances",
           "entries": [
             "When you summon the dragon, choose one of its damage resistances. You have resistance to the chosen damage type until the spell ends."
@@ -38061,6 +37941,32 @@
             "The dragon exhales destructive energy in a 30-foot cone. Make an area weapon reflex attack against each creature in that area that deals {@dice 5d6} damage of a type this dragon has 50% resistance to (your choice)."
           ]
         }
+      ],
+      "arm": [
+        {
+          "arm": 2,
+          "from": [
+            "plus half the spell's level (rounded down); natural armour"
+          ]
+        }
+      ],
+      "wil": [
+        {
+          "wil": 2
+        }
+      ],
+      "ref": [
+        {
+          "ref": 2
+        }
+      ],
+      "fort": [
+        {
+          "fort": 4
+        }
+      ],
+      "majorEffect": [
+        "The target's armour is reduced by 1 for 1 round."
       ]
     },
     {
@@ -38070,14 +37976,6 @@
         "S"
       ],
       "type": "plant",
-      "alignment": [
-        "U"
-      ],
-      "ac": [
-        {
-          "ac": -1
-        }
-      ],
       "hp": {
         "special": "11"
       },
@@ -38086,15 +37984,9 @@
       },
       "str": 3,
       "dex": 8,
-      "con": 11,
       "int": 10,
       "wis": 10,
       "cha": 6,
-      "save": {
-        "str": "+0",
-        "dex": "+0",
-        "wis": "+0"
-      },
       "resist": [
         "piercing"
       ],
@@ -38106,17 +37998,6 @@
         "one language known by its creator"
       ],
       "trait": [
-        {
-          "name": "—MAJOR EFFECTS—",
-          "entries": [
-            {
-              "type": "list",
-              "items": [
-                "The target's armour is reduced by 1 for 1 round."
-              ]
-            }
-          ]
-        },
         {
           "name": "False Appearance",
           "entries": [
@@ -38131,6 +38012,29 @@
             "{@atk mw} reach 5 ft., one target. {@damage 1d4 - 1} slashing damage."
           ]
         }
+      ],
+      "arm": [
+        {
+          "arm": -1
+        }
+      ],
+      "wil": [
+        {
+          "wil": 0
+        }
+      ],
+      "ref": [
+        {
+          "ref": 0
+        }
+      ],
+      "fort": [
+        {
+          "fort": 0
+        }
+      ],
+      "majorEffect": [
+        "The target's armour is reduced by 1 for 1 round."
       ]
     },
     {
@@ -38140,17 +38044,6 @@
         "H"
       ],
       "type": "plant",
-      "alignment": [
-        "U"
-      ],
-      "ac": [
-        {
-          "ac": 1,
-          "from": [
-            "natural armor"
-          ]
-        }
-      ],
       "hp": {
         "special": "59"
       },
@@ -38159,15 +38052,9 @@
       },
       "str": 19,
       "dex": 6,
-      "con": 15,
       "int": 10,
       "wis": 10,
       "cha": 7,
-      "save": {
-        "str": "+4",
-        "dex": "+0",
-        "wis": "+0"
-      },
       "resist": [
         "bludgeoning",
         "piercing"
@@ -38180,17 +38067,6 @@
         "one language known by its creator"
       ],
       "trait": [
-        {
-          "name": "—MAJOR EFFECTS—",
-          "entries": [
-            {
-              "type": "list",
-              "items": [
-                "The target's armour is reduced by 1 for 1 round."
-              ]
-            }
-          ]
-        },
         {
           "name": "False Appearance",
           "entries": [
@@ -38205,6 +38081,32 @@
             "{@atk mw} reach 10 ft., one target. {@damage 3d6 + 4} bludgeoning damage."
           ]
         }
+      ],
+      "arm": [
+        {
+          "arm": 1,
+          "from": [
+            "natural armour"
+          ]
+        }
+      ],
+      "wil": [
+        {
+          "wil": 0
+        }
+      ],
+      "ref": [
+        {
+          "ref": 0
+        }
+      ],
+      "fort": [
+        {
+          "fort": 4
+        }
+      ],
+      "majorEffect": [
+        "The target's armour is reduced by 1 for 1 round."
       ]
     }
   ]

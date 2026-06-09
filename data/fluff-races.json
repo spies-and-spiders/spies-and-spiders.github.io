@@ -1,9 +1,9 @@
 {
-	"_meta": {
-		"internalCopies": [
-			"raceFluff"
-		]
-	},
-	"raceFluff": [],
-	"raceFluffMeta": {}
+  "_meta": {
+    "internalCopies": [
+      "raceFluff"
+    ]
+  },
+  "raceFluff": [],
+  "raceFluffMeta": {}
 }
