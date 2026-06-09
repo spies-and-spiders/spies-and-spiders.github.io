@@ -231,6 +231,20 @@
         "Multiattack|Ranger|sns|Hunter|sns|7",
         "Superior Hunter's Defence|Ranger|sns|Hunter|sns|9"
       ]
+    },
+    {
+      "name": "Gloom Stalker",
+      "shortName": "Gloom Stalker",
+      "source": "sns",
+      "className": "Ranger",
+      "classSource": "sns",
+      "subclassFeatures": [
+        "Gloom Stalker|Ranger|sns|Gloom Stalker|sns|1",
+        "Creeping Doom|Ranger|sns|Gloom Stalker|sns|3",
+        "Precision in Shadow|Ranger|sns|Gloom Stalker|sns|5",
+        "Dark Veil|Ranger|sns|Gloom Stalker|sns|7",
+        "Eclipsed Deflection|Ranger|sns|Gloom Stalker|sns|9"
+      ]
     }
   ],
   "classFeature": [
@@ -1872,6 +1886,129 @@
             }
           ]
         }
+      ]
+    },
+    {
+      "name": "Gloom Stalker",
+      "source": "sns",
+      "className": "Ranger",
+      "classSource": "sns",
+      "subclassShortName": "Gloom Stalker",
+      "subclassSource": "sns",
+      "level": 1,
+      "entries": [
+        {
+          "type": "refSubclassFeature",
+          "subclassFeature": "Dread Ambusher|Ranger|sns|Gloom Stalker|sns|1"
+        },
+        {
+          "type": "refSubclassFeature",
+          "subclassFeature": "Umbral Sight|Ranger|sns|Gloom Stalker|sns|1"
+        },
+        {
+          "type": "refSubclassFeature",
+          "subclassFeature": "Gloom Stalker Major Effects|Ranger|sns|Gloom Stalker|sns|1"
+        }
+      ]
+    },
+    {
+      "name": "Dread Ambusher",
+      "source": "sns",
+      "className": "Ranger",
+      "classSource": "sns",
+      "subclassShortName": "Gloom Stalker",
+      "subclassSource": "sns",
+      "level": 1,
+      "header": 1,
+      "entries": [
+        "At tier 1, you master the art of the ambush. You can give yourself a bonus to your initiative rolls equal to your Wisdom modifier.",
+        "During your first turn of each combat, your Speed is increased by 10 feet. If you take the Attack action on that turn, your attack gains one instance of the Empowered Attack feature and deals {@dice 1d8} additional damage of the weapon's base type."
+      ]
+    },
+    {
+      "name": "Umbral Sight",
+      "source": "sns",
+      "className": "Ranger",
+      "classSource": "sns",
+      "subclassShortName": "Gloom Stalker",
+      "subclassSource": "sns",
+      "level": 1,
+      "header": 1,
+      "entries": [
+        "At tier 1, you gain 60 feet of darkvision.",
+        "You are also adept at evading and hunting creatures that rely on darkvision. While in darkness, you are invisible to any creature that relies on darkvision to see you in that darkness. Additionally, whenever you Expose a creature with darkvision, you can modify the final roll on the weakness table by 1."
+      ]
+    },
+    {
+      "name": "Gloom Stalker Major Effects",
+      "source": "sns",
+      "className": "Ranger",
+      "classSource": "sns",
+      "subclassShortName": "Gloom Stalker",
+      "subclassSource": "sns",
+      "level": 1,
+      "header": 1,
+      "entries": [
+        "From tier 1, Gloom Stalker Rangers have access to the following major effect options:",
+        {
+          "type": "list",
+          "items": [
+            "Your weapon damage increases by an amount equal to half your level (rounded up), and does so again whenever you fail to hit with a weapon attack. This effect ends and the bonus damage is lost the next time you score a major success with a weapon attack, after that attack deals damage.",
+            "You may move up one space in the initiative tracker. Then, you gain a bonus to weapon damage against creatures behind you in the initiative tracker for the remainder of combat equal to half your level (rounded up)."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Creeping Doom",
+      "source": "sns",
+      "className": "Ranger",
+      "classSource": "sns",
+      "subclassShortName": "Gloom Stalker",
+      "subclassSource": "sns",
+      "level": 3,
+      "header": 2,
+      "entries": [
+        "At tier 2, when you Expose a creature, you may cause it to project a 5-foot-radius sphere of darkness around itself until the Exposure ends."
+      ]
+    },
+    {
+      "name": "Precision in Shadow",
+      "source": "sns",
+      "className": "Ranger",
+      "classSource": "sns",
+      "subclassShortName": "Gloom Stalker",
+      "subclassSource": "sns",
+      "level": 5,
+      "header": 2,
+      "entries": [
+        "At tier 3, whenever you score a critical failure or minor success with a weapon attack against a creature in darkness, the attack deals damage as if it were a standard success."
+      ]
+    },
+    {
+      "name": "Dark Veil",
+      "source": "sns",
+      "className": "Ranger",
+      "classSource": "sns",
+      "subclassShortName": "Gloom Stalker",
+      "subclassSource": "sns",
+      "level": 7,
+      "header": 2,
+      "entries": [
+        "At tier 4, your reflexes sharpen when battle begins. During the first round of combat, you have 50% resistance to damage and add half your Wisdom modifier to your armour. Additionally, whenever you take damage during that round, you may immediately use your reaction to shift up to half your Speed."
+      ]
+    },
+    {
+      "name": "Eclipsed Deflection",
+      "source": "sns",
+      "className": "Ranger",
+      "classSource": "sns",
+      "subclassShortName": "Gloom Stalker",
+      "subclassSource": "sns",
+      "level": 9,
+      "header": 2,
+      "entries": [
+        "At tier 5, shadows bend instinctively to shield you from harm. Whenever you take damage from an attack made by a creature that is in darkness, you reduce the damage by an amount equal to your Wisdom modifier + half your level. Additionally, you also impose disadvantage on the next attack roll the attacker makes."
       ]
     }
   ],
