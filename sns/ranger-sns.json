@@ -270,7 +270,7 @@
           "type": "list",
           "items": [
             "Difficult terrain doesn't slow your group's travel.",
-            "You gain an expertise die on Perception checks made to avoid ambushes.",
+            "You gain an expertise die on {@skill Perception} checks made to avoid ambushes.",
             "While tracking other creatures, you also learn their exact number, their sizes, and how long ago they passed through the area."
           ]
         }
@@ -1081,7 +1081,7 @@
           "type": "entries",
           "name": "Hunter's Target",
           "entries": [
-            "You can use your bonus action to focus your attention on a specific enemy. Choose a creature you can see within 90 feet to mark as your quarry. For 1 hour, you are focused on this creature. You gain a +1 bonus to weapon armour attack rolls against the creature, and your weapon armour attacks against it deal an extra {@dice 1d6} damage. In addition, you have advantage on Perception and Survival checks you make to find it. If the creature drops to 0 hit points before the hour ends, you can use a bonus action to mark a new quarry.",
+            "You can use your bonus action to focus your attention on a specific enemy. Choose a creature you can see within 90 feet to mark as your quarry. For 1 hour, you are focused on this creature. You gain a +1 bonus to weapon armour attack rolls against the creature, and your weapon armour attacks against it deal an extra {@dice 1d6} damage. In addition, you have advantage on {@skill Perception} and {@skill Survival} checks you make to find it. If the creature drops to 0 hit points before the hour ends, you can use a bonus action to mark a new quarry.",
             "Once you use this feature, you can't use it again until you finish a short or long rest."
           ]
         },
@@ -1327,21 +1327,21 @@
           "type": "entries",
           "name": "Answering Silence",
           "entries": [
-            "When others seek your advice on wilderness matters, they often arrive at the correct conclusion despite (or perhaps because of) the silence with which you respond. When a friendly creature makes a Nature or Survival check while adjacent to you, it gains an expertise die. This affects their journey activities."
+            "When others seek your advice on wilderness matters, they often arrive at the correct conclusion despite (or perhaps because of) the silence with which you respond. When a friendly creature makes a {@skill Nature} or {@skill Survival} check while adjacent to you, it gains an expertise die. This affects their journey activities."
           ]
         },
         {
           "type": "entries",
           "name": "Fearsome Mysticism",
           "entries": [
-            "Your uncanny abilities and single-minded focus can be unnerving to the uninitiated. You gain an expertise die on Intimidation checks against any creature that is neither proficient in Arcana nor casts spells. This affects the Rob journey activity."
+            "Your uncanny abilities and single-minded focus can be unnerving to the uninitiated. You gain an expertise die on {@skill Intimidation} checks against any creature that is neither proficient in Arcana nor casts spells. This affects the Rob journey activity."
           ]
         },
         {
           "type": "entries",
           "name": "Kindred Spirit",
           "entries": [
-            "You intuitively sense when another wilderness expert is nearby. Your Perception for the purposes of detecting hidden or invisible creatures within 30 feet of you increases by 5, and you instantly detect whether any creature you can see is proficient with Stealth or Survival."
+            "You intuitively sense when another wilderness expert is nearby. Your {@skill Perception} for the purposes of detecting hidden or invisible creatures within 30 feet of you increases by 5, and you instantly detect whether any creature you can see is proficient with {@skill Stealth} or {@skill Survival}."
           ]
         }
       ]
@@ -1445,7 +1445,7 @@
           "name": "Big Game Traps",
           "entries": [
             "Leveraging your skill with snaring small game, you take 10 minutes to set a trap or snare for a creature of Large size or smaller.",
-            "The Trap's DC is 8 + your Dexterity modifier + your proficiency bonus. A creature can spot the trap by making a Perception check against the trap's DC.",
+            "The Trap's DC is 8 + your Dexterity modifier + your proficiency bonus. A creature can spot the trap by making a {@skill Perception} check against the trap's DC.",
             "Describe the mechanics of your trap to the DM, including what triggers it and what happens when triggered. You may use the following examples or work with the DM to invent your own.",
             "When a creature enters the trapped area or interacts with the trapped object it makes a save or triggers the trap.",
             {
@@ -1529,7 +1529,7 @@
           "type": "entries",
           "name": "Nature's Shadow",
           "entries": [
-            "You gain an expertise die on Stealth checks."
+            "You gain an expertise die on {@skill Stealth} checks."
           ]
         }
       ]
@@ -2153,7 +2153,7 @@
         "EK"
       ],
       "entries": [
-        "By imitating how a non-humanoid creature sounds, looks, and moves, you gain advantage on Deception and Intimidation checks made to convince a creature that it is seeing or hearing that beast."
+        "By imitating how a non-humanoid creature sounds, looks, and moves, you gain advantage on {@skill Deception} and {@skill Intimidation} checks made to convince a creature that it is seeing or hearing that beast."
       ]
     },
     {
@@ -2315,7 +2315,7 @@
         "EW"
       ],
       "entries": [
-        "As a bonus action, a creature within 30 feet of the beast can make a Nature check with DC equal to 10 + the beast's CR. On a success, the beast is {@condition dominated|sns} for the remainder of combat."
+        "As a bonus action, a creature within 30 feet of the beast can make a {@skill Nature} check with DC equal to 10 + the beast's CR. On a success, the beast is {@condition dominated|sns} for the remainder of combat."
       ]
     },
     {
@@ -2335,7 +2335,7 @@
         "EW"
       ],
       "entries": [
-        "As a bonus action, a creature within 30 feet of the beast can make a Perception check with DC equal to 10 + the beast's CR. On a success, the beast's attacks have disadvantage against that creature for the remainder of combat."
+        "As a bonus action, a creature within 30 feet of the beast can make a {@skill Perception} check with DC equal to 10 + the beast's CR. On a success, the beast's attacks have disadvantage against that creature for the remainder of combat."
       ]
     },
     {
@@ -2425,7 +2425,7 @@
         "EW"
       ],
       "entries": [
-        "As a bonus action, a creature within 30 feet of the celestial can make a History check with DC equal to 10 + the celestial's CR. On a success, the celestial becomes {@condition slowed|sns} for the remainder of combat."
+        "As a bonus action, a creature within 30 feet of the celestial can make a {@skill History} check with DC equal to 10 + the celestial's CR. On a success, the celestial becomes {@condition slowed|sns} for the remainder of combat."
       ]
     },
     {
@@ -2445,7 +2445,7 @@
         "EW"
       ],
       "entries": [
-        "As a bonus action, a creature within 30 feet of the celestial can knowingly speak a lie, making a Deception check with DC equal to 10 + the celestial's CR. On a failure, the celestial's armour is reduced by 3 for the remainder of combat. This effect does not stack."
+        "As a bonus action, a creature within 30 feet of the celestial can knowingly speak a lie, making a {@skill Deception} check with DC equal to 10 + the celestial's CR. On a failure, the celestial's armour is reduced by 3 for the remainder of combat. This effect does not stack."
       ]
     },
     {
@@ -2475,7 +2475,7 @@
         "EW"
       ],
       "entries": [
-        "As a bonus action, a creature adjacent to the construct can make a Magiscience check with DC equal to 10 + the construct's CR. On a success, the construct gains 50% vulnerability to damage for the remainder of combat."
+        "As a bonus action, a creature adjacent to the construct can make a {@skill Magiscience} check with DC equal to 10 + the construct's CR. On a success, the construct gains 50% vulnerability to damage for the remainder of combat."
       ]
     },
     {
@@ -2485,7 +2485,7 @@
         "EW"
       ],
       "entries": [
-        "As a bonus action, a creature within 30 feet of the construct can make a Perception check with DC equal to 10 + the construct's CR. On a success, that creature's attacks against the construct have +5 critical success range for the remainder of combat."
+        "As a bonus action, a creature within 30 feet of the construct can make a {@skill Perception} check with DC equal to 10 + the construct's CR. On a success, that creature's attacks against the construct have +5 critical success range for the remainder of combat."
       ]
     },
     {
@@ -2725,7 +2725,7 @@
         "EW"
       ],
       "entries": [
-        "As a bonus action, a creature within 30 feet of the fey can make a Persuasion check with DC equal to 10 + the fey's CR. On a success, the fey becomes {@condition poisoned|sns} for the remainder of combat, and fortitude attacks against it have advantage for the same duration."
+        "As a bonus action, a creature within 30 feet of the fey can make a {@skill Persuasion} check with DC equal to 10 + the fey's CR. On a success, the fey becomes {@condition poisoned|sns} for the remainder of combat, and fortitude attacks against it have advantage for the same duration."
       ]
     },
     {
@@ -2855,7 +2855,7 @@
         "EW"
       ],
       "entries": [
-        "As a bonus action, a creature can say a silent prayer, making a History check with DC equal to 10 + the fiend's CR. On a success, that creature gains 50% resistance to the fiend's damage for the remainder of combat."
+        "As a bonus action, a creature can say a silent prayer, making a {@skill History} check with DC equal to 10 + the fiend's CR. On a success, that creature gains 50% resistance to the fiend's damage for the remainder of combat."
       ]
     },
     {
@@ -3055,7 +3055,7 @@
         "EW"
       ],
       "entries": [
-        "While adjacent to a corpse or {@condition prone|sns} creature and within 30 feet of the monstrosity, a creature can use its bonus action to make a Persuasion check with DC equal to 10 + the monstrosity's CR. On a success, the monstrosity is {@condition taunted|sns} by the corpse or {@condition prone|sns} creature until the monstrosity is hurt or the {@condition prone|sns} creature stands up."
+        "While adjacent to a corpse or {@condition prone|sns} creature and within 30 feet of the monstrosity, a creature can use its bonus action to make a {@skill Persuasion} check with DC equal to 10 + the monstrosity's CR. On a success, the monstrosity is {@condition taunted|sns} by the corpse or {@condition prone|sns} creature until the monstrosity is hurt or the {@condition prone|sns} creature stands up."
       ]
     },
     {
@@ -3195,7 +3195,7 @@
         "EW"
       ],
       "entries": [
-        "As a bonus action, a creature within 30 feet of the plant can make a Nature check with DC equal to 10 + the plant's CR. On a success, the plant gains 50% vulnerability to non-physical damage for the remainder of combat."
+        "As a bonus action, a creature within 30 feet of the plant can make a {@skill Nature} check with DC equal to 10 + the plant's CR. On a success, the plant gains 50% vulnerability to non-physical damage for the remainder of combat."
       ]
     },
     {
@@ -3275,7 +3275,7 @@
         "EW"
       ],
       "entries": [
-        "A creature within 60 feet of the undead can use a bonus action to attempt to convince the undead that its pain and trauma is understood, making a contested Deception check against the undead's Insight. If the undead loses this contest, it loses the ability to score major successes with its attacks for the remainder of combat; its major successes are instead counted as standard successes."
+        "A creature within 60 feet of the undead can use a bonus action to attempt to convince the undead that its pain and trauma is understood, making a contested {@skill Deception} check against the undead's {@skill Insight}. If the undead loses this contest, it loses the ability to score major successes with its attacks for the remainder of combat; its major successes are instead counted as standard successes."
       ]
     },
     {
@@ -3325,7 +3325,7 @@
         "EW"
       ],
       "entries": [
-        "As a bonus action, a creature within 60 feet of the undead can say a silent prayer, making a History check with DC equal to 10 + the undead's CR. On a success, spell attack rolls have advantage against the undead for the remainder of combat."
+        "As a bonus action, a creature within 60 feet of the undead can say a silent prayer, making a {@skill History} check with DC equal to 10 + the undead's CR. On a success, spell attack rolls have advantage against the undead for the remainder of combat."
       ]
     },
     {

@@ -245,7 +245,7 @@
             "1 point"
           ]
         },
-        "You gain an expertise die on Athletics and Brawn checks that use Strength, all incoming combat maneuver attack rolls against you are reduced by {@dice 1d4}, and you ignore the first 10 feet of difficult terrain when you move on your turn."
+        "You gain an expertise die on {@skill Athletics} and {@skill Brawn} checks that use Strength, all incoming combat maneuver attack rolls against you are reduced by {@dice 1d4}, and you ignore the first 10 feet of difficult terrain when you move on your turn."
       ],
       "name": "Heavy Stance",
       "time": [
@@ -1002,7 +1002,7 @@
             "1 point"
           ]
         },
-        "Make a ranged weapon attack with advantage against an unattended object. You can use the result of the attack roll instead of making an Intimidation check, and you gain an expertise die when doing so. Otherwise the kinds of trick shots you can make are at the Narrator's discretion. The attack has no other effect."
+        "Make a ranged weapon attack with advantage against an unattended object. You can use the result of the attack roll instead of making an {@skill Intimidation} check, and you gain an expertise die when doing so. Otherwise the kinds of trick shots you can make are at the Narrator's discretion. The attack has no other effect."
       ],
       "name": "Trickshot",
       "time": [
@@ -1041,7 +1041,7 @@
             "1 point"
           ]
         },
-        "Make a Perception check contested by the Stealth check of a target you cannot sense that is within 30 feet. On a success, you can sense the target during your next ranged attack against it before the end of your turn."
+        "Make a {@skill Perception} check contested by the {@skill Stealth} check of a target you cannot sense that is within 30 feet. On a success, you can sense the target during your next ranged attack against it before the end of your turn."
       ],
       "name": "Blindshot",
       "time": [
@@ -1277,7 +1277,7 @@
             "3 points"
           ]
         },
-        "Until the end of your next turn, you gain blindsight to a range of 20 feet. When you are hit by a ranged attack, you make a disadvantaged Perception check against a DC equal to the attack roll.",
+        "Until the end of your next turn, you gain blindsight to a range of 20 feet. When you are hit by a ranged attack, you make a disadvantaged {@skill Perception} check against a DC equal to the attack roll.",
         "On a success you reduce the attack's success tier by 1, and on a critical success you ignore it completely and redirect it back at the attacker (using the same attack roll)."
       ],
       "name": "Hear the Wind",
@@ -1506,7 +1506,7 @@
             "1 point"
           ]
         },
-        "You gain an expertise die on Insight checks and increase your passive Insight score by 3."
+        "You gain an expertise die on {@skill Insight} checks and increase your passive {@skill Insight} score by 3."
       ],
       "name": "Wary Stance",
       "time": [
@@ -1687,7 +1687,7 @@
             "2 points"
           ]
         },
-        "You take the Dodge action. Until the start of your next turn you make one melee weapon attack against each target that fails to hit you with a melee weapon attack, and you have disadvantage on Perception checks."
+        "You take the Dodge action. Until the start of your next turn you make one melee weapon attack against each target that fails to hit you with a melee weapon attack, and you have disadvantage on {@skill Perception} checks."
       ],
       "name": "Flowing Form",
       "time": [
@@ -1978,7 +1978,7 @@
             "1 point"
           ]
         },
-        "Until the start of your next turn, when you see a creature within 5 feet of you cast a spell you can use your reaction to make either an opportunity attack or a Finesse check against it."
+        "Until the start of your next turn, when you see a creature within 5 feet of you cast a spell you can use your reaction to make either an opportunity attack or a {@skill Finesse} check against it."
       ],
       "name": "Anticipate Spell",
       "time": [
@@ -2014,7 +2014,7 @@
             "1 point"
           ]
         },
-        "You gain an expertise die on Deception and Finesse checks made in combat."
+        "You gain an expertise die on {@skill Deception} and {@skill Finesse} checks made in combat."
       ],
       "name": "Deceptive Stance",
       "time": [
@@ -2053,7 +2053,7 @@
             "1 point"
           ]
         },
-        "When a creature hits you with a melee weapon attack, you can use your reaction to make a Finesse check against it."
+        "When a creature hits you with a melee weapon attack, you can use your reaction to make a {@skill Finesse} check against it."
       ],
       "name": "Painful Pickpocket",
       "time": [
@@ -2230,7 +2230,7 @@
             "1 point"
           ]
         },
-        "Choose a creature you can see. On a hit with your next melee weapon attack against it before the start of your next turn, you can also make a Finesse check against the creature."
+        "Choose a creature you can see. On a hit with your next melee weapon attack against it before the start of your next turn, you can also make a {@skill Finesse} check against the creature."
       ],
       "name": "Mugging Hit",
       "time": [
@@ -2302,7 +2302,7 @@
             "2 points"
           ]
         },
-        "Make a melee weapon attack using the result of a disadvantaged Finesse check instead of your usual attack roll."
+        "Make a melee weapon attack using the result of a disadvantaged {@skill Finesse} check instead of your usual attack roll."
       ],
       "name": "Feinting Strike",
       "time": [
@@ -2341,7 +2341,7 @@
             "1 point"
           ]
         },
-        "When a creature is within your reach, you can use your reaction to make a Finesse check against it."
+        "When a creature is within your reach, you can use your reaction to make a {@skill Finesse} check against it."
       ],
       "name": "Pickpocket",
       "time": [
@@ -2377,7 +2377,7 @@
             "2 points"
           ]
         },
-        "After you hit a creature with a melee weapon attack, you can spend 1 exertion to make a Finesse check. Reduce the result by the target's armour, and if it succeeds against a DC of 15, the target is {@condition blinded|sns}.",
+        "After you hit a creature with a melee weapon attack, you can spend 1 exertion to make a {@skill Finesse} check. Reduce the result by the target's armour, and if it succeeds against a DC of 15, the target is {@condition blinded|sns}.",
         "At the beginning of each of its turns, the {@condition blinded|sns} creature can make a save to recover from its blindness."
       ],
       "name": "Blinding Blow Stance",
@@ -2489,7 +2489,7 @@
             "2 points"
           ]
         },
-        "When a creature moves into your reach you can use your reaction to make a Finesse check. Reduce the result by the creature's armour, and if it succeeds against a DC of 15, the creature is {@condition restrained|sns} until the start of its next turn."
+        "When a creature moves into your reach you can use your reaction to make a {@skill Finesse} check. Reduce the result by the creature's armour, and if it succeeds against a DC of 15, the creature is {@condition restrained|sns} until the start of its next turn."
       ],
       "name": "Steal Momentum",
       "time": [
@@ -2532,8 +2532,8 @@
             "The Empowered Attack feature"
           ]
         },
-        "Make a Finesse check. Reduce the result by the armour of a creature within reach that is wearing armour, and if it succeeds against a DC of 15, the creature is {@condition staggered|sns}. At the beginning of each of its turns, a creature {@condition staggered|sns} by this maneuver can make a save, ending the effect on itself on a success.",
-        "Your Finesse check has advantage if the creature is wearing heavy armour."
+        "Make a {@skill Finesse} check. Reduce the result by the armour of a creature within reach that is wearing armour, and if it succeeds against a DC of 15, the creature is {@condition staggered|sns}. At the beginning of each of its turns, a creature {@condition staggered|sns} by this maneuver can make a save, ending the effect on itself on a success.",
+        "Your {@skill Finesse} check has advantage if the creature is wearing heavy armour."
       ],
       "name": "Armour Lock",
       "time": [
@@ -3442,7 +3442,7 @@
             "1 point"
           ]
         },
-        "Your passive Perception score increases by 3. In addition, you gain an expertise die on Perception checks."
+        "Your passive {@skill Perception} score increases by 3. In addition, you gain an expertise die on {@skill Perception} checks."
       ],
       "name": "Perceptive Stance",
       "time": [
@@ -3791,7 +3791,7 @@
             "3 points"
           ]
         },
-        "You can use your reaction to make a disadvantaged Perception check when a creature makes an armour attack against you, turning it into a minor success if your result is higher than the attack roll. In addition, if the attack is turned into a minor success you gain advantage on armour attacks made against that creature until the end of your next turn.",
+        "You can use your reaction to make a disadvantaged {@skill Perception} check when a creature makes an armour attack against you, turning it into a minor success if your result is higher than the attack roll. In addition, if the attack is turned into a minor success you gain advantage on armour attacks made against that creature until the end of your next turn.",
         "If the attack still hits you, the creature has disadvantage on its next armour attack made against you before the end of its next turn."
       ],
       "name": "Sharpened Awareness",
@@ -4030,7 +4030,7 @@
             "1 point"
           ]
         },
-        "After a creature within your reach makes a melee weapon attack against an ally, you can use your reaction to make a fortitude or reflex attack (target's choice) against the creature, using a disadvantaged Athletics check as the attack roll, with the following results.On a success you shove the creature 10 feet away from you and you move 10 feet in that direction.",
+        "After a creature within your reach makes a melee weapon attack against an ally, you can use your reaction to make a fortitude or reflex attack (target's choice) against the creature, using a disadvantaged {@skill Athletics} check as the attack roll, with the following results.On a success you shove the creature 10 feet away from you and you move 10 feet in that direction.",
         {
           "type": "list",
           "items": [
@@ -4999,7 +4999,7 @@
             "3 points"
           ]
         },
-        "When your mount makes an Athletics check to jump, you can use your reaction to grant it a fly speed equal to half its Speed until the end of your turn. Your mount can only fly in a straight line."
+        "When your mount makes an {@skill Athletics} check to jump, you can use your reaction to grant it a fly speed equal to half its Speed until the end of your turn. Your mount can only fly in a straight line."
       ],
       "name": "Prodigious Leap",
       "time": [
@@ -5831,7 +5831,7 @@
             "1 point"
           ]
         },
-        "Move 15 feet in a straight line and make a disadvantaged Acrobatics or Athletics check to jump as you do so. If a creature is within your reach when you land, you can make a melee weapon attack against it using the result of your check instead of an attack roll."
+        "Move 15 feet in a straight line and make a disadvantaged {@skill Finesse} or {@skill Athletics} check to jump as you do so. If a creature is within your reach when you land, you can make a melee weapon attack against it using the result of your check instead of an attack roll."
       ],
       "name": "Bounding Strike",
       "time": [
@@ -5945,7 +5945,7 @@
             "1 point"
           ]
         },
-        "You increase the distance of your horizontal jumps by a number of feet equal to your proficiency bonus, and the distance of your vertical jumps by a number of feet equal to half your proficiency bonus. In addition, you gain an expertise die on Acrobatics checks and checks made to jump. This affects your journey activity checks."
+        "You increase the distance of your horizontal jumps by a number of feet equal to your proficiency bonus, and the distance of your vertical jumps by a number of feet equal to half your proficiency bonus. In addition, you gain an expertise die on {@skill Finesse} checks and checks made to jump. This affects your journey activity checks."
       ],
       "name": "Springing Stance",
       "time": [
@@ -6557,7 +6557,7 @@
           ]
         },
         "Choose a weapon when you learn this combat maneuver. If you hit with your next attack roll using the chosen weapon against a living creature, you deliver a wound that causes {@dice 1d4} ongoing harm of the weapon's base type that lasts until the creature succeeds on a passive save.",
-        "Alternatively, the wounded creature, or a creature adjacent to it, can use an action to make a Medicine check against your standard DC, ending the ongoing harm on a success.",
+        "Alternatively, the wounded creature, or a creature adjacent to it, can use an action to make a {@skill Medicine} check against your standard DC, ending the ongoing harm on a success.",
         "The effect also ends if the wounded creature recovers any number of hit points."
       ],
       "name": "Wounding Strike",
@@ -6903,7 +6903,7 @@
         },
         "Choose a melee weapon when you learn this combat maneuver. You can use the chosen weapon to make a ranged attack against a distant target with air pressure, giving your attack a normal range of 20 feet and long range of 60 feet. This functions mechanically as if your weapon had the Thrown trait, except you don't actually throw it and it does not count as a thrown attack.",
         "You have advantage on attack rolls made using this maneuver. If both attack rolls hit, you deal an additional weapon damage die.",
-        "After using this maneuver to hit a creature, it can use an action to make a Perception check against your standard DC. On a success, for the next minute any uses of Wind Strike do not grant advantage on attack rolls made against the creature."
+        "After using this maneuver to hit a creature, it can use an action to make a {@skill Perception} check against your standard DC. On a success, for the next minute any uses of Wind Strike do not grant advantage on attack rolls made against the creature."
       ],
       "name": "Wind Strike",
       "time": [
@@ -7649,14 +7649,14 @@
             "5 points"
           ]
         },
-        "When you activate this maneuver, roll a {@skill Persuasion|sns} check. Then choose up to six creatures within 30 feet of you that can hear you. You can choose which of the following two effects to apply to each target.",
+        "When you activate this maneuver, roll a {@skill Persuasion} check. Then choose up to six creatures within 30 feet of you that can hear you. You can choose which of the following two effects to apply to each target.",
         {
           "type": "list",
           "items": [
             {
               "type": "item",
               "entries": [
-                "If your {@skill Persuasion|sns} check was equal to or greater than the creature's passive {@skill Insight|sns}, the creature must make a disadvantaged save, becoming {@condition fixated|sns} for 1 minute on a fail. This effect requires concentration like a spell and ends early if you lose concentration or if the creature can no longer hear you.",
+                "If your {@skill Persuasion} check was equal to or greater than the creature's passive {@skill Insight}, the creature must make a disadvantaged save, becoming {@condition fixated|sns} for 1 minute on a fail. This effect requires concentration like a spell and ends early if you lose concentration or if the creature can no longer hear you.",
                 "While {@condition fixated|sns} in this way, any ally who is not within 10 feet of you is considered to be hidden from the creature. An ally remains hidden until they reveal their position, such as by touching or attacking the creature or producing a lot of noise."
               ]
             },
@@ -7706,7 +7706,7 @@
             "2 points"
           ]
         },
-        "When you activate this maneuver, you take the Attack action. On a hit, make a Persuasion check against the target's passive Insight. On a success, the target has disadvantage on armour attacks made against creatures other than you until the end of your next turn."
+        "When you activate this maneuver, you take the Attack action. On a hit, make a {@skill Persuasion} check against the target's passive {@skill Insight}. On a success, the target has disadvantage on armour attacks made against creatures other than you until the end of your next turn."
       ],
       "name": "Challenger's Strike",
       "time": [
@@ -7815,7 +7815,7 @@
           ]
         },
         "When you activate this maneuver, choose one creature that has rolled initiative, shares a language with you, and hasn't had damage dealt to it by you in this combat. You reveal your name, as well as one piece of critical information about you (such as a notable title, your current objective, or a dark secret).",
-        "Make a Persuasion check against the creature's passive Deception. On a success, the chosen creature reveals the same information about itself to the best of its knowledge and ability. On a failure, the creature shares misleading information. This maneuver can only reveal new information about a creature once every 24 hours and only once per combat."
+        "Make a {@skill Persuasion} check against the creature's passive {@skill Deception}. On a success, the chosen creature reveals the same information about itself to the best of its knowledge and ability. On a failure, the creature shares misleading information. This maneuver can only reveal new information about a creature once every 24 hours and only once per combat."
       ],
       "name": "Formal Introduction",
       "time": [
@@ -7851,7 +7851,7 @@
             "3 points"
           ]
         },
-        "Choose one creature within 30 feet of you that can see or hear you and has a clear path to you. Make a Persuasion check against the creature's passive Insight. On a success, you and the creature are {@condition fixated|sns} on each other until the end of your next turn, and it must spend its movement during its next turn safely moving as close to you as possible.",
+        "Choose one creature within 30 feet of you that can see or hear you and has a clear path to you. Make a {@skill Persuasion} check against the creature's passive {@skill Insight}. On a success, you and the creature are {@condition fixated|sns} on each other until the end of your next turn, and it must spend its movement during its next turn safely moving as close to you as possible.",
         "While {@condition fixated|sns} in this way, you have disadvantage on armour attacks against creatures other than the creature, and the creature has disadvantage on armour attacks against creatures other than you."
       ],
       "name": "Honourable Bout",
@@ -7972,7 +7972,7 @@
             "1 point"
           ]
         },
-        "You gain an expertise die on Persuasion checks made in combat."
+        "You gain an expertise die on {@skill Persuasion} checks made in combat."
       ],
       "name": "Socialite Stance",
       "time": [
@@ -8047,7 +8047,7 @@
             "2 points"
           ]
         },
-        "When you activate this maneuver, you make a save. If you have proficiency with Finesse, you gain an expertise die on the save. On a success, you can move through the space of an adjacent creature of your choice freely until the end of the turn, and you don't provoke opportunity attacks from it until the beginning of your next turn."
+        "When you activate this maneuver, you make a save. If you have proficiency with {@skill Finesse}, you gain an expertise die on the save. On a success, you can move through the space of an adjacent creature of your choice freely until the end of the turn, and you don't provoke opportunity attacks from it until the beginning of your next turn."
       ],
       "name": "Stylish Tumble",
       "time": [
@@ -8120,7 +8120,7 @@
             "4 points"
           ]
         },
-        "Choose one creature within 30 feet that can see or hear you, whose CR is no less than half your level, and has a clear path to you. Make a Persuasion check against the creature's passive Insight. On a success, you and the creature enter a duel and are {@condition fixated|sns} on each other until either you or the challenged creature becomes {@condition incapacitated|sns}, or either ends their turn out of line of sight from the other. It also ends if you use this maneuver on a different creature.",
+        "Choose one creature within 30 feet that can see or hear you, whose CR is no less than half your level, and has a clear path to you. Make a {@skill Persuasion} check against the creature's passive {@skill Insight}. On a success, you and the creature enter a duel and are {@condition fixated|sns} on each other until either you or the challenged creature becomes {@condition incapacitated|sns}, or either ends their turn out of line of sight from the other. It also ends if you use this maneuver on a different creature.",
         "At the beginning of each of your turns, you both must move closer to each other if your opponent is not within your reach for a melee weapon attack or attempt to overcome an effect or obstacle that blocks you from doing so. Once within range, you and the creature must make at least one melee weapon attack against each other on your turns. Neither of you can willingly target other creatures and both of you gain a +4 bonus to your defences against attacks made by other creatures.",
         "If one creature drops to 0 hit points during the duel, the other creatures gain an expertise die to attack and damage rolls for the rest of the combat."
       ],
@@ -8201,7 +8201,7 @@
             "2 points"
           ]
         },
-        "Choose one creature within 30 feet that can see you. Make a Persuasion check against the creature's passive Insight. On a success, the creature is {@condition fixated|sns} on you until the start of your next turn."
+        "Choose one creature within 30 feet that can see you. Make a {@skill Persuasion} check against the creature's passive {@skill Insight}. On a success, the creature is {@condition fixated|sns} on you until the start of your next turn."
       ],
       "name": "Wink and Smile",
       "time": [

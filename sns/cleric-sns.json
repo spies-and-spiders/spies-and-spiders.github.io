@@ -665,7 +665,7 @@
           "type": "entries",
           "name": "Zeal of the Convert",
           "entries": [
-            "You enthusiastically see the hand of a greater entity everywhere. You gain advantage on Persuasion checks when you invoke the name of your deity or movement during a conversation with a pious person. If the listener is negatively disposed to your greater entity or movement, you have disadvantage instead. This balances out to not affect your journey activity checks."
+            "You enthusiastically see the hand of a greater entity everywhere. You gain advantage on {@skill Persuasion} checks when you invoke the name of your deity or movement during a conversation with a pious person. If the listener is negatively disposed to your greater entity or movement, you have disadvantage instead. This balances out to not affect your journey activity checks."
           ]
         }
       ]
@@ -829,7 +829,7 @@
           "type": "entries",
           "name": "Chaste",
           "entries": [
-            "In exchange for forgoing pleasures of the heart and flesh, you are hardened to the persuasions of others. Subtract your Wisdom modifier from any attack rolls made against you that can {@condition charmed|sns|charm}. You also gain an expertise die in your choice of Insight, Persuasion, or Religion checks."
+            "In exchange for forgoing pleasures of the heart and flesh, you are hardened to the {@skill persuasion}s of others. Subtract your Wisdom modifier from any attack rolls made against you that can {@condition charmed|sns|charm}. You also gain an expertise die in your choice of {@skill History}, {@skill Insight}, or {@skill Persuasion} checks."
           ]
         },
         {
@@ -850,7 +850,7 @@
           "type": "entries",
           "name": "Image of the Divine",
           "entries": [
-            "You exhibit a uniform, makeup, tattoo, or body modification indicating your higher entity or religious order. Creatures have advantage when discerning your religious identity. Attacks that can {@condition frightened|sns|frighten} and Intimidation checks made against you have disadvantage. You also gain an expertise die in your choice of Insight, Intimidation, or Persuasion checks."
+            "You exhibit a uniform, makeup, tattoo, or body modification indicating your higher entity or religious order. Creatures have advantage when discerning your religious identity. Attacks that can {@condition frightened|sns|frighten} and {@skill Intimidation} checks made against you have disadvantage. You also gain an expertise die in your choice of {@skill Insight}, {@skill Intimidation}, or {@skill Persuasion} checks."
           ]
         },
         {
@@ -871,21 +871,21 @@
           "type": "entries",
           "name": "Secrecy",
           "entries": [
-            "Your mission from your deity requires you to work undercover, concealing your true self with a secret identity. In exchange for forgoing the pleasure of true connection and friendship, you gain an expertise die on Deception checks."
+            "Your mission from your deity requires you to work undercover, concealing your true self with a secret identity. In exchange for forgoing the pleasure of true connection and friendship, you gain an expertise die on {@skill Deception} checks."
           ]
         },
         {
           "type": "entries",
           "name": "Severity",
           "entries": [
-            "In exchange for forgoing weakness such as helping or protecting others (except when it serves you), you add your Wisdom modifier to Perception checks made to find valuable objects, and on opposed checks made against the Persuasion check of another creature. This benefits your Insight journey activity checks, but no others."
+            "In exchange for forgoing weakness such as helping or protecting others (except when it serves you), you add your Wisdom modifier to {@skill Perception} checks made to find valuable objects, and on opposed checks made against the {@skill Persuasion} check of another creature. This benefits your {@skill Insight} journey activity checks, but no others."
           ]
         },
         {
           "type": "entries",
           "name": "Silence",
           "entries": [
-            "In exchange for speaking only to cast spells, you are able to compel other creatures to action with only a glance. Your Persuasion bonus is not factored into your party's Group Persuasion bonus, but the Group Persuasion bonus is increased by your Wisdom modifier."
+            "In exchange for speaking only to cast spells, you are able to compel other creatures to action with only a glance. Your {@skill Persuasion} bonus is not factored into your party's Group {@skill Persuasion} bonus, but the Group {@skill Persuasion} bonus is increased by your Wisdom modifier."
           ]
         }
       ]
@@ -963,21 +963,14 @@
           "name": "Auspicious Collaborator",
           "entries": [
             "The higher powers you are attuned to have witnessed your deeds and bestowed upon you a quality of worthiness. Your requests for aid are perceived as opportunities for partnership rather than impositions.",
-            "People of all backgrounds are more drawn to help you than they would ordinarily be. You gain an expertise die in Persuasion, and an additional expertise die on Persuasion checks related to seeking aid. The Pray journey activity counts as seeking aid."
+            "People of all backgrounds are more drawn to help you than they would ordinarily be. You gain an expertise die in {@skill Persuasion}, and an additional expertise die on {@skill Persuasion} checks related to seeking aid. The Pray journey activity counts as seeking aid."
           ]
         },
         {
           "type": "entries",
           "name": "Divine Authority",
           "entries": [
-            "Your connection to religious hierarchy opens many doors. Sermons you give and courtesy calls you make to different religious groups put you in contact with a local representative of your faith, who is happy to strongly recommend you to another local leader. You gain an expertise die in your choice of Insight or Persuasion. In addition, you gain an expertise die on Insight and Persuasion checks made against local leaders to whom you are recommended that would otherwise be indifferent towards you."
-          ]
-        },
-        {
-          "type": "entries",
-          "name": "Engaging Proclaimer",
-          "entries": [
-            "Your recitations of divine stories, songs, or chants quickly build and hold an audience's attention, whether you are speaking to a packed tavern or a smaller gathering. You gain an expertise die on Performance checks to gather and hold the attention of 2 or more people. This counts for Busk and Entertain journey activity checks. In addition, you gain an expertise die in your choice of Perfomance or Religion checks."
+            "Your connection to religious hierarchy opens many doors. Sermons you give and courtesy calls you make to different religious groups put you in contact with a local representative of your faith, who is happy to strongly recommend you to another local leader. You gain an expertise die in your choice of {@skill Insight} or {@skill Persuasion}. In addition, you gain an expertise die on {@skill Insight} and {@skill Persuasion} checks made against local leaders to whom you are recommended that would otherwise be indifferent towards you."
           ]
         },
         {
@@ -991,7 +984,7 @@
           "type": "entries",
           "name": "Symbol of Might",
           "entries": [
-            "The strength of the powers you serve is obvious to anybody you interact with, and you are able to use it to garner a certain level of fear and compliance. You gain an expertise die in Intimidation, and you gain an additional expertise die on Intimidation checks made to convince others to comply with your demands. This counts for Rob journey activity checks. The people you intimidate are no longer friendly towards you, if they were previously."
+            "The strength of the powers you serve is obvious to anybody you interact with, and you are able to use it to garner a certain level of fear and compliance. You gain an expertise die in {@skill Intimidation}, and you gain an additional expertise die on {@skill Intimidation} checks made to convince others to comply with your demands. This counts for Rob journey activity checks. The people you intimidate are no longer friendly towards you, if they were previously."
           ]
         }
       ]
@@ -1094,7 +1087,7 @@
           "type": "entries",
           "name": "Eyes of the Heart",
           "entries": [
-            "You have a way of really seeing folk's inner character. When you succeed on a contested Insight check, if the opposing creature's Charisma score is equal to or less than your standard DC, for the next 24 hours you do not need to make any further checks to recognise whenever that creature is lying, telling the truth, or excluding information."
+            "You have a way of really seeing folk's inner character. When you succeed on a contested {@skill Insight} check, if the opposing creature's Charisma score is equal to or less than your standard DC, for the next 24 hours you do not need to make any further checks to recognise whenever that creature is lying, telling the truth, or excluding information."
           ]
         },
         {
@@ -1375,7 +1368,7 @@
         "SF"
       ],
       "entries": [
-        "Your insight and sympathy more than make up for your lack of formal medical training. You gain an expertise die on Medicine checks. In addition, you may always choose to use Wisdom when making Wisdom checks."
+        "Your insight and sympathy more than make up for your lack of formal medical training. You gain an expertise die on {@skill Medicine} checks. In addition, you may always choose to use Wisdom when making Wisdom checks."
       ]
     },
     {
@@ -1415,7 +1408,7 @@
         "SF"
       ],
       "entries": [
-        "When you see a creature that appears to be a beast, you automatically recognise whether it is a celestial, fiend, or fey. You have advantage on Magiscience and Medicine checks made to interact with magical wounds and maladies caused by celestials, fiends, and fey."
+        "When you see a creature that appears to be a beast, you automatically recognise whether it is a celestial, fiend, or fey. You have advantage on {@skill Magiscience} and {@skill Medicine} checks made to interact with magical wounds and maladies caused by celestials, fiends, and fey."
       ]
     },
     {
@@ -1483,7 +1476,7 @@
         "SF"
       ],
       "entries": [
-        "Years of devoted learning have given you a deep understanding regarding the evolution of religion, theology, and the figures involved. You gain an expertise die on History checks. In addition, you may always choose to use Wisdom when making History checks."
+        "Years of devoted learning have given you a deep understanding regarding the evolution of religion, theology, and the figures involved. You gain an expertise die on {@skill History} checks. In addition, you may always choose to use Wisdom when making {@skill History} checks."
       ]
     },
     {
@@ -1493,7 +1486,7 @@
         "SF"
       ],
       "entries": [
-        "Your personal knowledge of divine wrath and the end times make your proclamations utterly chilling. You gain an expertise die on Intimidation checks. In addition, you may always choose to use Wisdom when making Intimidation checks."
+        "Your personal knowledge of divine wrath and the end times make your proclamations utterly chilling. You gain an expertise die on {@skill Intimidation} checks. In addition, you may always choose to use Wisdom when making {@skill Intimidation} checks."
       ]
     }
   ]

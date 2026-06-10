@@ -552,7 +552,7 @@
       "classSource": "sns",
       "level": 6,
       "entries": [
-        "Starting at 6th level, you can empty your mind and easily disguise your emotions. As an action, you can spend 1 exertion to enter a meditative empty mind state. This lasts for 1 hour. While in this state, Insight checks against you have disadvantage.",
+        "Starting at 6th level, you can empty your mind and easily disguise your emotions. As an action, you can spend 1 exertion to enter a meditative empty mind state. This lasts for 1 hour. While in this state, {@skill Insight} checks against you have disadvantage.",
         "In addition, enchantment spells have disadvantage on their non-armour attack rolls against you and you gain 50% resistance to psychic damage."
       ]
     },
@@ -689,7 +689,7 @@
       "level": 7,
       "header": 2,
       "entries": [
-        "Starting at tier 4, you learn how to make your entire body as insubstantial as a spirit's. You can use an action and spend 5 exertion to become incorporeal for up to a number of rounds equal to your Wisdom modifier. You can also end this effect by using a bonus action or your reaction. While incorporeal, you can still be seen as a faded version of yourself, but you gain advantage on all Stealth checks, 50% resistance to all types of damage except force, and may pass through objects and creatures as if they were difficult terrain.",
+        "Starting at tier 4, you learn how to make your entire body as insubstantial as a spirit's. You can use an action and spend 5 exertion to become incorporeal for up to a number of rounds equal to your Wisdom modifier. You can also end this effect by using a bonus action or your reaction. While incorporeal, you can still be seen as a faded version of yourself, but you gain advantage on all {@skill Stealth} checks, 50% resistance to all types of damage except force, and may pass through objects and creatures as if they were difficult terrain.",
         "You suffer 10 ({@dice 2d10}) force harm if you end your turn inside an object. If you end your turn in a space occupied by a creature, you both suffer force harm equal to your martial arts die times half your Wisdom modifier. This feature's duration ends while you are inside either an object or a creature, you suffer 10 ({@dice 2d10}) force harm, are shunted to the nearest open space, and suffer an additional 5 ({@dice 1d10}) force harm for every space shunted."
       ]
     },
@@ -703,7 +703,7 @@
       "level": 9,
       "header": 2,
       "entries": [
-        "At tier 5, you are able to move through the world as lightly as the ghosts you emulate. You gain a fly speed equal to half your Speed and the ability to hover, and also gain an expertise die on all Finesse and Stealth checks. You are also immune to the {@condition poisoned|sns} condition."
+        "At tier 5, you are able to move through the world as lightly as the ghosts you emulate. You gain a fly speed equal to half your Speed and the ability to hover, and also gain an expertise die on all {@skill Finesse} and {@skill Stealth} checks. You are also immune to the {@condition poisoned|sns} condition."
       ]
     }
   ],
@@ -970,7 +970,7 @@
       ],
       "prerequisite": [
         {
-          "other": "Profiency with the Insight skill"
+          "other": "Profiency with the {@skill Insight} skill"
         }
       ],
       "entries": [
@@ -1447,11 +1447,11 @@
       ],
       "prerequisite": [
         {
-          "other": "Profiency with the Athletics skill; Adept Speed practiced technique"
+          "other": "Profiency with the {@skill Athletics} skill; Adept Speed practiced technique"
         }
       ],
       "entries": [
-        "You have advantage on Athletics checks made to jump. On your turn, you can spend 1 exertion to triple your jump distances until the start of your next turn."
+        "You have advantage on {@skill Athletics} checks made to jump. On your turn, you can spend 1 exertion to triple your jump distances until the start of your next turn."
       ]
     },
     {
@@ -1466,7 +1466,7 @@
         }
       ],
       "entries": [
-        "Your step is so light you seem to float in the air. You can use a bonus action and spend 1 exertion to cast {@spell fly|sns} on yourself. You also have advantage on Stealth checks related to noise. The effect lasts until the start of your next turn."
+        "Your step is so light you seem to float in the air. You can use a bonus action and spend 1 exertion to cast {@spell fly|sns} on yourself. You also have advantage on {@skill Stealth} checks related to noise. The effect lasts until the start of your next turn."
       ]
     },
     {
@@ -1508,7 +1508,7 @@
         "PT"
       ],
       "entries": [
-        "You can always choose to use your Dexterity modifier for Athletics checks."
+        "You can always choose to use your Dexterity modifier for {@skill Athletics} checks."
       ]
     },
     {
@@ -1518,7 +1518,7 @@
         "PT"
       ],
       "entries": [
-        "You can always choose to use your Strength modifier for Finesse checks."
+        "You can always choose to use your Strength modifier for {@skill Finesse} checks."
       ]
     },
     {
@@ -1528,7 +1528,7 @@
         "PT"
       ],
       "entries": [
-        "You are proficient with the History skill. When you are in contact with a holy relic, religious artifact, or any kind of similar object or structure, you can spend 2 exertion to learn something about it. You receive a correct answer from the DM for a question about the object that can be answered with a yes or no."
+        "You are proficient with the {@skill History} skill. When you are in contact with a holy relic, religious artifact, or any kind of similar object or structure, you can spend 2 exertion to learn something about it. You receive a correct answer from the DM for a question about the object that can be answered with a yes or no."
       ]
     },
     {
@@ -1546,11 +1546,11 @@
               "source": "sns"
             }
           },
-          "other": "Proficiency with the Stealth skill"
+          "other": "Proficiency with the {@skill Stealth} skill"
         }
       ],
       "entries": [
-        "You can step into a shadow and come out of another. When you are in dim light or darkness, as a bonus action you can teleport up to 60 feet to an unoccupied space you can see that is also in dim light or darkness. You have advantage on Stealth checks until the beginning of your next turn. This affects the Cover Tracks journey activity if you are the last in the party to undertake your journey activity for the day."
+        "You can step into a shadow and come out of another. When you are in dim light or darkness, as a bonus action you can teleport up to 60 feet to an unoccupied space you can see that is also in dim light or darkness. You have advantage on {@skill Stealth} checks until the beginning of your next turn. This affects the Cover Tracks journey activity if you are the last in the party to undertake your journey activity for the day."
       ]
     },
     {
@@ -1571,7 +1571,7 @@
         }
       ],
       "entries": [
-        "You have advantage on initiative rolls. In addition, you can always choose to use your Wisdom for Magiscience, History, and Nature checks. Finally, you gain an expertise die on your Investigation checks."
+        "You have advantage on initiative rolls. In addition, you can always choose to use your Wisdom for {@skill Magiscience}, {@skill History}, and {@skill Nature} checks. Finally, you gain an expertise die on your {@skill Investigation} checks."
       ]
     },
     {
@@ -1592,7 +1592,7 @@
       ],
       "prerequisite": [
         {
-          "other": "Proficiency with the Finesse skill; Adept Speed practiced technique"
+          "other": "Proficiency with the {@skill Finesse} skill; Adept Speed practiced technique"
         }
       ],
       "entries": [
@@ -1607,11 +1607,11 @@
       ],
       "prerequisite": [
         {
-          "other": "Proficiency with the Survival skill"
+          "other": "Proficiency with the {@skill Survival} skill"
         }
       ],
       "entries": [
-        "Your honed battlefield awareness is unmatched even in the wilderness. When you make a Survival check to avoid being lost, you gain a bonus to the check equal to your martial arts die."
+        "Your honed battlefield awareness is unmatched even in the wilderness. When you make a {@skill Survival} check to avoid being lost, you gain a bonus to the check equal to your martial arts die."
       ]
     },
     {
@@ -1636,7 +1636,7 @@
         "PT"
       ],
       "entries": [
-        "You are proficient with the Survival skill. For the purposes of adept class features, you consider all beasts to be humanoids whose Strength or Dexterity is their highest ability score."
+        "You are proficient with the {@skill Survival} skill. For the purposes of adept class features, you consider all beasts to be humanoids whose Strength or Dexterity is their highest ability score."
       ]
     }
   ]

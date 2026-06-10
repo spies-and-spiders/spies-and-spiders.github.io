@@ -1800,7 +1800,7 @@
         "EI"
       ],
       "entries": [
-        "You gain proficiency in Deception and Persuasion. If you are already proficient in either of these skills, you instead gain an expertise die."
+        "You gain proficiency in {@skill Deception} and {@skill Persuasion}. If you are already proficient in either of these skills, you instead gain an expertise die."
       ]
     },
     {
@@ -2253,7 +2253,7 @@
         "EI"
       ],
       "entries": [
-        "You gain proficiency in Insight and Intimidation. If you are already proficient in either of these skills, you instead gain an expertise die."
+        "You gain proficiency in {@skill Insight} and {@skill Intimidation}. If you are already proficient in either of these skills, you instead gain an expertise die."
       ]
     },
     {
@@ -2852,7 +2852,7 @@
       ],
       "entries": [
         "You automatically know when an aberration, celestial, elemental, fey, fiend, or undead creature has been in a space within 30 feet of you within the past 24 hours, though not which type of creature triggered this knowledge.",
-        "Additionally, you gain an expertise die on Perception checks, and you have advantage on checks made to track these creatures."
+        "Additionally, you gain an expertise die on {@skill Perception} checks, and you have advantage on checks made to track these creatures."
       ]
     }
   ]

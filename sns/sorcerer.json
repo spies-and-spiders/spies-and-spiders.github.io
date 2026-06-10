@@ -53,11 +53,11 @@
             "choose": {
               "from": [
                 "deception",
+                "history",
                 "insight",
                 "intimidation",
                 "magiscience",
-                "persuasion",
-                "religion"
+                "persuasion"
               ],
               "count": 2
             }
@@ -864,21 +864,21 @@
           "type": "entries",
           "name": "All Eyes",
           "entries": [
-            "You can an expertise die on Persuasion checks. In addition, you can use your magic to make your presence known. As a bonus action, you can spend 1 sorcery point to put out a subtle pulse that causes all creatures within 60 feet to take notice of you, allowing you to speak and be heard even in the midst of chaos. During combat, this notice lasts only a split second - not long enough to distract, but allowing you to make a Charisma check as part of the bonus action used to activate this featutre."
+            "You can an expertise die on {@skill Persuasion} checks. In addition, you can use your magic to make your presence known. As a bonus action, you can spend 1 sorcery point to put out a subtle pulse that causes all creatures within 60 feet to take notice of you, allowing you to speak and be heard even in the midst of chaos. During combat, this notice lasts only a split second - not long enough to distract, but allowing you to make a Charisma check as part of the bonus action used to activate this featutre."
           ]
         },
         {
           "type": "entries",
           "name": "Daunting Energy",
           "entries": [
-            "You can an expertise die on Intimidation checks. If you fail an ability check against a creature trying to intimidate you, or an attack would cause you to become {@condition frightened|sns}, you can spend 1 sorcery point to immediately reroll the check or attack."
+            "You can an expertise die on {@skill Intimidation} checks. If you fail an ability check against a creature trying to intimidate you, or an attack would cause you to become {@condition frightened|sns}, you can spend 1 sorcery point to immediately reroll the check or attack."
           ]
         },
         {
           "type": "entries",
           "name": "Unsuspecting",
           "entries": [
-            "You can an expertise die on Deception checks. After you make a Deception check against a humanoid, you can use a combination of fast-talk and your magic to make them forget your misstep, spending 1 sorcery point to reroll the check. On a success, their memory skips a beat and fills in the gap with your new story. On a failure from the reroll, not only do they not believe you, but anyone who can cast spells and observed the exchange (including your target, if applicable) knows that arcane subterfuge was attempted."
+            "You can an expertise die on {@skill Deception} checks. After you make a {@skill Deception} check against a humanoid, you can use a combination of fast-talk and your magic to make them forget your misstep, spending 1 sorcery point to reroll the check. On a success, their memory skips a beat and fills in the gap with your new story. On a failure from the reroll, not only do they not believe you, but anyone who can cast spells and observed the exchange (including your target, if applicable) knows that arcane subterfuge was attempted."
           ]
         }
       ]
@@ -1108,14 +1108,14 @@
           "type": "entries",
           "name": "Larger Than Life",
           "entries": [
-            "Your power tends to distort people's perception of you, causing you to seem more dangerous than you are. You have advantage on Intimidation checks made to threaten someone with your magic. This benefits your Mug journey activity checks. On a failure, your target is unconvinced and unless you make good on your threat with an unambiguous show of force to prove your mettle, this feature no longer functions until you prove your reputation again. Additionally, features and traits that attempt to evaluate how tough you are, such as the fighter's Size Up, always give the impression that you are 3 levels higher than you actually are."
+            "Your power tends to distort people's perception of you, causing you to seem more dangerous than you are. You have advantage on {@skill Intimidation} checks made to threaten someone with your magic. This benefits your Mug journey activity checks. On a failure, your target is unconvinced and unless you make good on your threat with an unambiguous show of force to prove your mettle, this feature no longer functions until you prove your reputation again. Additionally, features and traits that attempt to evaluate how tough you are, such as the fighter's Size Up, always give the impression that you are 3 levels higher than you actually are."
           ]
         },
         {
           "type": "entries",
           "name": "Nobody's Fool",
           "entries": [
-            "People find it difficult to lie to you or to conceal their motives in your presence. You gain a bonus to Insight checks equal to your Charisma modifier. In addition, you can spend 1 sorcery point as an action to project an aura of honesty. For the next 10 minutes, creatures within 10 feet of you have disadvantage on Deception checks made to lie or conceal the truth. When a creature in this aura fails a Deception check, it accidentally blurts out something it didn't mean to while attempting to spin its lie."
+            "People find it difficult to lie to you or to conceal their motives in your presence. You gain a bonus to Insight checks equal to your Charisma modifier. In addition, you can spend 1 sorcery point as an action to project an aura of honesty. For the next 10 minutes, creatures within 10 feet of you have disadvantage on {@skill Deception} checks made to lie or conceal the truth. When a creature in this aura fails a {@skill Deception} check, it accidentally blurts out something it didn't mean to while attempting to spin its lie."
           ]
         },
         {
@@ -1167,7 +1167,7 @@
           "type": "entries",
           "name": "Evolving Venom",
           "entries": [
-            "When you cast a spell that deals poison damage, you can spend 1 sorcery point and choose one creature you can see. If the target creature takes poison damage from the spell, it suffers {@dice 2d6} ongoing poison harm for 1 minute or until a creature uses an action to treat the victim (requiring a Medicine check against your standard DC)."
+            "When you cast a spell that deals poison damage, you can spend 1 sorcery point and choose one creature you can see. If the target creature takes poison damage from the spell, it suffers {@dice 2d6} ongoing poison harm for 1 minute or until a creature uses an action to treat the victim (requiring a {@skill Medicine} check against your standard DC)."
           ]
         }
       ]
@@ -1427,7 +1427,7 @@
         "At tier 5, you can manifest the heart of the Gyre, which can destroy anything. You can spend a bonus action to create a sphere of annihilation within 5 feet of you, which lasts for one minute. This floating sphere of darkness is a 2-foot-diameter hole in reality that eliminates all matter that it comes into contact with.",
         "Anything that the sphere touches or that touches it that is not instantly obliterated suffers {@dice 2d10} force harm. This harm increases to {@dice 3d10} at 11th level, and {@dice 4d10} at 17th level.",
         "The default state of the sphere is stationary, but should a creature be in the way of a moving sphere it suffer's half the sphere's usual force harm.",
-        "While within 60 feet of an uncontrolled sphere of annihilation, you can use an action to make a {@dc 25} Charisma (Magiscience) check and take control of it. On a success, the sphere moves in the direction of your choice a number of 5-foot spaces equal to your Charisma modifier (minimum 1). On a failure, the sphere moves 10 feet towards you instead. If a sphere is controlled by another creature, you may wrest away control by using an action and making a Charisma (Magiscience) check contested by the controlling creature's. On a success, you take control of the sphere and can utilise it as normal. Other creatures attempting to influence it make Magiscience checks and the distance they can move it is based on their Intelligence modifier.",
+        "While within 60 feet of an uncontrolled sphere of annihilation, you can use an action to make a {@dc 25} Charisma ({@skill Magiscience}) check and take control of it. On a success, the sphere moves in the direction of your choice a number of 5-foot spaces equal to your Charisma modifier (minimum 1). On a failure, the sphere moves 10 feet towards you instead. If a sphere is controlled by another creature, you may wrest away control by using an action and making a Charisma ({@skill Magiscience}) check contested by the controlling creature's. On a success, you take control of the sphere and can utilise it as normal. Other creatures attempting to influence it make {@skill Magiscience} checks and the distance they can move it is based on their Intelligence modifier.",
         "When you create the sphere, you can immediately move it as if you had successfully controlled it, but afterwards the sphere hovers in place until you or another creature spend an action to try to control it.",
         "A unique effect happens when a sphere comes into contact with a planar portal or extradimensional space (such as a portable hole). In the case of such an event, the DM rolls {@dice d100} to determine what happens next: on 1-50 the sphere is destroyed, on 51-85 the sphere simply moves through the portal or into the space, and on 86-100 a rift forms that pulls in all creatures and objects within 180 feet. Each object and creature, including the sphere, reappears in a random plane of existence.",
         "After you use this feature, you cannot use it again until you complete a short or long rest."
@@ -1502,7 +1502,7 @@
         "AI"
       ],
       "entries": [
-        "While traveling, you can spend 1 sorcery point to obscure your trail. For the next hour, any tracks your group leaves become random, zigzagging, and incomprehensible. Creatures have disadvantage on Survival checks to track you and become lost on a failed check. This grants you advantage on the Cover Tracks journey activity."
+        "While traveling, you can spend 1 sorcery point to obscure your trail. For the next hour, any tracks your group leaves become random, zigzagging, and incomprehensible. Creatures have disadvantage on {@skill Survival} checks to track you and become lost on a failed check. This grants you advantage on the Cover Tracks journey activity."
       ]
     },
     {
@@ -1512,7 +1512,7 @@
         "AI"
       ],
       "entries": [
-        "When you know, you know, you know? When you fail a History, Magiscience, or Nature check, you can attempt to draw on your magics to find an answer and reroll the check. On a failure, your attempt clouds your mind and you have disadvantage on Intelligence checks until you finish a short rest. While suffering this disadvantage, you can't use Ominous Insight again."
+        "When you know, you know, you know? When you fail a {@skill History}, {@skill Magiscience}, or {@skill Nature} check, you can attempt to draw on your magics to find an answer and reroll the check. On a failure, your attempt clouds your mind and you have disadvantage on Intelligence checks until you finish a short rest. While suffering this disadvantage, you can't use Ominous Insight again."
       ]
     },
     {

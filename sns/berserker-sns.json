@@ -685,7 +685,7 @@
           "type": "entries",
           "name": "Agitate",
           "entries": [
-            "Many battles have taught you how to spot aggressive body language like a pursed eyebrow, tensed temple, or portruding vein, and you've mastered using these cues to unsettle others outside of combat. As an action, make an Intimidation check opposed by the Insight check of a creature you can see and hear within 20 feet. On a success, you subtly press the creature to act out. What exactly the creature does - back away quickly, blurt out something compromising, draw a weapon, look towards a concealed or disguised companion, protectively touch something it is carrying - is at the DM's discretion.",
+            "Many battles have taught you how to spot aggressive body language like a pursed eyebrow, tensed temple, or portruding vein, and you've mastered using these cues to unsettle others outside of combat. As an action, make an {@skill Intimidation} check opposed by the {@skill Insight} check of a creature you can see and hear within 20 feet. On a success, you subtly press the creature to act out. What exactly the creature does - back away quickly, blurt out something compromising, draw a weapon, look towards a concealed or disguised companion, protectively touch something it is carrying - is at the DM's discretion.",
             "Once you have used this feature, you cannot do so again until you finish a short or long rest."
           ]
         },
@@ -700,7 +700,7 @@
           "type": "entries",
           "name": "Imposing Prowess",
           "entries": [
-            "When an ally you can sense makes a Deception or Persuasion check, you can use your reaction to support them with an intimidating display of strength or unsettling glower. Your ally rerolls the check, gaining an expertise die on the roll.",
+            "When an ally you can sense makes a {@skill Deception} or {@skill Persuasion} check, you can use your reaction to support them with an intimidating display of strength or unsettling glower. Your ally rerolls the check, gaining an expertise die on the roll.",
             "Once you have used this feature, you cannot do so again until you finish a long rest."
           ]
         }
@@ -749,7 +749,7 @@
           "type": "entries",
           "name": "Forceful",
           "entries": [
-            "People respond favorably to your vigor. You can always choose to use your fortitude in place of your Charisma modifier when making Persuasion checks.",
+            "People respond favorably to your vigor. You can always choose to use your fortitude in place of your Charisma modifier when making {@skill Persuasion} checks.",
             "In addition, in every settlement you visit you inspire a number of followers equal to your proficiency bonus. Your followers perform minor tasks to help you while you are there, feed you and your allies, carry your belongings to nearby destination, share their mount animals, reveal some of their secrets to try and gain your favour, and ask you for help before turning to the authorities with a problem."
           ]
         },
@@ -757,16 +757,16 @@
           "type": "entries",
           "name": "Mighty",
           "entries": [
-            "You turn your toughness into a tool when imposing upon others. You can always choose to use your fortitude in place of your Charisma modifier when making Intimidation checks.",
-            "In addition, when you enter a tavern or other social gathering, you can make a DC 15 Intimidation check while loudly declaring that you are looking for something or someone. On a success, most of the people there look at and otherwise point out whoever they believe is the person you are looking for or the person most likely to know about what you are seeking."
+            "You turn your toughness into a tool when imposing upon others. You can always choose to use your fortitude in place of your Charisma modifier when making {@skill Intimidation} checks.",
+            "In addition, when you enter a tavern or other social gathering, you can make a DC 15 {@skill Intimidation} check while loudly declaring that you are looking for something or someone. On a success, most of the people there look at and otherwise point out whoever they believe is the person you are looking for or the person most likely to know about what you are seeking."
           ]
         },
         {
           "type": "entries",
           "name": "Scary",
           "entries": [
-            "It's commonly thought that it's best not to ask you for too much clarification or detail. You can always choose to use your fortitude in place of your Charisma modifier when making Deception checks.",
-            "In addition, when you fail a Deception check against a creature, it makes an Insight check against a DC equal to 10 + your Deception bonus. On a failure, it thinks twice about your dishonesty and your Deception check becomes a success. When performing the Scam journey activity, this causes your failures of any degree to have a 50% chance to be converted into a success."
+            "It's commonly thought that it's best not to ask you for too much clarification or detail. You can always choose to use your fortitude in place of your Charisma modifier when making {@skill Deception} checks.",
+            "In addition, when you fail a {@skill Deception} check against a creature, it makes an {@skill Insight} check against a DC equal to 10 + your {@skill Deception} bonus. On a failure, it thinks twice about your dishonesty and your {@skill Deception} check becomes a success. When performing the Scam journey activity, this causes your failures of any degree to have a 50% chance to be converted into a success."
           ]
         }
       ]
@@ -807,7 +807,7 @@
           "type": "entries",
           "name": "Don't Get Fooled Again",
           "entries": [
-            "You've heard and seen (and perhaps told) enough lies that you spot them as easily as tells in battle. You can always choose to use your fortitude in place of your Wisdom modifier for Insight checks and gain an expertise die when rolling to detect a falsehood. This affects the Gossip journey activity.",
+            "You've heard and seen (and perhaps told) enough lies that you spot them as easily as tells in battle. You can always choose to use your fortitude in place of your Wisdom modifier for {@skill Insight} checks and gain an expertise die when rolling to detect a falsehood. This affects the Gossip journey activity.",
             "In addition, you are seen as an arbiter of truth by those who have heard of your reputation and you may be called in to mediate a trail or question a suspected wrong-doer, even in larger settlements."
           ]
         },
@@ -815,7 +815,7 @@
           "type": "entries",
           "name": "Storyteller",
           "entries": [
-            "You have an ear for interesting events, places, and people of the past. You can always use your fortitude in place of your Intelligence modifier when making History checks and gain an expertise die when the subject has something to do with war, battle, or martial prowess. This expertise die does not benefit the Chronicle journey activity.",
+            "You have an ear for interesting events, places, and people of the past. You can always use your fortitude in place of your Intelligence modifier when making {@skill History} checks and gain an expertise die when the subject has something to do with war, battle, or martial prowess. This expertise die does not benefit the Chronicle journey activity.",
             "In addition, your reputation means that people assume that you want to know the history (or perhaps gossip) of the settlement you're visiting. When you are at a tarvern or social gathering they are likely to approach you with tales of the baroness' last stand 50 years ago, or mention 'history in the making' in the form of the duke's child being rumoured to be a werewolf."
           ]
         },
@@ -823,7 +823,7 @@
           "type": "entries",
           "name": "Trial and Error",
           "entries": [
-            "Between learning from both your own mistakes and those of others, you've collected considerable knowledge about the natural world. You can always choose to use your fortitude in place of your Intelligence modifier when making Nature checks and gain an expertise die on checks made to identify a plant or beast. This affects the Befriend Animal journey activity.",
+            "Between learning from both your own mistakes and those of others, you've collected considerable knowledge about the natural world. You can always choose to use your fortitude in place of your Intelligence modifier when making {@skill Nature} checks and gain an expertise die on checks made to identify a plant or beast. This affects the Befriend Animal journey activity.",
             "In addition, people see you as someone who loves a good survival story. When you are at a tavern or social gathering they are likely to approach you with information about local hazards or wildlife."
           ]
         }
@@ -1090,7 +1090,7 @@
               "type": "item",
               "name": "Minor success",
               "entries": [
-                "You gain an expertise die on Intimidation checks against the target for 1 round."
+                "You gain an expertise die on {@skill Intimidation} checks against the target for 1 round."
               ]
             },
             {
@@ -1154,7 +1154,7 @@
       "level": 1,
       "entries": [
         "When you select this subclass at tier 1, you learn how to gruesomely take the power from a slain foe to become all the mightier. When you or an ally slays a living creature of a CR equal to half your level or higher, if it has died within the last minute you can use an action to strike into its body, rip out the heart, and take a massive bite. For a number of hours equal to half your level you gain an expertise die on ability checks.",
-        "Whether or not you are able to consume the heart of a creature is determined by the DM, and finding the heart of some creatures requires an Investigation or Medicine check (DC 10 + half the creature's CR)."
+        "Whether or not you are able to consume the heart of a creature is determined by the DM, and finding the heart of some creatures requires an {@skill Investigation} or {@skill Medicine} check (DC 10 + half the creature's CR)."
       ]
     },
     {
@@ -1292,7 +1292,7 @@
         "DT"
       ],
       "entries": [
-        "You are adept at traversing obstacles while running, able to efficiently and rapidly climb and leap between trees, vines, rooftops, and ropes. You gain an expertise die on Athletics and Finesse checks made to climb, run, and swing. This affects the Force March journey activity."
+        "You are adept at traversing obstacles while running, able to efficiently and rapidly climb and leap between trees, vines, rooftops, and ropes. You gain an expertise die on {@skill Athletics} and {@skill Finesse} checks made to climb, run, and swing. This affects the Force March journey activity."
       ]
     },
     {
@@ -1302,7 +1302,7 @@
         "DT"
       ],
       "entries": [
-        "You are adept at reading the flow of creatures grouped together and can effortlessly sync into a herd or crowd. You gain an expertise die on Stealth checks made to hide amongst or blend in with a group of 5 or more creatures. This does not affect your journey activities."
+        "You are adept at reading the flow of creatures grouped together and can effortlessly sync into a herd or crowd. You gain an expertise die on {@skill Stealth} checks made to hide amongst or blend in with a group of 5 or more creatures. This does not affect your journey activities."
       ]
     },
     {
@@ -1323,7 +1323,7 @@
         }
       ],
       "entries": [
-        "Your unfaltering actions inspire your teammates to greater efforts. You gain an expertise die on Athletics or Finesse checks made to climb, jump, run, and swim. This affects the Force March journey activity. When your party makes a group Athletics check, you may apply the results of your roll to yourself and one ally. You can choose which ally to apply your result to after everyone has rolled, but must do so before the DM says whether you succeed or fail."
+        "Your unfaltering actions inspire your teammates to greater efforts. You gain an expertise die on {@skill Athletics} or {@skill Finesse} checks made to climb, jump, run, and swim. This affects the Force March journey activity. When your party makes a group {@skill Athletics} check, you may apply the results of your roll to yourself and one ally. You can choose which ally to apply your result to after everyone has rolled, but must do so before the DM says whether you succeed or fail."
       ]
     },
     {
@@ -1333,7 +1333,7 @@
         "DT"
       ],
       "entries": [
-        "You have traveled far and seen much, and those around you can tell. You gain an expertise die on Intimidation checks. In addition, you may always choose to use Strength when rolling an Intimidation or Persuasion check."
+        "You have traveled far and seen much, and those around you can tell. You gain an expertise die on {@skill Intimidation} checks. In addition, you may always choose to use Strength when rolling an {@skill Intimidation} or {@skill Persuasion} check."
       ]
     },
     {
@@ -1405,7 +1405,7 @@
         "DT"
       ],
       "entries": [
-        "Your time spent drawing on your rage has brought the world into sharp, relentless focus. You gain an expertise die on Investigation, Perception, or Survival checks made to follow a creature's trail."
+        "Your time spent drawing on your rage has brought the world into sharp, relentless focus. You gain an expertise die on {@skill Investigation}, {@skill Perception}, or {@skill Survival} checks made to follow a creature's trail."
       ]
     }
   ]

@@ -684,8 +684,8 @@
       "classSource": "sns",
       "level": 1,
       "entries": [
-        "All druids are taught to commune with nature, to become a conduit for natural power, and to maintain the secrets of their druid circle. Also at 1st level, you gain proficiency with Nature, and you learn the {@spell druidcraft|sns} cantrip (this does not count against your total cantrips known).",
-        "You know Druidic, the secret language of druids. You can speak the language and use it to leave hidden messages. You and others who know this language automatically spot such a message. Others spot the message's presence with a successful DC 15 Perception check but can't decipher it without magic."
+        "All druids are taught to commune with nature, to become a conduit for natural power, and to maintain the secrets of their druid circle. Also at 1st level, you gain proficiency with {@skill Nature}, and you learn the {@spell druidcraft|sns} cantrip (this does not count against your total cantrips known).",
+        "You know Druidic, the secret language of druids. You can speak the language and use it to leave hidden messages. You and others who know this language automatically spot such a message. Others spot the message's presence with a successful DC 15 {@skill Perception} check but can't decipher it without magic."
       ]
     },
     {
@@ -788,7 +788,7 @@
           "type": "entries",
           "name": "A Way with Animals",
           "entries": [
-            "Beasts understand anything you verbally communicate in Druidic, and you can comprehend them in return. The knowledge and awareness of many beasts is limited by their intelligence, but at minimum beasts can give you information about nearby locations and monsters, including whatever they have perceived within the past day. At the DM's discretion, you might be able to persuade a beast to perform a small favour for you. In addition, you gain an expertise die on Nature checks."
+            "Beasts understand anything you verbally communicate in Druidic, and you can comprehend them in return. The knowledge and awareness of many beasts is limited by their intelligence, but at minimum beasts can give you information about nearby locations and monsters, including whatever they have perceived within the past day. At the DM's discretion, you might be able to persuade a beast to perform a small favour for you. In addition, you gain an expertise die on {@skill Nature} checks."
           ]
         },
         {
@@ -796,7 +796,7 @@
           "name": "First-Hand Naturalist",
           "entries": [
             "You've learned the intricacies of nature through fisthand experience rather than academic study.",
-            "You gain an expertise die on Nature checks. In addition, you may always choose to use Wisdom when making Nature checks."
+            "You gain an expertise die on {@skill Nature} checks. In addition, you may always choose to use Wisdom when making {@skill Nature} checks."
           ]
         },
         {
@@ -911,7 +911,7 @@
           "type": "entries",
           "name": "Harmonise",
           "entries": [
-            "During a short rest you may choose to meditate and harmonise with your surroundings. If you do, at the end of your rest you attune to the area in a 5-mile radius around you. You magically know what types of creatures are present in your attuned area, their approximate numbers, and if there are any magics disturbing the natural order in your attuned area. While in your attuned area, you have advantage on Nature, Perception, and Survival checks, and blindsight out to a range of 30 feet. Once attuned to an area, you remain attuned for the next 24 hours. You can only attune to one area at a time."
+            "During a short rest you may choose to meditate and harmonise with your surroundings. If you do, at the end of your rest you attune to the area in a 5-mile radius around you. You magically know what types of creatures are present in your attuned area, their approximate numbers, and if there are any magics disturbing the natural order in your attuned area. While in your attuned area, you have advantage on {@skill Nature}, {@skill Perception}, and {@skill Survival} checks, and blindsight out to a range of 30 feet. Once attuned to an area, you remain attuned for the next 24 hours. You can only attune to one area at a time."
           ]
         },
         {
@@ -1308,7 +1308,7 @@
         "SN"
       ],
       "entries": [
-        "You are at home soaring at dizzying heights and peering towards the horizon. You can familiarises yourself with a 5-mile radius area around you by spending a minute studying your surroundings while flying or at great heights. Once your familiarise yourself with an area in this way, you gain an expertise die on any Perception or Survival checks you make while outdoors in that area for the next 24 hours, and you cannot familiarise yourself with another area until you finish a long rest. This does not grant any bonuses to journey activities."
+        "You are at home soaring at dizzying heights and peering towards the horizon. You can familiarises yourself with a 5-mile radius area around you by spending a minute studying your surroundings while flying or at great heights. Once your familiarise yourself with an area in this way, you gain an expertise die on any {@skill Perception} or {@skill Survival} checks you make while outdoors in that area for the next 24 hours, and you cannot familiarise yourself with another area until you finish a long rest. This does not grant any bonuses to journey activities."
       ]
     },
     {
@@ -1348,7 +1348,7 @@
         "SN"
       ],
       "entries": [
-        "You've grown to know the lands twisted by the fey, distorted by magical pollution, or places otherwise warped in unnatural ways. You may make Survival checks in place of Magiscience checks regarding magical environments, foodstuffs, and creatures, and gain an expertise die on any checks made this way. This affects your Experiment journey activity checks."
+        "You've grown to know the lands twisted by the fey, distorted by magical pollution, or places otherwise warped in unnatural ways. You may make {@skill Survival} checks in place of {@skill Magiscience} checks regarding magical environments, foodstuffs, and creatures, and gain an expertise die on any checks made this way. This affects your Experiment journey activity checks."
       ]
     },
     {
@@ -1388,7 +1388,7 @@
         "SN"
       ],
       "entries": [
-        "You gain a climbing speed equal to your Speed. You gain an expertise die on any Athletics checks made while climbing and you are also acclimated to high altitudes, including elevations above 20,000 feet. In addition, you ignore the effects of roughing it imposed by resting in rocky or uneven terrain, allowing you to always consider these environments Havens."
+        "You gain a climbing speed equal to your Speed. You gain an expertise die on any {@skill Athletics} checks made while climbing and you are also acclimated to high altitudes, including elevations above 20,000 feet. In addition, you ignore the effects of roughing it imposed by resting in rocky or uneven terrain, allowing you to always consider these environments Havens."
       ]
     },
     {
@@ -1398,7 +1398,7 @@
         "SN"
       ],
       "entries": [
-        "You embrace the cold of snowbound tundra. You are naturally acclimatised to cold weather and extremely low temperatures, allowing you to ignore the penalties of cold weather on your journey activity checks, and you ignore the disadvantage to Perception checks imposed by blizzards. In addition, you ignore the effects of roughing it imposed by resting without warmth in environments of extreme cold, allowing you to always consider these environments Havens."
+        "You embrace the cold of snowbound tundra. You are naturally acclimatised to cold weather and extremely low temperatures, allowing you to ignore the penalties of cold weather on your journey activity checks, and you ignore the disadvantage to {@skill Perception} checks imposed by blizzards. In addition, you ignore the effects of roughing it imposed by resting without warmth in environments of extreme cold, allowing you to always consider these environments Havens."
       ]
     }
   ],
@@ -1462,7 +1462,7 @@
           "type": "entries",
           "name": "Keen Senses (Land and Sky Only)",
           "entries": [
-            "You have advantage on Perception checks."
+            "You have advantage on {@skill Perception} checks."
           ]
         }
       ],

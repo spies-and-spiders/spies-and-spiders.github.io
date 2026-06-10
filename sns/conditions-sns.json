@@ -361,7 +361,7 @@
       "source": "sns",
       "page": 0,
       "entries": [
-        "A fixated creature has disadvantage on Investigation and Perception checks to perceive or examine creatures or objects other than the source of its fixation.",
+        "A fixated creature has disadvantage on {@skill Investigation} and {@skill Perception} checks to perceive or examine creatures or objects other than the source of its fixation.",
         "While moving away from the source of its fixation, the creature is {@condition sluggish|sns}."
       ],
       "hasFluffImages": false
