@@ -240,9 +240,10 @@
       "classSource": "sns",
       "subclassFeatures": [
         "Gloom Stalker|Ranger|sns|Gloom Stalker|sns|1",
-        "Creeping Doom|Ranger|sns|Gloom Stalker|sns|3",
-        "Precision in Shadow|Ranger|sns|Gloom Stalker|sns|5",
-        "Dark Veil|Ranger|sns|Gloom Stalker|sns|7",
+        "Dread Ambusher|Ranger|sns|Gloom Stalker|sns|3",
+        "Shadowbane|Ranger|sns|Gloom Stalker|sns|3",
+        "Precision in Darkness|Ranger|sns|Gloom Stalker|sns|5",
+        "Umbral Veil|Ranger|sns|Gloom Stalker|sns|7",
         "Eclipsed Deflection|Ranger|sns|Gloom Stalker|sns|9"
       ]
     }
@@ -1899,11 +1900,7 @@
       "entries": [
         {
           "type": "refSubclassFeature",
-          "subclassFeature": "Dread Ambusher|Ranger|sns|Gloom Stalker|sns|1"
-        },
-        {
-          "type": "refSubclassFeature",
-          "subclassFeature": "Umbral Sight|Ranger|sns|Gloom Stalker|sns|1"
+          "subclassFeature": "Creeping Doom|Ranger|sns|Gloom Stalker|sns|1"
         },
         {
           "type": "refSubclassFeature",
@@ -1912,7 +1909,7 @@
       ]
     },
     {
-      "name": "Dread Ambusher",
+      "name": "Creeping Doom",
       "source": "sns",
       "className": "Ranger",
       "classSource": "sns",
@@ -1921,22 +1918,8 @@
       "level": 1,
       "header": 1,
       "entries": [
-        "At tier 1, you master the art of the ambush. You can give yourself a bonus to your initiative rolls equal to your Wisdom modifier.",
-        "During your first turn of each combat, your Speed is increased by 10 feet. If you take the Attack action on that turn, your attack gains one instance of the Empowered Attack feature and deals {@dice 1d8} additional damage of the weapon's base type."
-      ]
-    },
-    {
-      "name": "Umbral Sight",
-      "source": "sns",
-      "className": "Ranger",
-      "classSource": "sns",
-      "subclassShortName": "Gloom Stalker",
-      "subclassSource": "sns",
-      "level": 1,
-      "header": 1,
-      "entries": [
-        "At tier 1, you gain 60 feet of darkvision.",
-        "You are also adept at evading and hunting creatures that rely on darkvision. While in darkness, you are invisible to any creature that relies on darkvision to see you in that darkness. Additionally, whenever you Expose a creature with darkvision, you can modify the final roll on the weakness table by 1."
+        "From tier 1, you gain 60 feet of darkvision and add your Wisdom modifier to your initiative rolls.",
+        "Additionally, whenever you Expose a creature, you may cause it to project a 5-foot-radius sphere of darkness around itself until the Exposure ends."
       ]
     },
     {
@@ -1960,7 +1943,7 @@
       ]
     },
     {
-      "name": "Creeping Doom",
+      "name": "Dread Ambusher",
       "source": "sns",
       "className": "Ranger",
       "classSource": "sns",
@@ -1969,11 +1952,25 @@
       "level": 3,
       "header": 2,
       "entries": [
-        "At tier 2, when you Expose a creature, you may cause it to project a 5-foot-radius sphere of darkness around itself until the Exposure ends."
+        "At tier 2, you master the art of the ambush. During your first turn of each combat, your Speed is increased by 10 feet. If you take the Attack action on that turn, your attack gains one instance of the Empowered Attack feature and deals {@dice 1d8} additional damage of the weapon's base type."
       ]
     },
     {
-      "name": "Precision in Shadow",
+      "name": "Shadowbane",
+      "source": "sns",
+      "className": "Ranger",
+      "classSource": "sns",
+      "subclassShortName": "Gloom Stalker",
+      "subclassSource": "sns",
+      "level": 3,
+      "header": 2,
+      "entries": [
+        "At tier 2, you are adept at evading and hunting creatures that rely on darkvision. While in darkness, you are invisible to any creature that relies on darkvision to see you in that darkness.",
+        "Additionally, whenever you Expose a creature with darkvision, you can modify the final roll on the weakness table by 1."
+      ]
+    },
+    {
+      "name": "Precision in Darkness",
       "source": "sns",
       "className": "Ranger",
       "classSource": "sns",
@@ -1986,7 +1983,7 @@
       ]
     },
     {
-      "name": "Dark Veil",
+      "name": "Umbral Veil",
       "source": "sns",
       "className": "Ranger",
       "classSource": "sns",
