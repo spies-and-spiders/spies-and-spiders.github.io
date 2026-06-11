@@ -1899,11 +1899,7 @@
       "entries": [
         {
           "type": "refSubclassFeature",
-          "subclassFeature": "Dread Ambusher|Ranger|sns|Gloom Stalker|sns|1"
-        },
-        {
-          "type": "refSubclassFeature",
-          "subclassFeature": "Umbral Sight|Ranger|sns|Gloom Stalker|sns|1"
+          "subclassFeature": "Creeping Doom|Ranger|sns|Gloom Stalker|sns|1"
         },
         {
           "type": "refSubclassFeature",
