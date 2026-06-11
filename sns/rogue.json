@@ -1,0 +1,1409 @@
+{
+  "_meta": {
+    "optionalFeatureTypes": {
+      "ST": "Skill Trick"
+    }
+  },
+  "class": [
+    {
+      "name": "Rogue",
+      "source": "sns",
+      "hd": {
+        "number": 1,
+        "faces": 8
+      },
+      "defences": {
+        "ref": 4
+      },
+      "startingProficiencies": {
+        "armor": [
+          "light"
+        ],
+        "weapons": [
+          "simple",
+          "dueling daggers",
+          "rapiers",
+          "sabres",
+          "shortbows",
+          "shortswords",
+          "starknives"
+        ],
+        "skills": [
+          {
+            "choose": {
+              "from": [
+                "athletics",
+                "deception",
+                "finesse",
+                "insight",
+                "intimidation",
+                "investigation",
+                "magiscience",
+                "perception",
+                "persuasion",
+                "stealth"
+              ],
+              "count": 4
+            }
+          }
+        ]
+      },
+      "classTableGroups": [
+        {
+          "colLabels": [
+            "Sneak Attack",
+            "{@filter Tricks Known|optionalfeatures|feature type=st}",
+            "{@filter Maneuvers Known|spells|Subschool=biting zephyr;mist and shade;rapid current}",
+            "Maneuver Degree"
+          ],
+          "rows": [
+            [
+              {
+                "type": "dice",
+                "toRoll": [
+                  {
+                    "number": 1,
+                    "faces": 6
+                  }
+                ]
+              },
+              1,
+              0,
+              0
+            ],
+            [
+              {
+                "type": "dice",
+                "toRoll": [
+                  {
+                    "number": 1,
+                    "faces": 6
+                  }
+                ]
+              },
+              1,
+              2,
+              "{@filter 1st|spells|Subschool=biting zephyr;mist and shade;rapid current|level=1}"
+            ],
+            [
+              {
+                "type": "dice",
+                "toRoll": [
+                  {
+                    "number": 2,
+                    "faces": 6
+                  }
+                ]
+              },
+              2,
+              2,
+              "{@filter 1st|spells|Subschool=biting zephyr;mist and shade;rapid current|level=1}"
+            ],
+            [
+              {
+                "type": "dice",
+                "toRoll": [
+                  {
+                    "number": 2,
+                    "faces": 6
+                  }
+                ]
+              },
+              2,
+              3,
+              "{@filter 1st|spells|Subschool=biting zephyr;mist and shade;rapid current|level=1}"
+            ],
+            [
+              {
+                "type": "dice",
+                "toRoll": [
+                  {
+                    "number": 3,
+                    "faces": 6
+                  }
+                ]
+              },
+              3,
+              3,
+              "{@filter 1st|spells|Subschool=biting zephyr;mist and shade;rapid current|level=1}"
+            ],
+            [
+              {
+                "type": "dice",
+                "toRoll": [
+                  {
+                    "number": 3,
+                    "faces": 6
+                  }
+                ]
+              },
+              3,
+              3,
+              "{@filter 1st|spells|Subschool=biting zephyr;mist and shade;rapid current|level=1}"
+            ],
+            [
+              {
+                "type": "dice",
+                "toRoll": [
+                  {
+                    "number": 4,
+                    "faces": 6
+                  }
+                ]
+              },
+              4,
+              4,
+              "{@filter 2nd|spells|Subschool=biting zephyr;mist and shade;rapid current|level=2}"
+            ],
+            [
+              {
+                "type": "dice",
+                "toRoll": [
+                  {
+                    "number": 4,
+                    "faces": 6
+                  }
+                ]
+              },
+              4,
+              4,
+              "{@filter 2nd|spells|Subschool=biting zephyr;mist and shade;rapid current|level=2}"
+            ],
+            [
+              {
+                "type": "dice",
+                "toRoll": [
+                  {
+                    "number": 5,
+                    "faces": 6
+                  }
+                ]
+              },
+              5,
+              4,
+              "{@filter 2nd|spells|Subschool=biting zephyr;mist and shade;rapid current|level=2}"
+            ],
+            [
+              {
+                "type": "dice",
+                "toRoll": [
+                  {
+                    "number": 5,
+                    "faces": 6
+                  }
+                ]
+              },
+              5,
+              5,
+              "{@filter 2nd|spells|Subschool=biting zephyr;mist and shade;rapid current|level=2}"
+            ],
+            [
+              {
+                "type": "dice",
+                "toRoll": [
+                  {
+                    "number": 6,
+                    "faces": 6
+                  }
+                ]
+              },
+              6,
+              5,
+              "{@filter 2nd|spells|Subschool=biting zephyr;mist and shade;rapid current|level=2}"
+            ],
+            [
+              {
+                "type": "dice",
+                "toRoll": [
+                  {
+                    "number": 6,
+                    "faces": 6
+                  }
+                ]
+              },
+              6,
+              5,
+              "{@filter 2nd|spells|Subschool=biting zephyr;mist and shade;rapid current|level=2}"
+            ],
+            [
+              {
+                "type": "dice",
+                "toRoll": [
+                  {
+                    "number": 7,
+                    "faces": 6
+                  }
+                ]
+              },
+              7,
+              6,
+              "{@filter 3rd|spells|Subschool=biting zephyr;mist and shade;rapid current|level=3}"
+            ],
+            [
+              {
+                "type": "dice",
+                "toRoll": [
+                  {
+                    "number": 7,
+                    "faces": 6
+                  }
+                ]
+              },
+              7,
+              6,
+              "{@filter 3rd|spells|Subschool=biting zephyr;mist and shade;rapid current|level=3}"
+            ],
+            [
+              {
+                "type": "dice",
+                "toRoll": [
+                  {
+                    "number": 8,
+                    "faces": 6
+                  }
+                ]
+              },
+              8,
+              6,
+              "{@filter 3rd|spells|Subschool=biting zephyr;mist and shade;rapid current|level=3}"
+            ],
+            [
+              {
+                "type": "dice",
+                "toRoll": [
+                  {
+                    "number": 8,
+                    "faces": 6
+                  }
+                ]
+              },
+              8,
+              7,
+              "{@filter 3rd|spells|Subschool=biting zephyr;mist and shade;rapid current|level=3}"
+            ],
+            [
+              {
+                "type": "dice",
+                "toRoll": [
+                  {
+                    "number": 9,
+                    "faces": 6
+                  }
+                ]
+              },
+              9,
+              7,
+              "{@filter 3rd|spells|Subschool=biting zephyr;mist and shade;rapid current|level=3}"
+            ],
+            [
+              {
+                "type": "dice",
+                "toRoll": [
+                  {
+                    "number": 9,
+                    "faces": 6
+                  }
+                ]
+              },
+              9,
+              7,
+              "{@filter 3rd|spells|Subschool=biting zephyr;mist and shade;rapid current|level=3}"
+            ],
+            [
+              {
+                "type": "dice",
+                "toRoll": [
+                  {
+                    "number": 10,
+                    "faces": 6
+                  }
+                ]
+              },
+              10,
+              8,
+              "{@filter 4th|spells|Subschool=biting zephyr;mist and shade;rapid current|level=4}"
+            ],
+            [
+              {
+                "type": "dice",
+                "toRoll": [
+                  {
+                    "number": 10,
+                    "faces": 6
+                  }
+                ]
+              },
+              10,
+              8,
+              "{@filter 4th|spells|Subschool=biting zephyr;mist and shade;rapid current|level=4}"
+            ]
+          ]
+        }
+      ],
+      "classFeatures": [
+        "Skill Tricks|Rogue|sns|1|sns",
+        "Sneak Attack|Rogue|sns|1|sns",
+        {
+          "classFeature": "First Subclass Tier 1|Rogue|sns|1|sns",
+          "gainSubclassFeature": true
+        },
+        "Combat Maneuvers|Rogue|sns|2|sns",
+        "Combat Tactic|Rogue|sns|2|sns",
+        "Cunning Action|Rogue|sns|2|sns",
+        {
+          "classFeature": "First Subclass Tier 2|Rogue|sns|3|sns",
+          "gainSubclassFeature": true
+        },
+        "Ability Score Improvement|Rogue|sns|4|sns",
+        "Innocent Facade|Rogue|sns|4|sns",
+        "Aim|Rogue|sns|5|sns",
+        {
+          "classFeature": "First Subclass Tier 3|Rogue|sns|5|sns",
+          "gainSubclassFeature": true
+        },
+        "Self-Preservation|Rogue|sns|6|sns",
+        "Improved Critical|Rogue|sns|7|sns",
+        {
+          "classFeature": "First Subclass Tier 4|Rogue|sns|7|sns",
+          "gainSubclassFeature": true
+        },
+        "Ability Score Improvement|Rogue|sns|8|sns",
+        "Shrewd Judgment|Rogue|sns|8|sns",
+        {
+          "classFeature": "First Subclass Tier 5|Rogue|sns|9|sns",
+          "gainSubclassFeature": true
+        },
+        "Low Profile|Rogue|sns|10|sns",
+        "Cunning Celerity|Rogue|sns|11|sns",
+        "Expert Talent|Rogue|sns|11|sns",
+        {
+          "classFeature": "Second Subclass Tier 1|Rogue|sns|11|sns",
+          "gainSubclassFeature": true
+        },
+        "Ability Score Improvement|Rogue|sns|12|sns",
+        "Self-Preservation (2)|Rogue|sns|12|sns",
+        {
+          "classFeature": "Second Subclass Tier 2|Rogue|sns|13|sns",
+          "gainSubclassFeature": true
+        },
+        "Guarded Aspect|Rogue|sns|14|sns",
+        "Elusive|Rogue|sns|15|sns",
+        {
+          "classFeature": "Second Subclass Tier 3|Rogue|sns|15|sns",
+          "gainSubclassFeature": true
+        },
+        "Ability Score Improvement|Rogue|sns|16|sns",
+        {
+          "classFeature": "Second Subclass Tier 4|Rogue|sns|17|sns",
+          "gainSubclassFeature": true
+        },
+        "Overpowering Personality|Rogue|sns|18|sns",
+        "Self-Preservation (4)|Rogue|sns|18|sns",
+        "Ability Score Improvement|Rogue|sns|19|sns",
+        {
+          "classFeature": "Second Subclass Tier 5|Rogue|sns|19|sns",
+          "gainSubclassFeature": true
+        },
+        "Grand Larcenist|Rogue|sns|20|sns"
+      ],
+      "subclassTitle": "Rogue Subclass"
+    }
+  ],
+  "subclass": [
+    {
+      "name": "Mastermind",
+      "shortName": "Mastermind",
+      "source": "sns",
+      "className": "Rogue",
+      "classSource": "sns",
+      "subclassFeatures": [
+        "Mastermind|Rogue|sns|Mastermind|sns|1",
+        "Silver Tongue|Rogue|sns|Mastermind|sns|3",
+        "Soul of Deceit|Rogue|sns|Mastermind|sns|5",
+        "Insightful Manipulator|Rogue|sns|Mastermind|sns|7",
+        "Stifling Distraction|Rogue|sns|Mastermind|sns|9"
+      ]
+    }
+  ],
+  "classFeature": [
+    {
+      "name": "Skill Tricks",
+      "source": "sns",
+      "className": "Rogue",
+      "classSource": "sns",
+      "level": 1,
+      "entries": [
+        "Your focused training allows you to use your skills in ways that others can't. At 1st level you gain a skill trick of your choice. Your tricks are detailed in the {@filter Optional Features|optionalfeatures|Feature Type=ST} page. The Tricks Known column of the Rogue table shows when you learn more skill tricks. Unless otherwise noted, you can gain each trick only once."
+      ]
+    },
+    {
+      "name": "Sneak Attack",
+      "source": "sns",
+      "className": "Rogue",
+      "classSource": "sns",
+      "level": 1,
+      "entries": [
+        "Beginning at 1st level, you fight with precision, taking advantage of momentary lapses in an opponent's concentration. Your attacks with Dexterity-governed or ranged weapons can deal additional base damage. The amount of extra damage is shown in the Sneak Attack column of the Rogue table.",
+        "In order to apply this damage, you must not have disadvantage on the attack and your target must be adjacent to another enemy of the target who is not {@condition incapacitated|sns}. Alternatively, you can apply sneak attack damage if you have advantage on the attack."
+      ]
+    },
+    {
+      "name": "Combat Maneuvers",
+      "source": "sns",
+      "className": "Rogue",
+      "classSource": "sns",
+      "level": 2,
+      "entries": [
+        "At 2nd level, you gain the ability to use combat maneuvers. You gain proficiency in two combat traditions from the following list: {@filter Biting Zephyr, Mist and Shade, or Rapid Current|spells|Subschool=biting zephyr;mist and shade;rapid current}. You learn two maneuvers of your choice from traditions you are proficient with.",
+        "You gain an exertion pool equal to twice your proficiency bonus, regaining any spent exertion at the end of a short or long rest. You use your maneuvers by spending points from your exertion pool. The Maneuvers Known column of the Rogue table shows when you learn more maneuvers from a tradition you are proficient with, while the Maneuver Degree column shows the highest degree you can select maneuvers from at a given level.",
+        "Additionally, whenever you complete a long rest, you can choose one of the maneuvers you know and replace it with another maneuver of the same degree from a tradition you are proficient with."
+      ]
+    },
+    {
+      "name": "Combat Tactic",
+      "source": "sns",
+      "className": "Rogue",
+      "classSource": "sns",
+      "level": 2,
+      "entries": [
+        "At 2nd level, you adopt a set of moves and tactics which complement your preferred combat strategies. Choose one of the following options. Whenever you complete a long rest, you may change this choice.",
+        {
+          "type": "entries",
+          "name": "Ambusher",
+          "entries": [
+            "When you begin your turn hidden from a creature, you gain advantage on melee attacks against it until the end of your turn."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Carver",
+          "entries": [
+            "When you deal sneak attack damage with a knife weapon, your attack deals an additional {@dice 1d6} damage. At 11th level, this additional damage becomes {@dice 2d6} damage."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Sniper",
+          "entries": [
+            "Once per turn, when you make an attack with a ranged weapon you can choose to add your proficiency bonus to the damage roll."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Cunning Action",
+      "source": "sns",
+      "className": "Rogue",
+      "classSource": "sns",
+      "level": 2,
+      "entries": [
+        "Also at 2nd level, you use your mobility to weave through the battlefield. Each turn in combat, you can use a bonus action to take the Dash, Disengage, Hide, or Use an Object action."
+      ]
+    },
+    {
+      "name": "First Subclass Tier 1",
+      "source": "sns",
+      "className": "Rogue",
+      "classSource": "sns",
+      "level": 1,
+      "entries": [
+        "At 1st level, you gain the tier 1 feature from your first subclass."
+      ]
+    },
+    {
+      "name": "First Subclass Tier 2",
+      "source": "sns",
+      "className": "Rogue",
+      "classSource": "sns",
+      "level": 3,
+      "entries": [
+        "At 3rd level, you gain the tier 2 feature from your first subclass."
+      ]
+    },
+    {
+      "name": "First Subclass Tier 3",
+      "source": "sns",
+      "className": "Rogue",
+      "classSource": "sns",
+      "level": 5,
+      "entries": [
+        "At 5th level, you gain the tier 3 feature from your first subclass."
+      ]
+    },
+    {
+      "name": "First Subclass Tier 4",
+      "source": "sns",
+      "className": "Rogue",
+      "classSource": "sns",
+      "level": 7,
+      "entries": [
+        "At 7th level, you gain the tier 4 feature from your first subclass."
+      ]
+    },
+    {
+      "name": "First Subclass Tier 5",
+      "source": "sns",
+      "className": "Rogue",
+      "classSource": "sns",
+      "level": 9,
+      "entries": [
+        "At 9th level, you gain the tier 5 feature from your first subclass."
+      ]
+    },
+    {
+      "name": "Second Subclass Tier 1",
+      "source": "sns",
+      "className": "Rogue",
+      "classSource": "sns",
+      "level": 11,
+      "entries": [
+        "At 11th level, you gain the tier 1 feature from your second subclass."
+      ]
+    },
+    {
+      "name": "Second Subclass Tier 2",
+      "source": "sns",
+      "className": "Rogue",
+      "classSource": "sns",
+      "level": 13,
+      "entries": [
+        "At 13th level, you gain the tier 2 feature from your second subclass."
+      ]
+    },
+    {
+      "name": "Second Subclass Tier 3",
+      "source": "sns",
+      "className": "Rogue",
+      "classSource": "sns",
+      "level": 15,
+      "entries": [
+        "At 15th level, you gain the tier 3 feature from your second subclass."
+      ]
+    },
+    {
+      "name": "Second Subclass Tier 4",
+      "source": "sns",
+      "className": "Rogue",
+      "classSource": "sns",
+      "level": 17,
+      "entries": [
+        "At 17th level, you gain the tier 4 feature from your second subclass."
+      ]
+    },
+    {
+      "name": "Second Subclass Tier 5",
+      "source": "sns",
+      "className": "Rogue",
+      "classSource": "sns",
+      "level": 19,
+      "entries": [
+        "At 19th level, you gain the tier 5 feature from your second subclass."
+      ]
+    },
+    {
+      "name": "Ability Score Improvement",
+      "source": "sns",
+      "className": "Rogue",
+      "classSource": "sns",
+      "level": 4,
+      "entries": [
+        "When you reach 4th level, you can increase one ability score of your choice by 1. As normal, you can't increase an ability score above 20 using this feature. Additionally, you gain a feat."
+      ]
+    },
+    {
+      "name": "Ability Score Improvement",
+      "source": "sns",
+      "className": "Rogue",
+      "classSource": "sns",
+      "level": 8,
+      "entries": [
+        "When you reach 8th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature."
+      ]
+    },
+    {
+      "name": "Ability Score Improvement",
+      "source": "sns",
+      "className": "Rogue",
+      "classSource": "sns",
+      "level": 12,
+      "entries": [
+        "When you reach 12th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature."
+      ]
+    },
+    {
+      "name": "Ability Score Improvement",
+      "source": "sns",
+      "className": "Rogue",
+      "classSource": "sns",
+      "level": 16,
+      "entries": [
+        "When you reach 16th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature."
+      ]
+    },
+    {
+      "name": "Ability Score Improvement",
+      "source": "sns",
+      "className": "Rogue",
+      "classSource": "sns",
+      "level": 19,
+      "entries": [
+        "When you reach 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature."
+      ]
+    },
+    {
+      "name": "Innocent Facade",
+      "source": "sns",
+      "className": "Rogue",
+      "classSource": "sns",
+      "level": 4,
+      "entries": [
+        "Beginning at 4th level, you are skilled at hiding your motives. Choose one of the following options. You must be proficient in a skill to gain an expertise die from Innocent Facade.",
+        {
+          "type": "entries",
+          "name": "Cipher",
+          "entries": [
+            "You gain an expertise die on Deception checks. You can invent ciphers, and are able to teach a cipher to others. Anyone who knows a cipher can encode and read hidden messages made with it; the apparent text must be at least four times longer than the hidden message. Other creatures can spend a minute to make an Investigation check (DC 8 + your proficiency bonus + your Intelligence modifier) to detect the presence of a cipher, and are able to read the hidden message if they substantially succeed.",
+            "Additionally, you have advantage on Investigation checks made to detect and decode ciphers and codes."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Distraction",
+          "entries": [
+            "You gain an expertise die on Persuasion checks. You can use an action to make a Persuasion check, opposed by the Insight check of creatures of your choice that can sense you. On a failure, until the end of your next turn a creature has disadvantage on Perception checks until it can no longer sense you."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Social Expertise",
+          "entries": [
+            "You gain an expertise die on checks made with either Finesse or Insight."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Veiled Threat",
+          "entries": [
+            "You gain an expertise die on Intimidation checks. When you succeed on a verbal Intimidation check, creatures of your choice other than the target of your check don't recognize your hostile intent."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Aim",
+      "source": "sns",
+      "className": "Rogue",
+      "classSource": "sns",
+      "level": 5,
+      "entries": [
+        "Beginning at 5th level, you learn to briefly focus and make the most out of your next strike. If you haven't yet moved on your turn, you can use your Cunning Action to Aim, gaining advantage on the next armour attack roll you make before the start of your next turn. If you do so, your Speed is reduced to 0 until the end of your turn."
+      ]
+    },
+    {
+      "name": "Self-Preservation",
+      "source": "sns",
+      "className": "Rogue",
+      "classSource": "sns",
+      "level": 6,
+      "entries": [
+        "At 6th level, your honed reflexes and mental toughness allow you to avoid danger. Choose two of the following options. You may choose an additional option at 12th level and two more at 18th level.",
+        {
+          "type": "entries",
+          "name": "Blindsense",
+          "entries": [
+            "You can use Cunning Action to reach out with your senses. Until the end of your next turn, you gain 10 feet of blindsight, so long as you are able to hear."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Evasion",
+          "entries": [
+            "Reflex attacks made against you are reduced by 1 success tier."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Slippery Mind",
+          "entries": [
+            "You gain +2 will."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Street Tough",
+          "entries": [
+            "You gain +2 fortitude."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Tumbling Retreat",
+          "entries": [
+            "When a damaging melee armour attack fails to hit you, you can use your reaction to shift up to half your speed."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Uncanny Dodge",
+          "entries": [
+            "When an attacker that you can see makes an armour attack against you, you can use your reaction to reduce the attack's success tier by 1."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Improved Critical",
+      "source": "sns",
+      "className": "Rogue",
+      "classSource": "sns",
+      "level": 7,
+      "entries": [
+        "At 7th level, your weapon armour attacks have +1 critical success range."
+      ]
+    },
+    {
+      "name": "Shrewd Judgment",
+      "source": "sns",
+      "className": "Rogue",
+      "classSource": "sns",
+      "level": 8,
+      "entries": [
+        "Beginning at 8th level, your ability to read others makes you as dangerous in conversation as you are in a dark alley. Choose one of the following options. You must be proficient in a skill in order to gain an expertise die from Shrewd Judgment.",
+        {
+          "type": "entries",
+          "name": "Quick Frisk",
+          "entries": [
+            "You gain an expertise die on Finesse checks. You can touch a target to learn what they are carrying; make a Finesse check opposed by the target's Perception. On a success, you learn what types of objects they are carrying. If they are carrying coins, you know the approximate number. For the next 24 hours, any Finesse checks you make against the target have advantage. On a failure, you can't use Quick Frisk against that target for 24 hours."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Social Expertise",
+          "entries": [
+            "You gain an expertise die on checks made with either Intimidation or Persuasion."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Spot Tell",
+          "entries": [
+            "You gain an expertise die on Insight checks. Whenever a creature makes a Deception check opposed by your Insight check and you win the opposed check, you also learn to recognize signs that the target is bluffing. For the next 24 hours, you have advantage on Insight checks made against the target."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Tricky Interrogation",
+          "entries": [
+            "You gain an expertise die on Deception checks. When you ask a yes or no question to a creature you can see, you can make a Deception check opposed by the target's Deception check. On a success, you learn whether the target believes the answer to be yes or no, even if they didn't reply. On a failure, you can't use Tricky Interrogation against that target for 24 hours."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Low Profile",
+      "source": "sns",
+      "className": "Rogue",
+      "classSource": "sns",
+      "level": 10,
+      "entries": [
+        "Beginning at 10th level, you can avoid notice when you wish. Choose one of the following options. You must be proficient in a skill in order to gain an expertise die from Low Profile.",
+        {
+          "type": "entries",
+          "name": "Costumer",
+          "entries": [
+            "You gain an expertise die on Deception checks made when using a disguise kit. When you use a disguise kit on yourself or another person, creatures have disadvantage on checks made to see through the disguise."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Social Expertise",
+          "entries": [
+            "You gain an expertise die on checks made with one of the following skills: Finesse, Insight, or Intimidation."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "True Lie",
+          "entries": [
+            "You gain an expertise die on Persuasion checks. Your lies are so convincing that you half believe them yourself. You can use Persuasion instead of Deception when you are telling a lie."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Walk it Back",
+          "entries": [
+            "You gain an expertise die on Deception checks. After your party makes a group Deception check to tell a lie, you can use your reaction to add a supporting detail. Make an individual Deception check and replace the party's check with your own."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Cunning Celerity",
+      "source": "sns",
+      "className": "Rogue",
+      "classSource": "sns",
+      "level": 11,
+      "entries": [
+        "Beginning at 11th level, you can take two different bonus actions on your turn. You can use this feature a number of times equal to your proficiency bonus. You regain all uses of this feature when you complete a short or long rest."
+      ]
+    },
+    {
+      "name": "Expert Talent",
+      "source": "sns",
+      "className": "Rogue",
+      "classSource": "sns",
+      "level": 11,
+      "entries": [
+        "Beginning at 11th level, you almost never make mistakes when performing routine tasks. Whenever you make an ability check on which you roll expertise dice, you treat a {@dice d20} roll of 9 or lower as a 10."
+      ]
+    },
+    {
+      "name": "Self-Preservation (2)",
+      "source": "sns",
+      "className": "Rogue",
+      "classSource": "sns",
+      "level": 12,
+      "entries": [
+        "Also at 12th level, you can choose another option from your Self-Preservation feature."
+      ]
+    },
+    {
+      "name": "Guarded Aspect",
+      "source": "sns",
+      "className": "Rogue",
+      "classSource": "sns",
+      "level": 14,
+      "entries": [
+        "Beginning at 14th level, you are adept at uncovering and preserving secrets. Choose one of the following options. You must be proficient in a skill in order to gain an expertise die from Guarded Aspect.",
+        {
+          "type": "entries",
+          "name": "Hidden Signs",
+          "entries": [
+            "You gain an expertise die on Finesse checks. You can use body language and hidden hand signals to communicate a short message to some observers while hiding it from others. Make a Finesse check opposed by the Insight checks of observers from whom you want to hide your communication. On a success, a creature is not aware that you sent a message. On a failure, the creature is aware that you signaled but doesn't know the content of your message. If you substantially fail, the creature learns your message."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Master of Disguise",
+          "entries": [
+            "You gain an expertise die on Deception checks made when using a disguise kit. As long as you are wearing a disguise, your true identity can't be determined even if your disguise fails. Additionally, you can don or doff a disguise as an action."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Seen it All",
+          "entries": [
+            "You gain an expertise die on Insight checks."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Social Expertise",
+          "entries": [
+            "You gain an expertise die on checks made with one of the following skills: Deception, Intimidation, or Persuasion."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Elusive",
+      "source": "sns",
+      "className": "Rogue",
+      "classSource": "sns",
+      "level": 15,
+      "entries": [
+        "At 15th level, you know how to avoid vulnerable positions. As long as you are not {@condition incapacitated|sns}, no armour attack roll has advantage against you."
+      ]
+    },
+    {
+      "name": "Overpowering Personality",
+      "source": "sns",
+      "className": "Rogue",
+      "classSource": "sns",
+      "level": 18,
+      "entries": [
+        "Beginning at 18th level, your poise and charm allow you to impose your vision on the world. Choose one of the following options. You must be proficient in a skill in order to gain an expertise die from Overpowering Personality.",
+        {
+          "type": "entries",
+          "name": "Dress Rehearsal",
+          "entries": [
+            "You gain an expertise die on Persuasion checks. You can spend 10 minutes practicing a skill of your choice, at the end of which you make a Persuasion check. You can use this result to replace the die roll of one ability check you make using that skill in the next hour. You may decide to use this feature after seeing the die roll. Once you have used this feature, you can't use it again until you finish a short or long rest."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Psych Out",
+          "entries": [
+            "You gain an expertise die on Intimidation checks. As an action, you can make an Intimidation check opposed by the Charisma check of a creature that can see you. On a success, the next armour attack roll or opposed ability check you make against that creature within the next 10 minutes is made with advantage. Once you've failed an opposed Intimidation check, you can't use this feature again until you finish a long rest."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Roguish Charm",
+          "entries": [
+            "You gain an expertise die on Persuasion checks. After you spend a minute in conversation with a creature that is not hostile, you may make a Persuasion check opposed by its Insight. On a success, the creature is nonmagically {@condition charmed|sns} by you for 1 hour. The charm ends early if you or your allies hurt the creature. Once you've used this feature successfully, you can't use it again until you finish a long rest."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Social Expertise",
+          "entries": [
+            "You gain an expertise die on checks made with one of the following skills: Deception, Finesse, or Insight."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Self-Preservation (4)",
+      "source": "sns",
+      "className": "Rogue",
+      "classSource": "sns",
+      "level": 18,
+      "entries": [
+        "Also at 18th level, you can choose another two options from your Self-Preservation feature."
+      ]
+    },
+    {
+      "name": "Grand Larcenist",
+      "source": "sns",
+      "className": "Rogue",
+      "classSource": "sns",
+      "level": 20,
+      "entries": [
+        "At 20th level, you reach the epitome of roguish talent and expertise. You gain the following abilities.",
+        {
+          "type": "entries",
+          "name": "Hide in Plain Sight",
+          "entries": [
+            "You master the art of distraction. When a creature within your line of sight looks in your direction, you can use your reaction to hide even if you have nothing to hide behind as long as you remain in the same space without moving or taking actions. Until you move or take an action or a reaction, you are invisible to that creature. If you are targeted by a reflex attack, you may choose to increase its success tier by 1 to remain invisible to the creature, otherwise it reveals you."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Skill Mastery",
+          "entries": [
+            "You are unparalleled in your chosen fields. For each skill in which you have an expertise die, you gain another expertise die in that skill."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Unstoppable",
+          "entries": [
+            "No portal - be it door, window, or planar device - is closed to you. You no longer need to make ability checks to pick locks, and you succeed automatically whenever you attempt to unlock any lock of any kind."
+          ]
+        }
+      ]
+    }
+  ],
+  "subclassFeature": [
+    {
+      "name": "Mastermind",
+      "source": "sns",
+      "className": "Rogue",
+      "classSource": "sns",
+      "subclassShortName": "Mastermind",
+      "subclassSource": "sns",
+      "level": 1,
+      "entries": [
+        "Your focus is on people and on the influence and secrets they have. Many spies, courtiers, and schemers follow this subclass, leading lives of intrigue. Words are your weapons as often as knives or poison, and secrets and favours are some of your favourite treasures.",
+        {
+          "type": "refSubclassFeature",
+          "subclassFeature": "Master of Intrigue|Rogue|sns|Mastermind|sns|1"
+        },
+        {
+          "type": "refSubclassFeature",
+          "subclassFeature": "Master of Tactics|Rogue|sns|Mastermind|sns|1"
+        },
+        {
+          "type": "refSubclassFeature",
+          "subclassFeature": "Mastermind Major Effects|Rogue|sns|Mastermind|sns|1"
+        }
+      ]
+    },
+    {
+      "name": "Master of Intrigue",
+      "source": "sns",
+      "className": "Rogue",
+      "classSource": "sns",
+      "subclassShortName": "Mastermind",
+      "subclassSource": "sns",
+      "level": 1,
+      "header": 1,
+      "entries": [
+        "When you choose this subclass at tier 1, you gain proficiency with the Deception, Finesse, and History skills. You also learn two languages of your choice.",
+        "Additionally, you can unerringly mimic the speech patterns and accent of a creature that you hear speak for at least 1 minute, enabling you to pass yourself off as a native speaker of a particular land, provided that you know the language."
+      ]
+    },
+    {
+      "name": "Master of Tactics",
+      "source": "sns",
+      "className": "Rogue",
+      "classSource": "sns",
+      "subclassShortName": "Mastermind",
+      "subclassSource": "sns",
+      "level": 1,
+      "header": 1,
+      "entries": [
+        "Starting at tier 1, you can use the Help action as a bonus action. Additionally, when you use the action to aid an ally in attacking a creature, the target of that attack can be within 30 feet of you, rather than adjacent to you, provided the target can sense you."
+      ]
+    },
+    {
+      "name": "Mastermind Major Effects",
+      "source": "sns",
+      "className": "Rogue",
+      "classSource": "sns",
+      "subclassShortName": "Mastermind",
+      "subclassSource": "sns",
+      "level": 1,
+      "header": 1,
+      "entries": [
+        "From tier 1, Mastermind Rogues have access to the following major effect options:",
+        {
+          "type": "list",
+          "items": [
+            "You immediately make a Perception check with DC equal to 8 + the target's CR. On a success, the target is Exposed as per the Ranger's Expose Weakness feature for 1 round. If the triggering attack killed the target, you may choose another creature within 60 feet of you to be the target of this effect instead, not requiring line of sight.",
+            "If you share a language with the target, the target is {@condition charmed|sns} for 1 round. Otherwise, they are {@condition frightened|sns} for 1 round instead. If the triggering attack killed the target, you may choose another creature within 60 feet of you to be the target of this effect instead, not requiring line of sight."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Silver Tongue",
+      "source": "sns",
+      "className": "Rogue",
+      "classSource": "sns",
+      "subclassShortName": "Mastermind",
+      "subclassSource": "sns",
+      "level": 3,
+      "header": 2,
+      "entries": [
+        "Starting at tier 2, you develop your conversational skills during battle to better deceive others. As an action, you can attempt to deceive a creature within 30 feet of you that can sense you. Make a Deception check contested by the target's Insight check. If you succeed, for 1 round or until you use this feature on a different creature, your movement doesn't provoke opportunity attacks from the target and any attacks against it aided by your Help action have their success tier increased by 1. If you fail the contest, the target becomes immune to this effect for 1 hour."
+      ]
+    },
+    {
+      "name": "Soul of Deceit",
+      "source": "sns",
+      "className": "Rogue",
+      "classSource": "sns",
+      "subclassShortName": "Mastermind",
+      "subclassSource": "sns",
+      "level": 5,
+      "header": 2,
+      "entries": [
+        "Starting at tier 3, your thoughts can't be read by telepathy or other means, unless you allow it. You can present false thoughts by succeeding on a Deception check contested by the mind reader's Insight check.",
+        "Additionally, no matter what you say, magic that would determine if you are telling the truth indicates you are being truthful if you so choose, and you can't be compelled to tell the truth by magic."
+      ]
+    },
+    {
+      "name": "Insightful Manipulator",
+      "source": "sns",
+      "className": "Rogue",
+      "classSource": "sns",
+      "subclassShortName": "Mastermind",
+      "subclassSource": "sns",
+      "level": 7,
+      "header": 2,
+      "entries": [
+        "Starting at tier 4, if you spend at least 1 minute observing or interacting with another creature outside combat, you can learn certain information about its capabilities compared to your own. The DM tells you if the creature is your equal, superior, or inferior in regard to two of the following characteristics of your choice:",
+        {
+          "type": "list",
+          "items": [
+            "Intelligence score",
+            "Wisdom score",
+            "Charisma score",
+            "CR (compared to your level)"
+          ]
+        },
+        "At the DM's discretion, you might also realise you know a piece of the creature's history or one of its personality traits, if it has any."
+      ]
+    },
+    {
+      "name": "Stifling Distraction",
+      "source": "sns",
+      "className": "Rogue",
+      "classSource": "sns",
+      "subclassShortName": "Mastermind",
+      "subclassSource": "sns",
+      "level": 9,
+      "header": 2,
+      "entries": [
+        "Beginning at tier 5, your tactical assistance in battle improves defence as well as offence. Whenever a creature makes an attack aided by your Help action, the attack's target has disadvantage with their own attacks against the attacker for 1 round."
+      ]
+    }
+  ],
+  "optionalfeature": [
+    {
+      "name": "Agile Athlete",
+      "source": "sns",
+      "featureType": [
+        "ST"
+      ],
+      "entries": [
+        "You gain an expertise die on Athletics checks and a climb speed equal to your Speed."
+      ]
+    },
+    {
+      "name": "Boobytrapper",
+      "source": "sns",
+      "featureType": [
+        "ST"
+      ],
+      "entries": [
+        "You gain an expertise die on Finesse checks. You may make a Finesse check to conceal caltrops, ball bearings, a hunting trap, an alarm bell, or other Tiny traps or alarms. The result of your Finesse check is the DC for discovering these obstacles. They can be spotted without a check if they are not obscured."
+      ]
+    },
+    {
+      "name": "Cat's Eyes",
+      "source": "sns",
+      "featureType": [
+        "ST"
+      ],
+      "entries": [
+        "You gain an expertise die on Perception checks and 30 feet of darkvision."
+      ]
+    },
+    {
+      "name": "Delay Trap",
+      "source": "sns",
+      "featureType": [
+        "ST"
+      ],
+      "entries": [
+        "You gain an expertise die on checks made to pick locks or disarm traps. When you would trigger a mechanical trap on your turn, your alert senses warn you of danger before you complete the action. You may immediately end your turn in order to delay the trap's effects until the start of your next turn."
+      ]
+    },
+    {
+      "name": "Expertise Training",
+      "source": "sns",
+      "featureType": [
+        "ST"
+      ],
+      "entries": [
+        "You gain an expertise die on checks made with one of the following skills: Athletics, Finesse, Investigation, Perception, or Stealth. You may choose this trick more than once."
+      ]
+    },
+    {
+      "name": "Extra Skill Training",
+      "source": "sns",
+      "featureType": [
+        "ST"
+      ],
+      "entries": [
+        "You gain proficiency in one of the following: Athletics, Finesse, Investigation, Perception, or Stealth. You may choose this trick more than once."
+      ]
+    },
+    {
+      "name": "Graceful Leap",
+      "source": "sns",
+      "featureType": [
+        "ST"
+      ],
+      "prerequisite": [
+        {
+          "level": {
+            "level": 13,
+            "class": {
+              "name": "Rogue",
+              "source": "sns"
+            }
+          },
+          "other": "{@dice d8} expertise die on Finesse checks"
+        }
+      ],
+      "entries": [
+        "You gain an expertise die on Finesse checks. As a bonus action, you can jump up to half your Speed horizontally and up to 10 feet vertically. Opportunity attacks provoked by this movement are made with disadvantage."
+      ]
+    },
+    {
+      "name": "Hide in the Shadows",
+      "source": "sns",
+      "featureType": [
+        "ST"
+      ],
+      "entries": [
+        "You gain an expertise die on Stealth checks. You can attempt to hide from creatures without darkvision while you are in an area of dim light. When a creature tries to enter your space, your position is revealed."
+      ]
+    },
+    {
+      "name": "Keen Eye",
+      "source": "sns",
+      "featureType": [
+        "ST"
+      ],
+      "prerequisite": [
+        {
+          "level": {
+            "level": 13,
+            "class": {
+              "name": "Rogue",
+              "source": "sns"
+            }
+          },
+          "other": "{@dice d8} expertise die on Perception checks"
+        }
+      ],
+      "entries": [
+        "You gain an expertise die on Perception checks. You don't have disadvantage on Perception checks from being in lightly-obscured areas. If you have darkvision, you treat darkness and dim light as if it were bright light."
+      ]
+    },
+    {
+      "name": "Kip Up",
+      "source": "sns",
+      "featureType": [
+        "ST"
+      ],
+      "entries": [
+        "You gain an expertise die on Finesse checks. When you are {@condition prone|sns}, standing up uses none of your movement. When you are knocked {@condition prone|sns}, you can use your reaction to stand up."
+      ]
+    },
+    {
+      "name": "Locksmith",
+      "source": "sns",
+      "featureType": [
+        "ST"
+      ],
+      "entries": [
+        "You gain an expertise die on checks made to pick locks or disarm traps. You may spend a minute to improve an unlocked lock. At the end of the minute, make a Finesse check against the lock's DC. On a success, you permanently increase the lock's DC by 10. A lock may only be improved in this way once.",
+        "Additionally, you may spend a minute probing an unlocked lock. At the end of the minute, make a Magiscience check against the lock's DC. On a success, you make a key for the lock."
+      ]
+    },
+    {
+      "name": "Loot Runner",
+      "source": "sns",
+      "featureType": [
+        "ST"
+      ],
+      "entries": [
+        "You gain an expertise die on Athletics checks and your Speed increases by 5 feet. Additionally, you gain advantage on Treasure Hunt journey activity checks."
+      ]
+    },
+    {
+      "name": "Practiced Dash",
+      "source": "sns",
+      "featureType": [
+        "ST"
+      ],
+      "prerequisite": [
+        {
+          "level": {
+            "level": 13,
+            "class": {
+              "name": "Rogue",
+              "source": "sns"
+            }
+          },
+          "other": "{@dice d8} expertise die on Athletics checks"
+        }
+      ],
+      "entries": [
+        "You gain an expertise die on Athletics checks. When using the Dash action, you ignore difficult terrain and don't fall on slippery surfaces."
+      ]
+    },
+    {
+      "name": "Quick Scan",
+      "source": "sns",
+      "featureType": [
+        "ST"
+      ],
+      "entries": [
+        "You gain an expertise die on Investigation checks. You can use a bonus action to take the Search action."
+      ]
+    },
+    {
+      "name": "Scout Leader",
+      "source": "sns",
+      "featureType": [
+        "ST"
+      ],
+      "entries": [
+        "You gain an expertise die on Stealth checks. When your party makes a group Stealth check, you may apply your result to yourself and one ally after seeing the results of all rolls. Additionally, you gain advantage on Cover Tracks journey activity checks."
+      ]
+    },
+    {
+      "name": "Sense Aura",
+      "source": "sns",
+      "featureType": [
+        "ST"
+      ],
+      "prerequisite": [
+        {
+          "level": {
+            "level": 13,
+            "class": {
+              "name": "Rogue",
+              "source": "sns"
+            }
+          },
+          "other": "{@dice d8} expertise die on Investigation checks"
+        }
+      ],
+      "entries": [
+        "You gain an expertise die on Investigation checks. Additionally, you can spend 10 minutes to sense whether an object or creature bears magic. This feature is nonmagical."
+      ]
+    },
+    {
+      "name": "Sense for Secrets",
+      "source": "sns",
+      "featureType": [
+        "ST"
+      ],
+      "entries": [
+        "You gain an expertise die on Investigation checks. You have a sense for finding hidden things. You can spend a minute observing an area. If there are tricks, traps, secret doors, or other unusual features of a nonmagical nature within 30 feet of you on an unobscured surface you can see, you know something nearby is worth investigating, but not what or where it is. You can't use Sense for Secrets twice on the same area."
+      ]
+    },
+    {
+      "name": "Shadow Skulk",
+      "source": "sns",
+      "featureType": [
+        "ST"
+      ],
+      "prerequisite": [
+        {
+          "level": {
+            "level": 13,
+            "class": {
+              "name": "Rogue",
+              "source": "sns"
+            }
+          },
+          "other": "{@dice d8} expertise die on Stealth checks"
+        }
+      ],
+      "entries": [
+        "You gain an expertise die on Stealth checks. You have a passive Stealth score of 10 plus your Dexterity modifier plus your proficiency bonus. When you have not attempted to hide from a creature but are not visible to it and not making noise, you are considered hidden, using your passive Stealth score."
+      ]
+    },
+    {
+      "name": "Skeleton Key",
+      "source": "sns",
+      "featureType": [
+        "ST"
+      ],
+      "prerequisite": [
+        {
+          "level": {
+            "level": 13,
+            "class": {
+              "name": "Rogue",
+              "source": "sns"
+            }
+          },
+          "other": "{@dice d8} expertise die on Finesse checks"
+        }
+      ],
+      "entries": [
+        "You gain an expertise die on Finesse checks. As part of successfully picking a lock, you can alter the lock so that it opens to a key in your possession in addition to, or instead of, whatever keys previously opened it."
+      ]
+    },
+    {
+      "name": "Tuck and Roll",
+      "source": "sns",
+      "featureType": [
+        "ST"
+      ],
+      "entries": [
+        "You gain an expertise die on Finesse checks. When you would take falling damage, make a Finesse check and reduce the damage by an amount equal to the result of the check."
+      ]
+    }
+  ]
+}
