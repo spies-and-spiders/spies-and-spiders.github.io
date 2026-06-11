@@ -240,9 +240,10 @@
       "classSource": "sns",
       "subclassFeatures": [
         "Gloom Stalker|Ranger|sns|Gloom Stalker|sns|1",
-        "Creeping Doom|Ranger|sns|Gloom Stalker|sns|3",
-        "Precision in Shadow|Ranger|sns|Gloom Stalker|sns|5",
-        "Dark Veil|Ranger|sns|Gloom Stalker|sns|7",
+        "Dread Ambusher|Ranger|sns|Gloom Stalker|sns|3",
+        "Shadowbane|Ranger|sns|Gloom Stalker|sns|3",
+        "Precision in Darkness|Ranger|sns|Gloom Stalker|sns|5",
+        "Umbral Veil|Ranger|sns|Gloom Stalker|sns|7",
         "Eclipsed Deflection|Ranger|sns|Gloom Stalker|sns|9"
       ]
     }
