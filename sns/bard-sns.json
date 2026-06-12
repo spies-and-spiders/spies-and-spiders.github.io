@@ -544,6 +544,20 @@
         "Discordance|Bard|sns|Sound Sculptor|sns|7",
         "Dome of Sound|Bard|sns|Sound Sculptor|sns|9"
       ]
+    },
+    {
+      "name": "College of Swords",
+      "shortName": "Swords",
+      "source": "sns",
+      "className": "Bard",
+      "classSource": "sns",
+      "subclassFeatures": [
+        "College of Swords|Bard|sns|Swords|sns|1",
+        "Ringing Blade|Bard|sns|Swords|sns|3",
+        "Empowered Attack|Bard|sns|Swords|sns|5",
+        "Arcane Riposte|Bard|sns|Swords|sns|7",
+        "Master's Flourish|Bard|sns|Swords|sns|9"
+      ]
     }
   ],
   "classFeature": [
@@ -1584,6 +1598,209 @@
       "header": 2,
       "entries": [
         "At tier 5, you gain the most potent sound sculptor ability: the creation of a dome of sound. As an action while concentrating on your Eyes of the Ears feature, you can create a 30-foot radius sphere of physical sound centred on you. The dome lasts for as long as you maintain concentration on your Eyes of the Ears feature. The area is difficult terrain, and reverberations in the air grant disadvantage to Perception checks made inside it. Ranged armour attacks fired within the area are also made at disadvantage. The area is a persistent zone which forces creatures to make a save. On a failed save, a creature loses concentration on any effect they are concentrating on. When you first create the dome, you can choose any creatures you can sense to be unaffected by the dome's effects for its duration. You can use this feature once between long rests."
+      ]
+    },
+    {
+      "name": "College of Swords",
+      "source": "sns",
+      "className": "Bard",
+      "classSource": "sns",
+      "subclassShortName": "Swords",
+      "subclassSource": "sns",
+      "level": 1,
+      "entries": [
+        {
+          "type": "refSubclassFeature",
+          "subclassFeature": "Bonus Proficiencies|Bard|sns|Swords|sns|1"
+        },
+        {
+          "type": "refSubclassFeature",
+          "subclassFeature": "Fighting Style|Bard|sns|Swords|sns|1"
+        },
+        {
+          "type": "refSubclassFeature",
+          "subclassFeature": "Blade Flourish|Bard|sns|Swords|sns|1"
+        },
+        {
+          "type": "refSubclassFeature",
+          "subclassFeature": "Swords Major Effects|Bard|sns|Swords|sns|1"
+        }
+      ]
+    },
+    {
+      "name": "Bonus Proficiencies",
+      "source": "sns",
+      "className": "Bard",
+      "classSource": "sns",
+      "subclassShortName": "Swords",
+      "subclassSource": "sns",
+      "level": 1,
+      "entries": [
+        "When you select this subclass at tier 1, you gain proficiency with medium armour and the scimitar.",
+        "If you're proficient with a melee weapon, you can use it as a spellcasting focus for your bard spells."
+      ]
+    },
+    {
+      "name": "Fighting Style",
+      "source": "sns",
+      "className": "Bard",
+      "classSource": "sns",
+      "subclassShortName": "Swords",
+      "subclassSource": "sns",
+      "level": 1,
+      "entries": [
+        "At tier 1, you adopt a particular style of fighting as your specialty. Choose one of the following options. You can't take a Fighting Style option more than once, even if you later get to choose again.",
+        {
+          "type": "list",
+          "items": [
+            {
+              "type": "item",
+              "name": "Dueling",
+              "entries": [
+                "When you are wielding a melee weapon in one hand and no other weapons, you gain a +2 bonus to damage rolls with that weapon."
+              ]
+            },
+            {
+              "type": "item",
+              "name": "Two-Weapon Fighting",
+              "entries": [
+                "You add your choice of either your Strength or Dexterity modifier to the damage of any weapon you are wielding in your offhand."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Blade Flourish",
+      "source": "sns",
+      "className": "Bard",
+      "classSource": "sns",
+      "subclassShortName": "Swords",
+      "subclassSource": "sns",
+      "level": 1,
+      "entries": [
+        "At tier 1, you learn to conduct impressive displays of martial prowess and speed.",
+        "Whenever you take the Attack action on your turn, your Speed increases by 10 feet until the end of the turn, and if your action's attack hits a creature, you can use one of the following Blade Flourish options of your choice. You can use only one Blade Flourish option per turn.",
+        {
+          "type": "entries",
+          "name": "Defensive Flourish",
+          "entries": [
+            "You can expend one use of your Bardic Inspiration to cause the weapon to deal extra base damage to the target you hit. The damage equals the number you roll on the Bardic Inspiration die. You also add the number rolled to your armour until the start of your next turn."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Slashing Flourish",
+          "entries": [
+            "You can expend one use of your Bardic Inspiration to cause the weapon to deal extra base damage to the target you hit, and cause the same amount of harm of the same type to any other creature adjacent to you of your choice. The damage equals the number you roll on the Bardic Inspiration die."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Mobile Flourish",
+          "entries": [
+            "You can expend one use of your Bardic Inspiration to cause the weapon to deal extra base damage to the target you hit. The damage equals the number you roll on the Bardic Inspiration die. You can also push the target up to 5 feet away from you, plus a number of feet equal to the number you roll on that die. You can then immediately use your reaction to move up to your Speed to an unoccupied space adjacent to the target."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Swords Major Effects",
+      "source": "sns",
+      "className": "Bard",
+      "classSource": "sns",
+      "subclassShortName": "Swords",
+      "subclassSource": "sns",
+      "level": 1,
+      "entries": [
+        "From tier 1, Swords Bards have access to the following major effect options:",
+        {
+          "type": "list",
+          "items": [
+            "If the triggering attack uses a Blade Flourish, add half your level (rounded up) to the Bardic Inspiration die roll. Otherwise, you can use a Blade Flourish with the attack by rolling a {@dice d4} instead of expending a use of your Bardic Inspiration.",
+            "The target loses resistance to the triggering attack's base damage type equal to half your level (rounded up) for 1 round. If the triggering attack killed the target, you can choose another creature within 60 feet of you to be the target of this effect instead, ignoring line of sight."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Ringing Blade",
+      "source": "sns",
+      "className": "Bard",
+      "classSource": "sns",
+      "subclassShortName": "Swords",
+      "subclassSource": "sns",
+      "level": 3,
+      "header": 2,
+      "entries": [
+        "At tier 2, whenever you take the Attack action, you can expend a spell slot to add a number of {@dice d6}s of thunder damage equal to the spell slot's level to your attack's damage."
+      ]
+    },
+    {
+      "name": "Empowered Attack",
+      "source": "sns",
+      "className": "Bard",
+      "classSource": "sns",
+      "subclassShortName": "Swords",
+      "subclassSource": "sns",
+      "level": 5,
+      "header": 2,
+      "entries": [
+        "From tier 3, when you use the Attack action, your main hand weapon's base damage is doubled. For example, a weapon with a damage of {@dice 1d6} + your Strength modifier deals {@dice 2d6} + double your Strength modifier instead."
+      ]
+    },
+    {
+      "name": "Arcane Riposte",
+      "source": "sns",
+      "className": "Bard",
+      "classSource": "sns",
+      "subclassShortName": "Swords",
+      "subclassSource": "sns",
+      "level": 7,
+      "header": 2,
+      "entries": [
+        "At tier 4, you learn to turn an enemy's aggression into a burst of controlled arcane power. When a creature fails to hit you with a melee attack, you can use your reaction to make a melee weapon attack against that creature. This attack deals additional base damage equal to a roll of your Bardic Inspiration die, without consuming the die. Additionally, you can choose one of the following additional effects.",
+        {
+          "type": "list",
+          "items": [
+            {
+              "type": "item",
+              "name": "Disrupting Pulse",
+              "entries": [
+                "The target has disadvantage on the next attack roll it makes before the end of its next turn."
+              ]
+            },
+            {
+              "type": "item",
+              "name": "Arc Step",
+              "entries": [
+                "You can immediately shift up to 10 feet."
+              ]
+            },
+            {
+              "type": "item",
+              "name": "Resonant Echo",
+              "entries": [
+                "Until the end of your next turn, add a {@dice d4} to the die roll for the next Blade Flourish you use."
+              ]
+            }
+          ]
+        },
+        "You can use this feature a number of times between long rests equal to your proficiency bonus."
+      ]
+    },
+    {
+      "name": "Master's Flourish",
+      "source": "sns",
+      "className": "Bard",
+      "classSource": "sns",
+      "subclassShortName": "Swords",
+      "subclassSource": "sns",
+      "level": 9,
+      "header": 2,
+      "entries": [
+        "Starting at tier 5, whenever you use a Blade Flourish option, you can roll a {@dice d6} and use it instead of expending a Bardic Inspiration die."
       ]
     }
   ],

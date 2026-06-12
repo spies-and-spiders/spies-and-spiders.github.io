@@ -414,7 +414,7 @@
           "type": "entries",
           "name": "Two-Weapon Fighting",
           "entries": [
-            "You add your choice of either your Strength or Dexterity modifier to the damage of weapons with the Offhand trait."
+            "You add your choice of either your Strength or Dexterity modifier to the damage of any weapon you are wielding in your offhand."
           ]
         },
         {
