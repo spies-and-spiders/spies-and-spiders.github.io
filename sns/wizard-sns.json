@@ -56,8 +56,7 @@
                 "history",
                 "insight",
                 "investigation",
-                "medicine",
-                "religion"
+                "medicine"
               ],
               "count": 2
             }
@@ -1259,7 +1258,7 @@
         }
       ],
       "entries": [
-        "You have advantage on Investigation checks made against illusion, and attacks made against you by illusion have disadvantage. When you succeed on an ability check to see through an illusion, or an attack from one fails to score a standard or higher success, all allies within 30 feet of you gain advantage on checks to see through that illusion for the next minute."
+        "You have advantage on {@skill Investigation} checks made against illusion, and attacks made against you by illusion have disadvantage. When you succeed on an ability check to see through an illusion, or an attack from one fails to score a standard or higher success, all allies within 30 feet of you gain advantage on checks to see through that illusion for the next minute."
       ]
     },
     {
@@ -1279,7 +1278,7 @@
         "ES"
       ],
       "entries": [
-        "You are well-travelled and well-studied. You have advantage on History checks to recall information relating to myths and legends that are location-based. In addition, when you arrive at a settlement for the first time, choose one of the following subjects: culture, etiquette, government, or populace. The DM will give you a useful fact about that subject. You can take an expertise die on ability checks related to that subject in this settlement."
+        "You are well-travelled and well-studied. You have advantage on {@skill History} checks to recall information relating to myths and legends that are location-based. In addition, when you arrive at a settlement for the first time, choose one of the following subjects: culture, etiquette, government, or populace. The DM will give you a useful fact about that subject. You can take an expertise die on ability checks related to that subject in this settlement."
       ]
     },
     {

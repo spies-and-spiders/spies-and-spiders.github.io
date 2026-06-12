@@ -171,7 +171,7 @@
         {
           "type": "list",
           "items": [
-            "You have advantage on Perception and Investigation checks made to detect the presence of hidden traps and secret doors.",
+            "You have advantage on {@skill Perception} and {@skill Investigation} checks made to detect the presence of hidden traps and secret doors.",
             "Whenever your party gains any amount of loot from a combat in a non-outdoor location (at the DM's discretion), you have a 50% chance to gain one additional unit of loot.",
             "Once per short rest, you can recover a single resource when you roll for initiative that would usually be recovered after a short rest.",
             "Once per long rest, you can recover a single resource after a short rest that would usually be recovered after a long rest."
@@ -265,7 +265,7 @@
         {
           "type": "list",
           "items": [
-            "You gain an expertise die in Medicine. This does not benefit your Journey Activity checks.",
+            "You gain an expertise die in {@skill Medicine}. This does not benefit your Journey Activity checks.",
             "Whenever you revive a living creature on 0 hit points, it recovers additional hit points equal to 20% of its maximum hit points.",
             "As an action, you can heal a creature within your reach for 1d10 hit points. This amount increases by an additional d10 at 5th (2d10), 11th (3d10), and 17th (4d10) levels. You can do this a number of times equal to your proficiency bonus, recovering all uses at the end of a short or long rest.",
             "Whenever you heal a creature as part of a limited standard action, they recover an additional number of hit points equal to your level."
@@ -399,7 +399,7 @@
         {
           "type": "list",
           "items": [
-            "Your body armour does not impose disadvantage on your Stealth checks.",
+            "Your body armour does not impose disadvantage on your {@skill Stealth} checks.",
             "The threshold for armour attacks against you to score a minor success is increased by 3."
           ]
         }
@@ -544,7 +544,7 @@
           "type": "list",
           "items": [
             "You can attempt to hide while in dim light or if you have at least half cover from the creature from which you are hiding.",
-            "Dim light doesn't impose disadvantage on your Perception checks relying on sight.",
+            "Dim light doesn't impose disadvantage on your {@skill Perception} checks relying on sight.",
             "You gain 60 feet of darkvision.",
             "You gain a d6 expertise die on {@skill Finesse} checks. This does not benefit your Journey Activity checks."
           ]
@@ -563,7 +563,7 @@
           "items": [
             "You gain a d6 expertise die in {@skill Deception}, {@skill Insight}, and {@skill Persuasion}. This does not benefit your Journey Activity checks.",
             "You have advantage on {@skill Deception} checks when trying to pass yourself off as another person.",
-            "You can mimic the speech of another person or the sounds made by other creatures. You must have heard the person speaking, or heard the creature make the sound, for at least 1 minute. A successful Insight check contested by your Deception check allows a listener to determine that the effect is faked.",
+            "You can mimic the speech of another person or the sounds made by other creatures. You must have heard the person speaking, or heard the creature make the sound, for at least 1 minute. A successful {@skill Insight} check contested by your {@skill Deception} check allows a listener to determine that the effect is faked.",
             "If you can see a creature's mouth while it is speaking a language you know, you are able to read its lips to understand what it is saying.",
             "You can spend a day in a civilised area making a Charisma-based {@skill History} or {@skill Investigation} check to crowdsource information about the area and its well-known inhabitants."
           ]

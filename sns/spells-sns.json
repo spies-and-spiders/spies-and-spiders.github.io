@@ -1659,7 +1659,7 @@
     {
       "school": "T",
       "entries": [
-        "Your muscles swell with arcane power. They're too clumsy to effectively wield weapons but certainly strong enough for a powerful punch. Until the spell ends, you can choose to use your spellcasting ability score for Athletics and Brawn checks, and for the governing ability of unarmed strikes. In addition, your unarmed strikes deal {@dice 1d6} bludgeoning damage, they ignore resistance and immunity to bludgeoning damage, and whenever you make them alongside a basic maneuver, you gain a +2 bonus to the attack roll.",
+        "Your muscles swell with arcane power. They're too clumsy to effectively wield weapons but certainly strong enough for a powerful punch. Until the spell ends, you can choose to use your spellcasting ability score for {@skill Athletics} and {@skill Brawn} checks, and for the governing ability of unarmed strikes. In addition, your unarmed strikes deal {@dice 1d6} bludgeoning damage, they ignore resistance and immunity to bludgeoning damage, and whenever you make them alongside a basic maneuver, you gain a +2 bonus to the attack roll.",
         "The damage this spell grants your unarmed attacks increases by {@dice 1d6} when you reach 5th level ({@dice 2d6}), 11th level ({@dice 3d6}), and 17th level ({@dice 4d6})."
       ],
       "name": "Arcane Muscles",
@@ -2781,7 +2781,7 @@
           ]
         },
         "Writhing black tentacles fill the ground within the area turning it into difficult terrain. The area also becomes a persistent zone that causes {@dice 2d4} bludgeoning harm and forces targets to make a save, becoming {@condition restrained|sns} by the tentacles on a fail. A creature that starts its turn {@condition restrained|sns} by the tentacles suffers {@dice 3d6} bludgeoning harm.",
-        "A {@condition restrained|sns} creature can use its action to make an Acrobatics or Athletics check against your standard DC, freeing itself on a success."
+        "A {@condition restrained|sns} creature can use its action to make an {@skill Finesse} or {@skill Athletics} check against your standard DC, freeing itself on a success."
       ],
       "name": "Black Tentacles",
       "time": [
@@ -4662,7 +4662,7 @@
               "type": "item",
               "name": "Minor success",
               "entries": [
-                "You gain an expertise die on the first Persuasion check you make against the target before the end of your next turn."
+                "You gain an expertise die on the first {@skill Persuasion} check you make against the target before the end of your next turn."
               ]
             },
             {
@@ -4887,7 +4887,7 @@
       },
       "school": "D",
       "entries": [
-        "You can make an Insight check to understand the meaning of any spoken language that you hear, or any written language that you can touch. Typically interpreting an unknown language is a DC 10 check, but the Narrator may use DC 5 for a language closely related to one you know, DC 15 for a language that is particularly unfamiliar or ancient, or DC 20 for a lost or dead language. This spell doesn't uncover secret messages or decode cyphers, and it does not assist in uncovering lies."
+        "You can make an {@skill Insight} check to understand the meaning of any spoken language that you hear, or any written language that you can touch. Typically interpreting an unknown language is a DC 10 check, but the Narrator may use DC 5 for a language closely related to one you know, DC 15 for a language that is particularly unfamiliar or ancient, or DC 20 for a lost or dead language. This spell doesn't uncover secret messages or decode cyphers, and it does not assist in uncovering lies."
       ],
       "name": "Comprehend Languages",
       "time": [
@@ -5920,7 +5920,7 @@
               "type": "item",
               "name": "Whirlpool",
               "entries": [
-                "If the affected body of water is at least 50 feet square and 25 feet deep, a whirlpool forms within the area in a 50-foot wide cone that is 25 feet long. Creatures and objects that are in the area and within 25 feet of the whirlpool make an Athletics check against your standard DC or are pulled 10 feet toward it. Once within the whirlpool, checks made to swim out of it have disadvantage. The whirlpool is a persistent zone that causes {@dice 1d10} bludgeoning harm and forces creatures to make a save, being pulled into the centre of the whirlpool on a fail."
+                "If the affected body of water is at least 50 feet square and 25 feet deep, a whirlpool forms within the area in a 50-foot wide cone that is 25 feet long. Creatures and objects that are in the area and within 25 feet of the whirlpool make an {@skill Athletics} check against your standard DC or are pulled 10 feet toward it. Once within the whirlpool, checks made to swim out of it have disadvantage. The whirlpool is a persistent zone that causes {@dice 1d10} bludgeoning harm and forces creatures to make a save, being pulled into the centre of the whirlpool on a fail."
               ]
             }
           ]
@@ -6999,7 +6999,7 @@
             }
           ]
         },
-        "Creatures that attempt to push, drag, or lift the object must succeed on a Brawn check against your standard DC to do so."
+        "Creatures that attempt to push, drag, or lift the object must succeed on a {@skill Brawn} check against your standard DC to do so."
       ],
       "name": "Deadweight",
       "time": [
@@ -7276,7 +7276,7 @@
             "Self"
           ]
         },
-        "You attempt to sense the presence of otherworldly forces. You automatically know if there is a place or object within range that has been magically consecrated or desecrated. In addition, on the round you cast it and as an action on subsequent turns until the spell ends, you may make a Wisdom (Religion) check against the passive Deception score of any aberration, celestial, elemental, fey, fiend, or undead creature within range. On a success, you sense the creature's presence, as well as where the creature is located.",
+        "You attempt to sense the presence of otherworldly forces. You automatically know if there is a place or object within range that has been magically consecrated or desecrated. In addition, on the round you cast it and as an action on subsequent turns until the spell ends, you may make a Wisdom ({@skill Insight}) check against the passive {@skill Deception} score of any aberration, celestial, elemental, fey, fiend, or undead creature within range. On a success, you sense the creature's presence, as well as where the creature is located.",
         "The spell penetrates most barriers but is blocked by 3 feet of wood or dirt, 1 foot of stone, 1 inch of common metal, or a thin sheet of lead."
       ],
       "name": "Detect Evil and Good",
@@ -7714,7 +7714,7 @@
       "school": "I",
       "entries": [
         "Until the spell ends or you use an action to dismiss it, you and your gear are cloaked by an illusory disguise that makes you appear like another creature of your general size and body type, including but not limited to: your race, 1 foot of height, weight, clothing, tattoos, piercings, facial features, hair style and length, skin and eye coloration, sex, and any other distinguishing features. You cannot disguise yourself as a creature of a different size category, and your limb structure remains the same; for example if you're bipedal, you can't use this spell to appear as a quadruped.",
-        "The disguise does not hold up to physical inspection. A creature that tries to grab an illusory hat, for example, finds its hand passes straight through the figment. To see through your disguise without such an inspection, a creature must use its action to make an Investigation check against your standard DC."
+        "The disguise does not hold up to physical inspection. A creature that tries to grab an illusory hat, for example, finds its hand passes straight through the figment. To see through your disguise without such an inspection, a creature must use its action to make an {@skill Investigation} check against your standard DC."
       ],
       "name": "Disguise Self",
       "time": [
@@ -8780,7 +8780,7 @@
               "name": "Structures",
               "entries": [
                 "A structure in contact with the ground in the spell's area suffers 50 bludgeoning harm when you cast the spell and again at the start of each of your turns while the spell is active. A structure reduced to 0 hit points this way collapses.",
-                "Creatures within half the distance of a collapsing structure's height must pass a save or suffer {@dice 5d6} bludgeoning harm, be knocked {@condition prone|sns}, and be buried in the rubble, requiring a DC 20 Acrobatics or Athletics check as an action to escape. A creature inside (instead of near) a collapsing structure has disadvantage on its save. The DM can adjust the DC higher or lower depending on the composition of the rubble. On a successful save, the creature takes half as much damage and doesn't fall {@condition prone|sns} or become buried."
+                "Creatures within half the distance of a collapsing structure's height must pass a save or suffer {@dice 5d6} bludgeoning harm, be knocked {@condition prone|sns}, and be buried in the rubble, requiring a DC 20 {@skill Finesse} or {@skill Athletics} check as an action to escape. A creature inside (instead of near) a collapsing structure has disadvantage on its save. The DM can adjust the DC higher or lower depending on the composition of the rubble. On a successful save, the creature takes half as much damage and doesn't fall {@condition prone|sns} or become buried."
               ]
             }
           ]
@@ -8936,7 +8936,7 @@
         {
           "type": "list",
           "items": [
-            "Bull's Strength: The target has advantage on Strength checks and adds its Strength modifier an additional time to its Brawn checks."
+            "Bull's Strength: The target has advantage on Strength checks and adds its Strength modifier an additional time to its {@skill Brawn} checks."
           ]
         },
         {
@@ -9271,7 +9271,7 @@
               "type": "item",
               "name": "Standard success",
               "entries": [
-                "The target becomes {@condition restrained|sns} as the plants wrap around it. A creature {@condition restrained|sns} in this way can use its action to make a Brawn check against your standard DC, freeing itself on a success."
+                "The target becomes {@condition restrained|sns} as the plants wrap around it. A creature {@condition restrained|sns} in this way can use its action to make a {@skill Brawn} check against your standard DC, freeing itself on a success."
               ]
             },
             {
@@ -12010,7 +12010,7 @@
             "60-foot radius sphere"
           ]
         },
-        "A freezing globe streaks to a point within range and explodes. Make an area fortitude attack against each creature in the area that deals {@dice 6d12} cold damage. Liquid in the area is frozen to a depth of 6 inches for 1 minute. Any creature caught in the ice can use an action to make a Brawn check against your standard DC to escape.",
+        "A freezing globe streaks to a point within range and explodes. Make an area fortitude attack against each creature in the area that deals {@dice 6d12} cold damage. Liquid in the area is frozen to a depth of 6 inches for 1 minute. Any creature caught in the ice can use an action to make a {@skill Brawn} check against your standard DC to escape.",
         "Instead of firing the globe, you can hold it in your hand. If you handle it carefully, it won't explode until a minute after you cast the spell. At any time, you or another creature can strike the globe, throw it up to 60 feet, or use it as a slingstone, causing it to explode on impact."
       ],
       "name": "Freezing Sphere",
@@ -12620,7 +12620,7 @@
             "One object or a surface no larger than 10 feet in diameter"
           ]
         },
-        "You trace a glyph on the target. If the glyph is moved more than 10 feet from its original position, or if it comes within 20 feet of another glyph that you have cast, the spell ends. Finding the Tiny glyph requires an Investigation check against your standard DC.",
+        "You trace a glyph on the target. If the glyph is moved more than 10 feet from its original position, or if it comes within 20 feet of another glyph that you have cast, the spell ends. Finding the Tiny glyph requires an {@skill Investigation} check against your standard DC.",
         "Describe the actions a creature must perform to trigger the spell, such as approaching within a certain distance, opening or touching the object the glyph is inscribed on, or seeing or reading the glyph. The creature must have a clear path to the glyph to trigger it. You can specify certain creatures which don't trigger the spell, such as those with a certain appearance or those who speak a certain phrase. Once the glyph is triggered, the spell ends.",
         "When you cast the spell, choose Explosive Runes or Spell Glyph.",
         {
@@ -13441,7 +13441,7 @@
             "150-foot cube"
           ]
         },
-        "You weave a veil over the natural terrain within the area, making it look, sound, or smell like another sort of terrain. A small lake could be made to look like a grassy glade. A path or trail could be made to look like an impassable swamp. A cliff face could even appear as a gentle slope or seem to extend further than it does. This spell does not affect any manufactured structures, equipment, or creatures. Only the visual, auditory, and olfactory components of the terrain are changed. Any creature that enters or attempts to interact with the illusion feels the real terrain below. If given sufficient reason, a creature may make an Investigation check against your standard DC to disbelieve it. On a success, the creature sees the illusion superimposed over the actual terrain.",
+        "You weave a veil over the natural terrain within the area, making it look, sound, or smell like another sort of terrain. A small lake could be made to look like a grassy glade. A path or trail could be made to look like an impassable swamp. A cliff face could even appear as a gentle slope or seem to extend further than it does. This spell does not affect any manufactured structures, equipment, or creatures. Only the visual, auditory, and olfactory components of the terrain are changed. Any creature that enters or attempts to interact with the illusion feels the real terrain below. If given sufficient reason, a creature may make an {@skill Investigation} check against your standard DC to disbelieve it. On a success, the creature sees the illusion superimposed over the actual terrain.",
         {
           "type": "entries",
           "name": "Rare",
@@ -15933,7 +15933,7 @@
           "type": "entries",
           "name": "Cast at Higher Levels",
           "entries": [
-            "Your intuition surrounding the target is enhanced and you gain advantage on one Investigation check regarding it for each slot level above 6th."
+            "Your intuition surrounding the target is enhanced and you gain advantage on one {@skill Investigation} check regarding it for each slot level above 6th."
           ]
         }
       ],
@@ -17253,7 +17253,7 @@
         },
         "Until the spell ends, you create an image that appears completely real. The illusion includes sounds, smells, and temperature in addition to visual phenomena. None of the effects of the illusion are able to cause actual harm.",
         "While within range you can use an action to move the illusion. As the image moves you may also change its appearance to make the movement seem natural (like a roc moving its wings to fly) and also change the nonvisual elements of the illusion for the same reason (like the sound of beating wings as the roc flies).",
-        "Any physical interaction immediately reveals the image is an illusion, as objects and creatures alike pass through it. An Investigation check against your standard DC also reveals the image is an illusion.",
+        "Any physical interaction immediately reveals the image is an illusion, as objects and creatures alike pass through it. An {@skill Investigation} check against your standard DC also reveals the image is an illusion.",
         "When a creature realizes the image is an illusion, the effects become fainter for that creature."
       ],
       "name": "Major Image",
@@ -17517,7 +17517,7 @@
               "type": "item",
               "name": "Minor success",
               "entries": [
-                "You gain an expertise die on the first Persuasion check you make against the target before the end of your next turn."
+                "You gain an expertise die on the first {@skill Persuasion} check you make against the target before the end of your next turn."
               ]
             },
             {
@@ -18308,7 +18308,7 @@
                 "You must speak to the target in a language you both know to modify its memories and describe how the memory is changed. The target fills in the gaps in details based on your description.",
                 "If the spell ends before you have finished modifying its memories, the alteration fails. Otherwise, the alteration is complete when the spell ends and only {@spell greater restoration|sns} or {@spell remove curse|sns} can restore the memory.",
                 "The DM may deem a modified memory too illogical or nonsensical to affect a creature, in which case the modified memory is simply dismissed by the target. In addition, a modified memory doesn't specifically change the behaviour of a creature, especially if the memory conflicts with the creature's personality, beliefs, or innate tendencies.",
-                "There may also be events that are practically unforgettable and after being modified can be remembered correctly when another creature succeeds on a Persuasion check to stir the target's memories. This check is made with disadvantage if the creature does not have indisputable proof on hand that is relevant to the altered memory."
+                "There may also be events that are practically unforgettable and after being modified can be remembered correctly when another creature succeeds on a {@skill Persuasion} check to stir the target's memories. This check is made with disadvantage if the creature does not have indisputable proof on hand that is relevant to the altered memory."
               ]
             },
             {
@@ -18696,7 +18696,7 @@
             "30-foot radius"
           ]
         },
-        "You and allies within the area gain advantage and an expertise die on Stealth checks as an aura of secrecy enshrouds you. Creatures in the area leave behind no evidence of their passage."
+        "You and allies within the area gain advantage and an expertise die on {@skill Stealth} checks as an aura of secrecy enshrouds you. Creatures in the area leave behind no evidence of their passage."
       ],
       "name": "Pass Without Trace",
       "time": [
@@ -19438,7 +19438,7 @@
           ]
         },
         "The target becomes poisonous to the touch. Until the spell ends, whenever a creature adjacent to the target hits the target with a melee weapon attack, the creature makes a save, becoming {@condition poisoned|sns} and suffering {@dice 1d6} ongoing poison harm on a fail, both until the target passes a passive save.",
-        "The target of the spell also becomes bright and multicolored like a poisonous dart frog, giving it disadvantage on Stealth checks."
+        "The target of the spell also becomes bright and multicolored like a poisonous dart frog, giving it disadvantage on {@skill Stealth} checks."
       ],
       "name": "Poison Skin",
       "time": [
@@ -20086,7 +20086,7 @@
         "You craft an illusory object, creature, or other effect which executes a scripted performance when a specific condition is met within 30 feet of the area.",
         "You must describe both the condition and the details of the performance upon casting. The trigger must be based on something that can be seen or heard.",
         "Once the illusion triggers, it runs its performance for up to 5 minutes before it disappears and goes dormant for 10 minutes. The illusion is undetectable until then and only reactivates when the condition is triggered and after the dormant period has passed.",
-        "A creature can use an action to attempt an Investigation check against your standard DC to reveal the spell's illusory nature. Physical interactions reveal the illusion for what it is as things can pass through it with ease. A creature aware of the illusion perceives the image as transparent and the sounds it generates hollow."
+        "A creature can use an action to attempt an {@skill Investigation} check against your standard DC to reveal the spell's illusory nature. Physical interactions reveal the illusion for what it is as things can pass through it with ease. A creature aware of the illusion perceives the image as transparent and the sounds it generates hollow."
       ],
       "name": "Programmed Illusion",
       "time": [
@@ -20144,7 +20144,7 @@
       "entries": [
         "You create an illusory duplicate of yourself that looks and sounds like you but is intangible. The duplicate can appear anywhere within range as long as you have seen the space before (it ignores any obstacles in the way).",
         "You can use an action to move this duplicate up to twice your Speed and make it speak and behave in whatever way you choose, mimicking your mannerism with perfect accuracy. You can use a bonus action to see through your duplicate's eyes and hear through its ears until the beginning of your next turn. During this time, you are blind and deaf to your body's surroundings.",
-        "A creature can use an action to attempt an Investigation check against your standard DC to reveal the spell's illusory nature. Physical interactions reveal the illusion for what it is as things can pass through it with ease. A creature aware of the illusion perceives the image as transparent and the sounds it generates hollow."
+        "A creature can use an action to attempt an {@skill Investigation} check against your standard DC to reveal the spell's illusory nature. Physical interactions reveal the illusion for what it is as things can pass through it with ease. A creature aware of the illusion perceives the image as transparent and the sounds it generates hollow."
       ],
       "name": "Project Image",
       "time": [
@@ -21910,7 +21910,7 @@
                 "The spell disguises the target's clothing, weapons, and items as well as changes to their physical appearance.",
                 "You can alter the appearance of the target as you see fit, including but not limited to: its heritage, 1 foot of height, weight, clothing, tattoos, piercings, facial features, hair style and length, skin and eye colouration, sex, and any other distinguishing features.",
                 "You cannot disguise the target as a creature of a different size category, and its limb structure remains the same; for example if it's bipedal, you can't use this spell to make it appear as a quadruped.",
-                "The disguise does not hold up to physical inspection. A creature that tries to grab an illusory hat, for example, finds its hand passes straight through the figment. To see through your disguise without such an inspection, a creature must use its action to make an Investigation check against your standard DC."
+                "The disguise does not hold up to physical inspection. A creature that tries to grab an illusory hat, for example, finds its hand passes straight through the figment. To see through your disguise without such an inspection, a creature must use its action to make an {@skill Investigation} check against your standard DC."
               ]
             },
             {
@@ -22559,7 +22559,7 @@
         },
         "You create an illusory image of a creature, object, or other visible effect within the area. The illusion is purely visual, it cannot produce sound or smell, and items and other creatures pass through it.",
         "As an action, you can move the image to any point within range. The image's movement can be natural and lifelike (for example, a ball will roll and a bird will fly).",
-        "A creature can spend an action to make an Investigation check against your standard DC to determine if the image is an illusion. On a success, it is able to see through the image."
+        "A creature can spend an action to make an {@skill Investigation} check against your standard DC to determine if the image is an illusion. On a success, it is able to see through the image."
       ],
       "name": "Silent Image",
       "time": [
@@ -23114,7 +23114,7 @@
           "type": "entries",
           "name": "Rare",
           "entries": [
-            "Nevard's Insightful Speak with Animals. So long as your standard DC is higher than the passive Insight score of a beast you are conversing with, you can use an action to view the memories of an event the beast is describing."
+            "Nevard's Insightful Speak with Animals. So long as your standard DC is higher than the passive {@skill Insight} score of a beast you are conversing with, you can use an action to view the memories of an event the beast is describing."
           ]
         }
       ],
@@ -23246,7 +23246,7 @@
           "type": "entries",
           "name": "Rare",
           "entries": [
-            "Sidoneth's Insightful Speak with Plants. So long as your standard DC is higher than the passive Insight score of a plant you are conversing with, you can use an action to view the memories of an event the plant is describing."
+            "Sidoneth's Insightful Speak with Plants. So long as your standard DC is higher than the passive {@skill Insight} score of a plant you are conversing with, you can use an action to view the memories of an event the plant is describing."
           ]
         }
       ],
@@ -24135,7 +24135,7 @@
               "type": "item",
               "name": "Minor success",
               "entries": [
-                "You gain an expertise die on the first Persuasion check you make against the target before the end of your next turn."
+                "You gain an expertise die on the first {@skill Persuasion} check you make against the target before the end of your next turn."
               ]
             },
             {
@@ -24413,7 +24413,7 @@
             "One object or a surface no larger than 10 feet in diameter"
           ]
         },
-        "You inscribe a potent glyph on the target, setting a magical trap for your enemies. If the glyph is moved more than 10 feet from its original position, or if it comes within 20 feet of another glyph that you have cast, the spell ends. Finding the Tiny glyph requires an Investigation check against your standard DC.",
+        "You inscribe a potent glyph on the target, setting a magical trap for your enemies. If the glyph is moved more than 10 feet from its original position, or if it comes within 20 feet of another glyph that you have cast, the spell ends. Finding the Tiny glyph requires an {@skill Investigation} check against your standard DC.",
         "Describe the actions a creature must perform to trigger the spell, such as approaching within a certain distance, opening or touching the object the glyph is inscribed on, or seeing or reading the glyph. The creature must have a clear path to the glyph to trigger it. You can specify certain creatures which don't trigger the spell, such as those with a certain appearance or those who speak a certain phrase. Once the glyph is triggered, the spell ends.",
         "When triggered, the glyph sheds dim light in a 60-foot radius for 10 minutes, after which the spell ends. Each creature within the sphere's area is targeted by the glyph, as are creatures that enter the sphere for the first time on a turn.",
         "When you cast the spell, choose one of the following effects.",
@@ -24645,14 +24645,14 @@
               "type": "item",
               "name": "Creature",
               "entries": [
-                "The target makes a Brawn check against your standard DC or it is moved up to 30 feet in any direction and {@condition restrained|sns} (even in mid-air) until the end of your next turn. You cannot move a target beyond the range of the spell."
+                "The target makes a {@skill Brawn} check against your standard DC or it is moved up to 30 feet in any direction and {@condition restrained|sns} (even in mid-air) until the end of your next turn. You cannot move a target beyond the range of the spell."
               ]
             },
             {
               "type": "item",
               "name": "Object",
               "entries": [
-                "You move the target 30 feet in any direction. If the object is worn or carried by a creature, that creature can make a Brawn check against your standard DC. If the target fails, you pull the object away from that creature and can move it up to 30 feet in any direction, but not beyond the range of the spell."
+                "You move the target 30 feet in any direction. If the object is worn or carried by a creature, that creature can make a {@skill Brawn} check against your standard DC. If the target fails, you pull the object away from that creature and can move it up to 30 feet in any direction, but not beyond the range of the spell."
               ]
             }
           ]
@@ -25438,8 +25438,8 @@
             "One creature"
           ]
         },
-        "Until the spell ends, creatures have disadvantage on Sleight of Hand checks made against the target.",
-        "If a creature fails a Sleight of Hand check to steal from the target, the ward creates a loud noise and a flash of bright light easily heard and seen by creatures within 100 feet."
+        "Until the spell ends, creatures have disadvantage on {@skill Finesse} checks made against the target.",
+        "If a creature fails a {@skill Finesse} check to steal from the target, the ward creates a loud noise and a flash of bright light easily heard and seen by creatures within 100 feet."
       ],
       "name": "Traveler's Ward",
       "time": [
@@ -26900,7 +26900,7 @@
         "You must anchor the webs between two solid masses (such as walls or trees) or layer them across a flat surface. If you don't the conjured webs collapse and at the start of your next turn the spell ends.",
         "Webs layered over a flat surface are 5 feet deep.",
         "The area becomes a persistent zone that forces creatures within to pass a save or become {@condition restrained|sns} as long as it remains in the webs (or until the creature breaks free).",
-        "A creature {@condition restrained|sns} by the webs can escape by using its action to make a Brawn check against your standard DC.",
+        "A creature {@condition restrained|sns} by the webs can escape by using its action to make a {@skill Brawn} check against your standard DC.",
         "Any 5-foot cube of webs exposed to fire burns away in 1 round, causing {@dice 2d4} fire harm to any creature that starts its turn in the fire.",
         {
           "type": "entries",
@@ -27589,7 +27589,7 @@
         "As part of the casting of this spell, you lay down in the coffin on a patch of bare earth and it buries itself.",
         "Over the following week, you are {@condition incapacitated|sns} and do not need air, food, or sleep. Your insides are eaten by worms, but you do not die and your skin remains intact. If you are exhumed during this time, or if the spell is otherwise interrupted, you die.",
         "At the end of the week, the transformation is complete and your true form is permanently changed.",
-        "Your appearance is unchanged but underneath your skin is a sentient mass of worms. Any creature that makes a Medicine check against your standard DC realizes that there is something moving underneath your skin.",
+        "Your appearance is unchanged but underneath your skin is a sentient mass of worms. Any creature that makes a {@skill Medicine} check against your standard DC realizes that there is something moving underneath your skin.",
         "Your statistics change in the following ways:",
         {
           "items": [
@@ -27661,7 +27661,7 @@
           ]
         },
         "You create a zone that minimizes deception. Any creature that is able to be {@condition charmed|sns} can't speak a deliberate lie while in the area.",
-        "An affected creature is aware of the spell and can choose not to speak, or it might be evasive in its communications. The area becomes a persistent zone that forces creatures within to make a save. On a failed save, a creature suffers {@dice 2d4} psychic harm when it intentionally tries to mislead or occlude important information for the remainder of the spell's duration. Each time the spell damages a creature, it makes a Deception check (DC 8 + the damage dealt) or its suffering is obvious. You know whether a creature succeeds on its save."
+        "An affected creature is aware of the spell and can choose not to speak, or it might be evasive in its communications. The area becomes a persistent zone that forces creatures within to make a save. On a failed save, a creature suffers {@dice 2d4} psychic harm when it intentionally tries to mislead or occlude important information for the remainder of the spell's duration. Each time the spell damages a creature, it makes a {@skill Deception} check (DC 8 + the damage dealt) or its suffering is obvious. You know whether a creature succeeds on its save."
       ],
       "name": "Zone of Truth",
       "time": [
@@ -28928,7 +28928,7 @@
               "entries": [
                 "You create a phantasmal object, creature, or other visible phenomenon of your choice that is no larger than a 10-foot cube and that is perceivable only to the target for the duration.",
                 "The phantasm includes sound, temperature, and other stimuli, also evident only to the creature.",
-                "The target can use its action to examine the phantasm with an Investigation check against your standard DC. If the check succeeds, the target realises that the phantasm is an illusion, and the spell ends.",
+                "The target can use its action to examine the phantasm with an {@skill Investigation} check against your standard DC. If the check succeeds, the target realises that the phantasm is an illusion, and the spell ends.",
                 "While a target is affected by the spell, the target treats the phantasm as if it were real. The target rationalises any illogical outcomes from interacting with the phantasm. For example, a target attempting to walk across a phantasmal bridge that spans a chasm falls once it steps onto the bridge. If the target survives the fall, it still believes that the bridge exists and comes up with some other explanation for its fall - it was pushed, it slipped, or a strong wind might have knocked it off.",
                 "An affected target is so convinced of the phantasm's reality that it can even take damage from the illusion. A phantasm created to appear as a creature can strike the target. Similarly, a phantasm created to appear as fire, a pool of acid, or lava can burn the target. Each round on your turn, the phantasm can cause {@dice 1d6} psychic harm to the target if it is in the phantasm's area or adjacent to the phantasm, provided that the illusion is of a creature or hazard that could logically deal damage or cause harm, such as by attacking. The target perceives the harm as a type appropriate to the illusion."
               ]
@@ -29992,7 +29992,7 @@
         "A wall of water springs into existence at a point you choose within range. You can make the wall up to 300 feet long, 300 feet high, and 50 feet thick. The wall lasts for the duration.",
         "When the wall appears, make an area fortitude attack against each creature within its area that deals {@dice 8d8} bludgeoning damage.",
         "At the start of each of your turns after the wall appears, the wall, along with any creatures in it, moves 50 feet away from you. Any Huge or smaller creature inside the wall or whose space the wall enters when it moves suffers {@dice 3d8} bludgeoning harm. A creature can suffer this harm only once per round. At the end of the turn, the wall's height is reduced by 50 feet, and the harm creatures suffer from the spell on subsequent turns is reduced by {@dice 1d8}. When the wall reaches 0 feet in height, the spell ends.",
-        "A creature caught in the wall can move by swimming. Because of the force of the wall, though, the creature must make a successful Athletics check against your standard DC in order to move at all. If it fails the check, it can't move. A creature that moves out of the area falls to the ground."
+        "A creature caught in the wall can move by swimming. Because of the force of the wall, though, the creature must make a successful {@skill Athletics} check against your standard DC in order to move at all. If it fails the check, it can't move. A creature that moves out of the area falls to the ground."
       ],
       "name": "Tsunami",
       "time": [
@@ -31436,7 +31436,7 @@
       "school": "A",
       "entries": [
         "As you cast this spell, you use the rope to create a circle with a 5-foot radius on the ground or the floor. When you finish casting, the rope disappears and the circle becomes a magic trap.",
-        "This trap is nearly invisible, requiring a successful Investigation check against your standard DC to be discerned.",
+        "This trap is nearly invisible, requiring a successful {@skill Investigation} check against your standard DC to be discerned.",
         "The trap triggers when a Small, Medium, or Large creature moves onto the ground or the floor in the spell's radius. That creature must make a save, being magically hoisted in the air on a fail, leaving it hanging upside down 3 feet above the ground or the floor. The creature is {@condition restrained|sns} there until either the spell ends or it passes a passive save. Alternatively, the creature or someone else who can reach it can use an action make an Arcana check against your standard DC. On a success, the {@condition restrained|sns} effect ends.",
         "After the trap is triggered, the spell ends when no creature is {@condition restrained|sns} by it."
       ],
@@ -32186,7 +32186,7 @@
       "entries": [
         "You choose an unoccupied space on the ground within range. A Medium hand made from compacted soil rises there and reaches for one creature adjacent to it. Make a melee fortitude attack against the target that deals {@dice 2d6} bludgeoning damage. On a hit, the target is {@condition restrained|sns} for the spell's duration.",
         "As an action, you can cuase the hand to crush the {@condition restrained|sns} target, making a melee spell fortitude attack against the target that deals {@dice 3d4} bludgeoning damage.",
-        "To break out, the {@condition restrained|sns} target can use its action to make a Brawn check against your standard DC. On a success, the target escapes and is no longer {@condition restrained|sns} by the hand.",
+        "To break out, the {@condition restrained|sns} target can use its action to make a {@skill Brawn} check against your standard DC. On a success, the target escapes and is no longer {@condition restrained|sns} by the hand.",
         "As an action, you can cause the hand to reach for a different creature or to move to a different unoccupied space within range. The hand releases a {@condition restrained|sns} target if you do either."
       ],
       "name": "Earthen Grasp",
@@ -35639,7 +35639,7 @@
           "type": "entries",
           "name": "Transmute Mud to Rock",
           "entries": [
-            "Nonmagical mud or quicksand in the area no more than 10 feet deep transforms into soft stone for the spell's duration. Any creature in the mud when it transforms must make a save. On a successful save, a creature is shunted safely to the surface in an unoccupied space. On a failed save, a creature becomes {@condition restrained|sns} by the rock. A {@condition restrained|sns} creature, or another creature within reach, can use an action to try to break the rock by succeeding on a {@dc 20} Brawn check or by dealing damage to it. The rock has 2 Armour and 28 hit points, and it is immune to poison and psychic damage."
+            "Nonmagical mud or quicksand in the area no more than 10 feet deep transforms into soft stone for the spell's duration. Any creature in the mud when it transforms must make a save. On a successful save, a creature is shunted safely to the surface in an unoccupied space. On a failed save, a creature becomes {@condition restrained|sns} by the rock. A {@condition restrained|sns} creature, or another creature within reach, can use an action to try to break the rock by succeeding on a {@dc 20} {@skill Brawn} check or by dealing damage to it. The rock has 2 Armour and 28 hit points, and it is immune to poison and psychic damage."
           ]
         }
       ],
@@ -35813,7 +35813,7 @@
           "type": "entries",
           "name": "Roots and Vines",
           "entries": [
-            "At the end of each of your turns, one creature of your choice that is on the ground in the area must succeed on a save or become {@condition restrained|sns} until the spell ends. A {@condition restrained|sns} creature can use an action to make an Athletics check against your standard DC, ending the effect on itself on a success."
+            "At the end of each of your turns, one creature of your choice that is on the ground in the area must succeed on a save or become {@condition restrained|sns} until the spell ends. A {@condition restrained|sns} creature can use an action to make an {@skill Athletics} check against your standard DC, ending the effect on itself on a success."
           ]
         },
         {
@@ -35904,7 +35904,7 @@
             }
           ]
         },
-        "If a pillar is prevented from reaching its full height because of a ceiling or other obstacle, a creature on the pillar suffers {@dice 6d6} bludgeoning harm and is {@condition restrained|sns}, pinched between the pillar and the obstacle. The {@condition restrained|sns} creature can use an action to make a Brawn or Acrobatics check (the creature's choice) against your standard DC. On a success, the creature is no longer {@condition restrained|sns} and must either move off the pillar or fall off it."
+        "If a pillar is prevented from reaching its full height because of a ceiling or other obstacle, a creature on the pillar suffers {@dice 6d6} bludgeoning harm and is {@condition restrained|sns}, pinched between the pillar and the obstacle. The {@condition restrained|sns} creature can use an action to make a {@skill Brawn} or {@skill Finesse} check (the creature's choice) against your standard DC. On a success, the creature is no longer {@condition restrained|sns} and must either move off the pillar or fall off it."
       ],
       "name": "Bones of the Earth",
       "time": [
@@ -37154,7 +37154,7 @@
         },
         "A whirlwind howls down in the area. Until the spell ends, you can use your action to move the whirlwind up to 30 feet in any direction along the ground. The whirlwind sucks up any Medium or smaller objects that aren't secured to anything and that aren't worn or carried by anyone.",
         "The first time on a turn that a creature enters the area or that the area enters its space, including when the whirlwind first appears, the creature suffers {@dice 5d8} bludgeoning harm. In addition, a Large or smaller creature that suffers this harm must succeed on a save or become {@condition restrained|sns} in the whirlwind until the spell ends. When a creature starts its turn {@condition restrained|sns} by the whirlwind, the creature is pushed 5 feet higher inside it, unless the creature is at the top. A {@condition restrained|sns} creature moves with the whirlwind and falls when the spell ends, unless the creature has some means to stay aloft.",
-        "A {@condition restrained|sns} creature can use an action to make a Brawn or Acrobatics check against your standard DC. If successful, the creature is no longer {@condition restrained|sns} by the whirlwind and is hurled {@dice 3d6} x 10 feet away from it in a random direction."
+        "A {@condition restrained|sns} creature can use an action to make a {@skill Brawn} or {@skill Finesse} check against your standard DC. If successful, the creature is no longer {@condition restrained|sns} by the whirlwind and is hurled {@dice 3d6} x 10 feet away from it in a random direction."
       ],
       "name": "Whirlwind",
       "time": [
@@ -37309,7 +37309,7 @@
           ]
         },
         "As a bonus action on your turn, you can move the illusion up to 60 feet. At any point during its movement, you can cause it to exhale a blast of energy in a 60-foot cone originating from its space. When you create the dragon, choose a damage type: acid, cold, fire, lightning, necrotic, or poison. Each creature in the cone suffers {@dice 5d6} harm of the chosen type.",
-        "The illusion is tangible because of the shadow stuff used to create it, but attacks score critical fails against it automatically and it is immune to all damage and conditions. A creature that uses an action to examine the dragon can determine that it is an illusion by succeeding on an Investigation check against your standard DC. If a creature discerns the illusion for what it is, the creature can see through it and the illusion's breath attack has disadvantage against the creature."
+        "The illusion is tangible because of the shadow stuff used to create it, but attacks score critical fails against it automatically and it is immune to all damage and conditions. A creature that uses an action to examine the dragon can determine that it is an illusion by succeeding on an {@skill Investigation} check against your standard DC. If a creature discerns the illusion for what it is, the creature can see through it and the illusion's breath attack has disadvantage against the creature."
       ],
       "name": "Illusory Dragon",
       "time": [
@@ -38190,7 +38190,7 @@
           "name": "Bloodletting Sickle (Redcap Only)",
           "entries": [
             "{@atk mw} reach 5 ft., one target. 7 ({@damage 2d4 + 2}) slashing damage. If the target is a creature other than an undead or construct and the attack scores a major success, the target suffers 5 ({@dice 2d4}) ongoing slashing harm due to a bleeding wound.",
-            "Each time the redcap hits the wounded target with this attack, the ongoing harm caused by the wound increases by 5 ({@dice 2d4}). Any creature can take an action to staunch the wound with a successful {@dc 12} Medicine check. The wound also closes if the target receives magical healing."
+            "Each time the redcap hits the wounded target with this attack, the ongoing harm caused by the wound increases by 5 ({@dice 2d4}). Any creature can take an action to staunch the wound with a successful {@dc 12} {@skill Medicine} check. The wound also closes if the target receives magical healing."
           ]
         },
         {

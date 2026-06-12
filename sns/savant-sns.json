@@ -448,7 +448,7 @@
                   "name": "Surgical Flourish",
                   "entries": [
                     "When you have advantage on a melee weapon attack and both die results are high enough to hit, choose one of the creature's limbs or eyes to disable. If the creature succeeds a save, you disable that body part only until the end of your next turn. If it fails the save, the body part is disabled until it can take a short rest.",
-                    "A creature is {@condition debilitated|sns} when attempting to use a disabled limb to attack, and gains no armour benefit from a shield held by a disabled limb. A creature with a disabled leg has its speed reduced by half, it falls {@condition prone|sns} after using the Dash action, and it has disadvantage on Dexterity checks to balance. A creature with a disabled eye has disadvantage on Perception checks that rely on sight and on ranged weapon attack rolls."
+                    "A creature is {@condition debilitated|sns} when attempting to use a disabled limb to attack, and gains no armour benefit from a shield held by a disabled limb. A creature with a disabled leg has its speed reduced by half, it falls {@condition prone|sns} after using the Dash action, and it has disadvantage on Dexterity checks to balance. A creature with a disabled eye has disadvantage on {@skill Perception} checks that rely on sight and on ranged weapon attack rolls."
                   ]
                 }
               ]
@@ -965,7 +965,7 @@
         "CS"
       ],
       "entries": [
-        "You do not need preparation to come up with a convincing fake persona, background, and excuse to cover anything suspicious you are doing. You can gain advantage on Deception checks to pretend to be someone else. However, the ruse won't hold up to prolonged scrutiny. If you spend more than a few minutes in someone's presence, you must make a new Deception check with disadvantage to maintain the ruse."
+        "You do not need preparation to come up with a convincing fake persona, background, and excuse to cover anything suspicious you are doing. You can gain advantage on {@skill Deception} checks to pretend to be someone else. However, the ruse won't hold up to prolonged scrutiny. If you spend more than a few minutes in someone's presence, you must make a new {@skill Deception} check with disadvantage to maintain the ruse."
       ]
     },
     {
@@ -985,8 +985,8 @@
         "CS"
       ],
       "entries": [
-        "When a creature makes a melee armour attack against you or otherwise touches you, you can make a Finesse check against them as a reaction.",
-        "Additionally, when you spend at least a minute interacting with someone while within arm's reach, you gain an expertise die on Finesse checks that involve them until the interaction ends."
+        "When a creature makes a melee armour attack against you or otherwise touches you, you can make a {@skill Finesse} check against them as a reaction.",
+        "Additionally, when you spend at least a minute interacting with someone while within arm's reach, you gain an expertise die on {@skill Finesse} checks that involve them until the interaction ends."
       ]
     },
     {
@@ -996,7 +996,7 @@
         "CS"
       ],
       "entries": [
-        "You quickly can locate people willing to share information. If you spend an hour reaching out to local residents or simply perusing a recent periodical or newspaper, for the next day you gain an expertise die on History and Investigation checks related to the area."
+        "You quickly can locate people willing to share information. If you spend an hour reaching out to local residents or simply perusing a recent periodical or newspaper, for the next day you gain an expertise die on {@skill History} and {@skill Investigation} checks related to the area."
       ]
     },
     {
@@ -1006,7 +1006,7 @@
         "CS"
       ],
       "entries": [
-        "You gain an expertise die on Charisma checks when trying to interact with someone who has proficiency in either History, Magiscience, or Nature, so long as you also have proficiency in that skill."
+        "You gain an expertise die on Charisma checks when trying to interact with someone who has proficiency in either {@skill History}, {@skill Magiscience}, or {@skill Nature}, so long as you also have proficiency in that skill."
       ]
     },
     {
@@ -1026,7 +1026,7 @@
         "CS"
       ],
       "entries": [
-        "Once per hour, when you succeed on an Athletics check to climb, swim, or jump you can offer advice and encouragement to your allies. For the next minute, each ally who attempts a check to traverse the same area gains an expertise die on the check."
+        "Once per hour, when you succeed on an {@skill Athletics} check to climb, swim, or jump you can offer advice and encouragement to your allies. For the next minute, each ally who attempts a check to traverse the same area gains an expertise die on the check."
       ]
     },
     {
@@ -1036,7 +1036,7 @@
         "CS"
       ],
       "entries": [
-        "You can spend an action to make a Magiscience check against the standard DC of a creature you can sense. If you succeed, you deduce from the creature's demeanor, fashion, and accoutrements what cantrips they know and the last non-cantrip spell they cast, if any."
+        "You can spend an action to make a {@skill Magiscience} check against the standard DC of a creature you can sense. If you succeed, you deduce from the creature's demeanor, fashion, and accoutrements what cantrips they know and the last non-cantrip spell they cast, if any."
       ]
     },
     {
@@ -1046,7 +1046,7 @@
         "CS"
       ],
       "entries": [
-        "You have forethought of when and where you might need to be places. If you knew you would be in a given area, once per day you can call upon this forethought to have a vehicle or mount waiting for you and your companions, or to have a reservation available at a venue. You pay any appropriate costs. For exceptional requests, you may need to make a Persuasion check or owe someone a favour."
+        "You have forethought of when and where you might need to be places. If you knew you would be in a given area, once per day you can call upon this forethought to have a vehicle or mount waiting for you and your companions, or to have a reservation available at a venue. You pay any appropriate costs. For exceptional requests, you may need to make a {@skill Persuasion} check or owe someone a favour."
       ]
     },
     {
@@ -1056,8 +1056,8 @@
         "CS"
       ],
       "entries": [
-        "Once per hour, when you succeed on a Stealth check you can discreetly direct your allies. For the next minute, each ally who attempts a check to traverse the same area gains an expertise die.",
-        "When moving through an area you're familiar with or have had time to study maps of, you gain an expertise die on Stealth checks."
+        "Once per hour, when you succeed on a {@skill Stealth} check you can discreetly direct your allies. For the next minute, each ally who attempts a check to traverse the same area gains an expertise die.",
+        "When moving through an area you're familiar with or have had time to study maps of, you gain an expertise die on {@skill Stealth} checks."
       ]
     },
     {
@@ -1067,7 +1067,7 @@
         "CS"
       ],
       "entries": [
-        "You gain an expertise die on Magiscience checks to build, repair, or understand a technological device."
+        "You gain an expertise die on {@skill Magiscience} checks to build, repair, or understand a technological device."
       ]
     }
   ]

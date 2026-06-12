@@ -463,7 +463,7 @@
       "classSource": "sns",
       "level": 1,
       "entries": [
-        "Artificers often start out in creative or artistic trades. You gain an expertise die on Magiscience checks."
+        "Artificers often start out in creative or artistic trades. You gain an expertise die on {@skill Magiscience} checks."
       ]
     },
     {
@@ -521,7 +521,7 @@
           "type": "entries",
           "name": "Creating New Schematics",
           "entries": [
-            "You can attempt to create and add a new schematic for any traditional magic item (https://a5e.tools/magic-items) to your schematic book by spending 1 hour studying and 10% of the item's default gold cost in experiments and material tests. At the end of the hour make a DC 15 Magiscience check. On a success you create a new schematic of that magic item and add it to your schematic book, and on a failure the time and materials are wasted."
+            "You can attempt to create and add a new schematic for any traditional magic item (https://a5e.tools/magic-items) to your schematic book by spending 1 hour studying and 10% of the item's default gold cost in experiments and material tests. At the end of the hour make a DC 15 {@skill Magiscience} check. On a success you create a new schematic of that magic item and add it to your schematic book, and on a failure the time and materials are wasted."
           ]
         },
         {
@@ -757,7 +757,7 @@
                   "type": "item",
                   "name": "Camouflaged",
                   "entries": [
-                    "A terrain type for this modification is chosen when it is crafted. The wearer gains an expertise die on Stealth checks while in that terrain."
+                    "A terrain type for this modification is chosen when it is crafted. The wearer gains an expertise die on {@skill Stealth} checks while in that terrain."
                   ]
                 },
                 {
@@ -771,14 +771,14 @@
                   "type": "item",
                   "name": "Stealthy",
                   "entries": [
-                    "The armour has been disguised to look like a piece of clothing. A creature observing the item only realises that it is armour with a DC 15 Investigation check (made with disadvantage if the armour is being worn at the time)."
+                    "The armour has been disguised to look like a piece of clothing. A creature observing the item only realises that it is armour with a DC 15 {@skill Investigation} check (made with disadvantage if the armour is being worn at the time)."
                   ]
                 },
                 {
                   "type": "item",
                   "name": "Storage",
                   "entries": [
-                    "The armour contains a hidden compartment the size of a small vial that requires a DC 20 Investigation check to be found without knowledge of it."
+                    "The armour contains a hidden compartment the size of a small vial that requires a DC 20 {@skill Investigation} check to be found without knowledge of it."
                   ]
                 }
               ]
@@ -798,7 +798,7 @@
                   "type": "item",
                   "name": "Flamboyant",
                   "entries": [
-                    "Creatures have disadvantage on any saves made to resist being distracted by the weapon, and the wielder has advantage on Intimidation checks made with the use of it."
+                    "Creatures have disadvantage on any saves made to resist being distracted by the weapon, and the wielder has advantage on {@skill Intimidation} checks made with the use of it."
                   ]
                 },
                 {
@@ -812,14 +812,14 @@
                   "type": "item",
                   "name": "Stealthy",
                   "entries": [
-                    "The weapon has been disguised to look like another normal item. A creature observing the item only realises that it is a weapon with a DC 15 Investigation check (made with disadvantage if the weapon is sheathed)."
+                    "The weapon has been disguised to look like another normal item. A creature observing the item only realises that it is a weapon with a DC 15 {@skill Investigation} check (made with disadvantage if the weapon is sheathed)."
                   ]
                 },
                 {
                   "type": "item",
                   "name": "Storage",
                   "entries": [
-                    "The weapon contains a hidden compartment the size of a small vial that requires a DC 20 Investigation check to be found without knowledge of it. The compartment has a release that can be used as a bonus action to allow the liquid within the compartment to flow out and be applied to the weapon."
+                    "The weapon contains a hidden compartment the size of a small vial that requires a DC 20 {@skill Investigation} check to be found without knowledge of it. The compartment has a release that can be used as a bonus action to allow the liquid within the compartment to flow out and be applied to the weapon."
                   ]
                 }
               ]
@@ -841,7 +841,7 @@
           "type": "entries",
           "name": "Kooky Eccentric",
           "entries": [
-            "Your excitement for your work is infectious and most find your quirky methodology inescapably endearing. You gain proficiency in Persuasion, or if you are already proficient in Persuasion you gain an expertise die instead. In addition, you can always choose to use Intelligence when making a Persuasion check."
+            "Your excitement for your work is infectious and most find your quirky methodology inescapably endearing. You gain proficiency in {@skill Persuasion}, or if you are already proficient in {@skill Persuasion} you gain an expertise die instead. In addition, you can always choose to use Intelligence when making a {@skill Persuasion} check."
           ]
         },
         {
@@ -856,7 +856,7 @@
           "type": "entries",
           "name": "Stern Proctor",
           "entries": [
-            "Your demand for perfection extends past your own work, and with only a discerning glare and a few choice words you can make the confident feel foolish. You gain proficiency in Intimidation, or if you are already proficient in Intimidation you gain an expertise die instead. In addition, you can always choose to use Intelligence when making an Intimidation check."
+            "Your demand for perfection extends past your own work, and with only a discerning glare and a few choice words you can make the confident feel foolish. You gain proficiency in {@skill Intimidation}, or if you are already proficient in {@skill Intimidation} you gain an expertise die instead. In addition, you can always choose to use Intelligence when making an {@skill Intimidation} check."
           ]
         }
       ]
@@ -918,7 +918,7 @@
       "level": 11,
       "entries": [
         "At 11th level your practice has finally smoothed out the early faults of your spell inventions, so long as you keep the arcane power within acceptable parameters. Whenever you roll a 1 on the fizzle die, you may reroll it, if you do you must use the new result.",
-        "In addition, your spell inventions have become streamlined enough that other creatures can make sense of them. A creature holding one of your spell inventions can use an action to make a Magiscience check (DC equal to your standard DC). On a success the spell is cast at its lowest possible spell level, or on a failure the spell fizzles out and fails to cast. Whenever a creature attempt to cast a spell using one of your spell inventions in this way, roll the fizzle die as normal."
+        "In addition, your spell inventions have become streamlined enough that other creatures can make sense of them. A creature holding one of your spell inventions can use an action to make a {@skill Magiscience} check (DC equal to your standard DC). On a success the spell is cast at its lowest possible spell level, or on a failure the spell fizzles out and fails to cast. Whenever a creature attempt to cast a spell using one of your spell inventions in this way, roll the fizzle die as normal."
       ]
     },
     {
@@ -931,7 +931,7 @@
         "At 13th level you've managed to truly improve on something or create something new altogether, taking a solid step forward in the technological development of the world. When you first gain this feature, choose a newly invented foodstuff, object, or trade good that could conceivably be crafted. For example, you could invent carbonated sodas, glowing iridium glassware, or a fine mechanism for better performing pocket watches.",
         "As part of a long rest, you can create your new invention for 5 gold worth of materials.",
         "Any other uses your invention may have are at the DM's discretion, but its utility shouldn't exceed that of other mundane adventuring gear.",
-        "In addition, your notoriety as a great inventor spreads along with your invention. While you are in a region you've sold your invention in, you have advantage on Persuasion checks."
+        "In addition, your notoriety as a great inventor spreads along with your invention. While you are in a region you've sold your invention in, you have advantage on {@skill Persuasion} checks."
       ]
     },
     {
@@ -1107,7 +1107,7 @@
           "type": "entries",
           "name": "Fine Stitchwork",
           "entries": [
-            "Your stitchwork is barely noticeable and with a heavy coat or similar accoutrements your monstrous minion can pass for a living creature. When you graft this modificaiton, make a Magiscience check. Creatures must make a Perception check with a DC equal to your check result to visually determine that your minion is a construct."
+            "Your stitchwork is barely noticeable and with a heavy coat or similar accoutrements your monstrous minion can pass for a living creature. When you graft this modificaiton, make a {@skill Magiscience} check. Creatures must make a {@skill Perception} check with a DC equal to your check result to visually determine that your minion is a construct."
           ]
         },
         {
@@ -1128,7 +1128,7 @@
           "type": "entries",
           "name": "Infectious Bite",
           "entries": [
-            "Your monstrous minion's Bite attack causes an additional {@dice 1d4} ongoing necrotic harm on a hit that persists, but does not stack, until the target regains hit points or is medically administered to with a {@dc 15} Medicine check. This harm increases to {@dice 2d4} when you reach 11th level."
+            "Your monstrous minion's Bite attack causes an additional {@dice 1d4} ongoing necrotic harm on a hit that persists, but does not stack, until the target regains hit points or is medically administered to with a {@dc 15} {@skill Medicine} check. This harm increases to {@dice 2d4} when you reach 11th level."
           ]
         },
         {
@@ -1241,7 +1241,7 @@
           "type": "entries",
           "name": "Grim Duplicate",
           "entries": [
-            "Your monstrous minion has the face and features of the humanoid used to make this modification. When you graft this modification, make a Magiscience check. Creatures must make a Perception check with a DC equal to the result of your check to visually determine that your minion is not the humanoid used to create it, realising it is a construct on a substantial success."
+            "Your monstrous minion has the face and features of the humanoid used to make this modification. When you graft this modification, make a {@skill Magiscience} check. Creatures must make a {@skill Perception} check with a DC equal to the result of your check to visually determine that your minion is not the humanoid used to create it, realising it is a construct on a substantial success."
           ]
         },
         {
@@ -1541,7 +1541,7 @@
           "type": "entries",
           "name": "Danger Sense",
           "entries": [
-            "As a bonus action, you apply your synaptic gadget to a willing creature within reach, heightening its awareness. For a number of rounds equal to your Intelligence modifier, the target gains advantage on Insight and Perception checks and its armour increases by 2 as long as it is not {@condition staggered|sns} and its Speed is greater than 0. This bonus increases by 1 at 5th level, 11th level, and 17th level (maximum 5)."
+            "As a bonus action, you apply your synaptic gadget to a willing creature within reach, heightening its awareness. For a number of rounds equal to your Intelligence modifier, the target gains advantage on {@skill Insight} and {@skill Perception} checks and its armour increases by 2 as long as it is not {@condition staggered|sns} and its Speed is greater than 0. This bonus increases by 1 at 5th level, 11th level, and 17th level (maximum 5)."
           ]
         },
         {
@@ -1747,7 +1747,7 @@
         "FD"
       ],
       "entries": [
-        "You always know to have a bit of magnet and a pin on you for orienteering emergencies. With 1 minute's work you can cobble together a makeshift compass. Compasses made in this way become useless after 1 hour and have no sale value. You're also adept at surveying your surroundings and you gain an expertise die on checks made for the Chronicle and Scout journey activities. In addition, you gain proficiency in Survival."
+        "You always know to have a bit of magnet and a pin on you for orienteering emergencies. With 1 minute's work you can cobble together a makeshift compass. Compasses made in this way become useless after 1 hour and have no sale value. You're also adept at surveying your surroundings and you gain an expertise die on checks made for the Chronicle and Scout journey activities. In addition, you gain proficiency in {@skill Survival}."
       ]
     },
     {
@@ -1757,7 +1757,7 @@
         "FD"
       ],
       "entries": [
-        "An orderly mind can see all sorts of uses within the natural world. You may use Magiscience in place of Survival for the Cook journey activity."
+        "An orderly mind can see all sorts of uses within the natural world. You may use {@skill Magiscience} in place of {@skill Survival} for the Cook journey activity."
       ]
     },
     {
@@ -1797,7 +1797,7 @@
         "FD"
       ],
       "entries": [
-        "While you may have no special talent for detecting traps, you and your tools can definitely deal with them once they've been pointed out. You gain an expertise die in Magiscience checks to disable mechanical traps. In addition, if you trigger a trap while attempting to disarm it, its attacks have disadvantage against you."
+        "While you may have no special talent for detecting traps, you and your tools can definitely deal with them once they've been pointed out. You gain an expertise die in {@skill Magiscience} checks to disable mechanical traps. In addition, if you trigger a trap while attempting to disarm it, its attacks have disadvantage against you."
       ]
     },
     {

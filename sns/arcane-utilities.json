@@ -22,7 +22,7 @@
         "AU"
       ],
       "entries": [
-        "Whenever your group Persuasion or Deception is used for an ability check, you can add an expertise die to that check. If the check's {@dice d20} roll is a 1, the target realizes its judgment was influenced by magic and may become hostile."
+        "Whenever your group {@skill Persuasion} or {@skill Deception} is used for an ability check, you can add an expertise die to that check. If the check's {@dice d20} roll is a 1, the target realizes its judgment was influenced by magic and may become hostile."
       ]
     },
     {
@@ -87,7 +87,7 @@
         "The illusion must fit within a 5-foot cube.",
         "You may create any sound you choose, ranging in volume from a whisper to a scream. You may choose one sound for the duration or change them at varying points before the illusion ends. Sounds are audible outside the illusion's area.",
         "Visual illusions may replicate any image and remain within the illusion's area, but cannot create sound, light, smell, or other sensory effects.",
-        "The image is revealed as an illusion with any physical interaction as physical objects and creatures pass through it. An Investigation check against your standard DC also reveals the image is an illusion. When a creature realizes the image is an illusion, the effects become fainter for that creature."
+        "The image is revealed as an illusion with any physical interaction as physical objects and creatures pass through it. An {@skill Investigation} check against your standard DC also reveals the image is an illusion. When a creature realizes the image is an illusion, the effects become fainter for that creature."
       ]
     },
     {
@@ -148,7 +148,7 @@
             "chill, warm, or flavor nonliving material of 1 cubic foot or less for 1 hour.",
             "color or mark an object or surface for 1 hour.",
             "create an ordinary trinket or illusionary image that fits in your hand and lasts for 1 round.",
-            "your voice booms up to three times louder than normal for 1 minute, granting you advantage on Intimidation checks.",
+            "your voice booms up to three times louder than normal for 1 minute, granting you advantage on {@skill Intimidation} checks.",
             "send harmless tremors throughout the ground for 1 minute.",
             "instantaneously cause an unlocked door or window to fly open or slam shut.",
             "alter the appearance of your eyes for 1 minute."

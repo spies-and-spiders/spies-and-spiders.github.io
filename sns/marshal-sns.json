@@ -747,7 +747,7 @@
                   "type": "item",
                   "name": "All",
                   "entries": [
-                    "Once per long rest, when encountering an unknown language, you have advantage on History checks to comprehend that language."
+                    "Once per long rest, when encountering an unknown language, you have advantage on {@skill History} checks to comprehend that language."
                   ]
                 },
                 {
@@ -801,7 +801,7 @@
                   "type": "item",
                   "name": "Expert",
                   "entries": [
-                    "The ballads, poems, songs, and tales that your minstrel has composed about your deeds spread far and wide. You gain a bonus to your Persuasion equal to half your proficiency bonus."
+                    "The ballads, poems, songs, and tales that your minstrel has composed about your deeds spread far and wide. You gain a bonus to your {@skill Persuasion} equal to half your proficiency bonus."
                   ]
                 }
               ]
@@ -834,7 +834,7 @@
                   "type": "item",
                   "name": "Expert",
                   "entries": [
-                    "As seasoned, except that expert sages only grant the following ability when they are proficient in Magiscience, Nature, or History: once per week when the sage is able to see a creature they can learn information about from their skill, you gain advantage on your first armour attack roll against it."
+                    "As seasoned, except that expert sages only grant the following ability when they are proficient in {@skill Magiscience}, {@skill Nature}, or {@skill History}: once per week when the sage is able to see a creature they can learn information about from their skill, you gain advantage on your first armour attack roll against it."
                   ]
                 }
               ]
@@ -945,14 +945,14 @@
       "classSource": "sns",
       "level": 6,
       "entries": [
-        "At 6th level, tales of your deeds take root in the hearts of the people. As a leader, you are more famous than most adventurers. You add half your proficiency bonus to your Persuasion.",
+        "At 6th level, tales of your deeds take root in the hearts of the people. As a leader, you are more famous than most adventurers. You add half your proficiency bonus to your {@skill Persuasion}.",
         "In addition, your reputation strongly affects how you are perceived, and when it becomes known that you are in a settlement people treat you accordingly. At the DM's discretion, there may be settlements (such as an enemy's war camp) where you cannot utilise this feature. Choose one of the following:",
         {
           "type": "entries",
           "name": "Famous",
           "entries": [
             "When you arrive in a settlement, after you reveal who you are local authority figures seek you out to make introductions and invite you to share a meal or drink.",
-            "In addition, you gain an expertise die on Persuasion checks."
+            "In addition, you gain an expertise die on {@skill Persuasion} checks."
           ]
         },
         {
@@ -960,7 +960,7 @@
           "name": "Infamous",
           "entries": [
             "When you arrive in a settlement, after you reveal who you are common folk hurry to get out of your way, and when you corner a commoner to ask about something local they rapidly tell you whatever details they think you might want to know.",
-            "In addition, you gain an expertise die on Intimidation checks."
+            "In addition, you gain an expertise die on {@skill Intimidation} checks."
           ]
         },
         {
@@ -1046,8 +1046,8 @@
           "type": "entries",
           "name": "Calm",
           "entries": [
-            "Knowing how and when to embrace quietude allows your silence to speak far lounder than any words, and you easily pick up on the subtleties revealed by body language and demeanor. When you first meet a creature, you can choose to remain silent and speak through nonvisual cues - scrunching your brows, pursing your lips, narrowing your eyes, slowly leaning ever so slightly forward, hunching your shoulders, and so on. As long as you remain silent for 1 minute, the creature has a CR lower than your level, and it remains within your line of sight for the duration, it acts as if you succeeded on an Intimidation check.",
-            "In addition, you gain an expertise die on Insight checks."
+            "Knowing how and when to embrace quietude allows your silence to speak far lounder than any words, and you easily pick up on the subtleties revealed by body language and demeanor. When you first meet a creature, you can choose to remain silent and speak through nonvisual cues - scrunching your brows, pursing your lips, narrowing your eyes, slowly leaning ever so slightly forward, hunching your shoulders, and so on. As long as you remain silent for 1 minute, the creature has a CR lower than your level, and it remains within your line of sight for the duration, it acts as if you succeeded on an {@skill Intimidation} check.",
+            "In addition, you gain an expertise die on {@skill Insight} checks."
           ]
         },
         {
@@ -1062,7 +1062,7 @@
           "name": "Responsive",
           "entries": [
             "Whether between duelists or armies, combat is all about timing and you are impeccably punctual. When you overhear an interesting conversation between other creatures, you can interject so seamlessly and casually that the speakers think they already know you, answering one question you ask before realising that they don't.",
-            "In addition, you gain an expertise die on Persuasion checks."
+            "In addition, you gain an expertise die on {@skill Persuasion} checks."
           ]
         }
       ]
@@ -1084,7 +1084,7 @@
       "classSource": "sns",
       "level": 13,
       "entries": [
-        "Also at 13th level, you gain a stronghold in a location of your choice. While your stronghold is not destroyed, you gain a +3 bonus to Persuasion checks and further bonuses based on the type of stronghold. Choose one of the following:",
+        "Also at 13th level, you gain a stronghold in a location of your choice. While your stronghold is not destroyed, you gain a +3 bonus to {@skill Persuasion} checks and further bonuses based on the type of stronghold. Choose one of the following:",
         {
           "type": "entries",
           "name": "Castle",
@@ -1137,7 +1137,7 @@
           "type": "entries",
           "name": "Library",
           "entries": [
-            "You gain an expertise die whenever you make an Intelligence check using a skill you are proficient with. In addition, you gain proficiency with your choice of History, Magiscience, or Nature. You can change this decision whenever you complete a long rest.",
+            "You gain an expertise die whenever you make an Intelligence check using a skill you are proficient with. In addition, you gain proficiency with your choice of {@skill History}, {@skill Magiscience}, or {@skill Nature}. You can change this decision whenever you complete a long rest.",
             "Finally, your Intelligence is increased by 1."
           ]
         },
@@ -1185,7 +1185,7 @@
           "type": "entries",
           "name": "Workshop",
           "entries": [
-            "You gain an expertise die on Magiscience checks made in the workshop.",
+            "You gain an expertise die on {@skill Magiscience} checks made in the workshop.",
             "Additionally, any body armour worn by members of your party grants +2 resistance to bludgeoning, piercing, and slashing damage, and the base damage die size of any weapons wielded by members of your party is increased by 2.",
             "Finally, your Strength is increased by 1."
           ]
@@ -1306,7 +1306,7 @@
           "type": "entries",
           "name": "Workshop",
           "entries": [
-            "You gain advantage on Magiscience checks made in the workshop, and the expertise die on Magiscience checks made in the workshop now applies anywhere."
+            "You gain advantage on {@skill Magiscience} checks made in the workshop, and the expertise die on {@skill Magiscience} checks made in the workshop now applies anywhere."
           ]
         }
       ]
@@ -1452,7 +1452,7 @@
       "level": 3,
       "header": 2,
       "entries": [
-        "At tier 2, choose either History or Nature. You gain proficiency with the chosen skill and an expertise die on checks made using the chosen skill."
+        "At tier 2, choose either {@skill History} or {@skill Nature}. You gain proficiency with the chosen skill and an expertise die on checks made using the chosen skill."
       ]
     },
     {
@@ -1465,7 +1465,7 @@
       "level": 3,
       "header": 2,
       "entries": [
-        "Also at tier 2, you can quickly identify how a creature might fight. Whenever you roll for initiative, choose a hostile creature you can see within 60 feet of you and make either a History, Magiscience, or Nature check (chosen by the DM) with a DC of 15. If you succeed, you learn a random one of the creature's passive traits. If the creature doesn't have enough for you to learn, you then learn random non-standard actions. If the creature again doesn't have enough for you to learn, you then learn random remaining actions. For every 2 you beat the DC by, you learn one additional passive trait or action."
+        "Also at tier 2, you can quickly identify how a creature might fight. Whenever you roll for initiative, choose a hostile creature you can see within 60 feet of you and make either a {@skill History}, {@skill Magiscience}, or {@skill Nature} check (chosen by the DM) with a DC of 15. If you succeed, you learn a random one of the creature's passive traits. If the creature doesn't have enough for you to learn, you then learn random non-standard actions. If the creature again doesn't have enough for you to learn, you then learn random remaining actions. For every 2 you beat the DC by, you learn one additional passive trait or action."
       ]
     },
     {
@@ -1480,8 +1480,8 @@
       "entries": [
         "Starting at tier 3, you devise a set of communication cues. Any allies who have received this training - usually taking 10 minutes of discussion and practise - do not need to share a language with you to benefit from this feature.",
         "Additionally on your turn, you can use a bonus action and spend 5 exertion points to make it easier for you and your allies to help each other with certain skills. While this coordination is in place, you and your chosen allies can take the Help action as a bonus action to help each other with skill checks. This coordination requires you to maintain concentration, and both allies - the one taking the Help action and the one making the skill check - to be within 30 feet of you at the time of the skill check.",
-        "You can use your bonus action to change which allies benefit from the coordination each turn and you are able to concentrate on it for up to 10 minutes. The skills that can benefit from this are Athletics, Brawn, Deception, Finesse, Insight, Intimidation, Investigation, Nature, Stealth, and Survival. This might be used to help the team navigate difficult terrain, maintain a facade while undercover, or perform an ambush.",
-        "If you have proficiency in Stealth this coordination can happen silently via surreptitious signals. If you have proficiency in Deception this coordination can happen as a series of code words interspersed with other conversation. An onlooker needs to succeed on an Insight check contested by your ability check - whether Stealth or Deception - to realise the coordination is taking place."
+        "You can use your bonus action to change which allies benefit from the coordination each turn and you are able to concentrate on it for up to 10 minutes. The skills that can benefit from this are {@skill Athletics}, {@skill Brawn}, {@skill Deception}, {@skill Finesse}, {@skill Insight}, {@skill Intimidation}, {@skill Investigation}, {@skill Nature}, {@skill Stealth}, and {@skill Survival}. This might be used to help the team navigate difficult terrain, maintain a facade while undercover, or perform an ambush.",
+        "If you have proficiency in {@skill Stealth} this coordination can happen silently via surreptitious signals. If you have proficiency in {@skill Deception} this coordination can happen as a series of code words interspersed with other conversation. An onlooker needs to succeed on an {@skill Insight} check contested by your ability check - whether {@skill Stealth} or {@skill Deception} - to realise the coordination is taking place."
       ]
     },
     {
@@ -1561,7 +1561,7 @@
         "LW"
       ],
       "entries": [
-        "You've won more battles armed with a sextant and your keen intellect than you have any blade. You gain an expertise die on Survival checks made to navigate, which does not benefit the Cook journey activity. At the start of a journey, you can make a DC 10 Survival check to navigate a faster route, reducing the length of the journey by 1 day (minimum 1) on a success."
+        "You've won more battles armed with a sextant and your keen intellect than you have any blade. You gain an expertise die on {@skill Survival} checks made to navigate, which does not benefit the Cook journey activity. At the start of a journey, you can make a DC 10 {@skill Survival} check to navigate a faster route, reducing the length of the journey by 1 day (minimum 1) on a success."
       ]
     },
     {
@@ -1581,7 +1581,7 @@
         "LW"
       ],
       "entries": [
-        "Knowledge of the terrain can be the difference between victory and defeat. By spending 10 minutes observing the area in a 2-mile radius you can spend 2 exertion points to pick out where there are choke points, large swathes of cover, watercourses, vegetations that can offer concealment, ridgelines, and so on. You gain an expertise die on Magiscience and Survival checks made within the area, and on checks made to prepare an ambush or realise you are being ambushed. This benefits the Experiment, Cook, Cover Tracks, and Hunt & Gather journey activities on the same day that you spent the exertion."
+        "Knowledge of the terrain can be the difference between victory and defeat. By spending 10 minutes observing the area in a 2-mile radius you can spend 2 exertion points to pick out where there are choke points, large swathes of cover, watercourses, vegetations that can offer concealment, ridgelines, and so on. You gain an expertise die on {@skill Magiscience} and {@skill Survival} checks made within the area, and on checks made to prepare an ambush or realise you are being ambushed. This benefits the Experiment, Cook, Cover Tracks, and Hunt & Gather journey activities on the same day that you spent the exertion."
       ]
     },
     {
@@ -1591,7 +1591,7 @@
         "LW"
       ],
       "entries": [
-        "Your deeds have heroically won over the hearts and minds of people everywhere or cowed them into submission. Whenever you visit a settlement, the commoners there tell you all the valuable information they can about their including nearby ruins, the general environment of nearby wilderness, and how populated the region is. You gain an expertise die on Nature and Survival checks made within 1 day of any settlement you have visited. This affects your Befriend Animal and Cook journey activities."
+        "Your deeds have heroically won over the hearts and minds of people everywhere or cowed them into submission. Whenever you visit a settlement, the commoners there tell you all the valuable information they can about their including nearby ruins, the general environment of nearby wilderness, and how populated the region is. You gain an expertise die on {@skill Nature} and {@skill Survival} checks made within 1 day of any settlement you have visited. This affects your Befriend Animal and Cook journey activities."
       ]
     },
     {
@@ -1611,7 +1611,7 @@
         "LW"
       ],
       "entries": [
-        "When you are involved in a group check, all members of the check gain an expertise die. This can also be used for group Persuasion and Deception checks, where the final check gains an expertise die. Once you use this feature, you cannot do so again until you finish a long rest."
+        "When you are involved in a group check, all members of the check gain an expertise die. This can also be used for group {@skill Persuasion} and {@skill Deception} checks, where the final check gains an expertise die. Once you use this feature, you cannot do so again until you finish a long rest."
       ]
     }
   ]
