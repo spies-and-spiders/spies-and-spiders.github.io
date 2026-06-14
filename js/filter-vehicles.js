@@ -18,8 +18,14 @@ class PageFilterVehicles extends PageFilterBase {
 		});
 		this._terrainFilter = new Filter({header: "Terrain", items: ["land", "sea", "air"], displayFn: StrUtil.uppercaseFirst});
 		this._speedFilter = new RangeFilter({header: "Speed"});
-		this._acFilter = new RangeFilter({header: "Armour Class"});
-		this._hpFilter = new RangeFilter({header: "Hit Points"});
+		this._armourFilter = new RangeFilter({header: "Armour"});
+		this._willFilter = new RangeFilter({header: "Will"});
+		this._reflexFilter = new RangeFilter({header: "Reflex"});
+		this._fortitudeFilter = new RangeFilter({header: "Fortitude"});
+		this._defencesFilter = new MultiFilter({
+			header: "Defences",
+			filters: [this._armourFilter, this._willFilter, this._reflexFilter, this._fortitudeFilter],
+		});
 		this._hpFilter = new RangeFilter({header: "Hit Points"});
 		this._creatureCapacityFilter = new RangeFilter({header: "Creature Capacity"});
 		this._miscFilter = new Filter({
@@ -50,16 +56,12 @@ class PageFilterVehicles extends PageFilterBase {
 			ent._fHp = ent.hp.average;
 		}
 
-		ent._fAc = 0;
-		if (ent.hull && ent.hull.ac != null) {
-			ent._fAc = ent.hull.ac;
-		} else if (ent.vehicleType === "INFWAR") {
-			ent._fAc = 19 + Parser.getAbilityModNumber(ent.dex == null ? 10 : ent.dex);
-		} else if (ent.ac instanceof Array) {
-			ent._fAc = ent.ac.map(it => it.special ? null : (it.ac || it)).filter(it => it !== null);
-		} else if (ent.ac) {
-			ent._fAc = ent.ac;
-		}
+		const _fDef = (src, key) => { const vals = ((src && src[key]) || []).map(it => it.special ? null : (it[key] != null ? it[key] : it)).filter(it => it !== null); return vals.length ? vals : null; };
+		const defSrc = Renderer.vehicle.hasDefences(ent) ? ent : ent.hull;
+		ent._fArm = _fDef(defSrc, "arm");
+		ent._fWil = _fDef(defSrc, "wil");
+		ent._fRef = _fDef(defSrc, "ref");
+		ent._fFort = _fDef(defSrc, "fort");
 
 		ent._fCreatureCapacity = (ent.capCrew || 0) + (ent.capPassenger || 0) + (ent.capCreature || 0);
 
@@ -75,7 +77,10 @@ class PageFilterVehicles extends PageFilterBase {
 		this._upgradeTypeFilter.addItem(it.upgradeType);
 		this._speedFilter.addItem(it._fSpeed);
 		this._terrainFilter.addItem(it.terrain);
-		this._acFilter.addItem(it._fAc);
+		(it._fArm || []).forEach(v => this._armourFilter.addItem(v));
+		(it._fWil || []).forEach(v => this._willFilter.addItem(v));
+		(it._fRef || []).forEach(v => this._reflexFilter.addItem(v));
+		(it._fFort || []).forEach(v => this._fortitudeFilter.addItem(v));
 		this._hpFilter.addItem(it._fHp);
 		this._creatureCapacityFilter.addItem(it._fCreatureCapacity);
 		this._miscFilter.addItem(it._fMisc);
@@ -88,7 +93,7 @@ class PageFilterVehicles extends PageFilterBase {
 			this._upgradeTypeFilter,
 			this._terrainFilter,
 			this._speedFilter,
-			this._acFilter,
+			this._defencesFilter,
 			this._hpFilter,
 			this._creatureCapacityFilter,
 			this._miscFilter,
@@ -103,7 +108,7 @@ class PageFilterVehicles extends PageFilterBase {
 			it.upgradeType,
 			it.terrain,
 			it._fSpeed,
-			it._fAc,
+			[it._fArm, it._fWil, it._fRef, it._fFort],
 			it._fHp,
 			it._fCreatureCapacity,
 			it._fMisc,

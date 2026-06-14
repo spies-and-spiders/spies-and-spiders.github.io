@@ -8218,7 +8218,7 @@ Renderer.object = class {
 	static RENDERABLE_ENTRIES_PROP_ORDER__ATTRIBUTES = [
 		"entryCreatureCapacity",
 		"entryCargoCapacity",
-		"entryArmourClass",
+		"entryDefences",
 		"entryHitPoints",
 		"entrySpeed",
 		"entryAbilityScores",
@@ -8239,8 +8239,8 @@ Renderer.object = class {
 			entryCargoCapacity: ent.capCargo != null
 				? `{@b Cargo Capacity:} ${Renderer.vehicle.getShipCargoCapacity(ent)}`
 				: null,
-			entryArmourClass: ent.ac != null
-				? `{@b Armour Class:} ${ent.ac.special ?? ent.ac}`
+			entryDefences: Renderer.vehicle.hasDefences(ent)
+				? Renderer.vehicle.getDefencesPart(ent)
 				: null,
 			entryHitPoints: ent.hp != null
 				? `{@b Hit Points:} ${ent.hp.special ?? ent.hp}`
@@ -11683,6 +11683,21 @@ Renderer.vehicle = class {
 		};
 	}
 
+	static hasDefences (src) {
+		return src != null && (src.arm != null || src.fort != null || src.ref != null || src.wil != null);
+	}
+
+	static getDefencesPart (src, {renderer = null} = {}) {
+		renderer ||= Renderer.get();
+		const fmt = (key, label, val) => `<div><strong>${label}</strong> ${val == null ? "—" : Parser.acToFull(val, {renderer, key})}</div>`;
+		return [
+			fmt("arm", "Armour", src?.arm),
+			fmt("fort", "Fortitude", src?.fort),
+			fmt("ref", "Reflex", src?.ref),
+			fmt("wil", "Will", src?.wil),
+		].join("");
+	}
+
 	static getCompactRenderedString (veh, opts) {
 		return Renderer.vehicle.getRenderedString(veh, {...opts, isCompact: true});
 	}
@@ -11777,9 +11792,6 @@ Renderer.vehicle = class {
 
 		static getSectionHpEntriesMeta_ ({entry, isEach = false}) {
 			return {
-				entryArmourClass: entry.ac
-					? `{@b Armour Class} ${entry.ac}`
-					: null,
 				entryHitPoints: entry.hp
 					? `{@b Hit Points} ${entry.hp}${isEach ? ` each` : ""}${entry.dt ? ` (damage threshold ${entry.dt})` : ""}${entry.hpNote ? `; ${entry.hpNote}` : ""}`
 					: null,
@@ -11789,16 +11801,17 @@ Renderer.vehicle = class {
 		static getSectionHpPart_ (renderer, entry, isEach) {
 			const entriesMetaSection = Renderer.vehicle.ship.getSectionHpEntriesMeta_({entry, isEach});
 
+			const ptDefences = Renderer.vehicle.hasDefences(entry) ? Renderer.vehicle.getDefencesPart(entry, {renderer}) : "";
+
 			const props = [
-				"entryArmourClass",
 				"entryHitPoints",
 			];
 
-			if (!props.some(prop => entriesMetaSection[prop])) return "";
+			if (!ptDefences && !props.some(prop => entriesMetaSection[prop])) return "";
 
-			return props
-				.map(prop => `<div>${renderer.render(entriesMetaSection[prop])}</div>`)
-				.join("");
+			return `${ptDefences}${props
+				.map(prop => entriesMetaSection[prop] ? `<div>${renderer.render(entriesMetaSection[prop])}</div>` : "")
+				.join("")}`;
 		}
 
 		static getControlSection_ (renderer, control) {
@@ -11870,9 +11883,7 @@ Renderer.vehicle = class {
 
 	static spelljammer = class {
 		static getVehicleSpelljammerRenderableEntriesMeta (ent) {
-			const ptAc = ent.hull?.ac
-				? `${ent.hull.ac}${ent.hull.acFrom ? ` (${ent.hull.acFrom.join(", ")})` : ""}`
-				: "\u2014";
+			const ptDefences = Renderer.vehicle.getDefencesPart(ent.hull);
 
 			const ptSpeed = ent.speed != null
 				? Parser.getSpeedString(ent, {isSkipZeroWalk: true})
@@ -11888,7 +11899,7 @@ Renderer.vehicle = class {
 					colStyles: ["col-6", "col-6"],
 					rows: [
 						[
-							`{@b Armour Class:} ${ptAc}`,
+							ptDefences,
 							`{@b Cargo:} ${ent.capCargo ? `${ent.capCargo} ton${ent.capCargo === 1 ? "" : "s"}` : "\u2014"}`,
 						],
 						[
@@ -11965,7 +11976,6 @@ Renderer.vehicle = class {
 				: "\u2014";
 
 			return {
-				entryArmourClass: `{@b Armour Class:} ${entry.ac == null ? "\u2014" : entry.ac}`,
 				entryHitPoints: `{@b Hit Points:} ${entry.hp == null ? "\u2014" : entry.hp}`,
 				entryCost: `{@b Cost:} ${ptCosts}`,
 			};
@@ -11975,7 +11985,7 @@ Renderer.vehicle = class {
 			const entriesMetaSectionHpCost = Renderer.vehicle.spelljammer.getSectionHpCostEntriesMeta(entry);
 
 			return `
-				<div>${renderer.render(entriesMetaSectionHpCost.entryArmourClass)}</div>
+				${Renderer.vehicle.getDefencesPart(entry, {renderer})}
 				<div>${renderer.render(entriesMetaSectionHpCost.entryHitPoints)}</div>
 				<div class="mb-2">${renderer.render(entriesMetaSectionHpCost.entryCost)}</div>
 			`;
@@ -12086,14 +12096,11 @@ Renderer.vehicle = class {
 		static PROPS_RENDERABLE_ENTRIES_ATTRIBUTES = [
 			"entryCreatureCapacity",
 			"entryCargoCapacity",
-			"entryArmourClass",
 			"entryHitPoints",
 			"entrySpeed",
 		];
 
 		static getVehicleInfwarRenderableEntriesMeta (ent) {
-			const dexMod = Parser.getAbilityModNumber(ent.dex);
-
 			const ptDtMt = [
 				ent.hp.dt != null ? `damage threshold ${ent.hp.dt}` : null,
 				ent.hp.mt != null ? `mishap threshold ${ent.hp.mt}` : null,
@@ -12101,13 +12108,10 @@ Renderer.vehicle = class {
 				.filter(Boolean)
 				.join(", ");
 
-			const ptAc = ent.ac ?? dexMod === 0 ? `19` : `${19 + dexMod} (19 while motionless)`;
-
 			return {
 				entrySizeWeight: `{@i ${Parser.sizeAbvToFull(ent.size)} vehicle (${ent.weight.toLocaleString()} lb.)}`,
 				entryCreatureCapacity: `{@b Creature Capacity} ${Renderer.vehicle.getInfwarCreatureCapacity(ent)}`,
 				entryCargoCapacity: `{@b Cargo Capacity} ${Parser.weightToFull(ent.capCargo)}`,
-				entryArmourClass: `{@b Armour Class} ${ptAc}`,
 				entryHitPoints: `{@b Hit Points} ${ent.hp.hp}${ptDtMt ? ` (${ptDtMt})` : ""}`,
 				entrySpeed: `{@b Speed} ${ent.speed} ft.`,
 				entrySpeedNote: `[{@b Travel Pace} ${Math.floor(ent.speed / 10)} miles per hour (${Math.floor(ent.speed * 24 / 10)} miles per day)]`,
@@ -12128,6 +12132,7 @@ Renderer.vehicle = class {
 			${Renderer.utils.getNameTr(ent, {isInlinedToken, page: UrlUtil.PG_VEHICLES})}
 			<tr><td colspan="6" class="pb-2">${renderer.render(entriesMetaInfwar.entrySizeWeight)}</td></tr>
 			<tr><td colspan="6" class="pb-2">
+				${Renderer.vehicle.getDefencesPart(ent, {renderer})}
 				${Renderer.vehicle.infwar.PROPS_RENDERABLE_ENTRIES_ATTRIBUTES.map(prop => `<div>${renderer.render(entriesMetaInfwar[prop])}</div>`).join("")}
 				<div class="ve-muted ve-small help-subtle ml-2" title="${entriesMetaInfwar.entrySpeedNoteTitle.qq()}">${renderer.render(entriesMetaInfwar.entrySpeedNote)}</div>
 			</td></tr>

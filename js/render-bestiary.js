@@ -582,12 +582,12 @@ class _RenderBestiaryImplOne extends _RenderBestiaryImplBase {
 	/* ----- */
 
 	_getHtmlParts_defences ({mon, renderer, isInlinedToken}) {
-		const fmt = (key, abbr, label, val) => `<strong title="${label}">${abbr}</strong> ${val == null ? "\u2014" : Parser.acToFull(val, {renderer, key})}`;
+		const fmt = (key, label, val) => `<strong>${label}</strong> ${val == null ? "\u2014" : Parser.acToFull(val, {renderer, key})}`;
 		const defPart = [
-			fmt("arm", "Arm", "Armour", mon.arm),
-			fmt("fort", "Fort", "Fortitude", mon.fort),
-			fmt("ref", "Ref", "Reflex", mon.ref),
-			fmt("wil", "Wil", "Will", mon.wil),
+			fmt("arm", "Armour", mon.arm),
+			fmt("fort", "Fortitude", mon.fort),
+			fmt("ref", "Reflex", mon.ref),
+			fmt("wil", "Will", mon.wil),
 		].join(" &nbsp;");
 		return `<tr><td colspan="6">
 			<div class="split-v-center ${isInlinedToken ? `stats__wrp-avoid-token` : ""}">
