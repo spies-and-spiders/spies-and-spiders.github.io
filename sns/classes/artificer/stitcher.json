@@ -1,0 +1,332 @@
+{
+  "subclass": [
+    {
+      "name": "Stitcher",
+      "shortName": "Stitcher",
+      "source": "sns",
+      "className": "Artificer",
+      "classSource": "sns",
+      "additionalSpells": [
+        {
+          "prepared": {
+            "1": [
+              "corpse explosion|sns",
+              "false life|sns"
+            ],
+            "5": [
+              "gentle repose|sns",
+              "lesser restoration|sns"
+            ],
+            "9": [
+              "life transference|sns",
+              "venomous succor|sns"
+            ],
+            "13": [
+              "fabricate|sns",
+              "private sanctum|sns"
+            ],
+            "17": [
+              "greater restoration|sns",
+              "mass cure wounds|sns"
+            ]
+          }
+        }
+      ],
+      "subclassFeatures": [
+        "Stitcher|Artificer|sns|Stitcher|sns|1",
+        "Exuding Gas|Artificer|sns|Stitcher|sns|3",
+        "Dedicated Supplies|Artificer|sns|Stitcher|sns|5",
+        "Advanced Grafting|Artificer|sns|Stitcher|sns|7",
+        "Harness Death|Artificer|sns|Stitcher|sns|9"
+      ]
+    }
+  ],
+  "subclassFeature": [
+    {
+      "name": "Stitcher",
+      "source": "sns",
+      "className": "Artificer",
+      "classSource": "sns",
+      "subclassShortName": "Stitcher",
+      "subclassSource": "sns",
+      "level": 1,
+      "entries": [
+        "With the careful grafting of flesh and a dash of lightning, what once was dead may live again! Stitchers are artificers who delve into the marvelous mysteries of life, death, and reanimated flesh. Many stitchers begin in medical fields but once they see that dead flesh move for the first time it's hard to ignore the potential of magiscience. Stitchers may continue to work as doctors and mend the sick, though their true passion now requires corpses flesh as raw material for their experiments.",
+        {
+          "type": "refSubclassFeature",
+          "subclassFeature": "Stitcher Spells|Artificer|sns|Stitcher|sns|1"
+        },
+        {
+          "type": "refSubclassFeature",
+          "subclassFeature": "Monstrous Minion|Artificer|sns|Stitcher|sns|1"
+        },
+        {
+          "type": "refSubclassFeature",
+          "subclassFeature": "Stitcher Major Effects|Artificer|sns|Stitcher|sns|1"
+        }
+      ]
+    },
+    {
+      "name": "Stitcher Spells",
+      "source": "sns",
+      "className": "Artificer",
+      "classSource": "sns",
+      "subclassShortName": "Stitcher",
+      "subclassSource": "sns",
+      "level": 1,
+      "header": 1,
+      "entries": [
+        "At tier 1, when you prepare your artificer spells you can prepare certain spells and create spell inventions for them (or forgo them for modifications) in addition to your normal number of prepared spells. These spells count as artificer spells for you, even if they aren't on the artificer spell list.",
+        {
+          "type": "table",
+          "caption": "Stitcher Spells",
+          "colLabels": [
+            "Artificer Level",
+            "Spells"
+          ],
+          "colStyles": [
+            "col-2 text-center",
+            "col-10"
+          ],
+          "rows": [
+            [
+              "1st",
+              "{@spell corpse explosion|sns}, {@spell false life|sns}"
+            ],
+            [
+              "5th",
+              "{@spell gentle repose|sns}, {@spell lesser restoration|sns}"
+            ],
+            [
+              "9th",
+              "{@spell life transference|sns}, {@spell venomous succor|sns}"
+            ],
+            [
+              "13th",
+              "{@spell fabricate|sns}, {@spell private sanctum|sns}"
+            ],
+            [
+              "17th",
+              "{@spell greater restoration|sns}, {@spell mass cure wounds|sns}"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Monstrous Minion",
+      "source": "sns",
+      "className": "Artificer",
+      "classSource": "sns",
+      "subclassShortName": "Stitcher",
+      "subclassSource": "sns",
+      "level": 1,
+      "header": 1,
+      "entries": [
+        "Also at tier 1 you learn the secrets of giving life to dead flesh and become able to create a monstrous minion.",
+        "You can create this monstrous minion by spending a long rest working on a humanoid corpse that has been dead no more than 24 hours, or the corpse of a previously-killed monstrous minion. This monstrous minion is unique and its exact appearance is up to you. It is a minion and requires your concentration to maintain, but you cannot lose this concentration against your will. Your monstrous minion makes death saves and tracks wounds upon reaching 0 hit points.",
+        "Your monstrous minion is a {@creature zombie|sns} with the following improvements.",
+        {
+          "type": "list",
+          "items": [
+            "Your monstrous minion's type changes to construct.",
+            "Whenever your monstrous minion rolls initiative, it gains a number of temporary hit points equal to your artificer level squared.",
+            "Your monstrous minion's armour increases by an amount equal to half your proficiency bonus.",
+            "Your monstrous minion adds your proficiency bonus to its damage rolls.",
+            "Your monstrous minion regains all lost hit points at the end of a long rest so long as you tend to it with your tools of artifice."
+          ]
+        },
+        "Whenever you finish a long rest, you can graft modifications onto your monstrous minion at the cost of infusion uses. These modifications only remain functional due to your infusions, and you can maintain these modifications as if they were infused items. Any modifications you fail to maintain are removed whenever you finish a long rest. You can install any of the following modifications at the cost of 1 infusion each.",
+        {
+          "type": "entries",
+          "name": "Exploding Bile",
+          "entries": [
+            "Your monstrous minion does not make death saves or track wounds, and the first time it would make a death save it instead explodes and is destroyed. The minion makes a reflex attack against creatures within 10 feet of it when it explodes, dealing {@dice 3d4} poison damage. This damage increases to {@dice 6d4} when you reach 11th level."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Extra Arms",
+          "entries": [
+            "Your monstrous minion gains a climb speed of 15 feet. In addition, creatures attempting to escape from a grapple by your monstrous minion have a penalty equal to your proficiency bonus on the save."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Extra Legs",
+          "entries": [
+            "Your monstrous minion's Speed increases by 10 feet."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Fine Stitchwork",
+          "entries": [
+            "Your stitchwork is barely noticeable and with a heavy coat or similar accoutrements your monstrous minion can pass for a living creature. When you graft this modificaiton, make a {@skill Magiscience} check. Creatures must make a {@skill Perception} check with a DC equal to your check result to visually determine that your minion is a construct."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Grafted Spell Invention",
+          "entries": [
+            "When you prepare your spell inventions and modifications to your monstrous minion, you may choose to graft a spell invention into the monstrous minion. You may order your monstrous minion to cast a spell using its grafted spell invention, governed by your Intelligence instead of its own. You must roll a fizzle die as normal. Any grafted spell inventions are destroyed if the monstrous minion is destroyed."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Grafted Weapon",
+          "entries": [
+            "When you prepare your spell inventions and modifications to your monstrous minion, you may choose to graft a melee weapon onto one of its arms in place of a hand. The melee weapon must be able to be wielded with one hand. Your monstrous minion gains an attack with the grafted weapon, which it becomes proficient with. You may retrieve weapons grafted in this way the next time you prepare modifications for this monstrous minion by removing it, or from its remains if it is destroyed."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Infectious Bite",
+          "entries": [
+            "Your monstrous minion's Bite attack causes an additional {@dice 1d4} ongoing necrotic harm on a hit that persists, but does not stack, until the target regains hit points or is medically administered to with a {@dc 15} {@skill Medicine} check. This harm increases to {@dice 2d4} when you reach 11th level."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Shocking Coils",
+          "entries": [
+            "Your monstrous minion has spearking coils protruding from its back. A creature suffers {@dice 1d6} lightning harm when it hits your monstrous minion with a melee weapon attack. This damage increases to {@dice 2d6} when you reach 11th level."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Thicker Skin",
+          "entries": [
+            "Your monstrous minion's armour increases by 2."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Vigor Mortis",
+          "entries": [
+            "Your monstrous minion can take the Dash action as a bonus action. It can't do so again until it moves 0 feet on its turn."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Stitcher Major Effects",
+      "source": "sns",
+      "className": "Artificer",
+      "classSource": "sns",
+      "subclassShortName": "Stitcher",
+      "subclassSource": "sns",
+      "level": 1,
+      "header": 1,
+      "entries": [
+        "From tier 1, Stitcher Artificers have access to the following major effect options:",
+        {
+          "type": "list",
+          "items": [
+            "If the triggering attack dealt damage, your monstrous minion's next attack before your next turn deals additional damage of your attack's base type equal to your level. Otherwise, your monstrous minion gains +1 to all defences for 1 round.",
+            "Instead of you gaining this major effect option, your Monstrous Minion does instead: Your temporary hit points increase by an amount equal to double your master's level."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Exuding Gas",
+      "source": "sns",
+      "className": "Artificer",
+      "classSource": "sns",
+      "subclassShortName": "Stitcher",
+      "subclassSource": "sns",
+      "level": 3,
+      "header": 2,
+      "entries": [
+        "Starting at tier 2, you can have your monstrous minion release foul gases from its body that can be detonated by your {@spell corpse explosion|sns} spell. This allows you to target your monstrous minion with that spell as if it were a corpse, but when you cast the spell in this way it cannot {@condition poisoned|sns|poison} creatures."
+      ]
+    },
+    {
+      "name": "Dedicated Supplies",
+      "source": "sns",
+      "className": "Artificer",
+      "classSource": "sns",
+      "subclassShortName": "Stitcher",
+      "subclassSource": "sns",
+      "level": 5,
+      "header": 2,
+      "entries": [
+        "At tier 3, you devise special spell inventions that provide dedicated support for your monstrous minion. You gain an additional spell invention each long rest, but the spells cast from it only target and affect your monstrous minion. Additionally, spells cast from this invention with a range of Self affect your monstrous minion instead of you, provided you are adjacent to the minion when the spell is cast."
+      ]
+    },
+    {
+      "name": "Advanced Grafting",
+      "source": "sns",
+      "className": "Artificer",
+      "classSource": "sns",
+      "subclassShortName": "Stitcher",
+      "subclassSource": "sns",
+      "level": 7,
+      "header": 2,
+      "entries": [
+        "At tier 4 you've grown tired of wasting so many perfectly good monster parts and have learned how to integrate them into your creations. The following modifications are added to your list of modification options using your Monster Minion feture at the cost of two infusion uses instead of one.",
+        {
+          "type": "entries",
+          "name": "Dragon Gullet",
+          "entries": [
+            "Your monstrous minion gains the following breath weapon attack.",
+            {
+              "type": "list",
+              "items": [
+                {
+                  "type": "item",
+                  "name": "Stolen Breath (Recharge 5-6)",
+                  "entries": [
+                    "The monster exhales the putrid and infected gullet of a fallen dragon in a 30-foot cone. It makes a reflex attack against each creature in the area, dealing {@dice 1d10} necrotic damage and {@dice 2d10} damage of the type the dragon breathed in life."
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Giant Muscles",
+          "entries": [
+            "Your monstrous minion's Strength increases by 4. Note that its weapon attacks are governed by Strength."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Grim Duplicate",
+          "entries": [
+            "Your monstrous minion has the face and features of the humanoid used to make this modification. When you graft this modification, make a {@skill Magiscience} check. Creatures must make a {@skill Perception} check with a DC equal to the result of your check to visually determine that your minion is not the humanoid used to create it, realising it is a construct on a substantial success."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Monstrous Part",
+          "entries": [
+            "Your monstrous minion gains a barbed tail that it can use to fling spikes at enemies as an action. This is a ranged weapon armour attack that targets a creature within 100/200 ft., dealing {@damage 1d4 + 3} piercing damage."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Bestial Instincts",
+          "entries": [
+            "Your monstrous minion has advantage on armour attack rolls against creatures adjacent to an ally of the minion that is not {@condition incapacitated|sns}."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Harness Death",
+      "source": "sns",
+      "className": "Artificer",
+      "classSource": "sns",
+      "subclassShortName": "Stitcher",
+      "subclassSource": "sns",
+      "level": 9,
+      "header": 2,
+      "entries": [
+        "At tier 5 you've harnessed death - mostly. You gain the {@spell Inescapable Malady|sns} spell and when you prepare your artificer spells you can prepare it and create a spell invention for it (or forgo it for a modification) in addition to your normal number of prepared spells. This spell counts as a 5th-level artificer spell for you (including for extending its effects) and you can cast it without the usual material components, but a creature you target with it cannot be targeted by this feature again."
+      ]
+    }
+  ]
+}

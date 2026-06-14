@@ -1,0 +1,200 @@
+{
+  "subclass": [
+    {
+      "name": "Annihilator",
+      "shortName": "Annihilator",
+      "source": "sns",
+      "className": "Sorcerer",
+      "classSource": "sns",
+      "subclassFeatures": [
+        "Annihilator|Sorcerer|sns|Annihilator|sns|1",
+        "Overwhelm|Sorcerer|sns|Annihilator|sns|3",
+        "Consuming Vortex|Sorcerer|sns|Annihilator|sns|5",
+        "Unboil an Egg|Sorcerer|sns|Annihilator|sns|7",
+        "The Teeth of the Gyre|Sorcerer|sns|Annihilator|sns|9"
+      ]
+    }
+  ],
+  "subclassFeature": [
+    {
+      "name": "Annihilator",
+      "source": "sns",
+      "className": "Sorcerer",
+      "classSource": "sns",
+      "subclassShortName": "Annihilator",
+      "subclassSource": "sns",
+      "level": 1,
+      "entries": [
+        {
+          "type": "refSubclassFeature",
+          "subclassFeature": "Annihilator Spells|Sorcerer|sns|Annihilator|sns|1"
+        },
+        {
+          "type": "refSubclassFeature",
+          "subclassFeature": "Things Fall Apart|Sorcerer|sns|Annihilator|sns|1"
+        },
+        {
+          "type": "refSubclassFeature",
+          "subclassFeature": "The Churn|Sorcerer|sns|Annihilator|sns|1"
+        },
+        {
+          "type": "refSubclassFeature",
+          "subclassFeature": "Annihilator Major Effects|Sorcerer|sns|Annihilator|sns|1"
+        }
+      ]
+    },
+    {
+      "name": "Annihilator Spells",
+      "source": "sns",
+      "className": "Sorcerer",
+      "classSource": "sns",
+      "subclassShortName": "Annihilator",
+      "subclassSource": "sns",
+      "level": 1,
+      "entries": [
+        "You gain the following spells at the levels listed. These spells always count as prepared for you, and don't count towards your total number of spells prepared.",
+        {
+          "type": "table",
+          "caption": "Annihilator Spells",
+          "colLabels": [
+            "Level",
+            "Spells"
+          ],
+          "colStyles": [
+            "col-2 text-center",
+            "col-10"
+          ],
+          "rows": [
+            [
+              "1st",
+              "{@spell bane|sns}, {@spell corpse explosion|sns}, {@spell false life|sns}, {@spell inflict wounds|sns}"
+            ],
+            [
+              "3rd",
+              "{@spell deadweight|sns}, {@spell lemure transformation|sns}, {@spell ray of enfeeblement|sns}, {@spell shatter|sns}"
+            ],
+            [
+              "5th",
+              "{@spell bestow curse|sns}, {@spell dispel magic|sns}, {@spell slow|sns}, {@spell vampiric touch|sns}"
+            ],
+            [
+              "7th",
+              "{@spell blight|sns}, {@spell confusion|sns}, {@spell control water|sns}, {@spell ice storm|sns}"
+            ],
+            [
+              "9th",
+              "{@spell cloudkill|sns}, {@spell cone of cold|sns}, {@spell contagion|sns}, {@spell insect plague|sns}"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Things Fall Apart",
+      "source": "sns",
+      "className": "Sorcerer",
+      "classSource": "sns",
+      "subclassShortName": "Annihilator",
+      "subclassSource": "sns",
+      "level": 1,
+      "entries": [
+        "At tier 1, your mere touch can cause objects to decay as if with a great passage of time, or simply shatter in an instance. You can spend an action to destroy a small object you are touching, and that no one else is touching. Most magic items, and some particularly resilient materials like adamantine are immune to this. The manner of the destruction varies - rot, erosion, fractures, rust - but generally cannot cause more damage than a person with a sledgehammer spending a round smashing away. This doesn't let you break things faster than usual, it just avoids the need to have a tool or exert yourself."
+      ]
+    },
+    {
+      "name": "The Churn",
+      "source": "sns",
+      "className": "Sorcerer",
+      "classSource": "sns",
+      "subclassShortName": "Annihilator",
+      "subclassSource": "sns",
+      "level": 1,
+      "entries": [
+        "Additionally, starting at tier 1, destruction and death in your presence cascades and feeds on itself.",
+        "At the end of each of your turns, if any creature was reduced to 0 hit points within 30 feet of you since the end of your last turn, you can choose another creature within that range, and cause {@dice 1d10} force harm to it. The force harm increases to {@dice 2d10} at 5th level, {@dice 3d10} at 11th level, and {@dice 4d10} at 17th level."
+      ]
+    },
+    {
+      "name": "Annihilator Major Effects",
+      "source": "sns",
+      "className": "Sorcerer",
+      "classSource": "sns",
+      "subclassShortName": "Annihilator",
+      "subclassSource": "sns",
+      "level": 1,
+      "entries": [
+        "From tier 1, Annihilator Sorcerers have access to the following major effect options:",
+        {
+          "type": "list",
+          "items": [
+            "Immediately trigger the effects of your The Churn feature.",
+            "Immediately recover sorcery points equal to your proficiency bonus. Additionally, the next time you cast a spell this combat, you may choose an additional Metamagic option to modify the spell with."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Overwhelm",
+      "source": "sns",
+      "className": "Sorcerer",
+      "classSource": "sns",
+      "subclassShortName": "Annihilator",
+      "subclassSource": "sns",
+      "level": 3,
+      "header": 2,
+      "entries": [
+        "From tier 3, your cantrips deal full damage on a minor success.",
+        "Additionally, you can focus your Things Fall Apart feature on distant massive objects by spending a sorcery point. If you spend a minute concentrating on an object you can see, you can cause it to fall apart in some way that would naturally be possible. The object must be something that has not been attended to by any sapient being for at least a year - something truly abandoned or wild, like a derelict house, a cliff edge upon which no one camps, or a wild drifting glacier - but can be as large as a hundred feet across. The destruction manifests over the course of a minute. This is seldom of use offensively, but serves as a terrifying display of the power that fuels you."
+      ]
+    },
+    {
+      "name": "Consuming Vortex",
+      "source": "sns",
+      "className": "Sorcerer",
+      "classSource": "sns",
+      "subclassShortName": "Annihilator",
+      "subclassSource": "sns",
+      "level": 5,
+      "header": 2,
+      "entries": [
+        "At tier 3, you can manifest the consuming power of the Gyre to draw creatures towards you or towards your magic.",
+        "When you cast a spell, you can choose either yourself, or a space within the area of the spell you are casting. Before your spell takes effect, creatures of your choice within 120 feet of that spot must make a save, being pushed 20 feet towards that spot on a failure. After you use this feature, you cannot use it again until you complete a long rest."
+      ]
+    },
+    {
+      "name": "Unboil an Egg",
+      "source": "sns",
+      "className": "Sorcerer",
+      "classSource": "sns",
+      "subclassShortName": "Annihilator",
+      "subclassSource": "sns",
+      "level": 7,
+      "header": 2,
+      "entries": [
+        "At tier 4, your understanding of the nature of destruction gives you the ability to undo its damage.",
+        "You can spend 1 sorcery point to cast {@spell cure wounds|sns}, heightened to the highest level spell you can cast.",
+        "Alternatively, you can spend an action and concentrate on a damaged or destroyed object, then spend 1 sorcery point for every 30 feet across that object is. Over the course of a minute, you reverse the damage to the object, potentially restoring it to its prime. This requires concentration, and if your concentration fails, the restoration fails as well.",
+        "This cannot restore things that were reshaped into new items. You can rebuild a shattered boat, but cannot cause the metal in a suit of armour to turn back into an ingot or into raw ore."
+      ]
+    },
+    {
+      "name": "The Teeth of the Gyre",
+      "source": "sns",
+      "className": "Sorcerer",
+      "classSource": "sns",
+      "subclassShortName": "Annihilator",
+      "subclassSource": "sns",
+      "level": 9,
+      "header": 2,
+      "entries": [
+        "At tier 5, you can manifest the heart of the Gyre, which can destroy anything. You can spend a bonus action to create a sphere of annihilation within 5 feet of you, which lasts for one minute. This floating sphere of darkness is a 2-foot-diameter hole in reality that eliminates all matter that it comes into contact with.",
+        "Anything that the sphere touches or that touches it that is not instantly obliterated suffers {@dice 2d10} force harm. This harm increases to {@dice 3d10} at 11th level, and {@dice 4d10} at 17th level.",
+        "The default state of the sphere is stationary, but should a creature be in the way of a moving sphere it suffer's half the sphere's usual force harm.",
+        "While within 60 feet of an uncontrolled sphere of annihilation, you can use an action to make a {@dc 25} Charisma ({@skill Magiscience}) check and take control of it. On a success, the sphere moves in the direction of your choice a number of 5-foot spaces equal to your Charisma modifier (minimum 1). On a failure, the sphere moves 10 feet towards you instead. If a sphere is controlled by another creature, you may wrest away control by using an action and making a Charisma ({@skill Magiscience}) check contested by the controlling creature's. On a success, you take control of the sphere and can utilise it as normal. Other creatures attempting to influence it make {@skill Magiscience} checks and the distance they can move it is based on their Intelligence modifier.",
+        "When you create the sphere, you can immediately move it as if you had successfully controlled it, but afterwards the sphere hovers in place until you or another creature spend an action to try to control it.",
+        "A unique effect happens when a sphere comes into contact with a planar portal or extradimensional space (such as a portable hole). In the case of such an event, the DM rolls {@dice d100} to determine what happens next: on 1-50 the sphere is destroyed, on 51-85 the sphere simply moves through the portal or into the space, and on 86-100 a rift forms that pulls in all creatures and objects within 180 feet. Each object and creature, including the sphere, reappears in a random plane of existence.",
+        "After you use this feature, you cannot use it again until you complete a short or long rest."
+      ]
+    }
+  ]
+}

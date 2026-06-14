@@ -1,0 +1,1076 @@
+{
+  "_meta": {
+    "optionalFeatureTypes": {
+      "FD": "Field Discovery"
+    }
+  },
+  "class": [
+    {
+      "name": "Artificer",
+      "source": "sns",
+      "hd": {
+        "number": 1,
+        "faces": 8
+      },
+      "defences": {
+        "frt": 2,
+        "ref": 2
+      },
+      "spellcastingAbility": "int",
+      "startingProficiencies": {
+        "armour": [
+          "light",
+          "medium",
+          "shields"
+        ],
+        "weapons": [
+          "simple",
+          "hand crossbows",
+          "heavy crossbows",
+          "light hammers",
+          "shrapnel traps",
+          "starknives"
+        ],
+        "skills": [
+          {
+            "choose": {
+              "from": [
+                "finesse",
+                "history",
+                "investigation",
+                "medicine",
+                "nature",
+                "perception"
+              ],
+              "count": 3
+            },
+            "magiscience": true
+          }
+        ]
+      },
+      "classTableGroups": [
+        {
+          "colLabels": [
+            "{@filter Field Discoveries|optionalfeatures|feature type=fd}",
+            "Infusion Limit",
+            "{@filter Cantrips Known|spells|level=0|class=Artificer (sns)}",
+            "Spells Prepared",
+            "Maximum Spell Level"
+          ],
+          "rows": [
+            [
+              0,
+              0,
+              2,
+              2,
+              "{@filter 1st|spells|level=1|class=Artificer (sns)}"
+            ],
+            [
+              1,
+              2,
+              2,
+              2,
+              "{@filter 1st|spells|level=1|class=Artificer (sns)}"
+            ],
+            [
+              1,
+              3,
+              2,
+              2,
+              "{@filter 1st|spells|level=1|class=Artificer (sns)}"
+            ],
+            [
+              2,
+              3,
+              3,
+              2,
+              "{@filter 1st|spells|level=1|class=Artificer (sns)}"
+            ],
+            [
+              2,
+              3,
+              3,
+              2,
+              "{@filter 2nd|spells|level=2|class=Artificer (sns)}"
+            ],
+            [
+              2,
+              4,
+              3,
+              3,
+              "{@filter 2nd|spells|level=2|class=Artificer (sns)}"
+            ],
+            [
+              3,
+              4,
+              3,
+              3,
+              "{@filter 2nd|spells|level=2|class=Artificer (sns)}"
+            ],
+            [
+              3,
+              4,
+              3,
+              3,
+              "{@filter 2nd|spells|level=2|class=Artificer (sns)}"
+            ],
+            [
+              3,
+              4,
+              3,
+              3,
+              "{@filter 3rd|spells|level=3|class=Artificer (sns)}"
+            ],
+            [
+              4,
+              5,
+              4,
+              4,
+              "{@filter 3rd|spells|level=3|class=Artificer (sns)}"
+            ],
+            [
+              4,
+              5,
+              4,
+              4,
+              "{@filter 3rd|spells|level=3|class=Artificer (sns)}"
+            ],
+            [
+              4,
+              5,
+              4,
+              4,
+              "{@filter 3rd|spells|level=3|class=Artificer (sns)}"
+            ],
+            [
+              5,
+              5,
+              4,
+              4,
+              "{@filter 4th|spells|level=4|class=Artificer (sns)}"
+            ],
+            [
+              5,
+              6,
+              4,
+              5,
+              "{@filter 4th|spells|level=4|class=Artificer (sns)}"
+            ],
+            [
+              5,
+              6,
+              4,
+              5,
+              "{@filter 4th|spells|level=4|class=Artificer (sns)}"
+            ],
+            [
+              6,
+              6,
+              4,
+              5,
+              "{@filter 4th|spells|level=4|class=Artificer (sns)}"
+            ],
+            [
+              6,
+              6,
+              4,
+              5,
+              "{@filter 5th|spells|level=5|class=Artificer (sns)}"
+            ],
+            [
+              6,
+              7,
+              4,
+              6,
+              "{@filter 5th|spells|level=5|class=Artificer (sns)}"
+            ],
+            [
+              7,
+              7,
+              4,
+              6,
+              "{@filter 5th|spells|level=5|class=Artificer (sns)}"
+            ],
+            [
+              7,
+              7,
+              4,
+              6,
+              "{@filter 5th|spells|level=5|class=Artificer (sns)}"
+            ]
+          ]
+        }
+      ],
+      "classFeatures": [
+        {
+          "classFeature": "First Subclass Tier 1|Artificer|sns|1|sns",
+          "gainSubclassFeature": true
+        },
+        "Artificial Spellcasting|Artificer|sns|1|sns",
+        "Craftsman|Artificer|sns|1|sns",
+        "Tactical Chemistry|Artificer|sns|1|sns",
+        "Arcane Utilities|Artificer|sns|1|sns",
+        "Arcane Utilities (2)|Artificer|sns|5|sns",
+        "Arcane Utilities (3)|Artificer|sns|11|sns",
+        "Arcane Utilities (4)|Artificer|sns|17|sns",
+        "Field Discoveries|Artificer|sns|2|sns",
+        "Schematics|Artificer|sns|2|sns",
+        {
+          "classFeature": "First Subclass Tier 2|Artificer|sns|3|sns",
+          "gainSubclassFeature": true
+        },
+        "Ability Score Improvement|Artificer|sns|4|sns",
+        {
+          "classFeature": "First Subclass Tier 3|Artificer|sns|5|sns",
+          "gainSubclassFeature": true
+        },
+        "Battlefield Smithing|Artificer|sns|6|sns",
+        "Intellectual Calibre|Artificer|sns|7|sns",
+        {
+          "classFeature": "First Subclass Tier 4|Artificer|sns|7|sns",
+          "gainSubclassFeature": true
+        },
+        "Ability Score Improvement|Artificer|sns|8|sns",
+        "Advanced Tactical Chemistry|Artificer|sns|9|sns",
+        {
+          "classFeature": "First Subclass Tier 5|Artificer|sns|9|sns",
+          "gainSubclassFeature": true
+        },
+        "Trinket Master|Artificer|sns|10|sns",
+        "Fizzle Die Improvement (d6)|Artificer|sns|10|sns",
+        "Reliable Spell Inventions|Artificer|sns|11|sns",
+        "Second Subclass Tier 1|Artificer|sns|11|sns",
+        "Ability Score Improvement|Artificer|sns|12|sns",
+        "Marvel of Innovation|Artificer|sns|13|sns",
+        "Second Subclass Tier 2|Artificer|sns|13|sns",
+        "Technological Attunement|Artificer|sns|14|sns",
+        "Second Subclass Tier 3|Artificer|sns|15|sns",
+        "Ability Score Improvement|Artificer|sns|16|sns",
+        "Hotfixer|Artificer|sns|17|sns",
+        "Second Subclass Tier 4|Artificer|sns|17|sns",
+        "Infusion Recharge|Artificer|sns|18|sns",
+        "Ability Score Improvement|Artificer|sns|19|sns",
+        "Second Subclass Tier 5|Artificer|sns|19|sns",
+        "Magical Automaton|Artificer|sns|20|sns",
+        "Fizzle Die Improvement (d8)|Artificer|sns|20|sns"
+      ],
+      "subclassTitle": "Artificer Subclass"
+    }
+  ],
+  "classFeature": [
+    {
+      "name": "Artificial Spellcasting",
+      "source": "sns",
+      "className": "Artificer",
+      "classSource": "sns",
+      "level": 1,
+      "entries": [
+        "With ingenuity and knowhow, artificers are able to harness magic through technology.",
+        {
+          "type": "entries",
+          "name": "Spell Inventions",
+          "entries": [
+            "Whenever you prepare an {@filter artificer spell|spells|class=Artificer (sns)}, you create a spell invention for that spell using your tools of artifice and whatever materials you have on hand.",
+            "A spell invention is a unique experimental device that is esoteric and useless to other creatures, but in your hands can be used to cast the spell it was prepared for. You prepare a number of spells with a spell level no higher than your maximum spell level (both as shown on the Artificer table) chosen from the artificer spell list.",
+            "You can change your list of prepared spells and replace or create new spell inventions whenever you finish a long rest by spending at least 10 minutes tinkering. Any spell inventions you've prepared previously are taken apart and integrated into the new ones, or fall apart due to a lack of maintenance. You can only have a maximum of 1 spell invention per spell you have prepared.",
+            "You do not have spell slots, and instead utilise your spell inventions to cast spells. Whenever you cast a prepared artificer spell using a spell invention, you may cast it at a spell slot level up to your maximum spell level as shown on the Artificer table.",
+            "You may freely draw a spell invention from your inventory as part of the same action used to cast a spell through it, and you may also freely stow any spell inventions you were already wielding using that same action.",
+            "Using a spell invention does not remove its spell from your list of prepared spells.",
+            "You can determine the exact form a spell invention takes but it weighs 500 grams per spell level and is no longer than 1 foot in any dimension (treat cantrips as 1st-level spells). A spell invention has an armour equal to half your Intelligence modifier, and a number of hit points equal to your artificer level x 3. You can fully repair your spell inventions whenever you finish a long rest, so long as you have access to your tools of artifice.",
+            {
+              "type": "list",
+              "items": [
+                {
+                  "type": "item",
+                  "name": "Fizzle Die",
+                  "entries": [
+                    "After you cast a spell using a spell invention, you must roll a fizzle die, a {@dice d4}. If the result is less than or equal to the spell slot level used to cast the spell, your spell invention burns out, runs out of power, or otherwise malfunctions and cannot be used again until repaired. Your fizzle die improves by one step at 10th level (from {@dice 1d4} to {@dice 1d6}) and again at 20th level (from {@dice 1d6} to {@dice 1d8}), and it improves by one step when using a spell invention gained from your artificer subclass (maximum {@dice 1d10})."
+                  ]
+                },
+                {
+                  "type": "item",
+                  "name": "Cantrips",
+                  "entries": [
+                    "At 1st level, you know to cantrips of your choice from the artificer spell list and construct a spell invention for each. Unlike your other spell inventions, using these does not require rolling a fizzle die. You learn additional artificer cantrips of your choice at higher levels and construct spell inventions for them, as shown in the Cantrips Known column of the Artificer table. Whenever you finish a long rest, you can replace one of the artificer cantrips you know with another cantrip from the artificer spell list."
+                  ]
+                },
+                {
+                  "type": "item",
+                  "name": "Spellcasting Ability",
+                  "entries": [
+                    "Intelligence is your spellcasting ability for your artificer spells. You use your Intelligence whenever a spell refers to your spellcasting ability."
+                  ]
+                },
+                {
+                  "type": "item",
+                  "name": "Tools of Artifice",
+                  "entries": [
+                    "You produce your spell inventions and infuse items with your tools which act as your spellcasting focus. After you gain the ability to infuse items at 2nd level, you can also use any item bearing one of your infusions as tools of artifice."
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Fizzle Die Improvement (d6)",
+      "source": "sns",
+      "className": "Artificer",
+      "classSource": "sns",
+      "level": 10,
+      "entries": [
+        "Your fizzle die increases from a {@dice d4} to a {@dice d6}."
+      ]
+    },
+    {
+      "name": "Fizzle Die Improvement (d8)",
+      "source": "sns",
+      "className": "Artificer",
+      "classSource": "sns",
+      "level": 20,
+      "entries": [
+        "Your fizzle die increases from a {@dice d6} to a {@dice d8}."
+      ]
+    },
+    {
+      "name": "Craftsman",
+      "source": "sns",
+      "className": "Artificer",
+      "classSource": "sns",
+      "level": 1,
+      "entries": [
+        "Artificers often start out in creative or artistic trades. You gain an expertise die on {@skill Magiscience} checks."
+      ]
+    },
+    {
+      "name": "Tactical Chemistry",
+      "source": "sns",
+      "className": "Artificer",
+      "classSource": "sns",
+      "level": 1,
+      "entries": [
+        "At 1st level, you know how to quickly turn inert chemicals into something violently reactive or useful in the moment. As a bonus action, you can create one of the following items:",
+        {
+          "type": "list",
+          "items": [
+            "acid (vial) (https://a5e.tools/rules/miscellaneous-adventuring-gear)",
+            "alchemist's fire (https://a5e.tools/rules/miscellaneous-adventuring-gear)",
+            "black powder charge (https://a5e.tools/rules/miscellaneous-adventuring-gear)",
+            "ether (flask) (https://a5e.tools/rules/common-poisons)",
+            "flash bomb (https://a5e.tools/rules/miscellaneous-adventuring-gear)",
+            "oil (1 pint flask) (https://a5e.tools/rules/miscellaneous-adventuring-gear)",
+            "paint pot (https://a5e.tools/rules/miscellaneous-adventuring-gear)",
+            "poison (basic) (https://a5e.tools/rules/common-poisons)",
+            "smoke bomb (https://a5e.tools/rules/miscellaneous-adventuring-gear)",
+            "tanglefoot bag (https://a5e.tools/rules/miscellaneous-adventuring-gear)",
+            "torch (https://a5e.tools/rules/survival-gear)",
+            "torch (alchemical) (https://a5e.tools/rules/survival-gear)"
+          ]
+        },
+        "Items you make in this way are extremely unstable and must be used immediately. If an item you create in this way is not used (activated, lit, thrown, or applied as appropriate to the item) by the end of your next turn it dissolves into useless sludge.",
+        "You can use this feature to create a number of items equal to your proficiency bonus. You regain all expended uses when you finish a short or long rest. You cannot regain expended uses in this way if you don't have access to tools of artifice."
+      ]
+    },
+    {
+      "name": "Schematics",
+      "source": "sns",
+      "className": "Artificer",
+      "classSource": "sns",
+      "level": 2,
+      "entries": [
+        "Starting at 2nd level, you can build all manner of things with the right tools and, most importantly, the schematics of what you're trying to make.",
+        {
+          "type": "entries",
+          "name": "Schematic Book",
+          "entries": [
+            "You gain schematics for three common rarity magic items (https://a5e.tools/magic-items?field_mi_rarity_target_id%5B%5D=315&field_mi_cost_value%5Bmin%5D=&field_mi_cost_value%5Bmax%5D=&combine=) of your choice. A schematic is a collection of notes and diagrams that explains in detail how to create a specific magic item. These form your schematic book, and any future schematics you gain are added to it."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Crafting with Schematics",
+          "entries": [
+            "When you have the schematics for a magic item, you can craft it as part of a long rest by spending half of the item's default gold cost. You can only craft a single magic item per long rest without disrupting the rest. Crafting a magic item using a schematic does not use up the schematic in any way, and the schematic remains usable."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Creating New Schematics",
+          "entries": [
+            "You can attempt to create and add a new schematic for any traditional magic item (https://a5e.tools/magic-items) to your schematic book by spending 1 hour studying and 10% of the item's default gold cost in experiments and material tests. At the end of the hour make a DC 15 {@skill Magiscience} check. On a success you create a new schematic of that magic item and add it to your schematic book, and on a failure the time and materials are wasted."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Infusion",
+          "entries": [
+            "Once you have sufficiently studied a magic item you can reproduce and temporarily infuse its magical properties into items through magitechnical ingenuity.",
+            "If you have the schematic for a magic item, you can use an action to create it.",
+            "You can infuse a number of items as shown on the Infusion Limit column of the Artificer table. You regain all expended infusion uses whenever you finish a long rest.",
+            "Items you infuse do not conflict with regular loot items for item slots, but do conflict with each other (for example, you cannot wear two helmets that you have infused, but you can wear an infused helmet and a helmet you looted). Additionally, a creature can only wear up to three infused items that require attunement at a time, and cannot wear multiple copies of the same item that requires attunement.",
+            "Any infused items you create vanish after you finish a long rest, but they can remain imbued indefinitely if you commit to regular upkeep. Whenever you finish a long rest you can maintain any infused items you have access to by expending one infusion use for each. Any infusions you fail to maintain vanish."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Field Discoveries",
+      "source": "sns",
+      "className": "Artificer",
+      "classSource": "sns",
+      "level": 2,
+      "entries": [
+        "Experimentation is the key to scientific progress, and through your experiences and findings in the field you've discovered new skills and data. At 2nd level you gain one field discovery of your choice. The Field Discoveries column of the Artificer table shows when you learn more field discoveries. Unless otherwise noted, you can gain each field discovery only once."
+      ]
+    },
+    {
+      "name": "Arcane Utilities",
+      "source": "sns",
+      "className": "Artificer",
+      "classSource": "sns",
+      "level": 1,
+      "entries": [
+        "Also at 1st level, you learn certain capabilities based on your magical knowledge. You gain one {@filter Arcane Utility|optionalfeatures|feature type=au} now, and gain another at 5th, 11th, and 17th levels. You can only gain each utility once."
+      ]
+    },
+    {
+      "name": "Arcane Utilities (2)",
+      "source": "sns",
+      "className": "Artificer",
+      "classSource": "sns",
+      "level": 5,
+      "entries": [
+        "At 5th level, you gain a second {@filter Arcane Utility|optionalfeatures|feature type=au}."
+      ]
+    },
+    {
+      "name": "Arcane Utilities (3)",
+      "source": "sns",
+      "className": "Artificer",
+      "classSource": "sns",
+      "level": 11,
+      "entries": [
+        "At 11th level, you gain a third {@filter Arcane Utility|optionalfeatures|feature type=au}."
+      ]
+    },
+    {
+      "name": "Arcane Utilities (4)",
+      "source": "sns",
+      "className": "Artificer",
+      "classSource": "sns",
+      "level": 17,
+      "entries": [
+        "At 17th level, you gain a fourth {@filter Arcane Utility|optionalfeatures|feature type=au}."
+      ]
+    },
+    {
+      "name": "First Subclass Tier 1",
+      "source": "sns",
+      "className": "Artificer",
+      "classSource": "sns",
+      "level": 1,
+      "entries": [
+        "At 1st level, you gain the tier 1 feature from your first subclass"
+      ]
+    },
+    {
+      "name": "First Subclass Tier 2",
+      "source": "sns",
+      "className": "Artificer",
+      "classSource": "sns",
+      "level": 3,
+      "entries": [
+        "At 3rd level, you gain the tier 2 feature from your first subclass"
+      ]
+    },
+    {
+      "name": "First Subclass Tier 3",
+      "source": "sns",
+      "className": "Artificer",
+      "classSource": "sns",
+      "level": 5,
+      "entries": [
+        "At 5th level, you gain the tier 3 feature from your first subclass"
+      ]
+    },
+    {
+      "name": "First Subclass Tier 4",
+      "source": "sns",
+      "className": "Artificer",
+      "classSource": "sns",
+      "level": 7,
+      "entries": [
+        "At 7th level, you gain the tier 4 feature from your first subclass"
+      ]
+    },
+    {
+      "name": "First Subclass Tier 5",
+      "source": "sns",
+      "className": "Artificer",
+      "classSource": "sns",
+      "level": 9,
+      "entries": [
+        "At 9th level, you gain the tier 5 feature from your first subclass"
+      ]
+    },
+    {
+      "name": "Second Subclass Tier 1",
+      "source": "sns",
+      "className": "Artificer",
+      "classSource": "sns",
+      "level": 11,
+      "entries": [
+        "At 11th level, you gain the tier 1 feature from your second subclass"
+      ]
+    },
+    {
+      "name": "Second Subclass Tier 2",
+      "source": "sns",
+      "className": "Artificer",
+      "classSource": "sns",
+      "level": 13,
+      "entries": [
+        "At 13th level, you gain the tier 2 feature from your second subclass"
+      ]
+    },
+    {
+      "name": "Second Subclass Tier 3",
+      "source": "sns",
+      "className": "Artificer",
+      "classSource": "sns",
+      "level": 15,
+      "entries": [
+        "At 15th level, you gain the tier 3 feature from your second subclass"
+      ]
+    },
+    {
+      "name": "Second Subclass Tier 4",
+      "source": "sns",
+      "className": "Artificer",
+      "classSource": "sns",
+      "level": 17,
+      "entries": [
+        "At 17th level, you gain the tier 4 feature from your second subclass"
+      ]
+    },
+    {
+      "name": "Second Subclass Tier 5",
+      "source": "sns",
+      "className": "Artificer",
+      "classSource": "sns",
+      "level": 19,
+      "entries": [
+        "At 19th level, you gain the tier 5 feature from your second subclass"
+      ]
+    },
+    {
+      "name": "Ability Score Improvement",
+      "source": "sns",
+      "className": "Artificer",
+      "classSource": "sns",
+      "level": 4,
+      "entries": [
+        "When you reach 4th level, you can increase one ability score of your choice by 1. As normal, you can't increase an ability score above 20 using this feature. Additionally, you gain a feat."
+      ]
+    },
+    {
+      "name": "Ability Score Improvement",
+      "source": "sns",
+      "className": "Artificer",
+      "classSource": "sns",
+      "level": 8,
+      "entries": [
+        "At 8th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature."
+      ]
+    },
+    {
+      "name": "Ability Score Improvement",
+      "source": "sns",
+      "className": "Artificer",
+      "classSource": "sns",
+      "level": 12,
+      "entries": [
+        "At 12th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature."
+      ]
+    },
+    {
+      "name": "Ability Score Improvement",
+      "source": "sns",
+      "className": "Artificer",
+      "classSource": "sns",
+      "level": 16,
+      "entries": [
+        "At 16th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature."
+      ]
+    },
+    {
+      "name": "Ability Score Improvement",
+      "source": "sns",
+      "className": "Artificer",
+      "classSource": "sns",
+      "level": 19,
+      "entries": [
+        "At 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature."
+      ]
+    },
+    {
+      "name": "Battlefield Smithing",
+      "source": "sns",
+      "className": "Artificer",
+      "classSource": "sns",
+      "level": 6,
+      "entries": [
+        "At 6th level, as a veteran combat-tinkerer you specialise in certain aspects of warfare. Choose one of the following.",
+        {
+          "type": "entries",
+          "name": "Armour Smithing",
+          "entries": [
+            "During a short rest, you can spend 25 gold in materials to permanently add one of the following modifications to a suit of armour or change an additional modification:",
+            {
+              "type": "list",
+              "items": [
+                {
+                  "type": "item",
+                  "name": "Camouflaged",
+                  "entries": [
+                    "A terrain type for this modification is chosen when it is crafted. The wearer gains an expertise die on {@skill Stealth} checks while in that terrain."
+                  ]
+                },
+                {
+                  "type": "item",
+                  "name": "Spiked",
+                  "entries": [
+                    "A creature that begins its turn grappling the wearer takes 1 thorns damage."
+                  ]
+                },
+                {
+                  "type": "item",
+                  "name": "Stealthy",
+                  "entries": [
+                    "The armour has been disguised to look like a piece of clothing. A creature observing the item only realises that it is armour with a DC 15 {@skill Investigation} check (made with disadvantage if the armour is being worn at the time)."
+                  ]
+                },
+                {
+                  "type": "item",
+                  "name": "Storage",
+                  "entries": [
+                    "The armour contains a hidden compartment the size of a small vial that requires a DC 20 {@skill Investigation} check to be found without knowledge of it."
+                  ]
+                }
+              ]
+            },
+            "A suit of armour can only have one additional modification."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Weapon Smithing",
+          "entries": [
+            "During a short rest, you can spend 25 gold in materials to permanently add one of the following modifications to a weapon or change an additional modification:",
+            {
+              "type": "list",
+              "items": [
+                {
+                  "type": "item",
+                  "name": "Flamboyant",
+                  "entries": [
+                    "Creatures have disadvantage on any saves made to resist being distracted by the weapon, and the wielder has advantage on {@skill Intimidation} checks made with the use of it."
+                  ]
+                },
+                {
+                  "type": "item",
+                  "name": "Quickdraw",
+                  "entries": [
+                    "The weapon can be swapped in or out as a free action once per turn."
+                  ]
+                },
+                {
+                  "type": "item",
+                  "name": "Stealthy",
+                  "entries": [
+                    "The weapon has been disguised to look like another normal item. A creature observing the item only realises that it is a weapon with a DC 15 {@skill Investigation} check (made with disadvantage if the weapon is sheathed)."
+                  ]
+                },
+                {
+                  "type": "item",
+                  "name": "Storage",
+                  "entries": [
+                    "The weapon contains a hidden compartment the size of a small vial that requires a DC 20 {@skill Investigation} check to be found without knowledge of it. The compartment has a release that can be used as a bonus action to allow the liquid within the compartment to flow out and be applied to the weapon."
+                  ]
+                }
+              ]
+            },
+            "A weapon can only have one additional modification."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Intellectual Calibre",
+      "source": "sns",
+      "className": "Artificer",
+      "classSource": "sns",
+      "level": 7,
+      "entries": [
+        "At 7th level, your attitudes and academic manners have cemented how you and your intellect are perceived by your peers. Choose one of the following.",
+        {
+          "type": "entries",
+          "name": "Kooky Eccentric",
+          "entries": [
+            "Your excitement for your work is infectious and most find your quirky methodology inescapably endearing. You gain proficiency in {@skill Persuasion}, or if you are already proficient in {@skill Persuasion} you gain an expertise die instead. In addition, you can always choose to use Intelligence when making a {@skill Persuasion} check."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Sporadic Genius",
+          "entries": [
+            "You're known for sudden bursts of insight and people listen to your fervorous insights. When you or another creature you can see within 30 feet of you makes an ability check or save, you can use your reaction to add your Intelligence modifier to the roll.",
+            "You can use this feature a number of times equal to your Intelligence modifier (minimum of once). You regain all expended uses when you finish a long rest."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Stern Proctor",
+          "entries": [
+            "Your demand for perfection extends past your own work, and with only a discerning glare and a few choice words you can make the confident feel foolish. You gain proficiency in {@skill Intimidation}, or if you are already proficient in {@skill Intimidation} you gain an expertise die instead. In addition, you can always choose to use Intelligence when making an {@skill Intimidation} check."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Advanced Tactical Chemistry",
+      "source": "sns",
+      "className": "Artificer",
+      "classSource": "sns",
+      "level": 9,
+      "entries": [
+        "At 9th level you've mastered and branched out from basic chemistry, discovering a new science to integrate into your tactics. You may add your Intelligence modifier to the attack rolls of any item you create using Tactical Chemistry. In addition, choose one of the following:",
+        {
+          "type": "entries",
+          "name": "Humanoid Biochemistry",
+          "entries": [
+            "You've learned a great deal of biochemistry and what chemicals you can apply to alleviate many ailments. You can create the following additional items using your Tactical Chemistry feature:",
+            {
+              "type": "list",
+              "items": [
+                "antitoxin (https://a5e.tools/rules/medicinals)",
+                "healing potion (greater) (https://a5e.tools/node/1090)",
+                "laudanum (https://a5e.tools/rules/medicinals)"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Toxin Synthesis",
+          "entries": [
+            "You've learned the subtleties of toxins and can now rapidly produce foul and deadly substances. You can create the following additional items using your Tactical Chemistry feature:",
+            {
+              "type": "list",
+              "items": [
+                "curare (vial) (https://a5e.tools/rules/common-poisons)",
+                "poison, potent (vial) (https://a5e.tools/rules/common-poisons)"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Trinket Master",
+      "source": "sns",
+      "className": "Artificer",
+      "classSource": "sns",
+      "level": 10,
+      "entries": [
+        "At 10th level you've mastered the simpler enchantments and technological principles. What once was careful trial and error has been replaced with factory-like efficiency and speed. Whenever you craft a magic item from a schematic that has a default gold cost of 50 or less, it can be done so in a short rest instead of a long rest."
+      ]
+    },
+    {
+      "name": "Reliable Spell Inventions",
+      "source": "sns",
+      "className": "Artificer",
+      "classSource": "sns",
+      "level": 11,
+      "entries": [
+        "At 11th level your practice has finally smoothed out the early faults of your spell inventions, so long as you keep the arcane power within acceptable parameters. Whenever you roll a 1 on the fizzle die, you may reroll it, if you do you must use the new result.",
+        "In addition, your spell inventions have become streamlined enough that other creatures can make sense of them. A creature holding one of your spell inventions can use an action to make a {@skill Magiscience} check (DC equal to your standard DC). On a success the spell is cast at its lowest possible spell level, or on a failure the spell fizzles out and fails to cast. Whenever a creature attempt to cast a spell using one of your spell inventions in this way, roll the fizzle die as normal."
+      ]
+    },
+    {
+      "name": "Marvel of Innovation",
+      "source": "sns",
+      "className": "Artificer",
+      "classSource": "sns",
+      "level": 13,
+      "entries": [
+        "At 13th level you've managed to truly improve on something or create something new altogether, taking a solid step forward in the technological development of the world. When you first gain this feature, choose a newly invented foodstuff, object, or trade good that could conceivably be crafted. For example, you could invent carbonated sodas, glowing iridium glassware, or a fine mechanism for better performing pocket watches.",
+        "As part of a long rest, you can create your new invention for 5 gold worth of materials.",
+        "Any other uses your invention may have are at the DM's discretion, but its utility shouldn't exceed that of other mundane adventuring gear.",
+        "In addition, your notoriety as a great inventor spreads along with your invention. While you are in a region you've sold your invention in, you have advantage on {@skill Persuasion} checks."
+      ]
+    },
+    {
+      "name": "Technological Attunement",
+      "source": "sns",
+      "className": "Artificer",
+      "classSource": "sns",
+      "level": 14,
+      "entries": [
+        "At 14th level you've managed to bypass many of the arcane roadblocks regarding magic item usage through the clever use of technology.",
+        {
+          "type": "list",
+          "items": [
+            "You can attune to up to 5 magic items created from schematics at once.",
+            "You ignore all race, class, level, and alignment requirements when attuning to or using magic items creature from schematics.",
+            "You gain an additional magical equipment slot for looted items. This can hold any looted items your body armour slot would usually be able to hold."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Hotfixer",
+      "source": "sns",
+      "className": "Artificer",
+      "classSource": "sns",
+      "level": 17,
+      "entries": [
+        "At 17th level you've mastered the art of rerouting power, quick welds, and improvising on the spot to keep your spell inventions functional. When rolling the fizzle die would burn out one of your spell inventions, you can use your reaction to fix it and restore it to full working order. Once you repair a spell invention in this way you cannot do so again until you finish a long rest."
+      ]
+    },
+    {
+      "name": "Infusion Recharge",
+      "source": "sns",
+      "className": "Artificer",
+      "classSource": "sns",
+      "level": 18,
+      "entries": [
+        "At 18th level you've learned what makes magic items tick and how to charge them up on your own. While you are attuned to a magic item that uses charges, you can use a bonus action to expend one infusion use and restore up to {@dice 1d6} of that item's spend charges."
+      ]
+    },
+    {
+      "name": "Magical Automaton",
+      "source": "sns",
+      "className": "Artificer",
+      "classSource": "sns",
+      "level": 20,
+      "entries": [
+        "At 20th level you've managed to achieve what most inventions are truly designed for, making machines that do your work for you. Whenever you create a spell invention, you may spend 25 gold in material components and expend two uses of your infusion feature to transform that spell invention into a spell automaton that uses the {@creature spell automaton|sns} stat block and it is destroyed if it reaches 0 hit points.",
+        "The exact design of your spell automaton is up to you, and it may resemble a humanoid creature, a boxy contraption, or be a magical construct flowing with arcane energies.",
+        "Your spell automaton is a minion, and requires your concentration to maintain. It obeys your verbal commands (no action required by you). If you don't issue any, it takes the Block action and uses its move to avoid danger.",
+        "You can maintain this spell automaton as if it was an infused item, requiring both the prepared spell invention and two uses of your infusion feature. You can repair your spell automaton to full hit points during a long rest so long as your have access to your tools of artifice."
+      ]
+    }
+  ],
+  "optionalfeature": [
+    {
+      "name": "A Better Mousetrap",
+      "source": "sns",
+      "featureType": [
+        "FD"
+      ],
+      "entries": [
+        "There's always a better trap design if you put your mind to it. You can improve traps as you set them. Traps you improve in this way always have their damage die size increased by 1. This affects trap weapons. Additionally, whenever you score a success or higher on the Hunt & Gather journey activity, you add a {@dice d6} to the amount of Supply you (and only you) found."
+      ]
+    },
+    {
+      "name": "Alchemical Prodigy",
+      "source": "sns",
+      "featureType": [
+        "FD"
+      ],
+      "entries": [
+        "You are a master of the alchemical arts and new mixes and concoctions come naturally to you. When you first gain this field discovery, you gain two schematics of your choice and add them to your schematic book. These schematics must be for potions of common or uncommon rarity (https://a5e.tools/magic-items?field_mi_category_target_id%5B%5D=302&field_mi_cost_value%5Bmin%5D=&field_mi_cost_value%5Bmax%5D=&combine=). In addition, you have advantage on checks made to create schematics for potions."
+      ]
+    },
+    {
+      "name": "Golden Ratio",
+      "source": "sns",
+      "featureType": [
+        "FD"
+      ],
+      "entries": [
+        "You've been taking exact measurements of both natural and magical specimens, and believe true expressions of both can be reduced down to mathematics. When you select this field discovery you may select two {@filter 1st-level spells from the druid spell list|spells|level=1|class=Druid (sns)}. These are considered artificer spells for you and you may add them to the list of spells you can prepare. If you are at least a 7th-level artificer when you select this field discovery, you may select 1st- or 2nd-level spells from the druid spell list instead. You may select this field discovery multiple times, choosing different druid spells each time."
+      ]
+    },
+    {
+      "name": "Modern Comforts",
+      "source": "sns",
+      "featureType": [
+        "FD"
+      ],
+      "entries": [
+        "With a little reengineering technology can alleviate all manner of discomforts. Whenever you begin a long rest you may repurpose one of your currently prepared spell inventions. If you do, that long rest counts as being in a Haven. You can determine the exact nature of this repurposed spell invention (some examples include using a {@spell burning hands|sns} spell invenction as a space heater or a {@spell shocking grasp|sns} spell invention as a bug zapper)."
+      ]
+    },
+    {
+      "name": "Orienteering",
+      "source": "sns",
+      "featureType": [
+        "FD"
+      ],
+      "entries": [
+        "You always know to have a bit of magnet and a pin on you for orienteering emergencies. With 1 minute's work you can cobble together a makeshift compass. Compasses made in this way become useless after 1 hour and have no sale value. You're also adept at surveying your surroundings and you gain an expertise die on checks made for the Chronicle and Scout journey activities. In addition, you gain proficiency in {@skill Survival}."
+      ]
+    },
+    {
+      "name": "Reengineering Nature",
+      "source": "sns",
+      "featureType": [
+        "FD"
+      ],
+      "entries": [
+        "An orderly mind can see all sorts of uses within the natural world. You may use {@skill Magiscience} in place of {@skill Survival} for the Cook journey activity."
+      ]
+    },
+    {
+      "name": "Retraced Development",
+      "source": "sns",
+      "featureType": [
+        "FD"
+      ],
+      "entries": [
+        "Even if dumped into the wilderness with nothing you'd get a laboratory back up and running in no time. With 1 hour of work you can create ramshackle versions of your tools of artifice. You take a -2 penalty on checks made with these ramshackle tools and they have no sale value."
+      ]
+    },
+    {
+      "name": "Rope and Pulley Master",
+      "source": "sns",
+      "featureType": [
+        "FD"
+      ],
+      "entries": [
+        "Numerous logistic puzzles can be solved with just a rope, a pulley, and proper application of intellect. By spending 10 minutes working with at least 300 feet of rope, you can create the following through ingenious use of ropes and pulleys.",
+        {
+          "type": "list",
+          "items": [
+            "A rope system that provides safe travel over a gap of 50 feet or less. You must be able to access both sides of this gap to create a rope system in this way.",
+            "A rope system that allows a creature to lift an object of a weight up to 5x its carrying capacity directly up as far as 50 feet.",
+            "A rope system that allows a creature to drag an object of a weight up to 5x its carrying capacity as far as 50 feet.",
+            "A manual rope elevator that allows a single Medium-sized or smaller creature to travel up to 50 feet straight up and down as if it were difficult terrain (a tree, cliff wall, ceiling, or similar structure is required at the top of this elevator for the ropes to attach)."
+          ]
+        },
+        "You can also deconstruct and recover the rope used in any of these rope creations by spending 10 minutes tearing it down."
+      ]
+    },
+    {
+      "name": "Strategic Dismantling",
+      "source": "sns",
+      "featureType": [
+        "FD"
+      ],
+      "entries": [
+        "While you may have no special talent for detecting traps, you and your tools can definitely deal with them once they've been pointed out. You gain an expertise die in {@skill Magiscience} checks to disable mechanical traps. In addition, if you trigger a trap while attempting to disarm it, its attacks have disadvantage against you."
+      ]
+    },
+    {
+      "name": "Tinker Toys",
+      "source": "sns",
+      "featureType": [
+        "FD"
+      ],
+      "entries": [
+        "Your mastery of locomotion and gearing allows you to easily infuse elements of motion into simple devices. As an action you can create and place a Tiny moving gadget called a tinker toy (such as a walking doll, flying whirlgig, or toy boat) out of 1 gold worth of materials. This tinker toy has 0 armour, 1 hit point, and your choice of a Speed of 10 feet, fly speed of 10 feet, or swim speed of 10 feet. When you place this device it begins moving in a straight line until it is destroyed, it is blocked by an obstacle, or you use a bonus action to pick it up again. Tinker toys made in this way weigh 1 kilogram, and can carry up to 500 grams worth of other devices or materials. Once you create a tinker toy in this way you cannot do so again until you finish a short rest, and any existing tinker toys you've created fall apart whenever you create a new one."
+      ]
+    }
+  ],
+  "monster": [
+    {
+      "name": "Spell Automaton",
+      "source": "sns",
+      "size": [
+        "M"
+      ],
+      "type": "construct",
+      "hp": {
+        "special": "101"
+      },
+      "speed": {
+        "walk": 40
+      },
+      "str": 16,
+      "dex": 12,
+      "int": 1,
+      "wis": 6,
+      "cha": 1,
+      "skill": {
+        "athletics": "+5",
+        "perception": "+0 (+1d4)"
+      },
+      "resist": [
+        {
+          "note": "from nonmagical attacks",
+          "resist": [
+            "all"
+          ],
+          "cond": true
+        }
+      ],
+      "immune": [
+        "poison",
+        "psychic"
+      ],
+      "conditionImmune": [
+        "blinded|sns",
+        "charmed|sns",
+        "deafened|sns",
+        "fatigue|sns",
+        "strife|sns",
+        "frightened|sns",
+        "staggered|sns",
+        "poisoned|sns"
+      ],
+      "passive": 12,
+      "languages": [
+        "understands any known by its creator but cannot speak"
+      ],
+      "action": [
+        {
+          "name": "Slam",
+          "entries": [
+            "{@atk mw} reach 5 ft., one target. {@damage 4d10 + 8} + double your Intelligence modifier bludgeoning damage."
+          ]
+        },
+        {
+          "name": "Integrated Spell",
+          "entries": [
+            "The automaton uses the spell invention integrated into it to cast a spell, governed by your Intelligence instead of its own. If the spell invention integrated into it would burn out due to the result of the fizzle die, the automaton takes 33 true damage instead."
+          ]
+        }
+      ],
+      "bonus": [
+        {
+          "name": "Overclock (Recharge 5-6)",
+          "entries": [
+            "The automaton takes the Dash action."
+          ]
+        }
+      ],
+      "arm": [
+        {
+          "arm": 4
+        }
+      ],
+      "wil": [
+        {
+          "wil": -2
+        }
+      ],
+      "ref": [
+        {
+          "ref": 1
+        }
+      ],
+      "fort": [
+        {
+          "fort": 3
+        }
+      ],
+      "majorEffect": [
+        "The automaton heals 20 hit points."
+      ]
+    }
+  ]
+}

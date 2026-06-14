@@ -1,0 +1,130 @@
+{
+  "subclass": [
+    {
+      "name": "Evoker",
+      "shortName": "Evoker",
+      "source": "sns",
+      "className": "Wizard",
+      "classSource": "sns",
+      "subclassFeatures": [
+        "Evoker|Wizard|sns|Evoker|sns|1",
+        "Potent Cantrip|Wizard|sns|Evoker|sns|3",
+        "Empowered Evocation|Wizard|sns|Evoker|sns|5",
+        "Evoker Major Effect #2|Wizard|sns|Evoker|sns|5",
+        "Overchannel|Wizard|sns|Evoker|sns|7",
+        "Master Evocation|Wizard|sns|Evoker|sns|9"
+      ]
+    }
+  ],
+  "subclassFeature": [
+    {
+      "name": "Evoker",
+      "source": "sns",
+      "className": "Wizard",
+      "classSource": "sns",
+      "subclassShortName": "Evoker",
+      "subclassSource": "sns",
+      "level": 1,
+      "entries": [
+        {
+          "type": "refSubclassFeature",
+          "subclassFeature": "Sculpt Spells|Wizard|sns|Evoker|sns|1"
+        },
+        {
+          "type": "refSubclassFeature",
+          "subclassFeature": "Evoker Major Effect #1|Wizard|sns|Evoker|sns|1"
+        }
+      ]
+    },
+    {
+      "name": "Sculpt Spells",
+      "source": "sns",
+      "className": "Wizard",
+      "classSource": "sns",
+      "subclassShortName": "Evoker",
+      "subclassSource": "sns",
+      "level": 1,
+      "entries": [
+        "Beginning at tier 1, you can create pockets of relative safety within the effects of your evocation spells. When you cast an evocation spell that affects other creatures that you can see, you can choose a number of them equal to 1 + the spell's level. The chosen creatures automatically succeed on their saving throws against the spell, and they take no damage if they would normally take half damage on a successful save."
+      ]
+    },
+    {
+      "name": "Evoker Major Effect #1",
+      "source": "sns",
+      "className": "Wizard",
+      "classSource": "sns",
+      "subclassShortName": "Evoker",
+      "subclassSource": "sns",
+      "level": 1,
+      "entries": [
+        "Your next spell counts as upcasted 1 level."
+      ]
+    },
+    {
+      "name": "Potent Cantrip",
+      "source": "sns",
+      "className": "Wizard",
+      "classSource": "sns",
+      "subclassShortName": "Evoker",
+      "subclassSource": "sns",
+      "level": 3,
+      "header": 2,
+      "entries": [
+        "Starting at tier 2, your damaging cantrips affect even creatures that avoid the brunt of the effect. When a creature succeeds on a saving throw against your cantrip, the creature takes half the cantrip's damage (if any) but suffers no additional effect from the cantrip."
+      ]
+    },
+    {
+      "name": "Empowered Evocation",
+      "source": "sns",
+      "className": "Wizard",
+      "classSource": "sns",
+      "subclassShortName": "Evoker",
+      "subclassSource": "sns",
+      "level": 5,
+      "header": 2,
+      "entries": [
+        "Beginning at tier 3, you can add your Intelligence modifier (minimum of +1) to one damage roll of any wizard evocation spell that you cast."
+      ]
+    },
+    {
+      "name": "Evoker Major Effect #2",
+      "source": "sns",
+      "className": "Wizard",
+      "classSource": "sns",
+      "subclassShortName": "Evoker",
+      "subclassSource": "sns",
+      "level": 5,
+      "header": 2,
+      "entries": [
+        "Your spell echoes in the area again at the start of your next turn. Echoes are less powerful, dealing 1d4 + your level in damage to all enemies in the area."
+      ]
+    },
+    {
+      "name": "Overchannel",
+      "source": "sns",
+      "className": "Wizard",
+      "classSource": "sns",
+      "subclassShortName": "Evoker",
+      "subclassSource": "sns",
+      "level": 7,
+      "header": 2,
+      "entries": [
+        "Starting at tier 4, you can increase the power of your simpler spells. When you cast a wizard spell of 1st through 5th level that deals damage, you can deal maximum damage with that spell.",
+        "The first time you do so, you suffer no adverse effect. If you use this feature again before you finish a long rest, you take 2d12 necrotic damage for each level of the spell, immediately after you cast it. Each time you use this feature again before finishing a long rest, the necrotic damage per spell level increases by 1d12. This damage ignores resistance and immunity."
+      ]
+    },
+    {
+      "name": "Master Evocation",
+      "source": "sns",
+      "className": "Wizard",
+      "classSource": "sns",
+      "subclassShortName": "Evoker",
+      "subclassSource": "sns",
+      "level": 9,
+      "header": 2,
+      "entries": [
+        "Starting at tier 5, you no longer make major effect choices, instead you apply all your major effects."
+      ]
+    }
+  ]
+}

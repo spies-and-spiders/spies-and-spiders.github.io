@@ -12,7 +12,7 @@ jq_inplace() {
 }
 
 # Generate merged homebrew JSON
-bb .github/generate-merged-json.bb
+bb scripts/generate-merged-json.bb
 
 # Set updated time
 jq_inplace homebrew/sns.json "._meta.dateLastModified = $(date +'%s')"

@@ -1,0 +1,138 @@
+{
+  "subclass": [
+    {
+      "name": "Sound Sculptor",
+      "shortName": "Sound Sculptor",
+      "source": "sns",
+      "className": "Bard",
+      "classSource": "sns",
+      "subclassFeatures": [
+        "Sound Sculptor|Bard|sns|Sound Sculptor|sns|1",
+        "Vital Reverberations|Bard|sns|Sound Sculptor|sns|3",
+        "Deafening Presence|Bard|sns|Sound Sculptor|sns|5",
+        "Discordance|Bard|sns|Sound Sculptor|sns|7",
+        "Dome of Sound|Bard|sns|Sound Sculptor|sns|9"
+      ]
+    }
+  ],
+  "subclassFeature": [
+    {
+      "name": "Sound Sculptor",
+      "source": "sns",
+      "className": "Bard",
+      "classSource": "sns",
+      "subclassShortName": "Sound Sculptor",
+      "subclassSource": "sns",
+      "level": 1,
+      "entries": [
+        {
+          "type": "refSubclassFeature",
+          "subclassFeature": "Sound Sculptor's Tools|Bard|sns|Sound Sculptor|sns|1"
+        },
+        {
+          "type": "refSubclassFeature",
+          "subclassFeature": "Eyes of the Ears|Bard|sns|Sound Sculptor|sns|1"
+        },
+        {
+          "type": "refSubclassFeature",
+          "subclassFeature": "Sound Sculptor Major Effects|Bard|sns|Sound Sculptor|sns|1"
+        }
+      ]
+    },
+    {
+      "name": "Sound Sculptor's Tools",
+      "source": "sns",
+      "className": "Bard",
+      "classSource": "sns",
+      "subclassShortName": "Sound Sculptor",
+      "subclassSource": "sns",
+      "level": 1,
+      "entries": [
+        "When you select this subclass at tier 1, you gain proficiency with the {@skill Persuasion} skill. If you are already proficient in {@skill Persuasion}, you gain an expertise die instead. You also learn the {@spell message|sns}, {@spell minor illusion|sns}, and {@spell thaumaturgy|sns} cantrips, and they do not count against your maximum cantrips known."
+      ]
+    },
+    {
+      "name": "Eyes of the Ears",
+      "source": "sns",
+      "className": "Bard",
+      "classSource": "sns",
+      "subclassShortName": "Sound Sculptor",
+      "subclassSource": "sns",
+      "level": 1,
+      "entries": [
+        "At tier 1, you learn to use sound to locate objects and creatures around you. As a bonus action, you can sing, stomp, or play a musical instrument, concentrating on your music as if it were a spell. Until the start of your next turn, any creature within 300 feet of you that can hear you automatically detects your presence, but you also gain blindsight with a range of 30 feet. If you already have blindsight, its range increases by 30 feet."
+      ]
+    },
+    {
+      "name": "Sound Sculptor Major Effects",
+      "source": "sns",
+      "className": "Bard",
+      "classSource": "sns",
+      "subclassShortName": "Sound Sculptor",
+      "subclassSource": "sns",
+      "level": 1,
+      "entries": [
+        "From tier 1, Sound Sculptor Bards have access to the following major effect options:",
+        {
+          "type": "list",
+          "items": [
+            "You immediately gain an additional concentration slot that lasts until the end of the current combat. You can only gain one concentration slot from this effect. If you have already gained this effect's additional concentration slot, you instead gain a bonus to your resistance equal to half your level (minimum +1) for 1 round.",
+            "For 1 round, you count as having line of sight to all creatures you can sense within 30 feet of you and your areas only affect creatures of your choice."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Vital Reverberations",
+      "source": "sns",
+      "className": "Bard",
+      "classSource": "sns",
+      "subclassShortName": "Sound Sculptor",
+      "subclassSource": "sns",
+      "level": 3,
+      "header": 2,
+      "entries": [
+        "At tier 2, you learn how to manipulate reverberations to help or hinder vital functions, such as beats of the heart or pulses through the nervous system. While concentrating on your Eyes of the Ears feature, creatures of your choice within 30 feet of you are unable recover hit points, except through resting. Additionally, whenever an enemy creature within that area becomes bloodied, you may choose another creature within that area to heal a number of hit points equal to two rolls of your bardic inspiration die."
+      ]
+    },
+    {
+      "name": "Deafening Presence",
+      "source": "sns",
+      "className": "Bard",
+      "classSource": "sns",
+      "subclassShortName": "Sound Sculptor",
+      "subclassSource": "sns",
+      "level": 5,
+      "header": 2,
+      "entries": [
+        "At tier 3, you can weaponise the sound you create into a deafening cacophany. While concentrating on your Eyes of the Ears feature, all creatures of your choice within 30 feet of you are {@condition deafened|sns} to all sounds except those from you, and distracted, granting reflex attacks made against them advantage."
+      ]
+    },
+    {
+      "name": "Discordance",
+      "source": "sns",
+      "className": "Bard",
+      "classSource": "sns",
+      "subclassShortName": "Sound Sculptor",
+      "subclassSource": "sns",
+      "level": 7,
+      "header": 2,
+      "entries": [
+        "At tier 4, you learn to use your mastery over physical sound to control the battlefield. As a reaction to any creature within 30 feet of you moving into a space adjacent to another creature while you are concentrating on your Eyes of the Ears feature, you may push the moving creature 20 feet in a horizontal direction of your choice."
+      ]
+    },
+    {
+      "name": "Dome of Sound",
+      "source": "sns",
+      "className": "Bard",
+      "classSource": "sns",
+      "subclassShortName": "Sound Sculptor",
+      "subclassSource": "sns",
+      "level": 9,
+      "header": 2,
+      "entries": [
+        "At tier 5, you gain the most potent sound sculptor ability: the creation of a dome of sound. As an action while concentrating on your Eyes of the Ears feature, you can create a 30-foot radius sphere of physical sound centred on you. The dome lasts for as long as you maintain concentration on your Eyes of the Ears feature. The area is difficult terrain, and reverberations in the air grant disadvantage to {@skill Perception} checks made inside it. Ranged armour attacks fired within the area are also made at disadvantage. The area is a persistent zone which forces creatures to make a save. On a failed save, a creature loses concentration on any effect they are concentrating on. When you first create the dome, you can choose any creatures you can sense to be unaffected by the dome's effects for its duration. You can use this feature once between long rests."
+      ]
+    }
+  ]
+}

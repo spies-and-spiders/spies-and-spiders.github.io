@@ -1,0 +1,124 @@
+{
+  "subclass": [
+    {
+      "name": "Ghostly Soul",
+      "shortName": "Ghostly Soul",
+      "source": "sns",
+      "className": "Adept",
+      "classSource": "sns",
+      "subclassFeatures": [
+        "Ghostly Soul|Adept|sns|Ghostly Soul|sns|1",
+        "Spirit Armour|Adept|sns|Ghostly Soul|sns|3",
+        "Ghostly Strikes|Adept|sns|Ghostly Soul|sns|5",
+        "Spectral Step|Adept|sns|Ghostly Soul|sns|7",
+        "Ghostly Stride|Adept|sns|Ghostly Soul|sns|9"
+      ]
+    }
+  ],
+  "subclassFeature": [
+    {
+      "name": "Ghostly Soul",
+      "source": "sns",
+      "className": "Adept",
+      "classSource": "sns",
+      "subclassShortName": "Ghostly Soul",
+      "subclassSource": "sns",
+      "level": 1,
+      "entries": [
+        {
+          "type": "refSubclassFeature",
+          "subclassFeature": "Incorporeal Arms|Adept|sns|Ghostly Soul|sns|1"
+        },
+        {
+          "type": "refSubclassFeature",
+          "subclassFeature": "Ghostly Soul Major Effects|Adept|sns|Ghostly Soul|sns|1"
+        }
+      ]
+    },
+    {
+      "name": "Incorporeal Arms",
+      "source": "sns",
+      "className": "Adept",
+      "classSource": "sns",
+      "subclassShortName": "Ghostly Soul",
+      "subclassSource": "sns",
+      "level": 1,
+      "entries": [
+        "Beginning at tier 1 when you choose this subclass, you can use a bonus action and spend 3 exertion to turn your arms partially incorporeal for a number of rounds equal to your Wisdom modifier. You can make your arms corporeal again by using a bonus action or your reaction.",
+        "While you arms are partially incorporeal, you add a second martial arts die to damage dealt by your unarmed strikes as your blows disrupt your target internally. You can also use this partial incorporeality to use an action to reach through an object and interact with what is just on the other side, such as a door handle, window latch, or item. You cannot use this ability to pass through metal objects or surfaces. However, when you do this, you suffer 5 ({@dice 1d10}) force harm every round you remain in the object. If this feature's duration ends while you are inside an object, you suffer 10 ({@dice 2d10}) force harm as your arms are ejected."
+      ]
+    },
+    {
+      "name": "Ghostly Soul Major Effects",
+      "source": "sns",
+      "className": "Adept",
+      "classSource": "sns",
+      "subclassShortName": "Ghostly Soul",
+      "subclassSource": "sns",
+      "level": 1,
+      "entries": [
+        "From tier 1, Ghostly Soul Adepts have access to the following major effect options:",
+        {
+          "type": "list",
+          "items": [
+            "You recover exertion equal to your proficiency bonus and hit points equal to your level.",
+            "The target suffers {@dice 1d10} force harm and your next attack against the target has advantage."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Spirit Armour",
+      "source": "sns",
+      "className": "Adept",
+      "classSource": "sns",
+      "subclassShortName": "Ghostly Soul",
+      "subclassSource": "sns",
+      "level": 3,
+      "header": 2,
+      "entries": [
+        "From tier 2, while any part of your body is incorporeal, you gain a +1 bonus to your armour and creatures you target with attacks suffer force harm equal to your proficiency bonus."
+      ]
+    },
+    {
+      "name": "Ghostly Strikes",
+      "source": "sns",
+      "className": "Adept",
+      "classSource": "sns",
+      "subclassShortName": "Ghostly Soul",
+      "subclassSource": "sns",
+      "level": 5,
+      "header": 2,
+      "entries": [
+        "At tier 3, you learn how to land a blow while manipulating your corporeality. As part of your Attack action, you can spend 1 exertion to convert all damage dealt by your unarmed strikes and melee weapon armour attacks to force damage until the start of your next turn."
+      ]
+    },
+    {
+      "name": "Spectral Step",
+      "source": "sns",
+      "className": "Adept",
+      "classSource": "sns",
+      "subclassShortName": "Ghostly Soul",
+      "subclassSource": "sns",
+      "level": 7,
+      "header": 2,
+      "entries": [
+        "Starting at tier 4, you learn how to make your entire body as insubstantial as a spirit's. You can use an action and spend 5 exertion to become incorporeal for up to a number of rounds equal to your Wisdom modifier. You can also end this effect by using a bonus action or your reaction. While incorporeal, you can still be seen as a faded version of yourself, but you gain advantage on all {@skill Stealth} checks, 50% resistance to all types of damage except force, and may pass through objects and creatures as if they were difficult terrain.",
+        "You suffer 10 ({@dice 2d10}) force harm if you end your turn inside an object. If you end your turn in a space occupied by a creature, you both suffer force harm equal to your martial arts die times half your Wisdom modifier. This feature's duration ends while you are inside either an object or a creature, you suffer 10 ({@dice 2d10}) force harm, are shunted to the nearest open space, and suffer an additional 5 ({@dice 1d10}) force harm for every space shunted."
+      ]
+    },
+    {
+      "name": "Ghostly Stride",
+      "source": "sns",
+      "className": "Adept",
+      "classSource": "sns",
+      "subclassShortName": "Ghostly Soul",
+      "subclassSource": "sns",
+      "level": 9,
+      "header": 2,
+      "entries": [
+        "At tier 5, you are able to move through the world as lightly as the ghosts you emulate. You gain a fly speed equal to half your Speed and the ability to hover, and also gain an expertise die on all {@skill Finesse} and {@skill Stealth} checks. You are also immune to the {@condition poisoned|sns} condition."
+      ]
+    }
+  ]
+}

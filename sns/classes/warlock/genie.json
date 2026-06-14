@@ -1,0 +1,426 @@
+{
+  "subclass": [
+    {
+      "name": "The Genie",
+      "shortName": "Genie",
+      "source": "sns",
+      "className": "Warlock",
+      "classSource": "sns",
+      "additionalSpells": [
+        {
+          "name": "Dao",
+          "expanded": {
+            "1": [
+              "detect evil and good|sns",
+              "sanctuary|sns"
+            ],
+            "2": [
+              "phantasmal force|sns",
+              "spike growth|sns"
+            ],
+            "3": [
+              "create food and water|sns",
+              "meld into stone|sns"
+            ],
+            "4": [
+              "phantasmal killer|sns",
+              "stone shape|sns"
+            ],
+            "5": [
+              "creation|sns",
+              "wall of stone|sns"
+            ],
+            "9": [
+              "wish|sns"
+            ]
+          }
+        },
+        {
+          "name": "Djinni",
+          "expanded": {
+            "1": [
+              "detect evil and good|sns",
+              "thunderwave|sns"
+            ],
+            "2": [
+              "phantasmal force|sns",
+              "gust of wind|sns"
+            ],
+            "3": [
+              "create food and water|sns",
+              "wind wall|sns"
+            ],
+            "4": [
+              "phantasmal killer|sns",
+              "greater invisibility|sns"
+            ],
+            "5": [
+              "creation|sns",
+              "seeming|sns"
+            ],
+            "9": [
+              "wish|sns"
+            ]
+          }
+        },
+        {
+          "name": "Efreeti",
+          "expanded": {
+            "1": [
+              "detect evil and good|sns",
+              "burning hands|sns"
+            ],
+            "2": [
+              "phantasmal force|sns",
+              "scorching ray|sns"
+            ],
+            "3": [
+              "create food and water|sns",
+              "fireball|sns"
+            ],
+            "4": [
+              "phantasmal killer|sns",
+              "fire shield|sns"
+            ],
+            "5": [
+              "creation|sns",
+              "flame strike|sns"
+            ],
+            "9": [
+              "wish|sns"
+            ]
+          }
+        },
+        {
+          "name": "Marid",
+          "expanded": {
+            "1": [
+              "detect evil and good|sns",
+              "fog cloud|sns"
+            ],
+            "2": [
+              "phantasmal force|sns",
+              "blur|sns"
+            ],
+            "3": [
+              "create food and water|sns",
+              "sleet storm|sns"
+            ],
+            "4": [
+              "phantasmal killer|sns",
+              "control water|sns"
+            ],
+            "5": [
+              "creation|sns",
+              "cone of cold|sns"
+            ],
+            "9": [
+              "wish|sns"
+            ]
+          }
+        }
+      ],
+      "subclassFeatures": [
+        "The Genie|Warlock|sns|Genie|sns|1",
+        "Elemental Gift|Warlock|sns|Genie|sns|3",
+        "Assisted Arcana|Warlock|sns|Genie|sns|5",
+        "Genie Major Effect #2|Warlock|sns|Genie|sns|5",
+        "Sanctuary Vessel|Warlock|sns|Genie|sns|7",
+        "Limited Wish|Warlock|sns|Genie|sns|9"
+      ]
+    }
+  ],
+  "subclassFeature": [
+    {
+      "name": "The Genie",
+      "source": "sns",
+      "className": "Warlock",
+      "classSource": "sns",
+      "subclassShortName": "Genie",
+      "subclassSource": "sns",
+      "level": 1,
+      "entries": [
+        "You have made a pact with one of the rarest kinds of genie, a noble genie. Such entities rule vast fiefs on the Elemental Planes and have great influence over lesser genies and elemental creatures. Noble genies are varied in their motivations, but most are arrogant and wield power that rivals that of lesser deities. They delight in turning the table on mortals, who often bind genies into servitude, and readily enter into pacts that expand their reach.",
+        "You choose your patron's kind or determine it randomly, using the Genie Kind table.",
+        {
+          "type": "table",
+          "caption": "Genie Kind",
+          "colLabels": [
+            "d4",
+            "Kind",
+            "Element"
+          ],
+          "colStyles": [
+            "col-2 text-center",
+            "col-5",
+            "col-5"
+          ],
+          "rows": [
+            [
+              1,
+              "{@creature Dao}",
+              "Earth"
+            ],
+            [
+              2,
+              "{@creature Djinni}",
+              "Air"
+            ],
+            [
+              3,
+              "{@creature Efreeti}",
+              "Fire"
+            ],
+            [
+              4,
+              "{@creature Marid}",
+              "Water"
+            ]
+          ]
+        },
+        {
+          "name": "Expanded Spell List",
+          "level": 1,
+          "type": "entries",
+          "entries": [
+            "{@i 1st-level Genie feature}",
+            "The Genie lets you choose from an expanded list of spells when you learn a warlock spell. The Genie Expanded Spells table shows the genie spells that are added to the warlock spell list for you, along with the spells associated in the table with your patron's kind: dao, djinni, efreeti, or marid.",
+            {
+              "type": "table",
+              "caption": "Genie Expanded Spells",
+              "colLabels": [
+                "Spell Level",
+                "Genie Spells",
+                "Dao Spells",
+                "Djinni Spells",
+                "Efreeti Spells",
+                "Marid Spells"
+              ],
+              "colStyles": [
+                "col-1 text-center",
+                "col-2-2",
+                "col-2-2",
+                "col-2-2",
+                "col-2-2",
+                "col-2-2"
+              ],
+              "rows": [
+                [
+                  "1st",
+                  "{@spell detect evil and good|sns}",
+                  "{@spell sanctuary|sns}",
+                  "{@spell thunderwave|sns}",
+                  "{@spell burning hands|sns}",
+                  "{@spell fog cloud|sns}"
+                ],
+                [
+                  "2nd",
+                  "{@spell phantasmal force|sns}",
+                  "{@spell spike growth|sns}",
+                  "{@spell gust of wind|sns}",
+                  "{@spell scorching ray|sns}",
+                  "{@spell blur|sns}"
+                ],
+                [
+                  "3rd",
+                  "{@spell create food and water|sns}",
+                  "{@spell meld into stone|sns}",
+                  "{@spell wind wall|sns}",
+                  "{@spell fireball|sns}",
+                  "{@spell sleet storm|sns}"
+                ],
+                [
+                  "4th",
+                  "{@spell phantasmal killer|sns}",
+                  "{@spell stone shape|sns}",
+                  "{@spell greater invisibility|sns}",
+                  "{@spell fire shield|sns}",
+                  "{@spell control water|sns}"
+                ],
+                [
+                  "5th",
+                  "{@spell creation|sns}",
+                  "{@spell wall of stone|sns}",
+                  "{@spell seeming|sns}",
+                  "{@spell flame strike|sns}",
+                  "{@spell cone of cold|sns}"
+                ],
+                [
+                  "9th",
+                  "{@spell wish|sns}",
+                  "—",
+                  "—",
+                  "—",
+                  "—"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "type": "refSubclassFeature",
+          "subclassFeature": "Genie's Vessel|Warlock|sns|Genie|sns|1"
+        },
+        {
+          "type": "refSubclassFeature",
+          "subclassFeature": "Genie Major Effect #1|Warlock|sns|Genie|sns|1"
+        }
+      ]
+    },
+    {
+      "name": "Genie's Vessel",
+      "source": "sns",
+      "className": "Warlock",
+      "classSource": "sns",
+      "subclassShortName": "Genie",
+      "subclassSource": "sns",
+      "level": 1,
+      "header": 1,
+      "entries": [
+        "At tier 1, your patron gifts you a magical vessel that grants you a measure of the genie's power. The vessel is a Tiny object, and you can use it as a spellcasting focus for your warlock spells. You decide what the object is, or you can determine what it is randomly by rolling on the Genie's Vessel table.",
+        {
+          "type": "table",
+          "caption": "Genie's Vessel",
+          "colLabels": [
+            "d6",
+            "Vessel"
+          ],
+          "colStyles": [
+            "col-2 text-center",
+            "col-10"
+          ],
+          "rows": [
+            [
+              "1",
+              "Oil lamp"
+            ],
+            [
+              "2",
+              "Urn"
+            ],
+            [
+              "3",
+              "Ring with a compartment"
+            ],
+            [
+              "4",
+              "Stoppered bottle"
+            ],
+            [
+              "5",
+              "Hollow statuette"
+            ],
+            [
+              "6",
+              "Ornate lantern"
+            ]
+          ]
+        },
+        "While you are touching the vessel, you can use it in the following ways:",
+        {
+          "type": "options",
+          "style": "list-hang-notitle",
+          "entries": [
+            {
+              "type": "item",
+              "name": "Bottled Respite",
+              "entries": [
+                "As an action, you can magically vanish and enter your vessel, which remains in the space you left. The interior of the vessel is an extradimensional space in the shape of a 20-foot-radius cylinder, 20 feet high, and resembles your vessel. The interior is appointed with cushions and low tables and is a comfortable temperature. While inside, you can hear the area around your vessel as if you were in its space. You can remain inside the vessel up to a number of hours equal to twice your proficiency bonus. You exit the vessel early if you use a bonus action to leave, if you die, or if the vessel is destroyed. When you exit the vessel, you appear in an unoccupied space closest to it. Any objects left in the vessel remain there until carried out, and if the vessel is destroyed, every object stored there harmlessly appears in the unoccupied spaces closest to the vessel's former space. Once you enter the vessel, you can't enter again until you finish a long rest."
+              ]
+            },
+            {
+              "type": "item",
+              "name": "Genie's Wrath",
+              "entries": [
+                "Once during each of your turns when you hit with an armour attack, you can deal extra damage to the target equal to your proficiency bonus. The type of this damage is determined by your patron: bludgeoning (dao), thunder (djinni), fire (efreeti), or cold (marid)."
+              ]
+            }
+          ]
+        },
+        "The vessel's armour equals your spellcasting ability modifier. Its hit points equal double your warlock level, and it is immune to poison and psychic damage.",
+        "If the vessel is destroyed or you lose it, you can perform a 1-hour ceremony to receive a replacement from your patron. This ceremony can be performed during a short or long rest, and the previous vessel is destroyed if it still exists. The vessel vanishes in a flare of elemental power when you die."
+      ]
+    },
+    {
+      "name": "Genie Major Effect #1",
+      "source": "sns",
+      "className": "Warlock",
+      "classSource": "sns",
+      "subclassShortName": "Genie",
+      "subclassSource": "sns",
+      "level": 1,
+      "entries": [
+        "For 1 round, the target of this attack takes additional damage equal to your proficiency bonus, of a type determined by your patron’s kind, whenever it is hit by an attack. If the target dies from this attack, creatures of your choice that you can see immediately take this damage instead."
+      ]
+    },
+    {
+      "name": "Elemental Gift",
+      "source": "sns",
+      "className": "Warlock",
+      "classSource": "sns",
+      "subclassShortName": "Genie",
+      "subclassSource": "sns",
+      "level": 3,
+      "header": 2,
+      "entries": [
+        "From tier 2, you begin to take on characteristics of your patron's kind. You now have 50% resistance to a damage type determined by your patron's kind: bludgeoning (dao), thunder (djinni), fire (efreeti), or cold (marid).",
+        "In addition, as a bonus action, you can give yourself a flying speed of 30 feet that lasts for 10 minutes, during which you can hover. You can use this bonus action a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest."
+      ]
+    },
+    {
+      "name": "Assisted Arcana",
+      "source": "sns",
+      "className": "Warlock",
+      "classSource": "sns",
+      "subclassShortName": "Genie",
+      "subclassSource": "sns",
+      "level": 5,
+      "header": 2,
+      "entries": [
+        "You learn each of the spells specific to your patron’s kind available on your expanded spell list. Additionally, when learning warlock spells, you may learn any spell that can deal damage matching your patron’s kind. Whenever you cast either such spells, their spell point cost is reduced by 50%."
+      ]
+    },
+    {
+      "name": "Genie Major Effect #2",
+      "source": "sns",
+      "className": "Warlock",
+      "classSource": "sns",
+      "subclassShortName": "Genie",
+      "subclassSource": "sns",
+      "level": 5,
+      "header": 2,
+      "entries": [
+        "For 1 round, if you cast a spell that would have its spell point cost reduced by your Assisted Arcana feature, its spell point cost is 0 instead."
+      ]
+    },
+    {
+      "name": "Sanctuary Vessel",
+      "source": "sns",
+      "className": "Warlock",
+      "classSource": "sns",
+      "subclassShortName": "Genie",
+      "subclassSource": "sns",
+      "level": 7,
+      "header": 2,
+      "entries": [
+        "From tier 4, when you enter your Genie's Vessel via the Bottled Respite feature, you can now choose up to five willing creatures that you can see within 30 feet of you, and the chosen creatures are drawn into the vessel with you.",
+        "As a bonus action, you can eject any number of creatures from the vessel, and everyone is ejected if you leave or die or if the vessel is destroyed.",
+        "In addition, anyone (including you) who remains within the vessel for at least 10 minutes gains the benefit of finishing a short rest, and anyone can add your level to the number of hit points they regain if they spend any Hit Dice as part of a short rest there."
+      ]
+    },
+    {
+      "name": "Limited Wish",
+      "source": "sns",
+      "className": "Warlock",
+      "classSource": "sns",
+      "subclassShortName": "Genie",
+      "subclassSource": "sns",
+      "level": 9,
+      "header": 2,
+      "entries": [
+        "From tier 5, you can entreat your patron to grant you a small wish. As an action, you can speak your desire to your Genie's Vessel, requesting the effect of one spell that is 6th level or lower and has a casting time of 1 action. The spell can be from any class's spell list, and you don't need to meet the requirements of that spell, including components; the spell simply takes effect as part of this action.",
+        "Once you use this feature, you can't use it again until you finish {@dice 1d4} long rests."
+      ]
+    }
+  ]
+}

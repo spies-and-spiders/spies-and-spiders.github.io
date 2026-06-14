@@ -1,0 +1,229 @@
+{
+  "subclass": [
+    {
+      "name": "Sun Priest",
+      "shortName": "Sun Priest",
+      "source": "sns",
+      "className": "Cleric",
+      "classSource": "sns",
+      "additionalSpells": [
+        {
+          "prepared": {
+            "1": [
+              "burning hands|sns",
+              "faerie fire|sns"
+            ],
+            "3": [
+              "continual flame|sns",
+              "scorching ray|sns"
+            ],
+            "5": [
+              "darklight|sns",
+              "fireball|sns"
+            ],
+            "7": [
+              "fire shield|sns",
+              "wall of fire|sns"
+            ],
+            "9": [
+              "creation|sns",
+              "wall of force|sns"
+            ]
+          }
+        }
+      ],
+      "subclassFeatures": [
+        "Sun Priest|Cleric|sns|Sun Priest|sns|1",
+        "Channel Divinity: Radiant Burst|Cleric|sns|Sun Priest|sns|3",
+        "Honed Searing|Cleric|sns|Sun Priest|sns|3",
+        "Fierce Flash|Cleric|sns|Sun Priest|sns|5",
+        "Sun Priest Major Effect #2|Cleric|sns|Sun Priest|sns|5",
+        "Harness the Flame|Cleric|sns|Sun Priest|sns|7",
+        "Channel Divinity: Summon the Stars|Cleric|sns|Sun Priest|sns|9"
+      ]
+    }
+  ],
+  "subclassFeature": [
+    {
+      "name": "Sun Priest",
+      "source": "sns",
+      "className": "Cleric",
+      "classSource": "sns",
+      "subclassShortName": "Sun Priest",
+      "subclassSource": "sns",
+      "level": 1,
+      "entries": [
+        "At each indicated level, add the listed spells to your spells prepared. They do not count towards your limit.",
+        {
+          "type": "table",
+          "caption": "Sun Priest Spells",
+          "colLabels": [
+            "Level",
+            "Spells"
+          ],
+          "colStyles": [
+            "col-2 text-center",
+            "col-10"
+          ],
+          "rows": [
+            [
+              "1st",
+              "{@spell burning hands|sns}, {@spell faerie fire|sns}"
+            ],
+            [
+              "3rd",
+              "{@spell continual flame|sns}, {@spell scorching ray|sns}"
+            ],
+            [
+              "5th",
+              "{@spell darklight|sns}, {@spell fireball|sns}"
+            ],
+            [
+              "7th",
+              "{@spell fire shield|sns}, {@spell wall of fire|sns}"
+            ],
+            [
+              "9th",
+              "{@spell creation|sns}, {@spell wall of force|sns}"
+            ]
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Favoured Illumination",
+          "level": 1,
+          "entries": [
+            "Starting at tier 1 when you choose this subclass, you learn the {@spell dancing lights|sns}, {@spell light|sns}, or {@spell produce flame|sns} cantrip. This does not count against your number of known cantrips."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Flash Fight",
+          "level": 1,
+          "entries": [
+            "Also at tier 1, you learn that light is everything on the battlefield. You can use an action to touch a hostile creature within your reach, gently illuminating it with your divine will and granting advantage on armour attacks made against it before the start of your next turn.",
+            "Alternatively, you can use an action to touch an ally within reach, surrounding them with a coruscating shimmer of bright light. Until the start of your next turn, creatures have disadvantage on armour attacks against the touched ally.",
+            "Once you have used this feature a number of times equal to your Wisdom modifier, you cannot do so again until you finish a long rest."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Sun Priest Major Effect #1",
+          "level": 1,
+          "entries": [
+            "The target makes a saving throw, becoming blinded for 1 round on a failed save. On a successful save, or if they were already blinded, their attacks have -1AB for 1 round. If the target dies from this attack, your next blinding effect during the combat has advantaged offence."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Channel Divinity: Radiant Burst",
+      "source": "sns",
+      "className": "Cleric",
+      "classSource": "sns",
+      "subclassShortName": "Sun Priest",
+      "subclassSource": "sns",
+      "level": 3,
+      "header": 2,
+      "consumes": {
+        "name": "Channel Divinity"
+      },
+      "entries": [
+        "Starting at tier 2, you can use an action to clutch your holy symbol and emit a bright blast. In addition to dispelling any magical darkness within 30 feet, make a fortitude attack against all enemy creatures within 30 feet, with the following outcomes:",
+        {
+          "type": "list",
+          "items": [
+            {
+              "type": "item",
+              "name": "Minor success",
+              "entries": [
+                "The target has disadvantage with armour attacks for 1 round."
+              ]
+            },
+            {
+              "type": "item",
+              "name": "Standard success",
+              "entries": [
+                "The target is {@condition blinded|sns} by the light for 1 minute, or until it succeeds on a passive save."
+              ]
+            },
+            {
+              "type": "item",
+              "name": "Critical success",
+              "entries": [
+                "As standard success, but the target is also {@condition debilitated|sns}."
+              ]
+            }
+          ]
+        },
+        "Alternatively, you can choose to make the light more harmful. Instead of any of the above outcomes of the fortitude attack, you can have it deal radiant damage equal to {@dice 2d12} + your level."
+      ]
+    },
+    {
+      "name": "Honed Searing",
+      "source": "sns",
+      "className": "Cleric",
+      "classSource": "sns",
+      "subclassShortName": "Sun Priest",
+      "subclassSource": "sns",
+      "level": 3,
+      "header": 2,
+      "entries": [
+        "Also from tier 2, no more than once per turn when you roll 1 on a damage die for fire or radiant damage, you may treat that roll as if it was the maximum value on that die."
+      ]
+    },
+    {
+      "name": "Fierce Flash",
+      "source": "sns",
+      "className": "Cleric",
+      "classSource": "sns",
+      "subclassShortName": "Sun Priest",
+      "subclassSource": "sns",
+      "level": 5,
+      "header": 2,
+      "entries": [
+        "Beginning at tier 3, you can use Flash Fight on creatures within 30 feet of you in addition to creatures you can touch."
+      ]
+    },
+    {
+      "name": "Sun Priest Major Effect #2",
+      "source": "sns",
+      "className": "Cleric",
+      "classSource": "sns",
+      "subclassShortName": "Sun Priest",
+      "subclassSource": "sns",
+      "level": 5,
+      "header": 2,
+      "entries": [
+        "Any number of creatures of your choice that you can see and are in bright light gain +3 to saving throws for 1 round."
+      ]
+    },
+    {
+      "name": "Harness the Flame",
+      "source": "sns",
+      "className": "Cleric",
+      "classSource": "sns",
+      "subclassShortName": "Sun Priest",
+      "subclassSource": "sns",
+      "level": 7,
+      "header": 2,
+      "entries": [
+        "Starting at tier 4, when you make a damaging attack with a cleric cantrip or a weapon, add fire or radiant damage equal to your Wisdom modifier. You must choose the damage type at the beginning of each long rest, and may not change it until you have completed another long rest."
+      ]
+    },
+    {
+      "name": "Channel Divinity: Summon the Stars",
+      "source": "sns",
+      "className": "Cleric",
+      "classSource": "sns",
+      "subclassShortName": "Sun Priest",
+      "subclassSource": "sns",
+      "level": 9,
+      "header": 2,
+      "entries": [
+        "At tier 5, you are able to manipulate the burning brilliance of the stars themselves. As an action, choose an object or creature within 60 feet. For 1 minute the target emits bright light in a 60-foot radius and dim light for an additional 30 feet. The target emits a 30-foot persistent zone around it that forces creatures to make a save or become {@condition blinded|sns} for 1 minute, or until they pass a passive save.",
+        "The first time this feature is used per long rest, the persistent zone also causes {@dice 8d6} radiant harm. Magical auras within the bright light become visible for 1 hour, shedding dim light in a 5-foot radius for 1 hour. An {@condition invisible} creature that takes radiant damage from the light is also revealed and it sheds dim light in a 5-foot radius for 1 hour."
+      ]
+    }
+  ]
+}

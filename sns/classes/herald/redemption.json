@@ -1,0 +1,245 @@
+{
+  "subclass": [
+    {
+      "name": "Oath of Redemption",
+      "shortName": "Redemption",
+      "source": "sns",
+      "className": "Herald",
+      "classSource": "sns",
+      "additionalSpells": [
+        {
+          "prepared": {
+            "3": [
+              "sanctuary|sns",
+              "sleep|sns"
+            ],
+            "5": [
+              "calm emotions|sns",
+              "hold person|sns"
+            ],
+            "9": [
+              "counterspell|sns",
+              "hypnotic pattern|sns"
+            ],
+            "13": [
+              "resilient sphere|sns",
+              "stoneskin|sns"
+            ],
+            "17": [
+              "hold monster|sns",
+              "wall of force|sns"
+            ]
+          }
+        }
+      ],
+      "subclassFeatures": [
+        "Oath of Redemption|Herald|sns|Redemption|sns|1",
+        "Reprimand|Herald|sns|Redemption|sns|3",
+        "Aura of the Guardian|Herald|sns|Redemption|sns|5",
+        "Protective Spirit|Herald|sns|Redemption|sns|7",
+        "Emissary of Redemption|Herald|sns|Redemption|sns|9"
+      ]
+    }
+  ],
+  "subclassFeature": [
+    {
+      "name": "Oath of Redemption",
+      "source": "sns",
+      "className": "Herald",
+      "classSource": "sns",
+      "subclassShortName": "Redemption",
+      "subclassSource": "sns",
+      "level": 1,
+      "entries": [
+        {
+          "type": "refSubclassFeature",
+          "subclassFeature": "Oath Spells|Herald|sns|Redemption|sns|1"
+        },
+        {
+          "type": "refSubclassFeature",
+          "subclassFeature": "Thou Shalt Not Kill|Herald|sns|Redemption|sns|1"
+        },
+        {
+          "type": "refSubclassFeature",
+          "subclassFeature": "Channel Divinity|Herald|sns|Redemption|sns|1"
+        },
+        {
+          "type": "refSubclassFeature",
+          "subclassFeature": "Redemption Major Effects|Herald|sns|Redemption|sns|1"
+        }
+      ]
+    },
+    {
+      "name": "Channel Divinity",
+      "source": "sns",
+      "className": "Herald",
+      "classSource": "sns",
+      "subclassShortName": "Redemption",
+      "subclassSource": "sns",
+      "level": 1,
+      "consumes": {
+        "name": "Channel Divinity"
+      },
+      "entries": [
+        "At tier 1, you learn the following Channel Divinity options:",
+        {
+          "type": "list",
+          "items": [
+            {
+              "type": "item",
+              "name": "Emissary of Peace",
+              "entries": [
+                "You can use your Channel Divinity to augment your presence with divine power. As a bonus action, you grant yourself a +5 bonus to {@skill Persuasion} checks for the next 10 minutes."
+              ]
+            },
+            {
+              "type": "item",
+              "name": "Rebuke the Violent",
+              "entries": [
+                "You can use your Channel Divinity to rebuke those who use violence. Immediately after an attacker within 30 feet of you hits a creature other than you with an armour attack, you can use your reaction to make a ranged spell will attack against the attacker that deals radiant damage equal to the damage it just dealt."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Redemption Major Effects",
+      "source": "sns",
+      "className": "Herald",
+      "classSource": "sns",
+      "subclassShortName": "Redemption",
+      "subclassSource": "sns",
+      "level": 1,
+      "entries": [
+        "From tier 1, Redemption Heralds have access to the following major effect options:",
+        {
+          "type": "list",
+          "items": [
+            "Heal a creature within your reach a number of hit points equal to your level. If you are the only creature within your reach and you are on full hit points, increase your temporary hit points by an amount equal to your level instead.",
+            "Choose a creature within 10 feet of you. The next time it is targeted by a damaging attack, after you see the result of the attack, you can take that attack instead."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Thou Shalt Not Kill",
+      "source": "sns",
+      "className": "Herald",
+      "classSource": "sns",
+      "subclassShortName": "Redemption",
+      "subclassSource": "sns",
+      "level": 1,
+      "entries": [
+        "From tier 1, any damage you deal and any harm you cause can always be non-lethal, even if it usually couldn't."
+      ]
+    },
+    {
+      "name": "Oath Spells",
+      "source": "sns",
+      "className": "Herald",
+      "classSource": "sns",
+      "subclassShortName": "Redemption",
+      "subclassSource": "sns",
+      "level": 1,
+      "entries": [
+        "You gain oath spells at the herald levels listed.",
+        {
+          "type": "table",
+          "caption": "Oath of Redemption Spells",
+          "colLabels": [
+            "Herald Level",
+            "Spells"
+          ],
+          "colStyles": [
+            "col-2 text-center",
+            "col-10"
+          ],
+          "rows": [
+            [
+              "2nd",
+              "{@spell sanctuary|sns}, {@spell sleep|sns}"
+            ],
+            [
+              "5th",
+              "{@spell calm emotions|sns}, {@spell hold person|sns}"
+            ],
+            [
+              "9th",
+              "{@spell counterspell|sns}, {@spell hypnotic pattern|sns}"
+            ],
+            [
+              "13th",
+              "{@spell resilient sphere|sns}, {@spell stoneskin|sns}"
+            ],
+            [
+              "17th",
+              "{@spell hold monster|sns}, {@spell wall of force|sns}"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Reprimand",
+      "source": "sns",
+      "className": "Herald",
+      "classSource": "sns",
+      "subclassShortName": "Redemption",
+      "subclassSource": "sns",
+      "level": 3,
+      "header": 2,
+      "entries": [
+        "From tier 2, you can punish those who would strike you. Whenever a creature hits you with a melee armour attack, you may spend 1 exertion to cause radiant harm to it equal to your proficiency bonus."
+      ]
+    },
+    {
+      "name": "Aura of the Guardian",
+      "source": "sns",
+      "className": "Herald",
+      "classSource": "sns",
+      "subclassShortName": "Redemption",
+      "subclassSource": "sns",
+      "level": 5,
+      "header": 2,
+      "entries": [
+        "Starting at tier 3, you can shield your allies from harm at the cost of your own health. You can use the Intercept reaction for any creature within 10 feet of you, instead of just adjacent creatures."
+      ]
+    },
+    {
+      "name": "Protective Spirit",
+      "source": "sns",
+      "className": "Herald",
+      "classSource": "sns",
+      "subclassShortName": "Redemption",
+      "subclassSource": "sns",
+      "level": 7,
+      "header": 2,
+      "entries": [
+        "Starting at tier 4, a holy presence mends your wounds in combat. You regain hit points equal to 1d6 + your paladin level if you end your turn in combat with fewer than half of your hit points remaining and you aren't {@condition incapacitated|sns}.",
+        "Additionally, the range of your Aura of the Guardian increases to 30 feet."
+      ]
+    },
+    {
+      "name": "Emissary of Redemption",
+      "source": "sns",
+      "className": "Herald",
+      "classSource": "sns",
+      "subclassShortName": "Redemption",
+      "subclassSource": "sns",
+      "level": 9,
+      "header": 2,
+      "entries": [
+        "At tier 5, you become an avatar of peace, which gives you two benefits:",
+        {
+          "type": "list",
+          "items": [
+            "You gain 50% resistance to damage from other creatures.",
+            "Whenever a creature hits you with an armour attack, it suffers radiant harm equal to half the damage you take from the attack."
+          ]
+        },
+        "If you attack a creature, cast a spell on it, deal damage to it by any means, or cause harm to it by any means but features from this subclass, neither benefit works against that creature until you finish a long rest."
+      ]
+    }
+  ]
+}

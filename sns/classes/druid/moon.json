@@ -1,0 +1,146 @@
+{
+  "subclass": [
+    {
+      "name": "Circle of the Moon",
+      "shortName": "Moon",
+      "source": "sns",
+      "className": "Druid",
+      "classSource": "sns",
+      "subclassFeatures": [
+        "Circle of the Moon|Druid|sns|Moon|sns|1",
+        "Primal Strike|Druid|sns|Moon|sns|3",
+        "Wild Fortitude|Druid|sns|Moon|sns|5",
+        "Moon Major Effect #2|Druid|sns|Moon|sns|5",
+        "Elemental Wild Shape|Druid|sns|Moon|sns|7",
+        "Thousand Forms|Druid|sns|Moon|sns|9"
+      ]
+    }
+  ],
+  "subclassFeature": [
+    {
+      "name": "Circle of the Moon",
+      "source": "sns",
+      "className": "Druid",
+      "classSource": "sns",
+      "subclassShortName": "Moon",
+      "subclassSource": "sns",
+      "level": 1,
+      "entries": [
+        {
+          "type": "refSubclassFeature",
+          "subclassFeature": "Combat Wild Shape|Druid|sns|Moon|sns|1"
+        },
+        {
+          "type": "refSubclassFeature",
+          "subclassFeature": "Moon Major Effect #1|Druid|sns|Moon|sns|1"
+        }
+      ]
+    },
+    {
+      "name": "Combat Wild Shape",
+      "source": "sns",
+      "className": "Druid",
+      "classSource": "sns",
+      "subclassShortName": "Moon",
+      "subclassSource": "sns",
+      "level": 1,
+      "header": 1,
+      "entries": [
+        "When you choose this subclass at tier 1, you gain the ability to use Wild Shape on your turn as a bonus action, rather than as an action.",
+        "Additionally, while you are shapeshifted with Wild Shape, you can use a bonus action to expend one spell slot to regain {@dice 2d4} hit points per level of spell slot expended."
+      ]
+    },
+    {
+      "name": "Moon Major Effect #1",
+      "source": "sns",
+      "className": "Druid",
+      "classSource": "sns",
+      "subclassShortName": "Moon",
+      "subclassSource": "sns",
+      "level": 1,
+      "header": 1,
+      "entries": [
+        "If you are shapeshifted, you gain temporary hit points equal to half the triggering attack's damage, which stack with any existing temporary hit points.",
+        "If you are not shapeshifted, you gain half as many temporary hit points, which stack with any existing temporary hit points."
+      ]
+    },
+    {
+      "name": "Circle Forms",
+      "source": "sns",
+      "className": "Druid",
+      "classSource": "sns",
+      "subclassShortName": "Moon",
+      "subclassSource": "sns",
+      "level": 3,
+      "header": 2,
+      "entries": [
+        "The rites of your circle grant you the ability to transform into more dangerous animal forms. Starting at tier 2, the bestial strike action on your animal forms gains 1 additional instance of the Empowered Attack feature, multiplying the damage 1 additional time."
+      ]
+    },
+    {
+      "name": "Primal Strike",
+      "source": "sns",
+      "className": "Druid",
+      "classSource": "sns",
+      "subclassShortName": "Moon",
+      "subclassSource": "sns",
+      "level": 3,
+      "header": 2,
+      "entries": [
+        "Starting at tier 2, your weapon attacks in beast form ignore resistance and immunities."
+      ]
+    },
+    {
+      "name": "Wild Fortitude",
+      "source": "sns",
+      "className": "Druid",
+      "classSource": "sns",
+      "subclassShortName": "Moon",
+      "subclassSource": "sns",
+      "level": 5,
+      "header": 2,
+      "entries": [
+        "Starting at tier 3, the initial temporary hit points granted by wild shape is increased by an amount equal to double your level."
+      ]
+    },
+    {
+      "name": "Moon Major Effect #2",
+      "source": "sns",
+      "className": "Druid",
+      "classSource": "sns",
+      "subclassShortName": "Moon",
+      "subclassSource": "sns",
+      "level": 5,
+      "header": 2,
+      "entries": [
+        "You immediately shift to an unoccupied space within 30 feet of you that is adjacent to an ally. Each creature of your choice that you passed through during this movement must make a save. On a fail, a creature suffers bludgeoning harm equal to your proficiency bonus and is {@condition rattled|sns} until the end of its next turn."
+      ]
+    },
+    {
+      "name": "Elemental Wild Shape",
+      "source": "sns",
+      "className": "Druid",
+      "classSource": "sns",
+      "subclassShortName": "Moon",
+      "subclassSource": "sns",
+      "level": 7,
+      "header": 2,
+      "entries": [
+        "At 10th level, you can expend two uses of Wild Shape at the same time to shapeshift into an {@creature Elemental Form|sns} of one of the following types: Air, Earth, Fire, or Water."
+      ]
+    },
+    {
+      "name": "Thousand Forms",
+      "source": "sns",
+      "className": "Druid",
+      "classSource": "sns",
+      "subclassShortName": "Moon",
+      "subclassSource": "sns",
+      "level": 9,
+      "header": 2,
+      "entries": [
+        "By tier 5, you have learned to use magic to alter your physical form in more subtle ways. You can cast the {@spell Alter Self|sns} spell at will."
+      ]
+    }
+  ]
+}

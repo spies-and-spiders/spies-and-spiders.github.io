@@ -1,7 +1,7 @@
 (require '[babashka.fs :as fs])
 
 (defn- list-jsons []
-  (fs/glob "sns" "*.json"))
+  (fs/glob "sns" "**.json"))
 
 (def merge-data (partial
                   merge-with
