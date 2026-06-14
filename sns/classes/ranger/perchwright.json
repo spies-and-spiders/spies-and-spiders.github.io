@@ -12,7 +12,8 @@
         "Flying Fox|Ranger|sns|Perchwright|sns|3",
         "Deadly Vantage|Ranger|sns|Perchwright|sns|5",
         "Unassailable Perch|Ranger|sns|Perchwright|sns|7",
-        "King of the Hill|Ranger|sns|Perchwright|sns|9",
+        "King of the Hill|Ranger|sns|Perchwright|sns|7",
+        "Apex Strike|Ranger|sns|Perchwright|sns|9",
         "Commanding Vantage|Ranger|sns|Perchwright|sns|9"
       ]
     }
@@ -149,10 +150,23 @@
       "classSource": "sns",
       "subclassShortName": "Perchwright",
       "subclassSource": "sns",
+      "level": 7,
+      "header": 2,
+      "entries": [
+        "At tier 4, whenever a creature starts climbing a scaffold you are perched on, you can use your reaction to make a ranged weapon attack against it. Additionally, whenever a creature damages a scaffold you are perched on, you may use a reaction to {@classFeature Expose Weakness|Ranger|sns|1|sns|Expose} that creature."
+      ]
+    },
+    {
+      "name": "Apex Strike",
+      "source": "sns",
+      "className": "Ranger",
+      "classSource": "sns",
+      "subclassShortName": "Perchwright",
+      "subclassSource": "sns",
       "level": 9,
       "header": 2,
       "entries": [
-        "At tier 5, whenever a creature starts climbing a scaffold you are perched on, you can use your reaction to make a ranged weapon attack against it. Additionally, whenever a creature damages a scaffold you are perched on, you may use a reaction to {@classFeature Expose Weakness|Ranger|sns|1|sns|Expose} that creature."
+        "From tier 5, while perched, your critical damage bonus is increased by your proficiency bonus for each 10 feet of scaffolding you are on."
       ]
     },
     {
