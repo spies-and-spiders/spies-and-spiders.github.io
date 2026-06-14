@@ -81,7 +81,7 @@
         {
           "type": "list",
           "items": [
-            "You immediately make a Perception check with DC equal to 8 + the target's CR. On a success, the target is Exposed as per the Ranger's Expose Weakness feature for 1 round. If the triggering attack killed the target, you may choose another creature within 60 feet of you to be the target of this effect instead, ignoring line of sight.",
+            "You immediately make a Perception check with DC equal to 8 + the target's CR. On a success, the target is Exposed as per the Ranger's {@classFeature Expose Weakness|Ranger|sns|1|sns} feature for 1 round. If the triggering attack killed the target, you may choose another creature within 60 feet of you to be the target of this effect instead, ignoring line of sight.",
             "If you share a language with the target, the target is {@condition charmed|sns} for 1 round. Otherwise, they are {@condition frightened|sns} for 1 round instead. If the triggering attack killed the target, you may choose another creature within 60 feet of you to be the target of this effect instead, ignoring line of sight."
           ]
         }

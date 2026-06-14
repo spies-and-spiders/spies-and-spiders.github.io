@@ -1,0 +1,172 @@
+{
+  "subclass": [
+    {
+      "name": "Perchwright",
+      "shortName": "Perchwright",
+      "source": "sns",
+      "className": "Ranger",
+      "classSource": "sns",
+      "subclassFeatures": [
+        "Perchwright|Ranger|sns|Perchwright|sns|1",
+        "Prepared Positions|Ranger|sns|Perchwright|sns|3",
+        "Flying Fox|Ranger|sns|Perchwright|sns|3",
+        "Deadly Vantage|Ranger|sns|Perchwright|sns|5",
+        "Unassailable Perch|Ranger|sns|Perchwright|sns|7",
+        "King of the Hill|Ranger|sns|Perchwright|sns|9",
+        "Commanding Vantage|Ranger|sns|Perchwright|sns|9"
+      ]
+    }
+  ],
+  "subclassFeature": [
+    {
+      "name": "Perchwright",
+      "source": "sns",
+      "className": "Ranger",
+      "classSource": "sns",
+      "subclassShortName": "Perchwright",
+      "subclassSource": "sns",
+      "level": 1,
+      "entries": [
+        {
+          "type": "refSubclassFeature",
+          "subclassFeature": "Scaffolding|Ranger|sns|Perchwright|sns|1"
+        },
+        {
+          "type": "refSubclassFeature",
+          "subclassFeature": "Practised Climber|Ranger|sns|Perchwright|sns|1"
+        },
+        {
+          "type": "refSubclassFeature",
+          "subclassFeature": "Perchwright Major Effects|Ranger|sns|Perchwright|sns|1"
+        }
+      ]
+    },
+    {
+      "name": "Scaffolding",
+      "source": "sns",
+      "className": "Ranger",
+      "classSource": "sns",
+      "subclassShortName": "Perchwright",
+      "subclassSource": "sns",
+      "level": 1,
+      "header": 1,
+      "entries": [
+        "From tier 1, you can use a bonus action to assemble a {@vehicle scaffold} that is up to 10 feet tall in your space or in an unoccupied space adjacent to you, climbing to its top as part of the same bonus action (this movement provokes opportunity attacks as normal). This space must be on solid ground within your reach. Alternatively, while already atop a scaffold, you can increase its height by up to 10 feet. You are considered to be perched while atop a scaffold you have created. Instead of 10 feet, you may instead build a scaffold that is 5 feet tall, or extend the height of a scaffold by 5 feet.",
+        "As these scaffolds are not fully solid, they only provide half cover. You can use a bonus action to repair a scaffold within your reach, fully restoring its hit points. When a scaffold is destroyed or disassembled, any creatures atop the scaffold fall, landing {@condition prone} and potentially taking fall damage.",
+        "You can have a total height (in feet) of scaffolds assembled at a time equal to 10 times your Wisdom modifier. You cannot build or extend the height of a scaffold if it would cause the total height to exceed this limit. You may use a bonus action to disassemble a scaffold within your reach.",
+        "Additionally, you have proficiency in {@skill Magiscience}, and may use {@skill Magiscience} with Dexterity when working with scaffolding or any other improvised platform."
+      ]
+    },
+    {
+      "name": "Practised Climber",
+      "source": "sns",
+      "className": "Ranger",
+      "classSource": "sns",
+      "subclassShortName": "Perchwright",
+      "subclassSource": "sns",
+      "level": 1,
+      "header": 1,
+      "entries": [
+        "From tier 1, you gain a climbing speed equal to your walking Speed, and may end your turn and make attacks without disadvantage from positions that require squeezing. Additionally, whenever you take fall damage, the damage is calculated as if you had fallen 10 feet fewer."
+      ]
+    },
+    {
+      "name": "Perchwright Major Effects",
+      "source": "sns",
+      "className": "Ranger",
+      "classSource": "sns",
+      "subclassShortName": "Perchwright",
+      "subclassSource": "sns",
+      "level": 1,
+      "header": 1,
+      "entries": [
+        "From tier 1, Perchwright Rangers have access to the following major effect options:",
+        {
+          "type": "list",
+          "items": [
+            "If the triggering attack was made as part of a maneuver, refund its exertion cost by an amount equal to a tenth of the total height of your active scaffolds that you can see. This cannot refund more than a maneuver's total exertion cost. Otherwise, recover one point of exertion.",
+            "For the remainder of combat, attacks made while perched deal additional damage equal to half your level (rounded up)."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Prepared Positions",
+      "source": "sns",
+      "className": "Ranger",
+      "classSource": "sns",
+      "subclassShortName": "Perchwright",
+      "subclassSource": "sns",
+      "level": 3,
+      "header": 2,
+      "entries": [
+        "From tier 2, whenever you roll for initiative, you can immediately assemble a scaffold with your {@subclassFeature Scaffolding|Ranger|sns|Perchwright|sns|1} feature and climb to its top. If you were already perched, make your initiative check with advantage."
+      ]
+    },
+    {
+      "name": "Flying Fox",
+      "source": "sns",
+      "className": "Ranger",
+      "classSource": "sns",
+      "subclassShortName": "Perchwright",
+      "subclassSource": "sns",
+      "level": 3,
+      "header": 2,
+      "entries": [
+        "At tier 2, you string lines between heights, grappling and swinging between them with ease. While perched or atop the edge of a raised platform, such as a clifftop, you can move directly to the top of another such platform within 30 feet of you, so long as that platform is of equal or lower elevation than the one you are currently on. This movement costs half as much movement as walking the same distance."
+      ]
+    },
+    {
+      "name": "Deadly Vantage",
+      "source": "sns",
+      "className": "Ranger",
+      "classSource": "sns",
+      "subclassShortName": "Perchwright",
+      "subclassSource": "sns",
+      "level": 5,
+      "header": 2,
+      "entries": [
+        "At tier 3, attacking from above lets you find the gaps in a target's guard. The critical success range of your damaging ranged attacks increases by 1 while you have height advantage against your target, and by an additional 1 while you are also perched at least 10 feet above your target."
+      ]
+    },
+    {
+      "name": "Unassailable Perch",
+      "source": "sns",
+      "className": "Ranger",
+      "classSource": "sns",
+      "subclassShortName": "Perchwright",
+      "subclassSource": "sns",
+      "level": 7,
+      "header": 2,
+      "entries": [
+        "From tier 4, whenever you take damage from an attack made by a creature that you have height advantage against, you reduce the damage by an amount equal to your Wisdom modifier."
+      ]
+    },
+    {
+      "name": "King of the Hill",
+      "source": "sns",
+      "className": "Ranger",
+      "classSource": "sns",
+      "subclassShortName": "Perchwright",
+      "subclassSource": "sns",
+      "level": 9,
+      "header": 2,
+      "entries": [
+        "At tier 5, whenever a creature starts climbing a scaffold you are perched on, you can use your reaction to make a ranged weapon attack against it. Additionally, whenever a creature damages a scaffold you are perched on, you may use a reaction to {@classFeature Expose Weakness|Ranger|sns|1|sns|Expose} that creature."
+      ]
+    },
+    {
+      "name": "Commanding Vantage",
+      "source": "sns",
+      "className": "Ranger",
+      "classSource": "sns",
+      "subclassShortName": "Perchwright",
+      "subclassSource": "sns",
+      "level": 9,
+      "header": 2,
+      "entries": [
+        "At tier 5, any height becomes yours to command. While you are perched, you have height advantage against a creature whenever any part of your body is vertically higher than any part of that creature's body."
+      ]
+    }
+  ]
+}

@@ -33,7 +33,7 @@
               "from": [
                 "athletics",
                 "brawn",
-                "engineering",
+                "magiscience",
                 "insight",
                 "investigation",
                 "nature",
@@ -1342,7 +1342,7 @@
       "classSource": "sns",
       "level": 7,
       "entries": [
-        "At 7th level, you can choose one additional exposure application option from your Expose Weakness feature."
+        "At 7th level, you can choose one additional exposure application option from your {@classFeature Expose Weakness|Ranger|sns|1|sns} feature."
       ]
     },
     {
@@ -1373,7 +1373,7 @@
       "classSource": "sns",
       "level": 9,
       "entries": [
-        "At 9th level, choose one of the following improvements to a Stride and Seek feature you have.",
+        "At 9th level, choose one of the following improvements to a {@classFeature Stride and Seek|Ranger|sns|2|sns} feature you have.",
         {
           "type": "entries",
           "name": "Hunter's Target",
