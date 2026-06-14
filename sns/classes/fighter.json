@@ -442,7 +442,7 @@
           "type": "entries",
           "name": "Closed Helm",
           "entries": [
-            "You have great control over your emotions; your face is an unmoving mask, revealing nothing of what you're thinking. Creatures have disadvantage on {@skill Insight} checks made against you. This grants you advantage with the Gossip journey activity when using {@skill Deception}, but disadvantage with the Pray journey activity when using {@skill Persuasion}. In addition, you subtract {@dice 1d4} from the attack rolls of attacks that can {@condition charmed|sns|charm} or {@condition frightened|sns|frighten} you."
+            "You have great control over your emotions; your face is an unmoving mask, revealing nothing of what you're thinking. Creatures have disadvantage on {@skill Insight} checks made against you. This grants you advantage with the Gossip journey activity when using {@skill Deception}, but disadvantage with the Pray journey activity when using {@skill Persuasion}. In addition, you subtract {@dice 1d4} from the attack rolls of attacks that can {@condition charmed|charm} or {@condition frightened|frighten} you."
           ]
         },
         {
@@ -711,21 +711,21 @@
                   "type": "item",
                   "name": "Minor success",
                   "entries": [
-                    "The target is {@condition sluggish|sns} when moving towards you for 1 round."
+                    "The target is {@condition sluggish} when moving towards you for 1 round."
                   ]
                 },
                 {
                   "type": "item",
                   "name": "Standard success",
                   "entries": [
-                    "The target is {@condition frightened|sns} for 1 minute, or until it succeeds on a passive save."
+                    "The target is {@condition frightened} for 1 minute, or until it succeeds on a passive save."
                   ]
                 },
                 {
                   "type": "item",
                   "name": "Critical success",
                   "entries": [
-                    "As standard success, but the target is also {@condition debilitated|sns}."
+                    "As standard success, but the target is also {@condition debilitated}."
                   ]
                 }
               ]
@@ -761,8 +761,8 @@
           "name": "Carouser",
           "entries": [
             "You cope through drink and revelry, and have mastered both. You can gain the benefits of a long rest by spending 4 hours drinking, carousing, and taking the occasional blackout nap. You can carouse in this way so long as you consume at least 4 pints worth of ale (or equivalent drink), and you are alert and aware of your surroundings while doing so. If you carouse with another creature in this way, you can attempt to learn secrets from it by drinking it under the table. Each hour you spend carousing with a willing creature, make an opposed {@dice d20} roll, adding your fortitudes. On a success, that creature answers a question truthfully (even questions it would not normally answer).",
-            "In addition, you can enjoy alcohol as normal but can't gain the {@condition poisoned|sns} condition from it.",
-            "This feature has no effect on creatures that are immune to the {@condition poisoned|sns} condition."
+            "In addition, you can enjoy alcohol as normal but can't gain the {@condition poisoned} condition from it.",
+            "This feature has no effect on creatures that are immune to the {@condition poisoned} condition."
           ]
         },
         {
@@ -804,7 +804,7 @@
           "name": "Finishing Blow",
           "entries": [
             "You can make spectacular, devastating attacks which inspire awe in those nearby. When you fail to hit with a weapon attack while taking the Attack action, you can choose to score a standard success instead. Alternatively, you can choose to change a standard or major success with a weapon attack into a critical success, or when you score a critical success you can choose to double your critical damage bonus.",
-            "If the Finishing Blow's original outcome was a major success, all hostile creatures who see the Finishing Blow become {@condition frightened|sns} for 1 minute.",
+            "If the Finishing Blow's original outcome was a major success, all hostile creatures who see the Finishing Blow become {@condition frightened} for 1 minute.",
             "Once you use this feature, you can't use it again until you finish a short or long rest."
           ]
         }
@@ -889,7 +889,7 @@
         "SK"
       ],
       "entries": [
-        "A steady stance and careful footwork is instinctive to you. You have advantage on any check or save to avoid falling {@condition prone|sns} or handle difficult ground (such as against a {@spell grease|sns} spell or slippery ice), and any non-armour attacks against you attempting to do similar things to you have disadvantage. You are never {@condition prone|sns} after taking fall damage, and when calculating fall damage you treat the fall distance as if it were shorter by a number of feet equal to your proficiency bonus x 10."
+        "A steady stance and careful footwork is instinctive to you. You have advantage on any check or save to avoid falling {@condition prone} or handle difficult ground (such as against a {@spell grease|sns} spell or slippery ice), and any non-armour attacks against you attempting to do similar things to you have disadvantage. You are never {@condition prone} after taking fall damage, and when calculating fall damage you treat the fall distance as if it were shorter by a number of feet equal to your proficiency bonus x 10."
       ]
     },
     {

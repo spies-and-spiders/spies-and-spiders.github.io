@@ -117,7 +117,7 @@
       "level": 9,
       "header": 2,
       "entries": [
-        "At tier 5, you are able to move through the world as lightly as the ghosts you emulate. You gain a fly speed equal to half your Speed and the ability to hover, and also gain an expertise die on all {@skill Finesse} and {@skill Stealth} checks. You are also immune to the {@condition poisoned|sns} condition."
+        "At tier 5, you are able to move through the world as lightly as the ghosts you emulate. You gain a fly speed equal to half your Speed and the ability to hover, and also gain an expertise die on all {@skill Finesse} and {@skill Stealth} checks. You are also immune to the {@condition poisoned} condition."
       ]
     }
   ]

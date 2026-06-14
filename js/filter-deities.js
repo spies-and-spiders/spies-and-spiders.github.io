@@ -28,7 +28,7 @@ class PageFilterDeities extends PageFilterBase {
 		});
 		this._miscFilter = new Filter({
 			header: "Miscellaneous",
-			items: ["Grants Piety Features", "Has Info", "Has Images", "Reprinted", "Legacy"],
+			items: ["Grants Piety Features", "Has Info", "Has Images", "Reprinted"],
 			displayFn: StrUtil.uppercaseFirst,
 			isMiscFilter: true,
 			deselFn: PageFilterBase.defaultMiscellaneousDeselFn.bind(PageFilterBase),

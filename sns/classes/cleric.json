@@ -689,7 +689,7 @@
                   "type": "item",
                   "name": "Minor success",
                   "entries": [
-                    "The target is {@condition sluggish|sns} when moving towards you for 1 round."
+                    "The target is {@condition sluggish} when moving towards you for 1 round."
                   ]
                 },
                 {
@@ -785,7 +785,7 @@
           "type": "entries",
           "name": "Chaste",
           "entries": [
-            "In exchange for forgoing pleasures of the heart and flesh, you are hardened to the {@skill persuasion}s of others. Subtract your Wisdom modifier from any attack rolls made against you that can {@condition charmed|sns|charm}. You also gain an expertise die in your choice of {@skill History}, {@skill Insight}, or {@skill Persuasion} checks."
+            "In exchange for forgoing pleasures of the heart and flesh, you are hardened to the {@skill persuasion}s of others. Subtract your Wisdom modifier from any attack rolls made against you that can {@condition charmed|charm}. You also gain an expertise die in your choice of {@skill History}, {@skill Insight}, or {@skill Persuasion} checks."
           ]
         },
         {
@@ -799,21 +799,21 @@
           "type": "entries",
           "name": "Devotional Integrity",
           "entries": [
-            "You adhere to a strict code of morality and ethics. When an action you take is honest and non-violent, until the end of your turn you are immune to the {@condition rattled|sns} condition and you do not suffer disadvantage or penalties on Intelligence, Wisdom, or Charisma checks made as part of that action."
+            "You adhere to a strict code of morality and ethics. When an action you take is honest and non-violent, until the end of your turn you are immune to the {@condition rattled} condition and you do not suffer disadvantage or penalties on Intelligence, Wisdom, or Charisma checks made as part of that action."
           ]
         },
         {
           "type": "entries",
           "name": "Image of the Divine",
           "entries": [
-            "You exhibit a uniform, makeup, tattoo, or body modification indicating your higher entity or religious order. Creatures have advantage when discerning your religious identity. Attacks that can {@condition frightened|sns|frighten} and {@skill Intimidation} checks made against you have disadvantage. You also gain an expertise die in your choice of {@skill Insight}, {@skill Intimidation}, or {@skill Persuasion} checks."
+            "You exhibit a uniform, makeup, tattoo, or body modification indicating your higher entity or religious order. Creatures have advantage when discerning your religious identity. Attacks that can {@condition frightened|frighten} and {@skill Intimidation} checks made against you have disadvantage. You also gain an expertise die in your choice of {@skill Insight}, {@skill Intimidation}, or {@skill Persuasion} checks."
           ]
         },
         {
           "type": "entries",
           "name": "Merciful",
           "entries": [
-            "In exchange for forgoing bloodshed - torture, attacking {@condition unconscious|sns} creatures, and intentionally dealing lethal wounds to creatures you reduce to 0 hit points - you are yourself granted mercy. While you have at least two failed death saves, you have advantage on death saves."
+            "In exchange for forgoing bloodshed - torture, attacking {@condition unconscious} creatures, and intentionally dealing lethal wounds to creatures you reduce to 0 hit points - you are yourself granted mercy. While you have at least two failed death saves, you have advantage on death saves."
           ]
         },
         {
@@ -957,7 +957,7 @@
           "type": "entries",
           "name": "Command Undead",
           "entries": [
-            "If you choose, creatures you turn instead regard you as their master for the duration. While they are under this effect, you may use your action to issue simple commands (no more than a sentence or two) which they are compelled to obey. They will not take any action that is obviously harmful to them, and so will not leap from a great height, jump onto a sword, or purposefully self-inflict any damage. They follow the command until you issue a new one. During combat, this simply counts as the target being {@condition dominated|sns}."
+            "If you choose, creatures you turn instead regard you as their master for the duration. While they are under this effect, you may use your action to issue simple commands (no more than a sentence or two) which they are compelled to obey. They will not take any action that is obviously harmful to them, and so will not leap from a great height, jump onto a sword, or purposefully self-inflict any damage. They follow the command until you issue a new one. During combat, this simply counts as the target being {@condition dominated}."
           ]
         },
         {
@@ -1108,7 +1108,7 @@
           "name": "Channel Negative Energy",
           "entries": [
             "You can use an action to evoke baleful energy from the Lower Planes to harm creatures. You choose the creatures. Make a will attack against each creature that deals {@dice 5d12} force damage and {@dice 5d12} necrotic damage.",
-            "When you use this feature, you also choose one of the following conditions: {@condition blinded|sns}, {@condition confused|sns}, {@condition deafened|sns}, {@condition frightened|sns}, {@condition poisoned|sns}, {@condition rattled|sns}, or {@condition slowed|sns}. A creature hit by the attack also gains the chosen condition until it passes a passive save.",
+            "When you use this feature, you also choose one of the following conditions: {@condition blinded}, {@condition confused}, {@condition deafened}, {@condition frightened}, {@condition poisoned}, {@condition rattled}, or {@condition slowed}. A creature hit by the attack also gains the chosen condition until it passes a passive save.",
             "In addition, you can choose any number of creatures that have the Evil alignment trait. Each regains {@dice 5d10} hit points."
           ]
         },
@@ -1117,7 +1117,7 @@
           "name": "Channel Positive Energy",
           "entries": [
             "You can use an action to evoke energy from the Upper Planes to heal creatures you are able to see. You choose the creatures and divide 225 hit points of healing among them.",
-            "A creature that regains hit points from this feature is also healed of one level of {@condition fatigue|sns} and one level of {@condition strife|sns}, and if it is {@condition blinded|sns}, {@condition charmed|sns}, {@condition confused|sns}, {@condition deafened|sns}, {@condition doomed|sns}, {@condition frightened|sns}, {@condition staggered|sns}, {@condition poisoned|sns}, {@condition rattled|sns}, {@condition slowed|sns}, or {@condition debilitated|sns} those conditions end on it. This feature cannot be used on undead or constructs."
+            "A creature that regains hit points from this feature is also healed of one level of {@condition fatigue} and one level of {@condition strife}, and if it is {@condition blinded}, {@condition charmed}, {@condition confused}, {@condition deafened}, {@condition doomed}, {@condition frightened}, {@condition staggered}, {@condition poisoned}, {@condition rattled}, {@condition slowed}, or {@condition debilitated} those conditions end on it. This feature cannot be used on undead or constructs."
           ]
         }
       ]
@@ -1171,7 +1171,7 @@
         "SF"
       ],
       "entries": [
-        "Your greater entity acts as a buffer to shield you from hardship or your religious self-discipline sustains you even during harsh times, preventing the first level of {@condition fatigue|sns} you would take each day."
+        "Your greater entity acts as a buffer to shield you from hardship or your religious self-discipline sustains you even during harsh times, preventing the first level of {@condition fatigue} you would take each day."
       ]
     },
     {
@@ -1229,7 +1229,7 @@
         "SF"
       ],
       "entries": [
-        "Your divinely-inspired counsel and wise advice can calm troubled minds. You may reduce one ally's {@condition strife|sns} by one level. Once you use this feature, you cannot do so again until you finish a long rest."
+        "Your divinely-inspired counsel and wise advice can calm troubled minds. You may reduce one ally's {@condition strife} by one level. Once you use this feature, you cannot do so again until you finish a long rest."
       ]
     },
     {

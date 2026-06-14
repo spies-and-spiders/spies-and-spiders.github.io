@@ -44,7 +44,7 @@
       "subclassSource": "sns",
       "level": 1,
       "entries": [
-        "Starting when you choose this subclass at tier 1, you can go into a frenzy when you rage. If you do so, for the duration of your rage you can use a bonus action to add your weapon's base damage to the next melee weapon armour attack you make before the end of your turn. When your frenzied rage ends, you suffer one level of {@condition fatigue|sns}."
+        "Starting when you choose this subclass at tier 1, you can go into a frenzy when you rage. If you do so, for the duration of your rage you can use a bonus action to add your weapon's base damage to the next melee weapon armour attack you make before the end of your turn. When your frenzied rage ends, you suffer one level of {@condition fatigue}."
       ]
     },
     {
@@ -76,7 +76,7 @@
       "level": 3,
       "header": 2,
       "entries": [
-        "Beginning at tier 2, you can't be {@condition charmed|sns} or {@condition frightened|sns} while raging. If you are {@condition charmed|sns} or {@condition frightened|sns} when you enter your rage, the effect is suspended for the duration of the rage."
+        "Beginning at tier 2, you can't be {@condition charmed} or {@condition frightened} while raging. If you are {@condition charmed} or {@condition frightened} when you enter your rage, the effect is suspended for the duration of the rage."
       ]
     },
     {
@@ -117,7 +117,7 @@
               "type": "item",
               "name": "Standard success",
               "entries": [
-                "The target is {@condition frightened|sns} of you until the end of your next turn. On subsequent turns, you can use your action to extend the duration of this effect on the {@condition frightened|sns} creature until the end of your next turn. This effect ends if the creatures ends its turn out of line of sight or more than 60 feet away from you."
+                "The target is {@condition frightened} of you until the end of your next turn. On subsequent turns, you can use your action to extend the duration of this effect on the {@condition frightened} creature until the end of your next turn. This effect ends if the creatures ends its turn out of line of sight or more than 60 feet away from you."
               ]
             },
             {

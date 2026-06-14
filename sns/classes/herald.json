@@ -699,14 +699,14 @@
           "type": "entries",
           "name": "Marking Smite",
           "entries": [
-            "Your smite causes the target to shed bright light for 5 feet, and dim light for an additional 5 feet. The effect lasts for up to 1 minute, or until you target another creature with a weapon attack. As long as the effect lasts, the target gains no benefit from {@condition invisible|sns|invisibility} and has disadvantage on checks made to hide."
+            "Your smite causes the target to shed bright light for 5 feet, and dim light for an additional 5 feet. The effect lasts for up to 1 minute, or until you target another creature with a weapon attack. As long as the effect lasts, the target gains no benefit from {@condition invisible|invisibility} and has disadvantage on checks made to hide."
           ]
         },
         {
           "type": "entries",
           "name": "Repelling Smite",
           "entries": [
-            "Your smite instead deals force damage, and if the triggering attack scored a major success, the target is pushed back 10 feet and knocked {@condition prone|sns}. On a standard success, the target is knocked back only 5 feet and is not knocked {@condition prone|sns}."
+            "Your smite instead deals force damage, and if the triggering attack scored a major success, the target is pushed back 10 feet and knocked {@condition prone}. On a standard success, the target is knocked back only 5 feet and is not knocked {@condition prone}."
           ]
         }
       ]
@@ -807,7 +807,7 @@
           "type": "entries",
           "name": "Aura of Courage",
           "entries": [
-            "You and creatures of your choice within range cannot be {@condition frightened|sns}."
+            "You and creatures of your choice within range cannot be {@condition frightened}."
           ]
         },
         {
@@ -821,7 +821,7 @@
           "type": "entries",
           "name": "Aura of Willpower",
           "entries": [
-            "You and creatures of your choice within range cannot be {@condition charmed|sns}."
+            "You and creatures of your choice within range cannot be {@condition charmed}."
           ]
         }
       ]
@@ -848,7 +848,7 @@
           "type": "entries",
           "name": "Blinding Smite",
           "entries": [
-            "If the triggering attack scored a major success, the target is {@condition blinded|sns} for 1 minute, or until it passes a passive save."
+            "If the triggering attack scored a major success, the target is {@condition blinded} for 1 minute, or until it passes a passive save."
           ]
         },
         {

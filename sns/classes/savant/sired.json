@@ -118,7 +118,7 @@
           "type": "list",
           "items": [
             "You have 50% resistance to necrotic damage.",
-            "Whenever you would become {@condition charmed|sns} or {@condition frightened|sns}, make a save, ignoring the condition on a success.",
+            "Whenever you would become {@condition charmed} or {@condition frightened}, make a save, ignoring the condition on a success.",
             "Whenever you would drop to 0 hit points, make a disadvantaged save, remaining at 1 hit point instead on a success."
           ]
         }

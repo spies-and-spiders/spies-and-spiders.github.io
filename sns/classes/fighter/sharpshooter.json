@@ -75,7 +75,7 @@
         {
           "type": "list",
           "items": [
-            "Aim for the Eyes: You aim for the creature's weak and delicate eyes. If the Focus Shot scores a major success, the target is {@condition blinded|sns} until it recovers.",
+            "Aim for the Eyes: You aim for the creature's weak and delicate eyes. If the Focus Shot scores a major success, the target is {@condition blinded} until it recovers.",
             "Bring it Down: You aim for weak points on the creature's legs. If the Focus Shot scores a major success, its Speed is reduced by half until it recovers.",
             "Center of Mass: You aim for the heart or its horrid equivalent. Your Focus Shot's critical success range increases by 1.",
             "Vein Slice: You aim for a vital vein or artery to bleed your target out. If the Focus Shot scores a major success, the target suffers {@dice 1d6} ongoing harm of your weapon's base type until it recovers.",

@@ -769,21 +769,21 @@
           "type": "entries",
           "name": "Awe and Wonder",
           "entries": [
-            "Choose one creature affected by the spell. It must succeed on a save or be {@condition charmed|sns} by you until the end of its next turn. While charmed in this way, it is {@condition unconscious|sns}, has a movement speed of 0, and does nothing but stare blankly at the dazzling effects of your magic. This unconscious effect ends if the target is attacked. Additionally, if the unconscious effect ends, so does the charm."
+            "Choose one creature affected by the spell. It must succeed on a save or be {@condition charmed} by you until the end of its next turn. While charmed in this way, it is {@condition unconscious}, has a movement speed of 0, and does nothing but stare blankly at the dazzling effects of your magic. This unconscious effect ends if the target is attacked. Additionally, if the unconscious effect ends, so does the charm."
           ]
         },
         {
           "type": "entries",
           "name": "Terror",
           "entries": [
-            "Choose one creature within 30 feet that can see you when you cast the spell. It must succeed on a save or become {@condition frightened|sns} of you until the end of its next turn. While frightened in this way, it starts its turn by using a free action to move its full speed (without consuming movement) to get away from you in the most direct manner possible, avoiding obvious hazards along the way."
+            "Choose one creature within 30 feet that can see you when you cast the spell. It must succeed on a save or become {@condition frightened} of you until the end of its next turn. While frightened in this way, it starts its turn by using a free action to move its full speed (without consuming movement) to get away from you in the most direct manner possible, avoiding obvious hazards along the way."
           ]
         },
         {
           "type": "entries",
           "name": "Brilliance",
           "entries": [
-            "Choose one creature within 30 feet that can see you when you cast the spell. It must succeed on a save or be {@condition blinded|sns} until the end of its next turn."
+            "Choose one creature within 30 feet that can see you when you cast the spell. It must succeed on a save or be {@condition blinded} until the end of its next turn."
           ]
         },
         {
@@ -895,7 +895,7 @@
           "type": "entries",
           "name": "Magesight",
           "entries": [
-            "Your eyes become attuned to the supernatural. You cannot be {@condition blinded|sns}, and you can see normally in darkness, both magical and non-magical, to a distance of 120 feet.",
+            "Your eyes become attuned to the supernatural. You cannot be {@condition blinded}, and you can see normally in darkness, both magical and non-magical, to a distance of 120 feet.",
             "When you can see a creature cast a spell you instinctively know what spell is being cast before the casting is complete. This does not tell you what level spell slot is being used to cast the spell."
           ]
         },
@@ -1036,7 +1036,7 @@
           "items": [
             "You transmute a small piece of string in your hands into a sturdy 30-foot long rope. For the duration, it functions as a regular hempen rope.",
             "Using the heads side of a coin like a lens, you can hold the coin over one of your closed eyes and see through it. While looking through the coin in this way, you gain darkvision to a range of 30 feet. The coin's darkvision effect ends when the spell ends.",
-            "A pebble you touch becomes a sensor that you can use to see through. For the duration as long as you are within 10 feet of the pebble, you can use an action to see through the pebble to a range of 30 feet. While seeing through the pebble, you are {@condition blinded|sns} and {@condition deafened|sns} with regard to your own senses.",
+            "A pebble you touch becomes a sensor that you can use to see through. For the duration as long as you are within 10 feet of the pebble, you can use an action to see through the pebble to a range of 30 feet. While seeing through the pebble, you are {@condition blinded} and {@condition deafened} with regard to your own senses.",
             "On a piece of parchment or paper, you can create an exact copy of another piece of parchment or paper, including any writing, drawings, or other markings that appear on the original. The paper does not change size to accommodate any differences in size between the two. The copy you create lasts for the duration of this spell, and disappears when the spell ends."
           ]
         }

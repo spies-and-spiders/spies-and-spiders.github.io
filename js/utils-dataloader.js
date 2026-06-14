@@ -1268,9 +1268,6 @@ class _DataTypeLoaderCustomClassesSubclass extends _DataTypeLoaderCustomRawable 
 				// Skip over broken links
 				if (fnIsInvalidUnpackedUid(unpackedUid)) return;
 
-				// Skip over temp/nonexistent links
-				if (source === Parser.SRC_5ETOOLS_TMP) return;
-
 				const hash = UrlUtil.URL_TO_HASH_BUILDER[propFeature](unpackedUid);
 
 				// Skip blocklisted

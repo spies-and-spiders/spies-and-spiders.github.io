@@ -88,28 +88,12 @@ class SearchPage {
 			text: "Homebrew",
 		});
 
-		const $btnToggleUa = this._render_$getBtnToggleFilter({
-			propOmnisearch: "isShowUa",
-			fnAddHookOmnisearch: "addHookUa",
-			fnDoToggleOmnisearch: "doToggleUa",
-			title: "Include Unearthed Arcana and other unofficial source results",
-			text: "UA/Etc.",
-		});
-
 		const $btnToggleBlocklisted = this._render_$getBtnToggleFilter({
 			propOmnisearch: "isShowBlocklisted",
 			fnAddHookOmnisearch: "addHookBlocklisted",
 			fnDoToggleOmnisearch: "doToggleBlocklisted",
 			title: "Include blocklisted content results",
 			text: "Blocklisted",
-		});
-
-		const $btnToggleLegacy = this._render_$getBtnToggleFilter({
-			propOmnisearch: "isShowLegacy",
-			fnAddHookOmnisearch: "addHookLegacy",
-			fnDoToggleOmnisearch: "doToggleLegacy",
-			title: "Include legacy content results",
-			text: "Legacy",
 		});
 
 		const $btnToggleSrd = this._render_$getBtnToggleFilter({
@@ -148,11 +132,9 @@ class SearchPage {
 					<div class="ve-flex-v-center ve-btn-group mr-2 mobile__mb-2 mobile__mr-0">
 						${$btnTogglePartnered}
 						${$btnToggleBrew}
-						${$btnToggleUa}
 					</div>
 					<div class="ve-flex-v-center ve-btn-group mr-2 mobile__mb-2 mobile__mr-0">
 						${$btnToggleBlocklisted}
-						${$btnToggleLegacy}
 					</div>
 					<div class="ve-flex-v-center mr-2 mobile__mb-2 mobile__mr-0">
 						${$btnToggleSrd}

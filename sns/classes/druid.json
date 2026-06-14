@@ -814,7 +814,7 @@
           "type": "entries",
           "name": "Toxin Intuition",
           "entries": [
-            "You are a veteran of nature's chemical warefare. You automatically know if any flora or fauna is poisonous or venomous. In addition, you gain advantage on checks made to determine if a foodstuff is poisonous and non-armour attacks that deal poison damage or cause the {@condition poisoned|sns} condition have disadvantage against you."
+            "You are a veteran of nature's chemical warefare. You automatically know if any flora or fauna is poisonous or venomous. In addition, you gain advantage on checks made to determine if a foodstuff is poisonous and non-armour attacks that deal poison damage or cause the {@condition poisoned} condition have disadvantage against you."
           ]
         },
         {
@@ -919,7 +919,7 @@
               "type": "item",
               "name": "Air",
               "entries": [
-                "Each creature within 20 feet of that point must make a save. On a failure, a target suffers bludgeoning harm equal to {@dice 3d8} + your Wisdom modifier and is flung up to 20 feet away from the target point in a random direction and knocked {@condition prone|sns}. If a thrown target strikes an object, such as a wall or floor, the target suffers {@dice 1d8} bludgeoning harm. If the target is thrown at another creature, that creature must succeed on a save or suffer the same damage and be knocked {@condition prone|sns}. If the save is successful, the target suffers half the bludgeoning harm and isn't flung away or knocked {@condition prone|sns}.",
+                "Each creature within 20 feet of that point must make a save. On a failure, a target suffers bludgeoning harm equal to {@dice 3d8} + your Wisdom modifier and is flung up to 20 feet away from the target point in a random direction and knocked {@condition prone}. If a thrown target strikes an object, such as a wall or floor, the target suffers {@dice 1d8} bludgeoning harm. If the target is thrown at another creature, that creature must succeed on a save or suffer the same damage and be knocked {@condition prone}. If the save is successful, the target suffers half the bludgeoning harm and isn't flung away or knocked {@condition prone}.",
                 "In addition, all ranged armour attacks within 30 feet of the target point have disadvantage until the beginning of your next turn."
               ]
             },
@@ -927,7 +927,7 @@
               "type": "item",
               "name": "Earth",
               "entries": [
-                "Clumps of dirt and stone explode outward. Creatures within 10 feet of the target point suffer {@dice 4d8} bludgeoning harm and are knocked {@condition prone|sns}. A creature that makes and passes a save suffers half the harm and is not knocked {@condition prone|sns}."
+                "Clumps of dirt and stone explode outward. Creatures within 10 feet of the target point suffer {@dice 4d8} bludgeoning harm and are knocked {@condition prone}. A creature that makes and passes a save suffers half the harm and is not knocked {@condition prone}."
               ]
             },
             {
@@ -992,7 +992,7 @@
         "SN"
       ],
       "entries": [
-        "You've grown accustomed to the echoing solitude to vast caverns. You always know the actual direction of any sound you hear regardless of any echoes. In addition, while you are in complete darkness and not {@condition deafened|sns} you gain blindsight out to a range of 15 feet."
+        "You've grown accustomed to the echoing solitude to vast caverns. You always know the actual direction of any sound you hear regardless of any echoes. In addition, while you are in complete darkness and not {@condition deafened} you gain blindsight out to a range of 15 feet."
       ]
     },
     {
@@ -1211,11 +1211,11 @@
         "poison"
       ],
       "conditionImmune": [
-        "fatigue|sns",
-        "staggered|sns",
-        "poisoned|sns",
-        "strife|sns",
-        "unconscious|sns"
+        "fatigue",
+        "staggered",
+        "poisoned",
+        "strife",
+        "unconscious"
       ],
       "senses": [
         "darkvision 60 ft.",
@@ -1244,7 +1244,7 @@
           "type": "entries",
           "name": "Insubstantial (Air and Fire Only)",
           "entries": [
-            "You cannot be {@condition grappled|sns}, knocked {@condition prone|sns}, or {@condition restrained|sns}."
+            "You cannot be {@condition grappled}, knocked {@condition prone}, or {@condition restrained}."
           ]
         }
       ],

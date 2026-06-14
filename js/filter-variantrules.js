@@ -10,7 +10,7 @@ class PageFilterVariantRules extends PageFilterBase {
 		this._ruleTypeFilter = new Filter({header: "Rule Type", items: ["O", "V", "VO", "VV", "U"], displayFn: Parser.ruleTypeToFull});
 		this._miscFilter = new Filter({
 			header: "Miscellaneous",
-			items: ["Legacy"],
+			items: [],
 			isMiscFilter: true,
 			deselFn: PageFilterBase.defaultMiscellaneousDeselFn.bind(PageFilterBase),
 		});

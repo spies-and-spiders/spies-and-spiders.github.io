@@ -216,7 +216,7 @@
       "level": 7,
       "header": 2,
       "entries": [
-        "Starting at tier 4, a holy presence mends your wounds in combat. You regain hit points equal to 1d6 + your paladin level if you end your turn in combat with fewer than half of your hit points remaining and you aren't {@condition incapacitated|sns}.",
+        "Starting at tier 4, a holy presence mends your wounds in combat. You regain hit points equal to 1d6 + your paladin level if you end your turn in combat with fewer than half of your hit points remaining and you aren't {@condition incapacitated}.",
         "Additionally, the range of your Aura of the Guardian increases to 30 feet."
       ]
     },

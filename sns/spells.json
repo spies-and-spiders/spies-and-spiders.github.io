@@ -720,14 +720,14 @@
               "type": "item",
               "name": "Standard success",
               "entries": [
-                "Until the spell ends or one of your companions hurts it (whichever is sooner), the target is {@condition charmed|sns}."
+                "Until the spell ends or one of your companions hurts it (whichever is sooner), the target is {@condition charmed}."
               ]
             },
             {
               "type": "item",
               "name": "Critical success",
               "entries": [
-                "As standard success, but the target is also {@condition dominated|sns}."
+                "As standard success, but the target is also {@condition dominated}."
               ]
             }
           ]
@@ -1329,7 +1329,7 @@
               "type": "item",
               "name": "Antipathy",
               "entries": [
-                "When a designated creature can see the target or comes within 60 feet of it, the creature makes a save, becoming {@condition frightened|sns} of the target on a fail. While {@condition frightened|sns} the creature must use half its movement to move away from the target to the nearest safe spot from which it can no longer see the target. If the creature moves more than 60 feet from the target and can no longer see it, the creature is no longer {@condition frightened|sns}, but the creature becomes {@condition frightened|sns} again if it regains sight of the target or moves within 60 feet of it."
+                "When a designated creature can see the target or comes within 60 feet of it, the creature makes a save, becoming {@condition frightened} of the target on a fail. While {@condition frightened} the creature must use half its movement to move away from the target to the nearest safe spot from which it can no longer see the target. If the creature moves more than 60 feet from the target and can no longer see it, the creature is no longer {@condition frightened}, but the creature becomes {@condition frightened} again if it regains sight of the target or moves within 60 feet of it."
               ]
             },
             {
@@ -1502,7 +1502,7 @@
               "type": "item",
               "name": "Snatch",
               "entries": [
-                "The hand makes a save to try and grab a creature adjacent to it, with advantage if the creature is Medium or smaller. On a success, the creature is {@condition grappled|sns} by the hand. You can use a bonus action to crush a creature {@condition grappled|sns} by the hand, causing bludgeoning harm equal to {@dice 2d6} + your spellcasting ability modifier."
+                "The hand makes a save to try and grab a creature adjacent to it, with advantage if the creature is Medium or smaller. On a success, the creature is {@condition grappled} by the hand. You can use a bonus action to crush a creature {@condition grappled} by the hand, causing bludgeoning harm equal to {@dice 2d6} + your spellcasting ability modifier."
               ]
             },
             {
@@ -1816,7 +1816,7 @@
           "type": "entries",
           "name": "Rare",
           "entries": [
-            "Kreven's Bloody Arcane Sword. The spell's harm is reduced to {@dice 2d4} and when a creature is harmed by the spell it makes a save or it suffers a level of {@condition fatigue|sns}."
+            "Kreven's Bloody Arcane Sword. The spell's harm is reduced to {@dice 2d4} and when a creature is harmed by the spell it makes a save or it suffers a level of {@condition fatigue}."
           ]
         }
       ],
@@ -2033,7 +2033,7 @@
             "Self and up to 8 willing creatures within reach while not on the Astral Plane"
           ]
         },
-        "Until the spell ends, the targets leave their material bodies ({@condition unconscious|sns} and in a state of suspended animation, not aging or requiring food or air) and project astral forms that resemble their mortal forms in nearly all ways, keeping their game statistics and possessions.",
+        "Until the spell ends, the targets leave their material bodies ({@condition unconscious} and in a state of suspended animation, not aging or requiring food or air) and project astral forms that resemble their mortal forms in nearly all ways, keeping their game statistics and possessions.",
         "While in this astral form you trail a tether, a silvery-white cord that sprouts from between your shoulder blades and fades into immateriality a foot behind you. As long as the tether remains intact you can find your way back to your material body.",
         "When it is cut — which requires an effect specifically stating that it cuts your tether — your soul and body are separated and you immediately die.",
         "Damage against and other effects on your astral form have no effect on your material body either during this spell or after its duration ends. Your astral form travels freely through the Astral Plane and can pass through interplanar portals on the Astral Plane leading to any other plane. When you enter a new plane or return to the plane you were on when casting this spell, your material body and possessions are transported along the tether, allowing you to return fully intact with all your gear as you enter the new plane.",
@@ -2159,7 +2159,7 @@
             "Huge or smaller beast or plant with Intelligence 3 or less."
           ]
         },
-        "You impart sentience in the target, granting it an Intelligence of 10 and proficiency in a language you know. A plant targeted by this spell gains the ability to move, as well as senses identical to those of a human. The DM assigns awakened plant statistics (such as an {@creature awakened shrub|sns} or {@creature awakened tree|sns}). The target is {@condition charmed|sns} for 30 days or until you or your companions hurt it. Depending on how you treated the target while it was {@condition charmed|sns}, when the condition ends the awakened creature may choose to remain friendly to you.",
+        "You impart sentience in the target, granting it an Intelligence of 10 and proficiency in a language you know. A plant targeted by this spell gains the ability to move, as well as senses identical to those of a human. The DM assigns awakened plant statistics (such as an {@creature awakened shrub|sns} or {@creature awakened tree|sns}). The target is {@condition charmed} for 30 days or until you or your companions hurt it. Depending on how you treated the target while it was {@condition charmed}, when the condition ends the awakened creature may choose to remain friendly to you.",
         {
           "type": "entries",
           "name": "Rare",
@@ -2352,14 +2352,14 @@
               "type": "item",
               "name": "Minor success",
               "entries": [
-                "The target is {@condition debilitated|sns} for 1 round."
+                "The target is {@condition debilitated} for 1 round."
               ]
             },
             {
               "type": "item",
               "name": "Standard success",
               "entries": [
-                "Until the spell ends, a target native to your current plane is banished to a harmless demiplane and {@condition dazed|sns}. At the end of the duration the target reappears in the space it left (or the nearest unoccupied space). A target native to a different plane is instead banished to its native plane.",
+                "Until the spell ends, a target native to your current plane is banished to a harmless demiplane and {@condition dazed}. At the end of the duration the target reappears in the space it left (or the nearest unoccupied space). A target native to a different plane is instead banished to its native plane.",
                 "The target can make passive saves to return early, but it has a -1 penalty to these saves for each round it has spent banished. If the spell ends before its maximum duration, the target reappears in the space it left (or the nearest unoccupied space) but otherwise a target native to a different plane doesn't return."
               ]
             },
@@ -2367,7 +2367,7 @@
               "type": "item",
               "name": "Critical success",
               "entries": [
-                "As standard success, but if the target returns early, it is {@condition debilitated|sns} for the remainder of the spell's duration."
+                "As standard success, but if the target returns early, it is {@condition debilitated} for the remainder of the spell's duration."
               ]
             }
           ]
@@ -2691,7 +2691,7 @@
           "items": [
             "Select one ability score; the target has disadvantage on ability checks using that ability score.",
             "The target makes armour attack rolls against you with disadvantage.",
-            "At the start of each of its turns, the target makes a save. On a fail, it is {@condition debilitated|sns} for that turn.",
+            "At the start of each of its turns, the target makes a save. On a fail, it is {@condition debilitated} for that turn.",
             "Your damaging attacks deal an additional 1d8 necrotic damage against the target."
           ],
           "type": "list"
@@ -2780,8 +2780,8 @@
             "20-foot square"
           ]
         },
-        "Writhing black tentacles fill the ground within the area turning it into difficult terrain. The area also becomes a persistent zone that causes {@dice 2d4} bludgeoning harm and forces targets to make a save, becoming {@condition restrained|sns} by the tentacles on a fail. A creature that starts its turn {@condition restrained|sns} by the tentacles suffers {@dice 3d6} bludgeoning harm.",
-        "A {@condition restrained|sns} creature can use its action to make an {@skill Finesse} or {@skill Athletics} check against your standard DC, freeing itself on a success."
+        "Writhing black tentacles fill the ground within the area turning it into difficult terrain. The area also becomes a persistent zone that causes {@dice 2d4} bludgeoning harm and forces targets to make a save, becoming {@condition restrained} by the tentacles on a fail. A creature that starts its turn {@condition restrained} by the tentacles suffers {@dice 3d6} bludgeoning harm.",
+        "A {@condition restrained} creature can use its action to make an {@skill Finesse} or {@skill Athletics} check against your standard DC, freeing itself on a success."
       ],
       "name": "Black Tentacles",
       "time": [
@@ -3107,7 +3107,7 @@
               "type": "item",
               "name": "Standard success",
               "entries": [
-                "Until either the spell ends or the target passes a passive save, the target is {@condition blinded|sns} or {@condition deafened|sns} (your choice)."
+                "Until either the spell ends or the target passes a passive save, the target is {@condition blinded} or {@condition deafened} (your choice)."
               ]
             },
             {
@@ -3672,7 +3672,7 @@
                 "You can choose one of the below effects to apply to the target.",
                 {
                   "items": [
-                    "Suppress the {@condition charmed|sns} and {@condition frightened|sns} conditions, though they resume when the spell ends (time spent suppressed counts against a condition's duration).",
+                    "Suppress the {@condition charmed} and {@condition frightened} conditions, though they resume when the spell ends (time spent suppressed counts against a condition's duration).",
                     "Suppress hostile feelings towards creatures of your choice until the spell ends. This suppression ends if a target is attacked or sees its allies being attacked. Targets act normally when the spell ends. If the target missed at least one turn of combat while suppressed, they immediately take a turn when the spell ends. This does not affect initiative order."
                   ],
                   "type": "list"
@@ -3917,14 +3917,14 @@
               "type": "item",
               "name": "Standard success",
               "entries": [
-                "Until the spell ends, the target is {@condition charmed|sns} and friendly towards you."
+                "Until the spell ends, the target is {@condition charmed} and friendly towards you."
               ]
             },
             {
               "type": "item",
               "name": "Critical success",
               "entries": [
-                "As standard success, but the target is also {@condition dominated|sns}."
+                "As standard success, but the target is also {@condition dominated}."
               ]
             }
           ]
@@ -4032,19 +4032,19 @@
               "type": "item",
               "name": "Standard success",
               "entries": [
-                "Until the spell ends, the target is {@condition charmed|sns} and friendly towards you."
+                "Until the spell ends, the target is {@condition charmed} and friendly towards you."
               ]
             },
             {
               "type": "item",
               "name": "Critical success",
               "entries": [
-                "As standard success, but the target is also {@condition dominated|sns}."
+                "As standard success, but the target is also {@condition dominated}."
               ]
             }
           ]
         },
-        "The spell ends if you or your companions do anything harmful towards the target. The target knows it was {@condition charmed|sns} by you when the spell ends."
+        "The spell ends if you or your companions do anything harmful towards the target. The target knows it was {@condition charmed} by you when the spell ends."
       ],
       "name": "Charm Person",
       "time": [
@@ -4489,7 +4489,7 @@
     {
       "school": "C",
       "entries": [
-        "Until the spell ends, you can use an action to spit venom, making a ranged spell armour attack at a creature or object within 30 feet. The venom deals {@dice 4d8} poison damage and if the target is a creature, it is {@condition poisoned|sns} until the end of its next turn on a hit."
+        "Until the spell ends, you can use an action to spit venom, making a ranged spell armour attack at a creature or object within 30 feet. The venom deals {@dice 4d8} poison damage and if the target is a creature, it is {@condition poisoned} until the end of its next turn on a hit."
       ],
       "name": "Cobra's Spit",
       "time": [
@@ -4577,7 +4577,7 @@
             "15-foot cone"
           ]
         },
-        "A blast of dazzling multicolored light flashes from your hand to cause the target to become {@condition blinded|sns} until the start of your next turn."
+        "A blast of dazzling multicolored light flashes from your hand to cause the target to become {@condition blinded} until the start of your next turn."
       ],
       "name": "Colour Spray",
       "time": [
@@ -4683,10 +4683,10 @@
         },
         "Below are example one-word commands, but at the Narrator's discretion you may give any one-word command.",
         "Approach | Come | Here: At the start of its turn, the target uses its movement to move towards you by the shortest route until it is adjacent to you.",
-        "Bow | Grovel | Kneel: At the start of its turn, the target falls {@condition prone|sns}.",
+        "Bow | Grovel | Kneel: At the start of its turn, the target falls {@condition prone}.",
         "Drop: At the start of its turn, the target drops anything it is holding.",
         "Flee | Run: At the start of its turn, the target uses up to half its movement to move away from you as far as it can.",
-        "Halt: The target is {@condition sluggish|sns}."
+        "Halt: The target is {@condition sluggish}."
       ],
       "name": "Command",
       "time": [
@@ -5054,14 +5054,14 @@
               "type": "item",
               "name": "Minor success",
               "entries": [
-                "The target is {@condition frightened|sns} for 1 round."
+                "The target is {@condition frightened} for 1 round."
               ]
             },
             {
               "type": "item",
               "name": "Standard success",
               "entries": [
-                "The target is {@condition confused|sns} until either the spell ends or they pass a passive save."
+                "The target is {@condition confused} until either the spell ends or they pass a passive save."
               ]
             },
             {
@@ -5569,7 +5569,7 @@
       },
       "school": "D",
       "entries": [
-        "You consult an otherworldly entity, risking your very mind in the process. Make a save. On a fail, you suffer {@dice 6d6} psychic harm and suffer four levels of {@condition strife|sns} until you finish a long rest. A {@spell greater restoration|sns} spell ends this effect. On a successful save, you can ask the entity up to 5 questions before the spell ends. When possible the entity responds with one-word answers: yes, no, maybe, never, irrelevant, or unclear. At the DM's discretion, it may instead provide a brief but truthful answer when necessary."
+        "You consult an otherworldly entity, risking your very mind in the process. Make a save. On a fail, you suffer {@dice 6d6} psychic harm and suffer four levels of {@condition strife} until you finish a long rest. A {@spell greater restoration} spell ends this effect. On a successful save, you can ask the entity up to 5 questions before the spell ends. When possible the entity responds with one-word answers: yes, no, maybe, never, irrelevant, or unclear. At the DM's discretion, it may instead provide a brief but truthful answer when necessary."
       ],
       "name": "Contact Other Plane",
       "time": [
@@ -5665,7 +5665,7 @@
               "type": "item",
               "name": "Blinding Sickness",
               "entries": [
-                "The target's eyes turn milky white. It is {@condition blinded|sns} and has disadvantage on Wisdom checks, and will attacks against it have advantage."
+                "The target's eyes turn milky white. It is {@condition blinded} and has disadvantage on Wisdom checks, and will attacks against it have advantage."
               ]
             },
             {
@@ -5686,21 +5686,21 @@
               "type": "item",
               "name": "Mindfire",
               "entries": [
-                "The target hallucinates. During combat it is {@condition confused|sns}, it has disadvantage on Intelligence checks, and will attacks against it have advantage."
+                "The target hallucinates. During combat it is {@condition confused}, it has disadvantage on Intelligence checks, and will attacks against it have advantage."
               ]
             },
             {
               "type": "item",
               "name": "Rattling Cough",
               "entries": [
-                "The target becomes discombobulated as it hacks with body-wracking coughs. It is {@condition rattled|sns} and has disadvantage on Dexterity checks and attacks governed by Dexterity, and reflex attacks against it have advantage."
+                "The target becomes discombobulated as it hacks with body-wracking coughs. It is {@condition rattled} and has disadvantage on Dexterity checks and attacks governed by Dexterity, and reflex attacks against it have advantage."
               ]
             },
             {
               "type": "item",
               "name": "Slimy Doom",
               "entries": [
-                "The target bleeds uncontrollably. Fortitude attacks against it have advantage. Whenever it takes damage, the target is {@condition debilitated|sns} until the end of its next turn."
+                "The target bleeds uncontrollably. Fortitude attacks against it have advantage. Whenever it takes damage, the target is {@condition debilitated} until the end of its next turn."
               ]
             }
           ]
@@ -6073,7 +6073,7 @@
             "One corpse within range"
           ]
         },
-        "A corpse explodes in a poisonous cloud. Make an area fortitude attack against each creature in a 10-foot radius of the corpse that deals {@dice 2d10} thunder damage. On a hit, a creature is {@condition poisoned|sns} for 1 minute, or until it passes a passive save."
+        "A corpse explodes in a poisonous cloud. Make an area fortitude attack against each creature in a 10-foot radius of the corpse that deals {@dice 2d10} thunder damage. On a hit, a creature is {@condition poisoned} for 1 minute, or until it passes a passive save."
       ],
       "name": "Corpse Explosion",
       "time": [
@@ -6215,7 +6215,7 @@
     {
       "school": "C",
       "entries": [
-        "Your magic creates 3 rations that can each be consumed to remove one level of {@condition fatigue|sns} from the creature that eats it. The food is nourishing but bland. At the end of your next long rest, uneaten rations spoil."
+        "Your magic creates 3 rations that can each be consumed to remove one level of {@condition fatigue} from the creature that eats it. The food is nourishing but bland. At the end of your next long rest, uneaten rations spoil."
       ],
       "name": "Create Food and Water",
       "time": [
@@ -6520,7 +6520,7 @@
     {
       "school": "V",
       "entries": [
-        "Your fist reverberates with destructive energy, and woe betide whatever it strikes. As part of casting the spell, make a melee armour spell attack against an adjacent creature or object that deals {@dice 7d6} thunder damage. On a major success, the target is knocked {@condition prone|sns} and {@condition debilitated|sns} until the end of its next turn. This spell's damage is doubled against objects and structures."
+        "Your fist reverberates with destructive energy, and woe betide whatever it strikes. As part of casting the spell, make a melee armour spell attack against an adjacent creature or object that deals {@dice 7d6} thunder damage. On a major success, the target is knocked {@condition prone} and {@condition debilitated} until the end of its next turn. This spell's damage is doubled against objects and structures."
       ],
       "name": "Crushing Haymaker",
       "time": [
@@ -7872,14 +7872,14 @@
               "type": "item",
               "name": "Mental Resistance",
               "entries": [
-                "Choose up to 3 friendly creatures within 60 feet. Each of those creatures that is {@condition charmed|sns}, {@condition frightened|sns}, or possessed by a celestial, elemental, fey, fiend, or undead may make an immediate save with advantage against the condition or possession, ending it on a success."
+                "Choose up to 3 friendly creatures within 60 feet. Each of those creatures that is {@condition charmed}, {@condition frightened}, or possessed by a celestial, elemental, fey, fiend, or undead may make an immediate save with advantage against the condition or possession, ending it on a success."
               ]
             },
             {
               "type": "item",
               "name": "Retribution",
               "entries": [
-                "Make a melee spell armour attack against a celestial, elemental, fey, fiend, or undead within reach that deals {@dice 7d8} radiant or necrotic damage (your choice). On a hit, the target is {@condition debilitated|sns} until the beginning of your next turn."
+                "Make a melee spell armour attack against a celestial, elemental, fey, fiend, or undead within reach that deals {@dice 7d8} radiant or necrotic damage (your choice). On a hit, the target is {@condition debilitated} until the beginning of your next turn."
               ]
             }
           ]
@@ -8188,9 +8188,9 @@
         "You utter a primordial imprecation that brings woe upon your enemies. A target suffers an effect based on its current hit points.",
         {
           "items": [
-            "Fewer than 50 hit points: {@condition deafened|sns} for 1 minute.",
-            "Fewer than 40 hit points: {@condition blinded|sns} and {@condition deafened|sns} for 10 minutes.",
-            "Fewer than 30 hit points: {@condition debilitated|sns}, {@condition blinded|sns}, and {@condition deafened|sns} for 1 hour.",
+            "Fewer than 50 hit points: {@condition deafened} for 1 minute.",
+            "Fewer than 40 hit points: {@condition blinded} and {@condition deafened} for 10 minutes.",
+            "Fewer than 30 hit points: {@condition debilitated}, {@condition blinded}, and {@condition deafened} for 1 hour.",
             "Fewer than 20 hit points: instantly killed outright."
           ],
           "type": "list"
@@ -8264,14 +8264,14 @@
               "type": "item",
               "name": "Minor success",
               "entries": [
-                "The target is {@condition charmed|sns} for 1 round."
+                "The target is {@condition charmed} for 1 round."
               ]
             },
             {
               "type": "item",
               "name": "Standard success",
               "entries": [
-                "The target is {@condition dominated|sns} for the duration.",
+                "The target is {@condition dominated} for the duration.",
                 "Each time the target takes damage, it makes a save, ending the spell on a success."
               ]
             },
@@ -8511,7 +8511,7 @@
             "One creature"
           ]
         },
-        "You frighten the target by echoing its movements with ominous music and terrifying sound effects. Make a ranged will attack against the target that deals {@dice 1d4} psychic damage. On a hit, the target becomes {@condition frightened|sns} until either the spell ends or it passes a passive save.",
+        "You frighten the target by echoing its movements with ominous music and terrifying sound effects. Make a ranged will attack against the target that deals {@dice 1d4} psychic damage. On a hit, the target becomes {@condition frightened} until either the spell ends or it passes a passive save.",
         "Whenever the target fails its passive save to end the fear, it suffers {@dice 1d4} psychic harm.",
         "You cannot cast another spell requiring a material component while concentrating on this spell."
       ],
@@ -8610,14 +8610,14 @@
               "type": "item",
               "name": "Standard success",
               "entries": [
-                "Echoes of the messenger's fearful aspect create a nightmare that lasts the duration of the target's sleep and prevents it from gaining any benefits from the rest. In addition, upon waking the target suffers a level of {@condition fatigue|sns} or {@condition strife|sns} (your choice), up to a maximum of 3 in either condition."
+                "Echoes of the messenger's fearful aspect create a nightmare that lasts the duration of the target's sleep and prevents it from gaining any benefits from the rest. In addition, upon waking the target suffers a level of {@condition fatigue} or {@condition strife} (your choice), up to a maximum of 3 in either condition."
               ]
             },
             {
               "type": "item",
               "name": "Critical success",
               "entries": [
-                "As standard success, but the target gains a level of both {@condition fatigue|sns} and {@condition strife|sns}."
+                "As standard success, but the target gains a level of both {@condition fatigue} and {@condition strife}."
               ]
             }
           ]
@@ -8761,7 +8761,7 @@
         "You create a seismic disturbance in the spell's area.",
         "Until the spell ends, an intense tremor rips through the ground and shakes anything in contact with it.",
         "The ground in the spell's area becomes difficult terrain as it warps and cracks.",
-        "When you cast this spell and at the end of each turn you spend concentrating on it, each creature in contact with the ground in the spell's area must make a save or be knocked {@condition prone|sns}.",
+        "When you cast this spell and at the end of each turn you spend concentrating on it, each creature in contact with the ground in the spell's area must make a save or be knocked {@condition prone}.",
         "Additionally, any creature that is concentrating on a spell while in contact with the ground in the spell's area must make a save or lose concentration.",
         "At the DM's discretion, this spell may have additional effects depending on the terrain in the area.",
         {
@@ -8780,7 +8780,7 @@
               "name": "Structures",
               "entries": [
                 "A structure in contact with the ground in the spell's area suffers 50 bludgeoning harm when you cast the spell and again at the start of each of your turns while the spell is active. A structure reduced to 0 hit points this way collapses.",
-                "Creatures within half the distance of a collapsing structure's height must pass a save or suffer {@dice 5d6} bludgeoning harm, be knocked {@condition prone|sns}, and be buried in the rubble, requiring a DC 20 {@skill Finesse} or {@skill Athletics} check as an action to escape. A creature inside (instead of near) a collapsing structure has disadvantage on its save. The DM can adjust the DC higher or lower depending on the composition of the rubble. On a successful save, the creature takes half as much damage and doesn't fall {@condition prone|sns} or become buried."
+                "Creatures within half the distance of a collapsing structure's height must pass a save or suffer {@dice 5d6} bludgeoning harm, be knocked {@condition prone}, and be buried in the rubble, requiring a DC 20 {@skill Finesse} or {@skill Athletics} check as an action to escape. A creature inside (instead of near) a collapsing structure has disadvantage on its save. The DM can adjust the DC higher or lower depending on the composition of the rubble. On a successful save, the creature takes half as much damage and doesn't fall {@condition prone} or become buried."
               ]
             }
           ]
@@ -8789,7 +8789,7 @@
           "type": "entries",
           "name": "Rare",
           "entries": [
-            "Soliogn's Tempestuous Earthquake. The spell fills the area with violent winds. A flying creature halves its speed while in the area and makes a save at the start of each of its turns, falling {@condition prone|sns} on a fail."
+            "Soliogn's Tempestuous Earthquake. The spell fills the area with violent winds. A flying creature halves its speed while in the area and makes a save at the start of each of its turns, falling {@condition prone} on a fail."
           ]
         }
       ],
@@ -8942,7 +8942,7 @@
         {
           "type": "list",
           "items": [
-            "Cat's Grace: The target has advantage on Dexterity checks and it reduces any falling damage it takes by 10 unless it is {@condition unconscious|sns}."
+            "Cat's Grace: The target has advantage on Dexterity checks and it reduces any falling damage it takes by 10 unless it is {@condition unconscious}."
           ]
         },
         {
@@ -9264,21 +9264,21 @@
               "type": "item",
               "name": "Minor success",
               "entries": [
-                "The target becomes {@condition restrained|sns} for 1 round as the plants wrap around it."
+                "The target becomes {@condition restrained} for 1 round as the plants wrap around it."
               ]
             },
             {
               "type": "item",
               "name": "Standard success",
               "entries": [
-                "The target becomes {@condition restrained|sns} as the plants wrap around it. A creature {@condition restrained|sns} in this way can use its action to make a {@skill Brawn} check against your standard DC, freeing itself on a success."
+                "The target becomes {@condition restrained} as the plants wrap around it. A creature {@condition restrained} in this way can use its action to make a {@skill Brawn} check against your standard DC, freeing itself on a success."
               ]
             },
             {
               "type": "item",
               "name": "Critical success",
               "entries": [
-                "As standard success, but the target is also {@condition debilitated|sns}."
+                "As standard success, but the target is also {@condition debilitated}."
               ]
             }
           ]
@@ -9351,7 +9351,7 @@
             "Any number of creatures you choose within range"
           ]
         },
-        "You weave a compelling stream of words that captivates your targets. Make an area will attack against each target, automatically scoring a critical failure against any target that can't be {@condition charmed|sns}. You have disadvantage on the attack against targets fighting you or creatures friendly to you. The attack has the following outcomes:",
+        "You weave a compelling stream of words that captivates your targets. Make an area will attack against each target, automatically scoring a critical failure against any target that can't be {@condition charmed}. You have disadvantage on the attack against targets fighting you or creatures friendly to you. The attack has the following outcomes:",
         {
           "type": "list",
           "items": [
@@ -9378,7 +9378,7 @@
             }
           ]
         },
-        "The spell ends if you are {@condition incapacitated|sns} or can no longer speak, and its effects end on a target if that target can no longer hear you."
+        "The spell ends if you are {@condition incapacitated} or can no longer speak, and its effects end on a target if that target can no longer hear you."
       ],
       "name": "Enthrall",
       "time": [
@@ -9618,14 +9618,14 @@
               "type": "item",
               "name": "Asleep",
               "entries": [
-                "The target falls {@condition unconscious|sns}, waking if it takes any damage or another creature uses an action to rouse it."
+                "The target falls {@condition unconscious}, waking if it takes any damage or another creature uses an action to rouse it."
               ]
             },
             {
               "type": "item",
               "name": "Panicked",
               "entries": [
-                "The target is {@condition frightened|sns}. On each of its turns, the {@condition frightened|sns} creature uses half its movement to move away from you by the safest and shortest available route unless there is nowhere for it to move.",
+                "The target is {@condition frightened}. On each of its turns, the {@condition frightened} creature uses half its movement to move away from you by the safest and shortest available route unless there is nowhere for it to move.",
                 "If the target moves to a place at least 60 feet away from you where it can no longer see you, this effect ends."
               ]
             },
@@ -9791,7 +9791,7 @@
               "type": "item",
               "name": "Critical success",
               "entries": [
-                "As standard success, but the target is also {@condition staggered|sns}."
+                "As standard success, but the target is also {@condition staggered}."
               ]
             }
           ]
@@ -9947,7 +9947,7 @@
           "type": "entries",
           "name": "Rare",
           "entries": [
-            "Kasvarina's Resolute False Life. While you have temporary hit points from this spell, you subtract a {@dice d4} from attacks made against you that can {@condition frightened|sns|frighten}."
+            "Kasvarina's Resolute False Life. While you have temporary hit points from this spell, you subtract a {@dice d4} from attacks made against you that can {@condition frightened|frighten}."
           ]
         }
       ],
@@ -10041,15 +10041,15 @@
               "type": "item",
               "name": "Standard success",
               "entries": [
-                "The target becomes {@condition frightened|sns} until either the spell ends or the it passes a passive save, and it must drop whatever it is holding.",
-                "On each of its turns, a creature {@condition frightened|sns} by this spell uses half its movement to move away from you by the safest available route. If there is nowhere it can move, it remains stationary. When the creature ends its turn in a location where it doesn't have line of sight to you, the creature can make a save, ending the spell's effects on it on a success."
+                "The target becomes {@condition frightened} until either the spell ends or the it passes a passive save, and it must drop whatever it is holding.",
+                "On each of its turns, a creature {@condition frightened} by this spell uses half its movement to move away from you by the safest available route. If there is nowhere it can move, it remains stationary. When the creature ends its turn in a location where it doesn't have line of sight to you, the creature can make a save, ending the spell's effects on it on a success."
               ]
             },
             {
               "type": "item",
               "name": "Critical success",
               "entries": [
-                "As standard success, but the target is also {@condition debilitated|sns}."
+                "As standard success, but the target is also {@condition debilitated}."
               ]
             }
           ]
@@ -10311,7 +10311,7 @@
         "Your familiar, a spirit that takes the form of any CR 0 beast of Small or Tiny size, appears in an unoccupied space within range. It has the statistics of the chosen form, but is your choice of a celestial, fey, or fiend (instead of a beast).",
         "Your familiar is an independent creature that rolls its own initiative and acts on its own turn in combat (but cannot take the Attack action). However, it is loyal to you and always obeys your commands.",
         "When the familiar drops to 0 hit points, it vanishes without a trace. Casting the spell again causes it to reappear.",
-        "You are able to communicate telepathically with your familiar when it is within 100 feet. As long as it is within this range, you can use an action to see through your familiar's eyes and hear through its ears until the beginning of your next turn, gaining the benefit of any special senses it has. During this time, you are {@condition blinded|sns|blind} and {@condition deafened|sns|deaf} to your body's surroundings.",
+        "You are able to communicate telepathically with your familiar when it is within 100 feet. As long as it is within this range, you can use an action to see through your familiar's eyes and hear through its ears until the beginning of your next turn, gaining the benefit of any special senses it has. During this time, you are {@condition blinded|blind} and {@condition deafened|deaf} to your body's surroundings.",
         "You can use an action to either permanently dismiss your familiar or temporarily dismiss it to a pocket dimension where it awaits your summons.",
         "While it is temporarily dismissed, you can use an action to call it back, causing it to appear in any unoccupied space within 30 feet of you.",
         "You can't have more than one familiar at a time, but if you cast this spell while you already have a familiar, you can cause it to adopt a different form.",
@@ -11930,7 +11930,7 @@
             "One willing creature"
           ]
         },
-        "The target ignores difficult terrain. Spells and magical effects can't reduce its speed or cause it to be {@condition staggered|sns} or {@condition restrained|sns}. It can spend 5 feet of movement to escape from nonmagical restraints or grapples. The target's movement and attacks aren't penalized from being underwater."
+        "The target ignores difficult terrain. Spells and magical effects can't reduce its speed or cause it to be {@condition staggered} or {@condition restrained}. It can spend 5 feet of movement to escape from nonmagical restraints or grapples. The target's movement and attacks aren't penalized from being underwater."
       ],
       "name": "Freedom of Movement",
       "time": [
@@ -12243,14 +12243,14 @@
               "type": "item",
               "name": "Minor success",
               "entries": [
-                "The target is {@condition charmed|sns} for 1 round."
+                "The target is {@condition charmed} for 1 round."
               ]
             },
             {
               "type": "item",
               "name": "Standard success",
               "entries": [
-                "The target is {@condition charmed|sns}. While {@condition charmed|sns} in this way, it suffers {@dice 5d10} psychic harm the first time each day that it disobeys your command. Your command can be any course of action or inaction that wouldn't result in the target's death. The spell ends if the command is suicidal or you use an action to dismiss the spell. Alternatively, a {@spell remove curse|sns}, {@spell greater restoration|sns}, or {@spell wish|sns} spell cast on the target using a spell slot at least as high as the slot used to cast this spell also ends it."
+                "The target is {@condition charmed}. While {@condition charmed} in this way, it suffers {@dice 5d10} psychic harm the first time each day that it disobeys your command. Your command can be any course of action or inaction that wouldn't result in the target's death. The spell ends if the command is suicidal or you use an action to dismiss the spell. Alternatively, a {@spell remove curse|sns}, {@spell greater restoration|sns}, or {@spell wish} spell cast on the target using a spell slot at least as high as the slot used to cast this spell also ends it."
               ]
             },
             {
@@ -12811,7 +12811,7 @@
               "type": "item",
               "name": "Standard success",
               "entries": [
-                "The target falls {@condition prone|sns}."
+                "The target falls {@condition prone}."
               ]
             },
             {
@@ -12823,7 +12823,7 @@
             }
           ]
         },
-        "A creature that enters or ends its turn in the area must succeed on a save or fall {@condition prone|sns}."
+        "A creature that enters or ends its turn in the area must succeed on a save or fall {@condition prone}."
       ],
       "name": "Grease",
       "time": [
@@ -12970,8 +12970,8 @@
         "Healing energy rejuvenates a creature you touch and undoes a negative effect. You can remove one of:",
         {
           "items": [
-            "a level of {@condition fatigue|sns}.",
-            "a level of {@condition strife|sns}.",
+            "a level of {@condition fatigue}.",
+            "a level of {@condition strife}.",
             "a charm effect.",
             "a curse or cursed item attunement.",
             "any reduction to a single ability score.",
@@ -13220,7 +13220,7 @@
           ]
         },
         "A torrent of wind erupts from your hand in a direction you choose. The area becomes a persistent zone that forces targets to pass a save or be pushed 15 feet from you in the direction of the line.",
-        "Any creature in the area is {@condition sluggish|sns} when trying to approach you.",
+        "Any creature in the area is {@condition sluggish} when trying to approach you.",
         "The blast of wind extinguishes small fires and disperses gas or vapor.",
         "You can use a bonus action to change the direction of the gust.",
         {
@@ -13315,7 +13315,7 @@
               "type": "item",
               "name": "Courage",
               "entries": [
-                "Creatures in the area cannot be {@condition frightened|sns}."
+                "Creatures in the area cannot be {@condition frightened}."
               ]
             },
             {
@@ -13364,7 +13364,7 @@
               "type": "item",
               "name": "Fear",
               "entries": [
-                "Creatures are {@condition frightened|sns} while within the area."
+                "Creatures are {@condition frightened} while within the area."
               ]
             },
             {
@@ -13856,8 +13856,8 @@
     {
       "school": "N",
       "entries": [
-        "You magically replace your heart with one forged on the second layer of Hell. While the spell lasts, you are immune to fear and can't be {@condition poisoned|sns}, and you are immune to fire and poison damage. You gain 50% resistance to cold damage, as well as to bludgeoning, piercing, and slashing damage from weapons that aren't silvered. Non-armour spell attacks have disadvantage against you. Finally, while you are conscious, any creature hostile to you that starts its turn within 20 feet of you must make a save.",
-        "On a failed save, the creature is {@condition frightened|sns} of you until the start of your next turn. On a success, the creature is immune to the effect for 24 hours.",
+        "You magically replace your heart with one forged on the second layer of Hell. While the spell lasts, you are immune to fear and can't be {@condition poisoned}, and you are immune to fire and poison damage. You gain 50% resistance to cold damage, as well as to bludgeoning, piercing, and slashing damage from weapons that aren't silvered. Non-armour spell attacks have disadvantage against you. Finally, while you are conscious, any creature hostile to you that starts its turn within 20 feet of you must make a save.",
+        "On a failed save, the creature is {@condition frightened} of you until the start of your next turn. On a success, the creature is immune to the effect for 24 hours.",
         "Casting this spell magically transports your mortal heart to the lair of one of the lords of Hell.",
         "The heart returns to your body when the spell ends.",
         {
@@ -14007,7 +14007,7 @@
     {
       "school": "C",
       "entries": [
-        "The spell summons forth a sumptuous feast with a cuisine of your choosing that provides sustenance for a number of creatures equal to twice your proficiency bonus. Consuming the food takes 1 hour and leaves a creature feeling nourished — it immediately makes a save with advantage against any disease or poison it is suffering from, it is cured of any effect that frightens it, and it recovers 1 level of {@condition fatigue|sns}.",
+        "The spell summons forth a sumptuous feast with a cuisine of your choosing that provides sustenance for a number of creatures equal to twice your proficiency bonus. Consuming the food takes 1 hour and leaves a creature feeling nourished — it immediately makes a save with advantage against any disease or poison it is suffering from, it is cured of any effect that frightens it, and it recovers 1 level of {@condition fatigue}.",
         "For up to 24 hours afterward will attacks against the feast's participants have disadvantage, as do attacks that can cause disease or poison. Additionally, they gain 50% resistance to damage from poison and disease, and each increases its hit point maximum by {@dice 2d12}.",
         {
           "type": "entries",
@@ -14078,7 +14078,7 @@
             "One willing creature"
           ]
         },
-        "The target's spirit is bolstered. Until the spell ends, the target gains temporary hit points equal to your spellcasting ability modifier plus your proficiency bonus at the start of each of its turns and it cannot be {@condition frightened|sns}. Any temporary hit points remaining are lost when the spell ends.",
+        "The target's spirit is bolstered. Until the spell ends, the target gains temporary hit points equal to your spellcasting ability modifier plus your proficiency bonus at the start of each of its turns and it cannot be {@condition frightened}. Any temporary hit points remaining are lost when the spell ends.",
         {
           "type": "entries",
           "name": "Rare",
@@ -14161,21 +14161,21 @@
               "type": "item",
               "name": "Minor success",
               "entries": [
-                "The target falls {@condition prone|sns}."
+                "The target falls {@condition prone}."
               ]
             },
             {
               "type": "item",
               "name": "Standard success",
               "entries": [
-                "Until the spell ends, the target falls {@condition prone|sns}, becomes {@condition dazed|sns}, and cannot stand."
+                "Until the spell ends, the target falls {@condition prone}, becomes {@condition dazed}, and cannot stand."
               ]
             },
             {
               "type": "item",
               "name": "Critical success",
               "entries": [
-                "As standard success, but the target is also {@condition debilitated|sns}."
+                "As standard success, but the target is also {@condition debilitated}."
               ]
             }
           ]
@@ -14277,7 +14277,7 @@
               "type": "item",
               "name": "Standard success",
               "entries": [
-                "The target is {@condition staggered|sns} until the spell ends or it passes a passive save."
+                "The target is {@condition staggered} until the spell ends or it passes a passive save."
               ]
             },
             {
@@ -14390,7 +14390,7 @@
               "type": "item",
               "name": "Standard success",
               "entries": [
-                "The target is {@condition staggered|sns} until the spell ends or it passes a passive save."
+                "The target is {@condition staggered} until the spell ends or it passes a passive save."
               ]
             },
             {
@@ -14507,7 +14507,7 @@
             "30-foot radius"
           ]
         },
-        "Holy radiance emanates from you and fills the area. Targets shed dim light in a 5-foot radius and attacks against them have disadvantage. When a fiend or undead hits a target with an armour attack, the aura erupts into blinding light, forcing the attacker to make a save, becoming {@condition blinded|sns} until the spell ends on a fail."
+        "Holy radiance emanates from you and fills the area. Targets shed dim light in a 5-foot radius and attacks against them have disadvantage. When a fiend or undead hits a target with an armour attack, the aura erupts into blinding light, forcing the attacker to make a save, becoming {@condition blinded} until the spell ends on a fail."
       ],
       "name": "Holy Aura",
       "time": [
@@ -14578,21 +14578,21 @@
               "type": "item",
               "name": "Minor success",
               "entries": [
-                "The target becomes {@condition charmed|sns} for 1 round."
+                "The target becomes {@condition charmed} for 1 round."
               ]
             },
             {
               "type": "item",
               "name": "Standard success",
               "entries": [
-                "The target becomes {@condition charmed|sns}. While {@condition charmed|sns} by this spell, the target is {@condition dazed|sns} and {@condition sluggish|sns}."
+                "The target becomes {@condition charmed}. While {@condition charmed} by this spell, the target is {@condition dazed} and {@condition sluggish}."
               ]
             },
             {
               "type": "item",
               "name": "Critical success",
               "entries": [
-                "As standard success, but the target is also {@condition debilitated|sns}."
+                "As standard success, but the target is also {@condition debilitated}."
               ]
             }
           ]
@@ -14907,7 +14907,7 @@
               "type": "item",
               "name": "Minor success",
               "entries": [
-                "The target is {@condition sluggish|sns} for 1 round."
+                "The target is {@condition sluggish} for 1 round."
               ]
             },
             {
@@ -14942,7 +14942,7 @@
               "type": "item",
               "name": "Chaining",
               "entries": [
-                "Chains made of unbreakable material erupt from the ground and root the target in place. The target is {@condition restrained|sns} and cannot move or be moved by any means."
+                "Chains made of unbreakable material erupt from the ground and root the target in place. The target is {@condition restrained} and cannot move or be moved by any means."
               ]
             },
             {
@@ -15203,13 +15203,13 @@
               "type": "item",
               "name": "Ice Spear",
               "entries": [
-                "The weapon deals cold damage. On a critical success, the target is {@condition slowed|sns} for 1 minute, or until it passes a passive save."
+                "The weapon deals cold damage. On a critical success, the target is {@condition slowed} for 1 minute, or until it passes a passive save."
               ]
             }
           ]
         },
         "A creature reduced to 0 hit points by an infernal weapon immediately dies in a gruesome fashion.",
-        "For example, a creature killed by an ice spear might freeze solid, then shatter into a thousand pieces. Each creature of your choice within 60 feet of the creature and who can see it when it dies must make a save. On a fail, a creature becomes {@condition frightened|sns} until the end of your next turn."
+        "For example, a creature killed by an ice spear might freeze solid, then shatter into a thousand pieces. Each creature of your choice within 60 feet of the creature and who can see it when it dies must make a save. On a fail, a creature becomes {@condition frightened} until the end of your next turn."
       ],
       "name": "Infernal Weapon",
       "time": [
@@ -15676,7 +15676,7 @@
               "type": "item",
               "name": "Minor success",
               "entries": [
-                "The target is {@condition sluggish|sns}."
+                "The target is {@condition sluggish}."
               ]
             },
             {
@@ -15690,7 +15690,7 @@
               "type": "item",
               "name": "Critical success",
               "entries": [
-                "As standard success, but the target is also {@condition staggered|sns}."
+                "As standard success, but the target is also {@condition staggered}."
               ]
             }
           ]
@@ -15982,7 +15982,7 @@
     {
       "school": "T",
       "entries": [
-        "Your body melts into a humanoid-shaped mass of liquid flesh. Each creature within 5 feet of you that can see the transformation must make a save. On a failure, the creature can't take reactions and is {@condition frightened|sns} until the start of its next turn. Until the end of your turn, your Speed becomes 20 feet, you can't speak, and you can move through spaces as narrow as 1 inch wide without squeezing. You revert to your normal form at the end of your turn."
+        "Your body melts into a humanoid-shaped mass of liquid flesh. Each creature within 5 feet of you that can see the transformation must make a save. On a failure, the creature can't take reactions and is {@condition frightened} until the start of its next turn. Until the end of your turn, your Speed becomes 20 feet, you can't speak, and you can move through spaces as narrow as 1 inch wide without squeezing. You revert to your normal form at the end of your turn."
       ],
       "name": "Lemure Transformation",
       "time": [
@@ -16045,7 +16045,7 @@
             "One creature"
           ]
         },
-        "Your glowing hand removes one disease or condition affecting the target. Choose from {@condition blinded|sns}, {@condition deafened|sns}, {@condition staggered|sns}, or {@condition poisoned|sns}. At the DM's discretion, some diseases might not be curable with this spell."
+        "Your glowing hand removes one disease or condition affecting the target. Choose from {@condition blinded}, {@condition deafened}, {@condition staggered}, or {@condition poisoned}. At the DM's discretion, some diseases might not be curable with this spell."
       ],
       "name": "Lesser Restoration",
       "time": [
@@ -16119,7 +16119,7 @@
               "type": "item",
               "name": "Minor success",
               "entries": [
-                "The target floats an inch of the ground and is {@condition sluggish|sns} for 1 round."
+                "The target floats an inch of the ground and is {@condition sluggish} for 1 round."
               ]
             },
             {
@@ -16134,7 +16134,7 @@
               "type": "item",
               "name": "Critical success",
               "entries": [
-                "As standard success, but the target is also {@condition restrained|sns}."
+                "As standard success, but the target is also {@condition restrained}."
               ]
             }
           ]
@@ -16891,7 +16891,7 @@
               "type": "item",
               "name": "Minor success",
               "entries": [
-                "The target is {@condition charmed|sns} for 1 round."
+                "The target is {@condition charmed} for 1 round."
               ]
             },
             {
@@ -17401,7 +17401,7 @@
           ]
         },
         "Healing energy erupts from your steepled hands and restores up to 787 hit points between the targets.",
-        "Creatures healed in this way are also cured of any diseases, and any effect causing them to be {@condition blinded|sns} or {@condition deafened|sns}. In addition, on subsequent turns within the next minute you can use a bonus action to distribute any unused hit points."
+        "Creatures healed in this way are also cured of any diseases, and any effect causing them to be {@condition blinded} or {@condition deafened}. In addition, on subsequent turns within the next minute you can use a bonus action to distribute any unused hit points."
       ],
       "name": "Mass Heal",
       "time": [
@@ -17509,7 +17509,7 @@
             "Up to twelve creatures that can hear and understand you"
           ]
         },
-        "Creatures that cannot be {@condition charmed|sns} are immune to this spell. Make an area will attack against each target with the following outcomes:",
+        "Creatures that cannot be {@condition charmed} are immune to this spell. Make an area will attack against each target with the following outcomes:",
         {
           "type": "list",
           "items": [
@@ -17683,7 +17683,7 @@
         },
         "Until the spell ends, you meld yourself and your carried equipment into the target stone. Using your movement, you may enter the stone from any point you can touch. No trace of your presence is visible or detectable by nonmagical senses.",
         "Within the stone, you can't see outside it and have disadvantage on {@skill Perception} checks made to hear beyond it. You are aware of time passing, and may cast spells upon yourself. You may use your movement only to step out of the target where you entered it, ending the spell.",
-        "If the target is damaged such that its shape changes and you no longer fit within it, you are expelled and suffer {@dice 6d6} bludgeoning harm. Complete destruction of the target, or its transmutation into another substance, expels you and you suffer 50 bludgeoning harm. When expelled you fall {@condition prone|sns} into the closest unoccupied space near your entrance point.",
+        "If the target is damaged such that its shape changes and you no longer fit within it, you are expelled and suffer {@dice 6d6} bludgeoning harm. Complete destruction of the target, or its transmutation into another substance, expels you and you suffer 50 bludgeoning harm. When expelled you fall {@condition prone} into the closest unoccupied space near your entrance point.",
         {
           "type": "entries",
           "name": "Rare",
@@ -17751,7 +17751,7 @@
     {
       "school": "C",
       "entries": [
-        "You conjure extensions of your own mental fortitude to keep your foes at bay. For the spell's duration, you can use an action to attempt to {@condition grappled|sns|grapple} a creature within range by making a check with your spellcasting ability modifier against its standard DC.",
+        "You conjure extensions of your own mental fortitude to keep your foes at bay. For the spell's duration, you can use an action to attempt to {@condition grappled|grapple} a creature within range by making a check with your spellcasting ability modifier against its standard DC.",
         "Successful escape attempts do not break your concentration on the spell."
       ],
       "name": "Mental Grip",
@@ -17896,7 +17896,7 @@
             "One willing creature"
           ]
         },
-        "The target is immune to psychic damage, any effect that would read its emotions or thoughts, divination spells, and the {@condition charmed|sns} condition.",
+        "The target is immune to psychic damage, any effect that would read its emotions or thoughts, divination spells, and the {@condition charmed} condition.",
         "This immunity extends even to the {@spell wish|sns} spell, and magical effects or spells of similar power that would affect the target's mind or gain information about it."
       ],
       "name": "Mind Blank",
@@ -17955,7 +17955,7 @@
             "One creature"
           ]
         },
-        "The target has 50% resistance to psychic damage and whenever it would be {@condition charmed|sns} or {@condition frightened|sns}, it makes a save, ignoring the condition on a success."
+        "The target has 50% resistance to psychic damage and whenever it would be {@condition charmed} or {@condition frightened}, it makes a save, ignoring the condition on a success."
       ],
       "name": "Mindshield",
       "time": [
@@ -18296,14 +18296,14 @@
               "type": "item",
               "name": "Minor success",
               "entries": [
-                "The target is {@condition charmed|sns} for 1 round."
+                "The target is {@condition charmed} for 1 round."
               ]
             },
             {
               "type": "item",
               "name": "Standard success",
               "entries": [
-                "The target becomes {@condition charmed|sns} and {@condition dazed|sns}. Until the spell ends, any memories of an event that took place within the last 24 hours and lasted 10 minutes or less may be altered.",
+                "The target becomes {@condition charmed} and {@condition dazed}. Until the spell ends, any memories of an event that took place within the last 24 hours and lasted 10 minutes or less may be altered.",
                 "You may destroy the memory, have the target recall the event with perfect clarity, change the details, or create a new memory entirely with the same restrictions in time frame and length.",
                 "You must speak to the target in a language you both know to modify its memories and describe how the memory is changed. The target fills in the gaps in details based on your description.",
                 "If the spell ends before you have finished modifying its memories, the alteration fails. Otherwise, the alteration is complete when the spell ends and only {@spell greater restoration|sns} or {@spell remove curse|sns} can restore the memory.",
@@ -18837,12 +18837,12 @@
             "One creature"
           ]
         },
-        "You create an illusion that invokes the target's deepest fears. Only the target can see this illusion. When the spell is cast, make a ranged will attack against the target that deals {@dice 7d6} psychic damage. On a hit, the target becomes {@condition frightened|sns} and suffers {@dice 4d10} ongoing psychic harm until it passes a passive save.",
+        "You create an illusion that invokes the target's deepest fears. Only the target can see this illusion. When the spell is cast, make a ranged will attack against the target that deals {@dice 7d6} psychic damage. On a hit, the target becomes {@condition frightened} and suffers {@dice 4d10} ongoing psychic harm until it passes a passive save.",
         {
           "type": "entries",
           "name": "Rare",
           "entries": [
-            "Aurana's Creeping Phantasmal Killer. When the spell ends early from the target passing a passive save, you may choose a new target for the spell. That target must make its own save, and on a fail the spell's {@condition frightened|sns} condition and ongoing harm continue on this new target without the expenditure of an additional spell slot, using the same duration."
+            "Aurana's Creeping Phantasmal Killer. When the spell ends early from the target passing a passive save, you may choose a new target for the spell. That target must make its own save, and on a fail the spell's {@condition frightened} condition and ongoing harm continue on this new target without the expenditure of an additional spell slot, using the same duration."
           ]
         },
         {
@@ -19241,14 +19241,14 @@
               "type": "item",
               "name": "Minor success",
               "entries": [
-                "The target is {@condition debilitated|sns} for 1 round."
+                "The target is {@condition debilitated} for 1 round."
               ]
             },
             {
               "type": "item",
               "name": "Standard success",
               "entries": [
-                "The target is rendered {@condition unconscious|sns} until it passes a passive save."
+                "The target is rendered {@condition unconscious} until it passes a passive save."
               ]
             },
             {
@@ -19437,7 +19437,7 @@
             "One creature"
           ]
         },
-        "The target becomes poisonous to the touch. Until the spell ends, whenever a creature adjacent to the target hits the target with a melee weapon attack, the creature makes a save, becoming {@condition poisoned|sns} and suffering {@dice 1d6} ongoing poison harm on a fail, both until the target passes a passive save.",
+        "The target becomes poisonous to the touch. Until the spell ends, whenever a creature adjacent to the target hits the target with a melee weapon attack, the creature makes a save, becoming {@condition poisoned} and suffering {@dice 1d6} ongoing poison harm on a fail, both until the target passes a passive save.",
         "The target of the spell also becomes bright and multicolored like a poisonous dart frog, giving it disadvantage on {@skill Stealth} checks."
       ],
       "name": "Poison Skin",
@@ -19452,7 +19452,7 @@
           "type": "entries",
           "name": "Cast at Higher Levels",
           "entries": [
-            "The target's skin is also covered in mucus, granting attacks against it that can {@condition grappled|sns|grapple} or {@condition restrained|sns|restrain} disadvantage. In addition, the harm increases by {@dice 1d6} for each slot level above 3rd."
+            "The target's skin is also covered in mucus, granting attacks against it that can {@condition grappled|grapple} or {@condition restrained|restrain} disadvantage. In addition, the harm increases by {@dice 1d6} for each slot level above 3rd."
           ]
         }
       ],
@@ -19589,7 +19589,7 @@
             "One creature"
           ]
         },
-        "You utter a powerful word that {@condition debilitated|sns|debilitates} a target with 168 hit points or less until they pass a passive save. If the target has more than 168 hit points, it is instead {@condition rattled|sns} until the end of its next turn."
+        "You utter a powerful word that {@condition debilitated|debilitates} a target with 168 hit points or less until they pass a passive save. If the target has more than 168 hit points, it is instead {@condition rattled} until the end of its next turn."
       ],
       "name": "Power Word Debilitate",
       "time": [
@@ -19763,14 +19763,14 @@
               "type": "item",
               "name": "6. Indigo",
               "entries": [
-                "The target is {@condition restrained|sns} for 1 minute."
+                "The target is {@condition restrained} for 1 minute."
               ]
             },
             {
               "type": "item",
               "name": "7. Violet",
               "entries": [
-                "The target is {@condition blinded|sns}. At the start of your next turn, the target makes a save, ending the effect on a success.",
+                "The target is {@condition blinded}. At the start of your next turn, the target makes a save, ending the effect on a success.",
                 "On a failed save, the target is banished to another random plane and is no longer blind. If it originated from another plane it returns there, while other creatures are generally cast into the Astral Plane or Ethereal Plane."
               ]
             },
@@ -19858,7 +19858,7 @@
         },
         "You create a nontransparent barrier of prismatic energy that sheds bright light in a 100-foot radius and dim light for an additional 100 feet. You and creatures you choose at the time of casting are immune to the barrier's effects and may pass through it at will.",
         "The barrier can be created as either a vertical wall or a sphere, centred on a point within your line of sight. If the wall intersects a space occupied by a creature the spell fails, you lose your action, and the spell slot is wasted.",
-        "When a creature that can see the barrier moves within 20 feet of the area or starts its turn within 20 feet of the area, it makes a save, becoming {@condition blinded|sns} for 1 minute on a fail.",
+        "When a creature that can see the barrier moves within 20 feet of the area or starts its turn within 20 feet of the area, it makes a save, becoming {@condition blinded} for 1 minute on a fail.",
         "The wall has 7 layers, each layer of a different color in order from red to violet. Once a layer is destroyed, it is gone for the duration of the spell.",
         "To pass or reach through the barrier a creature does so one layer at a time and must make a save for each layer or be subjected to that layer's effects. On a successful save, any damage taken from a layer is reduced by half.",
         "An {@spell antimagic field|sns} has no effect on the wall or its layers.",
@@ -19906,14 +19906,14 @@
               "type": "item",
               "name": "Indigo",
               "entries": [
-                "The creature is {@condition restrained|sns} for the spell's duration."
+                "The creature is {@condition restrained} for the spell's duration."
               ]
             },
             {
               "type": "item",
               "name": "Violet",
               "entries": [
-                "The creature is {@condition blinded|sns}. At the start of your next turn, the creature makes a save, ending the effect on a success.",
+                "The creature is {@condition blinded}. At the start of your next turn, the creature makes a save, ending the effect on a success.",
                 "On a failed save, the creature is banished to another random plane and is no longer blind. If it originated from another plane it returns there, while other creatures are generally cast into the Astral Plane or Ethereal Plane. This layer can be destroyed by {@spell dispel magic|sns} or a similar spell of equal or greater level capable of ending spells or magical effects."
               ]
             }
@@ -20290,8 +20290,8 @@
             "One willing creature"
           ]
         },
-        "The target is protected against the following types of creatures: aberrations, celestials, elementals, fey, fiends, and undead. Creatures of those types have disadvantage on armour attack rolls against the target and are unable to {@condition charmed|sns|charm}, {@condition frightened|sns|frighten}, or possess the target.",
-        "If the target is already {@condition charmed|sns}, {@condition frightened|sns}, or possessed by such a creature, the target has advantage on any saves against that effect."
+        "The target is protected against the following types of creatures: aberrations, celestials, elementals, fey, fiends, and undead. Creatures of those types have disadvantage on armour attack rolls against the target and are unable to {@condition charmed|charm}, {@condition frightened|frighten}, or possess the target.",
+        "If the target is already {@condition charmed}, {@condition frightened}, or possessed by such a creature, the target has advantage on any saves against that effect."
       ],
       "name": "Protection from Evil and Good",
       "time": [
@@ -20364,8 +20364,8 @@
             "One creature"
           ]
         },
-        "Attacks against the target that can {@condition poisoned|sns|poison} have disadvantage. Additionally, the target has 50% resistance to poison damage and advantage on saves against the {@condition poisoned|sns} condition.",
-        "Additionally, if the target is {@condition poisoned|sns}, you negate one poison affecting it. If more than one poison affects the target, you negate one poison you know is present (otherwise you negate one at random)."
+        "Attacks against the target that can {@condition poisoned|poison} have disadvantage. Additionally, the target has 50% resistance to poison damage and advantage on saves against the {@condition poisoned} condition.",
+        "Additionally, if the target is {@condition poisoned}, you negate one poison affecting it. If more than one poison affects the target, you negate one poison you know is present (otherwise you negate one at random)."
       ],
       "name": "Protection from Poison",
       "time": [
@@ -20591,7 +20591,7 @@
               "type": "item",
               "name": "Field of Fear",
               "entries": [
-                "Dread pervades the entire area. A creature that starts its turn in the area must make a save, becoming {@condition frightened|sns} until the start of its next turn on a fail. While {@condition frightened|sns}, a creature must move at least half its Speed to escape the area by the safest available route on each of its turns. On a successful save, the creature becomes immune to this effect for 24 hours."
+                "Dread pervades the entire area. A creature that starts its turn in the area must make a save, becoming {@condition frightened} until the start of its next turn on a fail. While {@condition frightened}, a creature must move at least half its Speed to escape the area by the safest available route on each of its turns. On a successful save, the creature becomes immune to this effect for 24 hours."
               ]
             },
             {
@@ -20776,7 +20776,7 @@
           ]
         },
         "An icy beam shoots from your outstretched fingers.",
-        "Make a ranged armour attack that deals {@dice 1d6} cold damage and makes the target {@condition sluggish|sns} until the start of your next turn on a hit.",
+        "Make a ranged armour attack that deals {@dice 1d6} cold damage and makes the target {@condition sluggish} until the start of your next turn on a hit.",
         "This spell's damage increases by {@dice 1d6} when you reach 5th level ({@dice 2d6}), 11th level ({@dice 3d6}), and 17th level ({@dice 4d6})."
       ],
       "name": "Ray of Frost",
@@ -21616,7 +21616,7 @@
             "15-foot cone"
           ]
         },
-        "You briefly go into a magical trance and whisper an alien equation which you never fully remember once the spell is complete. Make an area will attack against each creature in the area that deals {@dice 3d6} psychic damage. On a hit, the target is also {@condition deafened|sns} for 1 round.",
+        "You briefly go into a magical trance and whisper an alien equation which you never fully remember once the spell is complete. Make an area will attack against each creature in the area that deals {@dice 3d6} psychic damage. On a hit, the target is also {@condition deafened} for 1 round.",
         "Creatures who are unable to hear the equation, immune to psychic damage, or who have an Intelligence score lower than 4 are immune to this spell."
       ],
       "name": "Searing Equation",
@@ -21631,7 +21631,7 @@
           "type": "entries",
           "name": "Cast at Higher Levels",
           "entries": [
-            "Creatures are {@condition deafened|sns} for 1 additional round for each slot level above 1st."
+            "Creatures are {@condition deafened} for 1 additional round for each slot level above 1st."
           ]
         }
       ],
@@ -21746,8 +21746,8 @@
         {
           "type": "list",
           "items": [
-            "Seed shrapnel explodes outward. If the attack scores a major success, the target is {@condition blinded|sns} until the end of its next turn.",
-            "The seeds sprout into weeds that latch around creatures. If the attack scores a major success, the target becomes {@condition grappled|sns} until the end of its next turn."
+            "Seed shrapnel explodes outward. If the attack scores a major success, the target is {@condition blinded} until the end of its next turn.",
+            "The seeds sprout into weeds that latch around creatures. If the attack scores a major success, the target becomes {@condition grappled} until the end of its next turn."
           ]
         }
       ],
@@ -22489,7 +22489,7 @@
           ]
         },
         "Until the spell ends, a bubble of silence envelops the area, and no sound can travel in or out of it.",
-        "While in the area a creature is {@condition deafened|sns} and immune to thunder damage. Casting a spell that requires a vocalized component is impossible while within the area."
+        "While in the area a creature is {@condition deafened} and immune to thunder damage. Casting a spell that requires a vocalized component is impossible while within the area."
       ],
       "name": "Silence",
       "time": [
@@ -22692,7 +22692,7 @@
           ]
         },
         "You send the target into a magical slumber.",
-        "The target falls {@condition unconscious|sns}. Slumbering creatures stay asleep until the spell ends, they take damage, or someone uses an action to physically wake them.",
+        "The target falls {@condition unconscious}. Slumbering creatures stay asleep until the spell ends, they take damage, or someone uses an action to physically wake them.",
         "Constructs and undead are not affected by this spell."
       ],
       "name": "Sleep",
@@ -22773,7 +22773,7 @@
           ]
         },
         "You conjure a storm of freezing rain and sleet in the area. The ground in the area is covered with slick ice that makes it difficult terrain, exposed flames in the area are doused, and the area is heavily obscured.",
-        "The area becomes a persistent zone that forces creatures within it to succeed on a save or fall {@condition prone|sns}. Additionally, if the creature is concentrating, it must succeed on a save or lose concentration."
+        "The area becomes a persistent zone that forces creatures within it to succeed on a save or fall {@condition prone}. Additionally, if the creature is concentrating, it must succeed on a save or lose concentration."
       ],
       "name": "Sleet Storm",
       "time": [
@@ -22860,21 +22860,21 @@
               "type": "item",
               "name": "Minor success",
               "entries": [
-                "The target is {@condition rattled|sns} for 1 round."
+                "The target is {@condition rattled} for 1 round."
               ]
             },
             {
               "type": "item",
               "name": "Standard success",
               "entries": [
-                "The target becomes {@condition slowed|sns} and {@condition weakened|sns} until it passes a passive save."
+                "The target becomes {@condition slowed} and {@condition weakened} until it passes a passive save."
               ]
             },
             {
               "type": "item",
               "name": "Critical success",
               "entries": [
-                "As standard success, but the target is {@condition debilitated|sns}."
+                "As standard success, but the target is {@condition debilitated}."
               ]
             }
           ]
@@ -23240,7 +23240,7 @@
           ]
         },
         "Your voice takes on a magical timbre, awakening the targets to limited sentience. Until the spell ends, the targets can communicate with you and follow simple commands, telling you about recent events including creatures that have passed, weather, and nearby locations.",
-        "The targets have a limited mobility: they can move their branches, tendrils, and stalks freely. This allows them to turn ordinary terrain into difficult terrain, or make difficult terrain caused by vegetation into ordinary terrain for the duration as vines and branches move at your request. This spell can also release a creature {@condition restrained|sns} by an {@spell entangle|sns} spell.",
+        "The targets have a limited mobility: they can move their branches, tendrils, and stalks freely. This allows them to turn ordinary terrain into difficult terrain, or make difficult terrain caused by vegetation into ordinary terrain for the duration as vines and branches move at your request. This spell can also release a creature {@condition restrained} by an {@spell entangle} spell.",
         "At the DM's discretion the targets may be able to perform other tasks, though each must remain rooted in place. If a plant creature is in the area, you can communicate with it but it is not compelled to follow your requests.",
         {
           "type": "entries",
@@ -23693,7 +23693,7 @@
           ]
         },
         "You create a roiling, noxious cloud that hinders creatures and leaves them retching. The cloud spreads around corners and lingers in the air until the spell ends.",
-        "The area is heavily obscured. A creature in the area at the start of its turn makes a save or becomes {@condition debilitated|sns} until the end of that turn.",
+        "The area is heavily obscured. A creature in the area at the start of its turn makes a save or becomes {@condition debilitated} until the end of that turn.",
         "Creatures that don't need to breathe or are immune to poison automatically succeed on the save.",
         "A moderate wind (10 miles per hour) disperses the cloud after 4 rounds, a strong wind (20 miles per hour) after 1 round.",
         {
@@ -24017,7 +24017,7 @@
             "360-foot radius area that is up to 5,000 feet in the air"
           ]
         },
-        "You conjure a churning storm cloud that spreads to cover the target area. As it forms, lightning and thunder mix with howling winds. Make an area fortitude attack against each creature beneath the cloud that deals {@dice 2d6} thunder damage. On a hit, a target becomes {@condition deafened|sns} for 5 minutes.",
+        "You conjure a churning storm cloud that spreads to cover the target area. As it forms, lightning and thunder mix with howling winds. Make an area fortitude attack against each creature beneath the cloud that deals {@dice 2d6} thunder damage. On a hit, a target becomes {@condition deafened} for 5 minutes.",
         "Until the spell ends, at the start of your turn the cloud produces additional effects:",
         {
           "type": "list",
@@ -24330,7 +24330,7 @@
             "60-foot radius"
           ]
         },
-        "You create a burst of radiant sunlight that fills the area. Make an area fortitude attack against each creature in the area that deals {@dice 7d12} radiant damage. This attack has advantage against oozes and undead. On a hit, a target is {@condition blinded|sns} for 1 minute, or until it passes a passive save.",
+        "You create a burst of radiant sunlight that fills the area. Make an area fortitude attack against each creature in the area that deals {@dice 7d12} radiant damage. This attack has advantage against oozes and undead. On a hit, a target is {@condition blinded} for 1 minute, or until it passes a passive save.",
         "This spell dispels any magical darkness in its area."
       ],
       "name": "Sunburst",
@@ -24438,15 +24438,15 @@
               "type": "item",
               "name": "Confusion",
               "entries": [
-                "Creatures in the area make a save or become {@condition confused|sns} for 1 minute."
+                "Creatures in the area make a save or become {@condition confused} for 1 minute."
               ]
             },
             {
               "type": "item",
               "name": "Fear",
               "entries": [
-                "Creatures in the area make a save or are {@condition frightened|sns} for 1 minute.",
-                "While {@condition frightened|sns}, a creature drops whatever it is holding and must move at least 30 feet away from the glyph on each of its turns."
+                "Creatures in the area make a save or are {@condition frightened} for 1 minute.",
+                "While {@condition frightened}, a creature drops whatever it is holding and must move at least 30 feet away from the glyph on each of its turns."
               ]
             },
             {
@@ -24460,14 +24460,14 @@
               "type": "item",
               "name": "Pain",
               "entries": [
-                "Creatures in the area make a save or become {@condition dazed|sns} for 1 minute."
+                "Creatures in the area make a save or become {@condition dazed} for 1 minute."
               ]
             },
             {
               "type": "item",
               "name": "Sleep",
               "entries": [
-                "Creatures in the area make a save or fall {@condition unconscious|sns} for 10 minutes.",
+                "Creatures in the area make a save or fall {@condition unconscious} for 10 minutes.",
                 "A sleeping creature awakens if it takes damage or an action is used to wake it."
               ]
             },
@@ -24475,7 +24475,7 @@
               "type": "item",
               "name": "Debilitation",
               "entries": [
-                "Creatures in the area make a save or become {@condition debilitated|sns} for 1 minute"
+                "Creatures in the area make a save or become {@condition debilitated} for 1 minute"
               ]
             }
           ]
@@ -24558,8 +24558,8 @@
             "20-foot radius"
           ]
         },
-        "You quietly play a tragedy, a song that fills those around you with magical sorrow. Each creature in the area makes a save at the start of its turn. On a fail, a creature suffers {@dice 2d4} psychic harm, it is {@condition debilitated|sns} for that turn due to its crying, and it can't take reactions until the start of its next turn. Creatures that are immune to the {@condition charmed|sns} condition automatically succeed on this save.",
-        "If a creature other than you hears the entire song (remaining within the spell's area from the casting through the duration) it is so wracked with sadness that it is {@condition debilitated|sns} for {@dice 1d4} rounds.",
+        "You quietly play a tragedy, a song that fills those around you with magical sorrow. Each creature in the area makes a save at the start of its turn. On a fail, a creature suffers {@dice 2d4} psychic harm, it is {@condition debilitated} for that turn due to its crying, and it can't take reactions until the start of its next turn. Creatures that are immune to the {@condition charmed} condition automatically succeed on this save.",
+        "If a creature other than you hears the entire song (remaining within the spell's area from the casting through the duration) it is so wracked with sadness that it is {@condition debilitated} for {@dice 1d4} rounds.",
         "You cannot cast another spell with material components while concentrating on this spell."
       ],
       "name": "Tearful Sonnet",
@@ -24645,7 +24645,7 @@
               "type": "item",
               "name": "Creature",
               "entries": [
-                "The target makes a {@skill Brawn} check against your standard DC or it is moved up to 30 feet in any direction and {@condition restrained|sns} (even in mid-air) until the end of your next turn. You cannot move a target beyond the range of the spell."
+                "The target makes a {@skill Brawn} check against your standard DC or it is moved up to 30 feet in any direction and {@condition restrained} (even in mid-air) until the end of your next turn. You cannot move a target beyond the range of the spell."
               ]
             },
             {
@@ -26174,9 +26174,9 @@
         },
         "A squirming wall of bodies, groping arms and tentacles, and moaning, biting mouths heaves itself up from the ground at a point you choose. The wall is 6 inches thick and is made up of a contiguous group of ten 10-foot square sections. The wall can have any shape you desire. You must have line of sight to at least one space the wall occupies.",
         "If the wall enters a creature's space when it appears, the creature makes a save, and on a success it moves up to its Speed to escape. On a failed save, it is swallowed by the wall (as below).",
-        "When a creature enters the area for the first time on a turn or starts its turn within 10 feet of the wall, tentacles and arms reach out to grab it. The creature makes a save or suffers {@dice 5d8} bludgeoning harm and becomes {@condition grappled|sns}. If the creature was already {@condition grappled|sns} by the wall at the start of its turn and fails its save, a mouth opens in the wall and swallows the creature.",
-        "A creature swallowed by the wall suffers {@dice 5d8} ongoing bludgeoning harm and is {@condition blinded|sns}, {@condition deafened|sns}, and {@condition restrained|sns}.",
-        "A creature {@condition grappled|sns} or {@condition restrained|sns} by the wall can use its action to make a save. On a success, a {@condition grappled|sns} creature frees itself and a {@condition restrained|sns} creature claws its way out of the wall's space, exiting to an empty space next to the wall and still {@condition grappled|sns}.",
+        "When a creature enters the area for the first time on a turn or starts its turn within 10 feet of the wall, tentacles and arms reach out to grab it. The creature makes a save or suffers {@dice 5d8} bludgeoning harm and becomes {@condition grappled}. If the creature was already {@condition grappled} by the wall at the start of its turn and fails its save, a mouth opens in the wall and swallows the creature.",
+        "A creature swallowed by the wall suffers {@dice 5d8} ongoing bludgeoning harm and is {@condition blinded}, {@condition deafened}, and {@condition restrained}.",
+        "A creature {@condition grappled} or {@condition restrained} by the wall can use its action to make a save. On a success, a {@condition grappled} creature frees itself and a {@condition restrained} creature claws its way out of the wall's space, exiting to an empty space next to the wall and still {@condition grappled}.",
         {
           "type": "entries",
           "name": "Rare",
@@ -26899,14 +26899,14 @@
         "Thick, sticky webs fill the area, lightly obscuring it and making it difficult terrain.",
         "You must anchor the webs between two solid masses (such as walls or trees) or layer them across a flat surface. If you don't the conjured webs collapse and at the start of your next turn the spell ends.",
         "Webs layered over a flat surface are 5 feet deep.",
-        "The area becomes a persistent zone that forces creatures within to pass a save or become {@condition restrained|sns} as long as it remains in the webs (or until the creature breaks free).",
-        "A creature {@condition restrained|sns} by the webs can escape by using its action to make a {@skill Brawn} check against your standard DC.",
+        "The area becomes a persistent zone that forces creatures within to pass a save or become {@condition restrained} as long as it remains in the webs (or until the creature breaks free).",
+        "A creature {@condition restrained} by the webs can escape by using its action to make a {@skill Brawn} check against your standard DC.",
         "Any 5-foot cube of webs exposed to fire burns away in 1 round, causing {@dice 2d4} fire harm to any creature that starts its turn in the fire.",
         {
           "type": "entries",
           "name": "Rare",
           "entries": [
-            "Kreven's Potent Web. Checks made by {@condition restrained|sns} creatures to escape the web have disadvantage."
+            "Kreven's Potent Web. Checks made by {@condition restrained} creatures to escape the web have disadvantage."
           ]
         },
         {
@@ -27007,14 +27007,14 @@
               "type": "item",
               "name": "Minor success",
               "entries": [
-                "The target is {@condition sluggish|sns} while moving towards you for 1 round."
+                "The target is {@condition sluggish} while moving towards you for 1 round."
               ]
             },
             {
               "type": "item",
               "name": "Standard success",
               "entries": [
-                "The target becomes {@condition frightened|sns} until the spell ends, or it passes a passive save. Whenever the target fails this passive save, it suffers {@dice 4d10} psychic harm."
+                "The target becomes {@condition frightened} until the spell ends, or it passes a passive save. Whenever the target fails this passive save, it suffers {@dice 4d10} psychic harm."
               ]
             },
             {
@@ -27098,7 +27098,7 @@
             "Line up to 60 feet long and 15 feet wide"
           ]
         },
-        "You must have a usable speed greater than 0 and not be {@condition sluggish|sns} to cast this spell. You leap into the air and spin like a tornado, striking foes all around you with supernatural force as you fly up to 60 feet in a straight line. Your movement (which does not provoke attacks of opportunity) must end on a surface that can support your weight or you fall as normal.",
+        "You must have a usable speed greater than 0 and not be {@condition sluggish} to cast this spell. You leap into the air and spin like a tornado, striking foes all around you with supernatural force as you fly up to 60 feet in a straight line. Your movement (which does not provoke attacks of opportunity) must end on a surface that can support your weight or you fall as normal.",
         "As part of the casting of this spell, make a melee armour spell attack against any number of creatures in the area that deals your unarmed strike damage plus {@dice 2d6} thunder damage. On a major success, a target is either pulled 10 feet closer to you or pushed 10 feet away (your choice)."
       ],
       "name": "Whirlwind Kick",
@@ -27237,7 +27237,7 @@
             "You and up to 10 willing creatures you can see"
           ]
         },
-        "The targets assume a gaseous form and appear as wisps of cloud. Each target has a flying speed of 300 feet and 50% resistance to weapon damage, but the only action it can take is the Dash action or to revert to its normal form (a process that takes 1 minute during which it is {@condition incapacitated|sns} and can't move).",
+        "The targets assume a gaseous form and appear as wisps of cloud. Each target has a flying speed of 300 feet and 50% resistance to weapon damage, but the only action it can take is the Dash action or to revert to its normal form (a process that takes 1 minute during which it is {@condition incapacitated} and can't move).",
         "Until the spell ends, a target can change again to cloud form (in an identical transformation process).",
         "When the effect ends for a target flying in cloud form, it descends 60 feet each round for up to 1 minute or until it safely lands. If the target can't land after 1 minute, the creature falls the rest of the way normally."
       ],
@@ -27507,13 +27507,13 @@
             "You and up to 50 willing creatures of Large size or smaller"
           ]
         },
-        "You call a Gargantuan monstrosity from the depths of the world to carry you and your allies across great distances. When you cast this spell, the nearest {@creature purple worm} within range is {@condition charmed|sns} and begins moving toward a point on the ground that you can see. If there are no purple worms within range, the spell fails. The earth rumbles slightly as it approaches and breaks through the surface. Any creatures within 20 feet of that point must make a save or be knocked {@condition prone|sns} and pushed 10 feet away from it.",
+        "You call a Gargantuan monstrosity from the depths of the world to carry you and your allies across great distances. When you cast this spell, the nearest {@creature purple worm} within range is {@condition charmed} and begins moving toward a point on the ground that you can see. If there are no purple worms within range, the spell fails. The earth rumbles slightly as it approaches and breaks through the surface. Any creatures within 20 feet of that point must make a save or be knocked {@condition prone} and pushed 10 feet away from it.",
         "Upon emerging, the purple worm lays down before you and opens its maw. Targets can climb inside where they are enclosed in an impervious hemispherical dome of force.",
         "Once targets are loaded into the purple worm, nothing — not physical objects, energy, or other spell effects — can pass through the barrier, in or out, though targets in the sphere can breathe there. The hemisphere is immune to all damage, and creatures and objects inside can't be damaged by attacks or effects originating from outside, nor can a target inside the hemisphere damage anything outside it.",
         "The atmosphere inside the dome is comfortable and dry regardless of conditions outside it.",
         "The purple worm waits until you give it a mental command to depart, at which point it dives back into the ground and travels, without need for rest or food, as directly as possible while avoiding obstacles to a destination known to you. It travels 150 miles per day.",
         "When the purple worm reaches its destination it surfaces, the dome vanishes, and it disgorges the targets in its mouth before diving back into the depths again.",
-        "The purple worm remains {@condition charmed|sns} by you until it has delivered you to your destination and returned to the depths, or until it is attacked at which point the charm ends, it vomits its targets in the nearest unoccupied space as soon as possible, and then retreats to safety.",
+        "The purple worm remains {@condition charmed} by you until it has delivered you to your destination and returned to the depths, or until it is attacked at which point the charm ends, it vomits its targets in the nearest unoccupied space as soon as possible, and then retreats to safety.",
         {
           "type": "entries",
           "name": "Rare",
@@ -27587,7 +27587,7 @@
       "school": "T",
       "entries": [
         "As part of the casting of this spell, you lay down in the coffin on a patch of bare earth and it buries itself.",
-        "Over the following week, you are {@condition incapacitated|sns} and do not need air, food, or sleep. Your insides are eaten by worms, but you do not die and your skin remains intact. If you are exhumed during this time, or if the spell is otherwise interrupted, you die.",
+        "Over the following week, you are {@condition incapacitated} and do not need air, food, or sleep. Your insides are eaten by worms, but you do not die and your skin remains intact. If you are exhumed during this time, or if the spell is otherwise interrupted, you die.",
         "At the end of the week, the transformation is complete and your true form is permanently changed.",
         "Your appearance is unchanged but underneath your skin is a sentient mass of worms. Any creature that makes a {@skill Medicine} check against your standard DC realizes that there is something moving underneath your skin.",
         "Your statistics change in the following ways:",
@@ -27660,7 +27660,7 @@
             "15-foot sphere"
           ]
         },
-        "You create a zone that minimizes deception. Any creature that is able to be {@condition charmed|sns} can't speak a deliberate lie while in the area.",
+        "You create a zone that minimizes deception. Any creature that is able to be {@condition charmed} can't speak a deliberate lie while in the area.",
         "An affected creature is aware of the spell and can choose not to speak, or it might be evasive in its communications. The area becomes a persistent zone that forces creatures within to make a save. On a failed save, a creature suffers {@dice 2d4} psychic harm when it intentionally tries to mislead or occlude important information for the remainder of the spell's duration. Each time the spell damages a creature, it makes a {@skill Deception} check (DC 8 + the damage dealt) or its suffering is obvious. You know whether a creature succeeds on its save."
       ],
       "name": "Zone of Truth",
@@ -28159,7 +28159,7 @@
             "One creature"
           ]
         },
-        "You whisper a discordant melody that only the target can hear, wracking it with terrible pain. Make a ranged will attack against the target that deals {@dice 2d10} psychic damage. On a hit, the target must immediately use its reaction, if available, to move as far as its Speed allows away from you. The target doesn't move into obviously dangerous ground, such as a fire or a pit. A {@condition deafened|sns} target reduces the success tier of the attack by 1."
+        "You whisper a discordant melody that only the target can hear, wracking it with terrible pain. Make a ranged will attack against the target that deals {@dice 2d10} psychic damage. On a hit, the target must immediately use its reaction, if available, to move as far as its Speed allows away from you. The target doesn't move into obviously dangerous ground, such as a fire or a pit. A {@condition deafened} target reduces the success tier of the attack by 1."
       ],
       "name": "Dissonant Whispers",
       "time": [
@@ -28348,7 +28348,7 @@
             "One creature"
           ]
         },
-        "A ray of sickening greenish energy lashes out towards the target. Make a ranged armour attack against the target that deals {@dice 2d8} poison damage. On a major success, the target is also {@condition poisoned|sns} until the end of your next turn."
+        "A ray of sickening greenish energy lashes out towards the target. Make a ranged armour attack against the target that deals {@dice 2d8} poison damage. On a major success, the target is also {@condition poisoned} until the end of your next turn."
       ],
       "name": "Ray of Sickness",
       "time": [
@@ -28473,7 +28473,7 @@
     {
       "school": "V",
       "entries": [
-        "The first time you hit with a melee weapon attack during this spell's duration, your weapon rings with thunder that is audible within 300 feet of you, and the attack deals an extra {@dice 2d6} thunder damage to the target. Additionally, if the target is a creature and the attack scored a major success, the target is pushed 10 feet away from you and knocked {@condition prone|sns}."
+        "The first time you hit with a melee weapon attack during this spell's duration, your weapon rings with thunder that is audible within 300 feet of you, and the attack deals an extra {@dice 2d6} thunder damage to the target. Additionally, if the target is a creature and the attack scored a major success, the target is pushed 10 feet away from you and knocked {@condition prone}."
       ],
       "name": "Thunderous Smite",
       "time": [
@@ -28620,7 +28620,7 @@
             "One willing beast"
           ]
         },
-        "You touch the target. For the duration of the spell, you can use your action to see through the target's eyes and hear what it hears, and continue to do so until you use your action to return to your normal senses. While perceiving through the beast's senses, you gain the benefits of any special senses possessed by that creature, though you are {@condition blinded|sns} and {@condition deafened|sns} to your own surroundings."
+        "You touch the target. For the duration of the spell, you can use your action to see through the target's eyes and hear what it hears, and continue to do so until you use your action to return to your normal senses. While perceiving through the beast's senses, you gain the benefits of any special senses possessed by that creature, though you are {@condition blinded} and {@condition deafened} to your own surroundings."
       ],
       "name": "Beast Sense",
       "time": [
@@ -28816,14 +28816,14 @@
               "type": "item",
               "name": "Minor success",
               "entries": [
-                "The target is {@condition charmed|sns} for 1 round."
+                "The target is {@condition charmed} for 1 round."
               ]
             },
             {
               "type": "item",
               "name": "Standard success",
               "entries": [
-                "The target is {@condition charmed|sns} until either the spell ends or it passes a passive save. While {@condition charmed|sns} in this way, a twisted crown of jagged iron appears on the target's head, and a madness glows in its eyes.",
+                "The target is {@condition charmed} until either the spell ends or it passes a passive save. While {@condition charmed} in this way, a twisted crown of jagged iron appears on the target's head, and a madness glows in its eyes.",
                 "The target gains a free action at the start of each of its turns that must be used to make a melee weapon attack against a creature other than itself that you mentally choose."
               ]
             },
@@ -28831,7 +28831,7 @@
               "type": "item",
               "name": "Critical success",
               "entries": [
-                "As standard success, but the target is {@condition dominated|sns} instead of gaining the free action for melee attacks."
+                "As standard success, but the target is {@condition dominated} instead of gaining the free action for melee attacks."
               ]
             }
           ]
@@ -29062,7 +29062,7 @@
     {
       "school": "V",
       "entries": [
-        "The next time you hit a creature with a melee weapon attack before this spell ends, your weapon flares with bright light, and the attack deals an extra {@dice 3d8} radiant damage to the target. Additionally, if the attack scores a major success, the target is {@condition blinded|sns} until either the spell ends or it passes a passive save."
+        "The next time you hit a creature with a melee weapon attack before this spell ends, your weapon flares with bright light, and the attack deals an extra {@dice 3d8} radiant damage to the target. Additionally, if the attack scores a major success, the target is {@condition blinded} until either the spell ends or it passes a passive save."
       ],
       "name": "Blinding Smite",
       "time": [
@@ -29253,7 +29253,7 @@
           ]
         },
         "You put the target into a cataleptic state that is indistinguishable from death.",
-        "For the spell's duration, or until you use an action to touch the target and dismiss the spell, the target appears dead to all outward inspection and to spells used to determine the target's status. The target is {@condition blinded|sns} and {@condition incapacitated|sns}, and its speeds drop to 0. The target has 50% resistance to all damage except psychic damage. If the target is diseased or {@condition poisoned|sns} when you cast the spell, or becomes diseased or {@condition poisoned|sns} while under the spell's effect, the disease and poison have no effect until the spell ends."
+        "For the spell's duration, or until you use an action to touch the target and dismiss the spell, the target appears dead to all outward inspection and to spells used to determine the target's status. The target is {@condition blinded} and {@condition incapacitated}, and its speeds drop to 0. The target has 50% resistance to all damage except psychic damage. If the target is diseased or {@condition poisoned} when you cast the spell, or becomes diseased or {@condition poisoned} while under the spell's effect, the disease and poison have no effect until the spell ends."
       ],
       "name": "Feign Death",
       "time": [
@@ -29323,7 +29323,7 @@
             "20-foot-radius sphere"
           ]
         },
-        "You open a gateway to the dark between the stars, a region infested with unknown horrors. The area is filled with blackness and bitter cold, lasting for the duration. This void is filled with a cacophony of soft whispers and slurping noises that can be heard up to 30 feet away. No light, magical or otherwise, can illuminate the area, and creatures fully within the area are {@condition blinded|sns}.",
+        "You open a gateway to the dark between the stars, a region infested with unknown horrors. The area is filled with blackness and bitter cold, lasting for the duration. This void is filled with a cacophony of soft whispers and slurping noises that can be heard up to 30 feet away. No light, magical or otherwise, can illuminate the area, and creatures fully within the area are {@condition blinded}.",
         "The void creates a warp in the fabric of space, and the area is difficult terrain. Any creature that starts its turn in the area suffers {@dice 2d6} cold harm. Any creature that ends its turn in the area suffers {@dice 1d6} acid harm as milky, otherworldly tentacles rub against it."
       ],
       "name": "Hunger of Hadar",
@@ -29442,7 +29442,7 @@
             "30-foot radius"
           ]
         },
-        "Purifying energy radiates from you. Until the spell ends, the aura moves with you, centered on you. Each nonhostile creature in the area (including you) can't become diseased, has 50% resistance to poison damage, and grants disadvantage to incoming attacks that can cause any of the following conditions: {@condition blinded|sns}, {@condition charmed|sns}, {@condition deafened|sns}, {@condition frightened|sns}, {@condition staggered|sns}, {@condition poisoned|sns}, and {@condition debilitated|sns}."
+        "Purifying energy radiates from you. Until the spell ends, the aura moves with you, centered on you. Each nonhostile creature in the area (including you) can't become diseased, has 50% resistance to poison damage, and grants disadvantage to incoming attacks that can cause any of the following conditions: {@condition blinded}, {@condition charmed}, {@condition deafened}, {@condition frightened}, {@condition staggered}, {@condition poisoned}, and {@condition debilitated}."
       ],
       "name": "Aura of Purity",
       "time": [
@@ -29494,7 +29494,7 @@
             "Any number of creatures you choose that can hear you"
           ]
         },
-        "Make an area will attack against each target. If a target can't be {@condition charmed|sns}, the attack against them automatically scores a critical failure. The attack has the following outcomes:",
+        "Make an area will attack against each target. If a target can't be {@condition charmed}, the attack against them automatically scores a critical failure. The attack has the following outcomes:",
         {
           "type": "list",
           "items": [
@@ -29516,7 +29516,7 @@
               "type": "item",
               "name": "Critical success",
               "entries": [
-                "As standard success, but the target is also {@condition dominated|sns}."
+                "As standard success, but the target is also {@condition dominated}."
               ]
             }
           ]
@@ -29721,7 +29721,7 @@
     {
       "school": "A",
       "entries": [
-        "The next time you hit a creature with a melee weapon attack before this spell ends, your weapon crackles with force, and the attack deals an extra {@dice 5d10} force damage to the target. Additionally, if this attack reduces the target to 56 hit points or fewer, you banish it. If the target is native to a different plane of existence than the one you're on, the target disappears, returning to its home plane. If the target is native to the plane you're on, the creature vanishes into a harmless demiplane. While there, the target is {@condition dazed|sns}. It remains there until the spell ends, at which point the target reappears in the space it left or in the nearest unoccupied space if that space is occupied. If the target returns early during combat and it had at least one turn while banished, it immediately takes a turn. This does not change initiative order."
+        "The next time you hit a creature with a melee weapon attack before this spell ends, your weapon crackles with force, and the attack deals an extra {@dice 5d10} force damage to the target. Additionally, if this attack reduces the target to 56 hit points or fewer, you banish it. If the target is native to a different plane of existence than the one you're on, the target disappears, returning to its home plane. If the target is native to the plane you're on, the creature vanishes into a harmless demiplane. While there, the target is {@condition dazed}. It remains there until the spell ends, at which point the target reappears in the space it left or in the nearest unoccupied space if that space is occupied. If the target returns early during combat and it had at least one turn while banished, it immediately takes a turn. This does not change initiative order."
       ],
       "name": "Banishing Smite",
       "time": [
@@ -29830,7 +29830,7 @@
             "30-foot radius centered on you"
           ]
         },
-        "You strike the ground, creating a burst of divine energy that ripples outwards from you. Make an area fortitude attack against each creature in the area that deals {@dice 3d12 thunder damage}, as well as {@dice 3d12} radiant or necrotic damage (your choice). On a hit, the target is knocked {@condition prone|sns}."
+        "You strike the ground, creating a burst of divine energy that ripples outwards from you. Make an area fortitude attack against each creature in the area that deals {@dice 3d12 thunder damage}, as well as {@dice 3d12} radiant or necrotic damage (your choice). On a hit, the target is knocked {@condition prone}."
       ],
       "name": "Destructive Wave",
       "time": [
@@ -30046,7 +30046,7 @@
     {
       "school": "V",
       "entries": [
-        "A wave of healing energy washes over the creature you touch. The target regains all its hit points. If the creature is {@condition charmed|sns}, {@condition frightened|sns}, {@staggered|sns}, or {@condition debilitated|sns}, the condition ends. If the creature is {@condition prone|sns}, it can use its reaction to stand up. This spell has no effect on undead or constructs."
+        "A wave of healing energy washes over the creature you touch. The target regains all its hit points. If the creature is {@condition charmed}, {@condition frightened}, {@staggered|sns}, or {@condition debilitated}, the condition ends. If the creature is {@condition prone}, it can use its reaction to stand up. This spell has no effect on undead or constructs."
       ],
       "name": "Power Word Heal",
       "time": [
@@ -30829,7 +30829,7 @@
     {
       "school": "D",
       "entries": [
-        "You establish a telepathic link with one beast you touch that is friendly to you or {@condition charmed|sns} by you. The spell fails if the beast's Intelligence score is 4 or higher. Until the spell ends, the link is active while you and the beast are within line of sight of each other. Through the link, the beast can understand your telepathic messages to it, and it can telepathically communicate simple emotions and concepts back to you. While the link is active, the beast gains advantage on armour attack rolls against any creature adjacent to you."
+        "You establish a telepathic link with one beast you touch that is friendly to you or {@condition charmed} by you. The spell fails if the beast's Intelligence score is 4 or higher. Until the spell ends, the link is active while you and the beast are within line of sight of each other. Through the link, the beast can understand your telepathic messages to it, and it can telepathically communicate simple emotions and concepts back to you. While the link is active, the beast gains advantage on armour attack rolls against any creature adjacent to you."
       ],
       "name": "Beast Bond",
       "time": [
@@ -30968,21 +30968,21 @@
               "type": "item",
               "name": "Minor success",
               "entries": [
-                "The target is {@condition rattled|sns} for 1 round."
+                "The target is {@condition rattled} for 1 round."
               ]
             },
             {
               "type": "item",
               "name": "Standard success",
               "entries": [
-                "The target is {@condition frightened|sns} until either the spell ends or it passes a passive save."
+                "The target is {@condition frightened} until either the spell ends or it passes a passive save."
               ]
             },
             {
               "type": "item",
               "name": "Critical success",
               "entries": [
-                "As standard success, but the target is also {@condition debilitated|sns}."
+                "As standard success, but the target is also {@condition debilitated}."
               ]
             }
           ]
@@ -31173,7 +31173,7 @@
     {
       "school": "V",
       "entries": [
-        "You cause a tremor in the ground within range. Make an area reflex attack against each creature in that area that deals {@dice 1d6} bludgeoning damage. On a hit, a target is knocked {@condition prone|sns}. If the ground in that area is loose earth or stone, it becomes difficult terrain until cleared, with each 5-foot-diameter portion requiring at least 1 minute to clear by hand."
+        "You cause a tremor in the ground within range. Make an area reflex attack against each creature in that area that deals {@dice 1d6} bludgeoning damage. On a hit, a target is knocked {@condition prone}. If the ground in that area is loose earth or stone, it becomes difficult terrain until cleared, with each 5-foot-diameter portion requiring at least 1 minute to clear by hand."
       ],
       "name": "Earth Tremor",
       "time": [
@@ -31437,8 +31437,8 @@
       "entries": [
         "As you cast this spell, you use the rope to create a circle with a 5-foot radius on the ground or the floor. When you finish casting, the rope disappears and the circle becomes a magic trap.",
         "This trap is nearly invisible, requiring a successful {@skill Investigation} check against your standard DC to be discerned.",
-        "The trap triggers when a Small, Medium, or Large creature moves onto the ground or the floor in the spell's radius. That creature must make a save, being magically hoisted in the air on a fail, leaving it hanging upside down 3 feet above the ground or the floor. The creature is {@condition restrained|sns} there until either the spell ends or it passes a passive save. Alternatively, the creature or someone else who can reach it can use an action make an Arcana check against your standard DC. On a success, the {@condition restrained|sns} effect ends.",
-        "After the trap is triggered, the spell ends when no creature is {@condition restrained|sns} by it."
+        "The trap triggers when a Small, Medium, or Large creature moves onto the ground or the floor in the spell's radius. That creature must make a save, being magically hoisted in the air on a fail, leaving it hanging upside down 3 feet above the ground or the floor. The creature is {@condition restrained} there until either the spell ends or it passes a passive save. Alternatively, the creature or someone else who can reach it can use an action make an Arcana check against your standard DC. On a success, the {@condition restrained} effect ends.",
+        "After the trap is triggered, the spell ends when no creature is {@condition restrained} by it."
       ],
       "name": "Snare",
       "time": [
@@ -32184,10 +32184,10 @@
     {
       "school": "T",
       "entries": [
-        "You choose an unoccupied space on the ground within range. A Medium hand made from compacted soil rises there and reaches for one creature adjacent to it. Make a melee fortitude attack against the target that deals {@dice 2d6} bludgeoning damage. On a hit, the target is {@condition restrained|sns} for the spell's duration.",
-        "As an action, you can cuase the hand to crush the {@condition restrained|sns} target, making a melee spell fortitude attack against the target that deals {@dice 3d4} bludgeoning damage.",
-        "To break out, the {@condition restrained|sns} target can use its action to make a {@skill Brawn} check against your standard DC. On a success, the target escapes and is no longer {@condition restrained|sns} by the hand.",
-        "As an action, you can cause the hand to reach for a different creature or to move to a different unoccupied space within range. The hand releases a {@condition restrained|sns} target if you do either."
+        "You choose an unoccupied space on the ground within range. A Medium hand made from compacted soil rises there and reaches for one creature adjacent to it. Make a melee fortitude attack against the target that deals {@dice 2d6} bludgeoning damage. On a hit, the target is {@condition restrained} for the spell's duration.",
+        "As an action, you can cuase the hand to crush the {@condition restrained} target, making a melee spell fortitude attack against the target that deals {@dice 3d4} bludgeoning damage.",
+        "To break out, the {@condition restrained} target can use its action to make a {@skill Brawn} check against your standard DC. On a success, the target escapes and is no longer {@condition restrained} by the hand.",
+        "As an action, you can cause the hand to reach for a different creature or to move to a different unoccupied space within range. The hand releases a {@condition restrained} target if you do either."
       ],
       "name": "Earthen Grasp",
       "time": [
@@ -32340,15 +32340,15 @@
           "rows": [
             [
               "1",
-              "The smell of apple pie fills the air, and each creature in the area must succeed on a save or become {@condition charmed|sns} until the start of your next turn."
+              "The smell of apple pie fills the air, and each creature in the area must succeed on a save or become {@condition charmed} until the start of your next turn."
             ],
             [
               "2",
-              "Bouquets of flowers appear all around, and each creature in the area must succeed on a save or be {@condition blinded|sns} until the start of your next turn as the flowers spray water in their faces."
+              "Bouquets of flowers appear all around, and each creature in the area must succeed on a save or be {@condition blinded} until the start of your next turn as the flowers spray water in their faces."
             ],
             [
               "3",
-              "Each creature in the area must succeed on a save or begin giggling until the start of your next turn. A giggling creature is {@condition dazed|sns} and uses all its movement to move in a random direction."
+              "Each creature in the area must succeed on a save or begin giggling until the start of your next turn. A giggling creature is {@condition dazed} and uses all its movement to move in a random direction."
             ],
             [
               "4",
@@ -32458,14 +32458,14 @@
                       "type": "item",
                       "name": "Standard success",
                       "entries": [
-                        "The target is {@condition blinded|sns} until the end of your next turn."
+                        "The target is {@condition blinded} until the end of your next turn."
                       ]
                     },
                     {
                       "type": "item",
                       "name": "Critical success",
                       "entries": [
-                        "As standard success, but the target is also {@condition debilitated|sns}."
+                        "As standard success, but the target is also {@condition debilitated}."
                       ]
                     }
                   ]
@@ -32825,7 +32825,7 @@
               "type": "item",
               "name": "Minor success",
               "entries": [
-                "The target is {@condition sluggish|sns} for 1 round."
+                "The target is {@condition sluggish} for 1 round."
               ]
             },
             {
@@ -32839,7 +32839,7 @@
               "type": "item",
               "name": "Critical success",
               "entries": [
-                "As standard success, but the target is also {@condition sluggish|sns} for 1 round after being teleported."
+                "As standard success, but the target is also {@condition sluggish} for 1 round after being teleported."
               ]
             }
           ]
@@ -32914,7 +32914,7 @@
         {
           "type": "list",
           "items": [
-            "It {@condition deafened|sns|deafens} you and other creatures in its area.",
+            "It {@condition deafened|deafens} you and other creatures in its area.",
             "It extinguishes unprotected flames in its area that are torch-sized or smaller.",
             "It hedges out vapour, gas, and fog that can be dispersed by strong wind.",
             "The area is difficult terrain for creatures other than you.",
@@ -33188,7 +33188,7 @@
             "Up to three willing creatures"
           ]
         },
-        "You make a calming gesture, and the targets fall {@condition unconscious|sns} for the spell's duration. The spell ends on a target early if it takes damage or someone uses an action to shake or slap it awake. If a target remains {@condition unconscious|sns} for the full duration, that target gains the benefit of a short rest, and it can't be affected by this spell again until it finishes a long rest."
+        "You make a calming gesture, and the targets fall {@condition unconscious} for the spell's duration. The spell ends on a target early if it takes damage or someone uses an action to shake or slap it awake. If a target remains {@condition unconscious} for the full duration, that target gains the benefit of a short rest, and it can't be affected by this spell again until it finishes a long rest."
       ],
       "name": "Catnap",
       "time": [
@@ -33266,7 +33266,7 @@
           "type": "entries",
           "name": "Target",
           "entries": [
-            "One creature that is not immune to being {@condition frightened|sns}"
+            "One creature that is not immune to being {@condition frightened}"
           ]
         },
         "You reach into the target's mind and make a ranged will attack against it with the following outcomes:",
@@ -33292,7 +33292,7 @@
               "type": "item",
               "name": "Critical success",
               "entries": [
-                "As standard success, but the target is also {@condition dominated|sns}."
+                "As standard success, but the target is also {@condition dominated}."
               ]
             }
           ]
@@ -33776,7 +33776,7 @@
             "Up to 30 feet long, up to 10 feet wide, and up to 10 feet tall"
           ]
         },
-        "You conjure up a wave of water that crashes down on the area. Make an area reflex attack against each creature in the area that deals {@dice 3d12} bludgeoning damage. On a hit, a target is knocked {@condition prone|sns}. The water then spreads out across the ground in all directions, extinguishing unprotected flames in its area and within 30 feet of it, and then it vanishes."
+        "You conjure up a wave of water that crashes down on the area. Make an area reflex attack against each creature in the area that deals {@dice 3d12} bludgeoning damage. On a hit, a target is knocked {@condition prone}. The water then spreads out across the ground in all directions, extinguishing unprotected flames in its area and within 30 feet of it, and then it vanishes."
       ],
       "name": "Tidal Wave",
       "time": [
@@ -34295,7 +34295,7 @@
           ]
         },
         "You unleash a shimmering lance of psychic power from your forehead at the target. This spell does not require line of sight if you utter the target's name.",
-        "Make a ranged will attack against the target that deals {@dice 5d10} psychic damage. On a hit, the target is {@condition dazed|sns} until the start of your next turn."
+        "Make a ranged will attack against the target that deals {@dice 5d10} psychic damage. On a hit, the target is {@condition dazed} until the start of your next turn."
       ],
       "name": "Psychic Lance",
       "time": [
@@ -34426,7 +34426,7 @@
           ]
         },
         "Dim, greenish light spreads within the area. The area spreads around corners, and it lasts until the spell ends.",
-        "The area is a persistent zone that forces creatures to make a save. On a fail, a creature suffers {@dice 4d10} radiant harm, gains one level of {@condition fatigue|sns}, and emits a dim, greenish light in a 5-foot radius. This light makes it impossible for the creature to benefit from being invisible. The light and any levels of {@condition fatigue|sns} caused by this spell go away when the spell ends."
+        "The area is a persistent zone that forces creatures to make a save. On a fail, a creature suffers {@dice 4d10} radiant harm, gains one level of {@condition fatigue}, and emits a dim, greenish light in a 5-foot radius. This light makes it impossible for the creature to benefit from being invisible. The light and any levels of {@condition fatigue} caused by this spell go away when the spell ends."
       ],
       "name": "Sickening Radiance",
       "time": [
@@ -34684,10 +34684,10 @@
       "school": "C",
       "entries": [
         "You conjure up a sphere of water with a 5-foot radius at a point you can see within range. The sphere can hover but no more than 10 feet off the ground. The sphere remains for the spell's duration.",
-        "Any creature in the sphere's space when it first appears must make a save. On a success, a creature is ejected from that space to the nearest unoccupied space of the creature's choice outside the sphere. A Huge or larger creature succeeds on the save automatically, and a Large or smaller creature can choose to fail it. On a failed save, a creature is {@condition restrained|sns} by the sphere and is engulfed by the water until it passes a passive save.",
-        "The sphere can restrain as many as four Medium or smaller creatures or one Large creature. If the sphere restrains a creature that causes it to exceed this capacity, a random creature that was already {@condition restrained|sns} by the sphere falls out of it and lands {@condition prone|sns} in a space adjacent to it.",
-        "As an action, you can move the sphere up to 30 feet in a straight line. If it moves over a pit, a cliff, or other drop-off, it safely descends until it is hovering 10 feet above the ground. Any creature {@condition restrained|sns} by the sphere is moved with it. You can ram the sphere into creatures, forcing them to make the save.",
-        "When the spell ends, the sphere falls to the ground and extinguishes all normal flames within 30 feet of it. Any creature {@condition restrained|sns} by the sphere is knocked {@condition prone|sns} in the space where it falls. The water then vanishes."
+        "Any creature in the sphere's space when it first appears must make a save. On a success, a creature is ejected from that space to the nearest unoccupied space of the creature's choice outside the sphere. A Huge or larger creature succeeds on the save automatically, and a Large or smaller creature can choose to fail it. On a failed save, a creature is {@condition restrained} by the sphere and is engulfed by the water until it passes a passive save.",
+        "The sphere can restrain as many as four Medium or smaller creatures or one Large creature. If the sphere restrains a creature that causes it to exceed this capacity, a random creature that was already {@condition restrained} by the sphere falls out of it and lands {@condition prone} in a space adjacent to it.",
+        "As an action, you can move the sphere up to 30 feet in a straight line. If it moves over a pit, a cliff, or other drop-off, it safely descends until it is hovering 10 feet above the ground. Any creature {@condition restrained} by the sphere is moved with it. You can ram the sphere into creatures, forcing them to make the save.",
+        "When the spell ends, the sphere falls to the ground and extinguishes all normal flames within 30 feet of it. Any creature {@condition restrained} by the sphere is knocked {@condition prone} in the space where it falls. The water then vanishes."
       ],
       "name": "Watery Sphere",
       "time": [
@@ -34769,7 +34769,7 @@
           "type": "entries",
           "name": "Downdraft",
           "entries": [
-            "You cause a sustained blast of strong wind to blow downwards from the top of the target. Ranged weapon attacks that pass through the target or that are made against creatures within it have disadvantage on their attack rolls. The target is a persistent zone that forces flying creatures to make a save, being knocked {@condition prone|sns} on a fail."
+            "You cause a sustained blast of strong wind to blow downwards from the top of the target. Ranged weapon attacks that pass through the target or that are made against creatures within it have disadvantage on their attack rolls. The target is a persistent zone that forces flying creatures to make a save, being knocked {@condition prone} on a fail."
           ]
         },
         {
@@ -35044,7 +35044,7 @@
           ]
         },
         "You imbue the target with holy power. Until the spell ends, the target emits bright light in a 30-foot radius and dim light for an additional 30 feet. In addition, weapon attacks made with it deal an extra {@dice 2d8} radiant damage. The target's base physical damage also ignores resistances and immunities.",
-        "As a bonus action on your turn, you can dismiss this spell and cause the target to emit a burst of radiance. Make an area fortitude attack against each creature of your choice within 30 feet of the target that deals {@dice 3d12} radiant damage. On a hit, a creature is {@condition blinded|sns} for either 1 minute or until it passes a passive save."
+        "As a bonus action on your turn, you can dismiss this spell and cause the target to emit a burst of radiance. Make an area fortitude attack against each creature of your choice within 30 feet of the target that deals {@dice 3d12} radiant damage. On a hit, a creature is {@condition blinded} for either 1 minute or until it passes a passive save."
       ],
       "name": "Holy Weapon",
       "time": [
@@ -35105,10 +35105,10 @@
       "school": "C",
       "entries": [
         "You conjure up a sphere of water with a 5-foot radius at a point you can see within range. The sphere can hover but no more than 10 feet off the ground. The sphere remains for the spell's duration.",
-        "Any creature in the sphere's space when it first appears must make a save. On a success, a creature is ejected from that space to the nearest unoccupied space of the creature's choice outside the sphere. A Huge or larger creature succeeds on the save automatically, and a Large or smaller creature can choose to fail it. On a failed save, a creature is {@condition restrained|sns} by the sphere and is engulfed by the water until it passes a passive save.",
-        "The sphere can restrain as many as four Medium or smaller creatures or one Large creature. If the sphere restrains a creature that causes it to exceed this capacity, a random creature that was already {@condition restrained|sns} by the sphere falls out of it and lands {@condition prone|sns} in a space adjacent to it.",
-        "As an action, you can move the sphere up to 30 feet in a straight line. If it moves over a pit, a cliff, or other drop-off, it safely descends until it is hovering 10 feet above the ground. Any creature {@condition restrained|sns} by the sphere is moved with it. You can ram the sphere into creatures, forcing them to make the save.",
-        "When the spell ends, the sphere falls to the ground and extinguishes all normal flames within 30 feet of it. Any creature {@condition restrained|sns} by the sphere is knocked {@condition prone|sns} in the space where it falls. The water then vanishes."
+        "Any creature in the sphere's space when it first appears must make a save. On a success, a creature is ejected from that space to the nearest unoccupied space of the creature's choice outside the sphere. A Huge or larger creature succeeds on the save automatically, and a Large or smaller creature can choose to fail it. On a failed save, a creature is {@condition restrained} by the sphere and is engulfed by the water until it passes a passive save.",
+        "The sphere can restrain as many as four Medium or smaller creatures or one Large creature. If the sphere restrains a creature that causes it to exceed this capacity, a random creature that was already {@condition restrained} by the sphere falls out of it and lands {@condition prone} in a space adjacent to it.",
+        "As an action, you can move the sphere up to 30 feet in a straight line. If it moves over a pit, a cliff, or other drop-off, it safely descends until it is hovering 10 feet above the ground. Any creature {@condition restrained} by the sphere is moved with it. You can ram the sphere into creatures, forcing them to make the save.",
+        "When the spell ends, the sphere falls to the ground and extinguishes all normal flames within 30 feet of it. Any creature {@condition restrained} by the sphere is knocked {@condition prone} in the space where it falls. The water then vanishes."
       ],
       "name": "Watery Sphere",
       "time": [
@@ -35631,7 +35631,7 @@
           "name": "Transmute Rock to Mud",
           "entries": [
             "Nonmagical rock of any sort in the target becomes an equal volume of thick, flowing mud that remains for the spell's duration.",
-            "The ground in the spell's area becomes muddy enough that creatures can sink into it. Each foot that a creature moves through the mud costs 4 feet of movement, and any creature on the ground when you cast the spell must make a save. A creature must also make the save when it moves into the area for the first time on a turn or ends its turn there. On a failed save, a creature sinks into the mud and is {@condition restrained|sns}, though it can use an action to end the {@condition restrained|sns} condition on itself by pulling itself free of the mud.",
+            "The ground in the spell's area becomes muddy enough that creatures can sink into it. Each foot that a creature moves through the mud costs 4 feet of movement, and any creature on the ground when you cast the spell must make a save. A creature must also make the save when it moves into the area for the first time on a turn or ends its turn there. On a failed save, a creature sinks into the mud and is {@condition restrained}, though it can use an action to end the {@condition restrained} condition on itself by pulling itself free of the mud.",
             "If you cast the spell on a ceiling, the mud falls. Make an area reflex attack against any creature under the mud when it falls that deals {@dice 3d12} bludgeoning damage."
           ]
         },
@@ -35639,7 +35639,7 @@
           "type": "entries",
           "name": "Transmute Mud to Rock",
           "entries": [
-            "Nonmagical mud or quicksand in the area no more than 10 feet deep transforms into soft stone for the spell's duration. Any creature in the mud when it transforms must make a save. On a successful save, a creature is shunted safely to the surface in an unoccupied space. On a failed save, a creature becomes {@condition restrained|sns} by the rock. A {@condition restrained|sns} creature, or another creature within reach, can use an action to try to break the rock by succeeding on a {@dc 20} {@skill Brawn} check or by dealing damage to it. The rock has 2 Armour and 28 hit points, and it is immune to poison and psychic damage."
+            "Nonmagical mud or quicksand in the area no more than 10 feet deep transforms into soft stone for the spell's duration. Any creature in the mud when it transforms must make a save. On a successful save, a creature is shunted safely to the surface in an unoccupied space. On a failed save, a creature becomes {@condition restrained} by the rock. A {@condition restrained} creature, or another creature within reach, can use an action to try to break the rock by succeeding on a {@dc 20} {@skill Brawn} check or by dealing damage to it. The rock has 2 Armour and 28 hit points, and it is immune to poison and psychic damage."
           ]
         }
       ],
@@ -35707,7 +35707,7 @@
       "school": "V",
       "entries": [
         "A shimmering wall of bright light appears centred on a space you choose within range in your line of sight. The wall appears in any orientation you choose: horizontally, vertically, or diagonally. It can be free floating, or it can rest on a solid surface. The wall can be up to 60 feet long, 10 feet high, and 5 feet thick. The wall blocks line of sight, but creatures and objects can pass through it. It emits bright light out to 120 feet and dim light for an additional 120 feet.",
-        "When the wall appears, make an area spell fortitude attack against each creature in its area that deals {@dice 3d12} radiant damage. On a hit, a target is {@condition blinded|sns} for 1 minute, or until it passes a passive save.",
+        "When the wall appears, make an area spell fortitude attack against each creature in its area that deals {@dice 3d12} radiant damage. On a hit, a target is {@condition blinded} for 1 minute, or until it passes a passive save.",
         "A creature that ends its turn in the wall's area suffers {@dice 4d8} radiant harm.",
         "Until the spell ends, you can use an action to launch a beam of radiance from the wall at one creature you can see within 60 feet of it. Make a ranged spell armour attack that deals {@dice 4d8} radiant damage. After this attack, reduce the length of the wall by 10 feet. If the wall's length drops to 0 feet, the spell ends."
       ],
@@ -35813,14 +35813,14 @@
           "type": "entries",
           "name": "Roots and Vines",
           "entries": [
-            "At the end of each of your turns, one creature of your choice that is on the ground in the area must succeed on a save or become {@condition restrained|sns} until the spell ends. A {@condition restrained|sns} creature can use an action to make an {@skill Athletics} check against your standard DC, ending the effect on itself on a success."
+            "At the end of each of your turns, one creature of your choice that is on the ground in the area must succeed on a save or become {@condition restrained} until the spell ends. A {@condition restrained} creature can use an action to make an {@skill Athletics} check against your standard DC, ending the effect on itself on a success."
           ]
         },
         {
           "type": "entries",
           "name": "Rocks",
           "entries": [
-            "As a bonus action on your turn, you can cause a loose rock in the area to launch at a creature in the area. The creature suffers {@dice 1d12} bludgeoning harm and makes a save. On a fail, it falls {@condition prone|sns}."
+            "As a bonus action on your turn, you can cause a loose rock in the area to launch at a creature in the area. The creature suffers {@dice 1d12} bludgeoning harm and makes a save. On a fail, it falls {@condition prone}."
           ]
         }
       ],
@@ -35885,7 +35885,7 @@
               "type": "item",
               "name": "Minor success",
               "entries": [
-                "The target is knocked {@condition prone|sns} into the nearest unoccupied space that is not on the pillar's space."
+                "The target is knocked {@condition prone} into the nearest unoccupied space that is not on the pillar's space."
               ]
             },
             {
@@ -35904,7 +35904,7 @@
             }
           ]
         },
-        "If a pillar is prevented from reaching its full height because of a ceiling or other obstacle, a creature on the pillar suffers {@dice 6d6} bludgeoning harm and is {@condition restrained|sns}, pinched between the pillar and the obstacle. The {@condition restrained|sns} creature can use an action to make a {@skill Brawn} or {@skill Finesse} check (the creature's choice) against your standard DC. On a success, the creature is no longer {@condition restrained|sns} and must either move off the pillar or fall off it."
+        "If a pillar is prevented from reaching its full height because of a ceiling or other obstacle, a creature on the pillar suffers {@dice 6d6} bludgeoning harm and is {@condition restrained}, pinched between the pillar and the obstacle. The {@condition restrained} creature can use an action to make a {@skill Brawn} or {@skill Finesse} check (the creature's choice) against your standard DC. On a success, the creature is no longer {@condition restrained} and must either move off the pillar or fall off it."
       ],
       "name": "Bones of the Earth",
       "time": [
@@ -36025,7 +36025,7 @@
           "type": "entries",
           "name": "Solid Fog",
           "entries": [
-            "You can fill any number of 5-foot spaces on the ground with thick fog, making them heavily obscured. The fog reaches 10 feet high. In addition, creatures are {@condition sluggish|sns} while moving through the fog. To a creature immune to this effect, the fog obscures nothing and looks like soft mist, with motes of green light floating in the air."
+            "You can fill any number of 5-foot spaces on the ground with thick fog, making them heavily obscured. The fog reaches 10 feet high. In addition, creatures are {@condition sluggish} while moving through the fog. To a creature immune to this effect, the fog obscures nothing and looks like soft mist, with motes of green light floating in the air."
           ]
         },
         {
@@ -36359,26 +36359,26 @@
                   "type": "item",
                   "name": "Minor success",
                   "entries": [
-                    "The target is {@condition sluggish|sns} for 1 round."
+                    "The target is {@condition sluggish} for 1 round."
                   ]
                 },
                 {
                   "type": "item",
                   "name": "Standard success",
                   "entries": [
-                    "The target is knocked {@condition prone|sns}."
+                    "The target is knocked {@condition prone}."
                   ]
                 },
                 {
                   "type": "item",
                   "name": "Critical success",
                   "entries": [
-                    "As standard success, but the target is also {@condition sluggish|sns} for 1 round."
+                    "As standard success, but the target is also {@condition sluggish} for 1 round."
                   ]
                 }
               ]
             },
-            "You can move across difficult terrain made of earth or stone without spending extra movement. You can move through solid earth or stone as if it was air and without destabilising it, but you can't end your movement there. If you do so, you are ejected to the nearest unoccupied space, this spell ends, and you are {@condition debilitated|sns} until the end of your next turn."
+            "You can move across difficult terrain made of earth or stone without spending extra movement. You can move through solid earth or stone as if it was air and without destabilising it, but you can't end your movement there. If you do so, you are ejected to the nearest unoccupied space, this spell ends, and you are {@condition debilitated} until the end of your next turn."
           ]
         }
       ],
@@ -36524,10 +36524,10 @@
           "type": "entries",
           "name": "Target",
           "entries": [
-            "One creature that is not immune to being {@condition charmed|sns}"
+            "One creature that is not immune to being {@condition charmed}"
           ]
         },
-        "You attempt to bind the target within an illusory cell that only it perceives. Make a ranged will attack against the target that deals {@dice 9d8} psychic damage. On a hit, you make the area immediately around the target's space appear dangerous to it in some way. You might cause the target to perceive itself as being surrounded by fire, floating razors, or hideous maws filled with dripping teeth. Whatever form the illusion takes, the target can't sense anything beyond it and is {@condition restrained|sns} for the spell's duration. If the target is moved out of the illusion, makes a melee weapon attack through it, or reaches any part of its body through it, the target suffers {@dice 10d10} psychic harm, and the spell ends."
+        "You attempt to bind the target within an illusory cell that only it perceives. Make a ranged will attack against the target that deals {@dice 9d8} psychic damage. On a hit, you make the area immediately around the target's space appear dangerous to it in some way. You might cause the target to perceive itself as being surrounded by fire, floating razors, or hideous maws filled with dripping teeth. Whatever form the illusion takes, the target can't sense anything beyond it and is {@condition restrained} for the spell's duration. If the target is moved out of the illusion, makes a melee weapon attack through it, or reaches any part of its body through it, the target suffers {@dice 10d10} psychic harm, and the spell ends."
       ],
       "name": "Mental Prison",
       "time": [
@@ -36656,7 +36656,7 @@
               "type": "item",
               "name": "Minor success",
               "entries": [
-                "The target is {@condition sluggish|sns} for 1 round."
+                "The target is {@condition sluggish} for 1 round."
               ]
             },
             {
@@ -36670,7 +36670,7 @@
               "type": "item",
               "name": "Critical success",
               "entries": [
-                "As standard success, but the target is also {@condition sluggish|sns} for 1 round."
+                "As standard success, but the target is also {@condition sluggish} for 1 round."
               ]
             }
           ]
@@ -36825,7 +36825,7 @@
             "You have proficiency with all body armour, shields, and weapons.",
             "Increase your Fortitude by an amount equal to half your proficiency bonus.",
             "When you use the Attack action, your main hand weapon's base damage is doubled. For example, a weapon with a damage of {@dice 1d6} + your Strength modifier deals {@dice 2d6} + double your Strength modifier instead. This counts as the Empowered Attack feature.",
-            "Immediately after the spell ends, you must succeed on a save or gain one level of {@condition fatigue|sns}."
+            "Immediately after the spell ends, you must succeed on a save or gain one level of {@condition fatigue}."
           ]
         }
       ],
@@ -37037,7 +37037,7 @@
             "One creature"
           ]
         },
-        "You speak a word of power that causes waves of intense pain to assail the target. If the target has 112 hit points or fewer, it is subject to crippling pain until it passes a passive save. Otherwise, the spell has no effect on it. A target is also unaffected if it is immune to being {@condition charmed|sns}.",
+        "You speak a word of power that causes waves of intense pain to assail the target. If the target has 112 hit points or fewer, it is subject to crippling pain until it passes a passive save. Otherwise, the spell has no effect on it. A target is also unaffected if it is immune to being {@condition charmed}.",
         "While the target is affected by crippling pain, any speed it has can be no higher than 10 feet. The target also has disadvantage on attack rolls and ability checks. Finally, if the target tries to cast a spell, it must first succeed on a save, or the spell fails and has no effect, consuming its resources as usual. When the spell fails, the caster may then use the same action it used to cast another spell with the same casting time as the failed spell, consuming resources as required. It cannot cast the failed spell again for the next minute. The save to see if the casting fails needs to be made for each spell attempted to be cast, until the creature either succeeds on a save, or runs out of available spells or resources."
       ],
       "name": "Power Word Pain",
@@ -37153,8 +37153,8 @@
           ]
         },
         "A whirlwind howls down in the area. Until the spell ends, you can use your action to move the whirlwind up to 30 feet in any direction along the ground. The whirlwind sucks up any Medium or smaller objects that aren't secured to anything and that aren't worn or carried by anyone.",
-        "The first time on a turn that a creature enters the area or that the area enters its space, including when the whirlwind first appears, the creature suffers {@dice 5d8} bludgeoning harm. In addition, a Large or smaller creature that suffers this harm must succeed on a save or become {@condition restrained|sns} in the whirlwind until the spell ends. When a creature starts its turn {@condition restrained|sns} by the whirlwind, the creature is pushed 5 feet higher inside it, unless the creature is at the top. A {@condition restrained|sns} creature moves with the whirlwind and falls when the spell ends, unless the creature has some means to stay aloft.",
-        "A {@condition restrained|sns} creature can use an action to make a {@skill Brawn} or {@skill Finesse} check against your standard DC. If successful, the creature is no longer {@condition restrained|sns} by the whirlwind and is hurled {@dice 3d6} x 10 feet away from it in a random direction."
+        "The first time on a turn that a creature enters the area or that the area enters its space, including when the whirlwind first appears, the creature suffers {@dice 5d8} bludgeoning harm. In addition, a Large or smaller creature that suffers this harm must succeed on a save or become {@condition restrained} in the whirlwind until the spell ends. When a creature starts its turn {@condition restrained} by the whirlwind, the creature is pushed 5 feet higher inside it, unless the creature is at the top. A {@condition restrained} creature moves with the whirlwind and falls when the spell ends, unless the creature has some means to stay aloft.",
+        "A {@condition restrained} creature can use an action to make a {@skill Brawn} or {@skill Finesse} check against your standard DC. If successful, the creature is no longer {@condition restrained} by the whirlwind and is hurled {@dice 3d6} x 10 feet away from it in a random direction."
       ],
       "name": "Whirlwind",
       "time": [
@@ -37289,21 +37289,21 @@
               "type": "item",
               "name": "Minor success",
               "entries": [
-                "The target is {@condition sluggish|sns} when moving towards the illusion for 1 round."
+                "The target is {@condition sluggish} when moving towards the illusion for 1 round."
               ]
             },
             {
               "type": "item",
               "name": "Standard success",
               "entries": [
-                "The target is {@condition frightened|sns} of the illusion for 1 minute. If the target ends its turn in a location where it doesn't have line of sight to the illusion, it can make a save, ending the effect on itself on a success."
+                "The target is {@condition frightened} of the illusion for 1 minute. If the target ends its turn in a location where it doesn't have line of sight to the illusion, it can make a save, ending the effect on itself on a success."
               ]
             },
             {
               "type": "item",
               "name": "Critical success",
               "entries": [
-                "As standard success, but the target is also {@condition debilitated|sns}."
+                "As standard success, but the target is also {@condition debilitated}."
               ]
             }
           ]
@@ -37544,7 +37544,7 @@
           ]
         },
         "You unleash the power of your mind to blast the intellect of the targets.",
-        "Make an area will attack against each target that deals {@dice 10d10} psychic damage. On a hit, a target is {@condition debilitated|sns} until it passes a passive save. If a target is killed by this attack, its head explodes, assuming it has one."
+        "Make an area will attack against each target that deals {@dice 10d10} psychic damage. On a hit, a target is {@condition debilitated} until it passes a passive save. If a target is killed by this attack, its head explodes, assuming it has one."
       ],
       "name": "Psychic Scream",
       "time": [
@@ -37721,7 +37721,7 @@
           "type": "entries",
           "name": "Pack Tactics (Land and Water Only)",
           "entries": [
-            "The beast has advantage on an armour attack roll against a creature if at least one of the beast's allies is adjacent to the creature and the ally isn't {@condition incapacitated|sns}."
+            "The beast has advantage on an armour attack roll against a creature if at least one of the beast's allies is adjacent to the creature and the ally isn't {@condition incapacitated}."
           ]
         },
         {
@@ -37806,11 +37806,11 @@
         "poison"
       ],
       "conditionImmune": [
-        "fatigue|sns",
-        "staggered|sns",
-        "poisoned|sns",
-        "strife|sns",
-        "unconscious|sns"
+        "fatigue",
+        "staggered",
+        "poisoned",
+        "strife",
+        "unconscious"
       ],
       "senses": [
         "darkvision 60 ft.",
@@ -37843,7 +37843,7 @@
           "type": "entries",
           "name": "Insubstantial (Air and Fire Only)",
           "entries": [
-            "The minor elemental cannot be {@condition grappled|sns}, knocked {@condition prone|sns}, or {@condition restrained|sns}."
+            "The minor elemental cannot be {@condition grappled}, knocked {@condition prone}, or {@condition restrained}."
           ]
         }
       ],
@@ -37951,7 +37951,7 @@
         {
           "name": "Shortbow (Sprite Only)",
           "entries": [
-            "{@atk rw} range 40/160 ft., one target. 5 piercing damage plus extra damage equal to spell slot level. If this attack scores a major success against a creature, the target is {@condition poisoned|sns} for 1 minute. On a critical success, the {@condition poisoned|sns} target falls {@condition unconscious|sns} for the same duration, or until it takes damage or another creature uses an action to shake it awake."
+            "{@atk rw} range 40/160 ft., one target. 5 piercing damage plus extra damage equal to spell slot level. If this attack scores a major success against a creature, the target is {@condition poisoned} for 1 minute. On a critical success, the {@condition poisoned} target falls {@condition unconscious} for the same duration, or until it takes damage or another creature uses an action to shake it awake."
           ]
         }
       ],
@@ -38029,11 +38029,11 @@
         "poison"
       ],
       "conditionImmune": [
-        "fatigue|sns",
-        "staggered|sns",
-        "poisoned|sns",
-        "strife|sns",
-        "unconscious|sns"
+        "fatigue",
+        "staggered",
+        "poisoned",
+        "strife",
+        "unconscious"
       ],
       "senses": [
         "darkvision 60 ft.",
@@ -38059,7 +38059,7 @@
           "type": "entries",
           "name": "Insubstantial (Air and Fire Only)",
           "entries": [
-            "The elemental cannot be {@condition grappled|sns}, knocked {@condition prone|sns}, or {@condition restrained|sns}."
+            "The elemental cannot be {@condition grappled}, knocked {@condition prone}, or {@condition restrained}."
           ]
         }
       ],
@@ -38136,7 +38136,7 @@
         }
       ],
       "conditionImmune": [
-        "charmed|sns"
+        "charmed"
       ],
       "senses": [
         "darkvision 60 ft."
@@ -38196,7 +38196,7 @@
         {
           "name": "Terrifying Howl (Hound Only)",
           "entries": [
-            "The hound makes a will attack against one creature that can hear it that deals {@dice 2d10} psychic damage. On a hit, the target is {@condition frightened|sns} until the end of the hound's next turn. If the attack fails to hit, the target can't be affected by Terrifying Howl again for 1 minute."
+            "The hound makes a will attack against one creature that can hear it that deals {@dice 2d10} psychic damage. On a hit, the target is {@condition frightened} until the end of the hound's next turn. If the attack fails to hit, the target can't be affected by Terrifying Howl again for 1 minute."
           ]
         }
       ],
@@ -38258,8 +38258,8 @@
         "necrotic"
       ],
       "conditionImmune": [
-        "charmed|sns",
-        "frightened|sns"
+        "charmed",
+        "frightened"
       ],
       "senses": [
         "darkvision 60 ft."
@@ -38362,12 +38362,12 @@
         "piercing"
       ],
       "conditionImmune": [
-        "charmed|sns",
-        "frightened|sns",
-        "grappled|sns",
-        "prone|sns",
-        "restrained|sns",
-        "debilitated|sns"
+        "charmed",
+        "frightened",
+        "grappled",
+        "prone",
+        "restrained",
+        "debilitated"
       ],
       "passive": 10,
       "languages": [
@@ -38404,7 +38404,7 @@
         {
           "name": "Thrash",
           "entries": [
-            "{@atk mw} reach 0 ft., all creatures in the swarm's space. 24 ({@damage 5d6 + 7}) slashing damage and the target is {@condition grappled|sns}. Slashing damage dealt by this attack ignores resistances and immunities."
+            "{@atk mw} reach 0 ft., all creatures in the swarm's space. 24 ({@damage 5d6 + 7}) slashing damage and the target is {@condition grappled}. Slashing damage dealt by this attack ignores resistances and immunities."
           ]
         }
       ],
@@ -38461,14 +38461,14 @@
         "psychic"
       ],
       "conditionImmune": [
-        "blinded|sns",
-        "charmed|sns",
-        "deafened|sns",
-        "fatigue|sns",
-        "frightened|sns",
-        "staggered|sns",
-        "poisoned|sns",
-        "strife|sns"
+        "blinded",
+        "charmed",
+        "deafened",
+        "fatigue",
+        "frightened",
+        "staggered",
+        "poisoned",
+        "strife"
       ],
       "senses": [
         "blindsight 60 ft. (blind beyond this radius)"
@@ -38534,13 +38534,13 @@
         "poison"
       ],
       "conditionImmune": [
-        "charmed|sns",
-        "fatigue|sns",
-        "frightened|sns",
-        "strife|sns",
-        "dazed|sns",
-        "staggered|sns",
-        "poisoned|sns"
+        "charmed",
+        "fatigue",
+        "frightened",
+        "strife",
+        "dazed",
+        "staggered",
+        "poisoned"
       ],
       "senses": [
         "darkvision 60 ft."
@@ -38559,7 +38559,7 @@
         {
           "name": "Stony Lethargy (Stone Only)",
           "entries": [
-            "When a creature starts its turn within 10 feet of the construct, the construct can force it to make a save. On a failed save, the target is {@condition rattled|sns} and {@condition sluggish|sns} until the start of its next turn."
+            "When a creature starts its turn within 10 feet of the construct, the construct can force it to make a save. On a failed save, the target is {@condition rattled} and {@condition sluggish} until the start of its next turn."
           ]
         }
       ],
@@ -38633,9 +38633,9 @@
         "force, necrotic, psychic, radiant, and thunder (Gem Only)"
       ],
       "conditionImmune": [
-        "charmed|sns",
-        "frightened|sns",
-        "poisoned|sns"
+        "charmed",
+        "frightened",
+        "poisoned"
       ],
       "senses": [
         "blindsight 30 ft.",

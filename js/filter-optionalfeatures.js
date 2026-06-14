@@ -78,7 +78,7 @@ class PageFilterOptionalFeatures extends PageFilterBase {
 		});
 		this._miscFilter = new Filter({
 			header: "Miscellaneous",
-			items: ["Has Info", "Has Images", "Legacy", "Grants Additional Spells"],
+			items: ["Has Info", "Has Images", "Grants Additional Spells"],
 			isMiscFilter: true,
 			deselFn: PageFilterBase.defaultMiscellaneousDeselFn.bind(PageFilterBase),
 		});

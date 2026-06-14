@@ -113,7 +113,7 @@
       "level": 5,
       "header": 2,
       "entries": [
-        "You immediately shift to an unoccupied space within 30 feet of you that is adjacent to an ally. Each creature of your choice that you passed through during this movement must make a save. On a fail, a creature suffers bludgeoning harm equal to your proficiency bonus and is {@condition rattled|sns} until the end of its next turn."
+        "You immediately shift to an unoccupied space within 30 feet of you that is adjacent to an ally. Each creature of your choice that you passed through during this movement must make a save. On a fail, a creature suffers bludgeoning harm equal to your proficiency bonus and is {@condition rattled} until the end of its next turn."
       ]
     },
     {

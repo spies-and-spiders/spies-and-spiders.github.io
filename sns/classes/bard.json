@@ -699,14 +699,14 @@
                     "type": "item",
                     "name": "Ode of Blood",
                     "entries": [
-                      "If the creature is dying, it continues making death saving throws but stops being {@condition incapacitated|sns} for up to 3 rounds. The creature becomes {@condition incapacitated|sns} if it takes any damage, and it dies if it fails its last death saving throw. Once a creature has benefited from this battle hymn, it can't benefit from it again until it finishes a short or long rest."
+                      "If the creature is dying, it continues making death saving throws but stops being {@condition incapacitated} for up to 3 rounds. The creature becomes {@condition incapacitated} if it takes any damage, and it dies if it fails its last death saving throw. Once a creature has benefited from this battle hymn, it can't benefit from it again until it finishes a short or long rest."
                     ]
                   },
                   {
                     "type": "item",
                     "name": "Willful Serenade",
                     "entries": [
-                      "Until the end of the combat, the creature ignores up to 4 levels of {@condition strife|sns} it is suffering from (how much to ignore is determined by the creature)."
+                      "Until the end of the combat, the creature ignores up to 4 levels of {@condition strife} it is suffering from (how much to ignore is determined by the creature)."
                     ]
                   }
                 ]
@@ -750,7 +750,7 @@
                     "type": "item",
                     "name": "Bring Low the Foe",
                     "entries": [
-                      "The creature takes a -{@dice 1d4} penalty on saves. In addition, it is {@condition rattled|sns} for {@dice 1d4} rounds after the battle hymn ends."
+                      "The creature takes a -{@dice 1d4} penalty on saves. In addition, it is {@condition rattled} for {@dice 1d4} rounds after the battle hymn ends."
                     ]
                   },
                   {
@@ -1221,9 +1221,9 @@
       "classSource": "sns",
       "level": 20,
       "entries": [
-        "At 20th level, your capacity for drawing a crowd reaches dizzying new heights. As an action, you can expend a use of Bardic Inspiration to start an epic performance that lasts for {@dice 1d4} rounds. During that time, you can choose up to 50 creatures that are within 120 feet of you. Each creature able to hear or see your Epic Performance makes a save. If a creature fails its save, it is {@condition charmed|sns} by you for the duration plus 6 days, or until you or your companions do anything harmful to it. A {@condition charmed|sns} creature regards you as a friendly acquaintance.",
-        "The performance ends early if you become {@condition incapacitated|sns} or silenced, or if you voluntarily end it (no action required). At the end of the duration, you can expend an additional use of Bardic Inspiration to extend the duration by {@dice 1d4} rounds.",
-        "When your Epic Performance lasts at least 1 minute, at the end of the duration you can target each {@condition charmed|sns} creature as if using the {@spell mass suggestion|sns} spell cast at 9th-level. Instead of making an attack roll as part of this casting, always use the standard success outcome. The commands you give a {@condition charmed|sns} creature are not obvious, and other creatures must make an {@skill Insight} check opposed by your {@skill Deception} check to understand that you are doing anything more than giving a performance. You can give each creature its own set of commands, but can only give out 6 different sets of commands.",
+        "At 20th level, your capacity for drawing a crowd reaches dizzying new heights. As an action, you can expend a use of Bardic Inspiration to start an epic performance that lasts for {@dice 1d4} rounds. During that time, you can choose up to 50 creatures that are within 120 feet of you. Each creature able to hear or see your Epic Performance makes a save. If a creature fails its save, it is {@condition charmed} by you for the duration plus 6 days, or until you or your companions do anything harmful to it. A {@condition charmed} creature regards you as a friendly acquaintance.",
+        "The performance ends early if you become {@condition incapacitated} or silenced, or if you voluntarily end it (no action required). At the end of the duration, you can expend an additional use of Bardic Inspiration to extend the duration by {@dice 1d4} rounds.",
+        "When your Epic Performance lasts at least 1 minute, at the end of the duration you can target each {@condition charmed} creature as if using the {@spell mass suggestion|sns} spell cast at 9th-level. Instead of making an attack roll as part of this casting, always use the standard success outcome. The commands you give a {@condition charmed} creature are not obvious, and other creatures must make an {@skill Insight} check opposed by your {@skill Deception} check to understand that you are doing anything more than giving a performance. You can give each creature its own set of commands, but can only give out 6 different sets of commands.",
         "Once you use this feature, you can't use it again until you finish a long rest."
       ]
     }

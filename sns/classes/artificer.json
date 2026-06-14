@@ -1013,14 +1013,14 @@
         "psychic"
       ],
       "conditionImmune": [
-        "blinded|sns",
-        "charmed|sns",
-        "deafened|sns",
-        "fatigue|sns",
-        "strife|sns",
-        "frightened|sns",
-        "staggered|sns",
-        "poisoned|sns"
+        "blinded",
+        "charmed",
+        "deafened",
+        "fatigue",
+        "strife",
+        "frightened",
+        "staggered",
+        "poisoned"
       ],
       "passive": 12,
       "languages": [

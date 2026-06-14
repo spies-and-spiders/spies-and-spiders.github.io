@@ -459,8 +459,6 @@ Vetools
 VGM's
 weap
 weightmod
-Wotc
-WOTC
 wrps
 Wrps
 xpand

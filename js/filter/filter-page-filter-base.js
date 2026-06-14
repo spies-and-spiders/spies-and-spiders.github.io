@@ -82,7 +82,7 @@ export class PageFilterBase {
 	}
 
 	static _getSubclassFilterItem ({className, classSource, subclassShortName, subclassName, subclassSource, subSubclassName, isVariantClass, definedInSource}) {
-		const group = SourceUtil.isSubclassReprinted(className, classSource, subclassShortName, subclassSource) || Parser.sourceJsonToFull(subclassSource).startsWith(Parser.UA_PREFIX) || Parser.sourceJsonToFull(subclassSource).startsWith(Parser.PS_PREFIX);
+		const group = SourceUtil.isSubclassReprinted(className, classSource, subclassShortName, subclassSource);
 
 		const classFilterItem = this._getClassFilterItem({
 			className: subclassShortName || subclassName,
@@ -121,8 +121,6 @@ export class PageFilterBase {
 
 		if (ent.srd52) ent._fMisc.push(MISC_FILTER_VALUE__SRD_5_2);
 		if (ent.freeRules2024) ent._fMisc.push(MISC_FILTER_VALUE__FREE_RULES_2024);
-
-		if (SourceUtil.isLegacySourceWotc(ent.source)) ent._fMisc.push("Legacy");
 
 		if (ent.isReprinted) ent._fMisc.push("Reprinted");
 

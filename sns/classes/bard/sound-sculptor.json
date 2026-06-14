@@ -105,7 +105,7 @@
       "level": 5,
       "header": 2,
       "entries": [
-        "At tier 3, you can weaponise the sound you create into a deafening cacophany. While concentrating on your Eyes of the Ears feature, all creatures of your choice within 30 feet of you are {@condition deafened|sns} to all sounds except those from you, and distracted, granting reflex attacks made against them advantage."
+        "At tier 3, you can weaponise the sound you create into a deafening cacophany. While concentrating on your Eyes of the Ears feature, all creatures of your choice within 30 feet of you are {@condition deafened} to all sounds except those from you, and distracted, granting reflex attacks made against them advantage."
       ]
     },
     {

@@ -215,14 +215,6 @@ class Omnisearch {
 			results = results.filter(r => !r.doc.s || r.doc.dP || !BrewUtil2.hasSourceJson(r.doc.s));
 		}
 
-		if (!this._state.isShowUa) {
-			results = results.filter(r => !r.doc.s || !SourceUtil.isNonstandardSourceWotc(r.doc.s));
-		}
-
-		if (!this._state.isShowLegacy) {
-			results = results.filter(r => !r.doc.s || !SourceUtil.isLegacySourceWotc(r.doc.s));
-		}
-
 		if (!this._state.isShowBlocklisted && ExcludeUtil.getList().length) {
 			const resultsNxt = [];
 			for (const r of results) {
@@ -376,9 +368,7 @@ class Omnisearch {
 
 	static _btnTogglePartnered = null;
 	static _btnToggleBrew = null;
-	static _btnToggleUa = null;
 	static _btnToggleBlocklisted = null;
-	static _btnToggleLegacy = null;
 	static _btnToggleSrd = null;
 
 	static _doInitBtnToggleFilter (
@@ -425,24 +415,10 @@ class Omnisearch {
 		});
 
 		this._doInitBtnToggleFilter({
-			propState: "isShowUa",
-			propBtn: "_btnToggleUa",
-			title: "Include Unearthed Arcana and other unofficial source results",
-			text: "UA/etc.",
-		});
-
-		this._doInitBtnToggleFilter({
 			propState: "isShowBlocklisted",
 			propBtn: "_btnToggleBlocklisted",
 			title: "Include blocklisted content results",
 			text: "Blocklisted",
-		});
-
-		this._doInitBtnToggleFilter({
-			propState: "isShowLegacy",
-			propBtn: "_btnToggleLegacy",
-			title: "Include legacy content results",
-			text: "Legacy",
 		});
 
 		this._doInitBtnToggleFilter({
@@ -467,11 +443,9 @@ class Omnisearch {
 			<div class="ve-btn-group ve-flex-v-center mr-2">
 				${this._btnTogglePartnered}
 				${this._btnToggleBrew}
-				${this._btnToggleUa}
 			</div>
 			<div class="ve-btn-group ve-flex-v-center mr-2">
 				${this._btnToggleBlocklisted}
-				${this._btnToggleLegacy}
 			</div>
 			${this._btnToggleSrd}
 			${btnHelp}
@@ -567,9 +541,7 @@ class Omnisearch {
 	static _DEFAULT_STATE = {
 		isShowPartnered: false,
 		isShowBrew: true,
-		isShowUa: true,
 		isShowBlocklisted: false,
-		isShowLegacy: false,
 		isSrdOnly: false,
 	};
 
@@ -583,16 +555,12 @@ class Omnisearch {
 		class SearchState extends BaseComponent {
 			get isShowPartnered () { return this._state.isShowPartnered; }
 			get isShowBrew () { return this._state.isShowBrew; }
-			get isShowUa () { return this._state.isShowUa; }
 			get isShowBlocklisted () { return this._state.isShowBlocklisted; }
-			get isShowLegacy () { return this._state.isShowLegacy; }
 			get isSrdOnly () { return this._state.isSrdOnly; }
 
 			set isShowPartnered (val) { this._state.isShowPartnered = !!val; }
 			set isShowBrew (val) { this._state.isShowBrew = !!val; }
-			set isShowUa (val) { this._state.isShowUa = !!val; }
 			set isShowBlocklisted (val) { this._state.isShowBlocklisted = !!val; }
-			set isShowLegacy (val) { this._state.isShowLegacy = !!val; }
 			set isSrdOnly (val) { this._state.isSrdOnly = !!val; }
 		}
 		this._state = SearchState.fromObject(saved);
@@ -603,22 +571,16 @@ class Omnisearch {
 
 	static addHookPartnered (hk) { this._state._addHookBase("isShowPartnered", hk); }
 	static addHookBrew (hk) { this._state._addHookBase("isShowBrew", hk); }
-	static addHookUa (hk) { this._state._addHookBase("isShowUa", hk); }
 	static addHookBlocklisted (hk) { this._state._addHookBase("isShowBlocklisted", hk); }
-	static addHookLegacy (hk) { this._state._addHookBase("isShowLegacy", hk); }
 	static addHookSrdOnly (hk) { this._state._addHookBase("isSrdOnly", hk); }
 
 	static doTogglePartnered () { this._state.isShowPartnered = !this._state.isShowPartnered; }
 	static doToggleBrew () { this._state.isShowBrew = !this._state.isShowBrew; }
-	static doToggleUa () { this._state.isShowUa = !this._state.isShowUa; }
 	static doToggleBlocklisted () { this._state.isShowBlocklisted = !this._state.isShowBlocklisted; }
-	static doToggleLegacy () { this._state.isShowLegacy = !this._state.isShowLegacy; }
 	static doToggleSrdOnly () { this._state.isSrdOnly = !this._state.isSrdOnly; }
 
 	static get isShowPartnered () { return this._state.isShowPartnered; }
 	static get isShowBrew () { return this._state.isShowBrew; }
-	static get isShowUa () { return this._state.isShowUa; }
-	static get isShowLegacy () { return this._state.isShowLegacy; }
 	static get isShowBlocklisted () { return this._state.isShowBlocklisted; }
 
 	static async _pDoSearchLoad () {
