@@ -23,7 +23,7 @@ class PageFilterBackgrounds extends PageFilterBase {
 		this._otherBenefitsFilter = new Filter({header: "Other Benefits"});
 		this._miscFilter = new Filter({
 			header: "Miscellaneous",
-			items: ["Has Info", "Has Images", "Legacy"],
+			items: ["Has Info", "Has Images"],
 			isMiscFilter: true,
 			deselFn: PageFilterBase.defaultMiscellaneousDeselFn.bind(PageFilterBase),
 		});

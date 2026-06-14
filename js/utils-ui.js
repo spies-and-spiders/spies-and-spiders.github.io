@@ -2402,7 +2402,7 @@ class SearchWidget {
 						q: subSpec.page,
 						s: src,
 						u: UrlUtil.URL_TO_HASH_BUILDER[subSpec.page](ent),
-						dP: SourceUtil.isPartneredSourceWotc(src),
+						dP: false,
 					};
 					if (subSpec.pFnGetDocExtras) Object.assign(doc, await subSpec.pFnGetDocExtras({ent, doc, subSpec}));
 					index.addDoc(doc);

@@ -78,7 +78,7 @@
           "type": "list",
           "items": [
             "The initiative order is immediately revealed to you. Then, you may move an ally on the initiative tracker to any position on the tracker.",
-            "You warp time around the target, causing them to become {@condition rattled|sns} and suffer {@dice 1d8} ongoing force harm, stacking until they pass a passive save. This harm increases to {@dice 2d8} at 5th level, {@dice 3d8} at 11th level, and {@dice 4d8} at 17th level."
+            "You warp time around the target, causing them to become {@condition rattled} and suffer {@dice 1d8} ongoing force harm, stacking until they pass a passive save. This harm increases to {@dice 2d8} at 5th level, {@dice 3d8} at 11th level, and {@dice 4d8} at 17th level."
           ]
         }
       ]
@@ -101,21 +101,21 @@
               "type": "item",
               "name": "Minor success",
               "entries": [
-                "The target is encased in a field of magical energy until the end of your next turn or until it takes any damage. While encased in this way, the creature is {@condition slowed|sns}."
+                "The target is encased in a field of magical energy until the end of your next turn or until it takes any damage. While encased in this way, the creature is {@condition slowed}."
               ]
             },
             {
               "type": "item",
               "name": "Standard success",
               "entries": [
-                "As minor success, but the creature is {@condition unconscious|sns} while encased instead of {@condition slowed|sns}."
+                "As minor success, but the creature is {@condition unconscious} while encased instead of {@condition slowed}."
               ]
             },
             {
               "type": "item",
               "name": "Critical success",
               "entries": [
-                "As standard success, but the target is also {@condition slowed|sns} for 1 round after it is released from the field."
+                "As standard success, but the target is also {@condition slowed} for 1 round after it is released from the field."
               ]
             }
           ]
@@ -162,7 +162,7 @@
       "header": 2,
       "entries": [
         "Starting at tier 5, you can peer through possible futures and magically pull one of them into events around you, ensuring a particular outcome. When you or a creature you can see within 60 feet of you makes an attack roll, an ability check, or a save, you can use your reaction to ignore the die roll and immediately decide whether it succeeds or fails (or, in the case of an attack, whether it scores a standard or minor success).",
-        "When you use this feature, you gain one level of {@condition strife|sns}. Strife gained in this way are lost whenever you take a long rest, but cannot be removed in any other way."
+        "When you use this feature, you gain one level of {@condition strife}. Strife gained in this way are lost whenever you take a long rest, but cannot be removed in any other way."
       ]
     }
   ]

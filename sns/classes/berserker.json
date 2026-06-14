@@ -513,7 +513,7 @@
       "classSource": "sns",
       "level": 2,
       "entries": [
-        "At 2nd level, you gain an uncanny sense of when things nearby aren't as they should be, giving you an edge when you dodge away from danger. Reflex attacks from effects that you can see, such as traps and spells, have disadvantage against you. To gain this benefit, you cannot be {@condition blinded|sns}, {@condition deafened|sns}, or {@condition dazed|sns}."
+        "At 2nd level, you gain an uncanny sense of when things nearby aren't as they should be, giving you an edge when you dodge away from danger. Reflex attacks from effects that you can see, such as traps and spells, have disadvantage against you. To gain this benefit, you cannot be {@condition blinded}, {@condition deafened}, or {@condition dazed}."
       ]
     },
     {
@@ -529,7 +529,7 @@
           "type": "entries",
           "name": "Blinding Maneuver",
           "entries": [
-            "Your attack flings debris into the target's eyes, causes blood to run into their eyes, or otherwise impedes their vision. The target is {@condition blinded|sns} for 1 round."
+            "Your attack flings debris into the target's eyes, causes blood to run into their eyes, or otherwise impedes their vision. The target is {@condition blinded} for 1 round."
           ]
         },
         {
@@ -537,14 +537,14 @@
           "name": "Dazzling Prowess",
           "entries": [
             "Prerequisite: 6th level.",
-            "Your show of martial skill is so stunning that the target can only gape. The target makes a save, becoming {@condition debilitated|sns} until the end of your next turn on a failure."
+            "Your show of martial skill is so stunning that the target can only gape. The target makes a save, becoming {@condition debilitated} until the end of your next turn on a failure."
           ]
         },
         {
           "type": "entries",
           "name": "Deafening Blow",
           "entries": [
-            "The force of the blow leaves the target with a ringing sensation in their ears, muffling the world around them. The target is {@condition deafened|sns} for a number of rounds equal to half your proficiency bonus. If the target attempts to cast a spell while {@condition deafened|sns} in this way, it must pass a save in order to do so successfully. If it fails, the spell has no effect, consuming its resources as usual. The caster may then use the same action it used to cast another spell with the same casting time as the failed spell, consuming resources as required. It cannot cast the failed spell again for the next minute."
+            "The force of the blow leaves the target with a ringing sensation in their ears, muffling the world around them. The target is {@condition deafened} for a number of rounds equal to half your proficiency bonus. If the target attempts to cast a spell while {@condition deafened} in this way, it must pass a save in order to do so successfully. If it fails, the spell has no effect, consuming its resources as usual. The caster may then use the same action it used to cast another spell with the same casting time as the failed spell, consuming resources as required. It cannot cast the failed spell again for the next minute."
           ]
         },
         {
@@ -589,7 +589,7 @@
           "type": "entries",
           "name": "Knockdown Strike",
           "entries": [
-            "With the right angle, your attack knocks the target sprawling. The target is knocked {@condition prone|sns} and pushed 30 feet away from you in a straight line."
+            "With the right angle, your attack knocks the target sprawling. The target is knocked {@condition prone} and pushed 30 feet away from you in a straight line."
           ]
         },
         {
@@ -604,7 +604,7 @@
           "type": "entries",
           "name": "Pinning Strike",
           "entries": [
-            "The profound force of your blow breaks the environment, crumbling the stone beneath your target's feet or knocking shattered timber over their legs. The target is {@condition grappled|sns}, and {@condition restrained|sns} while grappled in this way."
+            "The profound force of your blow breaks the environment, crumbling the stone beneath your target's feet or knocking shattered timber over their legs. The target is {@condition grappled}, and {@condition restrained} while grappled in this way."
           ]
         },
         {
@@ -618,7 +618,7 @@
           "type": "entries",
           "name": "Terrifying Force",
           "entries": [
-            "You focus your rage, unleashing a fear-inspiring strike. Each creature you choose within 60 feet that can sense you becomes {@condition frightened|sns} of you for a number of rounds equal to half your proficiency bonus. The effects of this Furious Critical can be combined with any other."
+            "You focus your rage, unleashing a fear-inspiring strike. Each creature you choose within 60 feet that can sense you becomes {@condition frightened} of you for a number of rounds equal to half your proficiency bonus. The effects of this Furious Critical can be combined with any other."
           ]
         },
         {
@@ -863,7 +863,7 @@
             "Your size increases by one category (from Small to Medium, or Medium to Large), to a maximum size of Large. Your size doubles in all dimensions and your weight increases eightfold.",
             "Whenever you use a basic maneuver alongside a melee weapon attack, you do not give the attack disadvantage.",
             "You deal double damage to objects.",
-            "You are unaffected by the {@condition Weakened|sns} condition.",
+            "You are unaffected by the {@condition Weakened} condition.",
             "Your Speed increases by 15 feet.",
             "Your horizontal jump distance increases by 40 feet and your vertical jump distance increases by 20 feet.",
             "You gain a {@dice d8} expertise die on Strength checks, and your fortitude increases by 2."
@@ -1063,7 +1063,7 @@
         "DT"
       ],
       "entries": [
-        "The lessons of the snows have put you beyond mere cold and hunger. You ignore the penalties of cold weather on your journey activities. Additionally, you can go without Supply for a number of days equal to 3 + your fortitude (minimum 1) before suffering {@condition fatigue|sns}."
+        "The lessons of the snows have put you beyond mere cold and hunger. You ignore the penalties of cold weather on your journey activities. Additionally, you can go without Supply for a number of days equal to 3 + your fortitude (minimum 1) before suffering {@condition fatigue}."
       ]
     },
     {
@@ -1073,7 +1073,7 @@
         "DT"
       ],
       "entries": [
-        "By emulating the beasts of the desert you are above the concerns of heat and thirst. You ignore the penalties of hot weather on your journey activities. Additionally, whenever you would gain a level of {@condition fatigue|sns} from not consuming Supply, you may make a save, avoiding the {@condition fatigue|sns} on a success."
+        "By emulating the beasts of the desert you are above the concerns of heat and thirst. You ignore the penalties of hot weather on your journey activities. Additionally, whenever you would gain a level of {@condition fatigue} from not consuming Supply, you may make a save, avoiding the {@condition fatigue} on a success."
       ]
     },
     {

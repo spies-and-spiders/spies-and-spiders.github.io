@@ -131,21 +131,21 @@
           "name": "Adrenal Surge",
           "entries": [
             "As a bonus action, you apply your synaptic gadget to a willing creature within reach, including yourself, to suppress pain or push muscles to their limit. Choose Strength or Dexterity. The target gains advantage on ability checks for the chosen ability score, and either fortitude or reflex attacks have disadvantage against it respectively, until the end of its next turn. Its weapon attacks governed by the chosen ability deal an additional {@dice 1d4} base damage for the duration. This damage increases by 1 die at 5th level, 11th level, and 17th level (maximum {@dice 4d4}).",
-            "At the end of the duration, the creature suffers a level of {@condition fatigue|sns} that persists until cured or the combat ends. The creature can't benefit from this feature again until this level of {@condition fatigue|sns} is removed. {@condition Fatigue|sns} suffered from other sources does not affect this limitation."
+            "At the end of the duration, the creature suffers a level of {@condition fatigue} that persists until cured or the combat ends. The creature can't benefit from this feature again until this level of {@condition fatigue} is removed. {@condition Fatigue} suffered from other sources does not affect this limitation."
           ]
         },
         {
           "type": "entries",
           "name": "Danger Sense",
           "entries": [
-            "As a bonus action, you apply your synaptic gadget to a willing creature within reach, heightening its awareness. For a number of rounds equal to your Intelligence modifier, the target gains advantage on {@skill Insight} and {@skill Perception} checks and its armour increases by 2 as long as it is not {@condition staggered|sns} and its Speed is greater than 0. This bonus increases by 1 at 5th level, 11th level, and 17th level (maximum 5)."
+            "As a bonus action, you apply your synaptic gadget to a willing creature within reach, heightening its awareness. For a number of rounds equal to your Intelligence modifier, the target gains advantage on {@skill Insight} and {@skill Perception} checks and its armour increases by 2 as long as it is not {@condition staggered} and its Speed is greater than 0. This bonus increases by 1 at 5th level, 11th level, and 17th level (maximum 5)."
           ]
         },
         {
           "type": "entries",
           "name": "Disruptive Burst",
           "entries": [
-            "As an action, you can weaponise your synaptic gadget to disrupt the target's nervous system. This feature has a range of 15 feet. Make a ranged spell armour attack that deals {@dice 1d10} lightning damage. On a major hit, the target is also {@condition slowed|sns} until the end of its next turn. This damage increases by {@dice 1d10} at 5th level, 11th level, and 17th level (maximum {@dice 4d10})."
+            "As an action, you can weaponise your synaptic gadget to disrupt the target's nervous system. This feature has a range of 15 feet. Make a ranged spell armour attack that deals {@dice 1d10} lightning damage. On a major hit, the target is also {@condition slowed} until the end of its next turn. This damage increases by {@dice 1d10} at 5th level, 11th level, and 17th level (maximum {@dice 4d10})."
           ]
         }
       ]
@@ -204,7 +204,7 @@
                 "Designate the condition that will cause the surge to trigger, much like setting a posthypnotic suggestion. Only one condition can be designated, and once established it can't be changed for the duration of this feature. Likewise, allies must be designated (or described, if the creature has never seen them, though this occasionally leads to misidentification and mishaps) for the purposes of this feature when the condition is designated and can't be changed for the duration. The creature must be conscious for the effect to trigger.",
                 "Example conditions include: the creature is the target of a spell not cast by an ally; the creature is the target of a weapon attack; the creature falls from a height of more than 10 feet; the creature hears a designated phrase spoken (the creature must be able to hear the phrase to trigger the effect, but does not need to understand it); the creature casts a damaging spell; the creature makes a melee weapon attack against an ally.",
                 "When the condition is triggered, all attacks against the target have advantage for one round.",
-                "The effect ends early if the creature becomes {@condition unconscious|sns}, is reduced to 0 hit points, or you spend 1 minute with your synaptic gadget removing the suggestion. This does not require an additional use of your gadget. The target can't be subjected to more than one triggered surge at a time and the trigger wears off if the conditions are not met for 24 hours. Once a condition is triggered, the creature realises it was affected by magic if it was not otherwise aware."
+                "The effect ends early if the creature becomes {@condition unconscious}, is reduced to 0 hit points, or you spend 1 minute with your synaptic gadget removing the suggestion. This does not require an additional use of your gadget. The target can't be subjected to more than one triggered surge at a time and the trigger wears off if the conditions are not met for 24 hours. Once a condition is triggered, the creature realises it was affected by magic if it was not otherwise aware."
               ]
             },
             {
@@ -255,7 +255,7 @@
           "type": "entries",
           "name": "Disorienting Frequency",
           "entries": [
-            "Your synaptic gadget can now emit a sound that muddles the mind. As an action, you can spend a use of your synaptic gadget to make a 30-foot cone of sound. Make an area spell fortitude attack against each creature within the area that deals {@dice 7d6} thunder and psychic damage. On a hit, a target is also {@condition slowed|sns} until the end of its next turn. On a minor success, the target is {@condition rattled|sns} for the same duration. This feature affects all living creatures, regardless of Intelligence."
+            "Your synaptic gadget can now emit a sound that muddles the mind. As an action, you can spend a use of your synaptic gadget to make a 30-foot cone of sound. Make an area spell fortitude attack against each creature within the area that deals {@dice 7d6} thunder and psychic damage. On a hit, a target is also {@condition slowed} until the end of its next turn. On a minor success, the target is {@condition rattled} for the same duration. This feature affects all living creatures, regardless of Intelligence."
           ]
         },
         {
@@ -291,7 +291,7 @@
       "level": 9,
       "header": 2,
       "entries": [
-        "Starting at tier 5, you can spend a use of your synaptic gadget to restore brain activity to its normal state or even temporarily revive someone whose mind has stopped working. By using your synaptic gadget on a living creature, you can remove either a level of {@condition strife|sns}, the {@condition charmed|sns} condition, or a reduction to a single mental ability score. A creature can only benefit from this feature once a week.",
+        "Starting at tier 5, you can spend a use of your synaptic gadget to restore brain activity to its normal state or even temporarily revive someone whose mind has stopped working. By using your synaptic gadget on a living creature, you can remove either a level of {@condition strife}, the {@condition charmed} condition, or a reduction to a single mental ability score. A creature can only benefit from this feature once a week.",
         "If you use your synaptic gadget on a corpse, you can reactivate its brain activity for a short time. If the target died within the last week, you can ask it questions as though you had cast {@spell speak with dead|sns} without components. If the target died within the last 24 hours, you can also pass the electric impulses into its muscles, animating it to complete one task that takes 10 minutes or less. The temporarily revived target functions as a {@creature zombie|sns}. It can act on information it knew in life but cannot process new information or make decisions on its own."
       ]
     }

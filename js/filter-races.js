@@ -118,7 +118,7 @@ class PageFilterRaces extends PageFilterBase {
 		});
 		this._miscFilter = new Filter({
 			header: "Miscellaneous",
-			items: ["Base Species", "Key Species", "Lineage", "Modified Copy", "Reprinted", "Legacy", "Has Images", "Has Info"],
+			items: ["Base Species", "Key Species", "Lineage", "Modified Copy", "Reprinted", "Has Images", "Has Info"],
 			isMiscFilter: true,
 			deselFn: PageFilterBase.defaultMiscellaneousDeselFn.bind(PageFilterBase),
 		});

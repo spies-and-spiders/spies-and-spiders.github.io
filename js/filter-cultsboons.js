@@ -14,7 +14,7 @@ class PageFilterCultsBoons extends PageFilterBase {
 		});
 		this._miscFilter = new Filter({
 			header: "Miscellaneous",
-			items: ["Legacy", "Reprinted"],
+			items: ["Reprinted"],
 			isMiscFilter: true,
 			deselFn: PageFilterBase.defaultMiscellaneousDeselFn.bind(PageFilterBase),
 		});

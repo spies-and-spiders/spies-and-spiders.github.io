@@ -545,7 +545,7 @@
                   "type": "item",
                   "name": "Seasoned",
                   "entries": [
-                    "Once per long rest, the apothecary can use an antidote to automatically end the {@condition poisoned|sns} condition on a creature."
+                    "Once per long rest, the apothecary can use an antidote to automatically end the {@condition poisoned} condition on a creature."
                   ]
                 },
                 {
@@ -1013,7 +1013,7 @@
       "classSource": "sns",
       "level": 10,
       "entries": [
-        "Also at 10th level, you can spend 1 minute speaking words of encouragement and support to reinvigorate your companions. Each friendly creature than can hear or understand you can spend any number of Hit Dice to regain hit points without having to finish a short rest. In addition, each creature that does spend at least one Hit Die in this way can remove one level of {@condition fatigue|sns} or {@condition strife|sns} it is suffering from. Once a creature has removed a level of {@condition fatigue|sns} or {@condition strife|sns} from your use of this class feature, the creature must finish a long rest before it can do so again."
+        "Also at 10th level, you can spend 1 minute speaking words of encouragement and support to reinvigorate your companions. Each friendly creature than can hear or understand you can spend any number of Hit Dice to regain hit points without having to finish a short rest. In addition, each creature that does spend at least one Hit Die in this way can remove one level of {@condition fatigue} or {@condition strife} it is suffering from. Once a creature has removed a level of {@condition fatigue} or {@condition strife} from your use of this class feature, the creature must finish a long rest before it can do so again."
       ]
     },
     {
@@ -1056,7 +1056,7 @@
       "classSource": "sns",
       "level": 13,
       "entries": [
-        "Beginning at 13th level, attacks that can cause the {@condition charmed|sns} or {@condition frightened|sns} conditions have disadvantage against you and allies within your Commanding Presence."
+        "Beginning at 13th level, attacks that can cause the {@condition charmed} or {@condition frightened} conditions have disadvantage against you and allies within your Commanding Presence."
       ]
     },
     {
@@ -1071,7 +1071,7 @@
           "type": "entries",
           "name": "Castle",
           "entries": [
-            "You gain a coat of arms, which can be displayed on your shield or on the flag of a squire bearing your standard (if you have one). Attacks that can cause the {@condition frightened|sns} condition have disadvantage against allies who can see your coat of arms.",
+            "You gain a coat of arms, which can be displayed on your shield or on the flag of a squire bearing your standard (if you have one). Attacks that can cause the {@condition frightened} condition have disadvantage against allies who can see your coat of arms.",
             "Additionally, your Strength is increased by 1."
           ]
         },
@@ -1079,7 +1079,7 @@
           "type": "entries",
           "name": "Encampment",
           "entries": [
-            "You gain an expertise die on ability checks made to hide in natural surroundings. In addition, whenever you lose {@condition fatigue|sns}, lose 1 additional level. Whenever you take a long rest, you always count as doing so in a Haven.",
+            "You gain an expertise die on ability checks made to hide in natural surroundings. In addition, whenever you lose {@condition fatigue}, lose 1 additional level. Whenever you take a long rest, you always count as doing so in a Haven.",
             "Finally, your hit point maximum is increased by 2."
           ]
         },
@@ -1151,7 +1151,7 @@
           "type": "entries",
           "name": "Tavern",
           "entries": [
-            "You have advantage on ability checks and armour attack rolls made against creatures {@condition poisoned|sns} by alcohol. In addition, you gain an expertise die on saves made against poison, and cannot be {@condition poisoned|sns} by consuming alcohol.",
+            "You have advantage on ability checks and armour attack rolls made against creatures {@condition poisoned} by alcohol. In addition, you gain an expertise die on saves made against poison, and cannot be {@condition poisoned} by consuming alcohol.",
             "Finally, your Charisma is increased by 1."
           ]
         },
@@ -1185,7 +1185,7 @@
         {
           "type": "list",
           "items": [
-            "You end the {@condition frightened|sns} condition on one creature within 30 feet of you that can sense you.",
+            "You end the {@condition frightened} condition on one creature within 30 feet of you that can sense you.",
             "You grant one creature adjacent to you temporary hit points equal to your Charisma modifier + your proficiency bonus.",
             "You touch a living creature that has 0 hit points. The creature regains 2 hit points."
           ]
@@ -1204,7 +1204,7 @@
           "type": "entries",
           "name": "Castle",
           "entries": [
-            "Your coat of arms can inspire your allies. When an ally able to see your coat of arms is targeted by an attack that can cause the {@condition frightened|sns} condition that results in a minor or lower success, they gain Inspiration."
+            "Your coat of arms can inspire your allies. When an ally able to see your coat of arms is targeted by an attack that can cause the {@condition frightened} condition that results in a minor or lower success, they gain Inspiration."
           ]
         },
         {

@@ -15,7 +15,7 @@ class PageFilterActions extends PageFilterBase {
 		});
 		this._miscFilter = new Filter({
 			header: "Miscellaneous",
-			items: ["Optional/Variant Action", "Legacy"],
+			items: ["Optional/Variant Action"],
 			isMiscFilter: true,
 			deselFn: PageFilterBase.defaultMiscellaneousDeselFn.bind(PageFilterBase),
 		});

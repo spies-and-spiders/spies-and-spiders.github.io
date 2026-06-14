@@ -837,7 +837,7 @@
         }
       ],
       "entries": [
-        "Your martial stances don't end when you start another stance. You can have two stances active at the same time. If you are knocked {@condition unconscious|sns} or begin a long rest both stances end."
+        "Your martial stances don't end when you start another stance. You can have two stances active at the same time. If you are knocked {@condition unconscious} or begin a long rest both stances end."
       ]
     },
     {
@@ -1026,7 +1026,7 @@
         }
       ],
       "entries": [
-        "You can deal staggering blows. When you score a major hit against a creature with a melee weapon armour attack, you can spend 2 exertion to {@condition staggered|sns|stagger} it until the end of your next turn."
+        "You can deal staggering blows. When you score a major hit against a creature with a melee weapon armour attack, you can spend 2 exertion to {@condition staggered|stagger} it until the end of your next turn."
       ]
     },
     {
@@ -1083,7 +1083,7 @@
         }
       ],
       "entries": [
-        "You can use your action to end one effect on yourself that is causing you to be {@condition poisoned|sns} or diseased."
+        "You can use your action to end one effect on yourself that is causing you to be {@condition poisoned} or diseased."
       ]
     },
     {
@@ -1125,7 +1125,7 @@
         }
       ],
       "entries": [
-        "You can use an action and spend 3 exertion to hit the ground so hard it sends a shockwave in a 40-foot line that is 5 feet wide. Make an area weapon reflex attack against each creature in that line that deals {@dice 3d10} bludgeoning damage and knocks targets {@condition prone|sns} on a hit."
+        "You can use an action and spend 3 exertion to hit the ground so hard it sends a shockwave in a 40-foot line that is 5 feet wide. Make an area weapon reflex attack against each creature in that line that deals {@dice 3d10} bludgeoning damage and knocks targets {@condition prone} on a hit."
       ]
     },
     {
@@ -1146,7 +1146,7 @@
         }
       ],
       "entries": [
-        "You can use your action to end one effect on yourself that is causing you to be {@condition charmed|sns} or {@condition frightened|sns}."
+        "You can use your action to end one effect on yourself that is causing you to be {@condition charmed} or {@condition frightened}."
       ]
     },
     {
@@ -1167,7 +1167,7 @@
         }
       ],
       "entries": [
-        "You can deal incapacitating blows. Whenever you score a major hit with a melee weapon armour attack, you can spend 1 exertion to {@condition deblitated|sns|debilitate} the target until the end of your next turn."
+        "You can deal incapacitating blows. Whenever you score a major hit with a melee weapon armour attack, you can spend 1 exertion to {@condition deblitated|debilitate} the target until the end of your next turn."
       ]
     },
     {

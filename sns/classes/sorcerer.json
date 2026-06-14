@@ -767,7 +767,7 @@
           "type": "entries",
           "name": "Hurricane (Lightning or Thunder)",
           "entries": [
-            "You can treat both lightning and thunder damage as your manifestation's damage types. When you cast a spell that deals lightning or thunder damage, you can spend 1 sorcery point to produce a thunderous blast around you. Large or smaller creatures adjacent to you must make a save, being pushed back 10 feet and knocked {@condition prone|sns} on a fail."
+            "You can treat both lightning and thunder damage as your manifestation's damage types. When you cast a spell that deals lightning or thunder damage, you can spend 1 sorcery point to produce a thunderous blast around you. Large or smaller creatures adjacent to you must make a save, being pushed back 10 feet and knocked {@condition prone} on a fail."
           ]
         },
         {
@@ -855,7 +855,7 @@
           "type": "entries",
           "name": "Daunting Energy",
           "entries": [
-            "You can an expertise die on {@skill Intimidation} checks. If you fail an ability check against a creature trying to intimidate you, or an attack would cause you to become {@condition frightened|sns}, you can spend 1 sorcery point to immediately reroll the check or attack."
+            "You can an expertise die on {@skill Intimidation} checks. If you fail an ability check against a creature trying to intimidate you, or an attack would cause you to become {@condition frightened}, you can spend 1 sorcery point to immediately reroll the check or attack."
           ]
         },
         {

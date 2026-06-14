@@ -188,8 +188,6 @@ class Omnidexer {
 		if (ent.srd52) indexDoc.r2 = 1;
 
 		if (src) {
-			if (SourceUtil.isPartneredSourceWotc(src)) indexDoc.dP = 1;
-
 			if (options.isIncludeTag) {
 				indexDoc.t = this.getMetaId("t", Parser.getPropTag(arbiter.listProp));
 			}

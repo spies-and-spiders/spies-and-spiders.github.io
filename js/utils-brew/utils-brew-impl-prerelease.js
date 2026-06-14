@@ -21,7 +21,7 @@ export class PrereleaseUtil_ extends BrewUtil2Base {
 	URL_REPO_ROOT_DEFAULT = VeCt.URL_ROOT_PRERELEASE;
 	DISPLAY_NAME = "prerelease content";
 	DISPLAY_NAME_PLURAL = "prereleases";
-	DEFAULT_AUTHOR = "Wizards of the Coast";
+	DEFAULT_AUTHOR = "SpiesAndSpiders";
 	STYLE_BTN = "ve-btn-primary";
 	IS_PREFER_DATE_ADDED = false;
 

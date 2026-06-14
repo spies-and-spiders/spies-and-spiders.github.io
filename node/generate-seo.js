@@ -105,7 +105,7 @@ const toGenerate = [
 		page: "spells",
 		pGetEntityMetas: async () => {
 			const entities = (await DataUtil.spell.pLoadAll())
-				.filter(({source}) => !isSkipUaEtc || !SourceUtil.isNonstandardSourceWotc(source))
+				.filter(({source}) => !isSkipUaEtc || !SourceUtil.isPrereleaseSource(source))
 				.filter(({source}) => !isOnlyVanilla || Parser.SOURCES_VANILLA.has(source));
 			return entities.pSerialAwaitMap(async ent => ({entity: ent, fluff: await Renderer.spell.pGetFluff(ent)}));
 		},
@@ -116,7 +116,7 @@ const toGenerate = [
 		page: "bestiary",
 		pGetEntityMetas: async () => {
 			const entities = (await DataUtil.monster.pLoadAll())
-				.filter(({source}) => !isSkipUaEtc || !SourceUtil.isNonstandardSourceWotc(source))
+				.filter(({source}) => !isSkipUaEtc || !SourceUtil.isPrereleaseSource(source))
 				.filter(({source}) => !isOnlyVanilla || Parser.SOURCES_VANILLA.has(source));
 			return entities.pSerialAwaitMap(async ent => ({
 				entity: ent,
@@ -131,7 +131,7 @@ const toGenerate = [
 		page: "items",
 		pGetEntityMetas: async () => {
 			const entities = (await Renderer.item.pBuildList()).filter(it => !it._isItemGroup)
-				.filter(it => !isSkipUaEtc || !SourceUtil.isNonstandardSourceWotc(it.source))
+				.filter(it => !isSkipUaEtc || !SourceUtil.isPrereleaseSource(it.source))
 				.filter(it => !isOnlyVanilla || Parser.SOURCES_VANILLA.has(it.source));
 			return entities.pSerialAwaitMap(async ent => ({entity: ent, fluff: await Renderer.item.pGetFluff(ent)}));
 		},

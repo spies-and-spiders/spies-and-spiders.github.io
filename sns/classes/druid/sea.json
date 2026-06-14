@@ -96,7 +96,7 @@
       "level": 1,
       "header": 1,
       "entries": [
-        "From tier 1, as a bonus action, you can expend a use of your Wild Shape to emit a 5-foot radius of ocean spray centred on you for 10 minutes. It ends early if you dismiss it (no action required), manifest it again, or have the {@condition unconscious|sns} condition.",
+        "From tier 1, as a bonus action, you can expend a use of your Wild Shape to emit a 5-foot radius of ocean spray centred on you for 10 minutes. It ends early if you dismiss it (no action required), manifest it again, or have the {@condition unconscious} condition.",
         "When you manifest the spray and as a bonus action on your subsequent turns, you can choose another creature in the spray. The target suffers cold harm equal to a number of d6s equal to half your Wisdom modifier (minimum of one die), and then makes a save if it is Large or smaller. On a fail, the target is pushed 15 feet away from you."
       ]
     },

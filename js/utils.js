@@ -511,24 +511,7 @@ globalThis.SourceUtil = class {
 
 	static isNonstandardSource (source) {
 		if (source == null) return false;
-		return (
-			(typeof BrewUtil2 === "undefined" || !BrewUtil2.hasSourceJson(source))
-				&& SourceUtil.isNonstandardSourceWotc(source)
-		)
-			|| SourceUtil.isPrereleaseSource(source);
-	}
-
-	static isPartneredSourceWotc (source) {
-		if (source == null) return false;
-		if (Parser.SOURCES_PARTNERED_WOTC.has(source)) return true;
-		if (typeof PrereleaseUtil !== "undefined" && PrereleaseUtil.hasSourceJson(source)) return !!PrereleaseUtil.sourceJsonToSource(source).partnered;
-		if (typeof BrewUtil2 !== "undefined" && BrewUtil2.hasSourceJson(source)) return !!BrewUtil2.sourceJsonToSource(source).partnered;
-		return false;
-	}
-
-	static isLegacySourceWotc (source) {
-		if (source == null) return false;
-		return Parser.SOURCES_LEGACY_WOTC.has(source);
+		return SourceUtil.isPrereleaseSource(source);
 	}
 
 	// TODO(Future) remove this in favor of simply checking existence in `PrereleaseUtil`
@@ -536,16 +519,7 @@ globalThis.SourceUtil = class {
 	static isPrereleaseSource (source) {
 		if (source == null) return false;
 		if (typeof PrereleaseUtil !== "undefined" && PrereleaseUtil.hasSourceJson(source)) return true;
-		return source.startsWith(Parser.SRC_SNS)
-			|| source.startsWith(Parser.SRC_SNS);
-	}
-
-	static isNonstandardSourceWotc (source) {
-		return SourceUtil.isPrereleaseSource(source)
-			|| source.startsWith(Parser.SRC_SNS)
-			|| source.startsWith(Parser.SRC_SNS)
-			|| source.startsWith(Parser.SRC_SNS)
-			|| Parser.SOURCES_NON_STANDARD_WOTC.has(source);
+		return !source.startsWith(Parser.SRC_SNS);
 	}
 
 	static _CLASSIC_THRESHOLD_TIMESTAMP = null;
@@ -563,10 +537,9 @@ globalThis.SourceUtil = class {
 
 	static getFilterGroup (source) {
 		if (source instanceof FilterItem) source = source.item;
-		if (SourceUtil.isPartneredSourceWotc(source)) return SourceUtil.FILTER_GROUP_PARTNERED;
 		if (typeof PrereleaseUtil !== "undefined" && PrereleaseUtil.hasSourceJson(source)) return SourceUtil.FILTER_GROUP_PRERELEASE;
 		if (typeof BrewUtil2 !== "undefined" && BrewUtil2.hasSourceJson(source)) return SourceUtil.FILTER_GROUP_HOMEBREW;
-		if (SourceUtil.isNonstandardSourceWotc(source)) return SourceUtil.FILTER_GROUP_NON_STANDARD;
+		if (SourceUtil.isPrereleaseSource(source)) return SourceUtil.FILTER_GROUP_NON_STANDARD;
 		return SourceUtil.FILTER_GROUP_STANDARD;
 	}
 

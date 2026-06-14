@@ -19,7 +19,7 @@ class PageFilterClassesBase extends PageFilterBase {
 
 		this._miscFilter = new Filter({
 			header: "Miscellaneous",
-			items: ["Reprinted", "Sidekick", "Legacy"],
+			items: ["Reprinted", "Sidekick"],
 			deselFn: (it) => { return it === "Reprinted" || it === "Sidekick"; },
 			displayFnMini: it => it === "Reprinted" ? "Repr." : it,
 			displayFnTitle: it => it === "Reprinted" ? it : "",

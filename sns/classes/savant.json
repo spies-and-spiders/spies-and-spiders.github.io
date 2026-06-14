@@ -381,7 +381,7 @@
                   "type": "item",
                   "name": "Undermining Taunt Aegis",
                   "entries": [
-                    "When a creature fails to hit with an attack, you can use this trick to capitalise on their failure, warning the creature why another possible course of action will also turn out badly. If that creature can understand you, choose an action, such as Attack or Cast a Spell. The trget must make a save. If it fails, until the end of its next turn it is {@condition debilitated|sns} while attempting to take that action."
+                    "When a creature fails to hit with an attack, you can use this trick to capitalise on their failure, warning the creature why another possible course of action will also turn out badly. If that creature can understand you, choose an action, such as Attack or Cast a Spell. The trget must make a save. If it fails, until the end of its next turn it is {@condition debilitated} while attempting to take that action."
                   ]
                 }
               ]
@@ -408,7 +408,7 @@
                   "type": "item",
                   "name": "Experimental Flourish",
                   "entries": [
-                    "Whenever you fail to hit with an armour attack, you improvise a follow-up that doesn't directly attack a foe, such as slicing a rope to pin an enemy with a chandelier or smashing a pipe to spray blinding steam on an enemy. Circumstances will dictate what the effect is, but some examples include shoving or imposing the {@condition blinded|sns}, {@condition deafened|sns}, {@condition grappled|sns}, or {@condition prone|sns} condition, and may also deal environmental damage equal to your Intelligence modifier. Any conditions imposed should seldom last more than one round. Creatures affected can make a save to anticipate your trick and avoid the effect."
+                    "Whenever you fail to hit with an armour attack, you improvise a follow-up that doesn't directly attack a foe, such as slicing a rope to pin an enemy with a chandelier or smashing a pipe to spray blinding steam on an enemy. Circumstances will dictate what the effect is, but some examples include shoving or imposing the {@condition blinded}, {@condition deafened}, {@condition grappled}, or {@condition prone} condition, and may also deal environmental damage equal to your Intelligence modifier. Any conditions imposed should seldom last more than one round. Creatures affected can make a save to anticipate your trick and avoid the effect."
                   ]
                 },
                 {
@@ -422,7 +422,7 @@
                   "type": "item",
                   "name": "Menacing Flourish",
                   "entries": [
-                    "When you hit a creature with a melee weapon attack, you can spend a bonus action to activate this trick and deliver a terrifying threat. The target makes a save. If it fails, for the next minute it is {@condition frightened|sns} of you."
+                    "When you hit a creature with a melee weapon attack, you can spend a bonus action to activate this trick and deliver a terrifying threat. The target makes a save. If it fails, for the next minute it is {@condition frightened} of you."
                   ]
                 },
                 {
@@ -430,7 +430,7 @@
                   "name": "Surgical Flourish",
                   "entries": [
                     "When you have advantage on a melee weapon attack and both die results are high enough to hit, choose one of the creature's limbs or eyes to disable. If the creature succeeds a save, you disable that body part only until the end of your next turn. If it fails the save, the body part is disabled until it can take a short rest.",
-                    "A creature is {@condition debilitated|sns} when attempting to use a disabled limb to attack, and gains no armour benefit from a shield held by a disabled limb. A creature with a disabled leg has its speed reduced by half, it falls {@condition prone|sns} after using the Dash action, and it has disadvantage on Dexterity checks to balance. A creature with a disabled eye has disadvantage on {@skill Perception} checks that rely on sight and on ranged weapon attack rolls."
+                    "A creature is {@condition debilitated} when attempting to use a disabled limb to attack, and gains no armour benefit from a shield held by a disabled limb. A creature with a disabled leg has its speed reduced by half, it falls {@condition prone} after using the Dash action, and it has disadvantage on Dexterity checks to balance. A creature with a disabled eye has disadvantage on {@skill Perception} checks that rely on sight and on ranged weapon attack rolls."
                   ]
                 }
               ]
@@ -471,7 +471,7 @@
                   "type": "item",
                   "name": "Frightful Suppression",
                   "entries": [
-                    "When you make an armour attack that causes loud noises - a firearm or trap, or also any power that deals thunder damage - you can use this trick to force the attack's target (or creatures in the attack's area) to make a save to gauge when it is safe to move, and thus avoid being pinned down. A creature that fails is {@condition sluggish|sns} and can't move while adjacent to you until the start of your next turn unless it spends an action to break out of the suppression."
+                    "When you make an armour attack that causes loud noises - a firearm or trap, or also any power that deals thunder damage - you can use this trick to force the attack's target (or creatures in the attack's area) to make a save to gauge when it is safe to move, and thus avoid being pinned down. A creature that fails is {@condition sluggish} and can't move while adjacent to you until the start of your next turn unless it spends an action to break out of the suppression."
                   ]
                 },
                 {
@@ -485,7 +485,7 @@
                   "type": "item",
                   "name": "Sweeping Stride",
                   "entries": [
-                    "When you move at least 10 feet and enter a space adjacent to a creature no more than one size larger than you, you can try to trip it. If the creature fails a save, it falls {@condition prone|sns}. If it succeeds, instead your movement ends in the space you entered to use this trick."
+                    "When you move at least 10 feet and enter a space adjacent to a creature no more than one size larger than you, you can try to trip it. If the creature fails a save, it falls {@condition prone}. If it succeeds, instead your movement ends in the space you entered to use this trick."
                   ]
                 },
                 {
@@ -782,7 +782,7 @@
         "CS"
       ],
       "entries": [
-        "Whenever you take a short or long rest, you can use your medical knowledge to treat one creature. That creature can heal as if it had one extra {@dice 1d6} Hit Die during this rest, or it can ignore one level of {@condition fatigue|sns} for the next four hours."
+        "Whenever you take a short or long rest, you can use your medical knowledge to treat one creature. That creature can heal as if it had one extra {@dice 1d6} Hit Die during this rest, or it can ignore one level of {@condition fatigue} for the next four hours."
       ]
     },
     {

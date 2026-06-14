@@ -4,7 +4,6 @@ class PageFilterEquipment extends PageFilterBase {
 	static _MISC_FILTER_ITEMS = [
 		"Item Group",
 		"Bundle",
-		"Legacy",
 		"Has Images",
 		"Has Info",
 		"Reprinted",
@@ -309,7 +308,6 @@ class PageFilterItems extends PageFilterEquipment {
 				const [name, source] = it.split("|");
 				if (!source) return name.toTitleCase();
 				const sourceJson = Parser.sourceJsonToJson(source);
-				if (!SourceUtil.isNonstandardSourceWotc(sourceJson)) return name.toTitleCase();
 				return `${name.toTitleCase()} (${Parser.sourceJsonToAbv(sourceJson)})`;
 			},
 			itemSortFn: SortUtil.ascSortLower,

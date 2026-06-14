@@ -1438,7 +1438,7 @@
                   "type": "item",
                   "name": "Rope Trap",
                   "entries": [
-                    "The creature is either knocked {@condition prone|sns} or {@condition restrained|sns} by a net or rope."
+                    "The creature is either knocked {@condition prone} or {@condition restrained} by a net or rope."
                   ]
                 }
               ]
@@ -1607,9 +1607,9 @@
               "items": [
                 "The guardian speaks Primordial.",
                 "If the guardian is a fire guardian, its Melee attack deals fire damage. Otherwise, it deals bludgeoning damage.",
-                "If the guardian's Melee attack hits a Medium or smaller target, the target is {@condition grappled|sns}, and the guardian uses its Engulf action on it.",
-                "The guardian gains the Engulf action: The guardian engulfs a Medium or smaller creature {@condition grappled|sns} by it. The engulfed creature is {@condition blinded|sns}, {@condition restrained|sns}, and unable to breathe, and at the start of each of the guardian's turns it makes a save or suffers {@damage 2d8 + 4} bludgeoning harm (or fire for a fire guardian). If the guardian moves, the engulfed creature moves with it. The guardian can have only one creature engulfed at a time.",
-                "The guardian gains the Guard Life action: The guardian uses its Engulf on a willing, {@condition unconscious|sns}, or {@condition incapacitated|sns} ally without dealing damage. While engulfed, the ally is {@condition grappled|sns} but not {@condition restrained|sns}, can see and breathe normally, and has total cover. As soon as the ally takes an action, reaction, or bonus action, they are no longer engulfed. The guardian can release the ally at will (no action required)."
+                "If the guardian's Melee attack hits a Medium or smaller target, the target is {@condition grappled}, and the guardian uses its Engulf action on it.",
+                "The guardian gains the Engulf action: The guardian engulfs a Medium or smaller creature {@condition grappled} by it. The engulfed creature is {@condition blinded}, {@condition restrained}, and unable to breathe, and at the start of each of the guardian's turns it makes a save or suffers {@damage 2d8 + 4} bludgeoning harm (or fire for a fire guardian). If the guardian moves, the engulfed creature moves with it. The guardian can have only one creature engulfed at a time.",
+                "The guardian gains the Guard Life action: The guardian uses its Engulf on a willing, {@condition unconscious}, or {@condition incapacitated} ally without dealing damage. While engulfed, the ally is {@condition grappled} but not {@condition restrained}, can see and breathe normally, and has total cover. As soon as the ally takes an action, reaction, or bonus action, they are no longer engulfed. The guardian can release the ally at will (no action required)."
               ]
             },
             "The creature disappears after 1 hour, when it is reduced to 0 hit point, or you use a bonus action to dismiss it. Once you have used this feature, you can't do so again until you finish a long rest."
@@ -1634,14 +1634,14 @@
                   "type": "item",
                   "name": "Rushing Stampede",
                   "entries": [
-                    "A Huge-sized horde of Small, Medium, and Large native creatures hurry through the area, traveling in a 30'-wide line from a direction you choose. Until the start of your next turn, the area is difficult terrain. In addition, each creature of your choice in the area suffers {@dice 5d8} bludgeoning harm. Each target must also make a save, becoming {@condition prone|sns} and {@condition debilitated|sns} until the start of your next turn on a fail. On a successful save, a target is {@condition rattled|sns} until the start of your next turn."
+                    "A Huge-sized horde of Small, Medium, and Large native creatures hurry through the area, traveling in a 30'-wide line from a direction you choose. Until the start of your next turn, the area is difficult terrain. In addition, each creature of your choice in the area suffers {@dice 5d8} bludgeoning harm. Each target must also make a save, becoming {@condition prone} and {@condition debilitated} until the start of your next turn on a fail. On a successful save, a target is {@condition rattled} until the start of your next turn."
                   ]
                 },
                 {
                   "type": "item",
                   "name": "Swarming Pests",
                   "entries": [
-                    "Several Medium-sized swarms of Tiny native creatures enter the spaces of up to 5 Small, Medium, or Large creatures you choose, or the space of a Huge or Gargantuan creature. Each creature in the swarm's area becomes {@condition blinded|sns} and {@condition slowed|sns} until the start of your next turn, and loses concentration on any effect it is concentrating on."
+                    "Several Medium-sized swarms of Tiny native creatures enter the spaces of up to 5 Small, Medium, or Large creatures you choose, or the space of a Huge or Gargantuan creature. Each creature in the swarm's area becomes {@condition blinded} and {@condition slowed} until the start of your next turn, and loses concentration on any effect it is concentrating on."
                   ]
                 }
               ]
@@ -1802,7 +1802,7 @@
         "EK"
       ],
       "entries": [
-        "After a Gather Components journey activity, you can extract 3 doses of liquid poison (when ingested, a creature makes a save or is {@condition poisoned|sns} for 1 hour) from poisonous plants you've foraged. Alternatively, using the same plants you can spend an hour making a dose of antitoxin."
+        "After a Gather Components journey activity, you can extract 3 doses of liquid poison (when ingested, a creature makes a save or is {@condition poisoned} for 1 hour) from poisonous plants you've foraged. Alternatively, using the same plants you can spend an hour making a dose of antitoxin."
       ]
     },
     {
@@ -1844,7 +1844,7 @@
         }
       ],
       "entries": [
-        "Once between long rests you can focus your attention on peripheral sights, sounds, and other signs of unseen passage. For the next hour, you can detect {@condition invisible|sns} creatures and objects, their location, movement, and actions, and even sense creatures and objects in the Ethereal Plane."
+        "Once between long rests you can focus your attention on peripheral sights, sounds, and other signs of unseen passage. For the next hour, you can detect {@condition invisible} creatures and objects, their location, movement, and actions, and even sense creatures and objects in the Ethereal Plane."
       ]
     },
     {
@@ -1874,7 +1874,7 @@
         "EW"
       ],
       "entries": [
-        "Whenever a creature within 60 feet of the aberration gains any of the {@condition charmed|sns}, {@condition dominated|sns}, {@condition fixated|sns}, {@condition frightened|sns}, {@condition rattled|sns}, {@condition strife|sns}, or {@condition taunted|sns} conditions, the aberration must make a save. On a fail, it gains the same condition until it passes a passive save."
+        "Whenever a creature within 60 feet of the aberration gains any of the {@condition charmed}, {@condition dominated}, {@condition fixated}, {@condition frightened}, {@condition rattled}, {@condition strife}, or {@condition taunted} conditions, the aberration must make a save. On a fail, it gains the same condition until it passes a passive save."
       ]
     },
     {
@@ -1904,7 +1904,7 @@
         "EW"
       ],
       "entries": [
-        "While an illusion spell is active within the aberration's line of sight, the aberration is {@condition confused|sns} and includes itself in options for the condition's free attack."
+        "While an illusion spell is active within the aberration's line of sight, the aberration is {@condition confused} and includes itself in options for the condition's free attack."
       ]
     },
     {
@@ -1924,7 +1924,7 @@
         "EW"
       ],
       "entries": [
-        "While the aberration has any of the {@condition debilitated|sns}, {@condition fatigue|sns}, {@condition poisoned|sns}, {@condition sluggish|sns}, or {@condition staggered|sns} conditions, it loses a number of hit points at the start of each of its turns equal to quadruple your proficiency bonus."
+        "While the aberration has any of the {@condition debilitated}, {@condition fatigue}, {@condition poisoned}, {@condition sluggish}, or {@condition staggered} conditions, it loses a number of hit points at the start of each of its turns equal to quadruple your proficiency bonus."
       ]
     },
     {
@@ -1954,7 +1954,7 @@
         "EW"
       ],
       "entries": [
-        "As a bonus action, a creature within 30 feet of the beast can make a {@skill Nature} check with DC equal to 10 + the beast's CR. On a success, the beast is {@condition dominated|sns} for the remainder of combat."
+        "As a bonus action, a creature within 30 feet of the beast can make a {@skill Nature} check with DC equal to 10 + the beast's CR. On a success, the beast is {@condition dominated} for the remainder of combat."
       ]
     },
     {
@@ -1964,7 +1964,7 @@
         "EW"
       ],
       "entries": [
-        "The next time the beast suffers a major hit that deals non-physical base damage, it becomes {@condition slowed|sns} for the remainder of combat."
+        "The next time the beast suffers a major hit that deals non-physical base damage, it becomes {@condition slowed} for the remainder of combat."
       ]
     },
     {
@@ -1984,7 +1984,7 @@
         "EW"
       ],
       "entries": [
-        "The beast is always {@condition taunted|sns} by your ally (including yourself) wearing the lightest body armour type. If multiple creatures meet this condition, the beast is taunted by all of them."
+        "The beast is always {@condition taunted} by your ally (including yourself) wearing the lightest body armour type. If multiple creatures meet this condition, the beast is taunted by all of them."
       ]
     },
     {
@@ -1994,7 +1994,7 @@
         "EW"
       ],
       "entries": [
-        "Whenever the beast is knocked {@condition prone|sns}, it cannot stand up until it uses an action to do so. Additionally, it does not impose disadvantage on non-adjacent armour attacks while {@condition prone|sns}."
+        "Whenever the beast is knocked {@condition prone}, it cannot stand up until it uses an action to do so. Additionally, it does not impose disadvantage on non-adjacent armour attacks while {@condition prone}."
       ]
     },
     {
@@ -2004,7 +2004,7 @@
         "EW"
       ],
       "entries": [
-        "The beast is always {@condition taunted|sns} by your ally (including yourself) holding the most gold. If multiple creatures meet this condition, the beast is taunted by all of them."
+        "The beast is always {@condition taunted} by your ally (including yourself) holding the most gold. If multiple creatures meet this condition, the beast is taunted by all of them."
       ]
     },
     {
@@ -2034,7 +2034,7 @@
         "EW"
       ],
       "entries": [
-        "The celestial is always {@condition taunted|sns} by your ally (including yourself) that it believes to have committed the most evil deed within the last century. It does not learn what this deed is."
+        "The celestial is always {@condition taunted} by your ally (including yourself) that it believes to have committed the most evil deed within the last century. It does not learn what this deed is."
       ]
     },
     {
@@ -2044,7 +2044,7 @@
         "EW"
       ],
       "entries": [
-        "While the celestial is {@condition prone|sns}, it has 50% vulnerability to physical damage and incoming attacks against it have +1 critical success range."
+        "While the celestial is {@condition prone}, it has 50% vulnerability to physical damage and incoming attacks against it have +1 critical success range."
       ]
     },
     {
@@ -2054,7 +2054,7 @@
         "EW"
       ],
       "entries": [
-        "The celestial is always {@condition taunted|sns} by your ally (including yourself) that last dealt non-physical (except radiant) damage to it."
+        "The celestial is always {@condition taunted} by your ally (including yourself) that last dealt non-physical (except radiant) damage to it."
       ]
     },
     {
@@ -2064,7 +2064,7 @@
         "EW"
       ],
       "entries": [
-        "As a bonus action, a creature within 30 feet of the celestial can make a {@skill History} check with DC equal to 10 + the celestial's CR. On a success, the celestial becomes {@condition slowed|sns} for the remainder of combat."
+        "As a bonus action, a creature within 30 feet of the celestial can make a {@skill History} check with DC equal to 10 + the celestial's CR. On a success, the celestial becomes {@condition slowed} for the remainder of combat."
       ]
     },
     {
@@ -2134,7 +2134,7 @@
         "EW"
       ],
       "entries": [
-        "The next time the construct is directly affected by a transmutation spell, it becomes {@condition dominated|sns} for the remainder of combat."
+        "The next time the construct is directly affected by a transmutation spell, it becomes {@condition dominated} for the remainder of combat."
       ]
     },
     {
@@ -2174,7 +2174,7 @@
         "EW"
       ],
       "entries": [
-        "The next time a {@filter spell with the negation subschool|spells|Subschool=negation} is cast on the construct, or its area includes the construct, the construct becomes {@condition restrained|sns} by the caster and {@condition brittle|sns} for the remainder of combat."
+        "The next time a {@filter spell with the negation subschool|spells|Subschool=negation} is cast on the construct, or its area includes the construct, the construct becomes {@condition restrained} by the caster and {@condition brittle} for the remainder of combat."
       ]
     },
     {
@@ -2184,7 +2184,7 @@
         "EW"
       ],
       "entries": [
-        "While the dragon is {@condition charmed|sns}, {@condition dominated|sns}, {@condition fixated|sns}, {@condition frightened|sns}, or {@condition taunted|sns}, it loses a number of hit points at the start of each of its turns equal to quadruple your proficiency bonus."
+        "While the dragon is {@condition charmed}, {@condition dominated}, {@condition fixated}, {@condition frightened}, or {@condition taunted}, it loses a number of hit points at the start of each of its turns equal to quadruple your proficiency bonus."
       ]
     },
     {
@@ -2204,7 +2204,7 @@
         "EW"
       ],
       "entries": [
-        "The next time the dragon suffers a major hit that deals non-physical base damage of a type that the dragon cannot deal itself, it becomes {@condition restrained|sns} by its attacker and {@condition slowed|sns} for the remainder of combat."
+        "The next time the dragon suffers a major hit that deals non-physical base damage of a type that the dragon cannot deal itself, it becomes {@condition restrained} by its attacker and {@condition slowed} for the remainder of combat."
       ]
     },
     {
@@ -2214,7 +2214,7 @@
         "EW"
       ],
       "entries": [
-        "Whenever the dragon suffers a major hit that deals non-physical base damage of a type that the dragon cannot deal itself, it becomes {@condition frightened|sns} of the attacker for the remainder of combat."
+        "Whenever the dragon suffers a major hit that deals non-physical base damage of a type that the dragon cannot deal itself, it becomes {@condition frightened} of the attacker for the remainder of combat."
       ]
     },
     {
@@ -2224,7 +2224,7 @@
         "EW"
       ],
       "entries": [
-        "While the dragon is {@condition grappled|sns}, it cannot score major successes with its attacks; its major successes are instead counted as standard successes."
+        "While the dragon is {@condition grappled}, it cannot score major successes with its attacks; its major successes are instead counted as standard successes."
       ]
     },
     {
@@ -2284,7 +2284,7 @@
         "EW"
       ],
       "entries": [
-        "While the elemental is {@condition grappled|sns}, it is also {@condition restrained|sns} and {@condition frightened|sns} of its grappler."
+        "While the elemental is {@condition grappled}, it is also {@condition restrained} and {@condition frightened} of its grappler."
       ]
     },
     {
@@ -2294,7 +2294,7 @@
         "EW"
       ],
       "entries": [
-        "The next time the elemental suffers a major hit that deals non-physical base damage of a type that the elemental cannot deal itself, it becomes {@condition restrained|sns} by the attacker and {@condition slowed|sns} for the remainder of combat."
+        "The next time the elemental suffers a major hit that deals non-physical base damage of a type that the elemental cannot deal itself, it becomes {@condition restrained} by the attacker and {@condition slowed} for the remainder of combat."
       ]
     },
     {
@@ -2364,7 +2364,7 @@
         "EW"
       ],
       "entries": [
-        "As a bonus action, a creature within 30 feet of the fey can make a {@skill Persuasion} check with DC equal to 10 + the fey's CR. On a success, the fey becomes {@condition poisoned|sns} for the remainder of combat, and fortitude attacks against it have advantage for the same duration."
+        "As a bonus action, a creature within 30 feet of the fey can make a {@skill Persuasion} check with DC equal to 10 + the fey's CR. On a success, the fey becomes {@condition poisoned} for the remainder of combat, and fortitude attacks against it have advantage for the same duration."
       ]
     },
     {
@@ -2374,7 +2374,7 @@
         "EW"
       ],
       "entries": [
-        "While the fey is {@condition grappled|sns}, it is also {@condition dazed|sns}."
+        "While the fey is {@condition grappled}, it is also {@condition dazed}."
       ]
     },
     {
@@ -2404,7 +2404,7 @@
         "EW"
       ],
       "entries": [
-        "As a bonus action, a creature adjacent to the fey may gift it a gold piece, causing it to be {@condition dominated|sns} for the remainder of combat."
+        "As a bonus action, a creature adjacent to the fey may gift it a gold piece, causing it to be {@condition dominated} for the remainder of combat."
       ]
     },
     {
@@ -2534,7 +2534,7 @@
         "EW"
       ],
       "entries": [
-        "The giant is always {@condition taunted|sns} by your ally (including yourself) with the highest Strength score."
+        "The giant is always {@condition taunted} by your ally (including yourself) with the highest Strength score."
       ]
     },
     {
@@ -2544,7 +2544,7 @@
         "EW"
       ],
       "entries": [
-        "The next time a {@filter spell with the prismatic subschool|spells|Subschool=prismatic} produces an effect within 60 feet of the giant and within its line of sight, the giant becomes {@condition dominated|sns} by the caster for the remainder of combat."
+        "The next time a {@filter spell with the prismatic subschool|spells|Subschool=prismatic} produces an effect within 60 feet of the giant and within its line of sight, the giant becomes {@condition dominated} by the caster for the remainder of combat."
       ]
     },
     {
@@ -2564,7 +2564,7 @@
         "EW"
       ],
       "entries": [
-        "While the giant is {@condition charmed|sns}, {@condition dominated|sns}, {@condition fixated|sns}, {@condition frightened|sns}, or {@condition taunted|sns}, it is also {@condition weakened|sns}."
+        "While the giant is {@condition charmed}, {@condition dominated}, {@condition fixated}, {@condition frightened}, or {@condition taunted}, it is also {@condition weakened}."
       ]
     },
     {
@@ -2574,7 +2574,7 @@
         "EW"
       ],
       "entries": [
-        "While the giant has any of the {@condition debilitated|sns}, {@condition fatigue|sns}, {@condition poisoned|sns}, {@condition sluggish|sns}, or {@condition staggered|sns} conditions, it cannot score major successes with its attacks; such major successes are instead counted as standard successes."
+        "While the giant has any of the {@condition debilitated}, {@condition fatigue}, {@condition poisoned}, {@condition sluggish}, or {@condition staggered} conditions, it cannot score major successes with its attacks; such major successes are instead counted as standard successes."
       ]
     },
     {
@@ -2614,7 +2614,7 @@
         "EW"
       ],
       "entries": [
-        "The humanoid is always {@condition taunted|sns} by the creature that last attacked it."
+        "The humanoid is always {@condition taunted} by the creature that last attacked it."
       ]
     },
     {
@@ -2624,7 +2624,7 @@
         "EW"
       ],
       "entries": [
-        "The next time the humanoid suffers a major hit that deals non-physical base damage, it becomes {@condition restrained|sns} by the attacker for the remainder of combat."
+        "The next time the humanoid suffers a major hit that deals non-physical base damage, it becomes {@condition restrained} by the attacker for the remainder of combat."
       ]
     },
     {
@@ -2634,7 +2634,7 @@
         "EW"
       ],
       "entries": [
-        "While the humanoid has any of the {@condition charmed|sns}, {@condition dominated|sns}, {@condition fixated|sns}, {@condition frightened|sns}, {@condition rattled|sns}, {@condition strife|sns}, or {@condition taunted|sns} conditions, it gains 50% vulnerability to non-physical damage."
+        "While the humanoid has any of the {@condition charmed}, {@condition dominated}, {@condition fixated}, {@condition frightened}, {@condition rattled}, {@condition strife}, or {@condition taunted} conditions, it gains 50% vulnerability to non-physical damage."
       ]
     },
     {
@@ -2674,7 +2674,7 @@
         "EW"
       ],
       "entries": [
-        "The next time the monstrosity suffers a major hit that deals non-physical base damage, it becomes {@condition restrained|sns} by the attacker for the remainder of combat."
+        "The next time the monstrosity suffers a major hit that deals non-physical base damage, it becomes {@condition restrained} by the attacker for the remainder of combat."
       ]
     },
     {
@@ -2684,7 +2684,7 @@
         "EW"
       ],
       "entries": [
-        "While the monstrosity is {@condition charmed|sns}, it is also {@condition dominated|sns} by the charmer. Additionally, whenever the monstrosity is forced by another creature to make an attack as a free action, that attack roll has advantage."
+        "While the monstrosity is {@condition charmed}, it is also {@condition dominated} by the charmer. Additionally, whenever the monstrosity is forced by another creature to make an attack as a free action, that attack roll has advantage."
       ]
     },
     {
@@ -2694,7 +2694,7 @@
         "EW"
       ],
       "entries": [
-        "While adjacent to a corpse or {@condition prone|sns} creature and within 30 feet of the monstrosity, a creature can use its bonus action to make a {@skill Persuasion} check with DC equal to 10 + the monstrosity's CR. On a success, the monstrosity is {@condition taunted|sns} by the corpse or {@condition prone|sns} creature until the monstrosity is hurt or the {@condition prone|sns} creature stands up."
+        "While adjacent to a corpse or {@condition prone} creature and within 30 feet of the monstrosity, a creature can use its bonus action to make a {@skill Persuasion} check with DC equal to 10 + the monstrosity's CR. On a success, the monstrosity is {@condition taunted} by the corpse or {@condition prone} creature until the monstrosity is hurt or the {@condition prone} creature stands up."
       ]
     },
     {
@@ -2724,7 +2724,7 @@
         "EW"
       ],
       "entries": [
-        "Whenever the monstrosity changes from being within bright light to darkness, it becomes {@condition frightened|sns} of you and {@condition brittle|sns} until it re-enters bright light."
+        "Whenever the monstrosity changes from being within bright light to darkness, it becomes {@condition frightened} of you and {@condition brittle} until it re-enters bright light."
       ]
     },
     {
@@ -2774,7 +2774,7 @@
         "EW"
       ],
       "entries": [
-        "The next time the ooze suffers a major hit that deals non-physical base damage, if there is another ooze within 60 feet of it, it immediately is absorbed into the closest one, increasing the other ooze's size by one step, adding its current hit points to the other ooze's total, and being effectively destroyed. If there is not another ooze within 60 feet, the ooze instead becomes {@condition weakened|sns} for the remainder of combat."
+        "The next time the ooze suffers a major hit that deals non-physical base damage, if there is another ooze within 60 feet of it, it immediately is absorbed into the closest one, increasing the other ooze's size by one step, adding its current hit points to the other ooze's total, and being effectively destroyed. If there is not another ooze within 60 feet, the ooze instead becomes {@condition weakened} for the remainder of combat."
       ]
     },
     {
@@ -2784,7 +2784,7 @@
         "EW"
       ],
       "entries": [
-        "The next time the ooze suffers a major hit that deals non-physical base damage, it becomes {@condition slowed|sns} for the remainder of combat."
+        "The next time the ooze suffers a major hit that deals non-physical base damage, it becomes {@condition slowed} for the remainder of combat."
       ]
     },
     {
@@ -2804,7 +2804,7 @@
         "EW"
       ],
       "entries": [
-        "Whenever the ooze is pushed or knocked {@condition prone|sns}, it loses hit points equal to quadruple your proficiency bonus."
+        "Whenever the ooze is pushed or knocked {@condition prone}, it loses hit points equal to quadruple your proficiency bonus."
       ]
     },
     {
@@ -2814,7 +2814,7 @@
         "EW"
       ],
       "entries": [
-        "Whenever the ooze changes from being within darkness to bright light, it becomes {@condition debilitated|sns} until it returns to darkness."
+        "Whenever the ooze changes from being within darkness to bright light, it becomes {@condition debilitated} until it returns to darkness."
       ]
     },
     {
@@ -2854,7 +2854,7 @@
         "EW"
       ],
       "entries": [
-        "The plant has disadvantage with attack rolls against Small or smaller and {@condition prone|sns} creatures."
+        "The plant has disadvantage with attack rolls against Small or smaller and {@condition prone} creatures."
       ]
     },
     {
@@ -2864,7 +2864,7 @@
         "EW"
       ],
       "entries": [
-        "The next time an ally of the plant dies within 120 feet of it, the plant becomes {@condition frightened|sns} of the creature responsible for the ally's death for the remainder of combat. If this effect is not active and the plant has no allies within 120 feet of it, it is instead {@condition rattled|sns} and {@condition sluggish|sns}."
+        "The next time an ally of the plant dies within 120 feet of it, the plant becomes {@condition frightened} of the creature responsible for the ally's death for the remainder of combat. If this effect is not active and the plant has no allies within 120 feet of it, it is instead {@condition rattled} and {@condition sluggish}."
       ]
     },
     {
@@ -2894,7 +2894,7 @@
         "EW"
       ],
       "entries": [
-        "The next time the plant is healed by you or an ally, it becomes {@condition dominated|sns} by the healer for the remainder of combat."
+        "The next time the plant is healed by you or an ally, it becomes {@condition dominated} by the healer for the remainder of combat."
       ]
     },
     {
@@ -2934,7 +2934,7 @@
         "EW"
       ],
       "entries": [
-        "The undead is always {@condition taunted|sns} by your ally (including yourself) with the most current hit points."
+        "The undead is always {@condition taunted} by your ally (including yourself) with the most current hit points."
       ]
     },
     {

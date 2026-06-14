@@ -6,7 +6,7 @@ class PageFilterObjects extends PageFilterBase {
 
 		this._miscFilter = new Filter({
 			header: "Miscellaneous",
-			items: ["Legacy", "Has Images", "Has Info", "Has Token"],
+			items: ["Has Images", "Has Info", "Has Token"],
 			isMiscFilter: true,
 			deselFn: PageFilterBase.defaultMiscellaneousDeselFn.bind(PageFilterBase),
 		});

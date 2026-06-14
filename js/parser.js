@@ -621,11 +621,7 @@ Parser.sourceJsonToFull = function (source) {
 	return Parser._parse_aToB(Parser.SOURCE_JSON_TO_FULL, source).replace(/'/g, "\u2019");
 };
 Parser.sourceJsonToFullCompactPrefix = function (source) {
-	return Parser.sourceJsonToFull(source)
-		.replace(Parser.UA_PREFIX, Parser.UA_PREFIX_SHORT)
-		.replace(/^Unearthed Arcana (\d+): /, "UA$1: ")
-		.replace(Parser.AL_PREFIX, Parser.AL_PREFIX_SHORT)
-		.replace(Parser.PS_PREFIX, Parser.PS_PREFIX_SHORT);
+	return Parser.sourceJsonToFull(source);
 };
 Parser.sourceJsonToAbv = function (source) {
 	source = Parser._getSourceStringFromSource(source);
@@ -672,9 +668,6 @@ Parser.sourceJsonToStylePart = function (source) {
 
 Parser.sourceJsonToMarkerHtml = function (source, {isList = true, isAddBrackets = null, additionalStyles = ""} = {}) {
 	source = Parser._getSourceStringFromSource(source);
-	// TODO(Future) consider enabling this
-	// if (SourceUtil.isPartneredSourceWotc(source)) return `<span class="help-subtle ve-source-marker ${isList ? `ve-source-marker--list` : ""} ve-source-marker--partnered ${additionalStyles}" title="D&amp;D Partnered Source">${isList ? "" : "["}✦${isList ? "" : "]"}</span>`;
-	if (SourceUtil.isLegacySourceWotc(source)) return `<span class="help-subtle ve-source-marker ${isList ? `ve-source-marker--list` : ""} ve-source-marker--legacy ${additionalStyles}" title="Legacy Source">${isList && !isAddBrackets ? "" : "["}ʟ${isList && !isAddBrackets ? "" : "]"}</span>`;
 	return "";
 };
 
@@ -2751,8 +2744,6 @@ Parser.vehicleTypeToFull = function (vehicleType) {
 
 // SOURCES =============================================================================================================
 
-Parser.SRC_5ETOOLS_TMP = "SRC_5ETOOLS_TMP"; // Temp source, used as a placeholder value
-
 Parser.SRC_SNS = "sns";
 
 Parser.SOURCE_JSON_TO_FULL = {};
@@ -2767,9 +2758,6 @@ Parser.SOURCE_JSON_TO_DATE[Parser.SRC_SNS] = "2024-01-01";
 // region Source categories
 Parser.SOURCES_ADVENTURES = new Set([]);
 Parser.SOURCES_CORE_SUPPLEMENTS = new Set(Object.keys(Parser.SOURCE_JSON_TO_FULL).filter(it => !Parser.SOURCES_ADVENTURES.has(it)));
-Parser.SOURCES_NON_STANDARD_WOTC = new Set([]);
-Parser.SOURCES_PARTNERED_WOTC = new Set([]);
-Parser.SOURCES_LEGACY_WOTC = new Set([]);
 Parser.SOURCES_VANILLA = new Set([Parser.SRC_SNS]);
 Parser.SOURCES_COMEDY = new Set([]);
 Parser.SOURCES_NON_FR = new Set([]);

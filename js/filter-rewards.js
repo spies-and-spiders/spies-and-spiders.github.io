@@ -20,7 +20,7 @@ class PageFilterRewards extends PageFilterBase {
 		});
 		this._miscFilter = new Filter({
 			header: "Miscellaneous",
-			items: ["Legacy", "Has Images", "Has Info"],
+			items: ["Has Images", "Has Info"],
 			isMiscFilter: true,
 			deselFn: PageFilterBase.defaultMiscellaneousDeselFn.bind(PageFilterBase),
 		});

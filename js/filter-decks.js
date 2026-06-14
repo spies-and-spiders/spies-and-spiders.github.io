@@ -6,7 +6,7 @@ class PageFilterDecks extends PageFilterBase {
 
 		this._miscFilter = new Filter({
 			header: "Miscellaneous",
-			items: ["Has Card Art", "Legacy"],
+			items: ["Has Card Art"],
 			isMiscFilter: true,
 			selFn: it => it === "Has Card Art",
 			deselFn: PageFilterBase.defaultMiscellaneousDeselFn.bind(PageFilterBase),

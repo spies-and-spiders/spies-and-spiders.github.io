@@ -239,7 +239,7 @@
       "level": 3,
       "header": 2,
       "entries": [
-        "Starting at tier 2, you can have your monstrous minion release foul gases from its body that can be detonated by your {@spell corpse explosion|sns} spell. This allows you to target your monstrous minion with that spell as if it were a corpse, but when you cast the spell in this way it cannot {@condition poisoned|sns|poison} creatures."
+        "Starting at tier 2, you can have your monstrous minion release foul gases from its body that can be detonated by your {@spell corpse explosion|sns} spell. This allows you to target your monstrous minion with that spell as if it were a corpse, but when you cast the spell in this way it cannot {@condition poisoned|poison} creatures."
       ]
     },
     {
@@ -310,7 +310,7 @@
           "type": "entries",
           "name": "Bestial Instincts",
           "entries": [
-            "Your monstrous minion has advantage on armour attack rolls against creatures adjacent to an ally of the minion that is not {@condition incapacitated|sns}."
+            "Your monstrous minion has advantage on armour attack rolls against creatures adjacent to an ally of the minion that is not {@condition incapacitated}."
           ]
         }
       ]

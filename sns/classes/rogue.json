@@ -428,7 +428,7 @@
       "level": 1,
       "entries": [
         "Beginning at 1st level, you fight with precision, taking advantage of momentary lapses in an opponent's concentration. Your attacks with Dexterity-governed or ranged weapons can deal additional base damage. The amount of extra damage is shown in the Sneak Attack column of the Rogue table.",
-        "In order to apply this damage, you must not have disadvantage on the attack and your target must be adjacent to another enemy of the target who is not {@condition incapacitated|sns}. Alternatively, you can apply sneak attack damage if you have advantage on the attack."
+        "In order to apply this damage, you must not have disadvantage on the attack and your target must be adjacent to another enemy of the target who is not {@condition incapacitated}. Alternatively, you can apply sneak attack damage if you have advantage on the attack."
       ]
     },
     {
@@ -896,7 +896,7 @@
       "classSource": "sns",
       "level": 15,
       "entries": [
-        "At 15th level, you know how to avoid vulnerable positions. As long as you are not {@condition incapacitated|sns}, no armour attack roll has advantage against you."
+        "At 15th level, you know how to avoid vulnerable positions. As long as you are not {@condition incapacitated}, no armour attack roll has advantage against you."
       ]
     },
     {
@@ -925,7 +925,7 @@
           "type": "entries",
           "name": "Roguish Charm",
           "entries": [
-            "You gain an expertise die on Persuasion checks. After you spend a minute in conversation with a creature that is not hostile, you may make a Persuasion check opposed by its Insight. On a success, the creature is nonmagically {@condition charmed|sns} by you for 1 hour. The charm ends early if you or your allies hurt the creature. Once you've used this feature successfully, you can't use it again until you finish a long rest."
+            "You gain an expertise die on Persuasion checks. After you spend a minute in conversation with a creature that is not hostile, you may make a Persuasion check opposed by its Insight. On a success, the creature is nonmagically {@condition charmed} by you for 1 hour. The charm ends early if you or your allies hurt the creature. Once you've used this feature successfully, you can't use it again until you finish a long rest."
           ]
         },
         {
@@ -1101,7 +1101,7 @@
         "ST"
       ],
       "entries": [
-        "You gain an expertise die on Finesse checks. When you are {@condition prone|sns}, standing up uses none of your movement. When you are knocked {@condition prone|sns}, you can use your reaction to stand up."
+        "You gain an expertise die on Finesse checks. When you are {@condition prone}, standing up uses none of your movement. When you are knocked {@condition prone}, you can use your reaction to stand up."
       ]
     },
     {
