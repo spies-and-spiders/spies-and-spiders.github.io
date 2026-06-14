@@ -382,13 +382,13 @@ class _RenderBestiaryImplClassic extends _RenderBestiaryImplBase {
 	/* ----- */
 
 	_getHtmlParts_defences ({mon, renderer, isInlinedToken}) {
-		const fmt = (key, label, val) => val == null ? null : `<strong>${label}</strong> ${Parser.acToFull(val, {renderer, key})}`;
+		const fmt = (key, label, val) => val == null ? null : `<div><strong>${label}</strong> ${Parser.acToFull(val, {renderer, key})}</div>`;
 		const parts = [
 			fmt("arm", "Armour", mon.arm),
 			fmt("fort", "Fortitude", mon.fort),
 			fmt("ref", "Reflex", mon.ref),
 			fmt("wil", "Will", mon.wil),
-		].filter(Boolean).join(" &nbsp;&middot;&nbsp; ") || "\u2014";
+		].filter(Boolean).join("") || "\u2014";
 		return `<tr><td colspan="6"><div ${isInlinedToken ? `class="stats__wrp-avoid-token"` : ""}>${parts}</div></td></tr>`;
 	}
 
@@ -582,13 +582,13 @@ class _RenderBestiaryImplOne extends _RenderBestiaryImplBase {
 	/* ----- */
 
 	_getHtmlParts_defences ({mon, renderer, isInlinedToken}) {
-		const fmt = (key, label, val) => `<strong>${label}</strong> ${val == null ? "\u2014" : Parser.acToFull(val, {renderer, key})}`;
+		const fmt = (key, label, val) => `<div><strong>${label}</strong> ${val == null ? "\u2014" : Parser.acToFull(val, {renderer, key})}</div>`;
 		const defPart = [
 			fmt("arm", "Armour", mon.arm),
 			fmt("fort", "Fortitude", mon.fort),
 			fmt("ref", "Reflex", mon.ref),
 			fmt("wil", "Will", mon.wil),
-		].join(" &nbsp;");
+		].join("");
 		return `<tr><td colspan="6">
 			<div class="split-v-center ${isInlinedToken ? `stats__wrp-avoid-token` : ""}">
 				<div>${defPart}</div>
