@@ -9695,6 +9695,32 @@ Renderer.monster = class {
 
 	/* -------------------------------------------- */
 
+	/**
+	 * Render the Armour/Fortitude/Reflex/Will defences as a 2x2 grid of boxes, similar to the ability score boxes:
+	 *   Armour | Fortitude
+	 *   Reflex | Will
+	 * Returns a placeholder dash if the entity has no defences at all.
+	 */
+	static getRenderedDefences (ent, {renderer = null} = {}) {
+		renderer ||= Renderer.get();
+
+		if (ent == null || (ent.arm == null && ent.fort == null && ent.ref == null && ent.wil == null)) return "—";
+
+		const fmt = (key, label, val) => `<div class="stats__disp-defence">
+			<div class="stats__disp-defence-label bold small-caps">${label}</div>
+			<div class="stats__disp-defence-value ve-text-center">${val == null ? "—" : Parser.acToFull(val, {renderer, key})}</div>
+		</div>`;
+
+		return `<div class="stats__grid-defences">
+			${fmt("arm", "Armour", ent.arm)}
+			${fmt("fort", "Fortitude", ent.fort)}
+			${fmt("ref", "Reflex", ent.ref)}
+			${fmt("wil", "Will", ent.wil)}
+		</div>`;
+	}
+
+	/* -------------------------------------------- */
+
 	static getSpellcastingRenderedTraits (renderer, mon, displayAsProp = "trait") {
 		const out = [];
 		(mon.spellcasting || []).filter(it => (it.displayAs || "trait") === displayAsProp).forEach(entry => {
@@ -11688,14 +11714,7 @@ Renderer.vehicle = class {
 	}
 
 	static getDefencesPart (src, {renderer = null} = {}) {
-		renderer ||= Renderer.get();
-		const fmt = (key, label, val) => `<div><strong>${label}</strong> ${val == null ? "—" : Parser.acToFull(val, {renderer, key})}</div>`;
-		return [
-			fmt("arm", "Armour", src?.arm),
-			fmt("fort", "Fortitude", src?.fort),
-			fmt("ref", "Reflex", src?.ref),
-			fmt("wil", "Will", src?.wil),
-		].join("");
+		return Renderer.monster.getRenderedDefences(src, {renderer});
 	}
 
 	static getCompactRenderedString (veh, opts) {
