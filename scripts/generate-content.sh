@@ -11,21 +11,18 @@ jq_inplace() {
 	jq "$@" "$file" > "$tmp" && mv "$tmp" "$file"
 }
 
-# Generate merged homebrew JSON
+# Generate merged JSON
 bb scripts/generate-merged-json.bb
 
-# Set updated time
-jq_inplace homebrew/sns.json "._meta.dateLastModified = $(date +'%s')"
-
 # Prepare SNS data
-cat homebrew/sns.json | jq -c '{spell}' > data/spells/spells-sns.json
-jq -c -s '(.[0] | {monster}) * {monster: ([.[0].monster, .[1].monster] | add)}' homebrew/sns.json data/feats.json > data/bestiary/bestiary-sns.json
-cat homebrew/sns.json | jq -c '{class,subclass,classFeature,subclassFeature}' > data/class/class-sns.json
+cat data/generated/sns.json | jq -c '{spell}' > data/spells/spells-sns.json
+jq -c -s '(.[0] | {monster}) * {monster: ([.[0].monster, .[1].monster] | add)}' data/generated/sns.json data/feats.json > data/bestiary/bestiary-sns.json
+cat data/generated/sns.json | jq -c '{class,subclass,classFeature,subclassFeature}' > data/class/class-sns.json
 
-mkdir -p data/book && cat data/books.json | jq -c '{book,data}' > data/book/book-sns.json
+mkdir -p data/book && jq -c -s --argjson now "$(date +'%s')" '(.[0] | {book,data}) + {_meta: (.[1]._meta + {dateLastModified: $now})}' data/books.json data/generated/sns.json > data/book/book-sns.json
 
-cat homebrew/sns.json | jq -c '{optionalfeature}' > data/optionalfeatures.json
-jq_inplace homebrew/sns.json -c 'del(.optionalfeature)'
+cat data/generated/sns.json | jq -c '{optionalfeature}' > data/optionalfeatures.json
+rm data/generated/sns.json
 
 # Generate all relevant indexes and pages
 mkdir -p search

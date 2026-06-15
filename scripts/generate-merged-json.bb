@@ -16,7 +16,8 @@
              merge-data
              (list-jsons)))
 
-(-> (merge-jsons)
-    (update-in ["_meta" "sources"] set)
-    json/generate-string
-    (->> (spit (str "homebrew/sns.json"))))
+(when (= *file* (System/getProperty "babashka.file"))
+  (-> (merge-jsons)
+      (update-in ["_meta" "sources"] set)
+      json/generate-string
+      (->> (spit (str "data/generated/sns.json")))))
