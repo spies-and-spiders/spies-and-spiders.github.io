@@ -1,4 +1,46 @@
 {
-  "vehicle": [],
+  "vehicle": [
+    {
+      "name": "Scaffold",
+      "source": "sns",
+      "size": [
+        "M"
+      ],
+      "vehicleType": "OBJECT",
+      "terrain": [
+        "land"
+      ],
+      "hp": {
+        "special": "5 + 5 times the builder's level"
+      },
+      "speed": {
+        "walk": 0
+      },
+      "immune": [
+        "poison",
+        "psychic"
+      ],
+      "arm": [
+        {
+          "special": "Half of the builder's Magiscience modifier"
+        }
+      ],
+      "wil": [
+        {
+          "special": "Half of the builder's Magiscience modifier"
+        }
+      ],
+      "ref": [
+        {
+          "special": "Half of the builder's Magiscience modifier"
+        }
+      ],
+      "fort": [
+        {
+          "special": "Half of the builder's Magiscience modifier"
+        }
+      ]
+    }
+  ],
   "vehicleUpgrade": []
 }

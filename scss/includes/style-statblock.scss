@@ -181,6 +181,24 @@
 			}
 		}
 
+		&grid-defences {
+			display: inline-grid;
+			grid-template-columns: repeat(2, 1fr);
+			gap: 2px;
+		}
+
+		&disp-defence {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			padding: 1px 8px;
+			background: #22220015;
+
+			&-label {
+				font-family: Convergence, Arial, sans-serif;
+			}
+		}
+
 		&sect-header-inner {
 			display: block;
 			margin-top: 3px;
@@ -256,6 +274,10 @@
 			&--mental {
 				background: color.adjust($rgb-stripe-mental, $lightness: + 10%);
 			}
+		}
+
+		&disp-defence {
+			background: $rgb-stripe-physical;
 		}
 
 		&sect-header-inner {
