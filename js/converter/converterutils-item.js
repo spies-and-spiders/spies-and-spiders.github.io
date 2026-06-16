@@ -703,14 +703,6 @@ export class ReqAttuneTagTag {
 
 		const tags = [];
 
-		// "by a creature with the Mark of Finding"
-		req = req.replace(/(?:a creature with the )?\bMark of ([A-Z][^ ]+)/g, (...m) => {
-			const races = ReqAttuneTagTag._EBERRON_MARK_RACES[`Mark of ${m[1]}`];
-			if (!races) return "";
-			races.forEach(race => tags.push({race: race.toLowerCase()}));
-			return "";
-		});
-
 		// "by a member of the Azorius guild"
 		req = req.replace(/(?:a member of the )?\b(Azorius|Boros|Dimir|Golgari|Gruul|Izzet|Orzhov|Rakdos|Selesnya|Simic)\b guild/g, (...m) => {
 			tags.push({background: ReqAttuneTagTag._RAVNICA_GUILD_BACKGROUNDS[m[1]].toLowerCase()});
@@ -732,13 +724,6 @@ export class ReqAttuneTagTag {
 		// "by a creature that has proficiency in the Arcana skill"
 		req = req.replace(/(?:a creature that has )?(?:proficiency|proficient).*?\b(Acrobatics|Animal Handling|Arcana|Athletics|Deception|History|Insight|Intimidation|Investigation|Medicine|Nature|Perception|Performance|Persuasion|Religion|Sleight of Hand|Stealth|Survival)\b skill/g, (...m) => {
 			tags.push({skillProficiency: m[1].toLowerCase()});
-			return "";
-		});
-
-		// "by a dwarf"
-		req = req.replace(/(?:(?:a|an) )?\b(Dragonborn|Dwarf|Elf|Gnome|Half-Elf|Half-Orc|Halfling|Human|Tiefling|Warforged)\b/gi, (...m) => {
-			const source = m[1].toLowerCase() === "warforged" ? Parser.SRC_SNS : "";
-			tags.push({race: `${m[1]}${source ? `|${source}` : ""}`.toLowerCase()});
 			return "";
 		});
 
@@ -815,21 +800,4 @@ ReqAttuneTagTag._RAVNICA_GUILD_BACKGROUNDS = {
 	"Rakdos": "Rakdos Cultist|GGR",
 	"Selesnya": "Selesnya Initiate|GGR",
 	"Simic": "Simic Scientist|GGR",
-};
-ReqAttuneTagTag._EBERRON_MARK_RACES = {
-	"Mark of Warding": ["Dwarf (Mark of Warding)|ERLW"],
-	"Mark of Shadow": ["Elf (Mark of Shadow)|ERLW"],
-	"Mark of Scribing": ["Gnome (Mark of Scribing)|ERLW"],
-	"Mark of Detection": ["Half-Elf (Variant; Mark of Detection)|ERLW"],
-	"Mark of Storm": ["Half-Elf (Variant; Mark of Storm)|ERLW"],
-	"Mark of Finding": [
-		"Half-Orc (Variant; Mark of Finding)|ERLW",
-		"Human (Variant; Mark of Finding)|ERLW",
-	],
-	"Mark of Healing": ["Halfling (Mark of Healing)|ERLW"],
-	"Mark of Hospitality": ["Halfling (Mark of Hospitality)|ERLW"],
-	"Mark of Handling": ["Human (Mark of Handling)|ERLW"],
-	"Mark of Making": ["Human (Mark of Making)|ERLW"],
-	"Mark of Passage": ["Human (Mark of Passage)|ERLW"],
-	"Mark of Sentinel": ["Human (Mark of Sentinel)|ERLW"],
 };

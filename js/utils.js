@@ -3138,7 +3138,6 @@ UrlUtil.PG_CONDITIONS_DISEASES = "conditionsdiseases.html";
 UrlUtil.PG_FEATS = "feats.html";
 UrlUtil.PG_OPT_FEATURES = "optionalfeatures.html";
 UrlUtil.PG_PSIONICS = "psionics.html";
-UrlUtil.PG_RACES = "races.html";
 UrlUtil.PG_REWARDS = "rewards.html";
 UrlUtil.PG_VARIANTRULES = "variantrules.html";
 UrlUtil.PG_ADVENTURE = "adventure.html";
@@ -3192,7 +3191,6 @@ UrlUtil.URL_TO_HASH_BUILDER[UrlUtil.PG_CONDITIONS_DISEASES] = UrlUtil.URL_TO_HAS
 UrlUtil.URL_TO_HASH_BUILDER[UrlUtil.PG_FEATS] = UrlUtil.URL_TO_HASH_GENERIC;
 UrlUtil.URL_TO_HASH_BUILDER[UrlUtil.PG_OPT_FEATURES] = UrlUtil.URL_TO_HASH_GENERIC;
 UrlUtil.URL_TO_HASH_BUILDER[UrlUtil.PG_PSIONICS] = UrlUtil.URL_TO_HASH_GENERIC;
-UrlUtil.URL_TO_HASH_BUILDER[UrlUtil.PG_RACES] = UrlUtil.URL_TO_HASH_GENERIC;
 UrlUtil.URL_TO_HASH_BUILDER[UrlUtil.PG_REWARDS] = UrlUtil.URL_TO_HASH_GENERIC;
 UrlUtil.URL_TO_HASH_BUILDER[UrlUtil.PG_VARIANTRULES] = UrlUtil.URL_TO_HASH_GENERIC;
 UrlUtil.URL_TO_HASH_BUILDER[UrlUtil.PG_ADVENTURE] = (it) => UrlUtil.encodeForHash(it.id);
@@ -3237,8 +3235,6 @@ UrlUtil.URL_TO_HASH_BUILDER["status"] = UrlUtil.URL_TO_HASH_BUILDER[UrlUtil.PG_C
 UrlUtil.URL_TO_HASH_BUILDER["feat"] = UrlUtil.URL_TO_HASH_BUILDER[UrlUtil.PG_FEATS];
 UrlUtil.URL_TO_HASH_BUILDER["optionalfeature"] = UrlUtil.URL_TO_HASH_BUILDER[UrlUtil.PG_OPT_FEATURES];
 UrlUtil.URL_TO_HASH_BUILDER["psionic"] = UrlUtil.URL_TO_HASH_BUILDER[UrlUtil.PG_PSIONICS];
-UrlUtil.URL_TO_HASH_BUILDER["race"] = UrlUtil.URL_TO_HASH_BUILDER[UrlUtil.PG_RACES];
-UrlUtil.URL_TO_HASH_BUILDER["subrace"] = (it) => UrlUtil.URL_TO_HASH_BUILDER[UrlUtil.PG_RACES]({name: `${it.name} (${it.raceName})`, source: it.source});
 UrlUtil.URL_TO_HASH_BUILDER["reward"] = UrlUtil.URL_TO_HASH_BUILDER[UrlUtil.PG_REWARDS];
 UrlUtil.URL_TO_HASH_BUILDER["variantrule"] = UrlUtil.URL_TO_HASH_BUILDER[UrlUtil.PG_VARIANTRULES];
 UrlUtil.URL_TO_HASH_BUILDER["adventure"] = UrlUtil.URL_TO_HASH_BUILDER[UrlUtil.PG_ADVENTURES];
@@ -3277,7 +3273,6 @@ UrlUtil.URL_TO_HASH_BUILDER["itemTypeAdditionalEntries"] = UrlUtil.URL_TO_HASH_G
 UrlUtil.URL_TO_HASH_BUILDER["itemMastery"] = UrlUtil.URL_TO_HASH_GENERIC;
 UrlUtil.URL_TO_HASH_BUILDER["skill"] = UrlUtil.URL_TO_HASH_GENERIC;
 UrlUtil.URL_TO_HASH_BUILDER["sense"] = UrlUtil.URL_TO_HASH_GENERIC;
-UrlUtil.URL_TO_HASH_BUILDER["raceFeature"] = (it) => UrlUtil.encodeArrayForHash(it.name, it.raceName, it.raceSource, it.source);
 UrlUtil.URL_TO_HASH_BUILDER["citation"] = UrlUtil.URL_TO_HASH_GENERIC;
 UrlUtil.URL_TO_HASH_BUILDER["languageScript"] = UrlUtil.URL_TO_HASH_GENERIC;
 
@@ -3311,7 +3306,6 @@ UrlUtil.PG_TO_NAME[UrlUtil.PG_CONDITIONS_DISEASES] = "Conditions & Diseases";
 UrlUtil.PG_TO_NAME[UrlUtil.PG_FEATS] = "Feats";
 UrlUtil.PG_TO_NAME[UrlUtil.PG_OPT_FEATURES] = "Other Options and Features";
 UrlUtil.PG_TO_NAME[UrlUtil.PG_PSIONICS] = "Psionics";
-UrlUtil.PG_TO_NAME[UrlUtil.PG_RACES] = "Species";
 UrlUtil.PG_TO_NAME[UrlUtil.PG_REWARDS] = "Supernatural Gifts & Rewards";
 UrlUtil.PG_TO_NAME[UrlUtil.PG_VARIANTRULES] = "Rules Glossary";
 UrlUtil.PG_TO_NAME[UrlUtil.PG_ADVENTURES] = "Adventures";
@@ -3368,7 +3362,6 @@ UrlUtil.CAT_TO_PAGE[Parser.CAT_ID_ARCANE_SHOT] = UrlUtil.PG_OPT_FEATURES;
 UrlUtil.CAT_TO_PAGE[Parser.CAT_ID_OPTIONAL_FEATURE_OTHER] = UrlUtil.PG_OPT_FEATURES;
 UrlUtil.CAT_TO_PAGE[Parser.CAT_ID_FIGHTING_STYLE] = UrlUtil.PG_OPT_FEATURES;
 UrlUtil.CAT_TO_PAGE[Parser.CAT_ID_PSIONIC] = UrlUtil.PG_PSIONICS;
-UrlUtil.CAT_TO_PAGE[Parser.CAT_ID_RACE] = UrlUtil.PG_RACES;
 UrlUtil.CAT_TO_PAGE[Parser.CAT_ID_OTHER_REWARD] = UrlUtil.PG_REWARDS;
 UrlUtil.CAT_TO_PAGE[Parser.CAT_ID_VARIANT_OPTIONAL_RULE] = UrlUtil.PG_VARIANTRULES;
 UrlUtil.CAT_TO_PAGE[Parser.CAT_ID_ADVENTURE] = UrlUtil.PG_ADVENTURE;
@@ -3430,7 +3423,6 @@ UrlUtil.SUBLIST_PAGES = {
 	[UrlUtil.PG_FEATS]: true,
 	[UrlUtil.PG_OPT_FEATURES]: true,
 	[UrlUtil.PG_PSIONICS]: true,
-	[UrlUtil.PG_RACES]: true,
 	[UrlUtil.PG_REWARDS]: true,
 	[UrlUtil.PG_VARIANTRULES]: true,
 	[UrlUtil.PG_DEITIES]: true,
@@ -3458,7 +3450,6 @@ UrlUtil.PAGE_TO_PROPS = {};
 UrlUtil.PAGE_TO_PROPS[UrlUtil.PG_SPELLS] = ["spell"];
 UrlUtil.PAGE_TO_PROPS[UrlUtil.PG_MANEUVERS] = ["maneuver"];
 UrlUtil.PAGE_TO_PROPS[UrlUtil.PG_ITEMS] = ["item", "itemGroup", "itemType", "itemEntry", "itemProperty", "itemTypeAdditionalEntries", "itemMastery", "baseitem", "magicvariant"];
-UrlUtil.PAGE_TO_PROPS[UrlUtil.PG_RACES] = ["race", "subrace"];
 
 UrlUtil.PROP_TO_PAGE = {};
 UrlUtil.PROP_TO_PAGE["spell"] = UrlUtil.PG_SPELLS;
@@ -4281,13 +4272,6 @@ globalThis.DataUtil = {
 			case "itemGroup":
 			case "baseitem": {
 				const data = await DataUtil.item.loadRawJSON();
-				if (data[prop] && data[prop].some(it => it.source === source)) return data;
-				return DataUtil._pLoadByMeta_pGetPrereleaseBrew(source);
-			}
-			case "race": {
-				// FIXME(Future) this should really `loadRawJSON`, but this breaks existing brew.
-				//   Consider a large-scale migration in future.
-				const data = await DataUtil.race.loadJSON({isAddBaseRaces: true});
 				if (data[prop] && data[prop].some(it => it.source === source)) return data;
 				return DataUtil._pLoadByMeta_pGetPrereleaseBrew(source);
 			}
@@ -5582,7 +5566,6 @@ globalThis.DataUtil = {
 			this._mutSpell_class({sp, spSources, propSources: "class", propClasses: "fromClassList"});
 			this._mutSpell_class({sp, spSources, propSources: "classVariant", propClasses: "fromClassListVariant"});
 			this._mutSpell_subclass({sp, spSources});
-			this._mutSpell_race({sp, spSources});
 			this._mutSpell_optionalfeature({sp, spSources});
 			this._mutSpell_background({sp, spSources});
 			this._mutSpell_feat({sp, spSources});
@@ -5676,10 +5659,6 @@ globalThis.DataUtil = {
 								});
 						});
 				});
-		}
-
-		static _mutSpell_race ({sp, spSources}) {
-			this._mutSpell_generic({sp, spSources, propSources: "race", propSpell: "races"});
 		}
 
 		static _mutSpell_optionalfeature ({sp, spSources}) {
@@ -5944,125 +5923,6 @@ globalThis.DataUtil = {
 	objectFluff: class extends _DataUtilPropConfigSingleSource {
 		static _PAGE = UrlUtil.PG_OBJECTS;
 		static _FILENAME = "fluff-objects.json";
-	},
-
-	race: class extends _DataUtilPropConfigSingleSource {
-		static _PAGE = UrlUtil.PG_RACES;
-		static _FILENAME = "races.json";
-
-		static _psLoadJson = {};
-
-		static async loadJSON ({isAddBaseRaces = false} = {}) {
-			const cacheKey = `site-${isAddBaseRaces}`;
-			DataUtil.race._psLoadJson[cacheKey] ||= (async () => {
-				return DataUtil.race.getPostProcessedSiteJson(
-					await this.loadRawJSON(),
-					{isAddBaseRaces},
-				);
-			})();
-			return DataUtil.race._psLoadJson[cacheKey];
-		}
-
-		static getPostProcessedSiteJson (rawRaceData, {isAddBaseRaces = false} = {}) {
-			rawRaceData = MiscUtil.copyFast(rawRaceData);
-			(rawRaceData.subrace || []).forEach(sr => {
-				const r = rawRaceData.race.find(it => it.name === sr.raceName && it.source === sr.raceSource);
-				if (!r) return JqueryUtil.doToast({content: `Failed to find race "${sr.raceName}" (${sr.raceSource})`, type: "danger"});
-				const cpySr = MiscUtil.copyFast(sr);
-				delete cpySr.raceName;
-				delete cpySr.raceSource;
-				(r.subraces = r.subraces || []).push(sr);
-			});
-			delete rawRaceData.subrace;
-			const raceData = Renderer.race.mergeSubraces(rawRaceData.race, {isAddBaseRaces});
-			raceData.forEach(it => it.__prop = "race");
-			return {race: raceData};
-		}
-
-		static async loadPrerelease ({isAddBaseRaces = true} = {}) {
-			const cacheKey = `prerelease-${isAddBaseRaces}`;
-			this._psLoadJson[cacheKey] ||= DataUtil.race._loadPrereleaseBrew({isAddBaseRaces, brewUtil: typeof PrereleaseUtil !== "undefined" ? PrereleaseUtil : null});
-			return this._psLoadJson[cacheKey];
-		}
-
-		static async loadBrew ({isAddBaseRaces = true} = {}) {
-			const cacheKey = `brew-${isAddBaseRaces}`;
-			this._psLoadJson[cacheKey] ||= DataUtil.race._loadPrereleaseBrew({isAddBaseRaces, brewUtil: typeof BrewUtil2 !== "undefined" ? BrewUtil2 : null});
-			return this._psLoadJson[cacheKey];
-		}
-
-		static async _loadPrereleaseBrew ({isAddBaseRaces = true, brewUtil} = {}) {
-			if (!brewUtil) return {};
-
-			const rawSite = await DataUtil.race.loadRawJSON();
-			const brew = await brewUtil.pGetBrewProcessed();
-			return DataUtil.race.getPostProcessedPrereleaseBrewJson(rawSite, brew, {isAddBaseRaces});
-		}
-
-		static getPostProcessedPrereleaseBrewJson (rawSite, brew, {isAddBaseRaces = false} = {}) {
-			rawSite = MiscUtil.copyFast(rawSite);
-			brew = MiscUtil.copyFast(brew);
-
-			const rawSiteUsed = [];
-			(brew.subrace || []).forEach(sr => {
-				const rSite = rawSite.race.find(it => it.name === sr.raceName && it.source === sr.raceSource);
-				const rBrew = (brew.race || []).find(it => it.name === sr.raceName && it.source === sr.raceSource);
-				if (!rSite && !rBrew) return JqueryUtil.doToast({content: `Failed to find race "${sr.raceName}" (${sr.raceSource})`, type: "danger"});
-				const rTgt = rSite || rBrew;
-				const cpySr = MiscUtil.copyFast(sr);
-				delete cpySr.raceName;
-				delete cpySr.raceSource;
-				(rTgt.subraces = rTgt.subraces || []).push(sr);
-				if (rSite && !rawSiteUsed.includes(rSite)) rawSiteUsed.push(rSite);
-			});
-			delete brew.subrace;
-
-			const raceDataBrew = Renderer.race.mergeSubraces(brew.race || [], {isAddBaseRaces});
-			// Never add base races from site races when building brew race list
-			const raceDataSite = Renderer.race.mergeSubraces(rawSiteUsed, {isAddBaseRaces: false});
-
-			const out = [...raceDataBrew, ...raceDataSite];
-			out.forEach(it => it.__prop = "race");
-			return {race: out};
-		}
-	},
-
-	raceFluff: class extends _DataUtilPropConfigSingleSource {
-		static _PAGE = UrlUtil.PG_RACES;
-		static _FILENAME = "fluff-races.json";
-
-		static _getApplyUncommonMonstrous (data) {
-			data = MiscUtil.copyFast(data);
-			data.raceFluff
-				.forEach(raceFluff => {
-					if (raceFluff.uncommon) {
-						raceFluff.entries = raceFluff.entries || [];
-						raceFluff.entries.push(MiscUtil.copyFast(data.raceFluffMeta.uncommon));
-						delete raceFluff.uncommon;
-					}
-
-					if (raceFluff.monstrous) {
-						raceFluff.entries = raceFluff.entries || [];
-						raceFluff.entries.push(MiscUtil.copyFast(data.raceFluffMeta.monstrous));
-						delete raceFluff.monstrous;
-					}
-				});
-			return data;
-		}
-
-		static async loadJSON () {
-			const data = await super.loadJSON();
-			return this._getApplyUncommonMonstrous(data);
-		}
-
-		static async loadUnmergedJSON () {
-			const data = await super.loadUnmergedJSON();
-			return this._getApplyUncommonMonstrous(data);
-		}
-	},
-
-	raceFeature: class extends _DataUtilPropConfig {
-		static _PAGE = "raceFeature";
 	},
 
 	recipe: class extends _DataUtilPropConfigSingleSource {

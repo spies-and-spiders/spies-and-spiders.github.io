@@ -9,13 +9,11 @@ class StatGenUi extends BaseComponent {
 
 	/**
 	 * @param opts
-	 * @param opts.races
 	 * @param opts.backgrounds
 	 * @param opts.feats
 	 * @param [opts.tabMetasAdditional]
 	 * @param [opts.isCharacterMode] Disables some functionality (e.g. changing number of ability scores)
 	 * @param [opts.isFvttMode]
-	 * @param [opts.modalFilterRaces]
 	 * @param [opts.modalFilterBackgrounds]
 	 * @param [opts.modalFilterFeats]
 	 * @param [opts.existingScores]
@@ -26,7 +24,6 @@ class StatGenUi extends BaseComponent {
 
 		TabUiUtilSide.decorate(this, {isInitMeta: true});
 
-		this._races = opts.races;
 		this._backgrounds = opts.backgrounds;
 		this._feats = opts.feats;
 		this._tabMetasAdditional = opts.tabMetasAdditional;
@@ -50,7 +47,6 @@ class StatGenUi extends BaseComponent {
 			this._IX_TAB_MANUAL = cnt;
 		}
 
-		this._modalFilterRaces = opts.modalFilterRaces || new ModalFilterRaces({namespace: "statgen.races", isRadio: true, allData: this._races});
 		this._modalFilterBackgrounds = opts.modalFilterBackgrounds || new ModalFilterBackgrounds({namespace: "statgen.backgrounds", isRadio: true, allData: this._backgrounds});
 		this._modalFilterFeats = opts.modalFilterFeats || new ModalFilterFeats({namespace: "statgen.feats", isRadio: true, allData: this._feats});
 
@@ -111,10 +107,6 @@ class StatGenUi extends BaseComponent {
 
 	set common_cntAsi (val) { this._state.common_cntAsi = val; }
 
-	addHookIxRace (hook) { this._addHookBase("common_ixRace", hook); }
-	get ixRace () { return this._state.common_ixRace; }
-	set ixRace (ixRace) { this._state.common_ixRace = ixRace; }
-
 	addHookIxBackground (hook) { this._addHookBase("common_ixBackground", hook); }
 	get ixBackground () { return this._state.common_ixBackground; }
 	set ixBackground (ixBackground) { this._state.common_ixBackground = ixBackground; }
@@ -131,7 +123,6 @@ class StatGenUi extends BaseComponent {
 	addHookBase (prop, hook) { return this._addHookBase(prop, hook); }
 	removeHookBase (prop, hook) { return this._removeHookBase(prop, hook); }
 	proxyAssignSimple (hookProp, toObj, isOverwrite) { return this._proxyAssignSimple(hookProp, toObj, isOverwrite); }
-	get race () { return this._races[this._state.common_ixRace]; }
 	get background () { return this._backgrounds[this._state.common_ixBackground]; }
 	get isLevelUp () { return this._isLevelUp; }
 	// endregion
@@ -172,7 +163,6 @@ class StatGenUi extends BaseComponent {
 	addHookActiveTag (hook) { this._addHookActiveTab(hook); }
 
 	async pInit () {
-		await this._modalFilterRaces.pPreloadHidden();
 		await this._modalFilterBackgrounds.pPreloadHidden();
 		await this._modalFilterFeats.pPreloadHidden();
 	}
@@ -848,14 +838,6 @@ class StatGenUi extends BaseComponent {
 		const metasTotalAndMod = this._render_getMetasTotalAndMod();
 
 		const {
-			$wrpOuter: $wrpRaceOuter,
-			$stgSel: $stgRaceSel,
-			$dispPreview: $dispPreviewRace,
-			$hrPreview: $hrPreviewRaceTashas,
-			$dispTashas,
-		} = this._renderLevelOneRace.render();
-
-		const {
 			$wrpOuter: $wrpBackgroundOuter,
 			$stgSel: $stgBackgroundSel,
 			$dispPreview: $dispPreviewBackground,
@@ -891,8 +873,6 @@ class StatGenUi extends BaseComponent {
 							${$wrpsBase}
 						</div>
 
-						${$wrpRaceOuter}
-
 						${$wrpBackgroundOuter}
 
 						<div class="ve-flex-col mr-3">
@@ -914,7 +894,6 @@ class StatGenUi extends BaseComponent {
 						</div>
 					</div>
 
-					${$stgRaceSel}
 					${$stgBackgroundSel}
 				</div>
 
@@ -925,10 +904,6 @@ class StatGenUi extends BaseComponent {
 			</div>
 
 			<hr class="hr-3">
-
-			${$dispPreviewRace}
-			${$hrPreviewRaceTashas}
-			${$dispTashas}
 
 			${$dispPreviewBackground}
 			${$hrPreviewBackground}
@@ -1255,96 +1230,6 @@ class StatGenUi extends BaseComponent {
 		}
 	};
 
-	static _RenderLevelOneRace = class extends this._RenderLevelOneEntity {
-		_title = "Species";
-		_titleShort = "Species";
-		_propIxEntity = "common_ixRace";
-		_propIxAbilityScoreSet = "common_ixAbilityScoreSetRace";
-		_propData = "_races";
-		_propModalFilter = "_modalFilterRaces";
-		_propIsPreview = "common_isPreviewRace";
-		_propEntity = "race";
-		_page = UrlUtil.PG_RACES;
-		_propChoiceMetasFrom = "common_raceChoiceMetasFrom";
-		_propChoiceWeighted = "common_raceChoiceMetasWeighted";
-
-		render () {
-			const out = super.render();
-
-			const {$btnToggleTashasPin, $dispTashas} = this._$getPtsTashas();
-
-			out.$stgSel.append($$`<label class="ve-flex-v-center mb-1">
-				<div class="mr-2">Allow Origin Customization</div>
-				${ComponentUiUtil.$getCbBool(this._parent, "common_isTashas")}
-			</label>`);
-
-			out.$stgSel.append($$`<div class="ve-flex">
-				<div class="ve-small ve-muted italic mr-1">${Renderer.get().render(`An {@variantrule Customizing Your Origin|sns|optional rule}`)}</div>
-				${$btnToggleTashasPin}
-				<div class="ve-small ve-muted italic ml-1">${Renderer.get().render(`from Tasha's Cauldron of Everything, page 8.`)}</div>
-			</div>`);
-
-			out.$dispTashas = $dispTashas;
-
-			return out;
-		}
-
-		_pb_getAbilityList () {
-			return this._parent._pb_getRaceAbilityList();
-		}
-
-		_pb_getAbility () {
-			return this._parent._pb_getRaceAbility();
-		}
-
-		_bindAdditionalHooks_hkIxEntity (hkIxEntity) {
-			this._parent._addHookBase("common_isTashas", hkIxEntity);
-		}
-
-		_bindAdditionalHooks_hkSetValuesSelAbilitySet (hkSetValuesSelAbilitySet) {
-			this._parent._addHookBase("common_isTashas", hkSetValuesSelAbilitySet);
-		}
-
-		_getHrPreviewMeta () {
-			const out = super._getHrPreviewMeta();
-			const {hkPreview} = out;
-			this._parent._addHookBase("common_isShowTashasRules", hkPreview);
-			return out;
-		}
-
-		_getHkPreview ({$hrPreview}) {
-			return () => $hrPreview.toggleVe(this._parent._state[this._propIsPreview] && this._parent._state.common_isShowTashasRules);
-		}
-
-		_$getPtsTashas () {
-			const $btnToggleTashasPin = ComponentUiUtil.$getBtnBool(
-				this._parent,
-				"common_isShowTashasRules",
-				{
-					html: `<button class="ve-btn ve-btn-xxs ve-btn-default ve-small p-0 statgen-shared__btn-toggle-tashas-rules ve-flex-vh-center" title="Toggle &quot;Customizing Your Origin&quot; Section"><span class="glyphicon glyphicon-eye-open"></span></button>`,
-				},
-			);
-
-			const $dispTashas = $(`<div class="ve-flex-col"><div class="italic ve-muted">Loading...</div></div>`);
-			DataLoader.pCacheAndGet(UrlUtil.PG_VARIANTRULES, Parser.SRC_SNS, UrlUtil.URL_TO_HASH_BUILDER[UrlUtil.PG_VARIANTRULES]({name: "Customizing Your Origin", source: Parser.SRC_SNS}))
-				.then(rule => {
-					$$($dispTashas.empty())`${Renderer.hover.$getHoverContent_stats(UrlUtil.PG_VARIANTRULES, rule)}<hr class="hr-3">`;
-				});
-			const hkIsShowTashas = () => {
-				$dispTashas.toggleVe(this._parent._state.common_isShowTashasRules);
-			};
-			this._parent._addHookBase("common_isShowTashasRules", hkIsShowTashas);
-			hkIsShowTashas();
-
-			return {
-				$btnToggleTashasPin,
-				$dispTashas,
-			};
-		}
-	};
-
-	_renderLevelOneRace = new this.constructor._RenderLevelOneRace({parent: this});
-
 	static _RenderLevelOneBackground = class extends this._RenderLevelOneEntity {
 		_title = "Background";
 		_titleShort = "Backg.";
@@ -1514,53 +1399,10 @@ class StatGenUi extends BaseComponent {
 		};
 	}
 
-	_pb_getRaceAbilityList () {
-		const race = this.race;
-		if (!race?.ability?.length) return null;
-
-		return race.ability
-			.map(fromRace => {
-				if (this._state.common_isTashas) {
-					const weights = [];
-
-					if (fromRace.choose && fromRace.choose.weighted && fromRace.choose.weighted.weights) {
-						weights.push(...fromRace.choose.weighted.weights);
-					}
-
-					Parser.ABIL_ABVS.forEach(it => {
-						if (fromRace[it]) weights.push(fromRace[it]);
-					});
-
-					if (fromRace.choose && fromRace.choose.from) {
-						const count = fromRace.choose.count || 1;
-						const amount = fromRace.choose.amount || 1;
-						for (let i = 0; i < count; ++i) weights.push(amount);
-					}
-
-					weights.sort((a, b) => SortUtil.ascSort(b, a));
-
-					fromRace = {
-						choose: {
-							weighted: {
-								from: [...Parser.ABIL_ABVS],
-								weights,
-							},
-						},
-					};
-				}
-
-				return fromRace;
-			});
-	}
-
 	_pb_getBackgroundAbilityList () {
 		const background = this.background;
 		if (!background?.ability?.length) return null;
 		return background.ability;
-	}
-
-	_pb_getRaceAbility () {
-		return this._pb_getRaceAbilityList()?.[this._state.common_ixAbilityScoreSetRace || 0];
 	}
 
 	_pb_getBackgroundAbility () {
@@ -1633,12 +1475,6 @@ class StatGenUi extends BaseComponent {
 			};
 
 			handleEntityAbility({
-				fromEntity: this._pb_getRaceAbility(),
-				propChoiceMetasFrom: "common_raceChoiceMetasFrom",
-				propChoiceWeighted: "common_raceChoiceMetasWeighted",
-			});
-
-			handleEntityAbility({
 				fromEntity: this._pb_getBackgroundAbility(),
 				propChoiceMetasFrom: "common_backgroundChoiceMetasFrom",
 				propChoiceWeighted: "common_backgroundChoiceMetasWeighted",
@@ -1660,13 +1496,6 @@ class StatGenUi extends BaseComponent {
 				delete out[propIxEntity];
 			}
 		};
-
-		handleEntity({
-			propIxEntity: "common_ixRace",
-			page: UrlUtil.PG_RACES,
-			propData: "_races",
-			propHash: "_pb_raceHash",
-		});
 
 		handleEntity({
 			propIxEntity: "common_ixBackground",
@@ -1701,13 +1530,6 @@ class StatGenUi extends BaseComponent {
 			});
 			if (~ixEntity) saved[propIxEntity] = ixEntity;
 		};
-
-		handleEntityHash({
-			propHash: "_pb_raceHash",
-			page: UrlUtil.PG_RACES,
-			propData: "_races",
-			propIxEntity: "common_ixRace",
-		});
 
 		handleEntityHash({
 			propHash: "_pb_backgroundHash",
@@ -1751,9 +1573,6 @@ class StatGenUi extends BaseComponent {
 	_getDefaultStateCommonResettable () {
 		return {
 			...Parser.ABIL_ABVS.mergeMap(ab => ({[this.constructor._common_getProps(ab).propUserBonus]: 0})),
-
-			common_raceChoiceMetasFrom: [],
-			common_raceChoiceMetasWeighted: [],
 
 			common_backgroundChoiceMetasFrom: [],
 			common_backgroundChoiceMetasWeighted: [],
@@ -1819,10 +1638,6 @@ class StatGenUi extends BaseComponent {
 	_getDefaultState () {
 		return {
 			// region Common
-			common_isPreviewRace: false,
-			common_isTashas: false,
-			common_isShowTashasRules: false,
-			common_ixRace: null,
 			common_ixAbilityScoreSet: 0,
 
 			common_isPreviewBackground: false,
@@ -1950,7 +1765,7 @@ StatGenUi.CompAsi = class extends BaseComponent {
 		super();
 		this._parent = parent;
 
-		this._metasAsi = {ability: [], race: [], background: [], custom: []};
+		this._metasAsi = {ability: [], background: [], custom: []};
 
 		this._doPulseThrottled = MiscUtil.throttle(this._doPulse_.bind(this), 50);
 	}
@@ -2125,7 +1940,7 @@ StatGenUi.CompAsi = class extends BaseComponent {
 
 			if (isNotFirstRun) resetGroupState();
 
-			const ent = this._parent[namespace]; // e.g. `this._parent.race`
+			const ent = this._parent[namespace]; // e.g. `this._parent.background`
 
 			if ((ent?.feats?.length || 0) > 1) {
 				const {$sel: $selGroup, unhook: unhookIxGroup} = UtilAdditionalFeats.getSelIxSetMeta({comp: this._parent, prop: propIxSel, available: ent.feats});
@@ -2372,13 +2187,11 @@ StatGenUi.CompAsi = class extends BaseComponent {
 
 	render ($wrpAsi) {
 		const $wrpRowsAsi = $(`<div class="ve-flex-col w-100 ve-overflow-y-auto"></div>`);
-		const $wrpRowsRace = $(`<div class="ve-flex-col w-100 ve-overflow-y-auto"></div>`);
 		const $wrpRowsBackground = $(`<div class="ve-flex-col w-100 ve-overflow-y-auto"></div>`);
 		const $wrpRowsCustom = $(`<div class="ve-flex-col w-100 ve-overflow-y-auto"></div>`);
 
 		this._render_renderAsiFeatSection("common_cntAsi", "ability", $wrpRowsAsi);
 		this._render_renderAsiFeatSection("common_cntFeatsCustom", "custom", $wrpRowsCustom);
-		this._render_renderAdditionalFeatSection({propEntity: "common_ixRace", namespace: "race", $wrpRows: $wrpRowsRace});
 		this._render_renderAdditionalFeatSection({propEntity: "common_ixBackground", namespace: "background", $wrpRows: $wrpRowsBackground});
 
 		const $getStgEntity = ({title, $wrpRows, propEntity, propIxEntity}) => {
@@ -2398,8 +2211,6 @@ StatGenUi.CompAsi = class extends BaseComponent {
 			return $stg;
 		};
 
-		const $stgRace = $getStgEntity({title: "Species", $wrpRows: $wrpRowsRace, propEntity: "race", propIxEntity: "common_ixRace"});
-
 		const $stgBackground = $getStgEntity({title: "Background", $wrpRows: $wrpRowsBackground, propEntity: "background", propIxEntity: "common_ixBackground"});
 
 		const $iptCountFeatsCustom = ComponentUiUtil.$getIptInt(this._parent, "common_cntFeatsCustom", 0, {min: 0, max: StatGenUi._MAX_CUSTOM_FEATS})
@@ -2409,8 +2220,6 @@ StatGenUi.CompAsi = class extends BaseComponent {
 			<h4 class="my-2 bold">Ability Score Increases</h4>
 			${this._render_$getStageCntAsi()}
 			${$wrpRowsAsi}
-
-			${$stgRace}
 
 			${$stgBackground}
 
@@ -2474,7 +2283,7 @@ StatGenUi.CompAsi = class extends BaseComponent {
 	}
 
 	_getFormData_getForNamespace_additional (outs, outIsFormCompletes, outFeats, namespace) {
-		const ent = this._parent[namespace]; // e.g. `this._parent.race`
+		const ent = this._parent[namespace]; // e.g. `this._parent.background`
 		if (!ent?.feats?.length) return;
 
 		const {propIxSel} = this._parent.getPropsAdditionalFeats_(namespace);
@@ -2583,11 +2392,10 @@ StatGenUi.CompAsi = class extends BaseComponent {
 	getFormData () {
 		const outs = [];
 		const isFormCompletes = [];
-		const feats = {ability: [], race: [], background: [], custom: []};
+		const feats = {ability: [], background: [], custom: []};
 
 		this._getFormData_getForNamespace_basic(outs, isFormCompletes, feats, "common_cntAsi", "ability");
 		this._getFormData_getForNamespace_basic(outs, isFormCompletes, feats, "common_cntFeatsCustom", "custom");
-		this._getFormData_getForNamespace_additional(outs, isFormCompletes, feats, "race");
 		this._getFormData_getForNamespace_additional(outs, isFormCompletes, feats, "background");
 
 		const data = {};

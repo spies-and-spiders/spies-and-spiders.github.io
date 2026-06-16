@@ -343,26 +343,6 @@ class _AdditionalSpellSourceClassesSubclasses extends _AdditionalSpellSource {
 	}
 }
 
-class _AdditionalSpellSourceRaces extends _AdditionalSpellSource {
-	constructor (opts) {
-		super({
-			...opts,
-			props: ["race"],
-		});
-	}
-
-	async _pLoadData () {
-		return DataUtil.race.loadJSON();
-	}
-
-	_getPropPath (ent) { return ["race", ...this._getPropPath_nameSource(ent)]; }
-
-	_getLookupValue (ent) {
-		if (!ent._isSubRace) return super._getLookupValue(ent);
-		return {baseName: ent._baseName, baseSource: ent._baseSource};
-	}
-}
-
 class _AdditionalSpellSourceFile extends _AdditionalSpellSource {
 	constructor ({file, ...rest} = {}) {
 		super({...rest});
@@ -444,7 +424,6 @@ export class SpellSourceLookupBuilder {
 				_AdditionalSpellSourceCharCreationOptions,
 				_AdditionalSpellSourceFeats,
 				_AdditionalSpellSourceOptionalFeatures,
-				_AdditionalSpellSourceRaces,
 				_AdditionalSpellSourceRewards,
 			]
 		) {

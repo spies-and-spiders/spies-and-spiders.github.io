@@ -1,7 +1,6 @@
 export class _BrewDocContentMigrator {
 	static mutMakeCompatible (json) {
 		this._mutMakeCompatible_item(json);
-		this._mutMakeCompatible_race(json);
 		this._mutMakeCompatible_monster(json);
 		this._mutMakeCompatible_object(json);
 		this._mutMakeCompatible_subclass(json);
@@ -15,18 +14,6 @@ export class _BrewDocContentMigrator {
 		// 2022-07-09
 		json.magicvariant = json.variant;
 		delete json.variant;
-	}
-
-	/* ----- */
-
-	static _mutMakeCompatible_race (json) {
-		if (!json.subrace) return false;
-
-		json.subrace.forEach(sr => {
-			if (!sr.race) return;
-			sr.raceName = sr.race.name;
-			sr.raceSource = sr.race.source || sr.source || Parser.SRC_SNS;
-		});
 	}
 
 	/* ----- */

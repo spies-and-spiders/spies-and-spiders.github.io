@@ -491,7 +491,6 @@ export class ManageEditableBrewContentsUi extends BaseComponent {
 
 		switch (prop) {
 			case "subclass": out.push(` (${ent.className})`); break;
-			case "subrace": out.push(` (${ent.raceName})`); break;
 			case "psionic": out.push(` (${Parser.psiTypeToMeta(ent.type).short})`); break;
 		}
 

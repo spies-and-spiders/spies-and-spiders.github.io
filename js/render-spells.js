@@ -50,13 +50,6 @@ export class RenderSpellsSettings {
 			defaultVal: false,
 		}),
 
-		isDisplayRaces: new SettingsUtil.Setting({
-			type: "boolean",
-			name: "Spell Sources: Show Species",
-			help: `Whether or not "Species" should be shown for a spell.`,
-			defaultVal: true,
-		}),
-
 		isDisplayBackgrounds: new SettingsUtil.Setting({
 			type: "boolean",
 			name: "Spell Sources: Show Backgrounds",
@@ -196,7 +189,6 @@ class _RenderSpellsImplBase extends RenderPageImplBase {
 			}
 		}
 
-		if (settings.isDisplayRaces) this._mutStackPtSpellSource({ent, stackFroms, renderer, title: "Species", propSpell: "races", prop: "race", tag: "race"});
 		if (settings.isDisplayBackgrounds) this._mutStackPtSpellSource({ent, stackFroms, renderer, title: "Backgrounds", propSpell: "backgrounds", prop: "background", tag: "background"});
 		if (settings.isDisplayFeats) this._mutStackPtSpellSource({ent, stackFroms, renderer, title: "Feats", propSpell: "feats", prop: "feat", tag: "feat"});
 		if (settings.isDisplayOptionalfeatures) this._mutStackPtSpellSource({ent, stackFroms, renderer, title: "Other Options/Features", propSpell: "optionalfeatures", prop: "optionalfeature", tag: "optfeature"});

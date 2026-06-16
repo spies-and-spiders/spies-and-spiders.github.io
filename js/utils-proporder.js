@@ -40,7 +40,6 @@ function getFnListSort (prop) {
 		case "languageFluff":
 		case "vehicleFluff":
 		case "objectFluff":
-		case "raceFluff":
 		case "item":
 		case "foundryItem":
 		case "baseitem":
@@ -58,9 +57,6 @@ function getFnListSort (prop) {
 		case "foundryReward":
 		case "rewardFluff":
 		case "variantrule":
-		case "race":
-		case "foundryRace":
-		case "foundryRaceFeature":
 		case "table":
 		case "trap":
 		case "trapFluff":
@@ -103,10 +99,6 @@ function getFnListSort (prop) {
 				|| SortUtil.ascSort(a.level, b.level)
 				|| SortUtil.ascSort(a.header || 0, b.header || 0)
 				|| SortUtil.ascSortGenericEntity(a, b);
-		case "subrace": return (a, b) => SortUtil.ascSortLower(a.raceName, b.raceName)
-			|| SortUtil.ascSortLower(a.raceSource, b.raceSource)
-			|| SortUtil.ascSortLower(a.name || "", b.name || "")
-			|| SortUtil.ascSortLower(a.source, b.source);
 		case "backgroundFeature": return (a, b) => SortUtil.ascSortLower(a.backgroundName, b.backgroundName)
 			|| SortUtil.ascSortLower(a.backgroundSource, b.backgroundSource)
 			|| SortUtil.ascSortGenericEntity(a, b);
@@ -682,7 +674,6 @@ PropOrder._SPELL = [
 			"fromSubclass",
 		],
 	}),
-	"races",
 	"backgrounds",
 	"optionalfeatures",
 	"feats",
@@ -1664,18 +1655,6 @@ PropOrder._VEHICLE_UPGRADE = [
 
 	"entries",
 ];
-PropOrder._RACE_FLUFF = [
-	"name",
-	"source",
-
-	"uncommon",
-	"monstrous",
-
-	"_copy",
-
-	"entries",
-	"images",
-];
 PropOrder._ITEM = [
 	"name",
 	"alias",
@@ -2150,134 +2129,6 @@ PropOrder._VARIANTRULE = [
 
 	"foundryImg",
 ];
-PropOrder._RACE_SUBRACE = [
-	"page",
-	"srd",
-	"srd52",
-	"basicRules",
-	"freeRules2024",
-	"additionalSources",
-	"otherSources",
-	"reprintedAs",
-
-	PropOrder._ObjectKey.getCopyKey({fnGetModOrder: () => PropOrder._RACE__COPY_MOD}),
-
-	"lineage",
-	"creatureTypes",
-	"creatureTypeTags",
-
-	new PropOrder._ArrayKey("size", {fnSort: SortUtil.ascSortSize}),
-	"speed",
-	"ability",
-
-	"heightAndWeight",
-	"age",
-
-	"darkvision",
-	"blindsight",
-	"feats",
-
-	new PropOrder._ArrayKey("traitTags", {fnSort: SortUtil.ascSortLower}),
-	"skillProficiencies",
-	"languageProficiencies",
-	"toolProficiencies",
-	"weaponProficiencies",
-	"armourProficiencies",
-	"skillToolLanguageProficiencies",
-	"expertise",
-
-	"resist",
-	"immune",
-	"vulnerable",
-	"conditionImmune",
-
-	"soundClip",
-
-	"additionalSpells",
-
-	"abilityEntry",
-	"creatureTypesEntry",
-	"sizeEntry",
-	"speedEntry",
-
-	"entries",
-
-	"overwrite",
-
-	"hasFluff",
-	"hasFluffImages",
-
-	"fluff",
-
-	...PropOrder._PROPS_FOUNDRY_DATA,
-
-	new PropOrder._ArrayKey("_versions", {
-		fnGetOrder: () => [
-			"name",
-			"source",
-			new PropOrder._ObjectKey("_mod", {
-				fnGetOrder: () => PropOrder._RACE__COPY_MOD,
-			}),
-			"_preserve",
-			"_abstract",
-			"_implementations",
-			...PropOrder._RACE,
-		],
-		fnSort: (a, b) => SortUtil.ascSortLower(a.name || "", b.name || "") || SortUtil.ascSortLower(a.source || "", b.source || ""),
-	}),
-];
-PropOrder._RACE = [
-	"name",
-	"alias",
-
-	"source",
-
-	...PropOrder._RACE_SUBRACE,
-];
-PropOrder._RACE__COPY_MOD = [
-	"*",
-	"_",
-	...PropOrder._RACE,
-];
-PropOrder._SUBRACE = [
-	"name",
-	"alias",
-
-	"source",
-
-	"raceName",
-	"raceSource",
-
-	...PropOrder._RACE_SUBRACE,
-];
-PropOrder._FOUNDRY_RACE_FEATURE = [
-	"name",
-
-	"source",
-
-	"raceName",
-	"raceSource",
-
-	PropOrder._ObjectKey.getCopyKey({
-		identKeys: [
-			"name",
-			"source",
-			"raceName",
-			"raceSource",
-		],
-		fnGetModOrder: () => PropOrder._FOUNDRY_RACE_FEATURE__COPY_MOD,
-	}),
-
-	"system",
-	"effects",
-	"flags",
-	"img",
-];
-PropOrder._FOUNDRY_RACE_FEATURE__COPY_MOD = [
-	"*",
-	"_",
-	...PropOrder._FOUNDRY_RACE_FEATURE,
-];
 PropOrder._TABLE = [
 	"name",
 	"alias",
@@ -2564,7 +2415,6 @@ PropOrder._PROP_TO_LIST = {
 	"languageFluff": PropOrder._GENERIC_FLUFF,
 	"vehicleFluff": PropOrder._GENERIC_FLUFF,
 	"objectFluff": PropOrder._GENERIC_FLUFF,
-	"raceFluff": PropOrder._RACE_FLUFF,
 	"rewardFluff": PropOrder._GENERIC_FLUFF,
 	"trapFluff": PropOrder._GENERIC_FLUFF,
 	"hazardFluff": PropOrder._GENERIC_FLUFF,
@@ -2626,10 +2476,6 @@ PropOrder._PROP_TO_LIST = {
 	"foundryReward": PropOrder._FOUNDRY_GENERIC_FEATURE,
 	"variantrule": PropOrder._VARIANTRULE,
 	"spellFluff": PropOrder._GENERIC_FLUFF,
-	"race": PropOrder._RACE,
-	"foundryRace": PropOrder._FOUNDRY_GENERIC_FEATURE,
-	"subrace": PropOrder._SUBRACE,
-	"foundryRaceFeature": PropOrder._FOUNDRY_RACE_FEATURE,
 	"table": PropOrder._TABLE,
 	"trap": PropOrder._TRAP,
 	"hazard": PropOrder._HAZARD,
@@ -2675,13 +2521,6 @@ PropOrder._ROOT = [
 	PropOrder._ArrayKey.getRootKey("background"),
 	PropOrder._ArrayKey.getRootKey("backgroundFeature"),
 	PropOrder._ArrayKey.getRootKey("backgroundFluff"),
-
-	PropOrder._ArrayKey.getRootKey("race"),
-	PropOrder._ArrayKey.getRootKey("subrace"),
-	PropOrder._ArrayKey.getRootKey("foundryRace"),
-	PropOrder._ArrayKey.getRootKey("foundryRaceFeature"),
-	PropOrder._ArrayKey.getRootKey("raceFluff"),
-	new PropOrder._IgnoredKey("raceFluffMeta"),
 
 	PropOrder._ArrayKey.getRootKey("feat"),
 	PropOrder._ArrayKey.getRootKey("foundryFeat"),

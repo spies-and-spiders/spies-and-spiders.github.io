@@ -308,22 +308,6 @@ class PageFilterSpells extends PageFilterBase {
 
 	static getTblLevelStr (spell) { return `${Parser.spLevelToFull(spell.level)}${spell.meta && spell.meta.ritual ? " (rit.)" : ""}${spell.meta && spell.meta.technomagic ? " (tec.)" : ""}`; }
 
-	static getRaceFilterItem (r) {
-		const addSuffix = (
-			r.source === Parser.SRC_SNS
-			|| SourceUtil.isNonstandardSource(r.source || Parser.SRC_SNS)
-			|| (typeof PrereleaseUtil !== "undefined" && PrereleaseUtil.hasSourceJson(r.source || Parser.SRC_SNS))
-			|| (typeof BrewUtil2 !== "undefined" && BrewUtil2.hasSourceJson(r.source || Parser.SRC_SNS))
-		) && !r.name.includes(Parser.sourceJsonToAbv(r.source));
-		const name = `${r.name}${addSuffix ? ` (${Parser.sourceJsonToAbv(r.source)})` : ""}`;
-		const opts = {
-			item: name,
-			group: SourceUtil.getFilterGroup(r.source || Parser.SRC_SNS),
-		};
-		if (r.baseName) opts.nest = r.baseName;
-		else opts.nest = "(No Subspecies)";
-		return new FilterItem(opts);
-	}
 	// endregion
 
 	constructor (opts) {
@@ -350,11 +334,6 @@ class PageFilterSpells extends PageFilterBase {
 			classFilter: this._classFilter,
 			subclassFilter: this._subclassFilter,
 			variantClassFilter: this._variantClassFilter,
-		});
-		this._raceFilter = new Filter({
-			header: "Species",
-			nests: {},
-			groupFn: it => it.group,
 		});
 		this._backgroundFilter = new SearchableFilter({header: "Background"});
 		this._featFilter = new SearchableFilter({header: "Feat"});
@@ -490,7 +469,6 @@ class PageFilterSpells extends PageFilterBase {
 				.filter(Boolean)
 				.filter(it => !s._fClasses.some(itCls => itCls.item === it.item)),
 		];
-		s._fRaces = Renderer.spell.getCombinedGeneric(s, {propSpell: "races", prop: "race"}).map(PageFilterSpells.getRaceFilterItem);
 		s._fBackgrounds = Renderer.spell.getCombinedGeneric(s, {propSpell: "backgrounds", prop: "background"}).map(it => it.name);
 		s._fFeats = Renderer.spell.getCombinedGeneric(s, {propSpell: "feats", prop: "feat"}).map(it => it.name);
 		s._fOptionalfeatures = Renderer.spell.getCombinedGeneric(s, {propSpell: "optionalfeatures", prop: "optionalfeature"}).map(it => it.name);
@@ -532,10 +510,6 @@ class PageFilterSpells extends PageFilterBase {
 			this._subclassFilter.addNest(sc.nest, {isHidden: true});
 			this._subclassFilter.addItem(sc);
 		});
-		s._fRaces.forEach(r => {
-			if (r.nest) this._raceFilter.addNest(r.nest, {isHidden: true});
-			this._raceFilter.addItem(r);
-		});
 		s._fVariantClasses.forEach(c => {
 			this._variantClassFilter.addNest(c.nest, {isHidden: true});
 			this._variantClassFilter.addItem(c);
@@ -552,7 +526,6 @@ class PageFilterSpells extends PageFilterBase {
 			this._sourceFilter,
 			this._levelFilter,
 			this._classAndSubclassFilter,
-			this._raceFilter,
 			this._backgroundFilter,
 			this._featFilter,
 			this._optionalfeaturesFilter,
@@ -582,7 +555,6 @@ class PageFilterSpells extends PageFilterBase {
 				s._fSubclasses,
 				this._classAndSubclassFilter.isVariantSplit ? s._fVariantClasses : null,
 			],
-			s._fRaces,
 			s._fBackgrounds,
 			s._fFeats,
 			s._fOptionalfeatures,

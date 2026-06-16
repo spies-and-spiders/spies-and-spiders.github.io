@@ -61,7 +61,6 @@ class BlocklistUtil {
 		this._addData(out, {monster: MiscUtil.copy(await DataUtil.monster.pLoadAll())});
 		this._addData(out, {spell: MiscUtil.copy(await DataUtil.spell.pLoadAll())});
 		this._addData(out, MiscUtil.copy(await DataUtil.class.loadRawJSON()));
-		this._addData(out, MiscUtil.copy(await DataUtil.race.loadJSON({isAddBaseRaces: true})));
 
 		(
 			await Promise.all(this._BASIC_FILES.map(url => DataUtil.loadJSON(`${Renderer.get().baseUrl}data/${url}`)))
@@ -188,31 +187,6 @@ class BlocklistUi {
 			})).filter(Boolean);
 
 			MiscUtil.set(this._subBlocklistEntries, "itemGroup", itemGroupHash, subBlocklist);
-		}
-
-		for (const it of (this._data.race || []).filter(it => it._isBaseRace || it._versions?.length)) {
-			const baseRaceHash = UrlUtil.URL_TO_HASH_BUILDER[UrlUtil.PG_RACES](it);
-			const subBlocklist = [];
-
-			if (it._isBaseRace) {
-				subBlocklist.push(
-					...it._subraces.map(sr => {
-						const hash = UrlUtil.URL_TO_HASH_BUILDER[UrlUtil.PG_RACES](sr);
-						return {displayName: sr.name, hash, category: "race", source: sr.source};
-					}),
-				);
-			}
-
-			if (it._versions?.length) {
-				subBlocklist.push(
-					...DataUtil.proxy.getVersions(it.__prop, it).map(ver => {
-						const hash = UrlUtil.URL_TO_HASH_BUILDER[UrlUtil.PG_RACES](ver);
-						return {displayName: ver.name, hash, category: "race", source: ver.source};
-					}),
-				);
-			}
-
-			MiscUtil.set(this._subBlocklistEntries, "race", baseRaceHash, subBlocklist);
 		}
 	}
 

@@ -3412,7 +3412,6 @@ Renderer.utils = class {
 			"pact",
 			"patron",
 			"spell",
-			"race",
 			"ability",
 			"proficiency",
 			"spellcasting",
@@ -3511,7 +3510,6 @@ Renderer.utils = class {
 								case "itemProperty": return this._getHtml_itemProperty({v, isListMode, isTextOnly, styleHint});
 								case "otherSummary": return this._getHtml_otherSummary({v, isListMode, isTextOnly, styleHint});
 								case "other": return this._getHtml_other({v, isListMode, isTextOnly, styleHint});
-								case "race": return this._getHtml_race({v, isListMode, isTextOnly, styleHint});
 								case "background": return this._getHtml_background({v, isListMode, isTextOnly, styleHint});
 								case "ability": return this._getHtml_ability({v, isListMode, isTextOnly, styleHint});
 								case "proficiency": return this._getHtml_proficiency({v, isListMode, isTextOnly, styleHint});
@@ -3694,18 +3692,6 @@ Renderer.utils = class {
 
 		static _getHtml_other ({v, isListMode, isTextOnly}) {
 			return isListMode ? "Special" : (isTextOnly ? Renderer.stripTags(v) : Renderer.get().render(v));
-		}
-
-		static _getHtml_race ({v, isListMode, isTextOnly}) {
-			const parts = v.map((it, i) => {
-				if (isListMode) {
-					return `${it.name.toTitleCase()}${it.subrace != null ? ` (${it.subrace})` : ""}`;
-				} else {
-					const raceName = it.displayEntry ? (isTextOnly ? Renderer.stripTags(it.displayEntry) : Renderer.get().render(it.displayEntry)) : i === 0 ? it.name.toTitleCase() : it.name;
-					return `${raceName}${it.subrace != null ? ` (${it.subrace})` : ""}`;
-				}
-			});
-			return isListMode ? parts.join("/") : parts.joinConjunct(", ", " or ");
 		}
 
 		static _getHtml_background ({v, isListMode, isTextOnly}) {
@@ -4269,7 +4255,6 @@ Renderer.utils = class {
 			case "@disease":
 			case "@status": out.page = UrlUtil.PG_CONDITIONS_DISEASES; break;
 			case "@background": out.page = UrlUtil.PG_BACKGROUNDS; break;
-			case "@race": out.page = UrlUtil.PG_RACES; break;
 			case "@optfeature": out.page = UrlUtil.PG_OPT_FEATURES; break;
 			case "@reward": out.page = UrlUtil.PG_REWARDS; break;
 			case "@feat": out.page = UrlUtil.PG_FEATS; break;
@@ -5143,12 +5128,6 @@ Renderer.tag = class {
 		page = UrlUtil.PG_PSIONICS;
 	};
 
-	static TagRace = class extends this._TagPipedDisplayTextThird {
-		tagName = "race";
-		defaultSource = Parser.SRC_SNS;
-		page = UrlUtil.PG_RACES;
-	};
-
 	static TagRecipe = class extends this._TagPipedDisplayTextThird {
 		tagName = "recipe";
 		defaultSource = Parser.SRC_SNS;
@@ -5446,7 +5425,6 @@ Renderer.tag = class {
 		new this.TagObject(),
 		new this.TagOptfeature(),
 		new this.TagPsionic(),
-		new this.TagRace(),
 		new this.TagRecipe(),
 		new this.TagReward(),
 		new this.TagVehicle(),
@@ -7062,7 +7040,6 @@ Renderer.spell = class {
 			lowName = lowName || sp.name.toLowerCase();
 			lowSource = lowSource || sp.source.toLowerCase();
 
-			this._mutateSpell_brewGeneric({sp, lowName, lowSource, propSpell: "races", prop: "race"});
 			this._mutateSpell_brewGeneric({sp, lowName, lowSource, propSpell: "backgrounds", prop: "background"});
 			this._mutateSpell_brewGeneric({sp, lowName, lowSource, propSpell: "feats", prop: "feat"});
 			this._mutateSpell_brewGeneric({sp, lowName, lowSource, propSpell: "optionalfeatures", prop: "optionalfeature"});
@@ -7232,7 +7209,6 @@ Renderer.spell = class {
 	static _BREW_SOURCES_TMP_PROPS = [
 		"_tmpSourcesInit",
 		"_tmpClasses",
-		"_tmpRaces",
 		"_tmpBackgrounds",
 		"_tmpFeats",
 		"_tmpOptionalfeatures",
@@ -7247,7 +7223,6 @@ Renderer.spell = class {
 		sp._tmpSourcesInit = true;
 
 		sp._tmpClasses = {};
-		sp._tmpRaces = [];
 		sp._tmpBackgrounds = [];
 		sp._tmpFeats = [];
 		sp._tmpOptionalfeatures = [];
@@ -7650,541 +7625,6 @@ Renderer.reward = class {
 			entity: ent,
 			fluffProp: "rewardFluff",
 		});
-	}
-};
-
-Renderer.race = class {
-	static getRaceRenderableEntriesMeta (ent, {styleHint = null} = {}) {
-		styleHint ||= VetoolsConfig.get("styleSwitcher", "style");
-
-		const entsAttributes = [
-			ent.abilityEntry || (ent.ability ? {type: "item", name: "Ability Scores:", entry: Renderer.getAbilityData(ent.ability).asText} : null),
-			ent.creatureTypesEntry || (this._getRaceRenderableEntriesMeta_creatureType({ent, styleHint})),
-			ent.sizeEntry || (ent.size ? {type: "item", name: "Size:", entry: Renderer.utils.getRenderedSize(ent.size || [Parser.SZ_VARIES])} : null),
-			ent.speedEntry || (ent.speed != null ? {type: "item", name: "Speed:", entry: Parser.getSpeedString(ent, {isLongForm: true})} : null),
-		]
-			.filter(Boolean);
-
-		return {
-			entryAttributes: entsAttributes.length
-				? {type: "list", style: "list-hang-notitle", items: entsAttributes}
-				: null,
-			entryMain: ent._isBaseRace
-				? {type: "entries", entries: ent._baseRaceEntries}
-				: {type: "entries", entries: ent.entries},
-		};
-	}
-
-	static _getRaceRenderableEntriesMeta_creatureType ({ent, styleHint}) {
-		const types = ent.creatureTypes || [Parser.TP_HUMANOID];
-
-		if (styleHint !== "classic") return {type: "item", name: "Creature Type:", entry: Parser.raceCreatureTypesToFull(types)};
-
-		const typesFilt = (ent.creatureTypes || []).filter(it => `${it}`.toLowerCase() !== Parser.TP_HUMANOID);
-		if (!typesFilt.length) return null;
-		return {type: "item", name: "Creature Type:", entry: Parser.raceCreatureTypesToFull(typesFilt)};
-	}
-
-	/* -------------------------------------------- */
-
-	static getCompactRenderedString (ent, {isStatic = false} = {}) {
-		const styleHint = VetoolsConfig.get("styleSwitcher", "style");
-
-		const renderer = Renderer.get().setFirstSection(true);
-		const renderStack = [];
-
-		const entriesMeta = Renderer.race.getRaceRenderableEntriesMeta(ent, {styleHint});
-
-		renderStack.push(`
-			${Renderer.utils.getExcludedTr({entity: ent, dataProp: "race", page: UrlUtil.PG_RACES})}
-			${Renderer.utils.getNameTr(ent, {page: UrlUtil.PG_RACES})}
-			<tr><td colspan="6" class="pb-2 pt-0">
-		`);
-		if (entriesMeta.entryAttributes) renderer.recursiveRender(entriesMeta.entryAttributes, renderStack, {depth: 1});
-		renderer.recursiveRender(entriesMeta.entryMain, renderStack, {depth: 1});
-
-		const ptHeightWeight = Renderer.race.getHeightAndWeightPart(ent, {isStatic});
-		if (ptHeightWeight) renderStack.push(`<hr class="rd__hr">${ptHeightWeight}`);
-		renderStack.push("</td></tr>");
-
-		return renderStack.join("");
-	}
-
-	/* -------------------------------------------- */
-
-	static getRenderedSize (race) {
-		return (race.size || [Parser.SZ_VARIES]).map(sz => Parser.sizeAbvToFull(sz)).join("/");
-	}
-
-	static getHeightAndWeightPart (race, {isStatic = false} = {}) {
-		if (!race.heightAndWeight) return null;
-		if (race._isBaseRace) return null;
-		return Renderer.get().render({entries: Renderer.race.getHeightAndWeightEntries(race, {isStatic})});
-	}
-
-	static getHeightAndWeightEntries (race, {isStatic = false} = {}) {
-		const colLabels = ["Base Height", "Base Weight", "Height Modifier", "Weight Modifier"];
-		const colStyles = ["col-2-3 text-center", "col-2-3 text-center", "col-2-3 text-center", "col-2 text-center"];
-
-		const cellHeightMod = !isStatic
-			? `+<span data-race-heightmod="true">${race.heightAndWeight.heightMod}</span>`
-			: `+${race.heightAndWeight.heightMod}`;
-		const cellWeightMod = !isStatic
-			? `× <span data-race-weightmod="true">${race.heightAndWeight.weightMod || "1"}</span> lb.`
-			: `× ${race.heightAndWeight.weightMod || "1"} lb.`;
-
-		const row = [
-			Renderer.race.getRenderedHeight(race.heightAndWeight.baseHeight),
-			`${race.heightAndWeight.baseWeight} lb.`,
-			cellHeightMod,
-			cellWeightMod,
-		];
-
-		if (!isStatic) {
-			colLabels.push("");
-			colStyles.push("ve-col-3-1 text-center");
-			row.push(`<div class="ve-flex-vh-center">
-				<div class="ve-hidden race__disp-result-height-weight ve-flex-v-baseline">
-					<div class="mr-1">=</div>
-					<div class="race__disp-result-height"></div>
-					<div class="mr-2">; </div>
-					<div class="race__disp-result-weight mr-1"></div>
-					<div class="small">lb.</div>
-				</div>
-				<button class="ve-btn ve-btn-default ve-btn-xs my-1 race__btn-roll-height-weight">Roll</button>
-			</div>`);
-		}
-
-		return [
-			"You may roll for your character's height and weight on the Random Height and Weight table. The roll in the Height Modifier column adds a number (in inches) to the character's base height. To get a weight, multiply the number you rolled for height by the roll in the Weight Modifier column and add the result (in pounds) to the base weight.",
-			{
-				type: "table",
-				caption: "Random Height and Weight",
-				colLabels,
-				colStyles,
-				rows: [row],
-			},
-		];
-	}
-
-	static getRenderedHeight (height) {
-		const heightFeet = Number(Math.floor(height / 12).toFixed(3));
-		const heightInches = Number((height % 12).toFixed(3));
-		return `${heightFeet ? `${heightFeet}'` : ""}${heightInches ? `${heightInches}"` : ""}`;
-	}
-
-	/**
-	 * @param races
-	 * @param [opts] Options object.
-	 * @param [opts.isAddBaseRaces] If an entity should be created for each base race.
-	 */
-	static mergeSubraces (races, opts) {
-		opts = opts || {};
-
-		const out = [];
-		races.forEach(race => {
-			// FIXME(Deprecated) Backwards compatibility for old race data; remove at some point
-			if (race.size && typeof race.size === "string") race.size = [race.size];
-
-			// Ignore `"lineage": true`, as it is only used for filters
-			if (race.lineage && race.lineage !== true) {
-				race = MiscUtil.copyFast(race);
-
-				if (race.lineage === "VRGR") {
-					race.ability = race.ability || [
-						{
-							choose: {
-								weighted: {
-									from: [...Parser.ABIL_ABVS],
-									weights: [2, 1],
-								},
-							},
-						},
-						{
-							choose: {
-								weighted: {
-									from: [...Parser.ABIL_ABVS],
-									weights: [1, 1, 1],
-								},
-							},
-						},
-					];
-				} else if (race.lineage === "UA1") {
-					race.ability = race.ability || [
-						{
-							choose: {
-								weighted: {
-									from: [...Parser.ABIL_ABVS],
-									weights: [2, 1],
-								},
-							},
-						},
-					];
-				}
-
-				race.entries = race.entries || [];
-				race.entries.push({
-					type: "entries",
-					name: "Languages",
-					entries: ["You can speak, read, and write Common and one other language that you and your DM agree is appropriate for your character."],
-				});
-
-				race.languageProficiencies = race.languageProficiencies || [{"common": true, "anyStandard": 1}];
-			}
-
-			if (race.subraces && !race.subraces.length) delete race.subraces;
-
-			if (race.subraces) {
-				race.subraces.forEach(sr => {
-					sr.source = sr.source || race.source;
-					sr._isSubRace = true;
-				});
-
-				race.subraces.sort((a, b) => SortUtil.ascSortLower(a.name || "_", b.name || "_") || SortUtil.ascSortLower(Parser.sourceJsonToAbv(a.source), Parser.sourceJsonToAbv(b.source)));
-			}
-
-			if (opts.isAddBaseRaces && race.subraces) {
-				const baseRace = MiscUtil.copyFast(race);
-
-				baseRace._isBaseRace = true;
-
-				const isAnyNoName = race.subraces.some(it => !it.name);
-				if (isAnyNoName) {
-					baseRace._rawName = baseRace.name;
-					baseRace.name = `${baseRace.name} (Base)`;
-				}
-
-				const nameCounts = {};
-				race.subraces.filter(sr => sr.name).forEach(sr => nameCounts[sr.name.toLowerCase()] = (nameCounts[sr.name.toLowerCase()] || 0) + 1);
-				nameCounts._ = race.subraces.filter(sr => !sr.name).length;
-
-				const lst = {
-					type: "list",
-					items: race.subraces.map(sr => {
-						const count = nameCounts[(sr.name || "_").toLowerCase()];
-						const idName = Renderer.race.getSubraceName(race.name, sr.name);
-						return `{@race ${idName}|${sr.source}${count > 1 ? `|${idName} (<span title="${Parser.sourceJsonToFull(sr.source).escapeQuotes()}">${Parser.sourceJsonToAbv(sr.source)}</span>)` : ""}}`;
-					}),
-				};
-
-				Renderer.race._mutBaseRaceEntries(baseRace, lst);
-				baseRace._subraces = race.subraces.map(sr => ({name: Renderer.race.getSubraceName(race.name, sr.name), source: sr.source}));
-
-				delete baseRace.subraces;
-
-				out.push(baseRace);
-			}
-
-			out.push(...Renderer.race._mergeSubraces(race));
-		});
-
-		return out;
-	}
-
-	static _mutMakeBaseRace (baseRace) {
-		if (baseRace._isBaseRace) return;
-
-		baseRace._isBaseRace = true;
-
-		Renderer.race._mutBaseRaceEntries(baseRace, {type: "list", items: []});
-	}
-
-	static _mutBaseRaceEntries (baseRace, lst) {
-		baseRace._baseRaceEntries = [
-			{
-				type: "section",
-				entries: [
-					"This race has multiple subraces, as listed below:",
-					lst,
-				],
-			},
-			{
-				type: "section",
-				entries: [
-					{
-						type: "entries",
-						entries: [
-							{
-								type: "entries",
-								name: "Traits",
-								entries: [
-									...MiscUtil.copyFast(baseRace.entries),
-								],
-							},
-						],
-					},
-				],
-			},
-		];
-	}
-
-	static getSubraceName (raceName, subraceName) {
-		if (!subraceName) return raceName;
-
-		const mBrackets = /^(.*?)(\(.*?\))$/i.exec(raceName || "");
-		if (!mBrackets) return `${raceName} (${subraceName})`;
-
-		const bracketPart = mBrackets[2].substring(1, mBrackets[2].length - 1);
-		return `${mBrackets[1]}(${[bracketPart, subraceName].join("; ")})`;
-	}
-
-	static _mergeSubraces (race) {
-		if (!race.subraces) return [race];
-		return MiscUtil.copyFast(race.subraces).map(s => Renderer.race._getMergedSubrace(race, s));
-	}
-
-	static _getMergedSubrace (race, cpySr) {
-		const cpy = MiscUtil.copyFast(race);
-		cpy._baseName = cpy.name;
-		cpy._baseSource = cpy.source;
-		cpy._baseSrd = cpy.srd;
-		cpy._baseSrd52 = cpy.srd52;
-		cpy._baseBasicRules = cpy.basicRules;
-		cpy._baseFreeRules2024 = cpy.freeRules2024;
-		delete cpy.subraces;
-		delete cpy.srd;
-		delete cpy.srd52;
-		delete cpy.basicRules;
-		delete cpy.freeRules2024;
-		delete cpy._versions;
-		delete cpy.hasFluff;
-		delete cpy.hasFluffImages;
-		delete cpy.reprintedAs;
-		delete cpySr.__prop;
-
-		// merge names, abilities, entries, tags
-		if (cpySr.name) {
-			cpy._subraceName = cpySr.name;
-
-			cpy.name = Renderer.race.getSubraceName(cpy.name, cpySr.name);
-			delete cpySr.name;
-		}
-		if (cpySr.ability) {
-			// If the base race doesn't have any ability scores, make a set of empty records
-			if ((cpySr.overwrite && cpySr.overwrite.ability) || !cpy.ability) cpy.ability = cpySr.ability.map(() => ({}));
-
-			if (cpy.ability.length !== cpySr.ability.length) throw new Error(`"race" and "subrace" ability array lengths did not match!`);
-			cpySr.ability.forEach((obj, i) => Object.assign(cpy.ability[i], obj));
-			delete cpySr.ability;
-		}
-		if (cpySr.entries) {
-			cpySr.entries.forEach(ent => {
-				if (!ent.data?.overwrite) return cpy.entries.push(ent);
-
-				const toOverwrite = cpy.entries.findIndex(it => it.name?.toLowerCase()?.trim() === ent.data.overwrite.toLowerCase().trim());
-				if (~toOverwrite) cpy.entries[toOverwrite] = ent;
-				else cpy.entries.push(ent);
-			});
-			delete cpySr.entries;
-		}
-
-		if (cpySr.traitTags) {
-			if (cpySr.overwrite && cpySr.overwrite.traitTags) cpy.traitTags = cpySr.traitTags;
-			else cpy.traitTags = (cpy.traitTags || []).concat(cpySr.traitTags);
-			delete cpySr.traitTags;
-		}
-
-		if (cpySr.languageProficiencies) {
-			if (cpySr.overwrite && cpySr.overwrite.languageProficiencies) cpy.languageProficiencies = cpySr.languageProficiencies;
-			else cpy.languageProficiencies = cpy.languageProficiencies = (cpy.languageProficiencies || []).concat(cpySr.languageProficiencies);
-			delete cpySr.languageProficiencies;
-		}
-
-		// TODO make a generalised merge system? Probably have one of those lying around somewhere [bestiary schema?]
-		if (cpySr.skillProficiencies) {
-			// Overwrite if possible
-			if (!cpy.skillProficiencies || (cpySr.overwrite && cpySr.overwrite["skillProficiencies"])) cpy.skillProficiencies = cpySr.skillProficiencies;
-			else {
-				if (!cpySr.skillProficiencies.length || !cpy.skillProficiencies.length) throw new Error(`No items!`);
-				if (cpySr.skillProficiencies.length > 1 || cpy.skillProficiencies.length > 1) throw new Error(`Merging "subrace" does not handle choices!`); // Implement if required
-
-				// Otherwise, merge
-				if (cpySr.skillProficiencies.choose) {
-					if (cpy.skillProficiencies.choose) throw new Error(`Merging "subrace" choose is not supported!!`); // Implement if required
-					cpy.skillProficiencies.choose = cpySr.skillProficiencies.choose;
-					delete cpySr.skillProficiencies.choose;
-				}
-				Object.assign(cpy.skillProficiencies[0], cpySr.skillProficiencies[0]);
-			}
-
-			delete cpySr.skillProficiencies;
-		}
-
-		// overwrite everything else
-		Object.assign(cpy, cpySr);
-
-		// For any null'd out fields on the subrace, delete the field
-		Object.entries(cpy)
-			.forEach(([k, v]) => {
-				if (v != null) return;
-				delete cpy[k];
-			});
-
-		return cpy;
-	}
-
-	static adoptSubraces (allRaces, subraces) {
-		const nxtData = [];
-
-		subraces.forEach(sr => {
-			if (!sr.raceName || !sr.raceSource) throw new Error(`Adopted "subrace" was missing parent "raceName" and/or "raceSource"!`);
-
-			const _baseRace = allRaces.find(r => r.name === sr.raceName && r.source === sr.raceSource);
-			if (!_baseRace) throw new Error(`Could not find parent race for subrace "${sr.name}" (${sr.source})!`);
-
-			// Avoid adding duplicates, by tracking already-seen subraces
-			if ((_baseRace._seenSubraces || []).some(it => it.name === sr.name && it.source === sr.source)) return;
-			(_baseRace._seenSubraces = _baseRace._seenSubraces || []).push({name: sr.name, source: sr.source});
-
-			// If this is a prerelease/homebrew "base race" which is not marked as such, upgrade it to a base race
-			if (
-				!_baseRace._isBaseRace
-				&& (PrereleaseUtil.hasSourceJson(_baseRace.source) || BrewUtil2.hasSourceJson(_baseRace.source))
-			) {
-				Renderer.race._mutMakeBaseRace(_baseRace);
-			}
-
-			// If the base race is a _real_ base race, add our new subrace to its list of subraces
-			if (_baseRace._isBaseRace) {
-				const subraceListEntry = ((_baseRace._baseRaceEntries[0] || {}).entries || []).find(it => it.type === "list");
-				subraceListEntry.items.push(`{@race ${_baseRace._rawName || _baseRace.name} (${sr.name})|${sr.source || _baseRace.source}}`);
-			}
-
-			// Attempt to graft multiple subraces from the same data set onto the same base race copy
-			let baseRace = nxtData.find(r => r.name === sr.raceName && r.source === sr.raceSource);
-			if (!baseRace) {
-				// copy and remove base-race-specific data
-				baseRace = MiscUtil.copyFast(_baseRace);
-				if (baseRace._rawName) {
-					baseRace.name = baseRace._rawName;
-					delete baseRace._rawName;
-				}
-				delete baseRace._isBaseRace;
-				delete baseRace._baseRaceEntries;
-
-				nxtData.push(baseRace);
-			}
-
-			baseRace.subraces = baseRace.subraces || [];
-			baseRace.subraces.push(sr);
-		});
-
-		return nxtData;
-	}
-
-	static bindListenersHeightAndWeight (race, ele) {
-		if (!race.heightAndWeight) return;
-		if (race._isBaseRace) return;
-
-		const $render = $(ele);
-
-		const $dispResult = $render.find(`.race__disp-result-height-weight`);
-		const $dispHeight = $render.find(`.race__disp-result-height`);
-		const $dispWeight = $render.find(`.race__disp-result-weight`);
-
-		const lock = new VeLock();
-		let hasRolled = false;
-		let resultHeight;
-		let resultWeightMod;
-
-		const $btnRollHeight = $render
-			.find(`[data-race-heightmod="true"]`)
-			.html(race.heightAndWeight.heightMod)
-			.addClass("roller")
-			.mousedown(evt => evt.preventDefault())
-			.click(async () => {
-				try {
-					await lock.pLock();
-
-					if (!hasRolled) return pDoFullRoll(true);
-					await pRollHeight();
-					updateDisplay();
-				} finally {
-					lock.unlock();
-				}
-			});
-
-		const isWeightRoller = race.heightAndWeight.weightMod && isNaN(race.heightAndWeight.weightMod);
-		const $btnRollWeight = $render
-			.find(`[data-race-weightmod="true"]`)
-			.html(isWeightRoller ? `(<span class="roller">${race.heightAndWeight.weightMod}</span>)` : race.heightAndWeight.weightMod || "1")
-			.click(async () => {
-				try {
-					await lock.pLock();
-
-					if (!hasRolled) return pDoFullRoll(true);
-					await pRollWeight();
-					updateDisplay();
-				} finally {
-					lock.unlock();
-				}
-			});
-		if (isWeightRoller) $btnRollWeight.mousedown(evt => evt.preventDefault());
-
-		const $btnRoll = $render
-			.find(`button.race__btn-roll-height-weight`)
-			.click(async () => pDoFullRoll());
-
-		const pRollHeight = async () => {
-			const mResultHeight = await Renderer.dice.pRoll2(race.heightAndWeight.heightMod, {
-				isUser: false,
-				label: "Height Modifier",
-				name: race.name,
-			});
-			if (mResultHeight == null) return;
-			resultHeight = mResultHeight;
-		};
-
-		const pRollWeight = async () => {
-			const weightModRaw = race.heightAndWeight.weightMod || "1";
-			const mResultWeightMod = isNaN(weightModRaw) ? await Renderer.dice.pRoll2(weightModRaw, {
-				isUser: false,
-				label: "Weight Modifier",
-				name: race.name,
-			}) : Number(weightModRaw);
-			if (mResultWeightMod == null) return;
-			resultWeightMod = mResultWeightMod;
-		};
-
-		const updateDisplay = () => {
-			const renderedHeight = Renderer.race.getRenderedHeight(race.heightAndWeight.baseHeight + resultHeight);
-			const totalWeight = race.heightAndWeight.baseWeight + (resultWeightMod * resultHeight);
-			$dispHeight.text(renderedHeight);
-			$dispWeight.text(Number(totalWeight.toFixed(3)));
-		};
-
-		const pDoFullRoll = async isPreLocked => {
-			try {
-				if (!isPreLocked) await lock.pLock();
-
-				$btnRoll.parent().removeClass(`ve-flex-vh-center`).addClass(`split-v-center`);
-				await pRollHeight();
-				await pRollWeight();
-				$dispResult.removeClass(`ve-hidden`);
-				updateDisplay();
-
-				hasRolled = true;
-			} finally {
-				if (!isPreLocked) lock.unlock();
-			}
-		};
-	}
-
-	static bindListenersCompact (race, ele) {
-		Renderer.race.bindListenersHeightAndWeight(race, ele);
-	}
-
-	static pGetFluff (race) {
-		return Renderer.utils.pGetFluff({
-			entity: race,
-			fluffProp: "raceFluff",
-		});
-	}
-};
-
-Renderer.raceFeature = class {
-	static getCompactRenderedString (ent) {
-		return Renderer.generic.getCompactRenderedString(ent);
 	}
 };
 
@@ -14553,7 +13993,6 @@ Renderer.hover = class {
 			case UrlUtil.PG_OPT_FEATURES: return Renderer.optionalfeature.getCompactRenderedString.bind(Renderer.optionalfeature);
 			case UrlUtil.PG_PSIONICS: return Renderer.psionic.getCompactRenderedString.bind(Renderer.psionic);
 			case UrlUtil.PG_REWARDS: return Renderer.reward.getCompactRenderedString.bind(Renderer.reward);
-			case UrlUtil.PG_RACES: return it => Renderer.race.getCompactRenderedString(it, {isStatic});
 			case UrlUtil.PG_DEITIES: return Renderer.deity.getCompactRenderedString.bind(Renderer.deity);
 			case UrlUtil.PG_OBJECTS: return Renderer.object.getCompactRenderedString.bind(Renderer.object);
 			case UrlUtil.PG_TRAPS_HAZARDS: return Renderer.traphazard.getCompactRenderedString.bind(Renderer.traphazard);
@@ -14586,7 +14025,6 @@ Renderer.hover = class {
 	static getFnBindListenersCompact (page) {
 		switch (page) {
 			case UrlUtil.PG_BESTIARY: return Renderer.monster.bindListenersCompact.bind(Renderer.monster);
-			case UrlUtil.PG_RACES: return Renderer.race.bindListenersCompact.bind(Renderer.race);
 			default: return null;
 		}
 	}
@@ -14597,7 +14035,6 @@ Renderer.hover = class {
 			case UrlUtil.PG_ITEMS: return Renderer.item.pGetFluff.bind(Renderer.item);
 			case UrlUtil.PG_CONDITIONS_DISEASES: return Renderer.condition.pGetFluff.bind(Renderer.condition);
 			case UrlUtil.PG_SPELLS: return Renderer.spell.pGetFluff.bind(Renderer.spell);
-			case UrlUtil.PG_RACES: return Renderer.race.pGetFluff.bind(Renderer.race);
 			case UrlUtil.PG_BACKGROUNDS: return Renderer.background.pGetFluff.bind(Renderer.background);
 			case UrlUtil.PG_FEATS: return Renderer.feat.pGetFluff.bind(Renderer.feat);
 			case UrlUtil.PG_OPT_FEATURES: return Renderer.optionalfeature.pGetFluff.bind(Renderer.optionalfeature);

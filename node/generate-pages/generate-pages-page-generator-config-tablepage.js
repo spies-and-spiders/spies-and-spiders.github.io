@@ -16,7 +16,7 @@ class _PageGeneratorNames extends PageGeneratorTablepageBase {
 	_page = "names.html";
 
 	_pageTitle = "Names";
-	_navbarDescription = "Choose a race and a type, then roll the dice!";
+	_navbarDescription = "Choose a name list and a type, then roll the dice!";
 
 	_scripts = [
 		"names.js",

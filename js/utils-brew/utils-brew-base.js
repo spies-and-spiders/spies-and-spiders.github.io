@@ -965,7 +965,6 @@ export class BrewUtil2Base {
 		[UrlUtil.PG_BACKGROUNDS]: ["background"],
 		[UrlUtil.PG_FEATS]: ["feat"],
 		[UrlUtil.PG_OPT_FEATURES]: ["optionalfeature"],
-		[UrlUtil.PG_RACES]: [...UrlUtil.PAGE_TO_PROPS[UrlUtil.PG_RACES], "raceFluff"],
 		[UrlUtil.PG_OBJECTS]: ["object"],
 		[UrlUtil.PG_TRAPS_HAZARDS]: ["trap", "hazard"],
 		[UrlUtil.PG_DEITIES]: ["deity"],

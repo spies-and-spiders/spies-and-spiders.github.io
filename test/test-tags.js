@@ -382,7 +382,6 @@ class ItemDataCheck extends GenericDataCheck {
 				.forEach(([prop, val]) => {
 					switch (prop) {
 						case "background":
-						case "race":
 						case "class": {
 							const url = getEncoded(val, prop);
 							if (!TagTestUrlLookup.hasUrl(url)) this._addMessage(`Missing link: ${val} in file ${file} "${prop}" (evaluates to "${url}")\n${TagTestUtil.getLogPtSimilarUrls({url})}`);
@@ -897,21 +896,6 @@ class ClassDataCheck extends GenericDataCheck {
 	}
 }
 
-class RaceDataCheck extends GenericDataCheck {
-	static _handleRaceOrSubraceRaw (file, rsr, r) {
-		this._testAdditionalSpells(file, rsr);
-		this._testAdditionalFeats(file, rsr);
-		this._testReprintedAs(file, rsr, "race");
-	}
-
-	static pRun () {
-		const file = `data/races.json`;
-		const races = ut.readJson(`./${file}`);
-		races.race.forEach(r => this._handleRaceOrSubraceRaw(file, r));
-		races.subrace.forEach(sr => this._handleRaceOrSubraceRaw(file, sr));
-	}
-}
-
 class FeatDataCheck extends GenericDataCheck {
 	static _handleFeat (file, feat) {
 		this._testAdditionalSpells(file, feat);
@@ -1161,16 +1145,6 @@ class DuplicateEntityCheck extends DataTesterBase {
 	static handleFile (file, contents, {isSkipVersionCheck = false, isSkipBaseCheck = false} = {}) {
 		DuplicateEntityCheck.errors = [];
 
-		if (file.endsWith("data/races.json") && !isSkipVersionCheck) {
-			// First, run check for races on the raw race/subrace data
-			this.handleFile(file, contents, {isSkipVersionCheck: true});
-
-			// Then, merge races+subraces, so we can run a check on versions
-			contents = MiscUtil.copyFast(contents);
-			contents = DataUtil.race.getPostProcessedSiteJson(contents);
-			isSkipBaseCheck = true;
-		}
-
 		Object.entries(contents)
 			.filter(([_, arr]) => arr instanceof Array)
 			.forEach(([prop, arr]) => {
@@ -1242,20 +1216,6 @@ class DuplicateEntityCheck extends DataTesterBase {
 			case "subclassFeature": {
 				if (name != null && source != null) {
 					const key = `${source} :: ${ent.level} :: ${ent.classSource} :: ${ent.className} :: ${ent.subclassSource} :: ${ent.subclassShortName} :: ${name}`;
-					(positions[key] = positions[key] || []).push(keyIx);
-				}
-				break;
-			}
-			case "raceFeature": {
-				if (name != null && source != null) {
-					const key = `${source} :: ${ent.raceSource} :: ${ent.raceName} :: ${name}`;
-					(positions[key] = positions[key] || []).push(keyIx);
-				}
-				break;
-			}
-			case "subrace": {
-				if (name != null && source != null) {
-					const key = `${source} :: ${ent.raceSource} :: ${ent.raceName} :: ${name}`;
 					(positions[key] = positions[key] || []).push(keyIx);
 				}
 				break;
@@ -1539,7 +1499,6 @@ async function main () {
 		DeityDataCheck,
 		LootDataCheck,
 		ClassDataCheck,
-		RaceDataCheck,
 		FeatDataCheck,
 		BackgroundDataCheck,
 		BestiaryDataCheck,

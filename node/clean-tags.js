@@ -21,7 +21,6 @@ const TAGS_TO_CHECK = new Set([
 	"condition",
 	"disease",
 	"background",
-	"race",
 	"optfeature",
 	"reward",
 	"feat",

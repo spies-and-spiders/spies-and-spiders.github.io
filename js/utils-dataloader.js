@@ -907,14 +907,6 @@ class _DataTypeLoaderItemFluff extends _DataTypeLoaderSingleSource {
 	_filename = "fluff-items.json";
 }
 
-class _DataTypeLoaderRaceFluff extends _DataTypeLoaderSingleSource {
-	static PROPS = ["raceFluff"];
-	static PAGE = UrlUtil.PG_RACES;
-	static IS_FLUFF = true;
-
-	_filename = "fluff-races.json";
-}
-
 class _DataTypeLoaderLanguageFluff extends _DataTypeLoaderSingleSource {
 	static PROPS = ["languageFluff"];
 	static PAGE = UrlUtil.PG_LANGUAGES;
@@ -992,16 +984,6 @@ class _DataTypeLoaderPredefined extends _DataTypeLoader {
 		if (!DataUtil[this._loader].loadBrew) return super._pGetStoredBrewData();
 		return DataUtil[this._loader].loadBrew(this._loadBrewArgs);
 	}
-}
-
-class _DataTypeLoaderRace extends _DataTypeLoaderPredefined {
-	static PROPS = [...UrlUtil.PAGE_TO_PROPS[UrlUtil.PG_RACES]];
-	static PAGE = UrlUtil.PG_RACES;
-
-	_loader = "race";
-	_loadJsonArgs = {isAddBaseRaces: true};
-	_loadPrereleaseArgs = {isAddBaseRaces: true};
-	_loadBrewArgs = {isAddBaseRaces: true};
 }
 
 class _DataTypeLoaderDeity extends _DataTypeLoaderPredefined {
@@ -1741,8 +1723,6 @@ class DataLoader {
 		"optionalfeature": UrlUtil.PG_OPT_FEATURES,
 		"reward": UrlUtil.PG_REWARDS,
 		"charoption": UrlUtil.PG_CHAR_CREATION_OPTIONS,
-		"race": UrlUtil.PG_RACES,
-		"subrace": UrlUtil.PG_RACES,
 		"deity": UrlUtil.PG_DEITIES,
 		"variantrule": UrlUtil.PG_VARIANTRULES,
 		"table": UrlUtil.PG_TABLES,
@@ -1802,7 +1782,6 @@ class DataLoader {
 		// endregion
 
 		// region Predefined
-		_DataTypeLoaderRace.register({fnRegister});
 		_DataTypeLoaderDeity.register({fnRegister});
 		_DataTypeLoaderVariantrule.register({fnRegister});
 		_DataTypeLoaderTable.register({fnRegister});
@@ -1852,7 +1831,6 @@ class DataLoader {
 		_DataTypeLoaderOptionalfeatureFluff.register({fnRegister});
 		_DataTypeLoaderRewardFluff.register({fnRegister});
 		_DataTypeLoaderItemFluff.register({fnRegister});
-		_DataTypeLoaderRaceFluff.register({fnRegister});
 		_DataTypeLoaderLanguageFluff.register({fnRegister});
 		_DataTypeLoaderVehicleFluff.register({fnRegister});
 		_DataTypeLoaderObjectFluff.register({fnRegister});

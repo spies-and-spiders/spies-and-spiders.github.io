@@ -8,13 +8,6 @@ import "../js/render-dice.js";
 class TestFoundry {
 	static async pLoadData (originalFilename, originalPath) {
 		switch (originalFilename) {
-			case "races.json": {
-				ut.patchLoadJson();
-				const out = await DataUtil.race.loadJSON({isAddBaseRaces: true});
-				ut.unpatchLoadJson();
-				return out;
-			}
-
 			default: return ut.readJson(originalPath);
 		}
 	}
@@ -91,31 +84,6 @@ class TestFoundry {
 		}
 	}
 
-	static testSpecialRaceFeatures ({foundryData, originalDatas, errors}) {
-		const uidsRaceFeature = new Set();
-
-		const HASH_BUILDER = it => UrlUtil.encodeForHash([it.name, it.source, it.raceName, it.raceSource]);
-
-		originalDatas.forEach(originalData => {
-			originalData.race.forEach(race => {
-				DataUtil.generic.getVersions(race).forEach(ver => this._testSpecialRaceFeatures_addRace({HASH_BUILDER, uidsRaceFeature, race: ver}));
-				this._testSpecialRaceFeatures_addRace({HASH_BUILDER, uidsRaceFeature, race});
-			});
-		});
-
-		foundryData.raceFeature.forEach(raceFeature => {
-			const uid = HASH_BUILDER(raceFeature);
-			if (!uidsRaceFeature.has(uid)) errors.push(`\tSpecies feature "${uid}" not found!`);
-		});
-	}
-
-	static _testSpecialRaceFeatures_addRace ({HASH_BUILDER, uidsRaceFeature, race}) {
-		(race.entries || []).forEach(ent => {
-			const uid = HASH_BUILDER({source: race.source, ...ent, raceName: race.name, raceSource: race.source});
-			uidsRaceFeature.add(uid);
-		});
-	}
-
 	static async pTestSpecialMagicItemVariants ({foundryData, originalDatas, errors}) {
 		const variants = await this.pLoadData("magicvariants.json", `./data/magicvariants.json`);
 		const prop = "magicvariant";
@@ -143,7 +111,6 @@ class TestFoundry {
 }
 
 const SPECIAL_PROPS = {
-	"raceFeature": TestFoundry.testSpecialRaceFeatures.bind(TestFoundry),
 	"magicvariant": TestFoundry.pTestSpecialMagicItemVariants.bind(TestFoundry),
 };
 

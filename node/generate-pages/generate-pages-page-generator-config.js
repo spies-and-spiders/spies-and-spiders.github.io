@@ -305,7 +305,6 @@ class _PageGeneratorMakecards extends PageGeneratorGeneric {
 		"filter-bestiary.js",
 		"filter-items.js",
 		"filter-spells.js",
-		"filter-races.js",
 		"filter-backgrounds.js",
 		"filter-feats.js",
 		"filter-optionalfeatures.js",
@@ -399,7 +398,6 @@ class _PageGeneratorStatgen extends PageGeneratorGeneric {
 
 	_scriptsUtilsAdditional = [
 		"filter-common.js",
-		"filter-races.js",
 		"filter-backgrounds.js",
 		"filter-feats.js",
 	];

@@ -201,8 +201,6 @@ export class SpellBuilder extends BuilderBase {
 		] = this.__$getClassesInputs(cb);
 		$rowClasses.appendTo(sourcesTab.$wrpTab);
 		$rowSubclasses.appendTo(sourcesTab.$wrpTab);
-		const {$row: $rowRaces, doRefresh: doRefreshRaces} = this.__$getRaces(cb);
-		$rowRaces.appendTo(sourcesTab.$wrpTab);
 		const {$row: $rowBackgrounds, doRefresh: doRefreshBackgrounds} = this.__$getBackgrounds(cb);
 		$rowBackgrounds.appendTo(sourcesTab.$wrpTab);
 		const {$row: $rowOptionalFeatures, doRefresh: doRefreshOptionalFeatures} = this.__$getOptionalfeatures(cb);
@@ -216,7 +214,6 @@ export class SpellBuilder extends BuilderBase {
 		const fnsDoRefreshSources = [
 			doRefreshClasses,
 			doRefreshSubclasses,
-			doRefreshRaces,
 			doRefreshBackgrounds,
 			doRefreshOptionalFeatures,
 			doRefreshFeats,
@@ -918,82 +915,6 @@ export class SpellBuilder extends BuilderBase {
 
 		out.$wrp = $wrp;
 		subclassRows.push(out);
-		return out;
-	}
-
-	__$getRaces (cb) {
-		const [$row, $rowInner] = BuilderUi.getLabelledRowTuple("Species", {isMarked: true});
-
-		const doUpdateState = () => {
-			const races = raceRows.map(row => row.getRace()).filter(Boolean);
-			if (races.length) this._state.races = races;
-			else delete this._state.races;
-			cb();
-		};
-
-		const raceRows = [];
-
-		const $wrpRows = $(`<div></div>`).appendTo($rowInner);
-
-		const doRefresh = () => {
-			$wrpRows.empty();
-			raceRows.splice(0, raceRows.length);
-			(this._state.races || []).forEach(race => this.__$getRaces__getRaceRow(doUpdateState, raceRows, race).$wrp.appendTo($wrpRows));
-		};
-		doRefresh();
-
-		const $wrpBtnAdd = $(`<div></div>`).appendTo($rowInner);
-		$(`<button class="ve-btn ve-btn-xs ve-btn-default">Add Species</button>`)
-			.appendTo($wrpBtnAdd)
-			.click(() => {
-				this.__$getRaces__getRaceRow(doUpdateState, raceRows, null).$wrp.appendTo($wrpRows);
-				doUpdateState();
-			});
-
-		return {$row, doRefresh};
-	}
-
-	__$getRaces__getRaceRow (doUpdateState, raceRows, race) {
-		const getRace = () => {
-			const raceName = $iptRace.val().trim();
-			if (raceName) {
-				const out = {
-					name: raceName,
-					source: $selSource.val().unescapeQuotes(),
-				};
-				const baseRaceName = $iptBaseRace.val().trim();
-				if (baseRaceName) {
-					out.baseName = baseRaceName;
-					out.baseSource = $selBaseSource.val().unescapeQuotes();
-				}
-				return out;
-			} else return null;
-		};
-
-		const $iptRace = $(`<input class="form-control form-control--minimal input-xs">`)
-			.change(() => doUpdateState())
-			.val(race ? race.name : null);
-		const $iptBaseRace = $(`<input class="form-control form-control--minimal input-xs">`)
-			.change(() => doUpdateState())
-			.val(race ? race.baseName : null);
-
-		const $selSource = this._$getSelSource("$selRaceSources", doUpdateState, race ? race.source.escapeQuotes() : Parser.SRC_SNS);
-		const $selBaseSource = this._$getSelSource("$selBaseRaceSources", doUpdateState, race && race.baseSource ? race.baseSource.escapeQuotes() : Parser.SRC_SNS);
-
-		const out = {getRace};
-
-		const $wrpBtnRemove = $(`<div class="ve-text-right mb-2"></div>`);
-		const $wrp = $$`<div class="ve-flex-col mkbru__wrp-rows">
-			<div class="ve-flex-v-center mb-2"><span class="mr-2 mkbru__sub-name--33">Name</span>${$iptRace}</div>
-			<div class="ve-flex-v-center mb-2"><span class="mr-2 mkbru__sub-name--33">Source</span>${$selSource}</div>
-			<div class="ve-flex-v-center mb-2"><span class="mr-2 mkbru__sub-name--33 help" title="The name of the base race, e.g. &quot;Elf&quot;. This is used in filtering.">Base Name</span>${$iptBaseRace}</div>
-			<div class="ve-flex-v-center mb-2"><span class="mr-2 mkbru__sub-name--33 help" title="For example, the &quot;Elf&quot; base race has a source of &quot;${Parser.SRC_SNS}&quot;">Base Source</span>${$selBaseSource}</div>
-			${$wrpBtnRemove}
-		</div>`;
-		this.constructor.$getBtnRemoveRow(doUpdateState, raceRows, out, $wrp, "Species").appendTo($wrpBtnRemove);
-
-		out.$wrp = $wrp;
-		raceRows.push(out);
 		return out;
 	}
 

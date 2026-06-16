@@ -2108,38 +2108,6 @@ class SearchWidget {
 		);
 	}
 
-	static async pGetUserRaceSearch () {
-		// FIXME convert to be more like spell/creature search instead of running custom indexes
-		const dataSource = () => {
-			return DataUtil.race.loadJSON();
-		};
-		await SearchWidget.pLoadCustomIndex({
-			contentIndexName: "entity_Races",
-			errorName: "species",
-			customIndexSubSpecs: [
-				new SearchWidget.CustomIndexSubSpec({
-					dataSource,
-					prop: "race",
-					catId: Parser.CAT_ID_RACE,
-					page: UrlUtil.PG_RACES,
-				}),
-			],
-		});
-
-		return SearchWidget.pGetUserEntitySearch(
-			"Select Species",
-			"entity_Races",
-			{
-				fnTransform: doc => {
-					const cpy = MiscUtil.copyFast(doc);
-					Object.assign(cpy, SearchWidget.docToPageSourceHash(cpy));
-					cpy.tag = `{@race ${doc.n}${doc.s !== Parser.SRC_SNS ? `|${doc.s}` : ""}}`;
-					return cpy;
-				},
-			},
-		);
-	}
-
 	static async pGetUserOptionalFeatureSearch () {
 		// FIXME convert to be more like spell/creature search instead of running custom indexes
 		await SearchWidget.pLoadCustomIndex({

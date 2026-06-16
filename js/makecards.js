@@ -23,7 +23,6 @@ class MakeCards extends BaseComponent {
 		this._modalFilterItems = new ModalFilterItems({namespace: "makecards.items"});
 		this._modalFilterBestiary = new ModalFilterBestiary({namespace: "makecards.bestiary"});
 		this._modalFilterSpells = new ModalFilterSpells({namespace: "makecards.spells"});
-		this._modalFilterRaces = new ModalFilterRaces({namespace: "makecards.race"});
 		this._modalFilterBackgrounds = new ModalFilterBackgrounds({namespace: "makecards.background"});
 		this._modalFilterFeats = new ModalFilterFeats({namespace: "makecards.feat"});
 		this._modalFilterOptionalFeatures = new ModalFilterOptionalFeatures({namespace: "makecards.optionalfeatures"});
@@ -242,7 +241,6 @@ class MakeCards extends BaseComponent {
 						case "creature": return this._modalFilterBestiary;
 						case "item": return this._modalFilterItems;
 						case "spell": return this._modalFilterSpells;
-						case "race": return this._modalFilterRaces;
 						case "background": return this._modalFilterBackgrounds;
 						case "feat": return this._modalFilterFeats;
 						case "optionalfeature": return this._modalFilterOptionalFeatures;
@@ -540,16 +538,6 @@ class MakeCards extends BaseComponent {
 		].filter(Boolean);
 	}
 
-	static _getCardContents_race (race) {
-		return [
-			this._ct_property("Ability Scores", Renderer.getAbilityData(race.ability).asText),
-			this._ct_property("Size", (race.size || [Parser.SZ_VARIES]).map(sz => Parser.sizeAbvToFull(sz)).join("/")),
-			this._ct_property("Speed", Parser.getSpeedString(race)),
-			this._ct_rule(),
-			...this._ct_renderEntries(race.entries, 2),
-		].filter(Boolean);
-	}
-
 	static _getCardContents_background (bg) {
 		return [
 			...this._ct_renderEntries(bg.entries, 2),
@@ -766,18 +754,6 @@ MakeCards._AVAILABLE_TYPES = {
 			if (spell.duration.filter(d => d.concentration).length) out.push("concentration");
 			if (spell.meta?.ritual) out.push("ritual");
 			return out;
-		},
-	},
-	race: {
-		searchTitle: "Species",
-		pageTitle: "Species",
-		page: UrlUtil.PG_RACES,
-		colorDefault: "#a7894b",
-		iconDefault: "family-tree",
-		pFnSearch: SearchWidget.pGetUserRaceSearch,
-		fnGetContents: MakeCards._getCardContents_race.bind(MakeCards),
-		fnGetTags: (race) => {
-			return ["race", Parser.sourceJsonToAbv(race.source)];
 		},
 	},
 	background: {

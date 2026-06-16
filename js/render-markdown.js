@@ -1284,58 +1284,6 @@ RendererMarkdown.status = class {
 	}
 };
 
-RendererMarkdown.race = class {
-	static getCompactRenderedString (ent, opts = {}) {
-		const entries = [
-			{
-				type: "list",
-				style: "list-hang-notitle",
-				items: [
-					{
-						type: "item",
-						name: "Ability Scores",
-						entry: Renderer.getAbilityData(ent.ability).asText,
-					},
-					{
-						type: "item",
-						name: "Size",
-						entry: Renderer.race.getRenderedSize(ent),
-					},
-					{
-						type: "item",
-						name: "Speed",
-						entry: Parser.getSpeedString(ent),
-					},
-				],
-			},
-			Renderer.race.getRaceRenderableEntriesMeta(ent)?.entryMain,
-		]
-			.filter(Boolean);
-
-		const entFull = {
-			...ent,
-			entries,
-		};
-
-		const ptHeightAndWeight = this._getHeightAndWeightPart(ent);
-
-		return [
-			RendererMarkdown.utils.withMetaDepth(1, opts, () => {
-				return RendererMarkdown.generic.getCompactRenderedString(entFull, opts);
-			}),
-			ptHeightAndWeight ? `---\n\n${ptHeightAndWeight}` : null,
-		]
-			.filter(Boolean)
-			.join("");
-	}
-
-	static _getHeightAndWeightPart (race) {
-		if (!race.heightAndWeight) return null;
-		if (race._isBaseRace) return null;
-		return RendererMarkdown.get().render({entries: Renderer.race.getHeightAndWeightEntries(race, {isStatic: true})});
-	}
-};
-
 RendererMarkdown.feat = class {
 	static getCompactRenderedString (ent, opts = {}) {
 		const entries = [
