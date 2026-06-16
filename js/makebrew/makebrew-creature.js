@@ -98,7 +98,7 @@ export class CreatureBuilder extends BuilderBase {
 		delete creature.reprintedAs;
 		if (creature.variant) creature.variant.forEach(ent => delete ent._version);
 
-		// Semi-gracefully handle e.g. ERLW's Steel Defender
+		// Semi-gracefully handle e.g. summoned creatures with a non-numeric passive
 		if (creature.passive != null && typeof creature.passive === "string") delete creature.passive;
 
 		const meta = {...(opts.meta || {}), ...this._getInitialMetaState()};
