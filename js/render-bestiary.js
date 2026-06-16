@@ -200,7 +200,8 @@ class _RenderBestiaryImplBase {
 		const label = this._style === "classic" ? "Hit Points" : "HP";
 		const ptTitle = this._style === "classic" ? "" : `title="Hit Points"`;
 		const rendered = mon.hp == null ? "\u2014" : Renderer.monster.getRenderedHp(mon.hp);
-		return `<tr><td colspan="6"><div ${isInlinedToken ? `class="stats__wrp-avoid-token"` : ""}><strong ${ptTitle}>${label}</strong> ${rendered}</div></td></tr>`;
+		const ptInitiative = this._style === "classic" ? "" : `<div ${isInlinedToken ? `class="stats__wrp-avoid-token"` : ""}><strong title="Initiative">Initiative</strong> ${Renderer.monster.getInitiativePart(mon)}</div>`;
+		return `<tr><td colspan="6"><div ${isInlinedToken ? `class="stats__wrp-avoid-token"` : ""}><strong ${ptTitle}>${label}</strong> ${rendered}</div>${ptInitiative}</td></tr>`;
 	}
 
 	_getCommonHtmlParts_resources ({mon, isInlinedToken}) {
@@ -382,14 +383,7 @@ class _RenderBestiaryImplClassic extends _RenderBestiaryImplBase {
 	/* ----- */
 
 	_getHtmlParts_defences ({mon, renderer, isInlinedToken}) {
-		const fmt = (key, label, val) => val == null ? null : `<div><strong>${label}</strong> ${Parser.acToFull(val, {renderer, key})}</div>`;
-		const parts = [
-			fmt("arm", "Armour", mon.arm),
-			fmt("fort", "Fortitude", mon.fort),
-			fmt("ref", "Reflex", mon.ref),
-			fmt("wil", "Will", mon.wil),
-		].filter(Boolean).join("") || "\u2014";
-		return `<tr><td colspan="6"><div ${isInlinedToken ? `class="stats__wrp-avoid-token"` : ""}>${parts}</div></td></tr>`;
+		return `<tr><td colspan="6"><div ${isInlinedToken ? `class="stats__wrp-avoid-token"` : ""}>${Renderer.monster.getRenderedDefences(mon, {renderer})}</div></td></tr>`;
 	}
 
 	/* ----- */
@@ -581,19 +575,7 @@ class _RenderBestiaryImplOne extends _RenderBestiaryImplBase {
 	/* ----- */
 
 	_getHtmlParts_defences ({mon, renderer, isInlinedToken}) {
-		const fmt = (key, abbr, label, val) => `<div><strong title="${label}">${abbr}</strong> ${val == null ? "\u2014" : Parser.acToFull(val, {renderer, key})}</div>`;
-		const defPart = [
-			fmt("arm", "Arm", "Armour", mon.arm),
-			fmt("fort", "Fort", "Fortitude", mon.fort),
-			fmt("ref", "Ref", "Reflex", mon.ref),
-			fmt("wil", "Wil", "Will", mon.wil),
-		].join("");
-		return `<tr><td colspan="6">
-			<div class="split-v-center ${isInlinedToken ? `stats__wrp-avoid-token` : ""}">
-				<div>${defPart}</div>
-				<div><strong>Initiative</strong> ${Renderer.monster.getInitiativePart(mon)}</div>
-			</div>
-		</td></tr>`;
+		return `<tr><td colspan="6"><div ${isInlinedToken ? `class="stats__wrp-avoid-token"` : ""}>${Renderer.monster.getRenderedDefences(mon, {renderer})}</div></td></tr>`;
 	}
 
 	_getHtmlParts_immunities ({mon}) {
