@@ -48,7 +48,7 @@
             "{@filter Techniques Known|optionalfeatures|feature type=pt}",
             "{@filter Focus Features|optionalfeatures|feature type=ff}",
             "Bonus Exertion",
-            "{@filter Maneuvers Known|spells|school=M}",
+            "{@filter Maneuvers Known|maneuvers}",
             "Maneuver Degree"
           ],
           "rows": [
@@ -66,7 +66,7 @@
               0,
               0,
               2,
-              "{@filter 1st|spells|school=M|level=1}"
+              "{@filter 1st|maneuvers|degree=1}"
             ],
             [
               "{@dice 1d4}",
@@ -74,7 +74,7 @@
               1,
               0,
               2,
-              "{@filter 1st|spells|school=M|level=1}"
+              "{@filter 1st|maneuvers|degree=1}"
             ],
             [
               "{@dice 1d4}",
@@ -82,7 +82,7 @@
               2,
               1,
               3,
-              "{@filter 2nd|spells|school=M|level=2}"
+              "{@filter 2nd|maneuvers|degree=2}"
             ],
             [
               "{@dice 1d6}",
@@ -90,7 +90,7 @@
               3,
               1,
               3,
-              "{@filter 2nd|spells|school=M|level=2}"
+              "{@filter 2nd|maneuvers|degree=2}"
             ],
             [
               "{@dice 1d6}",
@@ -98,7 +98,7 @@
               4,
               2,
               4,
-              "{@filter 2nd|spells|school=M|level=2}"
+              "{@filter 2nd|maneuvers|degree=2}"
             ],
             [
               "{@dice 1d6}",
@@ -106,7 +106,7 @@
               5,
               3,
               4,
-              "{@filter 2nd|spells|school=M|level=2}"
+              "{@filter 2nd|maneuvers|degree=2}"
             ],
             [
               "{@dice 1d6}",
@@ -114,7 +114,7 @@
               6,
               3,
               5,
-              "{@filter 3rd|spells|school=M|level=3}"
+              "{@filter 3rd|maneuvers|degree=3}"
             ],
             [
               "{@dice 1d6}",
@@ -122,7 +122,7 @@
               7,
               4,
               5,
-              "{@filter 3rd|spells|school=M|level=3}"
+              "{@filter 3rd|maneuvers|degree=3}"
             ],
             [
               "{@dice 1d6}",
@@ -130,7 +130,7 @@
               8,
               4,
               6,
-              "{@filter 3rd|spells|school=M|level=3}"
+              "{@filter 3rd|maneuvers|degree=3}"
             ],
             [
               "{@dice 1d8}",
@@ -138,7 +138,7 @@
               9,
               5,
               6,
-              "{@filter 3rd|spells|school=M|level=3}"
+              "{@filter 3rd|maneuvers|degree=3}"
             ],
             [
               "{@dice 1d8}",
@@ -146,7 +146,7 @@
               10,
               5,
               6,
-              "{@filter 3rd|spells|school=M|level=3}"
+              "{@filter 3rd|maneuvers|degree=3}"
             ],
             [
               "{@dice 1d8}",
@@ -154,7 +154,7 @@
               11,
               6,
               7,
-              "{@filter 4th|spells|school=M|level=4}"
+              "{@filter 4th|maneuvers|degree=4}"
             ],
             [
               "{@dice 1d8}",
@@ -162,7 +162,7 @@
               12,
               7,
               7,
-              "{@filter 4th|spells|school=M|level=4}"
+              "{@filter 4th|maneuvers|degree=4}"
             ],
             [
               "{@dice 1d8}",
@@ -170,7 +170,7 @@
               13,
               7,
               8,
-              "{@filter 4th|spells|school=M|level=4}"
+              "{@filter 4th|maneuvers|degree=4}"
             ],
             [
               "{@dice 1d10}",
@@ -178,7 +178,7 @@
               14,
               8,
               8,
-              "{@filter 4th|spells|school=M|level=4}"
+              "{@filter 4th|maneuvers|degree=4}"
             ],
             [
               "{@dice 1d10}",
@@ -186,7 +186,7 @@
               15,
               8,
               9,
-              "{@filter 5th|spells|school=M|level=5}"
+              "{@filter 5th|maneuvers|degree=5}"
             ],
             [
               "{@dice 1d10}",
@@ -194,7 +194,7 @@
               16,
               9,
               9,
-              "{@filter 5th|spells|school=M|level=5}"
+              "{@filter 5th|maneuvers|degree=5}"
             ],
             [
               "{@dice 1d10}",
@@ -202,7 +202,7 @@
               17,
               9,
               10,
-              "{@filter 5th|spells|school=M|level=5}"
+              "{@filter 5th|maneuvers|degree=5}"
             ],
             [
               "{@dice 1d10}",
@@ -210,7 +210,7 @@
               18,
               10,
               10,
-              "{@filter 5th|spells|school=M|level=5}"
+              "{@filter 5th|maneuvers|degree=5}"
             ]
           ]
         }
@@ -462,7 +462,7 @@
       "classSource": "sns",
       "level": 2,
       "entries": [
-        "At 2nd level, you gain the ability to use combat maneuvers. You gain proficiency in two combat traditions from the following list: {@filter Mirror's Glint|spells|Subschool=mirror's glint|}, {@filter Rapid Current|spells|Subschool=rapid current|}, {@filter Razor's Edge|spells|Subschool=razor's edge|}, {@filter Unending Wheel|spells|Subschool=undending wheel|}. You can learn two maneuvers of your choice from traditions you are proficient with.",
+        "At 2nd level, you gain the ability to use combat maneuvers. You gain proficiency in two combat traditions from the following list: {@filter Mirror's Glint|maneuvers|Tradition=mirror's glint|}, {@filter Rapid Current|maneuvers|Tradition=rapid current|}, {@filter Razor's Edge|maneuvers|Tradition=razor's edge|}, {@filter Unending Wheel|maneuvers|Tradition=undending wheel|}. You can learn two maneuvers of your choice from traditions you are proficient with.",
         "You gain an exertion pool equal to twice your proficiency bonus, regaining any spent exertion at the end of a short or long rest. You use your maneuvers by spending points from your exertion pool. The Manuevers Known column of the Adept table shows when you learn more maneuvers from a tradition you are proficient with, while the Maneuver Degree column shows the highest degree you can select maneuvers from at a given level.",
         "Additionally, whenever you take a long rest, you can replace any of your maneuvers with new ones of the same degree from a tradition you are proficient with.",
         "As an adept, you gain a +1 bonus to non-armour attack rolls made by your maneuvers."

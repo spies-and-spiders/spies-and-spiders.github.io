@@ -53,7 +53,7 @@
           "colLabels": [
             "Sneak Attack",
             "{@filter Tricks Known|optionalfeatures|feature type=st}",
-            "{@filter Maneuvers Known|spells|Subschool=biting zephyr;mist and shade;rapid current}",
+            "{@filter Maneuvers Known|maneuvers|Tradition=biting zephyr;mist and shade;rapid current}",
             "Maneuver Degree"
           ],
           "rows": [
@@ -83,7 +83,7 @@
               },
               1,
               2,
-              "{@filter 1st|spells|Subschool=biting zephyr;mist and shade;rapid current|level=1}"
+              "{@filter 1st|maneuvers|Tradition=biting zephyr;mist and shade;rapid current|degree=1}"
             ],
             [
               {
@@ -97,7 +97,7 @@
               },
               2,
               2,
-              "{@filter 1st|spells|Subschool=biting zephyr;mist and shade;rapid current|level=1}"
+              "{@filter 1st|maneuvers|Tradition=biting zephyr;mist and shade;rapid current|degree=1}"
             ],
             [
               {
@@ -111,7 +111,7 @@
               },
               2,
               3,
-              "{@filter 1st|spells|Subschool=biting zephyr;mist and shade;rapid current|level=1}"
+              "{@filter 1st|maneuvers|Tradition=biting zephyr;mist and shade;rapid current|degree=1}"
             ],
             [
               {
@@ -125,7 +125,7 @@
               },
               3,
               3,
-              "{@filter 1st|spells|Subschool=biting zephyr;mist and shade;rapid current|level=1}"
+              "{@filter 1st|maneuvers|Tradition=biting zephyr;mist and shade;rapid current|degree=1}"
             ],
             [
               {
@@ -139,7 +139,7 @@
               },
               3,
               3,
-              "{@filter 1st|spells|Subschool=biting zephyr;mist and shade;rapid current|level=1}"
+              "{@filter 1st|maneuvers|Tradition=biting zephyr;mist and shade;rapid current|degree=1}"
             ],
             [
               {
@@ -153,7 +153,7 @@
               },
               4,
               4,
-              "{@filter 2nd|spells|Subschool=biting zephyr;mist and shade;rapid current|level=2}"
+              "{@filter 2nd|maneuvers|Tradition=biting zephyr;mist and shade;rapid current|degree=2}"
             ],
             [
               {
@@ -167,7 +167,7 @@
               },
               4,
               4,
-              "{@filter 2nd|spells|Subschool=biting zephyr;mist and shade;rapid current|level=2}"
+              "{@filter 2nd|maneuvers|Tradition=biting zephyr;mist and shade;rapid current|degree=2}"
             ],
             [
               {
@@ -181,7 +181,7 @@
               },
               5,
               4,
-              "{@filter 2nd|spells|Subschool=biting zephyr;mist and shade;rapid current|level=2}"
+              "{@filter 2nd|maneuvers|Tradition=biting zephyr;mist and shade;rapid current|degree=2}"
             ],
             [
               {
@@ -195,7 +195,7 @@
               },
               5,
               5,
-              "{@filter 2nd|spells|Subschool=biting zephyr;mist and shade;rapid current|level=2}"
+              "{@filter 2nd|maneuvers|Tradition=biting zephyr;mist and shade;rapid current|degree=2}"
             ],
             [
               {
@@ -209,7 +209,7 @@
               },
               6,
               5,
-              "{@filter 2nd|spells|Subschool=biting zephyr;mist and shade;rapid current|level=2}"
+              "{@filter 2nd|maneuvers|Tradition=biting zephyr;mist and shade;rapid current|degree=2}"
             ],
             [
               {
@@ -223,7 +223,7 @@
               },
               6,
               5,
-              "{@filter 2nd|spells|Subschool=biting zephyr;mist and shade;rapid current|level=2}"
+              "{@filter 2nd|maneuvers|Tradition=biting zephyr;mist and shade;rapid current|degree=2}"
             ],
             [
               {
@@ -237,7 +237,7 @@
               },
               7,
               6,
-              "{@filter 3rd|spells|Subschool=biting zephyr;mist and shade;rapid current|level=3}"
+              "{@filter 3rd|maneuvers|Tradition=biting zephyr;mist and shade;rapid current|degree=3}"
             ],
             [
               {
@@ -251,7 +251,7 @@
               },
               7,
               6,
-              "{@filter 3rd|spells|Subschool=biting zephyr;mist and shade;rapid current|level=3}"
+              "{@filter 3rd|maneuvers|Tradition=biting zephyr;mist and shade;rapid current|degree=3}"
             ],
             [
               {
@@ -265,7 +265,7 @@
               },
               8,
               6,
-              "{@filter 3rd|spells|Subschool=biting zephyr;mist and shade;rapid current|level=3}"
+              "{@filter 3rd|maneuvers|Tradition=biting zephyr;mist and shade;rapid current|degree=3}"
             ],
             [
               {
@@ -279,7 +279,7 @@
               },
               8,
               7,
-              "{@filter 3rd|spells|Subschool=biting zephyr;mist and shade;rapid current|level=3}"
+              "{@filter 3rd|maneuvers|Tradition=biting zephyr;mist and shade;rapid current|degree=3}"
             ],
             [
               {
@@ -293,7 +293,7 @@
               },
               9,
               7,
-              "{@filter 3rd|spells|Subschool=biting zephyr;mist and shade;rapid current|level=3}"
+              "{@filter 3rd|maneuvers|Tradition=biting zephyr;mist and shade;rapid current|degree=3}"
             ],
             [
               {
@@ -307,7 +307,7 @@
               },
               9,
               7,
-              "{@filter 3rd|spells|Subschool=biting zephyr;mist and shade;rapid current|level=3}"
+              "{@filter 3rd|maneuvers|Tradition=biting zephyr;mist and shade;rapid current|degree=3}"
             ],
             [
               {
@@ -321,7 +321,7 @@
               },
               10,
               8,
-              "{@filter 4th|spells|Subschool=biting zephyr;mist and shade;rapid current|level=4}"
+              "{@filter 4th|maneuvers|Tradition=biting zephyr;mist and shade;rapid current|degree=4}"
             ],
             [
               {
@@ -335,7 +335,7 @@
               },
               10,
               8,
-              "{@filter 4th|spells|Subschool=biting zephyr;mist and shade;rapid current|level=4}"
+              "{@filter 4th|maneuvers|Tradition=biting zephyr;mist and shade;rapid current|degree=4}"
             ]
           ]
         }
@@ -438,7 +438,7 @@
       "classSource": "sns",
       "level": 2,
       "entries": [
-        "At 2nd level, you gain the ability to use combat maneuvers. You gain proficiency in two combat traditions from the following list: {@filter Biting Zephyr, Mist and Shade, or Rapid Current|spells|Subschool=biting zephyr;mist and shade;rapid current}. You learn two maneuvers of your choice from traditions you are proficient with.",
+        "At 2nd level, you gain the ability to use combat maneuvers. You gain proficiency in two combat traditions from the following list: {@filter Biting Zephyr, Mist and Shade, or Rapid Current|maneuvers|Tradition=biting zephyr;mist and shade;rapid current}. You learn two maneuvers of your choice from traditions you are proficient with.",
         "You gain an exertion pool equal to twice your proficiency bonus, regaining any spent exertion at the end of a short or long rest. You use your maneuvers by spending points from your exertion pool. The Maneuvers Known column of the Rogue table shows when you learn more maneuvers from a tradition you are proficient with, while the Maneuver Degree column shows the highest degree you can select maneuvers from at a given level.",
         "Additionally, whenever you complete a long rest, you can choose one of the maneuvers you know and replace it with another maneuver of the same degree from a tradition you are proficient with."
       ]

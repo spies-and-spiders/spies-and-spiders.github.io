@@ -58,7 +58,7 @@ class NavBar {
 		this._addElement_li(NavBar._CAT_PLAYER, "classes.html", "Classes");
 		this._addElement_li(NavBar._CAT_PLAYER, "backgrounds.html", "Backgrounds");
 		this._addElement_li(NavBar._CAT_PLAYER, "feats.html", "Feats");
-		this._addElement_li(NavBar._CAT_PLAYER, "races.html", "Species");
+		this._addElement_li(NavBar._CAT_PLAYER, "maneuvers.html", "Maneuvers");
 		this._addElement_li(NavBar._CAT_PLAYER, "charcreationoptions.html", "Other Character Creation Options");
 		this._addElement_li(NavBar._CAT_PLAYER, "optionalfeatures.html", "Other Options & Features");
 		this._addElement_divider(NavBar._CAT_PLAYER);

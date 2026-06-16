@@ -50,7 +50,7 @@
         {
           "colLabels": [
             "{@filter Knacks Known|optionalfeatures|feature type=ek}",
-            "{@filter Maneuvers Known|spells|Subschool=biting zephyr;mirror's glint;rapid current;razor's edge;spirited steed;unending wheel}",
+            "{@filter Maneuvers Known|maneuvers|Tradition=biting zephyr;mirror's glint;rapid current;razor's edge;spirited steed;unending wheel}",
             "Maneuver Degree"
           ],
           "rows": [
@@ -62,97 +62,97 @@
             [
               3,
               2,
-              "{@filter 1st|spells|Subschool=biting zephyr;mirror's glint;rapid current;razor's edge;spirited steed;unending wheel|level=1}"
+              "{@filter 1st|maneuvers|Tradition=biting zephyr;mirror's glint;rapid current;razor's edge;spirited steed;unending wheel|degree=1}"
             ],
             [
               3,
               3,
-              "{@filter 1st|spells|Subschool=biting zephyr;mirror's glint;rapid current;razor's edge;spirited steed;unending wheel|level=1}"
+              "{@filter 1st|maneuvers|Tradition=biting zephyr;mirror's glint;rapid current;razor's edge;spirited steed;unending wheel|degree=1}"
             ],
             [
               4,
               3,
-              "{@filter 1st|spells|Subschool=biting zephyr;mirror's glint;rapid current;razor's edge;spirited steed;unending wheel|level=1}"
+              "{@filter 1st|maneuvers|Tradition=biting zephyr;mirror's glint;rapid current;razor's edge;spirited steed;unending wheel|degree=1}"
             ],
             [
               4,
               4,
-              "{@filter 2nd|spells|Subschool=biting zephyr;mirror's glint;rapid current;razor's edge;spirited steed;unending wheel|level=2}"
+              "{@filter 2nd|maneuvers|Tradition=biting zephyr;mirror's glint;rapid current;razor's edge;spirited steed;unending wheel|degree=2}"
             ],
             [
               5,
               4,
-              "{@filter 2nd|spells|Subschool=biting zephyr;mirror's glint;rapid current;razor's edge;spirited steed;unending wheel|level=2}"
+              "{@filter 2nd|maneuvers|Tradition=biting zephyr;mirror's glint;rapid current;razor's edge;spirited steed;unending wheel|degree=2}"
             ],
             [
               5,
               5,
-              "{@filter 2nd|spells|Subschool=biting zephyr;mirror's glint;rapid current;razor's edge;spirited steed;unending wheel|level=2}"
+              "{@filter 2nd|maneuvers|Tradition=biting zephyr;mirror's glint;rapid current;razor's edge;spirited steed;unending wheel|degree=2}"
             ],
             [
               6,
               5,
-              "{@filter 2nd|spells|Subschool=biting zephyr;mirror's glint;rapid current;razor's edge;spirited steed;unending wheel|level=2}"
+              "{@filter 2nd|maneuvers|Tradition=biting zephyr;mirror's glint;rapid current;razor's edge;spirited steed;unending wheel|degree=2}"
             ],
             [
               6,
               6,
-              "{@filter 3rd|spells|Subschool=biting zephyr;mirror's glint;rapid current;razor's edge;spirited steed;unending wheel|level=3}"
+              "{@filter 3rd|maneuvers|Tradition=biting zephyr;mirror's glint;rapid current;razor's edge;spirited steed;unending wheel|degree=3}"
             ],
             [
               7,
               6,
-              "{@filter 3rd|spells|Subschool=biting zephyr;mirror's glint;rapid current;razor's edge;spirited steed;unending wheel|level=3}"
+              "{@filter 3rd|maneuvers|Tradition=biting zephyr;mirror's glint;rapid current;razor's edge;spirited steed;unending wheel|degree=3}"
             ],
             [
               7,
               7,
-              "{@filter 3rd|spells|Subschool=biting zephyr;mirror's glint;rapid current;razor's edge;spirited steed;unending wheel|level=3}"
+              "{@filter 3rd|maneuvers|Tradition=biting zephyr;mirror's glint;rapid current;razor's edge;spirited steed;unending wheel|degree=3}"
             ],
             [
               8,
               7,
-              "{@filter 3rd|spells|Subschool=biting zephyr;mirror's glint;rapid current;razor's edge;spirited steed;unending wheel|level=3}"
+              "{@filter 3rd|maneuvers|Tradition=biting zephyr;mirror's glint;rapid current;razor's edge;spirited steed;unending wheel|degree=3}"
             ],
             [
               8,
               8,
-              "{@filter 4th|spells|Subschool=biting zephyr;mirror's glint;rapid current;razor's edge;spirited steed;unending wheel|level=4}"
+              "{@filter 4th|maneuvers|Tradition=biting zephyr;mirror's glint;rapid current;razor's edge;spirited steed;unending wheel|degree=4}"
             ],
             [
               9,
               8,
-              "{@filter 4th|spells|Subschool=biting zephyr;mirror's glint;rapid current;razor's edge;spirited steed;unending wheel|level=4}"
+              "{@filter 4th|maneuvers|Tradition=biting zephyr;mirror's glint;rapid current;razor's edge;spirited steed;unending wheel|degree=4}"
             ],
             [
               9,
               9,
-              "{@filter 4th|spells|Subschool=biting zephyr;mirror's glint;rapid current;razor's edge;spirited steed;unending wheel|level=4}"
+              "{@filter 4th|maneuvers|Tradition=biting zephyr;mirror's glint;rapid current;razor's edge;spirited steed;unending wheel|degree=4}"
             ],
             [
               10,
               9,
-              "{@filter 4th|spells|Subschool=biting zephyr;mirror's glint;rapid current;razor's edge;spirited steed;unending wheel|level=4}"
+              "{@filter 4th|maneuvers|Tradition=biting zephyr;mirror's glint;rapid current;razor's edge;spirited steed;unending wheel|degree=4}"
             ],
             [
               10,
               10,
-              "{@filter 5th|spells|Subschool=biting zephyr;mirror's glint;rapid current;razor's edge;spirited steed;unending wheel|level=5}"
+              "{@filter 5th|maneuvers|Tradition=biting zephyr;mirror's glint;rapid current;razor's edge;spirited steed;unending wheel|degree=5}"
             ],
             [
               11,
               10,
-              "{@filter 5th|spells|Subschool=biting zephyr;mirror's glint;rapid current;razor's edge;spirited steed;unending wheel|level=5}"
+              "{@filter 5th|maneuvers|Tradition=biting zephyr;mirror's glint;rapid current;razor's edge;spirited steed;unending wheel|degree=5}"
             ],
             [
               11,
               11,
-              "{@filter 5th|spells|Subschool=biting zephyr;mirror's glint;rapid current;razor's edge;spirited steed;unending wheel|level=5}"
+              "{@filter 5th|maneuvers|Tradition=biting zephyr;mirror's glint;rapid current;razor's edge;spirited steed;unending wheel|degree=5}"
             ],
             [
               12,
               11,
-              "{@filter 5th|spells|Subschool=biting zephyr;mirror's glint;rapid current;razor's edge;spirited steed;unending wheel|level=5}"
+              "{@filter 5th|maneuvers|Tradition=biting zephyr;mirror's glint;rapid current;razor's edge;spirited steed;unending wheel|degree=5}"
             ]
           ]
         }
@@ -1033,7 +1033,7 @@
       "classSource": "sns",
       "level": 2,
       "entries": [
-        "At 2nd level, you gain the ability to use combat maneuvers. You gain proficiency in two combat traditions from the following list: {@filter Biting Zephyr|spells|Subschool=biting zephyr|}, {@filter Mirror's Glint|spells|Subschool=mirror's glint|}, {@filter Rapid Current|spells|Subschool=rapid current|}, {@filter Razor's Edge|spells|Subschool=razor's edge|}, {@filter Spirited Steed|spells|Subschool=spirited steed|}, and {@filter Unending Wheel|spells|Subschool=unending wheel|}. You can learn two maneuvers of your choice from traditions you are proficient with.",
+        "At 2nd level, you gain the ability to use combat maneuvers. You gain proficiency in two combat traditions from the following list: {@filter Biting Zephyr|maneuvers|Tradition=biting zephyr|}, {@filter Mirror's Glint|maneuvers|Tradition=mirror's glint|}, {@filter Rapid Current|maneuvers|Tradition=rapid current|}, {@filter Razor's Edge|maneuvers|Tradition=razor's edge|}, {@filter Spirited Steed|maneuvers|Tradition=spirited steed|}, and {@filter Unending Wheel|maneuvers|Tradition=unending wheel|}. You can learn two maneuvers of your choice from traditions you are proficient with.",
         "You gain an exertion pool equal to twice your proficiency bonus, regaining any spent exertion at the end of a short or long rest. You use your maneuvers by spending points from your exertion pool. The Manuevers Known column of the Ranger table shows when you learn more maneuvers from a tradition you are proficient with, while the Maneuver Degree column shows the highest degree you can select maneuvers from at a given level.",
         "Additionally, whenever you take a long rest, you can choose any number of the maneuvers you know and replace them with the same number of other maneuvers of the same degree from a tradition you are proficient with."
       ]
@@ -1363,7 +1363,7 @@
       "classSource": "sns",
       "level": 9,
       "entries": [
-        "At 9th level you gain the {@spell Missile Volley|sns} or {@spell Whirlind Strike|sns} combat maneuver. It does not count against your number of maneuvers known and you do not have to spend exertion points to activate it."
+        "At 9th level you gain the {@maneuver Missile Volley|sns} or {@maneuver Whirlwind Strike|sns} combat maneuver. It does not count against your number of maneuvers known and you do not have to spend exertion points to activate it."
       ]
     },
     {
@@ -2074,7 +2074,7 @@
         "EW"
       ],
       "entries": [
-        "A creature can target the celestial with the {@spell grab on|sns} basic maneuver, regardless of size difference. Only one creature can grab onto the celestial in this way at a time, and while doing so, the celestial cannot make attacks against the grabber unless it rolls over to do so, has disadvantage on all attacks, and deals double damage to its grabber if it manages to dislodge them."
+        "A creature can target the celestial with the {@maneuver grab on|sns} basic maneuver, regardless of size difference. Only one creature can grab onto the celestial in this way at a time, and while doing so, the celestial cannot make attacks against the grabber unless it rolls over to do so, has disadvantage on all attacks, and deals double damage to its grabber if it manages to dislodge them."
       ]
     },
     {
@@ -2174,7 +2174,7 @@
         "EW"
       ],
       "entries": [
-        "The next time a {@filter spell with the negation subschool|spells|Subschool=negation} is cast on the construct, or its area includes the construct, the construct becomes {@condition restrained} by the caster and {@condition brittle} for the remainder of combat."
+        "The next time a {@filter spell with the negation subschool|maneuvers|Tradition=negation} is cast on the construct, or its area includes the construct, the construct becomes {@condition restrained} by the caster and {@condition brittle} for the remainder of combat."
       ]
     },
     {
@@ -2424,7 +2424,7 @@
         "EW"
       ],
       "entries": [
-        "Whenever the fiend is directly affected by a {@filter spell with the air subschool|spells|Subschool=air}, it loses hit points equal to quadruple your proficiency bonus."
+        "Whenever the fiend is directly affected by a {@filter spell with the air subschool|maneuvers|Tradition=air}, it loses hit points equal to quadruple your proficiency bonus."
       ]
     },
     {
@@ -2544,7 +2544,7 @@
         "EW"
       ],
       "entries": [
-        "The next time a {@filter spell with the prismatic subschool|spells|Subschool=prismatic} produces an effect within 60 feet of the giant and within its line of sight, the giant becomes {@condition dominated} by the caster for the remainder of combat."
+        "The next time a {@filter spell with the prismatic subschool|maneuvers|Tradition=prismatic} produces an effect within 60 feet of the giant and within its line of sight, the giant becomes {@condition dominated} by the caster for the remainder of combat."
       ]
     },
     {
@@ -2744,7 +2744,7 @@
         "EW"
       ],
       "entries": [
-        "Whenever a {@filter spell with the water subschool|spells|Subschool=water} is cast on the ooze, or its area includes the ooze, the ooze loses hit points equal to 8 times your proficiency bonus."
+        "Whenever a {@filter spell with the water subschool|maneuvers|Tradition=water} is cast on the ooze, or its area includes the ooze, the ooze loses hit points equal to 8 times your proficiency bonus."
       ]
     },
     {
@@ -2764,7 +2764,7 @@
         "EW"
       ],
       "entries": [
-        "The next time a {@filter spell with the earth subschool|spells|Subschool=earth} is cast on the ooze, or its area includes the ooze, the ooze loses the ability to score major successes with its attacks for the remainder of combat; its major successes are instead counted as standard successes."
+        "The next time a {@filter spell with the earth subschool|maneuvers|Tradition=earth} is cast on the ooze, or its area includes the ooze, the ooze loses the ability to score major successes with its attacks for the remainder of combat; its major successes are instead counted as standard successes."
       ]
     },
     {
@@ -2824,7 +2824,7 @@
         "EW"
       ],
       "entries": [
-        "The plant gains 50% vulnerability to the damage of minions and {@filter spells with the beasts subschool|spells|Subschool=beasts} for the remainder of combat."
+        "The plant gains 50% vulnerability to the damage of minions and {@filter spells with the beasts subschool|maneuvers|Tradition=beasts} for the remainder of combat."
       ]
     },
     {

@@ -52,7 +52,7 @@
           "colLabels": [
             "{@filter Lessons Known|optionalfeatures|feature type=dl}",
             "Smite Damage",
-            "{@filter Maneuvers Known|spells|Subschool=sanguine knot;spirited steed;tempered iron}",
+            "{@filter Maneuvers Known|maneuvers|Tradition=sanguine knot;spirited steed;tempered iron}",
             "Maneuver Degree",
             "{@filter Cantrips Known|spells|level=0|class=herald (sns)}"
           ],
@@ -68,133 +68,133 @@
               0,
               "{@dice 1d8}",
               2,
-              "{@filter 1st|spells|Subschool=sanguine knot;spirited steed;tempered iron|level=1}",
+              "{@filter 1st|maneuvers|Tradition=sanguine knot;spirited steed;tempered iron|degree=1}",
               2
             ],
             [
               1,
               "{@dice 1d8}",
               2,
-              "{@filter 1st|spells|Subschool=sanguine knot;spirited steed;tempered iron|level=1}",
+              "{@filter 1st|maneuvers|Tradition=sanguine knot;spirited steed;tempered iron|degree=1}",
               2
             ],
             [
               1,
               "{@dice 1d8}",
               3,
-              "{@filter 1st|spells|Subschool=sanguine knot;spirited steed;tempered iron|level=1}",
+              "{@filter 1st|maneuvers|Tradition=sanguine knot;spirited steed;tempered iron|degree=1}",
               2
             ],
             [
               2,
               "{@dice 2d8}",
               3,
-              "{@filter 1st|spells|Subschool=sanguine knot;spirited steed;tempered iron|level=1}",
+              "{@filter 1st|maneuvers|Tradition=sanguine knot;spirited steed;tempered iron|degree=1}",
               3
             ],
             [
               2,
               "{@dice 2d8}",
               3,
-              "{@filter 1st|spells|Subschool=sanguine knot;spirited steed;tempered iron|level=1}",
+              "{@filter 1st|maneuvers|Tradition=sanguine knot;spirited steed;tempered iron|degree=1}",
               3
             ],
             [
               3,
               "{@dice 2d8}",
               4,
-              "{@filter 2nd|spells|Subschool=sanguine knot;spirited steed;tempered iron|level=2}",
+              "{@filter 2nd|maneuvers|Tradition=sanguine knot;spirited steed;tempered iron|degree=2}",
               3
             ],
             [
               3,
               "{@dice 2d8}",
               4,
-              "{@filter 2nd|spells|Subschool=sanguine knot;spirited steed;tempered iron|level=2}",
+              "{@filter 2nd|maneuvers|Tradition=sanguine knot;spirited steed;tempered iron|degree=2}",
               3
             ],
             [
               4,
               "{@dice 3d8}",
               4,
-              "{@filter 2nd|spells|Subschool=sanguine knot;spirited steed;tempered iron|level=2}",
+              "{@filter 2nd|maneuvers|Tradition=sanguine knot;spirited steed;tempered iron|degree=2}",
               4
             ],
             [
               4,
               "{@dice 3d8}",
               5,
-              "{@filter 2nd|spells|Subschool=sanguine knot;spirited steed;tempered iron|level=2}",
+              "{@filter 2nd|maneuvers|Tradition=sanguine knot;spirited steed;tempered iron|degree=2}",
               4
             ],
             [
               5,
               "{@dice 3d8}",
               5,
-              "{@filter 2nd|spells|Subschool=sanguine knot;spirited steed;tempered iron|level=2}",
+              "{@filter 2nd|maneuvers|Tradition=sanguine knot;spirited steed;tempered iron|degree=2}",
               4
             ],
             [
               5,
               "{@dice 3d8}",
               5,
-              "{@filter 2nd|spells|Subschool=sanguine knot;spirited steed;tempered iron|level=2}",
+              "{@filter 2nd|maneuvers|Tradition=sanguine knot;spirited steed;tempered iron|degree=2}",
               4
             ],
             [
               5,
               "{@dice 4d8}",
               6,
-              "{@filter 3rd|spells|Subschool=sanguine knot;spirited steed;tempered iron|level=3}",
+              "{@filter 3rd|maneuvers|Tradition=sanguine knot;spirited steed;tempered iron|degree=3}",
               4
             ],
             [
               6,
               "{@dice 4d8}",
               6,
-              "{@filter 3rd|spells|Subschool=sanguine knot;spirited steed;tempered iron|level=3}",
+              "{@filter 3rd|maneuvers|Tradition=sanguine knot;spirited steed;tempered iron|degree=3}",
               4
             ],
             [
               6,
               "{@dice 4d8}",
               6,
-              "{@filter 3rd|spells|Subschool=sanguine knot;spirited steed;tempered iron|level=3}",
+              "{@filter 3rd|maneuvers|Tradition=sanguine knot;spirited steed;tempered iron|degree=3}",
               4
             ],
             [
               6,
               "{@dice 4d8}",
               7,
-              "{@filter 3rd|spells|Subschool=sanguine knot;spirited steed;tempered iron|level=3}",
+              "{@filter 3rd|maneuvers|Tradition=sanguine knot;spirited steed;tempered iron|degree=3}",
               4
             ],
             [
               6,
               "{@dice 5d8}",
               7,
-              "{@filter 3rd|spells|Subschool=sanguine knot;spirited steed;tempered iron|level=3}",
+              "{@filter 3rd|maneuvers|Tradition=sanguine knot;spirited steed;tempered iron|degree=3}",
               4
             ],
             [
               6,
               "{@dice 5d8}",
               7,
-              "{@filter 3rd|spells|Subschool=sanguine knot;spirited steed;tempered iron|level=3}",
+              "{@filter 3rd|maneuvers|Tradition=sanguine knot;spirited steed;tempered iron|degree=3}",
               4
             ],
             [
               7,
               "{@dice 6d8}",
               8,
-              "{@filter 4th|spells|Subschool=sanguine knot;spirited steed;tempered iron|level=4}",
+              "{@filter 4th|maneuvers|Tradition=sanguine knot;spirited steed;tempered iron|degree=4}",
               4
             ],
             [
               7,
               "{@dice 6d8}",
               8,
-              "{@filter 4th|spells|Subschool=sanguine knot;spirited steed;tempered iron|level=4}",
+              "{@filter 4th|maneuvers|Tradition=sanguine knot;spirited steed;tempered iron|degree=4}",
               4
             ]
           ]
@@ -553,7 +553,7 @@
       "classSource": "sns",
       "level": 2,
       "entries": [
-        "At 2nd level, you gain the ability to use combat maneuvers. You gain proficiency in two combat traditions from the following list: {@filter Sanguine Knot|spells|Subschool=sanguine knot|}, {@filter Spirited Steed|spells|Subschool=spirited steed|}, or {@filter Tempered Iron|spells|Subschool=tempered iron|}. You learn two maneuvers of your choice from traditions you are proficient with.",
+        "At 2nd level, you gain the ability to use combat maneuvers. You gain proficiency in two combat traditions from the following list: {@filter Sanguine Knot|maneuvers|Tradition=sanguine knot|}, {@filter Spirited Steed|maneuvers|Tradition=spirited steed|}, or {@filter Tempered Iron|maneuvers|Tradition=tempered iron|}. You learn two maneuvers of your choice from traditions you are proficient with.",
         "You use your maneuvers by spending exertion points, but you do not gain an exertion pool. Instead, at the start of each of your turns you can expend spell slots of 1st-level or higher to gain exertion points that go into a temporary exertion pool which lasts until you start your next long rest. You gain 2 exertion points for a 1st-level spell slot, and 2 more for each spell slot level above 1st. Only spell slots gained from the herald class can be expended this way.",
         "The Maneuvers Known column of the Herald table shows when you learn more maneuvers from a tradition you are proficient with, while the Maneuver Degree column shows the highest degree you can select maneuvers from at a given level.",
         "Additionally, whenever you finish a long rest, you can choose one of the maneuvers you know and replace it with another maneuver of the same degree from a tradition you are proficient with."

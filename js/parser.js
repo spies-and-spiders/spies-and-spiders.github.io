@@ -1164,6 +1164,11 @@ Parser.spLevelToFull = function (level) {
 	else return Parser.getOrdinalForm(level);
 };
 
+Parser.maneuverDegreeToFull = function (degree) {
+	if (degree === 0) return "Basic";
+	return `${Parser.getOrdinalForm(degree)} Degree`;
+};
+
 Parser.getArticle = function (str) {
 	str = `${str}`;
 	str = str.replace(/\d+/g, (...m) => Parser.numberToText(m[0]));
@@ -2182,10 +2187,12 @@ Parser.CAT_ID_SENSES = 51;
 Parser.CAT_ID_DECK = 52;
 Parser.CAT_ID_CARD = 53;
 Parser.CAT_ID_ITEM_MASTERY = 54;
+Parser.CAT_ID_MANEUVER_SNS = 55;
 
 Parser.CAT_ID_TO_FULL = {};
 Parser.CAT_ID_TO_FULL[Parser.CAT_ID_CREATURE] = "Bestiary";
 Parser.CAT_ID_TO_FULL[Parser.CAT_ID_SPELL] = "Spell";
+Parser.CAT_ID_TO_FULL[Parser.CAT_ID_MANEUVER_SNS] = "Maneuver";
 Parser.CAT_ID_TO_FULL[Parser.CAT_ID_BACKGROUND] = "Background";
 Parser.CAT_ID_TO_FULL[Parser.CAT_ID_ITEM] = "Item";
 Parser.CAT_ID_TO_FULL[Parser.CAT_ID_CLASS] = "Class";
@@ -2247,6 +2254,7 @@ Parser.pageCategoryToFull = function (catId) {
 Parser.CAT_ID_TO_PROP = {};
 Parser.CAT_ID_TO_PROP[Parser.CAT_ID_CREATURE] = "monster";
 Parser.CAT_ID_TO_PROP[Parser.CAT_ID_SPELL] = "spell";
+Parser.CAT_ID_TO_PROP[Parser.CAT_ID_MANEUVER_SNS] = "maneuver";
 Parser.CAT_ID_TO_PROP[Parser.CAT_ID_BACKGROUND] = "background";
 Parser.CAT_ID_TO_PROP[Parser.CAT_ID_ITEM] = "item";
 Parser.CAT_ID_TO_PROP[Parser.CAT_ID_CLASS] = "class";

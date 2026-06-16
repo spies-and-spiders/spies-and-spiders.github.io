@@ -48,7 +48,7 @@
             "Rage Hit Points",
             "Rage Damage",
             "{@filter Talents Known|optionalfeatures|feature type=dt}",
-            "{@filter Maneuvers Known|spells|school=M}",
+            "{@filter Maneuvers Known|maneuvers}",
             "Maneuver Degree"
           ],
           "rows": [
@@ -64,133 +64,133 @@
               "+2",
               1,
               2,
-              "{@filter 1st|spells|school=M|level=1}"
+              "{@filter 1st|maneuvers|degree=1}"
             ],
             [
               "+4",
               "+2",
               2,
               3,
-              "{@filter 1st|spells|school=M|level=1}"
+              "{@filter 1st|maneuvers|degree=1}"
             ],
             [
               "+4",
               "+2",
               2,
               3,
-              "{@filter 1st|spells|school=M|level=1}"
+              "{@filter 1st|maneuvers|degree=1}"
             ],
             [
               "+5",
               "+2",
               2,
               4,
-              "{@filter 2nd|spells|school=M|level=2}"
+              "{@filter 2nd|maneuvers|degree=2}"
             ],
             [
               "+5",
               "+2",
               3,
               4,
-              "{@filter 2nd|spells|school=M|level=2}"
+              "{@filter 2nd|maneuvers|degree=2}"
             ],
             [
               "+6",
               "+2",
               3,
               5,
-              "{@filter 2nd|spells|school=M|level=2}"
+              "{@filter 2nd|maneuvers|degree=2}"
             ],
             [
               "+6",
               "+2",
               4,
               5,
-              "{@filter 2nd|spells|school=M|level=2}"
+              "{@filter 2nd|maneuvers|degree=2}"
             ],
             [
               "+8",
               "+3",
               4,
               6,
-              "{@filter 3rd|spells|school=M|level=3}"
+              "{@filter 3rd|maneuvers|degree=3}"
             ],
             [
               "+8",
               "+3",
               5,
               6,
-              "{@filter 3rd|spells|school=M|level=3}"
-            ],
-            [
-              "+8",
-              "+3",
-              5,
-              7,
-              "{@filter 3rd|spells|school=M|level=3}"
+              "{@filter 3rd|maneuvers|degree=3}"
             ],
             [
               "+8",
               "+3",
               5,
               7,
-              "{@filter 4th|spells|school=M|level=4}"
+              "{@filter 3rd|maneuvers|degree=3}"
+            ],
+            [
+              "+8",
+              "+3",
+              5,
+              7,
+              "{@filter 4th|maneuvers|degree=4}"
             ],
             [
               "+9",
               "+3",
               6,
               8,
-              "{@filter 4th|spells|school=M|level=4}"
+              "{@filter 4th|maneuvers|degree=4}"
             ],
             [
               "+9",
               "+3",
               6,
               8,
-              "{@filter 4th|spells|school=M|level=4}"
+              "{@filter 4th|maneuvers|degree=4}"
             ],
             [
               "+9",
               "+3",
               7,
               9,
-              "{@filter 4th|spells|school=M|level=4}"
+              "{@filter 4th|maneuvers|degree=4}"
             ],
             [
               "+10",
               "+4",
               7,
               9,
-              "{@filter 4th|spells|school=M|level=4}"
+              "{@filter 4th|maneuvers|degree=4}"
             ],
             [
               "+10",
               "+4",
               7,
               10,
-              "{@filter 5th|spells|school=M|level=5}"
+              "{@filter 5th|maneuvers|degree=5}"
             ],
             [
               "+11",
               "+4",
               8,
               10,
-              "{@filter 5th|spells|school=M|level=5}"
+              "{@filter 5th|maneuvers|degree=5}"
             ],
             [
               "+11",
               "+4",
               8,
               11,
-              "{@filter 5th|spells|school=M|level=5}"
+              "{@filter 5th|maneuvers|degree=5}"
             ],
             [
               "+24",
               "+4",
               9,
               11,
-              "{@filter 5th|spells|school=M|level=5}"
+              "{@filter 5th|maneuvers|degree=5}"
             ]
           ]
         }
@@ -501,7 +501,7 @@
       "classSource": "sns",
       "level": 2,
       "entries": [
-        "At 2nd level, you gain the ability to use combat maneuvers. You gain proficiency in two combat traditions from the following list: {@filter Adamant Mountain|spells|Subschool=adamant mountain|}, {@filter Mirror's Glint|spells|Subschool=mirror's glint|}, {@filter Rapid Current|spells|Subschool=rapid current|}, {@filter Tempered Iron|spells|Subschool=tempered iron|}, {@filter Tooth and Claw|spells|Subschool=tooth and claw|}. You can learn two maneuvers of your choice from traditions you are proficient with.",
+        "At 2nd level, you gain the ability to use combat maneuvers. You gain proficiency in two combat traditions from the following list: {@filter Adamant Mountain|maneuvers|Tradition=adamant mountain|}, {@filter Mirror's Glint|maneuvers|Tradition=mirror's glint|}, {@filter Rapid Current|maneuvers|Tradition=rapid current|}, {@filter Tempered Iron|maneuvers|Tradition=tempered iron|}, {@filter Tooth and Claw|maneuvers|Tradition=tooth and claw|}. You can learn two maneuvers of your choice from traditions you are proficient with.",
         "You gain an exertion pool equal to twice your proficiency bonus, regaining any spent exertion at the end of a short or long rest. You use your maneuvers by spending points from your exertion pool. The Manuevers Known column of the Berserker table shows when you learn more maneuvers from a tradition you are proficient with, while the Maneuver Degree column shows the highest degree you can select maneuvers from at a given level.",
         "Additionally, whenever you take a long rest, you can replace any of your maneuvers with new ones of the same degree from a tradition you are proficient with."
       ]

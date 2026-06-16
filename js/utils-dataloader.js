@@ -1107,6 +1107,13 @@ class _DataTypeLoaderCustomSpellFluff extends _DataTypeLoaderMultiSource {
 	_prop = "spellFluff";
 }
 
+class _DataTypeLoaderCustomManeuver extends _DataTypeLoaderMultiSource {
+	static PROPS = [...UrlUtil.PAGE_TO_PROPS[UrlUtil.PG_MANEUVERS]];
+	static PAGE = UrlUtil.PG_MANEUVERS;
+
+	_prop = "maneuver";
+}
+
 class _DataTypeLoaderClassSubclassFluff extends _DataTypeLoaderMultiSource {
 	static PROPS = ["classFluff", "subclassFluff"];
 	static PAGE = UrlUtil.PG_CLASSES;
@@ -1712,6 +1719,7 @@ class DataLoader {
 	static _PROP_TO_HASH_PAGE = {
 		"monster": UrlUtil.PG_BESTIARY,
 		"spell": UrlUtil.PG_SPELLS,
+		"maneuver": UrlUtil.PG_MANEUVERS,
 		"class": UrlUtil.PG_CLASSES,
 		"subclass": UrlUtil.PG_CLASSES,
 		"item": UrlUtil.PG_ITEMS,
@@ -1789,6 +1797,7 @@ class DataLoader {
 		_DataTypeLoaderCustomMonsterFluff.register({fnRegister});
 		_DataTypeLoaderCustomSpell.register({fnRegister});
 		_DataTypeLoaderCustomSpellFluff.register({fnRegister});
+		_DataTypeLoaderCustomManeuver.register({fnRegister});
 		_DataTypeLoaderClassSubclassFluff.register({fnRegister});
 		// endregion
 

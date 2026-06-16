@@ -47,7 +47,7 @@
           "name": "Sharpshooting Traditions",
           "level": 1,
           "entries": [
-            "Also at tier 1, you gain proficiency in one of the following combat traditions of your choice: {@filter Biting Zephyr|spells|Subschool=biting zephyr|}, {@filter Razor's Edge|spells|Subschool=razor's edge|}, {@filter Unending Wheel|spells|Subschool=unending wheel|}."
+            "Also at tier 1, you gain proficiency in one of the following combat traditions of your choice: {@filter Biting Zephyr|maneuvers|Tradition=biting zephyr|}, {@filter Razor's Edge|maneuvers|Tradition=razor's edge|}, {@filter Unending Wheel|maneuvers|Tradition=unending wheel|}."
           ]
         },
         {

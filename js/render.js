@@ -4263,6 +4263,7 @@ Renderer.utils = class {
 
 		switch (tag) {
 			case "@spell": out.page = UrlUtil.PG_SPELLS; break;
+			case "@maneuver": out.page = UrlUtil.PG_MANEUVERS; break;
 			case "@item": out.page = UrlUtil.PG_ITEMS; break;
 			case "@condition":
 			case "@disease":
@@ -5190,6 +5191,12 @@ Renderer.tag = class {
 		page = UrlUtil.PG_SPELLS;
 	};
 
+	static TagManeuver = class extends this._TagPipedDisplayTextThird {
+		tagName = "maneuver";
+		defaultSource = Parser.SRC_SNS;
+		page = UrlUtil.PG_MANEUVERS;
+	};
+
 	static TagStatus = class extends this._TagPipedDisplayTextThird {
 		tagName = "status";
 		defaultSource = Parser.SRC_SNS;
@@ -5447,6 +5454,7 @@ Renderer.tag = class {
 		new this.TagSense(),
 		new this.TagSkill(),
 		new this.TagSpell(),
+		new this.TagManeuver(),
 		new this.TagStatus(),
 		new this.TagTable(),
 		new this.TagTrap(),
@@ -7323,6 +7331,50 @@ Renderer.spell = class {
 
 Renderer.spell._spellSourceManagerPrerelease = new Renderer.spell._SpellSourceManager();
 Renderer.spell._spellSourceManagerBrew = new Renderer.spell._SpellSourceManager();
+
+Renderer.maneuver = class {
+	static getHtmlPtDegreeTradition (ent) {
+		const ptTraditions = ent.traditions?.length ? ` (${ent.traditions.join(", ")})` : "";
+		return `<i>${Parser.maneuverDegreeToFull(ent.degree)}${ptTraditions}</i>`;
+	}
+
+	static getHtmlPtPoints (ent) { return `<b>Points:</b> ${ent.points ?? 0}`; }
+
+	static getHtmlPtPrerequisites (ent) {
+		if (!ent.prerequisites?.length) return "";
+		return `<b>Prerequisites:</b> ${ent.prerequisites.map(it => Renderer.get().render(it)).join(", ")}`;
+	}
+
+	static getCompactRenderedString (ent, opts) {
+		opts = opts || {};
+		const renderer = Renderer.get();
+		const renderStack = [];
+
+		const htmlPtPrerequisites = this.getHtmlPtPrerequisites(ent);
+
+		renderStack.push(`
+			${Renderer.utils.getExcludedTr({entity: ent, dataProp: "maneuver", page: UrlUtil.PG_MANEUVERS})}
+			${Renderer.utils.getNameTr(ent, {page: UrlUtil.PG_MANEUVERS})}
+			<tr><td colspan="6" class="pb-2">
+				<div class="pb-2">${this.getHtmlPtDegreeTradition(ent)}</div>
+				<div class="ve-flex pb-2 w-100">
+					<div class="ve-flex-col ve-grow min-w-25 pr-2">
+						<div>${Renderer.spell.getHtmlPtCastingTime(ent)}</div>
+						<div>${this.getHtmlPtPoints(ent)}</div>
+					</div>
+					<div class="ve-flex-col ve-grow min-w-25">
+						<div>${Renderer.spell.getHtmlPtRange(ent)}</div>
+						<div>${Renderer.spell.getHtmlPtDuration(ent)}</div>
+					</div>
+				</div>
+				${htmlPtPrerequisites ? `<div class="pb-2">${htmlPtPrerequisites}</div>` : ""}
+		`);
+		renderer.recursiveRender({type: "entries", entries: ent.entries}, renderStack, {depth: 1});
+		renderStack.push(`</td></tr>`);
+
+		return renderStack.join("");
+	}
+};
 
 Renderer.condition = class {
 	static getCompactRenderedString (cond) {
@@ -14468,6 +14520,7 @@ Renderer.hover = class {
 			case UrlUtil.PG_QUICKREF: return Renderer.hover.getGenericCompactRenderedString.bind(Renderer.hover);
 			case UrlUtil.PG_CLASSES: return Renderer.class.getCompactRenderedString.bind(Renderer.class);
 			case UrlUtil.PG_SPELLS: return Renderer.spell.getCompactRenderedString.bind(Renderer.spell);
+			case UrlUtil.PG_MANEUVERS: return Renderer.maneuver.getCompactRenderedString.bind(Renderer.maneuver);
 			case UrlUtil.PG_ITEMS: return Renderer.item.getCompactRenderedString.bind(Renderer.item);
 			case UrlUtil.PG_BESTIARY: return it => Renderer.monster.getCompactRenderedString(it, {isShowScalers: !isStatic, isScaledCr: it._originalCr != null, isScaledSpellSummon: it._isScaledSpellSummon, isScaledClassSummon: it._isScaledClassSummon});
 			case UrlUtil.PG_CONDITIONS_DISEASES: return Renderer.condition.getCompactRenderedString.bind(Renderer.condition);

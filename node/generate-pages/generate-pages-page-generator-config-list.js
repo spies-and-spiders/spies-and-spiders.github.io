@@ -444,30 +444,6 @@ class _PageGeneratorListPsionics extends PageGeneratorListBase {
 	}
 }
 
-class _PageGeneratorListRaces extends PageGeneratorListBase {
-	_page = UrlUtil.PG_RACES;
-	_pageTitle = "Species";
-	_scriptIdentList = "races";
-	_isHasRenderer = false;
-
-	_isModule = true;
-
-	_btnsList = [
-		HtmlGeneratorListButtons.getBtn({width: "4", sortIdent: "name", text: "Name"}),
-		HtmlGeneratorListButtons.getBtn({width: "4", sortIdent: "ability", text: "Ability"}),
-		HtmlGeneratorListButtons.getBtn({width: "2", sortIdent: "size", text: "Size"}),
-		HtmlGeneratorListButtons.getBtnSource(),
-	];
-
-	_btnsSublist = [
-		HtmlGeneratorListButtons.getBtn({width: "5", sortIdent: "name", text: "Name"}),
-		HtmlGeneratorListButtons.getBtn({width: "5", sortIdent: "ability", text: "Ability"}),
-		HtmlGeneratorListButtons.getBtn({width: "2", sortIdent: "size", text: "Size"}),
-	];
-
-	_isPrinterView = true;
-}
-
 class _PageGeneratorListRecipes extends PageGeneratorListBase {
 	_page = UrlUtil.PG_RECIPES;
 	_pageTitle = "Recipes";
@@ -567,6 +543,57 @@ class _PageGeneratorListSpells extends PageGeneratorListBase {
 	}
 }
 
+class _PageGeneratorListManeuvers extends PageGeneratorListBase {
+	_page = UrlUtil.PG_MANEUVERS;
+	_pageTitle = "Maneuvers";
+	_scriptIdentList = "maneuvers";
+	_isHasRenderer = false;
+
+	_styleListContainerAdditional = "ve-flex-7";
+	_styleContentWrapperAdditional = "ve-flex-5";
+
+	_isModule = true;
+	_isMultisource = true;
+
+	_scriptsUtilsAdditional = [
+		"utils-tableview.js",
+	];
+
+	_btnsList = [
+		HtmlGeneratorListButtons.getBtn({width: "2-7", sortIdent: "name", text: "Name"}),
+		HtmlGeneratorListButtons.getBtn({width: "1-3", sortIdent: "degree", text: "Degree"}),
+		HtmlGeneratorListButtons.getBtn({width: "0-8", sortIdent: "points", title: "Points", text: "Pts."}),
+		HtmlGeneratorListButtons.getBtn({width: "1-5", sortIdent: "time", text: "Action"}),
+		HtmlGeneratorListButtons.getBtn({width: "2-2", sortIdent: "tradition", text: "Tradition"}),
+		HtmlGeneratorListButtons.getBtn({width: "1-5", sortIdent: "range", text: "Range"}),
+		HtmlGeneratorListButtons.getBtnSource(),
+	];
+
+	_btnsSublist = [
+		HtmlGeneratorListButtons.getBtn({width: "3-7", sortIdent: "name", text: "Name"}),
+		HtmlGeneratorListButtons.getBtn({width: "2", sortIdent: "degree", text: "Degree"}),
+		HtmlGeneratorListButtons.getBtn({width: "1", sortIdent: "points", title: "Points", text: "Pts."}),
+		HtmlGeneratorListButtons.getBtn({width: "1-8", sortIdent: "time", text: "Action"}),
+		HtmlGeneratorListButtons.getBtn({width: "3-5", sortIdent: "tradition", text: "Tradition"}),
+	];
+
+	_registerPartials () {
+		super._registerPartials();
+
+		this._registerPartial({
+			ident: "listContentwrapperManeuvers",
+			filename: "list/template-list-contentwrapper--maneuvers.hbs",
+		});
+	}
+
+	_getData () {
+		return {
+			...super._getData(),
+			identPartialListContentwrapper: "listContentwrapperManeuvers",
+		};
+	}
+}
+
 class _PageGeneratorListTables extends PageGeneratorListBase {
 	_page = UrlUtil.PG_TABLES;
 	_pageTitle = "Tables";
@@ -654,9 +681,9 @@ export const PAGE_GENERATORS_LISTPAGE = [
 	new _PageGeneratorListObjects(),
 	new _PageGeneratorListOptionalFeatures(),
 	new _PageGeneratorListPsionics(),
-	new _PageGeneratorListRaces(),
 	new _PageGeneratorListRecipes(),
 	new _PageGeneratorListSpells(),
+	new _PageGeneratorListManeuvers(),
 	new _PageGeneratorListTables(),
 	new _PageGeneratorListVariantRules(),
 	new _PageGeneratorListVehicles(),

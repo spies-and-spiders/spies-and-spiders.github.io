@@ -338,6 +338,20 @@ class IndexableDirectorySpells extends IndexableDirectory {
 	}
 }
 
+class IndexableDirectoryManeuvers extends IndexableDirectory {
+	constructor () {
+		super({
+			category: Parser.CAT_ID_MANEUVER_SNS,
+			dir: "maneuvers",
+			primary: "name",
+			source: "source",
+			listProp: "maneuver",
+			baseUrl: "maneuvers.html",
+			isHover: true,
+		});
+	}
+}
+
 class IndexableDirectoryClass extends IndexableDirectory {
 	constructor () {
 		super({
@@ -448,6 +462,7 @@ class IndexableDirectorySubclassFeature extends IndexableDirectory {
 Omnidexer.TO_INDEX__FROM_INDEX_JSON = [
 	new IndexableDirectoryBestiary(),
 	new IndexableDirectorySpells(),
+	new IndexableDirectoryManeuvers(),
 	new IndexableDirectoryClass(),
 	new IndexableDirectorySubclass(),
 	new IndexableDirectoryClassFeature(),
@@ -871,28 +886,6 @@ class IndexableFilePsionics extends IndexableFile {
 	pGetDeepIndex (indexer, primary, it) {
 		if (!it.modes) return [];
 		return it.modes.map(m => ({d: 1, n: `${primary.parentName}; ${m.name}`}));
-	}
-}
-
-class IndexableFileRaces extends IndexableFile {
-	constructor () {
-		super({
-			category: Parser.CAT_ID_RACE,
-			file: "races.json",
-			listProp: "race",
-			baseUrl: "races.html",
-			isHover: true,
-			postLoad: data => {
-				return DataUtil.race.getPostProcessedSiteJson(data, {isAddBaseRaces: true});
-			},
-			pFnPreProcBrew: async prereleaseBrew => {
-				if (!prereleaseBrew.race?.length && !prereleaseBrew.subrace?.length) return prereleaseBrew;
-
-				const site = await DataUtil.race.loadRawJSON();
-
-				return DataUtil.race.getPostProcessedPrereleaseBrewJson(site, prereleaseBrew, {isAddBaseRaces: true});
-			},
-		});
 	}
 }
 
@@ -1338,7 +1331,6 @@ Omnidexer.TO_INDEX = [
 	new IndexableFileMagicVariants(),
 
 	new IndexableFilePsionics(),
-	new IndexableFileRaces(),
 	new IndexableFileRewards(),
 	new IndexableFileVariantRules(),
 	new IndexableFileVariantRulesGenerated(),

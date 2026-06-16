@@ -3130,6 +3130,7 @@ globalThis.UrlUtil = {
 
 UrlUtil.PG_BESTIARY = "bestiary.html";
 UrlUtil.PG_SPELLS = "spells.html";
+UrlUtil.PG_MANEUVERS = "maneuvers.html";
 UrlUtil.PG_BACKGROUNDS = "backgrounds.html";
 UrlUtil.PG_ITEMS = "items.html";
 UrlUtil.PG_CLASSES = "classes.html";
@@ -3183,6 +3184,7 @@ UrlUtil.URL_TO_HASH_GENERIC = (it) => UrlUtil.encodeArrayForHash(it.name, it.sou
 UrlUtil.URL_TO_HASH_BUILDER = {};
 UrlUtil.URL_TO_HASH_BUILDER[UrlUtil.PG_BESTIARY] = UrlUtil.URL_TO_HASH_GENERIC;
 UrlUtil.URL_TO_HASH_BUILDER[UrlUtil.PG_SPELLS] = UrlUtil.URL_TO_HASH_GENERIC;
+UrlUtil.URL_TO_HASH_BUILDER[UrlUtil.PG_MANEUVERS] = UrlUtil.URL_TO_HASH_GENERIC;
 UrlUtil.URL_TO_HASH_BUILDER[UrlUtil.PG_BACKGROUNDS] = UrlUtil.URL_TO_HASH_GENERIC;
 UrlUtil.URL_TO_HASH_BUILDER[UrlUtil.PG_ITEMS] = UrlUtil.URL_TO_HASH_GENERIC;
 UrlUtil.URL_TO_HASH_BUILDER[UrlUtil.PG_CLASSES] = UrlUtil.URL_TO_HASH_GENERIC;
@@ -3222,6 +3224,7 @@ UrlUtil.URL_TO_HASH_BUILDER[UrlUtil.PG_QUICKREF] = ({name, ixChapter, ixHeader})
 // region Fake pages (props)
 UrlUtil.URL_TO_HASH_BUILDER["monster"] = UrlUtil.URL_TO_HASH_BUILDER[UrlUtil.PG_BESTIARY];
 UrlUtil.URL_TO_HASH_BUILDER["spell"] = UrlUtil.URL_TO_HASH_BUILDER[UrlUtil.PG_SPELLS];
+UrlUtil.URL_TO_HASH_BUILDER["maneuver"] = UrlUtil.URL_TO_HASH_BUILDER[UrlUtil.PG_MANEUVERS];
 UrlUtil.URL_TO_HASH_BUILDER["background"] = UrlUtil.URL_TO_HASH_BUILDER[UrlUtil.PG_BACKGROUNDS];
 UrlUtil.URL_TO_HASH_BUILDER["item"] = UrlUtil.URL_TO_HASH_BUILDER[UrlUtil.PG_ITEMS];
 UrlUtil.URL_TO_HASH_BUILDER["itemGroup"] = UrlUtil.URL_TO_HASH_BUILDER[UrlUtil.PG_ITEMS];
@@ -3300,6 +3303,7 @@ Object.keys(UrlUtil.URL_TO_HASH_BUILDER)
 UrlUtil.PG_TO_NAME = {};
 UrlUtil.PG_TO_NAME[UrlUtil.PG_BESTIARY] = "Bestiary";
 UrlUtil.PG_TO_NAME[UrlUtil.PG_SPELLS] = "Spells";
+UrlUtil.PG_TO_NAME[UrlUtil.PG_MANEUVERS] = "Maneuvers";
 UrlUtil.PG_TO_NAME[UrlUtil.PG_BACKGROUNDS] = "Backgrounds";
 UrlUtil.PG_TO_NAME[UrlUtil.PG_ITEMS] = "Items";
 UrlUtil.PG_TO_NAME[UrlUtil.PG_CLASSES] = "Classes";
@@ -3347,6 +3351,7 @@ UrlUtil.PG_TO_NAME[UrlUtil.PG_DECKS] = "Decks";
 UrlUtil.CAT_TO_PAGE = {};
 UrlUtil.CAT_TO_PAGE[Parser.CAT_ID_CREATURE] = UrlUtil.PG_BESTIARY;
 UrlUtil.CAT_TO_PAGE[Parser.CAT_ID_SPELL] = UrlUtil.PG_SPELLS;
+UrlUtil.CAT_TO_PAGE[Parser.CAT_ID_MANEUVER_SNS] = UrlUtil.PG_MANEUVERS;
 UrlUtil.CAT_TO_PAGE[Parser.CAT_ID_BACKGROUND] = UrlUtil.PG_BACKGROUNDS;
 UrlUtil.CAT_TO_PAGE[Parser.CAT_ID_ITEM] = UrlUtil.PG_ITEMS;
 UrlUtil.CAT_TO_PAGE[Parser.CAT_ID_CLASS] = UrlUtil.PG_CLASSES;
@@ -3418,6 +3423,7 @@ UrlUtil.HASH_START_CREATURE_SCALED_CLASS_SUMMON = `${VeCt.HASH_SCALED_CLASS_SUMM
 UrlUtil.SUBLIST_PAGES = {
 	[UrlUtil.PG_BESTIARY]: true,
 	[UrlUtil.PG_SPELLS]: true,
+	[UrlUtil.PG_MANEUVERS]: true,
 	[UrlUtil.PG_BACKGROUNDS]: true,
 	[UrlUtil.PG_ITEMS]: true,
 	[UrlUtil.PG_CONDITIONS_DISEASES]: true,
@@ -3450,11 +3456,13 @@ UrlUtil.FAUX_PAGES = {
 
 UrlUtil.PAGE_TO_PROPS = {};
 UrlUtil.PAGE_TO_PROPS[UrlUtil.PG_SPELLS] = ["spell"];
+UrlUtil.PAGE_TO_PROPS[UrlUtil.PG_MANEUVERS] = ["maneuver"];
 UrlUtil.PAGE_TO_PROPS[UrlUtil.PG_ITEMS] = ["item", "itemGroup", "itemType", "itemEntry", "itemProperty", "itemTypeAdditionalEntries", "itemMastery", "baseitem", "magicvariant"];
 UrlUtil.PAGE_TO_PROPS[UrlUtil.PG_RACES] = ["race", "subrace"];
 
 UrlUtil.PROP_TO_PAGE = {};
 UrlUtil.PROP_TO_PAGE["spell"] = UrlUtil.PG_SPELLS;
+UrlUtil.PROP_TO_PAGE["maneuver"] = UrlUtil.PG_MANEUVERS;
 
 if (!IS_DEPLOYED && !IS_VTT && typeof window !== "undefined") {
 	// for local testing, hotkey to get a link to the current page on the main site
@@ -5509,6 +5517,12 @@ globalThis.DataUtil = {
 	monsterTemplate: class extends _DataUtilPropConfigSingleSource {
 		static _PAGE = "monsterTemplate";
 		static _FILENAME = "bestiary/template.json";
+	},
+
+	maneuver: class extends _DataUtilPropConfigMultiSource {
+		static _PAGE = UrlUtil.PG_MANEUVERS;
+		static _DIR = "maneuvers";
+		static _PROP = "maneuver";
 	},
 
 	spell: class extends _DataUtilPropConfigMultiSource {

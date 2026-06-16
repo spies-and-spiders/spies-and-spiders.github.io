@@ -49,7 +49,7 @@
           "colLabels": [
             "Commanding Presence",
             "Followers",
-            "{@filter Maneuvers Known|spells|Subschool=biting zephyr;gallant heart;mirror's glint;mist and shade;rapid current;razor's edge;sanguine knot;spirited steed;unending wheel}",
+            "{@filter Maneuvers Known|maneuvers|Tradition=biting zephyr;gallant heart;mirror's glint;mist and shade;rapid current;razor's edge;sanguine knot;spirited steed;unending wheel}",
             "Maneuver Degree",
             "{@filter Lessons Known|optionalfeatures|feature type=lw}"
           ],
@@ -65,133 +65,133 @@
               "10 feet",
               0,
               2,
-              "{@filter 1st|spells|Subschool=biting zephyr;gallant heart;mirror's glint;mist and shade;rapid current;razor's edge;sanguine knot;spirited steed;unending wheel|level=1}",
+              "{@filter 1st|maneuvers|Tradition=biting zephyr;gallant heart;mirror's glint;mist and shade;rapid current;razor's edge;sanguine knot;spirited steed;unending wheel|degree=1}",
               1
             ],
             [
               "10 feet",
               0,
               3,
-              "{@filter 1st|spells|Subschool=biting zephyr;gallant heart;mirror's glint;mist and shade;rapid current;razor's edge;sanguine knot;spirited steed;unending wheel|level=1}",
+              "{@filter 1st|maneuvers|Tradition=biting zephyr;gallant heart;mirror's glint;mist and shade;rapid current;razor's edge;sanguine knot;spirited steed;unending wheel|degree=1}",
               1
             ],
             [
               "10 feet",
               0,
               3,
-              "{@filter 2nd|spells|Subschool=biting zephyr;gallant heart;mirror's glint;mist and shade;rapid current;razor's edge;sanguine knot;spirited steed;unending wheel|level=2}",
+              "{@filter 2nd|maneuvers|Tradition=biting zephyr;gallant heart;mirror's glint;mist and shade;rapid current;razor's edge;sanguine knot;spirited steed;unending wheel|degree=2}",
               1
             ],
             [
               "20 feet",
               1,
               4,
-              "{@filter 2nd|spells|Subschool=biting zephyr;gallant heart;mirror's glint;mist and shade;rapid current;razor's edge;sanguine knot;spirited steed;unending wheel|level=2}",
+              "{@filter 2nd|maneuvers|Tradition=biting zephyr;gallant heart;mirror's glint;mist and shade;rapid current;razor's edge;sanguine knot;spirited steed;unending wheel|degree=2}",
               1
             ],
             [
               "20 feet",
               1,
               4,
-              "{@filter 2nd|spells|Subschool=biting zephyr;gallant heart;mirror's glint;mist and shade;rapid current;razor's edge;sanguine knot;spirited steed;unending wheel|level=2}",
+              "{@filter 2nd|maneuvers|Tradition=biting zephyr;gallant heart;mirror's glint;mist and shade;rapid current;razor's edge;sanguine knot;spirited steed;unending wheel|degree=2}",
               2
             ],
             [
               "20 feet",
               1,
               5,
-              "{@filter 2nd|spells|Subschool=biting zephyr;gallant heart;mirror's glint;mist and shade;rapid current;razor's edge;sanguine knot;spirited steed;unending wheel|level=2}",
+              "{@filter 2nd|maneuvers|Tradition=biting zephyr;gallant heart;mirror's glint;mist and shade;rapid current;razor's edge;sanguine knot;spirited steed;unending wheel|degree=2}",
               2
             ],
             [
               "20 feet",
               1,
               5,
-              "{@filter 3rd|spells|Subschool=biting zephyr;gallant heart;mirror's glint;mist and shade;rapid current;razor's edge;sanguine knot;spirited steed;unending wheel|level=3}",
+              "{@filter 3rd|maneuvers|Tradition=biting zephyr;gallant heart;mirror's glint;mist and shade;rapid current;razor's edge;sanguine knot;spirited steed;unending wheel|degree=3}",
               2
             ],
             [
               "20 feet",
               1,
               6,
-              "{@filter 3rd|spells|Subschool=biting zephyr;gallant heart;mirror's glint;mist and shade;rapid current;razor's edge;sanguine knot;spirited steed;unending wheel|level=3}",
+              "{@filter 3rd|maneuvers|Tradition=biting zephyr;gallant heart;mirror's glint;mist and shade;rapid current;razor's edge;sanguine knot;spirited steed;unending wheel|degree=3}",
               2
             ],
             [
               "30 feet",
               2,
               6,
-              "{@filter 3rd|spells|Subschool=biting zephyr;gallant heart;mirror's glint;mist and shade;rapid current;razor's edge;sanguine knot;spirited steed;unending wheel|level=3}",
+              "{@filter 3rd|maneuvers|Tradition=biting zephyr;gallant heart;mirror's glint;mist and shade;rapid current;razor's edge;sanguine knot;spirited steed;unending wheel|degree=3}",
               3
             ],
             [
               "30 feet",
               2,
               7,
-              "{@filter 3rd|spells|Subschool=biting zephyr;gallant heart;mirror's glint;mist and shade;rapid current;razor's edge;sanguine knot;spirited steed;unending wheel|level=3}",
+              "{@filter 3rd|maneuvers|Tradition=biting zephyr;gallant heart;mirror's glint;mist and shade;rapid current;razor's edge;sanguine knot;spirited steed;unending wheel|degree=3}",
               3
             ],
             [
               "30 feet",
               2,
               7,
-              "{@filter 4th|spells|Subschool=biting zephyr;gallant heart;mirror's glint;mist and shade;rapid current;razor's edge;sanguine knot;spirited steed;unending wheel|level=4}",
+              "{@filter 4th|maneuvers|Tradition=biting zephyr;gallant heart;mirror's glint;mist and shade;rapid current;razor's edge;sanguine knot;spirited steed;unending wheel|degree=4}",
               3
             ],
             [
               "30 feet",
               2,
               8,
-              "{@filter 4th|spells|Subschool=biting zephyr;gallant heart;mirror's glint;mist and shade;rapid current;razor's edge;sanguine knot;spirited steed;unending wheel|level=4}",
+              "{@filter 4th|maneuvers|Tradition=biting zephyr;gallant heart;mirror's glint;mist and shade;rapid current;razor's edge;sanguine knot;spirited steed;unending wheel|degree=4}",
               3
             ],
             [
               "30 feet",
               2,
               8,
-              "{@filter 4th|spells|Subschool=biting zephyr;gallant heart;mirror's glint;mist and shade;rapid current;razor's edge;sanguine knot;spirited steed;unending wheel|level=4}",
+              "{@filter 4th|maneuvers|Tradition=biting zephyr;gallant heart;mirror's glint;mist and shade;rapid current;razor's edge;sanguine knot;spirited steed;unending wheel|degree=4}",
               4
             ],
             [
               "45 feet",
               3,
               9,
-              "{@filter 4th|spells|Subschool=biting zephyr;gallant heart;mirror's glint;mist and shade;rapid current;razor's edge;sanguine knot;spirited steed;unending wheel|level=4}",
+              "{@filter 4th|maneuvers|Tradition=biting zephyr;gallant heart;mirror's glint;mist and shade;rapid current;razor's edge;sanguine knot;spirited steed;unending wheel|degree=4}",
               4
             ],
             [
               "45 feet",
               3,
               9,
-              "{@filter 5th|spells|Subschool=biting zephyr;gallant heart;mirror's glint;mist and shade;rapid current;razor's edge;sanguine knot;spirited steed;unending wheel|level=5}",
+              "{@filter 5th|maneuvers|Tradition=biting zephyr;gallant heart;mirror's glint;mist and shade;rapid current;razor's edge;sanguine knot;spirited steed;unending wheel|degree=5}",
               4
             ],
             [
               "45 feet",
               3,
               10,
-              "{@filter 5th|spells|Subschool=biting zephyr;gallant heart;mirror's glint;mist and shade;rapid current;razor's edge;sanguine knot;spirited steed;unending wheel|level=5}",
+              "{@filter 5th|maneuvers|Tradition=biting zephyr;gallant heart;mirror's glint;mist and shade;rapid current;razor's edge;sanguine knot;spirited steed;unending wheel|degree=5}",
               4
             ],
             [
               "45 feet",
               3,
               10,
-              "{@filter 5th|spells|Subschool=biting zephyr;gallant heart;mirror's glint;mist and shade;rapid current;razor's edge;sanguine knot;spirited steed;unending wheel|level=5}",
+              "{@filter 5th|maneuvers|Tradition=biting zephyr;gallant heart;mirror's glint;mist and shade;rapid current;razor's edge;sanguine knot;spirited steed;unending wheel|degree=5}",
               5
             ],
             [
               "45 feet",
               3,
               11,
-              "{@filter 5th|spells|Subschool=biting zephyr;gallant heart;mirror's glint;mist and shade;rapid current;razor's edge;sanguine knot;spirited steed;unending wheel|level=5}",
+              "{@filter 5th|maneuvers|Tradition=biting zephyr;gallant heart;mirror's glint;mist and shade;rapid current;razor's edge;sanguine knot;spirited steed;unending wheel|degree=5}",
               5
             ],
             [
               "60 feet",
               4,
               11,
-              "{@filter 5th|spells|Subschool=biting zephyr;gallant heart;mirror's glint;mist and shade;rapid current;razor's edge;sanguine knot;spirited steed;unending wheel|level=5}",
+              "{@filter 5th|maneuvers|Tradition=biting zephyr;gallant heart;mirror's glint;mist and shade;rapid current;razor's edge;sanguine knot;spirited steed;unending wheel|degree=5}",
               5
             ]
           ]
@@ -311,7 +311,7 @@
       "classSource": "sns",
       "level": 2,
       "entries": [
-        "At 2nd level, you gain the ability to use combat maneuvers. You gain proficiency in two combat traditions from the following list: {@filter Biting Zephyr|spells|Subschool=biting zephyr|}, {@filter Gallant Heart|spells|Subschool=gallant heart|}, {@filter Mirror's Glint|spells|Subschool=mirror's glint|}, {@filter Mist and Shade|spells|Subschool=mist and shade|}, {@filter Rapid Current|spells|Subschool=rapid current|}, {@filter Razor's Edge|spells|Subschool=razor's edge|}, {@filter Sanguine Knot|spells|Subschool=sanguine knot|}, {@filter Spirited Steed|spells|Subschool=spirited steed|}, and {@filter Unending Wheel|spells|Subschool=unending wheel|}. You learn two maneuvers of your choice from traditions you are proficient with.",
+        "At 2nd level, you gain the ability to use combat maneuvers. You gain proficiency in two combat traditions from the following list: {@filter Biting Zephyr|maneuvers|Tradition=biting zephyr|}, {@filter Gallant Heart|maneuvers|Tradition=gallant heart|}, {@filter Mirror's Glint|maneuvers|Tradition=mirror's glint|}, {@filter Mist and Shade|maneuvers|Tradition=mist and shade|}, {@filter Rapid Current|maneuvers|Tradition=rapid current|}, {@filter Razor's Edge|maneuvers|Tradition=razor's edge|}, {@filter Sanguine Knot|maneuvers|Tradition=sanguine knot|}, {@filter Spirited Steed|maneuvers|Tradition=spirited steed|}, and {@filter Unending Wheel|maneuvers|Tradition=unending wheel|}. You learn two maneuvers of your choice from traditions you are proficient with.",
         "You gain an exertion pool equal to twice your proficiency bonus, regaining any spent exertion at the end of a short or long rest. You use your maneuvers by spending points from your exertion pool. The Maneuvers Known column of the Marshal table shows when you learn more maneuvers from a tradition you are proficient with, while the Maneuver Degree column shows the highest degree you can select maneuvers from at a given level.",
         "Additionally, whenever you learn a new maneuver, you can choose one of the maneuvers you know and replace it with another maneuver of the same degree from a tradition you are proficient with."
       ]
@@ -493,7 +493,7 @@
       "classSource": "sns",
       "level": 5,
       "entries": [
-        "Starting at 5th level, you can direct your companions so effectively that they can use the techniques you've mastered. You learn one additional combat maneuvers from the {@filter Sanguine Knot tradition|spells|Subschool=sanguine knot|}. This combat maneuver does not count against the number of combat maneuvers you know.",
+        "Starting at 5th level, you can direct your companions so effectively that they can use the techniques you've mastered. You learn one additional combat maneuvers from the {@filter Sanguine Knot tradition|maneuvers|Tradition=sanguine knot|}. This combat maneuver does not count against the number of combat maneuvers you know.",
         "In addition, when a creature uses your Commanding Presence to make an attack, it can simultaneously use one Sanguine Knot combat maneuver that you know. If the creature does not have any exertion points to spend on combat maneuvers, it does not require exertion points for that use but it cannot benefit from Combat Directives again until it has finished a short or long rest."
       ]
     },
