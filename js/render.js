@@ -6172,7 +6172,7 @@ Renderer.class = class {
 
 		styleHint ||= VetoolsConfig.get("styleSwitcher", "style");
 
-		return `${(clsHd.number * clsHd.faces) + ((clsHd.number * clsHd.faces) / 2) + 6}`; //+1 for rounding up, +5 for flat bonus
+		return `${(clsHd.number * clsHd.faces) + ((clsHd.number * clsHd.faces) / 2) + 6}`; // +1 for rounding up, +5 for flat bonus
 	}
 
 	/**
@@ -6185,7 +6185,7 @@ Renderer.class = class {
 
 		styleHint ||= VetoolsConfig.get("styleSwitcher", "style");
 
-		return `${((clsHd.number * clsHd.faces) / 2) + 6}`; //+1 for rounding up, +5 for flat bonus
+		return `${((clsHd.number * clsHd.faces) / 2) + 6}`; // +1 for rounding up, +5 for flat bonus
 	}
 
 	/* -------------------------------------------- */
@@ -9224,7 +9224,6 @@ Renderer.monster = class {
 		if (attr === "special") return renderer.render(mod);
 		return renderer.render(`<span>${attr.uppercaseFirst()} {@savingThrow ${attr} ${mod}}</span>`);
 	}
-
 
 	static getCrScaleTarget (
 		{

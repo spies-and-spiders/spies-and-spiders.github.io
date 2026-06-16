@@ -310,7 +310,7 @@ class BestiaryPage extends ListPageMultiSource {
 					page: UtilsTableview.COL_TRANSFORM_PAGE,
 					size: {name: "Size", transform: size => Renderer.utils.getRenderedSize(size)},
 					type: {name: "Type", transform: type => Parser.monTypeToFullObj(type).asText},
-arm: {name: "Armour", transform: arm => arm != null ? Parser.acToFull(arm, {key: "arm"}) : ""},
+					arm: {name: "Armour", transform: arm => arm != null ? Parser.acToFull(arm, {key: "arm"}) : ""},
 					wil: {name: "Will", transform: wil => wil != null ? Parser.acToFull(wil, {key: "wil"}) : ""},
 					ref: {name: "Reflex", transform: ref => ref != null ? Parser.acToFull(ref, {key: "ref"}) : ""},
 					fort: {name: "Fortitude", transform: fort => fort != null ? Parser.acToFull(fort, {key: "fort"}) : ""},

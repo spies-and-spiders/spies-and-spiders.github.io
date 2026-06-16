@@ -279,7 +279,6 @@ export class AcConvert {
 
 			// region au naturel
 			case "natural armour":
-			case "natural armour":
 			case "natural":
 				return "natural armour";
 				// endregion

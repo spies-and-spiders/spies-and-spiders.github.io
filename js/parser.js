@@ -2772,7 +2772,6 @@ Parser.SOURCES_AVAILABLE_DOCS_BOOK = {};
 });
 Parser.SOURCES_AVAILABLE_DOCS_ADVENTURE = {};
 
-
 Parser.getTagSource = function (tag, source) {
 	if (source && source.trim()) return source;
 

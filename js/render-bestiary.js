@@ -394,7 +394,6 @@ class _RenderBestiaryImplClassic extends _RenderBestiaryImplBase {
 
 	/* ----- */
 
-
 	_getHtmlParts_damageImmunities ({mon}) {
 		return mon.immune ? `<tr><td colspan="6"><strong>Damage Immunities</strong> ${Parser.getFullImmRes(mon.immune)}</td></tr>` : "";
 	}

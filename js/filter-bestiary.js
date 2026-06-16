@@ -237,7 +237,7 @@ class PageFilterBestiary extends PageFilterBase {
 		mon._fRes = mon.resist ? PageFilterBestiary.getAllImmRest(mon.resist, "resist") : [];
 		mon._fImm = mon.immune ? PageFilterBestiary.getAllImmRest(mon.immune, "immune") : [];
 		mon._fCondImm = mon.conditionImmune ? PageFilterBestiary.getAllImmRest(mon.conditionImmune, "conditionImmune") : [];
-mon._fSkill = mon.skill ? Object.keys(mon.skill) : [];
+		mon._fSkill = mon.skill ? Object.keys(mon.skill) : [];
 		mon._fSources = SourceFilter.getCompleteFilterSources(mon);
 		mon._fPassive = !isNaN(mon.passive) ? Number(mon.passive) : null;
 
@@ -479,7 +479,7 @@ mon._fSkill = mon.skill ? Object.keys(mon.skill) : [];
 			this._languageFilter,
 			this._damageTypeFilter,
 			this._conditionsInflictedFilter,
-this._defencesFilter,
+			this._defencesFilter,
 			this._averageHpFilter,
 			this._abilityScoreFilter,
 			this._spellKnownFilter,
@@ -526,7 +526,7 @@ this._defencesFilter,
 				m.conditionInflictLegendary,
 				m.conditionInflictSpell,
 			],
-[m._fArm, m._fWil, m._fRef, m._fFort],
+			[m._fArm, m._fWil, m._fRef, m._fFort],
 			m._fHp,
 			[
 				m._fStr,
