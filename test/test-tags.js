@@ -28,9 +28,8 @@ const IGNORED_FILE_NAMES = new Set([
 	"changelog.json",
 	"index.json",
 	"renderdemo.json", //TODO could be good to update this and then include it in the test, useful as a reference for future work?
-	"optionalfeatures.json", // generated from `sns/classes/*`
-	"class-sns.json", // generated from `sns/classes/*`
-	"bestiary-sns.json", // generated from various other files (TODO move monster data here instead of being spread out across files?)
+	"optionalfeatures.json", // generated from `sns/**`
+	"class-sns.json", // generated from `sns/**`
 ]);
 
 function isIgnoredDataFile (filePath) {

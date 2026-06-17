@@ -1,1 +1,1769 @@
-{"monster":[{"int":0,"passive":0,"str":0,"senses":["darkvision 60 ft."],"name":"Animal Form","arm":[{"special":"half your Wisdom modifier"}],"languages":["the languages you know"],"action":[{"name":"Bestial Strike (Land Only)","entries":["{@atk mw} reach 5 ft., one target. {@dice 1d12} + your Wisdom modifier bludgeoning, piercing, or slashing damage. This damage is increased to {@dice 2d8} + double your Wisdom modifier from 5th level onwards, which counts as the attack being affected by the Empowered Attack feature."]},{"name":"Bestial Strike (Sea Only)","entries":["{@atk mw} reach 5 ft., one target. {@dice 1d6} + your Wisdom modifier bludgeoning, piercing, or slashing damage. This damage is increased to {@dice 2d6} + double your Wisdom modifier from 5th level onwards, which counts as the attack being affected by the Empowered Attack feature."]},{"name":"Bestial Strike (Sky Only)","entries":["{@atk mw} reach 5 ft., one target. {@dice 1d4} + your Wisdom modifier bludgeoning, piercing, or slashing damage. This damage is increased to {@dice 2d4} + double your Wisdom modifier from 5th level onwards, which counts as the attack being affected by the Empowered Attack feature."]}],"hp":{"special":"you continue to use your hit points and Hit Dice"},"dex":0,"cha":0,"source":"sns","type":"beast","wis":0,"ref":[{"ref":0}],"trait":[{"type":"entries","name":"Amphibious (Sea Only)","entries":["You can breathe air and water."]},{"type":"entries","name":"Flyby (Sky Only)","entries":["You don't provoke opportunity attacks when you fly out of an enemy's reach."]},{"type":"entries","name":"Keen Senses (Land and Sky Only)","entries":["You have advantage on {@skill Perception} checks."]}],"size":["T","S","M","L"],"speed":{"walk":40,"climb":{"number":40,"condition":"(Land only)"},"fly":{"number":40,"condition":"(Sky only)"},"swim":{"number":40,"condition":"(Sea only)"}},"fort":[{"fort":0}],"wil":[{"wil":0}]},{"int":0,"passive":0,"immune":["fire (Fire only)","poison"],"str":0,"senses":["darkvision 60 ft.","tremorsense 60 ft. (Earth only)"],"name":"Elemental Form","arm":[{"special":"half your Wisdom modifier"}],"languages":["the languages you know"],"action":[{"name":"Slam","entries":["{@atk mw} reach 5 ft., one target. {@dice 6d6} + triple your Wisdom modifier bludgeoning damage (or fire damage for a Fire elemental). This attack counts as having two instances of the Empowered Attack feature affecting it."]}],"hp":{"special":"you continue to use your hit points and Hit Dice"},"dex":0,"cha":0,"source":"sns","type":{"type":"elemental","tags":["air, earth, fire, or water"]},"wis":0,"ref":[{"ref":0}],"trait":[{"type":"entries","name":"Amorphous Form (Air, Fire, and Water Only)","entries":["You can move through a space as narrow as 1 inch wide without squeezing."]},{"type":"entries","name":"Elemental Burst","entries":["Elemental power erupts from you when you reach 0 hit points. You make a reflex attack against each adjacent creature that deals bludgeoning damage (or fire damage for a Fire elemental) equal to your level plus your Wisdom modifier."]},{"type":"entries","name":"Insubstantial (Air and Fire Only)","entries":["You cannot be {@condition grappled}, knocked {@condition prone}, or {@condition restrained}."]}],"conditionImmune":["fatigue","staggered","poisoned","strife","unconscious"],"size":["S"],"speed":{"walk":30,"burrow":{"number":30,"condition":"(Earth only)"},"fly":{"number":30,"condition":"(hover; Air only)"},"swim":{"number":30,"condition":"(Water only)"}},"fort":[{"fort":0}],"wil":[{"wil":0}]},{"int":1,"passive":12,"immune":["poison","psychic"],"str":16,"name":"Spell Automaton","arm":[{"arm":4}],"bonus":[{"name":"Overclock (Recharge 5-6)","entries":["The automaton takes the Dash action."]}],"languages":["understands any known by its creator but cannot speak"],"action":[{"name":"Slam","entries":["{@atk mw} reach 5 ft., one target. {@damage 4d10 + 8} + double your Intelligence modifier bludgeoning damage."]},{"name":"Integrated Spell","entries":["The automaton uses the spell invention integrated into it to cast a spell, governed by your Intelligence instead of its own. If the spell invention integrated into it would burn out due to the result of the fizzle die, the automaton takes 33 true damage instead."]}],"hp":{"special":"101"},"dex":12,"cha":1,"source":"sns","type":"construct","wis":6,"ref":[{"ref":1}],"majorEffect":["The automaton heals 20 hit points."],"conditionImmune":["blinded","charmed","deafened","fatigue","strife","frightened","staggered","poisoned"],"skill":{"athletics":"+5","perception":"+0 (+1d4)"},"size":["M"],"speed":{"walk":40},"fort":[{"fort":3}],"resist":[{"note":"from nonmagical attacks","resist":["all"],"cond":true}],"wil":[{"wil":-2}]},{"int":10,"passive":10,"immune":["poison","psychic"],"str":10,"name":"Eldritch Cannon","arm":[{"arm":4}],"action":[{"name":"Cannon (Flamethrower Only)","entries":["The cannon exhales fire in a 15-foot cone. It makes an area spell reflex attack against each creature in that area, dealing {@dice 4d4} fire damage. The fire ignites any flammable objects in the area that aren't being worn or carried."]},{"name":"Cannon (Force Ballista Only)","entries":["{@atk rs} range 120 ft., one target. {@damage 2d8} force damage. On a hit, the target is pushed 5 feet away from the cannon."]},{"name":"Cannon (Protector Only)","entries":["The cannon emits a burst of positive energy that grants itself and each creature of your choice within 10 feet of it a number of temporary hit points equal to {@dice 1d10} + your Intelligence modifier (minimum of +1)."]}],"hp":{"special":"six times your level"},"dex":10,"cha":10,"source":"sns","type":"construct","wis":10,"ref":[{"ref":0}],"majorEffect":["The cannon recovers hit points equal to your level. If it is already on full hit points, it instead gains that amount of temporary hit points."],"trait":[{"name":"Sustainable Engineering","entries":["Whenever the {@spell mending} spell is cast on the cannon, the cannon regains {@dice 2d6} hit points."]}],"size":["S"],"speed":{"walk":15,"climb":15},"fort":[{"fort":0}],"wil":[{"wil":0}]},{"int":10,"passive":10,"immune":["poison","psychic"],"str":10,"name":"Eldritch Megacannon","arm":[{"arm":4}],"action":[{"name":"Cannon (Flamethrower Only)","entries":["The cannon exhales fire in a 15-foot cone. It makes an area spell reflex attack against each creature in that area, dealing {@dice 3d12} fire damage. The fire ignites any flammable objects in the area that aren't being worn or carried."]},{"name":"Cannon (Force Ballista Only)","entries":["{@atk rs} range 120 ft., one target. {@damage 4d8} force damage. On a hit, the target is pushed 10 feet away from the cannon."]},{"name":"Cannon (Protector Only)","entries":["The cannon emits a burst of positive energy that grants itself and each creature of your choice within 10 feet of it a number of temporary hit points equal to {@dice 2d10} + double your Intelligence modifier (minimum of +2)."]}],"hp":{"special":"12 times your level"},"dex":10,"cha":10,"source":"sns","type":"construct","wis":10,"ref":[{"ref":0}],"majorEffect":["The cannon recovers hit points equal to your level. If it is already on full hit points, it instead gains that amount of temporary hit points."],"trait":[{"name":"Sustainable Engineering","entries":["Whenever the {@spell mending} spell is cast on the cannon, the cannon regains {@dice 2d6} hit points."]}],"size":["M"],"speed":{"walk":15,"climb":15},"fort":[{"fort":0}],"wil":[{"wil":0}]},{"int":3,"passive":8,"immune":["poison"],"str":12,"senses":["darkvision 60 ft."],"name":"Zombie","arm":[{"arm":-1}],"action":[{"name":"Grab","entries":["{@atk mw} reach 5 ft., one target. {@damage 1d6 + 1} bludgeoning damage. If the target is a Medium or smaller creature, it is {@condition grappled}. Until the grapple ends, the zombie can't grab another target."]},{"name":"Bite","entries":["{@atk mw} reach 5 ft., one {@condition grappled} target. {@damage 1d10 + 1} piercing damage, and the zombie regains the same number of hit points."]}],"hp":{"special":"16"},"dex":6,"cha":4,"source":"sns","type":"undead","wis":6,"ref":[{"ref":-2}],"majorEffect":["The zombie may immediately shift 5 feet."],"trait":[{"name":"Undead Fortitude (1/Day)","entries":["If the zombie is reduced to 0 hit points by damage that isn't radiant or from a critical hit, it's instead reduced to 1 hit point, falls {@condition prone}, and is {@condition incapacitated} until the end of its next turn, appearing to be dead."]},{"type":"entries","name":"Undead Nature","entries":["A zombie doesn't require air, sustenance, or sleep."]}],"conditionImmune":["fatigue","poisoned"],"size":["M"],"speed":{"walk":20},"fort":[{"fort":3}],"wil":[{"wil":-2}]},{"name":"Summoned Minion","source":"sns","size":["M"],"type":"any","hp":{"special":"12 + 12 times your proficiency bonus"},"speed":{"walk":30},"str":18,"dex":10,"int":4,"wis":14,"cha":5,"immune":[],"conditionImmune":[],"senses":[],"passive":10,"languages":["understands the languages you speak"],"action":[{"name":"Melee attack","entries":["{@atk mw} reach 5 ft., one target. 5 + triple your level bludgeoning, piercing, or slashing damage."]}],"arm":[{"special":"Your level divided by 4"}],"wil":[{"wil":2}],"ref":[{"ref":0}],"fort":[{"fort":4}],"majorEffect":["The target's armour is reduced by 1 for 1 round."]},{"name":"Bestial Spirit","source":"sns","size":["S"],"type":"beast","hp":{"special":"22 (Air only) or 33 (Land and Water only) + 6 for each spell level above 2nd"},"speed":{"walk":30,"climb":{"number":30,"condition":"(Land only)"},"fly":{"number":60,"condition":"(Air only)"},"swim":{"number":30,"condition":"(Water only)"}},"str":18,"dex":11,"int":4,"wis":14,"cha":5,"senses":["darkvision 60 ft."],"passive":12,"languages":["understands the languages you speak"],"trait":[{"type":"entries","name":"Flyby (Air Only)","entries":["The beast doesn't provoke opportunity attacks when it flies out of an enemy's reach."]},{"type":"entries","name":"Pack Tactics (Land and Water Only)","entries":["The beast has advantage on an armour attack roll against a creature if at least one of the beast's allies is adjacent to the creature and the ally isn't {@condition incapacitated}."]},{"type":"entries","name":"Water Breathing (Water Only)","entries":["The beast can breathe only underwater."]}],"action":[{"name":"Maul","entries":["{@atk mw} reach 5 ft., one target. {@damage 1d8 + 4} + the spell's level piercing damage. This damage is multiplied by half this spell's level. For example, at spell level 4, the damage is {@dice 2d8} + 8 + 8. Each of these multipliers counts as an instance of the Empowered Attack feature."]}],"arm":[{"special":"half the level of the spell (rounded up)"}],"wil":[{"wil":2}],"ref":[{"ref":0}],"fort":[{"fort":4}],"majorEffect":["The target's armour is reduced by 1 for 1 round."],"summonedBySpell":"Conjure Animals|sns","summonedBySpellLevel":3},{"name":"Minor Elemental","source":"sns","size":["S"],"type":{"type":"elemental","tags":["air, earth, fire, or water"]},"hp":{"special":"67 + 11 for each spell level above 4th"},"speed":{"walk":30,"burrow":{"number":30,"condition":"(Earth only)"},"fly":{"number":30,"condition":"(hover; Air only)"},"swim":{"number":30,"condition":"(Water only)"}},"str":12,"dex":12,"int":10,"wis":10,"cha":6,"immune":["fire (Fire only)","poison"],"conditionImmune":["fatigue","staggered","poisoned","strife","unconscious"],"senses":["darkvision 60 ft.","tremorsense 60 ft. (Earth only)"],"passive":10,"languages":["primordial","auran (Air only)","aquan (Water only)","ignan (Fire only)","terran (Earth only)"],"trait":[{"type":"entries","name":"Amorphous Form (Air, Fire, and Water Only)","entries":["The elemental can move through a space as narrow as 1 inch wide without squeezing."]},{"type":"entries","name":"Death Burst","entries":["The minor elemental explodes when it dies. It makes a reflex attack against each adjacent creature that deals 7 ({@dice 3d4}) bludgeoning damage (or fire damage for a Fire elemental)."]},{"type":"entries","name":"Insubstantial (Air and Fire Only)","entries":["The minor elemental cannot be {@condition grappled}, knocked {@condition prone}, or {@condition restrained}."]}],"action":[{"name":"Slam","entries":["{@atk mw} reach 5 ft., one target. 6 ({@damage 1d6 + 3}) bludgeoning damage (or fire damage for a Fire elemental) plus extra damage equal to spell slot level."]}],"arm":[{"special":"1 + half the level of the spell (rounded up)"}],"wil":[{"wil":0}],"ref":[{"ref":1}],"fort":[{"fort":2}],"majorEffect":["The target's armour is reduced by 1 for 1 round."],"summonedBySpell":"Conjure Minor Elementals|sns","summonedBySpellLevel":4},{"name":"Woodland Being","source":"sns","size":["M"],"type":{"type":"fey","tags":["blink dog, satyr, or sprite"]},"hp":{"special":"67 + 11 for each spell level above 4th"},"speed":{"walk":{"number":40,"condition":"(or 10 ft. for Sprite)"},"fly":{"number":40,"condition":"(Sprite only)"}},"str":12,"dex":15,"int":10,"wis":10,"cha":15,"senses":["darkvision 60 ft."],"passive":10,"languages":["common","sylvan"],"trait":[{"type":"entries","name":"Keen Hearing and Smell (Blink Dog Only)","entries":["The blink dog has advantage on {@skill Perception} checks that rely on hearing or smell."]},{"type":"entries","name":"Magic Resistance (Satyr Only)","entries":["Spell attacks against the satyr have disadvantage."]}],"action":[{"name":"Blinking Bite (Blink Dog Only)","entries":["{@atk mw} reach 5 ft., one target. 6 {@damage 1d6 + 3} piercing damage plus extra damage equal to spell slot level. Before or after the attack, the blink dog can teleport up to 40 feet to an unoccupied space it can see."]},{"name":"Ram (Satyr Only)","entries":["{@atk mw} reach 5 ft., one target. 8 {@damage 2d4 + 3} bludgeoning damage plus extra damage equal to spell slot level."]},{"name":"Shortbow (Sprite Only)","entries":["{@atk rw} range 40/160 ft., one target. 5 piercing damage plus extra damage equal to spell slot level. If this attack scores a major success against a creature, the target is {@condition poisoned} for 1 minute. On a critical success, the {@condition poisoned} target falls {@condition unconscious} for the same duration, or until it takes damage or another creature uses an action to shake it awake."]}],"arm":[{"special":"2 + half the level of the spell"}],"wil":[{"wil":2}],"ref":[{"ref":2}],"fort":[{"fort":1}],"majorEffect":["The target's armour is reduced by 1 for 1 round."],"summonedBySpell":"Conjure Woodland Beings|sns","summonedBySpellLevel":4},{"name":"Conjured Elemental","source":"sns","size":["M"],"type":{"type":"elemental","tags":["air, earth, fire, or water"]},"hp":{"special":"67"},"speed":{"walk":{"number":30,"condition":"(or 50 ft. for Fire)"},"burrow":{"number":30,"condition":"(Earth only)"},"fly":{"number":60,"condition":"(hover; Air only)"},"swim":{"number":60,"condition":"(Water only)"}},"str":18,"dex":14,"int":4,"wis":10,"cha":10,"resist":["cold (Water only)","lightning and thunder (Air only)","piercing and slashing (Earth only)"],"immune":["fire (Fire only)","poison"],"conditionImmune":["fatigue","staggered","poisoned","strife","unconscious"],"senses":["darkvision 60 ft.","tremorsense 60 ft. (Earth only)"],"passive":10,"languages":["primordial","auran (Air only)","aquan (Water only)","ignan (Fire only)","terran (Earth only)"],"trait":[{"type":"entries","name":"Amorphous Form (Air, Fire, and Water Only)","entries":["The elemental can move through a space as narrow as 1 inch wide without squeezing."]},{"type":"entries","name":"Insubstantial (Air and Fire Only)","entries":["The elemental cannot be {@condition grappled}, knocked {@condition prone}, or {@condition restrained}."]}],"action":[{"name":"Slam","entries":["{@atk mw} reach 5 ft., one target. 26 ({@damage 4d8 + 8}) bludgeoning damage (or fire damage for a Fire elemental) plus extra damage equal to spell slot level."]}],"arm":[{"arm":3,"from":["natural armour"]}],"wil":[{"wil":0}],"ref":[{"ref":2}],"fort":[{"fort":4}],"majorEffect":["The target's armour is reduced by 1 for 1 round."],"summonedBySpell":"Conjure Elemental|sns","summonedBySpellLevel":5},{"name":"Fey Creature","source":"sns","size":["M"],"type":{"type":"fey","tags":["hag, hound, or redcap"]},"hp":{"special":"67"},"speed":{"walk":{"number":30,"condition":"(or 40 ft. for Hound)"}},"str":14,"dex":16,"int":10,"wis":12,"cha":16,"resist":[{"resist":["bludgeoning, piercing, and slashing damage"],"note":"from attacks not made with silvered weapons","cond":"true"}],"conditionImmune":["charmed"],"senses":["darkvision 60 ft."],"passive":11,"languages":["common","sylvan"],"action":[{"name":"Bite","entries":["{@atk mw} reach 5 ft., one target. 9 ({@damage 2d6 + 2}) piercing damage."]},{"name":"Baleful Curse (Hag Only)","entries":["The hag selects one creature it can see. It makes a will attack against the creature with the following outcomes:",{"type":"list","items":[{"type":"item","name":"Minor success","entries":["The target has disadvantage on ability checks for 1 round."]},{"type":"item","name":"Standard success","entries":["The target is cursed for 1 minute or until it passes a passive save. While cursed, the creature has disadvantage on ability checks and armour attack rolls. A {@spell remove curse} spell ends the effect."]},{"type":"item","name":"Critical success","entries":["As standard success, but the target has disadvantage on all attack rolls."]}]},"Once the hag has targeted a creature with Baleful Curse, it can't do so again for 1 minute."]},{"name":"Bloodletting Sickle (Redcap Only)","entries":["{@atk mw} reach 5 ft., one target. 7 ({@damage 2d4 + 2}) slashing damage. If the target is a creature other than an undead or construct and the attack scores a major success, the target suffers 5 ({@dice 2d4}) ongoing slashing harm due to a bleeding wound.","Each time the redcap hits the wounded target with this attack, the ongoing harm caused by the wound increases by 5 ({@dice 2d4}). Any creature can take an action to staunch the wound with a successful {@dc 12} {@skill Medicine} check. The wound also closes if the target receives magical healing."]},{"name":"Terrifying Howl (Hound Only)","entries":["The hound makes a will attack against one creature that can hear it that deals {@dice 2d10} psychic damage. On a hit, the target is {@condition frightened} until the end of the hound's next turn. If the attack fails to hit, the target can't be affected by Terrifying Howl again for 1 minute."]}],"arm":[{"arm":1,"from":["natural armour"]}],"wil":[{"wil":3}],"ref":[{"ref":3}],"fort":[{"fort":2}],"majorEffect":["The target's armour is reduced by 1 for 1 round."],"summonedBySpell":"Conjure Fey|sns","summonedBySpellLevel":6},{"name":"Celestial Creature","source":"sns","size":["L"],"type":{"type":"celestial","tags":["angel of battle, angel of protection, or angel of vengeance"]},"hp":{"special":"67"},"speed":{"walk":30,"fly":40},"str":18,"dex":14,"int":10,"wis":14,"cha":18,"resist":["radiant","necrotic"],"conditionImmune":["charmed","frightened"],"senses":["darkvision 60 ft."],"passive":12,"languages":["celestial","common"],"trait":[{"name":"Inescapable Strike (Angel of Vengeance Only)","entries":["Before making an attack, the celestial can teleport 30 feet as part of the same action."]},{"name":"Protection Strike (Angel of Protection Only)","entries":["When the celestial attacks a creature, until the start of the celestial's next turn that creature has disadvantage on armour attack rolls against creatures other than the celestial."]},{"name":"Radiant Strike (Angel of Battle Only)","entries":["The celestial's smite can be used as a ranged weapon attack (range 150/600 ft.) in addition to as a melee weapon attack."]}],"action":[{"name":"Smite","entries":["{@atk mw} reach 5 ft., one target. 48 ({@damage 8d8 + 12}) radiant damage."]},{"name":"Lay on Hands (1/Day)","entries":["A creature the celestial touches regains 19 ({@damage 2d10 + 8}) hit points. Alternatively, it can end one disease or neutralise on poison affecting the creature."]}],"arm":[{"arm":4,"from":["or 5 for Angel of Protection"]}],"wil":[{"wil":4}],"ref":[{"ref":2}],"fort":[{"fort":4}],"majorEffect":["The target's armour is reduced by 1 for 1 round."],"summonedBySpell":"Conjure Celestial|sns","summonedBySpellLevel":7},{"name":"Grove Swarm","source":"sns","size":["G"],"type":{"type":"plant","swarmSize":"L"},"hp":{"special":"244"},"speed":{"walk":50,"climb":30},"str":25,"dex":6,"int":10,"wis":10,"cha":7,"vulnerable":["fire"],"resist":["bludgeoning","piercing"],"conditionImmune":["charmed","frightened","grappled","prone","restrained","debilitated"],"passive":10,"languages":["druidic","sylvan"],"trait":[{"name":"Magic Resistance","entries":["Non-armour attacks from spells and other magical effects have disadvantage against the swarm."]},{"name":"Regeneration","entries":["The swarm regains 11 hit points at the start of its turn if it has at least 1 hit point."]},{"name":"Swarm","entries":["The swarm can occupy another creature's space and vice versa, and the swarm can move through any opening large enough for a Large plant. The swarm can't regain hit points from spells or potions, and it cannot gain temporary hit points."]},{"name":"Titanic","entries":["The swarm fills a 100-foot radius circle and ignores difficult terrain."]}],"action":[{"name":"Thrash","entries":["{@atk mw} reach 0 ft., all creatures in the swarm's space. 24 ({@damage 5d6 + 7}) slashing damage and the target is {@condition grappled}. Slashing damage dealt by this attack ignores resistances and immunities."]}],"arm":[{"arm":3,"from":["natural armour"]}],"wil":[{"wil":0}],"ref":[{"ref":0}],"fort":[{"fort":7}],"majorEffect":["The target's armour is reduced by 1 for 1 round."],"summonedBySpell":"Forest Army|sns","summonedBySpellLevel":9},{"name":"Tiny Servant","source":"sns","size":["T"],"type":"construct","hp":{"special":"11"},"speed":{"walk":30,"climb":30},"str":4,"dex":16,"int":2,"wis":10,"cha":1,"immune":["poison","psychic"],"conditionImmune":["blinded","charmed","deafened","fatigue","frightened","staggered","poisoned","strife"],"senses":["blindsight 60 ft. (blind beyond this radius)"],"passive":10,"languages":[],"action":[{"name":"Slam","entries":["{@atk mw} reach 5 ft., one target. 5 ({@damage 1d4 + 3}) bludgeoning damage."]}],"arm":[{"arm":2,"from":["natural armour"]}],"wil":[{"wil":0}],"ref":[{"ref":3}],"fort":[{"fort":0}],"majorEffect":["The target's armour is reduced by 1 for 1 round."],"summonedBySpell":"Tiny Servant|sns","summonedBySpellLevel":3},{"name":"Construct Spirit","source":"sns","size":["M"],"type":"construct","hp":{"special":"45 + 16 for each spell level above 4th"},"speed":{"walk":30},"str":18,"dex":10,"int":14,"wis":11,"cha":5,"resist":["poison"],"conditionImmune":["charmed","fatigue","frightened","strife","dazed","staggered","poisoned"],"senses":["darkvision 60 ft."],"passive":10,"languages":["understands the languages you speak"],"trait":[{"name":"Heated Body (Metal Only)","entries":["A creature that touches the construct or hits it with a melee weapon attack while adjacent to it suffers {@dice 1d10} fire harm."]},{"name":"Stony Lethargy (Stone Only)","entries":["When a creature starts its turn within 10 feet of the construct, the construct can force it to make a save. On a failed save, the target is {@condition rattled} and {@condition sluggish} until the start of its next turn."]}],"action":[{"name":"Slam","entries":["{@atk mw} reach 5 ft., one target. {@damage 1d8 + 4} + the spell's level bludgeoning damage. This damage is multiplied by half this spell's level. For example, at spell level 4, the damage is {@dice 2d8} + 8 + 8. Each of these multipliers counts as an instance of the Empowered Attack feature."]}],"reaction":[{"name":"Berserk Lashing (Clay Only)","entries":["When the construct takes damage, it makes a slam attack against a random creature adjacent to it. If no creature is within reach, the construct shifts up to half its Speed towards an enemy it can see."]}],"arm":[{"arm":1,"from":["plus half the spell's level (rounded up); natural armour"]}],"wil":[{"wil":0}],"ref":[{"ref":2}],"fort":[{"fort":4}],"majorEffect":["The target's armour is reduced by 1 for 1 round."],"summonedBySpell":"Summon Construct|sns","summonedBySpellLevel":4},{"name":"Draconic Spirit","source":"sns","size":["L"],"type":"dragon","hp":{"special":"56 + 11 for each spell level above 5th"},"speed":{"walk":30,"fly":60,"swim":30},"str":19,"dex":14,"int":10,"wis":14,"cha":14,"resist":["acid, cold, fire, lightning, and poison (Chromatic and Metallic Only)","force, necrotic, psychic, radiant, and thunder (Gem Only)"],"conditionImmune":["charmed","frightened","poisoned"],"senses":["blindsight 30 ft.","darkvision 60 ft."],"passive":12,"languages":["draconic","understands the languages you speak"],"trait":[{"name":"Shared Resistances","entries":["When you summon the dragon, choose one of its damage resistances. You have resistance to the chosen damage type until the spell ends."]}],"action":[{"name":"Rend","entries":["{@atk mw} reach 10 ft., one target. {@damage 1d6 + 4} + the spell's level piercing damage. This damage is multiplied by this spell's level. For example, at spell level 5, the damage is {@dice 5d6} + 20 + 25. Each of these multipliers counts as an instance of the Empowered Attack feature."]},{"name":"Breath Weapon","entries":["The dragon exhales destructive energy in a 30-foot cone. Make an area weapon reflex attack against each creature in that area that deals {@dice 5d6} damage of a type this dragon has 50% resistance to (your choice)."]}],"arm":[{"arm":2,"from":["plus half the spell's level (rounded down); natural armour"]}],"wil":[{"wil":2}],"ref":[{"ref":2}],"fort":[{"fort":4}],"majorEffect":["The target's armour is reduced by 1 for 1 round."],"summonedBySpell":"Summon Draconic Spirit|sns","summonedBySpellLevel":5},{"name":"Awakened Shrub","source":"sns","size":["S"],"type":"plant","hp":{"special":"11"},"speed":{"walk":20},"str":3,"dex":8,"int":10,"wis":10,"cha":6,"resist":["piercing"],"vulnerable":["fire"],"passive":10,"languages":["one language known by its creator"],"trait":[{"name":"False Appearance","entries":["While the shrub remains motionless, it is indistinguishable from a normal shrub."]}],"action":[{"name":"Rake","entries":["{@atk mw} reach 5 ft., one target. {@damage 1d4 - 1} slashing damage."]}],"arm":[{"arm":-1}],"wil":[{"wil":0}],"ref":[{"ref":0}],"fort":[{"fort":0}],"majorEffect":["The target's armour is reduced by 1 for 1 round."],"summonedBySpell":"Awaken|sns","summonedBySpellLevel":5},{"name":"Awakened Tree","source":"sns","size":["H"],"type":"plant","hp":{"special":"59"},"speed":{"walk":20},"str":19,"dex":6,"int":10,"wis":10,"cha":7,"resist":["bludgeoning","piercing"],"vulnerable":["fire"],"passive":10,"languages":["one language known by its creator"],"trait":[{"name":"False Appearance","entries":["While the tree remains motionless, it is indistinguishable from a normal tree."]}],"action":[{"name":"Slam","entries":["{@atk mw} reach 10 ft., one target. {@damage 3d6 + 4} bludgeoning damage."]}],"arm":[{"arm":1,"from":["natural armour"]}],"wil":[{"wil":0}],"ref":[{"ref":0}],"fort":[{"fort":4}],"majorEffect":["The target's armour is reduced by 1 for 1 round."],"summonedBySpell":"Awaken|sns","summonedBySpellLevel":5}]}
+{
+  "monster": [
+    {
+      "int": 0,
+      "passive": 0,
+      "str": 0,
+      "senses": [
+        "darkvision 60 ft."
+      ],
+      "name": "Animal Form",
+      "arm": [
+        {
+          "special": "half your Wisdom modifier"
+        }
+      ],
+      "languages": [
+        "the languages you know"
+      ],
+      "action": [
+        {
+          "name": "Bestial Strike (Land Only)",
+          "entries": [
+            "{@atk mw} reach 5 ft., one target. {@dice 1d12} + your Wisdom modifier bludgeoning, piercing, or slashing damage. This damage is increased to {@dice 2d8} + double your Wisdom modifier from 5th level onwards, which counts as the attack being affected by the Empowered Attack feature."
+          ]
+        },
+        {
+          "name": "Bestial Strike (Sea Only)",
+          "entries": [
+            "{@atk mw} reach 5 ft., one target. {@dice 1d6} + your Wisdom modifier bludgeoning, piercing, or slashing damage. This damage is increased to {@dice 2d6} + double your Wisdom modifier from 5th level onwards, which counts as the attack being affected by the Empowered Attack feature."
+          ]
+        },
+        {
+          "name": "Bestial Strike (Sky Only)",
+          "entries": [
+            "{@atk mw} reach 5 ft., one target. {@dice 1d4} + your Wisdom modifier bludgeoning, piercing, or slashing damage. This damage is increased to {@dice 2d4} + double your Wisdom modifier from 5th level onwards, which counts as the attack being affected by the Empowered Attack feature."
+          ]
+        }
+      ],
+      "hp": {
+        "special": "you continue to use your hit points and Hit Dice"
+      },
+      "dex": 0,
+      "cha": 0,
+      "source": "sns",
+      "type": "beast",
+      "wis": 0,
+      "ref": [
+        {
+          "ref": 0
+        }
+      ],
+      "trait": [
+        {
+          "type": "entries",
+          "name": "Amphibious (Sea Only)",
+          "entries": [
+            "You can breathe air and water."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Flyby (Sky Only)",
+          "entries": [
+            "You don't provoke opportunity attacks when you fly out of an enemy's reach."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Keen Senses (Land and Sky Only)",
+          "entries": [
+            "You have advantage on {@skill Perception} checks."
+          ]
+        }
+      ],
+      "size": [
+        "T",
+        "S",
+        "M",
+        "L"
+      ],
+      "speed": {
+        "walk": 40,
+        "climb": {
+          "number": 40,
+          "condition": "(Land only)"
+        },
+        "fly": {
+          "number": 40,
+          "condition": "(Sky only)"
+        },
+        "swim": {
+          "number": 40,
+          "condition": "(Sea only)"
+        }
+      },
+      "fort": [
+        {
+          "fort": 0
+        }
+      ],
+      "wil": [
+        {
+          "wil": 0
+        }
+      ]
+    },
+    {
+      "int": 0,
+      "passive": 0,
+      "immune": [
+        "fire (Fire only)",
+        "poison"
+      ],
+      "str": 0,
+      "senses": [
+        "darkvision 60 ft.",
+        "tremorsense 60 ft. (Earth only)"
+      ],
+      "name": "Elemental Form",
+      "arm": [
+        {
+          "special": "half your Wisdom modifier"
+        }
+      ],
+      "languages": [
+        "the languages you know"
+      ],
+      "action": [
+        {
+          "name": "Slam",
+          "entries": [
+            "{@atk mw} reach 5 ft., one target. {@dice 6d6} + triple your Wisdom modifier bludgeoning damage (or fire damage for a Fire elemental). This attack counts as having two instances of the Empowered Attack feature affecting it."
+          ]
+        }
+      ],
+      "hp": {
+        "special": "you continue to use your hit points and Hit Dice"
+      },
+      "dex": 0,
+      "cha": 0,
+      "source": "sns",
+      "type": {
+        "type": "elemental",
+        "tags": [
+          "air, earth, fire, or water"
+        ]
+      },
+      "wis": 0,
+      "ref": [
+        {
+          "ref": 0
+        }
+      ],
+      "trait": [
+        {
+          "type": "entries",
+          "name": "Amorphous Form (Air, Fire, and Water Only)",
+          "entries": [
+            "You can move through a space as narrow as 1 inch wide without squeezing."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Elemental Burst",
+          "entries": [
+            "Elemental power erupts from you when you reach 0 hit points. You make a reflex attack against each adjacent creature that deals bludgeoning damage (or fire damage for a Fire elemental) equal to your level plus your Wisdom modifier."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Insubstantial (Air and Fire Only)",
+          "entries": [
+            "You cannot be {@condition grappled}, knocked {@condition prone}, or {@condition restrained}."
+          ]
+        }
+      ],
+      "conditionImmune": [
+        "fatigue",
+        "staggered",
+        "poisoned",
+        "strife",
+        "unconscious"
+      ],
+      "size": [
+        "S"
+      ],
+      "speed": {
+        "walk": 30,
+        "burrow": {
+          "number": 30,
+          "condition": "(Earth only)"
+        },
+        "fly": {
+          "number": 30,
+          "condition": "(hover; Air only)"
+        },
+        "swim": {
+          "number": 30,
+          "condition": "(Water only)"
+        }
+      },
+      "fort": [
+        {
+          "fort": 0
+        }
+      ],
+      "wil": [
+        {
+          "wil": 0
+        }
+      ]
+    },
+    {
+      "int": 1,
+      "passive": 12,
+      "immune": [
+        "poison",
+        "psychic"
+      ],
+      "str": 16,
+      "name": "Spell Automaton",
+      "arm": [
+        {
+          "arm": 4
+        }
+      ],
+      "bonus": [
+        {
+          "name": "Overclock (Recharge 5-6)",
+          "entries": [
+            "The automaton takes the Dash action."
+          ]
+        }
+      ],
+      "languages": [
+        "understands any known by its creator but cannot speak"
+      ],
+      "action": [
+        {
+          "name": "Slam",
+          "entries": [
+            "{@atk mw} reach 5 ft., one target. {@damage 4d10 + 8} + double your Intelligence modifier bludgeoning damage."
+          ]
+        },
+        {
+          "name": "Integrated Spell",
+          "entries": [
+            "The automaton uses the spell invention integrated into it to cast a spell, governed by your Intelligence instead of its own. If the spell invention integrated into it would burn out due to the result of the fizzle die, the automaton takes 33 true damage instead."
+          ]
+        }
+      ],
+      "hp": {
+        "special": "101"
+      },
+      "dex": 12,
+      "cha": 1,
+      "source": "sns",
+      "type": "construct",
+      "wis": 6,
+      "ref": [
+        {
+          "ref": 1
+        }
+      ],
+      "majorEffect": [
+        "The automaton heals 20 hit points."
+      ],
+      "conditionImmune": [
+        "blinded",
+        "charmed",
+        "deafened",
+        "fatigue",
+        "strife",
+        "frightened",
+        "staggered",
+        "poisoned"
+      ],
+      "skill": {
+        "athletics": "+5",
+        "perception": "+0 (+1d4)"
+      },
+      "size": [
+        "M"
+      ],
+      "speed": {
+        "walk": 40
+      },
+      "fort": [
+        {
+          "fort": 3
+        }
+      ],
+      "resist": [
+        {
+          "note": "from nonmagical attacks",
+          "resist": [
+            "all"
+          ],
+          "cond": true
+        }
+      ],
+      "wil": [
+        {
+          "wil": -2
+        }
+      ]
+    },
+    {
+      "int": 10,
+      "passive": 10,
+      "immune": [
+        "poison",
+        "psychic"
+      ],
+      "str": 10,
+      "name": "Eldritch Cannon",
+      "arm": [
+        {
+          "arm": 4
+        }
+      ],
+      "action": [
+        {
+          "name": "Cannon (Flamethrower Only)",
+          "entries": [
+            "The cannon exhales fire in a 15-foot cone. It makes an area spell reflex attack against each creature in that area, dealing {@dice 4d4} fire damage. The fire ignites any flammable objects in the area that aren't being worn or carried."
+          ]
+        },
+        {
+          "name": "Cannon (Force Ballista Only)",
+          "entries": [
+            "{@atk rs} range 120 ft., one target. {@damage 2d8} force damage. On a hit, the target is pushed 5 feet away from the cannon."
+          ]
+        },
+        {
+          "name": "Cannon (Protector Only)",
+          "entries": [
+            "The cannon emits a burst of positive energy that grants itself and each creature of your choice within 10 feet of it a number of temporary hit points equal to {@dice 1d10} + your Intelligence modifier (minimum of +1)."
+          ]
+        }
+      ],
+      "hp": {
+        "special": "six times your level"
+      },
+      "dex": 10,
+      "cha": 10,
+      "source": "sns",
+      "type": "construct",
+      "wis": 10,
+      "ref": [
+        {
+          "ref": 0
+        }
+      ],
+      "majorEffect": [
+        "The cannon recovers hit points equal to your level. If it is already on full hit points, it instead gains that amount of temporary hit points."
+      ],
+      "trait": [
+        {
+          "name": "Sustainable Engineering",
+          "entries": [
+            "Whenever the {@spell mending} spell is cast on the cannon, the cannon regains {@dice 2d6} hit points."
+          ]
+        }
+      ],
+      "size": [
+        "S"
+      ],
+      "speed": {
+        "walk": 15,
+        "climb": 15
+      },
+      "fort": [
+        {
+          "fort": 0
+        }
+      ],
+      "wil": [
+        {
+          "wil": 0
+        }
+      ]
+    },
+    {
+      "int": 10,
+      "passive": 10,
+      "immune": [
+        "poison",
+        "psychic"
+      ],
+      "str": 10,
+      "name": "Eldritch Megacannon",
+      "arm": [
+        {
+          "arm": 4
+        }
+      ],
+      "action": [
+        {
+          "name": "Cannon (Flamethrower Only)",
+          "entries": [
+            "The cannon exhales fire in a 15-foot cone. It makes an area spell reflex attack against each creature in that area, dealing {@dice 3d12} fire damage. The fire ignites any flammable objects in the area that aren't being worn or carried."
+          ]
+        },
+        {
+          "name": "Cannon (Force Ballista Only)",
+          "entries": [
+            "{@atk rs} range 120 ft., one target. {@damage 4d8} force damage. On a hit, the target is pushed 10 feet away from the cannon."
+          ]
+        },
+        {
+          "name": "Cannon (Protector Only)",
+          "entries": [
+            "The cannon emits a burst of positive energy that grants itself and each creature of your choice within 10 feet of it a number of temporary hit points equal to {@dice 2d10} + double your Intelligence modifier (minimum of +2)."
+          ]
+        }
+      ],
+      "hp": {
+        "special": "12 times your level"
+      },
+      "dex": 10,
+      "cha": 10,
+      "source": "sns",
+      "type": "construct",
+      "wis": 10,
+      "ref": [
+        {
+          "ref": 0
+        }
+      ],
+      "majorEffect": [
+        "The cannon recovers hit points equal to your level. If it is already on full hit points, it instead gains that amount of temporary hit points."
+      ],
+      "trait": [
+        {
+          "name": "Sustainable Engineering",
+          "entries": [
+            "Whenever the {@spell mending} spell is cast on the cannon, the cannon regains {@dice 2d6} hit points."
+          ]
+        }
+      ],
+      "size": [
+        "M"
+      ],
+      "speed": {
+        "walk": 15,
+        "climb": 15
+      },
+      "fort": [
+        {
+          "fort": 0
+        }
+      ],
+      "wil": [
+        {
+          "wil": 0
+        }
+      ]
+    },
+    {
+      "int": 3,
+      "passive": 8,
+      "immune": [
+        "poison"
+      ],
+      "str": 12,
+      "senses": [
+        "darkvision 60 ft."
+      ],
+      "name": "Zombie",
+      "arm": [
+        {
+          "arm": -1
+        }
+      ],
+      "action": [
+        {
+          "name": "Grab",
+          "entries": [
+            "{@atk mw} reach 5 ft., one target. {@damage 1d6 + 1} bludgeoning damage. If the target is a Medium or smaller creature, it is {@condition grappled}. Until the grapple ends, the zombie can't grab another target."
+          ]
+        },
+        {
+          "name": "Bite",
+          "entries": [
+            "{@atk mw} reach 5 ft., one {@condition grappled} target. {@damage 1d10 + 1} piercing damage, and the zombie regains the same number of hit points."
+          ]
+        }
+      ],
+      "hp": {
+        "special": "16"
+      },
+      "dex": 6,
+      "cha": 4,
+      "source": "sns",
+      "type": "undead",
+      "wis": 6,
+      "ref": [
+        {
+          "ref": -2
+        }
+      ],
+      "majorEffect": [
+        "The zombie may immediately shift 5 feet."
+      ],
+      "trait": [
+        {
+          "name": "Undead Fortitude (1/Day)",
+          "entries": [
+            "If the zombie is reduced to 0 hit points by damage that isn't radiant or from a critical hit, it's instead reduced to 1 hit point, falls {@condition prone}, and is {@condition incapacitated} until the end of its next turn, appearing to be dead."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Undead Nature",
+          "entries": [
+            "A zombie doesn't require air, sustenance, or sleep."
+          ]
+        }
+      ],
+      "conditionImmune": [
+        "fatigue",
+        "poisoned"
+      ],
+      "size": [
+        "M"
+      ],
+      "speed": {
+        "walk": 20
+      },
+      "fort": [
+        {
+          "fort": 3
+        }
+      ],
+      "wil": [
+        {
+          "wil": -2
+        }
+      ]
+    },
+    {
+      "name": "Summoned Minion",
+      "source": "sns",
+      "size": [
+        "M"
+      ],
+      "type": "any",
+      "hp": {
+        "special": "12 + 12 times your proficiency bonus"
+      },
+      "speed": {
+        "walk": 30
+      },
+      "str": 18,
+      "dex": 10,
+      "int": 4,
+      "wis": 14,
+      "cha": 5,
+      "immune": [],
+      "conditionImmune": [],
+      "senses": [],
+      "passive": 10,
+      "languages": [
+        "understands the languages you speak"
+      ],
+      "action": [
+        {
+          "name": "Melee attack",
+          "entries": [
+            "{@atk mw} reach 5 ft., one target. 5 + triple your level bludgeoning, piercing, or slashing damage."
+          ]
+        }
+      ],
+      "arm": [
+        {
+          "special": "Your level divided by 4"
+        }
+      ],
+      "wil": [
+        {
+          "wil": 2
+        }
+      ],
+      "ref": [
+        {
+          "ref": 0
+        }
+      ],
+      "fort": [
+        {
+          "fort": 4
+        }
+      ],
+      "majorEffect": [
+        "The target's armour is reduced by 1 for 1 round."
+      ]
+    },
+    {
+      "name": "Bestial Spirit",
+      "source": "sns",
+      "size": [
+        "S"
+      ],
+      "type": "beast",
+      "hp": {
+        "special": "22 (Air only) or 33 (Land and Water only) + 6 for each spell level above 2nd"
+      },
+      "speed": {
+        "walk": 30,
+        "climb": {
+          "number": 30,
+          "condition": "(Land only)"
+        },
+        "fly": {
+          "number": 60,
+          "condition": "(Air only)"
+        },
+        "swim": {
+          "number": 30,
+          "condition": "(Water only)"
+        }
+      },
+      "str": 18,
+      "dex": 11,
+      "int": 4,
+      "wis": 14,
+      "cha": 5,
+      "senses": [
+        "darkvision 60 ft."
+      ],
+      "passive": 12,
+      "languages": [
+        "understands the languages you speak"
+      ],
+      "trait": [
+        {
+          "type": "entries",
+          "name": "Flyby (Air Only)",
+          "entries": [
+            "The beast doesn't provoke opportunity attacks when it flies out of an enemy's reach."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Pack Tactics (Land and Water Only)",
+          "entries": [
+            "The beast has advantage on an armour attack roll against a creature if at least one of the beast's allies is adjacent to the creature and the ally isn't {@condition incapacitated}."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Water Breathing (Water Only)",
+          "entries": [
+            "The beast can breathe only underwater."
+          ]
+        }
+      ],
+      "action": [
+        {
+          "name": "Maul",
+          "entries": [
+            "{@atk mw} reach 5 ft., one target. {@damage 1d8 + 4} + the spell's level piercing damage. This damage is multiplied by half this spell's level. For example, at spell level 4, the damage is {@dice 2d8} + 8 + 8. Each of these multipliers counts as an instance of the Empowered Attack feature."
+          ]
+        }
+      ],
+      "arm": [
+        {
+          "special": "half the level of the spell (rounded up)"
+        }
+      ],
+      "wil": [
+        {
+          "wil": 2
+        }
+      ],
+      "ref": [
+        {
+          "ref": 0
+        }
+      ],
+      "fort": [
+        {
+          "fort": 4
+        }
+      ],
+      "majorEffect": [
+        "The target's armour is reduced by 1 for 1 round."
+      ],
+      "summonedBySpell": "Conjure Animals|sns",
+      "summonedBySpellLevel": 3
+    },
+    {
+      "name": "Minor Elemental",
+      "source": "sns",
+      "size": [
+        "S"
+      ],
+      "type": {
+        "type": "elemental",
+        "tags": [
+          "air, earth, fire, or water"
+        ]
+      },
+      "hp": {
+        "special": "67 + 11 for each spell level above 4th"
+      },
+      "speed": {
+        "walk": 30,
+        "burrow": {
+          "number": 30,
+          "condition": "(Earth only)"
+        },
+        "fly": {
+          "number": 30,
+          "condition": "(hover; Air only)"
+        },
+        "swim": {
+          "number": 30,
+          "condition": "(Water only)"
+        }
+      },
+      "str": 12,
+      "dex": 12,
+      "int": 10,
+      "wis": 10,
+      "cha": 6,
+      "immune": [
+        "fire (Fire only)",
+        "poison"
+      ],
+      "conditionImmune": [
+        "fatigue",
+        "staggered",
+        "poisoned",
+        "strife",
+        "unconscious"
+      ],
+      "senses": [
+        "darkvision 60 ft.",
+        "tremorsense 60 ft. (Earth only)"
+      ],
+      "passive": 10,
+      "languages": [
+        "primordial",
+        "auran (Air only)",
+        "aquan (Water only)",
+        "ignan (Fire only)",
+        "terran (Earth only)"
+      ],
+      "trait": [
+        {
+          "type": "entries",
+          "name": "Amorphous Form (Air, Fire, and Water Only)",
+          "entries": [
+            "The elemental can move through a space as narrow as 1 inch wide without squeezing."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Death Burst",
+          "entries": [
+            "The minor elemental explodes when it dies. It makes a reflex attack against each adjacent creature that deals 7 ({@dice 3d4}) bludgeoning damage (or fire damage for a Fire elemental)."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Insubstantial (Air and Fire Only)",
+          "entries": [
+            "The minor elemental cannot be {@condition grappled}, knocked {@condition prone}, or {@condition restrained}."
+          ]
+        }
+      ],
+      "action": [
+        {
+          "name": "Slam",
+          "entries": [
+            "{@atk mw} reach 5 ft., one target. 6 ({@damage 1d6 + 3}) bludgeoning damage (or fire damage for a Fire elemental) plus extra damage equal to spell slot level."
+          ]
+        }
+      ],
+      "arm": [
+        {
+          "special": "1 + half the level of the spell (rounded up)"
+        }
+      ],
+      "wil": [
+        {
+          "wil": 0
+        }
+      ],
+      "ref": [
+        {
+          "ref": 1
+        }
+      ],
+      "fort": [
+        {
+          "fort": 2
+        }
+      ],
+      "majorEffect": [
+        "The target's armour is reduced by 1 for 1 round."
+      ],
+      "summonedBySpell": "Conjure Minor Elementals|sns",
+      "summonedBySpellLevel": 4
+    },
+    {
+      "name": "Woodland Being",
+      "source": "sns",
+      "size": [
+        "M"
+      ],
+      "type": {
+        "type": "fey",
+        "tags": [
+          "blink dog, satyr, or sprite"
+        ]
+      },
+      "hp": {
+        "special": "67 + 11 for each spell level above 4th"
+      },
+      "speed": {
+        "walk": {
+          "number": 40,
+          "condition": "(or 10 ft. for Sprite)"
+        },
+        "fly": {
+          "number": 40,
+          "condition": "(Sprite only)"
+        }
+      },
+      "str": 12,
+      "dex": 15,
+      "int": 10,
+      "wis": 10,
+      "cha": 15,
+      "senses": [
+        "darkvision 60 ft."
+      ],
+      "passive": 10,
+      "languages": [
+        "common",
+        "sylvan"
+      ],
+      "trait": [
+        {
+          "type": "entries",
+          "name": "Keen Hearing and Smell (Blink Dog Only)",
+          "entries": [
+            "The blink dog has advantage on {@skill Perception} checks that rely on hearing or smell."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Magic Resistance (Satyr Only)",
+          "entries": [
+            "Spell attacks against the satyr have disadvantage."
+          ]
+        }
+      ],
+      "action": [
+        {
+          "name": "Blinking Bite (Blink Dog Only)",
+          "entries": [
+            "{@atk mw} reach 5 ft., one target. 6 {@damage 1d6 + 3} piercing damage plus extra damage equal to spell slot level. Before or after the attack, the blink dog can teleport up to 40 feet to an unoccupied space it can see."
+          ]
+        },
+        {
+          "name": "Ram (Satyr Only)",
+          "entries": [
+            "{@atk mw} reach 5 ft., one target. 8 {@damage 2d4 + 3} bludgeoning damage plus extra damage equal to spell slot level."
+          ]
+        },
+        {
+          "name": "Shortbow (Sprite Only)",
+          "entries": [
+            "{@atk rw} range 40/160 ft., one target. 5 piercing damage plus extra damage equal to spell slot level. If this attack scores a major success against a creature, the target is {@condition poisoned} for 1 minute. On a critical success, the {@condition poisoned} target falls {@condition unconscious} for the same duration, or until it takes damage or another creature uses an action to shake it awake."
+          ]
+        }
+      ],
+      "arm": [
+        {
+          "special": "2 + half the level of the spell"
+        }
+      ],
+      "wil": [
+        {
+          "wil": 2
+        }
+      ],
+      "ref": [
+        {
+          "ref": 2
+        }
+      ],
+      "fort": [
+        {
+          "fort": 1
+        }
+      ],
+      "majorEffect": [
+        "The target's armour is reduced by 1 for 1 round."
+      ],
+      "summonedBySpell": "Conjure Woodland Beings|sns",
+      "summonedBySpellLevel": 4
+    },
+    {
+      "name": "Conjured Elemental",
+      "source": "sns",
+      "size": [
+        "M"
+      ],
+      "type": {
+        "type": "elemental",
+        "tags": [
+          "air, earth, fire, or water"
+        ]
+      },
+      "hp": {
+        "special": "67"
+      },
+      "speed": {
+        "walk": {
+          "number": 30,
+          "condition": "(or 50 ft. for Fire)"
+        },
+        "burrow": {
+          "number": 30,
+          "condition": "(Earth only)"
+        },
+        "fly": {
+          "number": 60,
+          "condition": "(hover; Air only)"
+        },
+        "swim": {
+          "number": 60,
+          "condition": "(Water only)"
+        }
+      },
+      "str": 18,
+      "dex": 14,
+      "int": 4,
+      "wis": 10,
+      "cha": 10,
+      "resist": [
+        "cold (Water only)",
+        "lightning and thunder (Air only)",
+        "piercing and slashing (Earth only)"
+      ],
+      "immune": [
+        "fire (Fire only)",
+        "poison"
+      ],
+      "conditionImmune": [
+        "fatigue",
+        "staggered",
+        "poisoned",
+        "strife",
+        "unconscious"
+      ],
+      "senses": [
+        "darkvision 60 ft.",
+        "tremorsense 60 ft. (Earth only)"
+      ],
+      "passive": 10,
+      "languages": [
+        "primordial",
+        "auran (Air only)",
+        "aquan (Water only)",
+        "ignan (Fire only)",
+        "terran (Earth only)"
+      ],
+      "trait": [
+        {
+          "type": "entries",
+          "name": "Amorphous Form (Air, Fire, and Water Only)",
+          "entries": [
+            "The elemental can move through a space as narrow as 1 inch wide without squeezing."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Insubstantial (Air and Fire Only)",
+          "entries": [
+            "The elemental cannot be {@condition grappled}, knocked {@condition prone}, or {@condition restrained}."
+          ]
+        }
+      ],
+      "action": [
+        {
+          "name": "Slam",
+          "entries": [
+            "{@atk mw} reach 5 ft., one target. 26 ({@damage 4d8 + 8}) bludgeoning damage (or fire damage for a Fire elemental) plus extra damage equal to spell slot level."
+          ]
+        }
+      ],
+      "arm": [
+        {
+          "arm": 3,
+          "from": [
+            "natural armour"
+          ]
+        }
+      ],
+      "wil": [
+        {
+          "wil": 0
+        }
+      ],
+      "ref": [
+        {
+          "ref": 2
+        }
+      ],
+      "fort": [
+        {
+          "fort": 4
+        }
+      ],
+      "majorEffect": [
+        "The target's armour is reduced by 1 for 1 round."
+      ],
+      "summonedBySpell": "Conjure Elemental|sns",
+      "summonedBySpellLevel": 5
+    },
+    {
+      "name": "Fey Creature",
+      "source": "sns",
+      "size": [
+        "M"
+      ],
+      "type": {
+        "type": "fey",
+        "tags": [
+          "hag, hound, or redcap"
+        ]
+      },
+      "hp": {
+        "special": "67"
+      },
+      "speed": {
+        "walk": {
+          "number": 30,
+          "condition": "(or 40 ft. for Hound)"
+        }
+      },
+      "str": 14,
+      "dex": 16,
+      "int": 10,
+      "wis": 12,
+      "cha": 16,
+      "resist": [
+        {
+          "resist": [
+            "bludgeoning, piercing, and slashing damage"
+          ],
+          "note": "from attacks not made with silvered weapons",
+          "cond": "true"
+        }
+      ],
+      "conditionImmune": [
+        "charmed"
+      ],
+      "senses": [
+        "darkvision 60 ft."
+      ],
+      "passive": 11,
+      "languages": [
+        "common",
+        "sylvan"
+      ],
+      "action": [
+        {
+          "name": "Bite",
+          "entries": [
+            "{@atk mw} reach 5 ft., one target. 9 ({@damage 2d6 + 2}) piercing damage."
+          ]
+        },
+        {
+          "name": "Baleful Curse (Hag Only)",
+          "entries": [
+            "The hag selects one creature it can see. It makes a will attack against the creature with the following outcomes:",
+            {
+              "type": "list",
+              "items": [
+                {
+                  "type": "item",
+                  "name": "Minor success",
+                  "entries": [
+                    "The target has disadvantage on ability checks for 1 round."
+                  ]
+                },
+                {
+                  "type": "item",
+                  "name": "Standard success",
+                  "entries": [
+                    "The target is cursed for 1 minute or until it passes a passive save. While cursed, the creature has disadvantage on ability checks and armour attack rolls. A {@spell remove curse} spell ends the effect."
+                  ]
+                },
+                {
+                  "type": "item",
+                  "name": "Critical success",
+                  "entries": [
+                    "As standard success, but the target has disadvantage on all attack rolls."
+                  ]
+                }
+              ]
+            },
+            "Once the hag has targeted a creature with Baleful Curse, it can't do so again for 1 minute."
+          ]
+        },
+        {
+          "name": "Bloodletting Sickle (Redcap Only)",
+          "entries": [
+            "{@atk mw} reach 5 ft., one target. 7 ({@damage 2d4 + 2}) slashing damage. If the target is a creature other than an undead or construct and the attack scores a major success, the target suffers 5 ({@dice 2d4}) ongoing slashing harm due to a bleeding wound.",
+            "Each time the redcap hits the wounded target with this attack, the ongoing harm caused by the wound increases by 5 ({@dice 2d4}). Any creature can take an action to staunch the wound with a successful {@dc 12} {@skill Medicine} check. The wound also closes if the target receives magical healing."
+          ]
+        },
+        {
+          "name": "Terrifying Howl (Hound Only)",
+          "entries": [
+            "The hound makes a will attack against one creature that can hear it that deals {@dice 2d10} psychic damage. On a hit, the target is {@condition frightened} until the end of the hound's next turn. If the attack fails to hit, the target can't be affected by Terrifying Howl again for 1 minute."
+          ]
+        }
+      ],
+      "arm": [
+        {
+          "arm": 1,
+          "from": [
+            "natural armour"
+          ]
+        }
+      ],
+      "wil": [
+        {
+          "wil": 3
+        }
+      ],
+      "ref": [
+        {
+          "ref": 3
+        }
+      ],
+      "fort": [
+        {
+          "fort": 2
+        }
+      ],
+      "majorEffect": [
+        "The target's armour is reduced by 1 for 1 round."
+      ],
+      "summonedBySpell": "Conjure Fey|sns",
+      "summonedBySpellLevel": 6
+    },
+    {
+      "name": "Celestial Creature",
+      "source": "sns",
+      "size": [
+        "L"
+      ],
+      "type": {
+        "type": "celestial",
+        "tags": [
+          "angel of battle, angel of protection, or angel of vengeance"
+        ]
+      },
+      "hp": {
+        "special": "67"
+      },
+      "speed": {
+        "walk": 30,
+        "fly": 40
+      },
+      "str": 18,
+      "dex": 14,
+      "int": 10,
+      "wis": 14,
+      "cha": 18,
+      "resist": [
+        "radiant",
+        "necrotic"
+      ],
+      "conditionImmune": [
+        "charmed",
+        "frightened"
+      ],
+      "senses": [
+        "darkvision 60 ft."
+      ],
+      "passive": 12,
+      "languages": [
+        "celestial",
+        "common"
+      ],
+      "trait": [
+        {
+          "name": "Inescapable Strike (Angel of Vengeance Only)",
+          "entries": [
+            "Before making an attack, the celestial can teleport 30 feet as part of the same action."
+          ]
+        },
+        {
+          "name": "Protection Strike (Angel of Protection Only)",
+          "entries": [
+            "When the celestial attacks a creature, until the start of the celestial's next turn that creature has disadvantage on armour attack rolls against creatures other than the celestial."
+          ]
+        },
+        {
+          "name": "Radiant Strike (Angel of Battle Only)",
+          "entries": [
+            "The celestial's smite can be used as a ranged weapon attack (range 150/600 ft.) in addition to as a melee weapon attack."
+          ]
+        }
+      ],
+      "action": [
+        {
+          "name": "Smite",
+          "entries": [
+            "{@atk mw} reach 5 ft., one target. 48 ({@damage 8d8 + 12}) radiant damage."
+          ]
+        },
+        {
+          "name": "Lay on Hands (1/Day)",
+          "entries": [
+            "A creature the celestial touches regains 19 ({@damage 2d10 + 8}) hit points. Alternatively, it can end one disease or neutralise on poison affecting the creature."
+          ]
+        }
+      ],
+      "arm": [
+        {
+          "arm": 4,
+          "from": [
+            "or 5 for Angel of Protection"
+          ]
+        }
+      ],
+      "wil": [
+        {
+          "wil": 4
+        }
+      ],
+      "ref": [
+        {
+          "ref": 2
+        }
+      ],
+      "fort": [
+        {
+          "fort": 4
+        }
+      ],
+      "majorEffect": [
+        "The target's armour is reduced by 1 for 1 round."
+      ],
+      "summonedBySpell": "Conjure Celestial|sns",
+      "summonedBySpellLevel": 7
+    },
+    {
+      "name": "Grove Swarm",
+      "source": "sns",
+      "size": [
+        "G"
+      ],
+      "type": {
+        "type": "plant",
+        "swarmSize": "L"
+      },
+      "hp": {
+        "special": "244"
+      },
+      "speed": {
+        "walk": 50,
+        "climb": 30
+      },
+      "str": 25,
+      "dex": 6,
+      "int": 10,
+      "wis": 10,
+      "cha": 7,
+      "vulnerable": [
+        "fire"
+      ],
+      "resist": [
+        "bludgeoning",
+        "piercing"
+      ],
+      "conditionImmune": [
+        "charmed",
+        "frightened",
+        "grappled",
+        "prone",
+        "restrained",
+        "debilitated"
+      ],
+      "passive": 10,
+      "languages": [
+        "druidic",
+        "sylvan"
+      ],
+      "trait": [
+        {
+          "name": "Magic Resistance",
+          "entries": [
+            "Non-armour attacks from spells and other magical effects have disadvantage against the swarm."
+          ]
+        },
+        {
+          "name": "Regeneration",
+          "entries": [
+            "The swarm regains 11 hit points at the start of its turn if it has at least 1 hit point."
+          ]
+        },
+        {
+          "name": "Swarm",
+          "entries": [
+            "The swarm can occupy another creature's space and vice versa, and the swarm can move through any opening large enough for a Large plant. The swarm can't regain hit points from spells or potions, and it cannot gain temporary hit points."
+          ]
+        },
+        {
+          "name": "Titanic",
+          "entries": [
+            "The swarm fills a 100-foot radius circle and ignores difficult terrain."
+          ]
+        }
+      ],
+      "action": [
+        {
+          "name": "Thrash",
+          "entries": [
+            "{@atk mw} reach 0 ft., all creatures in the swarm's space. 24 ({@damage 5d6 + 7}) slashing damage and the target is {@condition grappled}. Slashing damage dealt by this attack ignores resistances and immunities."
+          ]
+        }
+      ],
+      "arm": [
+        {
+          "arm": 3,
+          "from": [
+            "natural armour"
+          ]
+        }
+      ],
+      "wil": [
+        {
+          "wil": 0
+        }
+      ],
+      "ref": [
+        {
+          "ref": 0
+        }
+      ],
+      "fort": [
+        {
+          "fort": 7
+        }
+      ],
+      "majorEffect": [
+        "The target's armour is reduced by 1 for 1 round."
+      ],
+      "summonedBySpell": "Forest Army|sns",
+      "summonedBySpellLevel": 9
+    },
+    {
+      "name": "Tiny Servant",
+      "source": "sns",
+      "size": [
+        "T"
+      ],
+      "type": "construct",
+      "hp": {
+        "special": "11"
+      },
+      "speed": {
+        "walk": 30,
+        "climb": 30
+      },
+      "str": 4,
+      "dex": 16,
+      "int": 2,
+      "wis": 10,
+      "cha": 1,
+      "immune": [
+        "poison",
+        "psychic"
+      ],
+      "conditionImmune": [
+        "blinded",
+        "charmed",
+        "deafened",
+        "fatigue",
+        "frightened",
+        "staggered",
+        "poisoned",
+        "strife"
+      ],
+      "senses": [
+        "blindsight 60 ft. (blind beyond this radius)"
+      ],
+      "passive": 10,
+      "languages": [],
+      "action": [
+        {
+          "name": "Slam",
+          "entries": [
+            "{@atk mw} reach 5 ft., one target. 5 ({@damage 1d4 + 3}) bludgeoning damage."
+          ]
+        }
+      ],
+      "arm": [
+        {
+          "arm": 2,
+          "from": [
+            "natural armour"
+          ]
+        }
+      ],
+      "wil": [
+        {
+          "wil": 0
+        }
+      ],
+      "ref": [
+        {
+          "ref": 3
+        }
+      ],
+      "fort": [
+        {
+          "fort": 0
+        }
+      ],
+      "majorEffect": [
+        "The target's armour is reduced by 1 for 1 round."
+      ],
+      "summonedBySpell": "Tiny Servant|sns",
+      "summonedBySpellLevel": 3
+    },
+    {
+      "name": "Construct Spirit",
+      "source": "sns",
+      "size": [
+        "M"
+      ],
+      "type": "construct",
+      "hp": {
+        "special": "45 + 16 for each spell level above 4th"
+      },
+      "speed": {
+        "walk": 30
+      },
+      "str": 18,
+      "dex": 10,
+      "int": 14,
+      "wis": 11,
+      "cha": 5,
+      "resist": [
+        "poison"
+      ],
+      "conditionImmune": [
+        "charmed",
+        "fatigue",
+        "frightened",
+        "strife",
+        "dazed",
+        "staggered",
+        "poisoned"
+      ],
+      "senses": [
+        "darkvision 60 ft."
+      ],
+      "passive": 10,
+      "languages": [
+        "understands the languages you speak"
+      ],
+      "trait": [
+        {
+          "name": "Heated Body (Metal Only)",
+          "entries": [
+            "A creature that touches the construct or hits it with a melee weapon attack while adjacent to it suffers {@dice 1d10} fire harm."
+          ]
+        },
+        {
+          "name": "Stony Lethargy (Stone Only)",
+          "entries": [
+            "When a creature starts its turn within 10 feet of the construct, the construct can force it to make a save. On a failed save, the target is {@condition rattled} and {@condition sluggish} until the start of its next turn."
+          ]
+        }
+      ],
+      "action": [
+        {
+          "name": "Slam",
+          "entries": [
+            "{@atk mw} reach 5 ft., one target. {@damage 1d8 + 4} + the spell's level bludgeoning damage. This damage is multiplied by half this spell's level. For example, at spell level 4, the damage is {@dice 2d8} + 8 + 8. Each of these multipliers counts as an instance of the Empowered Attack feature."
+          ]
+        }
+      ],
+      "reaction": [
+        {
+          "name": "Berserk Lashing (Clay Only)",
+          "entries": [
+            "When the construct takes damage, it makes a slam attack against a random creature adjacent to it. If no creature is within reach, the construct shifts up to half its Speed towards an enemy it can see."
+          ]
+        }
+      ],
+      "arm": [
+        {
+          "arm": 1,
+          "from": [
+            "plus half the spell's level (rounded up); natural armour"
+          ]
+        }
+      ],
+      "wil": [
+        {
+          "wil": 0
+        }
+      ],
+      "ref": [
+        {
+          "ref": 2
+        }
+      ],
+      "fort": [
+        {
+          "fort": 4
+        }
+      ],
+      "majorEffect": [
+        "The target's armour is reduced by 1 for 1 round."
+      ],
+      "summonedBySpell": "Summon Construct|sns",
+      "summonedBySpellLevel": 4
+    },
+    {
+      "name": "Draconic Spirit",
+      "source": "sns",
+      "size": [
+        "L"
+      ],
+      "type": "dragon",
+      "hp": {
+        "special": "56 + 11 for each spell level above 5th"
+      },
+      "speed": {
+        "walk": 30,
+        "fly": 60,
+        "swim": 30
+      },
+      "str": 19,
+      "dex": 14,
+      "int": 10,
+      "wis": 14,
+      "cha": 14,
+      "resist": [
+        "acid, cold, fire, lightning, and poison (Chromatic and Metallic Only)",
+        "force, necrotic, psychic, radiant, and thunder (Gem Only)"
+      ],
+      "conditionImmune": [
+        "charmed",
+        "frightened",
+        "poisoned"
+      ],
+      "senses": [
+        "blindsight 30 ft.",
+        "darkvision 60 ft."
+      ],
+      "passive": 12,
+      "languages": [
+        "draconic",
+        "understands the languages you speak"
+      ],
+      "trait": [
+        {
+          "name": "Shared Resistances",
+          "entries": [
+            "When you summon the dragon, choose one of its damage resistances. You have resistance to the chosen damage type until the spell ends."
+          ]
+        }
+      ],
+      "action": [
+        {
+          "name": "Rend",
+          "entries": [
+            "{@atk mw} reach 10 ft., one target. {@damage 1d6 + 4} + the spell's level piercing damage. This damage is multiplied by this spell's level. For example, at spell level 5, the damage is {@dice 5d6} + 20 + 25. Each of these multipliers counts as an instance of the Empowered Attack feature."
+          ]
+        },
+        {
+          "name": "Breath Weapon",
+          "entries": [
+            "The dragon exhales destructive energy in a 30-foot cone. Make an area weapon reflex attack against each creature in that area that deals {@dice 5d6} damage of a type this dragon has 50% resistance to (your choice)."
+          ]
+        }
+      ],
+      "arm": [
+        {
+          "arm": 2,
+          "from": [
+            "plus half the spell's level (rounded down); natural armour"
+          ]
+        }
+      ],
+      "wil": [
+        {
+          "wil": 2
+        }
+      ],
+      "ref": [
+        {
+          "ref": 2
+        }
+      ],
+      "fort": [
+        {
+          "fort": 4
+        }
+      ],
+      "majorEffect": [
+        "The target's armour is reduced by 1 for 1 round."
+      ],
+      "summonedBySpell": "Summon Draconic Spirit|sns",
+      "summonedBySpellLevel": 5
+    },
+    {
+      "name": "Awakened Shrub",
+      "source": "sns",
+      "size": [
+        "S"
+      ],
+      "type": "plant",
+      "hp": {
+        "special": "11"
+      },
+      "speed": {
+        "walk": 20
+      },
+      "str": 3,
+      "dex": 8,
+      "int": 10,
+      "wis": 10,
+      "cha": 6,
+      "resist": [
+        "piercing"
+      ],
+      "vulnerable": [
+        "fire"
+      ],
+      "passive": 10,
+      "languages": [
+        "one language known by its creator"
+      ],
+      "trait": [
+        {
+          "name": "False Appearance",
+          "entries": [
+            "While the shrub remains motionless, it is indistinguishable from a normal shrub."
+          ]
+        }
+      ],
+      "action": [
+        {
+          "name": "Rake",
+          "entries": [
+            "{@atk mw} reach 5 ft., one target. {@damage 1d4 - 1} slashing damage."
+          ]
+        }
+      ],
+      "arm": [
+        {
+          "arm": -1
+        }
+      ],
+      "wil": [
+        {
+          "wil": 0
+        }
+      ],
+      "ref": [
+        {
+          "ref": 0
+        }
+      ],
+      "fort": [
+        {
+          "fort": 0
+        }
+      ],
+      "majorEffect": [
+        "The target's armour is reduced by 1 for 1 round."
+      ],
+      "summonedBySpell": "Awaken|sns",
+      "summonedBySpellLevel": 5
+    },
+    {
+      "name": "Awakened Tree",
+      "source": "sns",
+      "size": [
+        "H"
+      ],
+      "type": "plant",
+      "hp": {
+        "special": "59"
+      },
+      "speed": {
+        "walk": 20
+      },
+      "str": 19,
+      "dex": 6,
+      "int": 10,
+      "wis": 10,
+      "cha": 7,
+      "resist": [
+        "bludgeoning",
+        "piercing"
+      ],
+      "vulnerable": [
+        "fire"
+      ],
+      "passive": 10,
+      "languages": [
+        "one language known by its creator"
+      ],
+      "trait": [
+        {
+          "name": "False Appearance",
+          "entries": [
+            "While the tree remains motionless, it is indistinguishable from a normal tree."
+          ]
+        }
+      ],
+      "action": [
+        {
+          "name": "Slam",
+          "entries": [
+            "{@atk mw} reach 10 ft., one target. {@damage 3d6 + 4} bludgeoning damage."
+          ]
+        }
+      ],
+      "arm": [
+        {
+          "arm": 1,
+          "from": [
+            "natural armour"
+          ]
+        }
+      ],
+      "wil": [
+        {
+          "wil": 0
+        }
+      ],
+      "ref": [
+        {
+          "ref": 0
+        }
+      ],
+      "fort": [
+        {
+          "fort": 4
+        }
+      ],
+      "majorEffect": [
+        "The target's armour is reduced by 1 for 1 round."
+      ],
+      "summonedBySpell": "Awaken|sns",
+      "summonedBySpellLevel": 5
+    }
+  ]
+}
