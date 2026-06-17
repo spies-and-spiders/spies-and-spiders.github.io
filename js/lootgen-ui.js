@@ -1395,7 +1395,7 @@ class LootGenOutput {
 	async _pDoSendToFoundry ({isTemp} = {}) {
 		const toSend = await this._pGetFoundryForm();
 		if (isTemp) toSend.isTemp = isTemp;
-		if (toSend.currency || toSend.entityInfos) return ExtensionUtil.pDoSend({type: "5etools.lootgen.loot", data: toSend});
+		if (toSend.currency || toSend.entityInfos) return ExtensionUtil.pDoSend({type: "snstools.lootgen.loot", data: toSend});
 		JqueryUtil.doToast({content: `Nothing to send!`, type: "warning"});
 	}
 

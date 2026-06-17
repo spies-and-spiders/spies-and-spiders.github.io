@@ -55,7 +55,7 @@ const settingsGroupMarkdown = new ConfigSettingsGroup({
 		new ConfigSettingEnum({
 			configId: "tagRenderMode",
 			name: `Tag Handling (<code>@tag</code>)`,
-			help: `The output to produce when rendering a 5etools "@tag".`,
+			help: `The output to produce when rendering an snstools "@tag".`,
 			isRowLabel: true,
 			default: "convertMarkdown",
 			values: [

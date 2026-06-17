@@ -42,7 +42,7 @@ export class EncounterBuilderHelpers {
 				return avg - (deviation * 2);
 			}
 
-			case "5etools": {
+			case "snstools": {
 				// The ideal interpretation of this:
 				//   "don't count any monsters whose challenge rating is significantly below the average
 				//   challenge rating of the other monsters in the group"

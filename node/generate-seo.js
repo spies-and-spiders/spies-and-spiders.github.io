@@ -56,7 +56,7 @@ const getTemplate = ({page, name, source, hash, img, textStyle, isFluff}) => `<!
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="manifest" href="/manifest.webmanifest">
-<meta name="application-name" content="5etools">
+<meta name="application-name" content="snstools">
 <meta name="theme-color" content="#006bc4">
 <meta name="msapplication-config" content="browserconfig.xml"/>
 <meta name="msapplication-TileColor" content="#006bc4">
@@ -65,7 +65,7 @@ const getTemplate = ({page, name, source, hash, img, textStyle, isFluff}) => `<!
 <link rel="apple-touch-icon" sizes="167x167" href="/apple-touch-icon-167x167.png">
 <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
 <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
-<meta name="apple-mobile-web-app-title" content="5etools">
+<meta name="apple-mobile-web-app-title" content="snstools">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#006bc4">
 <meta property="og:title" content="${name}">
 <meta property="og:url" content="${BASE_SITE_URL}${page}.html#${hash}">

@@ -845,12 +845,12 @@ NavBar.InteractionManager = class {
 		const sync = StorageUtil.syncGetDump();
 		const async = await StorageUtil.pGetDump();
 		const dump = {sync, async};
-		DataUtil.userDownload("5etools", dump, {fileType: "5etools"});
+		DataUtil.userDownload("snstools", dump, {fileType: "snstools"});
 	}
 
 	static async _pOnClick_button_loadStateFile (evt) {
 		evt.preventDefault();
-		const {jsons, errors} = await InputUiUtil.pGetUserUploadJson({expectedFileTypes: ["5etools"]});
+		const {jsons, errors} = await InputUiUtil.pGetUserUploadJson({expectedFileTypes: ["snstools"]});
 
 		DataUtil.doHandleFileLoadErrorsGeneric(errors);
 

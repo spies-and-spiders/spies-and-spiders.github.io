@@ -8118,12 +8118,12 @@ if (!IS_VTT && typeof window !== "undefined") {
 			let isPadded = false;
 			let anyFound = false;
 			[
-				"div-gpt-ad-5etools35927", // main banner
-				"div-gpt-ad-5etools35930", // side banner
-				"div-gpt-ad-5etools35928", // sidebar top
-				"div-gpt-ad-5etools35929", // sidebar bottom
-				"div-gpt-ad-5etools36159", // bottom floater
-				"div-gpt-ad-5etools36834", // mobile middle
+				"div-gpt-ad-snstools35927", // main banner
+				"div-gpt-ad-snstools35930", // side banner
+				"div-gpt-ad-snstools35928", // sidebar top
+				"div-gpt-ad-snstools35929", // sidebar bottom
+				"div-gpt-ad-snstools36159", // bottom floater
+				"div-gpt-ad-snstools36834", // mobile middle
 			].forEach(id => {
 				const iv = setInterval(() => {
 					const $wrp = $(`#${id}`);

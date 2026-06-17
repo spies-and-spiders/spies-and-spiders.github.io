@@ -1,6 +1,6 @@
 {
 	"name": "sns-tools",
-	"author": "SpiesAndSpiders",
+	"author": "SNS Team",
 	"version": "1.0.0",
 	"license": "MIT",
 	"description": "A site dedicated to making playing games with your friends as easy as possible.",
@@ -43,7 +43,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/5etools-mirror-3/5etools-src"
+		"url": "git+https://github.com/spies-and-spiders/spies-and-spiders.github.io"
 	},
 	"devDependencies": {
 		"5etools-utils": "^0.12.43",
@@ -67,9 +67,9 @@
 		"workbox-cli": "^7.1.0"
 	},
 	"bugs": {
-		"url": "https://github.com/5etools-mirror-3/5etools-src/issues"
+		"url": "https://github.com/spies-and-spiders/spies-and-spiders.github.io/issues"
 	},
-	"homepage": "https://github.com/5etools-mirror-3/5etools-src#readme",
+	"homepage": "https://github.com/spies-and-spiders/spies-and-spiders.github.io#readme",
 	"main": ".eslintrc.js",
 	"directories": {
 		"lib": "lib",

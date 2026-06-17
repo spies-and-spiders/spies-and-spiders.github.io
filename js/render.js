@@ -2026,7 +2026,7 @@ globalThis.Renderer = function () {
 
 				break;
 			}
-			case "@5etools": {
+			case "@snstools": {
 				const [displayText, page, hash] = Renderer.splitTagByPipe(text);
 				const fauxEntry = {
 					type: "link",
@@ -2044,7 +2044,7 @@ globalThis.Renderer = function () {
 
 				break;
 			}
-			case "@5etoolsImg": {
+			case "@snstoolsImg": {
 				const [displayText, page] = Renderer.splitTagByPipe(text);
 				const fauxEntry = {
 					type: "link",
@@ -4957,12 +4957,12 @@ Renderer.tag = class {
 		}
 	};
 
-	static Tag5etools = class extends this._TagPipedNoDisplayText {
-		tagName = "5etools";
+	static TagSnstools = class extends this._TagPipedNoDisplayText {
+		tagName = "snstools";
 	};
 
-	static Tag5etoolsImg = class extends this._TagPipedNoDisplayText {
-		tagName = "5etoolsImg";
+	static TagSnstoolsImg = class extends this._TagPipedNoDisplayText {
+		tagName = "snstoolsImg";
 	};
 
 	static TagAdventure = class extends this._TagPipedNoDisplayText {
@@ -5389,8 +5389,8 @@ Renderer.tag = class {
 
 		new this.TagCoinflip(),
 
-		new this.Tag5etools(),
-		new this.Tag5etoolsImg(),
+		new this.TagSnstools(),
+		new this.TagSnstoolsImg(),
 		new this.TagAdventure(),
 		new this.TagBook(),
 		new this.TagFilter(),
@@ -13660,7 +13660,7 @@ Renderer.hover = class {
 
 					<!-- Chrome Web App Icons -->
 					<link rel="manifest" href="manifest.webmanifest">
-					<meta name="application-name" content="5etools">
+					<meta name="application-name" content="snstools">
 					<meta name="theme-color" content="#006bc4">
 
 					<!-- Windows Start Menu tiles -->
@@ -13673,7 +13673,7 @@ Renderer.hover = class {
 					<link rel="apple-touch-icon" sizes="167x167" href="apple-touch-icon-167x167.png">
 					<link rel="apple-touch-icon" sizes="152x152" href="apple-touch-icon-152x152.png">
 					<link rel="apple-touch-icon" sizes="120x120" href="apple-touch-icon-120x120.png">
-					<meta name="apple-mobile-web-app-title" content="5etools">
+					<meta name="apple-mobile-web-app-title" content="snstools">
 
 					<!-- macOS Safari Pinned Tab and Touch Bar -->
 					<link rel="mask-icon" href="safari-pinned-tab.svg" color="#006bc4">
