@@ -20,6 +20,7 @@ sitemap.xml
 Thumbs.db
 .rsync-filter
 data/book/book-sns.json
+data/class/class-sns.json
 data/generated/*.json
 search/
 
