@@ -442,7 +442,7 @@
           "type": "entries",
           "name": "Closed Helm",
           "entries": [
-            "You have great control over your emotions; your face is an unmoving mask, revealing nothing of what you're thinking. Creatures have disadvantage on {@skill Insight} checks made against you. This grants you advantage with the Gossip journey activity when using {@skill Deception}, but disadvantage with the Pray journey activity when using {@skill Persuasion}. In addition, you subtract {@dice 1d4} from the attack rolls of attacks that can {@condition charmed|charm} or {@condition frightened|frighten} you."
+            "You have great control over your emotions; your face is an unmoving mask, revealing nothing of what you're thinking. Creatures have disadvantage on {@skill Insight} checks made against you. This grants you advantage with the Gossip journey activity when using {@skill Deception}, but disadvantage with the Pray journey activity when using {@skill Persuasion}. In addition, you subtract {@dice 1d4} from the attack rolls of attacks that can {@condition charmed||charm} or {@condition frightened||frighten} you."
           ]
         },
         {

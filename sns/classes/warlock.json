@@ -588,7 +588,7 @@
           "type": "entries",
           "name": "Spellcasting Focus",
           "entries": [
-            "You can use an {@item arcane focus} as a spellcasting focus for your warlock spells."
+            "You can use an arcane focus as a spellcasting focus for your warlock spells."
           ]
         }
       ]
@@ -654,7 +654,7 @@
           "rows": [
             [
               "1st",
-              "{@spell Color Spray}, {@spell Sleep}"
+              "{@spell Colour Spray}, {@spell Sleep}"
             ],
             [
               "2nd",
@@ -903,7 +903,7 @@
           "rows": [
             [
               "1st",
-              "{@spell Color Spray}, {@spell Sleep}"
+              "{@spell Colour Spray}, {@spell Sleep}"
             ],
             [
               "2nd",
@@ -2353,7 +2353,7 @@
         }
       ],
       "entries": [
-        "You can use an action to become {@condition invisible} while you are in an area of dim light or darkness. Your invisibility lasts until you move, take an action, or use your reaction."
+        "You can use an action to become invisible while you are in an area of dim light or darkness. Your invisibility lasts until you move, take an action, or use your reaction."
       ]
     },
     {

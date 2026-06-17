@@ -22,6 +22,7 @@ Thumbs.db
 data/book/book-sns.json
 data/class/class-sns.json
 data/generated/*.json
+data/optionalfeatures.json
 search/
 
 # Generated service worker files

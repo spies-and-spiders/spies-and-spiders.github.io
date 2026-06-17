@@ -1026,7 +1026,7 @@
         }
       ],
       "entries": [
-        "You can deal staggering blows. When you score a major hit against a creature with a melee weapon armour attack, you can spend 2 exertion to {@condition staggered|stagger} it until the end of your next turn."
+        "You can deal staggering blows. When you score a major hit against a creature with a melee weapon armour attack, you can spend 2 exertion to {@condition staggered||stagger} it until the end of your next turn."
       ]
     },
     {
@@ -1167,7 +1167,7 @@
         }
       ],
       "entries": [
-        "You can deal incapacitating blows. Whenever you score a major hit with a melee weapon armour attack, you can spend 1 exertion to {@condition deblitated|debilitate} the target until the end of your next turn."
+        "You can deal incapacitating blows. Whenever you score a major hit with a melee weapon armour attack, you can spend 1 exertion to {@condition debilitated||debilitate} the target until the end of your next turn."
       ]
     },
     {

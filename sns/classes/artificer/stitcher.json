@@ -239,7 +239,7 @@
       "level": 3,
       "header": 2,
       "entries": [
-        "Starting at tier 2, you can have your monstrous minion release foul gases from its body that can be detonated by your {@spell corpse explosion} spell. This allows you to target your monstrous minion with that spell as if it were a corpse, but when you cast the spell in this way it cannot {@condition poisoned|poison} creatures."
+        "Starting at tier 2, you can have your monstrous minion release foul gases from its body that can be detonated by your {@spell corpse explosion} spell. This allows you to target your monstrous minion with that spell as if it were a corpse, but when you cast the spell in this way it cannot {@condition poisoned||poison} creatures."
       ]
     },
     {

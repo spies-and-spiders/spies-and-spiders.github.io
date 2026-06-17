@@ -10128,7 +10128,7 @@
         "Your familiar, a spirit that takes the form of any CR 0 beast of Small or Tiny size, appears in an unoccupied space within range. It has the statistics of the chosen form, but is your choice of a celestial, fey, or fiend (instead of a beast).",
         "Your familiar is an independent creature that rolls its own initiative and acts on its own turn in combat (but cannot take the Attack action). However, it is loyal to you and always obeys your commands.",
         "When the familiar drops to 0 hit points, it vanishes without a trace. Casting the spell again causes it to reappear.",
-        "You are able to communicate telepathically with your familiar when it is within 100 feet. As long as it is within this range, you can use an action to see through your familiar's eyes and hear through its ears until the beginning of your next turn, gaining the benefit of any special senses it has. During this time, you are {@condition blinded|blind} and {@condition deafened|deaf} to your body's surroundings.",
+        "You are able to communicate telepathically with your familiar when it is within 100 feet. As long as it is within this range, you can use an action to see through your familiar's eyes and hear through its ears until the beginning of your next turn, gaining the benefit of any special senses it has. During this time, you are {@condition blinded||blind} and {@condition deafened||deaf} to your body's surroundings.",
         "You can use an action to either permanently dismiss your familiar or temporarily dismiss it to a pocket dimension where it awaits your summons.",
         "While it is temporarily dismissed, you can use an action to call it back, causing it to appear in any unoccupied space within 30 feet of you.",
         "You can't have more than one familiar at a time, but if you cast this spell while you already have a familiar, you can cause it to adopt a different form.",
@@ -17388,7 +17388,7 @@
     {
       "school": "C",
       "entries": [
-        "You conjure extensions of your own mental fortitude to keep your foes at bay. For the spell's duration, you can use an action to attempt to {@condition grappled|grapple} a creature within range by making a check with your spellcasting ability modifier against its standard DC.",
+        "You conjure extensions of your own mental fortitude to keep your foes at bay. For the spell's duration, you can use an action to attempt to {@condition grappled||grapple} a creature within range by making a check with your spellcasting ability modifier against its standard DC.",
         "Successful escape attempts do not break your concentration on the spell."
       ],
       "name": "Mental Grip",
@@ -18465,7 +18465,7 @@
           "type": "entries",
           "name": "Cast at Higher Levels",
           "entries": [
-            "The attack damage increases by {@dice 2d6} and the ongoing harm by {@condition 1d10} for each slot level above the 4th."
+            "The attack damage increases by {@dice 2d6} and the ongoing harm by {@dice 1d10} for each slot level above the 4th."
           ]
         }
       ],
@@ -19016,7 +19016,7 @@
           "type": "entries",
           "name": "Cast at Higher Levels",
           "entries": [
-            "The target's skin is also covered in mucus, granting attacks against it that can {@condition grappled|grapple} or {@condition restrained|restrain} disadvantage. In addition, the harm increases by {@dice 1d6} for each slot level above 3rd."
+            "The target's skin is also covered in mucus, granting attacks against it that can {@condition grappled||grapple} or {@condition restrained||restrain} disadvantage. In addition, the harm increases by {@dice 1d6} for each slot level above 3rd."
           ]
         }
       ],
@@ -19146,7 +19146,7 @@
             "One creature"
           ]
         },
-        "You utter a powerful word that {@condition debilitated|debilitates} a target with 168 hit points or less until they pass a passive save. If the target has more than 168 hit points, it is instead {@condition rattled} until the end of its next turn."
+        "You utter a powerful word that {@condition debilitated||debilitates} a target with 168 hit points or less until they pass a passive save. If the target has more than 168 hit points, it is instead {@condition rattled} until the end of its next turn."
       ],
       "name": "Power Word Debilitate",
       "time": [
@@ -19840,7 +19840,7 @@
             "One willing creature"
           ]
         },
-        "The target is protected against the following types of creatures: aberrations, celestials, elementals, fey, fiends, and undead. Creatures of those types have disadvantage on armour attack rolls against the target and are unable to {@condition charmed|charm}, {@condition frightened|frighten}, or possess the target.",
+        "The target is protected against the following types of creatures: aberrations, celestials, elementals, fey, fiends, and undead. Creatures of those types have disadvantage on armour attack rolls against the target and are unable to {@condition charmed||charm}, {@condition frightened||frighten}, or possess the target.",
         "If the target is already {@condition charmed}, {@condition frightened}, or possessed by such a creature, the target has advantage on any saves against that effect."
       ],
       "name": "Protection from Evil and Good",
@@ -19913,7 +19913,7 @@
             "One creature"
           ]
         },
-        "Attacks against the target that can {@condition poisoned|poison} have disadvantage. Additionally, the target has 50% resistance to poison damage and advantage on saves against the {@condition poisoned} condition.",
+        "Attacks against the target that can {@condition poisoned||poison} have disadvantage. Additionally, the target has 50% resistance to poison damage and advantage on saves against the {@condition poisoned} condition.",
         "Additionally, if the target is {@condition poisoned}, you negate one poison affecting it. If more than one poison affects the target, you negate one poison you know is present (otherwise you negate one at random)."
       ],
       "name": "Protection from Poison",
@@ -32340,7 +32340,7 @@
         {
           "type": "list",
           "items": [
-            "It {@condition deafened|deafens} you and other creatures in its area.",
+            "It {@condition deafened||deafens} you and other creatures in its area.",
             "It extinguishes unprotected flames in its area that are torch-sized or smaller.",
             "It hedges out vapour, gas, and fog that can be dispersed by strong wind.",
             "The area is difficult terrain for creatures other than you.",
