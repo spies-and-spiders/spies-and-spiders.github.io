@@ -1326,8 +1326,14 @@ class ListPage {
 				this.primaryLists.forEach(list => {
 					list.visibleItems.forEach(listItem => {
 						const {btnToggleExpand, dispExpandedOuter, dispExpandedInner} = this._getPreviewEles(listItem);
-						if (isExpand) this._doPreviewExpand({listItem, dispExpandedOuter, btnToggleExpand, dispExpandedInner});
-						else this._doPreviewCollapse({dispExpandedOuter, btnToggleExpand, dispExpandedInner});
+						// Guard each item so one failing render (e.g. a malformed tag in its data) cannot
+						//   halt the loop and leave the remaining items un-toggled.
+						try {
+							if (isExpand) this._doPreviewExpand({listItem, dispExpandedOuter, btnToggleExpand, dispExpandedInner});
+							else this._doPreviewCollapse({dispExpandedOuter, btnToggleExpand, dispExpandedInner});
+						} catch (e) {
+							setTimeout(() => { throw e; });
+						}
 					});
 				});
 			});

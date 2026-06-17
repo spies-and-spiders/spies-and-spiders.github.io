@@ -318,7 +318,7 @@
             "You always know which way is north.",
             "You always know the number of hours left before the next sunrise or sunset.",
             "You can accurately recall anything you have seen or heard within the past year.",
-            "You gain an expertise die in {@skill History}, {@skiill Magiscience|sns}, and, {@skill Nature}. This does not benefit your Journey Activity checks.",
+            "You gain an expertise die in {@skill History}, {@skill Magiscience}, and, {@skill Nature}. This does not benefit your Journey Activity checks.",
             "You may telepathically communicate with any creature within 60 feet of you in your line of sight that can understand a language. They may respond in the same way for the next 6 seconds."
           ]
         }
@@ -618,7 +618,7 @@
             "The Summoned Minion acts in its own turn after yours, and requires you to telepathically command it. If you provide it with no commands, it spends its turn taking the Dodge action and doing nothing else."
           ]
         },
-        "See {@creature Summoned Minion|sns} stat block."
+        "See {@creature Summoned Minion} stat block."
       ],
       "name": "Summoner"
     },

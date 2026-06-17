@@ -1,3 +1,4 @@
+import fs from "fs";
 import "../js/parser.js";
 import "../js/utils.js";
 import "../js/render.js";
@@ -20,6 +21,69 @@ const WALKER = MiscUtil.getWalker({
 	keyBlocklist: MiscUtil.GENERIC_WALKER_ENTRIES_KEY_BLOCKLIST,
 	isNoModification: true,
 });
+
+const DATA_DIRS = ["./data", "./sns"];
+
+const IGNORED_FILE_NAMES = new Set([
+	"changelog.json",
+	"index.json",
+	"renderdemo.json", //TODO could be good to update this and then include it in the test, useful as a reference for future work?
+	"optionalfeatures.json", // generated from `sns/classes/*`
+	"class-sns.json", // generated from `sns/classes/*`
+	"bestiary-sns.json", // generated from various other files (TODO move monster data here instead of being spread out across files?)
+]);
+
+function isIgnoredDataFile (filePath) {
+	return IGNORED_FILE_NAMES.has(filePath.split("/").pop());
+}
+
+class DataFileFinder {
+	static _ALL_FILE_METAS = null;
+
+	/** Parse every `.json` file under the data dirs once, ignoring index/changelog and non-object payloads. */
+	static _getAllFileMetas () {
+		if (this._ALL_FILE_METAS) return this._ALL_FILE_METAS;
+
+		const filePaths = DATA_DIRS
+			.flatMap(dir => {
+				try {
+					return ut.listFiles({dir});
+				} catch (e) {
+					return [];
+				}
+			})
+			.filter(filePath => filePath.endsWith(".json"))
+			.filter(filePath => !isIgnoredDataFile(filePath));
+
+		this._ALL_FILE_METAS = filePaths
+			.map(filePath => {
+				let json;
+				try {
+					json = ut.readJson(filePath);
+				} catch (e) {
+					return null;
+				}
+				if (!json || typeof json !== "object" || Array.isArray(json)) return null;
+				// Normalise the display path (strip any leading "./") to match the messages emitted by the checks.
+				return {file: filePath.replace(/^\.\//, ""), json};
+			})
+			.filter(Boolean);
+
+		return this._ALL_FILE_METAS;
+	}
+
+	/** All `{file, json}` metas whose JSON has the given prop as an array. */
+	static getWithProp (prop) {
+		return this._getAllFileMetas()
+			.filter(({json}) => Array.isArray(json[prop]));
+	}
+
+	/** Convenience: iterate every entity under `prop` across all relevant files, with its owning file. */
+	static forEachEntity (prop, fn) {
+		this.getWithProp(prop)
+			.forEach(({file, json}) => json[prop].forEach(ent => fn(ent, file, json)));
+	}
+}
 
 class TagTestUrlLookup {
 	static _ALL_URLS_SET = new Set();
@@ -448,23 +512,16 @@ class ItemDataCheck extends GenericDataCheck {
 	}
 
 	static pRun () {
-		const basicItems = ut.readJson(`./data/items-base.json`);
-		basicItems.baseitem.forEach(it => this._checkRoot("data/items-base.json", it, it.name, it.source));
-
-		const items = ut.readJson(`./data/items.json`);
-		items.item.forEach(it => this._checkRoot("data/items.json", it, it.name, it.source));
-		items.itemGroup.forEach(it => this._checkRoot("data/items.json", it, it.name, it.source));
-
-		const magicVariants = ut.readJson(`./data/magicvariants.json`);
-		magicVariants.magicvariant.forEach(va => this._checkRoot("data/magicvariants.json", va, va.name, va.source) || (va.inherits && this._checkRoot("data/magicvariants.json", va.inherits, `${va.name} (inherits)`, va.source)));
+		DataFileFinder.forEachEntity("baseitem", (it, file) => this._checkRoot(file, it, it.name, it.source));
+		DataFileFinder.forEachEntity("item", (it, file) => this._checkRoot(file, it, it.name, it.source));
+		DataFileFinder.forEachEntity("itemGroup", (it, file) => this._checkRoot(file, it, it.name, it.source));
+		DataFileFinder.forEachEntity("magicvariant", (va, file) => this._checkRoot(file, va, va.name, va.source) || (va.inherits && this._checkRoot(file, va.inherits, `${va.name} (inherits)`, va.source)));
 	}
 }
 
 class ActionDataCheck extends GenericDataCheck {
 	static pRun () {
-		const file = `data/actions.json`;
-		const actions = ut.readJson(`./${file}`);
-		actions.action.forEach(it => {
+		DataFileFinder.forEachEntity("action", (it, file) => {
 			if (it.fromVariant) {
 				const url = getEncoded(it.fromVariant, "variantrule");
 				if (!TagTestUrlLookup.hasUrl(url)) this._addMessage(`Missing link: ${it.fromVariant} in file ${file} (evaluates to "${url}")\n${TagTestUtil.getLogPtSimilarUrls({url})}`);
@@ -479,9 +536,7 @@ class ActionDataCheck extends GenericDataCheck {
 
 class DeityDataCheck extends GenericDataCheck {
 	static pRun () {
-		const file = `data/deities.json`;
-		const deities = ut.readJson(`./${file}`);
-		deities.deity.forEach(it => {
+		DataFileFinder.forEachEntity("deity", (it, file) => {
 			if (!it.customExtensionOf) return;
 
 			const url = getEncodedDeity(it.customExtensionOf, "deity");
@@ -732,27 +787,26 @@ AreaCheck.fileMatcher = /\/(adventure-|book-).*\.json/;
 
 class LootDataCheck extends GenericDataCheck {
 	static pRun () {
-		function handleItem (it) {
+		const handleItem = (file, it) => {
 			const toCheck = typeof it === "string" ? {name: it, source: Parser.SRC_DMG} : it;
 			const url = `${Renderer.tag.getPage("item")}#${UrlUtil.encodeForHash([toCheck.name, toCheck.source])}`.toLowerCase().trim();
-			if (!TagTestUrlLookup.hasUrl(url)) this._addMessage(`Missing link: ${JSON.stringify(it)} in file "${LootDataCheck.file}" (evaluates to "${url}")\n${TagTestUtil.getLogPtSimilarUrls({url})}`);
-		}
+			if (!TagTestUrlLookup.hasUrl(url)) this._addMessage(`Missing link: ${JSON.stringify(it)} in file "${file}" (evaluates to "${url}")\n${TagTestUtil.getLogPtSimilarUrls({url})}`);
+		};
 
-		const loot = ut.readJson(`./${LootDataCheck.file}`);
-		loot.magicItems.forEach(it => {
+		DataFileFinder.forEachEntity("magicItems", (it, file) => {
 			if (it.table) {
 				it.table.forEach(row => {
 					if (row.choose) {
 						if (row.choose.fromGeneric) {
-							row.choose.fromGeneric.forEach(handleItem);
+							row.choose.fromGeneric.forEach(item => handleItem(file, item));
 						}
 
 						if (row.choose.fromGroup) {
-							row.choose.fromGroup.forEach(handleItem);
+							row.choose.fromGroup.forEach(item => handleItem(file, item));
 						}
 
 						if (row.choose.fromItems) {
-							row.choose.fromItems.forEach(handleItem);
+							row.choose.fromItems.forEach(item => handleItem(file, item));
 						}
 					}
 				});
@@ -760,7 +814,6 @@ class LootDataCheck extends GenericDataCheck {
 		});
 	}
 }
-LootDataCheck.file = `data/loot.json`;
 
 class ClassDataCheck extends GenericDataCheck {
 	static _doCheckClass (file, data, cls) {
@@ -851,12 +904,15 @@ class ClassDataCheck extends GenericDataCheck {
 	}
 
 	static pRun () {
-		const index = ut.readJson("./data/class/index.json");
-		Object.values(index)
-			.map(filename => ({filename: filename, data: ut.readJson(`./data/class/${filename}`)}))
-			.forEach(({filename, data}) => {
-				this._run_handleFileClasses({filename, data});
-				this._run_handleFileSubclasses({filename, data});
+		const seen = new Set();
+		[
+			...DataFileFinder.getWithProp("class"),
+			...DataFileFinder.getWithProp("subclass"),
+		]
+			.filter(({file}) => !seen.has(file) && seen.add(file))
+			.forEach(({file, json}) => {
+				this._run_handleFileClasses({filename: file, data: json});
+				this._run_handleFileSubclasses({filename: file, data: json});
 			});
 	}
 
@@ -903,9 +959,7 @@ class FeatDataCheck extends GenericDataCheck {
 	}
 
 	static pRun () {
-		const file = `data/feats.json`;
-		const featJson = ut.readJson(`./${file}`);
-		featJson.feat.forEach(f => this._handleFeat(file, f));
+		DataFileFinder.forEachEntity("feat", (f, file) => this._handleFeat(file, f));
 	}
 }
 
@@ -917,9 +971,7 @@ class BackgroundDataCheck extends GenericDataCheck {
 	}
 
 	static pRun () {
-		const file = `data/backgrounds.json`;
-		const backgroundJson = ut.readJson(`./${file}`);
-		backgroundJson.background.forEach(f => this._handleBackground(file, f));
+		DataFileFinder.forEachEntity("background", (f, file) => this._handleBackground(file, f));
 	}
 }
 
@@ -954,18 +1006,7 @@ class BestiaryDataCheck extends GenericDataCheck {
 	}
 
 	static pRun () {
-		const index = ut.readJson(`data/bestiary/index.json`, "utf-8");
-		const fileMetas = Object.values(index)
-			.map(filename => {
-				const file = `data/bestiary/${filename}`;
-				return {
-					file,
-					contents: ut.readJson(file, "utf-8"),
-				};
-			});
-		fileMetas.forEach(({file, contents}) => {
-			(contents.monster || []).forEach(mon => this._handleCreature(file, mon));
-		});
+		DataFileFinder.forEachEntity("monster", (mon, file) => this._handleCreature(file, mon));
 	}
 }
 
@@ -982,9 +1023,7 @@ class DeckDataCheck extends GenericDataCheck {
 	}
 
 	static pRun () {
-		const file = `data/decks.json`;
-		const featJson = ut.readJson(`./${file}`);
-		featJson.deck.forEach(f => this._handleDeck(file, f));
+		DataFileFinder.forEachEntity("deck", (f, file) => this._handleDeck(file, f));
 	}
 }
 
@@ -994,118 +1033,70 @@ class CultsBoonsDataCheck extends GenericDataCheck {
 	}
 
 	static pRun () {
-		const file = `data/cultsboons.json`;
-		const json = ut.readJson(`./${file}`);
-		json.cult.forEach(ent => this._handleEntity(file, ent, "cult"));
-		json.boon.forEach(ent => this._handleEntity(file, ent, "boon"));
+		DataFileFinder.forEachEntity("cult", (ent, file) => this._handleEntity(file, ent, "cult"));
+		DataFileFinder.forEachEntity("boon", (ent, file) => this._handleEntity(file, ent, "boon"));
 	}
 }
 
 class OptionalfeatureDataCheck extends GenericDataCheck {
-	static _FILE = "data/optionalfeatures.json";
-
-	static _doPrerequisite (ent) {
+	static _doPrerequisite (file, ent) {
 		if (!ent.prerequisite?.length) return;
 
 		ent.prerequisite
 			.forEach(prereq => {
-				(prereq.feat || []).forEach(uid => this._doUid({uid, tag: "feat", propPath: "prerequisite.feat"}));
-				(prereq.optionalfeature || []).forEach(uid => this._doUid({uid, tag: "optfeature", propPath: "prerequisite.optionalfeature"}));
+				(prereq.feat || []).forEach(uid => this._doUid({file, uid, tag: "feat", propPath: "prerequisite.feat"}));
+				(prereq.optionalfeature || []).forEach(uid => this._doUid({file, uid, tag: "optfeature", propPath: "prerequisite.optionalfeature"}));
 			});
 	}
 
-	static _doUid ({uid, tag, propPath}) {
+	static _doUid ({file, uid, tag, propPath}) {
 		const url = getEncoded(uid, tag);
-		if (!TagTestUrlLookup.hasUrl(url)) this._addMessage(`Missing link: ${uid} in file ${this._FILE} (evaluates to "${url}") in "${propPath}"\n${TagTestUtil.getLogPtSimilarUrls({url})}`);
+		if (!TagTestUrlLookup.hasUrl(url)) this._addMessage(`Missing link: ${uid} in file ${file} (evaluates to "${url}") in "${propPath}"\n${TagTestUtil.getLogPtSimilarUrls({url})}`);
 	}
 
 	static pRun () {
-		const json = ut.readJson(this._FILE);
-		json.optionalfeature
-			.forEach(ent => {
-				this._doPrerequisite(ent);
-				this._testReprintedAs(this._FILE, ent, "optfeature");
-			});
+		DataFileFinder.forEachEntity("optionalfeature", (ent, file) => {
+			this._doPrerequisite(file, ent);
+			this._testReprintedAs(file, ent, "optfeature");
+		});
 	}
 }
 
 class SpellDataCheck extends GenericDataCheck {
 	static pRun () {
-		const index = ut.readJson("./data/spells/index.json");
-		Object.values(index)
-			.map(filename => ({filename: filename, data: ut.readJson(`./data/spells/${filename}`)}))
-			.forEach(({filename, data}) => {
-				data.spell
-					.forEach(ent => this._testReprintedAs(filename, ent, "spell"));
-			});
+		DataFileFinder.forEachEntity("spell", (ent, file) => this._testReprintedAs(file, ent, "spell"));
 	}
 }
 
 class ConditionDiseaseDataCheck extends GenericDataCheck {
-	static _FILE = "data/conditionsdiseases.json";
-
 	static pRun () {
-		const json = ut.readJson(this._FILE);
-		json.condition
-			.forEach(ent => {
-				this._testReprintedAs(this._FILE, ent, "condition");
-			});
-		json.disease
-			.forEach(ent => {
-				this._testReprintedAs(this._FILE, ent, "disease");
-			});
-		json.status
-			.forEach(ent => {
-				this._testReprintedAs(this._FILE, ent, "status");
-			});
+		DataFileFinder.forEachEntity("condition", (ent, file) => this._testReprintedAs(file, ent, "condition"));
+		DataFileFinder.forEachEntity("disease", (ent, file) => this._testReprintedAs(file, ent, "disease"));
+		DataFileFinder.forEachEntity("status", (ent, file) => this._testReprintedAs(file, ent, "status"));
 	}
 }
 
 class RewardsDataCheck extends GenericDataCheck {
-	static _FILE = "data/rewards.json";
-
 	static pRun () {
-		const json = ut.readJson(this._FILE);
-		json.reward
-			.forEach(ent => {
-				this._testReprintedAs(this._FILE, ent, "reward");
-			});
+		DataFileFinder.forEachEntity("reward", (ent, file) => this._testReprintedAs(file, ent, "reward"));
 	}
 }
 
 class VariantRuleDataCheck extends GenericDataCheck {
-	static _FILE = "data/variantrules.json";
-
 	static pRun () {
-		const json = ut.readJson(this._FILE);
-		json.variantrule
-			.forEach(ent => {
-				this._testReprintedAs(this._FILE, ent, "variantrule");
-			});
+		DataFileFinder.forEachEntity("variantrule", (ent, file) => this._testReprintedAs(file, ent, "variantrule"));
 	}
 }
 
 class SkillsRuleDataCheck extends GenericDataCheck {
-	static _FILE = "data/skills.json";
-
 	static pRun () {
-		const json = ut.readJson(this._FILE);
-		json.skill
-			.forEach(ent => {
-				this._testReprintedAs(this._FILE, ent, "skill");
-			});
+		DataFileFinder.forEachEntity("skill", (ent, file) => this._testReprintedAs(file, ent, "skill"));
 	}
 }
 
 class SensesDataCheck extends GenericDataCheck {
-	static _FILE = "data/senses.json";
-
 	static pRun () {
-		const json = ut.readJson(this._FILE);
-		json.sense
-			.forEach(ent => {
-				this._testReprintedAs(this._FILE, ent, "sense");
-			});
+		DataFileFinder.forEachEntity("sense", (ent, file) => this._testReprintedAs(file, ent, "sense"));
 	}
 }
 
@@ -1129,11 +1120,9 @@ class FoundrySpellsDataCheck extends GenericDataCheck {
 	}
 
 	static async pRun () {
-		const file = `data/spells/foundry.json`;
-		const json = ut.readJson(`./${file}`);
-
-		await json.spell
-			.pSerialAwaitMap(ent => this._pHandleEntity(file, ent));
+		await DataFileFinder.getWithProp("spell")
+			.pSerialAwaitMap(({file, json}) => json.spell
+				.pSerialAwaitMap(ent => this._pHandleEntity(file, ent)));
 	}
 }
 
@@ -1433,19 +1422,11 @@ class AdventureBookTagCheck extends DataTesterBase {
 
 	static registerParsedPrimitiveHandlers (parsedJsonChecker) {
 		[
-			{
-				path: "./data/adventures.json",
-				prop: "adventure",
-				tag: "adventure",
-			},
-			{
-				path: "./data/books.json",
-				prop: "book",
-				tag: "book",
-			},
-		].forEach(({path, prop, tag}) => {
-			const json = ut.readJson(path);
-			this._ADV_BOOK_LOOKUP[tag] = json[prop].mergeMap(({id}) => ({[id.toLowerCase()]: true}));
+			{prop: "adventure", tag: "adventure"},
+			{prop: "book", tag: "book"},
+		].forEach(({prop, tag}) => {
+			this._ADV_BOOK_LOOKUP[tag] = DataFileFinder.getWithProp(prop)
+				.mergeMap(({json}) => json[prop].mergeMap(({id}) => ({[id.toLowerCase()]: true})));
 		});
 
 		parsedJsonChecker.addPrimitiveHandler("string", this._checkString.bind(this));
@@ -1515,13 +1496,20 @@ async function main () {
 	];
 	DataTester.register({ClazzDataTesters});
 
-	await DataTester.pRun(
-		"./data",
-		ClazzDataTesters,
-		{
-			fnIsIgnoredFile: filePath => filePath.endsWith("changelog.json"),
-		},
-	);
+	const runOpts = {
+		fnIsIgnoredFile: isIgnoredDataFile,
+	};
+
+	// Walk every data tree so the generic primitive/file checks (tags, braces, links, dice, ...) cover all files.
+	//   Pass no per-entity testers here: those discover their relevant files across all trees themselves and are
+	//   run once below, after every tree has been walked (so cross-file checks see the full picture).
+	for (const dir of DATA_DIRS) {
+		if (!fs.existsSync(dir)) continue;
+		await DataTester.pRun(dir, [], runOpts);
+	}
+
+	for (const ClazzDataTester of ClazzDataTesters) await ClazzDataTester.pRun();
+	for (const ClazzDataTester of ClazzDataTesters) await ClazzDataTester.pPostRun();
 
 	ut.unpatchLoadJson();
 
@@ -1532,4 +1520,13 @@ async function main () {
 	return !outMessage;
 }
 
-export default main();
+export default main()
+	.then(isSuccess => {
+		if (isSuccess) return;
+		console.error("Tag test failed! See errors above.");
+		process.exit(1);
+	})
+	.catch(err => {
+		console.error(err);
+		process.exit(1);
+	});

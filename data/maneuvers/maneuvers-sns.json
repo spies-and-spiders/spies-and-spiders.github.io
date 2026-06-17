@@ -48,7 +48,7 @@
         }
       ],
       "entries": [
-        "While you cannot {@maneuver grapple|sns} a creature two or more size categories larger than you, you can grab onto it. You cling to or balance upon its body, moving into the creature's space where you can move upon its body as if it is difficult terrain.",
+        "While you cannot {@maneuver grapple} a creature two or more size categories larger than you, you can grab onto it. You cling to or balance upon its body, moving into the creature's space where you can move upon its body as if it is difficult terrain.",
         "While grabbing onto a creature, you gain advantage on armour attack rolls against it. The creature may be able to attack you as normal, depending on its limbs or attacks. It can also use an action to try to dislodge you, such as shaking you loose or bashing you against a wall, making a fortitude or reflex attack (your choice) against you. On a success, you take damage equal to the higher of the creature's Strength or Dexterity modifier (minimum 1) and fall {@condition prone} into the nearest space adjacent to it.",
         "If the creature chooses to roll over in order to dislodge you, it becomes {@condition prone}, but its attack to dislodge you has advantage."
       ],
@@ -4867,7 +4867,7 @@
         }
       ],
       "entries": [
-        "When a creature at least one size category larger than you fails to hit you with a natural weapon attack, you can use your reaction to use the {@maneuver Grab On|sns} basic maneuver against it."
+        "When a creature at least one size category larger than you fails to hit you with a natural weapon attack, you can use your reaction to use the {@maneuver Grab On} basic maneuver against it."
       ]
     },
     {
@@ -5939,7 +5939,7 @@
         }
       ],
       "entries": [
-        "Choose 4 5-foot spaces within 20 feet of you that are in dim light or darkness. These spaces become areas of magical darkness which are treated as difficult terrain and can't be illuminated except by magic, such as the {@spell light|sns} spell. This effect lasts until the end of your next turn."
+        "Choose 4 5-foot spaces within 20 feet of you that are in dim light or darkness. These spaces become areas of magical darkness which are treated as difficult terrain and can't be illuminated except by magic, such as the {@spell light} spell. This effect lasts until the end of your next turn."
       ]
     },
     {
@@ -7370,7 +7370,7 @@
         }
       ],
       "entries": [
-        "The next time your beast minion uses the {@maneuver Knockdown|sns} basic maneuver against a creature within its reach, if you are also within reach of the creature, choose one of the following benefits:",
+        "The next time your beast minion uses the {@maneuver Knockdown} basic maneuver against a creature within its reach, if you are also within reach of the creature, choose one of the following benefits:",
         {
           "type": "list",
           "items": [
@@ -7406,7 +7406,7 @@
         }
       ],
       "entries": [
-        "Choose a creature that is up to one size category larger than your beast minion within 20 feet. When your beast minion next successfully uses the {@maneuver Grapple|sns} basic maneuver on that creature, it can also use its bonus action to move 10 feet towards you, dragging the creature along with it."
+        "Choose a creature that is up to one size category larger than your beast minion within 20 feet. When your beast minion next successfully uses the {@maneuver Grapple} basic maneuver on that creature, it can also use its bonus action to move 10 feet towards you, dragging the creature along with it."
       ]
     },
     {
@@ -7649,7 +7649,7 @@
       ],
       "entries": [
         "When a creature makes a weapon armour attack against your beast minion, your warning causes your companion to shift position, reducing the attack's success tier by 1.",
-        "Your beast minion cannot benefit from this maneuver and {@maneuver Vigilant Stance|sns} at the same time. Instead, this maneuver overrides the stance against the triggering attack, after which the stance's effect returns as normal."
+        "Your beast minion cannot benefit from this maneuver and {@maneuver Vigilant Stance} at the same time. Instead, this maneuver overrides the stance against the triggering attack, after which the stance's effect returns as normal."
       ]
     },
     {

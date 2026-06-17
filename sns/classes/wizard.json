@@ -51,11 +51,10 @@
           {
             "choose": {
               "from": [
-                "arcana",
-                "engineering",
                 "history",
                 "insight",
                 "investigation",
+                "magiscience",
                 "medicine"
               ],
               "count": 2
@@ -601,7 +600,7 @@
           "entries": [
             "The Wizard table shows how many spell slots you have to cast your wizard spells of 1st level and higher. To cast one of these spells, you must expend a slot of the spell's level or higher. You regain all expended spell slots when you finish a long rest.",
             "You prepare the list of wizard spells that are available for you to cast. To do so, choose a number of wizard spells from the {@filter wizard spell list|spells|class=wizard (sns)} equal to your Intelligence modifier + your wizard level (minimum of one spell). The spells must be of a level for which you have spell slots.",
-            "For example, if you're a 3rd-level wizard, you have four 1st-level and two 2nd-level spell slots. With an Intelligence of 16, your list of prepared spells can include six spells of 1st or 2nd level, in any combination, chosen from the wizard spell list. If you prepare the 1st-level spell {@spell magic missile|sns}, you can cast it using a 1st-level or a 2nd-level slot. Casting the spell doesn't remove it from your list of prepared spells.",
+            "For example, if you're a 3rd-level wizard, you have four 1st-level and two 2nd-level spell slots. With an Intelligence of 16, your list of prepared spells can include six spells of 1st or 2nd level, in any combination, chosen from the wizard spell list. If you prepare the 1st-level spell {@spell magic missile}, you can cast it using a 1st-level or a 2nd-level slot. Casting the spell doesn't remove it from your list of prepared spells.",
             "You can change your list of prepared spells when you finish a long rest."
           ]
         },
@@ -616,7 +615,7 @@
           "type": "entries",
           "name": "Spellcasting Focus",
           "entries": [
-            "You can use an {@item arcane focus|sns} as a spellcasting focus for your wizard spells."
+            "You can use an {@item arcane focus} as a spellcasting focus for your wizard spells."
           ]
         }
       ]
@@ -735,8 +734,8 @@
           "type": "entries",
           "name": "Arcane Objects",
           "entries": [
-            "When you touch a magic item, either willingly or when hit by it, you are immediately aware that it is magical. If you hold such an item in your hand, you can cast {@spell identify|sns} on it as an action without spending a spell slot, even if you don't have the spell prepared.",
-            "In addition, when you cast {@spell identify|sns} using a spell slot or as a ritual, you also learn if the item is cursed, and the DM will give you a hint as to the curse's effects (which may be cryptic and vague, but must not be a lie)."
+            "When you touch a magic item, either willingly or when hit by it, you are immediately aware that it is magical. If you hold such an item in your hand, you can cast {@spell identify} on it as an action without spending a spell slot, even if you don't have the spell prepared.",
+            "In addition, when you cast {@spell identify} using a spell slot or as a ritual, you also learn if the item is cursed, and the DM will give you a hint as to the curse's effects (which may be cryptic and vague, but must not be a lie)."
           ]
         },
         {
@@ -744,7 +743,7 @@
           "name": "Detective Spell Study",
           "entries": [
             "You are adept at sensing magic and its effects. If there are active magical effects near you, such as a spell effect on an object or a spell effect in an area, you automatically sense its presence. You don't know what spell effects there are or where they are, but you can automatically sense the effect of magic in a 20-foot radius around you.",
-            "In addition, you have honed your detection spells. Add {@spell detect magic|sns} and {@spell detect thoughts|sns} to your spellbook if they weren't already there. Whenever you cast {@spell detect magic|sns}, the range that you can sense magic is increased to 60 feet. Whenever you cast {@spell detect thoughts|sns}, the range of creatures that you can read thoughts from is increased to 60 feet."
+            "In addition, you have honed your detection spells. Add {@spell detect magic} and {@spell detect thoughts} to your spellbook if they weren't already there. Whenever you cast {@spell detect magic}, the range that you can sense magic is increased to 60 feet. Whenever you cast {@spell detect thoughts}, the range of creatures that you can read thoughts from is increased to 60 feet."
           ]
         },
         {
@@ -821,7 +820,7 @@
           "type": "entries",
           "name": "Superior Countermagic",
           "entries": [
-            "When you make an ability check as part of casting {@spell counterspell|sns} or {@spell dispel magic|sns}, you add your proficiency bonus to the roll.",
+            "When you make an ability check as part of casting {@spell counterspell} or {@spell dispel magic}, you add your proficiency bonus to the roll.",
             "In addition, when you cast one of these spells, treat the spell slot level of the spell as one level higher than the actual slot you spent. The slot you use to cast the spell must still be at least 3rd-level."
           ]
         }
@@ -847,7 +846,7 @@
           "type": "entries",
           "name": "Burn",
           "entries": [
-            "Any creature that takes damage from the spell takes that damage again at the start of your next turn, unless a {@spell dispel magic|sns} spell of any level is cast on it before then or it's in an {@spell antimagic field|sns} at the time."
+            "Any creature that takes damage from the spell takes that damage again at the start of your next turn, unless a {@spell dispel magic} spell of any level is cast on it before then or it's in an {@spell antimagic field} at the time."
           ]
         },
         {
@@ -934,12 +933,12 @@
         }
       ],
       "entries": [
-        "Whenever you cast {@spell detect magic|sns}, you can choose one of the following benefits to amplify the spell.",
+        "Whenever you cast {@spell detect magic}, you can choose one of the following benefits to amplify the spell.",
         {
           "type": "list",
           "items": [
-            "Lengthened Detect Magic: The duration of {@spell detect magic|sns} is increased by 10 minutes.",
-            "Extended Detect Magic: The detection radius of {@spell detect magic|sns} is increased by 30 feet.",
+            "Lengthened Detect Magic: The duration of {@spell detect magic} is increased by 10 minutes.",
+            "Extended Detect Magic: The detection radius of {@spell detect magic} is increased by 30 feet.",
             "Penetrating Detect Magic: The spell can penetrate most barriers, and it is only blocked by 2 feet of stone, 2 inches of common metal, a 1-inch sheet of lead, or 6 feet of wood or dirt."
           ]
         }
@@ -1029,8 +1028,8 @@
         }
       ],
       "entries": [
-        "If you are not actively casting {@spell prestidigitation|sns} or concentrating on a spell, the magic of {@spell prestidigitation|sns} is always keeping you, your clothes, and your gear sparkling clean.",
-        "The following effects are added to the list of options you can choose from when you cast {@spell prestidigitation|sns}.",
+        "If you are not actively casting {@spell prestidigitation} or concentrating on a spell, the magic of {@spell prestidigitation} is always keeping you, your clothes, and your gear sparkling clean.",
+        "The following effects are added to the list of options you can choose from when you cast {@spell prestidigitation}.",
         {
           "type": "list",
           "items": [

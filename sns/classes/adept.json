@@ -48,7 +48,7 @@
             "{@filter Techniques Known|optionalfeatures|feature type=pt}",
             "{@filter Focus Features|optionalfeatures|feature type=ff}",
             "Bonus Exertion",
-            "{@filter Maneuvers Known|maneuvers}",
+            "{@filter Maneuvers Known|maneuvers|degree=1;2;3;4;5}",
             "Maneuver Degree"
           ],
           "rows": [
@@ -462,7 +462,7 @@
       "classSource": "sns",
       "level": 2,
       "entries": [
-        "At 2nd level, you gain the ability to use combat maneuvers. You gain proficiency in two combat traditions from the following list: {@filter Mirror's Glint|maneuvers|Tradition=mirror's glint|}, {@filter Rapid Current|maneuvers|Tradition=rapid current|}, {@filter Razor's Edge|maneuvers|Tradition=razor's edge|}, {@filter Unending Wheel|maneuvers|Tradition=undending wheel|}. You can learn two maneuvers of your choice from traditions you are proficient with.",
+        "At 2nd level, you gain the ability to use combat maneuvers. You gain proficiency in two combat traditions from the following list: {@filter Mirror's Glint|maneuvers|Tradition=mirror's glint}, {@filter Rapid Current|maneuvers|Tradition=rapid current}, {@filter Razor's Edge|maneuvers|Tradition=razor's edge}, {@filter Unending Wheel|maneuvers|Tradition=unending wheel}. You can learn two maneuvers of your choice from traditions you are proficient with.",
         "You gain an exertion pool equal to twice your proficiency bonus, regaining any spent exertion at the end of a short or long rest. You use your maneuvers by spending points from your exertion pool. The Manuevers Known column of the Adept table shows when you learn more maneuvers from a tradition you are proficient with, while the Maneuver Degree column shows the highest degree you can select maneuvers from at a given level.",
         "Additionally, whenever you take a long rest, you can replace any of your maneuvers with new ones of the same degree from a tradition you are proficient with.",
         "As an adept, you gain a +1 bonus to non-armour attack rolls made by your maneuvers."
@@ -476,7 +476,7 @@
       "level": 2,
       "entries": [
         "At 2nd level, your training allows you to harness your mental energy into a supernatural state of focus. Some cultures refer to this energy as prana, pneuma, or ki. Your access to this energy is represented by your exertion pool.",
-        "You can spend exertion points to fuel various focus features. You start knowing three such features: {@optfeature Flurry of Blows|sns}, {@optfeature Long Step|sns}, and {@optfeature Patient Defence|sns}. You learn more focus features as you gain levels in this class."
+        "You can spend exertion points to fuel various focus features. You start knowing three such features: {@optfeature Flurry of Blows}, {@optfeature Long Step}, and {@optfeature Patient Defence}. You learn more focus features as you gain levels in this class."
       ]
     },
     {
@@ -1005,7 +1005,7 @@
         }
       ],
       "entries": [
-        "As a bonus action, you can spend 2 exertion to swiftly start a mirage dance. Until the end of your next turn, you are under the effect of the {@spell mirror image|sns} spell."
+        "As a bonus action, you can spend 2 exertion to swiftly start a mirage dance. Until the end of your next turn, you are under the effect of the {@spell mirror image} spell."
       ]
     },
     {
@@ -1344,7 +1344,7 @@
         }
       ],
       "entries": [
-        "Your step is so light you seem to float in the air. You can use a bonus action and spend 1 exertion to cast {@spell fly|sns} on yourself. You also have advantage on {@skill Stealth} checks related to noise. The effect lasts until the start of your next turn."
+        "Your step is so light you seem to float in the air. You can use a bonus action and spend 1 exertion to cast {@spell fly} on yourself. You also have advantage on {@skill Stealth} checks related to noise. The effect lasts until the start of your next turn."
       ]
     },
     {
@@ -1474,7 +1474,7 @@
         }
       ],
       "entries": [
-        "You gain the ability to move along vertical surfaces on your turn without falling during the move. You can use a bonus action and spend 1 exertion to cast {@spell spider climb|sns} on yourself. This effect lasts until the start of your next turn."
+        "You gain the ability to move along vertical surfaces on your turn without falling during the move. You can use a bonus action and spend 1 exertion to cast {@spell spider climb} on yourself. This effect lasts until the start of your next turn."
       ]
     },
     {
@@ -1504,7 +1504,7 @@
         }
       ],
       "entries": [
-        "You gain the ability to move across liquids on your turn without falling during the move. You can use a bonus action and spend 1 exertion to cast {@spell water walk|sns} on yourself. The effect lasts until the start of your next turn."
+        "You gain the ability to move across liquids on your turn without falling during the move. You can use a bonus action and spend 1 exertion to cast {@spell water walk} on yourself. The effect lasts until the start of your next turn."
       ]
     },
     {

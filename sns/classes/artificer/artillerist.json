@@ -91,23 +91,23 @@
           "rows": [
             [
               "1st",
-              "{@spell shield|sns}, {@spell thunderwave|sns}"
+              "{@spell shield}, {@spell thunderwave}"
             ],
             [
               "5th",
-              "{@spell scorching ray|sns}, {@spell shatter|sns}"
+              "{@spell scorching ray}, {@spell shatter}"
             ],
             [
               "9th",
-              "{@spell fireball|sns}, {@spell wind wall|sns}"
+              "{@spell fireball}, {@spell wind wall}"
             ],
             [
               "13th",
-              "{@spell ice storm|sns}, {@spell wall of fire|sns}"
+              "{@spell ice storm}, {@spell wall of fire}"
             ],
             [
               "17th",
-              "{@spell cone of cold|sns}, {@spell wall of force|sns}"
+              "{@spell cone of cold}, {@spell wall of force}"
             ]
           ]
         }
@@ -123,7 +123,7 @@
       "level": 1,
       "header": 1,
       "entries": [
-        "Also at tier 1, you've learned how to create a magical cannon. Using your tools of artifice, you can take an action to magically create an {@creature eldritch cannon|sns} in an unoccupied space on a horizontal surface within 5 feet of you. Once you create a cannon, you can't do so again until you finish a long rest or until you expend a spell invention to create one. You can have only one cannon at a time and can't create one while your cannon is present.",
+        "Also at tier 1, you've learned how to create a magical cannon. Using your tools of artifice, you can take an action to magically create an {@creature eldritch cannon} in an unoccupied space on a horizontal surface within 5 feet of you. Once you create a cannon, you can't do so again until you finish a long rest or until you expend a spell invention to create one. You can have only one cannon at a time and can't create one while your cannon is present.",
         "The cannon is a minion and requires your concentration to maintain, though you cannot lose concentration on it against your will, even if you are {@condition incapacitated}. It disappears if it is reduced to 0 hit points or after 1 hour. You can dismiss it early as an action.",
         "When you create the cannon, you determine its appearance. You also decide which type it is, choosing from Flamethrower, Force Ballista, or Protector. The cannon can only act while you are within 60 feet of it. If you are not, it does nothing on its turns."
       ]
@@ -209,7 +209,7 @@
           "type": "list",
           "items": [
             "You and your allies have half cover while within 10 feet of your eldritch cannon, as a result of a shimmering field of magical protection that the cannon emits.",
-            "Whenever you create your eldritch cannon, you may instead create an {@creature eldritch megacannon|sns}. If you need to expend a spell invention to create the megacannon, you must expend two inventions instead. Any effect that refers to your eldritch cannon also applies to your megacannon."
+            "Whenever you create your eldritch cannon, you may instead create an {@creature eldritch megacannon}. If you need to expend a spell invention to create the megacannon, you must expend two inventions instead. Any effect that refers to your eldritch cannon also applies to your megacannon."
           ]
         }
       ]
@@ -244,7 +244,7 @@
         {
           "name": "Sustainable Engineering",
           "entries": [
-            "Whenever the {@spell mending|sns} spell is cast on the cannon, the cannon regains {@dice 2d6} hit points."
+            "Whenever the {@spell mending} spell is cast on the cannon, the cannon regains {@dice 2d6} hit points."
           ]
         }
       ],
@@ -320,7 +320,7 @@
         {
           "name": "Sustainable Engineering",
           "entries": [
-            "Whenever the {@spell mending|sns} spell is cast on the cannon, the cannon regains {@dice 2d6} hit points."
+            "Whenever the {@spell mending} spell is cast on the cannon, the cannon regains {@dice 2d6} hit points."
           ]
         }
       ],

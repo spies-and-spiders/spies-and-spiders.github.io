@@ -485,7 +485,7 @@
             }
           ]
         },
-        "Within the same radius, you also detect any locations that have been consecrated or desecrated, as with the {@spell hallow|sns} spell.",
+        "Within the same radius, you also detect any locations that have been consecrated or desecrated, as with the {@spell hallow} spell.",
         "You can active this feature a number of times equal to your Charisma modifier, and regain spent uses upon finishing a long rest. Upon finishing a long rest, you may also swap your chosen set of creature types for another."
       ]
     },
@@ -526,7 +526,7 @@
           "entries": [
             "The Herald table shows how many spell slots you have to cast your {@filter herald spells|spells|class=herald (sns)}. To cast one of your herald spells of 1st level or higher, you must expend a slot of the spell's level or higher. You regain all expended spell slots when you finish a long rest.",
             "You prepare the list of herald spells that are available for you to cast, choosing from the herald spell list. When you do so, choose a number of herald spells equal to your Charisma modifier + half your herald level, rounded down (minimum of one spell). The spells must be of a level for which you have spell slots.",
-            "For example, if you are a 5th-level herald, you have four 1st-level and two 2nd-level spell slots. With a Charisma of 14, your list of prepared spells can include four spells of 1st or 2nd-level, in any combination. If you prepare the 1st-level spell {@spell cure wounds|sns}, you can cast it using a 1st-level or a 2nd-level slot. Casting the spell doesn't remove it from your list of prepared spells.",
+            "For example, if you are a 5th-level herald, you have four 1st-level and two 2nd-level spell slots. With a Charisma of 14, your list of prepared spells can include four spells of 1st or 2nd-level, in any combination. If you prepare the 1st-level spell {@spell cure wounds}, you can cast it using a 1st-level or a 2nd-level slot. Casting the spell doesn't remove it from your list of prepared spells.",
             "You can change your list of prepared spells when you finish a long rest. Preparing a new list of herald spells requires time spent in prayer and meditation: at least 1 minute per spell level for each spell on your list."
           ]
         },
@@ -541,7 +541,7 @@
           "type": "entries",
           "name": "Spellcasting Focus",
           "entries": [
-            "You can use a {@item holy symbol|sns} as a spellcasting focus for your herald spells."
+            "You can use a {@item holy symbol} as a spellcasting focus for your herald spells."
           ]
         }
       ]
@@ -553,7 +553,7 @@
       "classSource": "sns",
       "level": 2,
       "entries": [
-        "At 2nd level, you gain the ability to use combat maneuvers. You gain proficiency in two combat traditions from the following list: {@filter Sanguine Knot|maneuvers|Tradition=sanguine knot|}, {@filter Spirited Steed|maneuvers|Tradition=spirited steed|}, or {@filter Tempered Iron|maneuvers|Tradition=tempered iron|}. You learn two maneuvers of your choice from traditions you are proficient with.",
+        "At 2nd level, you gain the ability to use combat maneuvers. You gain proficiency in two combat traditions from the following list: {@filter Sanguine Knot|maneuvers|Tradition=sanguine knot}, {@filter Spirited Steed|maneuvers|Tradition=spirited steed}, or {@filter Tempered Iron|maneuvers|Tradition=tempered iron}. You learn two maneuvers of your choice from traditions you are proficient with.",
         "You use your maneuvers by spending exertion points, but you do not gain an exertion pool. Instead, at the start of each of your turns you can expend spell slots of 1st-level or higher to gain exertion points that go into a temporary exertion pool which lasts until you start your next long rest. You gain 2 exertion points for a 1st-level spell slot, and 2 more for each spell slot level above 1st. Only spell slots gained from the herald class can be expended this way.",
         "The Maneuvers Known column of the Herald table shows when you learn more maneuvers from a tradition you are proficient with, while the Maneuver Degree column shows the highest degree you can select maneuvers from at a given level.",
         "Additionally, whenever you finish a long rest, you can choose one of the maneuvers you know and replace it with another maneuver of the same degree from a tradition you are proficient with."
@@ -1026,7 +1026,7 @@
         "DL"
       ],
       "entries": [
-        "You gain 60 feet of darkvision. In addition, you always have the {@spell See Invisibility|sns} spell prepared and can use this feature once per long rest to cast it withuot expending a spell slot."
+        "You gain 60 feet of darkvision. In addition, you always have the {@spell See Invisibility} spell prepared and can use this feature once per long rest to cast it withuot expending a spell slot."
       ]
     },
     {

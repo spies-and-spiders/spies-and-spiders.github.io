@@ -91,23 +91,23 @@
           "rows": [
             [
               "1st",
-              "{@spell hideous laughter|sns}, {@spell sleep|sns}"
+              "{@spell hideous laughter}, {@spell sleep}"
             ],
             [
               "5th",
-              "{@spell blindness/deafness|sns}, {@spell suggestion|sns}"
+              "{@spell blindness/deafness}, {@spell suggestion}"
             ],
             [
               "9th",
-              "{@spell fear|sns}, {@spell slow|sns}"
+              "{@spell fear}, {@spell slow}"
             ],
             [
               "13th",
-              "{@spell confusion|sns}, {@spell phantasmal killer|sns}"
+              "{@spell confusion}, {@spell phantasmal killer}"
             ],
             [
               "17th",
-              "{@spell dominate person|sns}, {@spell hold monster|sns}"
+              "{@spell dominate person}, {@spell hold monster}"
             ]
           ]
         }
@@ -228,14 +228,14 @@
           "type": "entries",
           "name": "Triggered Vigour",
           "entries": [
-            "Choose Strength, Dexterity, Intelligence, Wisdom, or Charisma. When the condition is met, the creature gains the effects of the {@spell enhance ability|sns} spell for the chosen ability. This effect does not require concentration."
+            "Choose Strength, Dexterity, Intelligence, Wisdom, or Charisma. When the condition is met, the creature gains the effects of the {@spell enhance ability} spell for the chosen ability. This effect does not require concentration."
           ]
         },
         {
           "type": "entries",
           "name": "Triggered Rebuke",
           "entries": [
-            "Choose {@spell blindness/deafness|sns} or {@spell hold person|sns}. When the condition is met, the creature is affected by the standard success result of the chosen spell. This effect does not require concentration."
+            "Choose {@spell blindness/deafness} or {@spell hold person}. When the condition is met, the creature is affected by the standard success result of the chosen spell. This effect does not require concentration."
           ]
         }
       ]
@@ -292,7 +292,7 @@
       "header": 2,
       "entries": [
         "Starting at tier 5, you can spend a use of your synaptic gadget to restore brain activity to its normal state or even temporarily revive someone whose mind has stopped working. By using your synaptic gadget on a living creature, you can remove either a level of {@condition strife}, the {@condition charmed} condition, or a reduction to a single mental ability score. A creature can only benefit from this feature once a week.",
-        "If you use your synaptic gadget on a corpse, you can reactivate its brain activity for a short time. If the target died within the last week, you can ask it questions as though you had cast {@spell speak with dead|sns} without components. If the target died within the last 24 hours, you can also pass the electric impulses into its muscles, animating it to complete one task that takes 10 minutes or less. The temporarily revived target functions as a {@creature zombie|sns}. It can act on information it knew in life but cannot process new information or make decisions on its own."
+        "If you use your synaptic gadget on a corpse, you can reactivate its brain activity for a short time. If the target died within the last week, you can ask it questions as though you had cast {@spell speak with dead} without components. If the target died within the last 24 hours, you can also pass the electric impulses into its muscles, animating it to complete one task that takes 10 minutes or less. The temporarily revived target functions as a {@creature zombie}. It can act on information it knew in life but cannot process new information or make decisions on its own."
       ]
     }
   ]

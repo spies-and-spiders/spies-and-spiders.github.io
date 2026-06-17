@@ -48,7 +48,7 @@
             "Rage Hit Points",
             "Rage Damage",
             "{@filter Talents Known|optionalfeatures|feature type=dt}",
-            "{@filter Maneuvers Known|maneuvers}",
+            "{@filter Maneuvers Known|maneuvers|degree=1;2;3;4;5}",
             "Maneuver Degree"
           ],
           "rows": [
@@ -501,7 +501,7 @@
       "classSource": "sns",
       "level": 2,
       "entries": [
-        "At 2nd level, you gain the ability to use combat maneuvers. You gain proficiency in two combat traditions from the following list: {@filter Adamant Mountain|maneuvers|Tradition=adamant mountain|}, {@filter Mirror's Glint|maneuvers|Tradition=mirror's glint|}, {@filter Rapid Current|maneuvers|Tradition=rapid current|}, {@filter Tempered Iron|maneuvers|Tradition=tempered iron|}, {@filter Tooth and Claw|maneuvers|Tradition=tooth and claw|}. You can learn two maneuvers of your choice from traditions you are proficient with.",
+        "At 2nd level, you gain the ability to use combat maneuvers. You gain proficiency in two combat traditions from the following list: {@filter Adamant Mountain|maneuvers|Tradition=adamant mountain}, {@filter Mirror's Glint|maneuvers|Tradition=mirror's glint}, {@filter Rapid Current|maneuvers|Tradition=rapid current}, {@filter Tempered Iron|maneuvers|Tradition=tempered iron}, {@filter Tooth and Claw|maneuvers|Tradition=tooth and claw}. You can learn two maneuvers of your choice from traditions you are proficient with.",
         "You gain an exertion pool equal to twice your proficiency bonus, regaining any spent exertion at the end of a short or long rest. You use your maneuvers by spending points from your exertion pool. The Manuevers Known column of the Berserker table shows when you learn more maneuvers from a tradition you are proficient with, while the Maneuver Degree column shows the highest degree you can select maneuvers from at a given level.",
         "Additionally, whenever you take a long rest, you can replace any of your maneuvers with new ones of the same degree from a tradition you are proficient with."
       ]

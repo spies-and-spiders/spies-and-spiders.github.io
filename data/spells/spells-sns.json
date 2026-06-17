@@ -874,7 +874,7 @@
           ]
         },
         "You animate a mortal's remains to become your undead servant.",
-        "If the spell is cast upon bones you create a {@creature skeleton}, and if cast upon a corpse you choose to create a {@creature skeleton} or a {@creature zombie|sns}. The DM has the undead's statistics.",
+        "If the spell is cast upon bones you create a {@creature skeleton}, and if cast upon a corpse you choose to create a {@creature skeleton} or a {@creature zombie}. The DM has the undead's statistics.",
         "While it is within 60 feet you can use a bonus action to mentally command the undead. When you command multiple undead using this spell, you must give them all the same command. You may decide the action the undead takes and where it moves during its next turn, or you can issue a general command, such as guarding an area. If not given a command, the undead only defends itself. The undead continues to follow a command until its task is complete.",
         "The undead is under your control for 24 hours, after which it stops obeying any commands. You must cast this spell on the undead before the spell ends to maintain control of it for another 24 hours.",
         "Casting the spell in this way reasserts control over up to 4 of your previously-animated undead instead of animating a new one."
@@ -1165,7 +1165,7 @@
           "type": "entries",
           "name": "Area Suppression",
           "entries": [
-            "When a magical effect protrudes into the sphere, that part of the effect's area is suppressed. For example, the ice created by a {@spell wall of ice|sns} is suppressed within the sphere, creating a gap in the wall if the overlap is large enough."
+            "When a magical effect protrudes into the sphere, that part of the effect's area is suppressed. For example, the ice created by a {@spell wall of ice} is suppressed within the sphere, creating a gap in the wall if the overlap is large enough."
           ]
         },
         {
@@ -1179,7 +1179,7 @@
           "type": "entries",
           "name": "Dispel Magic",
           "entries": [
-            "The sphere is immune to {@spell dispel magic|sns} and similar magical effects, including other antimagic field spells."
+            "The sphere is immune to {@spell dispel magic} and similar magical effects, including other antimagic field spells."
           ]
         },
         {
@@ -1965,7 +1965,7 @@
         "While in this astral form you trail a tether, a silvery-white cord that sprouts from between your shoulder blades and fades into immateriality a foot behind you. As long as the tether remains intact you can find your way back to your material body.",
         "When it is cut — which requires an effect specifically stating that it cuts your tether — your soul and body are separated and you immediately die.",
         "Damage against and other effects on your astral form have no effect on your material body either during this spell or after its duration ends. Your astral form travels freely through the Astral Plane and can pass through interplanar portals on the Astral Plane leading to any other plane. When you enter a new plane or return to the plane you were on when casting this spell, your material body and possessions are transported along the tether, allowing you to return fully intact with all your gear as you enter the new plane.",
-        "The spell ends for all targets when you use an action to dismiss it, for an individual target when a successful {@spell dispel magic|sns} is cast upon its astral form or material body, or when either its material body or its astral form drops to 0 hit points. When the spell ends for a target and the tether is intact, the tether pulls the target's astral form back to its material body, ending the suspended animation.",
+        "The spell ends for all targets when you use an action to dismiss it, for an individual target when a successful {@spell dispel magic} is cast upon its astral form or material body, or when either its material body or its astral form drops to 0 hit points. When the spell ends for a target and the tether is intact, the tether pulls the target's astral form back to its material body, ending the suspended animation.",
         "If the spell ends for you prematurely, other targets remain in their astral forms and must find their own way back to their bodies (usually by dropping to 0 hit points)."
       ],
       "name": "Astral Projection",
@@ -2087,7 +2087,7 @@
             "Huge or smaller beast or plant with Intelligence 3 or less."
           ]
         },
-        "You impart sentience in the target, granting it an Intelligence of 10 and proficiency in a language you know. A plant targeted by this spell gains the ability to move, as well as senses identical to those of a human. The DM assigns awakened plant statistics (such as an {@creature awakened shrub|sns} or {@creature awakened tree|sns}). The target is {@condition charmed} for 30 days or until you or your companions hurt it. Depending on how you treated the target while it was {@condition charmed}, when the condition ends the awakened creature may choose to remain friendly to you."
+        "You impart sentience in the target, granting it an Intelligence of 10 and proficiency in a language you know. A plant targeted by this spell gains the ability to move, as well as senses identical to those of a human. The DM assigns awakened plant statistics (such as an {@creature awakened shrub} or {@creature awakened tree}). The target is {@condition charmed} for 30 days or until you or your companions hurt it. Depending on how you treated the target while it was {@condition charmed}, when the condition ends the awakened creature may choose to remain friendly to you."
       ],
       "name": "Awaken",
       "time": [
@@ -2603,7 +2603,7 @@
           ],
           "type": "list"
         },
-        "A {@spell remove curse|sns} spell ends the spell if the spell slot used to cast it is equal to or greater than the spell slot used to cast bestow curse."
+        "A {@spell remove curse} spell ends the spell if the spell slot used to cast it is equal to or greater than the spell slot used to cast bestow curse."
       ],
       "name": "Bestow Curse",
       "time": [
@@ -3667,8 +3667,8 @@
           ]
         },
         "You perform a religious ceremony during the casting time of this spell. When you cast the spell, you choose one of the following effects, any targets of which must be within range during the entire casting.",
-        "Funeral: You bless one or more corpses, acknowledging their transition away from this world. For the next week, they cannot become undead by any means short of a {@spell wish|sns} spell. This benefit lasts indefinitely regarding undead of CR 1/4 or less. A corpse can only benefit from this effect once.",
-        "Guide the Passing: You bless one or more creatures within range for their passage into the next life. For the next 7 days, their souls cannot be trapped or captured by any means short of a {@spell wish|sns} spell. Once a creature benefits from this effect, it can't do so again until it has been restored to life.",
+        "Funeral: You bless one or more corpses, acknowledging their transition away from this world. For the next week, they cannot become undead by any means short of a {@spell wish} spell. This benefit lasts indefinitely regarding undead of CR 1/4 or less. A corpse can only benefit from this effect once.",
+        "Guide the Passing: You bless one or more creatures within range for their passage into the next life. For the next 7 days, their souls cannot be trapped or captured by any means short of a {@spell wish} spell. Once a creature benefits from this effect, it can't do so again until it has been restored to life.",
         "Offering: The gifts of the faithful are offered to the benefit of the gods and the community. Choose one skill or tool proficiency and target a number of creatures equal to your proficiency bonus that are within range. When a target makes an ability check using the skill or tool within the next week, it can choose to use this benefit to gain an expertise die on the check. A creature can be targeted by this effect no more than once per week.",
         "Purification: A creature you touch is washed with your spiritual energy. Choose one disease or possession effect on the target. The target makes a save, ending the effect on a success.",
         "Rite of Passage: You shepherd one or more creatures into the next phase of life, such as in a child dedication, coming of age, marriage, or conversion ceremony. These creatures gain inspiration. A creature can benefit from this effect no more than once per year."
@@ -4185,7 +4185,7 @@
         "An invisible sensor is created within the spell's range. The sensor remains there for the duration, and it cannot be targeted or attacked.",
         "Choose seeing or hearing when you cast the spell.",
         "You may use that sense through the sensor as if you were there. As an action, you may switch which sense you are using through the sensor.",
-        "A creature able to see invisible things (from the {@spell see invisibility|sns} spell or truesight, for instance) sees a 4-inch diameter glowing, ethereal orb."
+        "A creature able to see invisible things (from the {@spell see invisibility} spell or truesight, for instance) sees a 4-inch diameter glowing, ethereal orb."
       ],
       "name": "Clairvoyance",
       "time": [
@@ -5056,7 +5056,7 @@
     {
       "school": "C",
       "entries": [
-        "You call forth a bestial spirit. It manifests in an unoccupied space that you can see within range. This corporeal form uses the {@creature Bestial Spirit|sns} stat block. When you cast the spell, choose an environment: Air, Land, or Water. The creature resembles an animal of your choice that is native to the chosen environment, which determines certain traits in its stat block. The creature disappears when it drops to 0 hit points or when the spell ends.",
+        "You call forth a bestial spirit. It manifests in an unoccupied space that you can see within range. This corporeal form uses the {@creature Bestial Spirit} stat block. When you cast the spell, choose an environment: Air, Land, or Water. The creature resembles an animal of your choice that is native to the chosen environment, which determines certain traits in its stat block. The creature disappears when it drops to 0 hit points or when the spell ends.",
         "The creature is an ally to you and your companions. It obeys your verbal commands (no action required by you). If you don't issue any, it takes the Dodge action and uses its movement to avoid danger."
       ],
       "name": "Conjure Animals",
@@ -5118,7 +5118,7 @@
       "school": "C",
       "entries": [
         "You summon a creature from the realms celestial.",
-        "This creature uses the statistics of a {@creature celestial creature|sns} (detailed below) with certain traits determined by your choice of its type: an angel of battle, angel of protection, or angel of vengeance.",
+        "This creature uses the statistics of a {@creature celestial creature} (detailed below) with certain traits determined by your choice of its type: an angel of battle, angel of protection, or angel of vengeance.",
         "The creature is friendly to you and your companions.",
         "It obeys your verbal commands. Without such commands, the creature only defends itself.",
         "The creature disappears when reduced to 0 hit points. If your concentration is broken before the spell ends, you lose control of the celestial creature, which becomes hostile and might attack you and your companions. An uncontrolled creature disappears 1 hour after you summoned it."
@@ -5181,7 +5181,7 @@
     {
       "school": "C",
       "entries": [
-        "You summon a creature from the Elemental Planes. This creature uses the statistics of a {@creature conjured elemental|sns} creature with certain traits determined by your choice of its type: air, earth, fire, or water.",
+        "You summon a creature from the Elemental Planes. This creature uses the statistics of a {@creature conjured elemental} creature with certain traits determined by your choice of its type: air, earth, fire, or water.",
         "The creature is friendly to you and your companions.",
         "It obeys your verbal commands. Without such commands, the creature only defends itself.",
         "The creature disappears when reduced to 0 hit points. If your concentration is broken before the spell ends, you lose control of the elemental creature, which becomes hostile and might attack you and your companions. An uncontrolled creature disappears 1 hour after you summoned it."
@@ -5256,7 +5256,7 @@
       "school": "C",
       "entries": [
         "You summon a creature from The Dreaming.",
-        "This creature uses the statistics of a {@creature fey creature|sns} with certain traits determined by your choice of its type: hag, hound, or redcap.",
+        "This creature uses the statistics of a {@creature fey creature} with certain traits determined by your choice of its type: hag, hound, or redcap.",
         "The creature is friendly to you and your companions.",
         "It obeys your verbal commands. Without such commands, the creature only defends itself.",
         "The summoned creature disappears when reduced to 0 hit points. If your concentration is broken before the spell ends, you lose control of the summoned creature, which becomes hostile and might attack you and your companions. An uncontrolled creature disappears at the end of the spell's maximum duration."
@@ -5323,9 +5323,9 @@
     {
       "school": "C",
       "entries": [
-        "You summon a creature from the Elemental Planes. This creature uses the statistics of a {@creature minor elemental|sns} with certain traits determined by your choice of its type: air, earth, fire, or water.",
+        "You summon a creature from the Elemental Planes. This creature uses the statistics of a {@creature minor elemental} with certain traits determined by your choice of its type: air, earth, fire, or water.",
         "The summoned creature is friendly to you and your companions. It obeys your verbal commands.",
-        "Without such commands, a {@creature minor elemental|sns} only defends itself.",
+        "Without such commands, a {@creature minor elemental} only defends itself.",
         "The summoned creature disappears when reduced to 0 hit points. If your concentration is broken before the spell ends, you lose control of the summoned creature, which becomes hostile and might attack you and your companions. An uncontrolled creature disappears at the end of the spell's maximum duration."
       ],
       "name": "Conjure Minor Elementals",
@@ -5394,7 +5394,7 @@
     {
       "school": "C",
       "entries": [
-        "You summon a creature from The Dreaming. This creature uses the statistics of a {@creature woodland being|sns} with certain traits determined by your choice of its type: blink dog, satyr, or sprite.",
+        "You summon a creature from The Dreaming. This creature uses the statistics of a {@creature woodland being} with certain traits determined by your choice of its type: blink dog, satyr, or sprite.",
         "The summoned creature is friendly to you and your companions. It obeys your verbal commands.",
         "Without such commands, a summoned creature only defends itself.",
         "The summoned creature disappears when reduced to 0 hit points. If your concentration is broken before the spell ends, you lose control of the summoned creature, which becomes hostile and might attack you and your companions. An uncontrolled creature disappears at the end of the spell's maximum duration."
@@ -5536,7 +5536,7 @@
               "name": "Standard success",
               "entries": [
                 "You afflict the target with a disease chosen from the list below.",
-                "The target must make a save at the end of each of its turns. After three failed saves, the disease lasts for the duration and the creature stops making saves, or after three successful saves, the creature recovers and the spell ends. A {@spell greater restoration|sns} spell or similar effect also ends the disease."
+                "The target must make a save at the end of each of its turns. After three failed saves, the disease lasts for the duration and the creature stops making saves, or after three successful saves, the creature recovers and the spell ends. A {@spell greater restoration} spell or similar effect also ends the disease."
               ]
             },
             {
@@ -5660,7 +5660,7 @@
       "school": "V",
       "entries": [
         "As part of this spell, cast a spell of 5th-level or lower that has a casting time of 1 action, expending spell slots for both. The second spell must target you, and doesn't target others even if it normally would.",
-        "Describe the circumstances under which the second spell should be cast. It is automatically triggered the first time these circumstances are met. This spell ends when the second spell is triggered, when you cast contingency again, or if the material component for it is not on your person. For example, when you cast contingency with {@spell blur|sns} as a second spell you might make the trigger be when a creature targets you with an armour attack, or you might make it be when you make an attack against a creature, or you could choose for it to be when you see an ally make an attack against a creature."
+        "Describe the circumstances under which the second spell should be cast. It is automatically triggered the first time these circumstances are met. This spell ends when the second spell is triggered, when you cast contingency again, or if the material component for it is not on your person. For example, when you cast contingency with {@spell blur} as a second spell you might make the trigger be when a creature targets you with an armour attack, or you might make it be when you make an attack against a creature, or you could choose for it to be when you see an ally make an attack against a creature."
       ],
       "name": "Contingency",
       "time": [
@@ -7611,7 +7611,7 @@
           "type": "entries",
           "name": "Cast at Higher Levels",
           "entries": [
-            "When using a 3rd-level spell slot or higher, this spell functions identically to the {@spell seeming|sns} spell, except the spell's duration is 10 minutes."
+            "When using a 3rd-level spell slot or higher, this spell functions identically to the {@spell seeming} spell, except the spell's duration is 10 minutes."
           ]
         }
       ],
@@ -8057,7 +8057,7 @@
           ],
           "type": "list"
         },
-        "Additionally, when a celestial, elemental, fey, or fiend is affected by this spell it is immediately forced back to its home plane and for 24 hours it is unable to return to your current plane by any means less powerful than a {@spell wish|sns} spell. Such a creature does not suffer this effect if it is already on its plane of origin."
+        "Additionally, when a celestial, elemental, fey, or fiend is affected by this spell it is immediately forced back to its home plane and for 24 hours it is unable to return to your current plane by any means less powerful than a {@spell wish} spell. Such a creature does not suffer this effect if it is already on its plane of origin."
       ],
       "name": "Divine Word",
       "time": [
@@ -8215,7 +8215,7 @@
             "One creature"
           ]
         },
-        "As {@spell dominate beast|sns} but you may target any creature."
+        "As {@spell dominate beast} but you may target any creature."
       ],
       "name": "Dominate Monster",
       "time": [
@@ -8293,7 +8293,7 @@
             "One humanoid"
           ]
         },
-        "As {@spell dominate beast|sns} but you may target any humanoid."
+        "As {@spell dominate beast} but you may target any humanoid."
       ],
       "name": "Dominate Person",
       "time": [
@@ -10059,7 +10059,7 @@
           ]
         },
         "At the end of every 30 days, the creature can make a save against this spell, ending it on a success.",
-        "{@spell Greater restoration|sns}, {@spell heal|sns}, or {@spell wish|sns} can also be used to end the spell."
+        "{@spell Greater restoration}, {@spell heal}, or {@spell wish} can also be used to end the spell."
       ],
       "name": "Feeblemind",
       "time": [
@@ -10377,7 +10377,7 @@
             "One creature"
           ]
         },
-        "Negative energy wracks the target. Make a ranged fortitude attack against the target that deals {@dice 10d6} + 33 necrotic damage. A humanoid killed by this spell turns into a {@creature zombie|sns} at the start of your next turn. It is permanently under your control and follows your spoken commands."
+        "Negative energy wracks the target. Make a ranged fortitude attack against the target that deals {@dice 10d6} + 33 necrotic damage. A humanoid killed by this spell turns into a {@creature zombie} at the start of your next turn. It is permanently under your control and follows your spoken commands."
       ],
       "name": "Finger of Death",
       "time": [
@@ -11361,7 +11361,7 @@
           ]
         },
         "An opaque cube of banded force surrounds the area, preventing any matter or spells from passing through it, though creatures can breathe inside it.",
-        "Creatures that pass a save and creatures that are only partially inside the area are pushed out of the area. Any other creature is trapped and can't leave by nonmagical means. The cage also traps creatures on the Ethereal Plane, and can only be destroyed by being dealt at least 28 force damage at once or by a {@spell dispel magic|sns} spell cast using an 8th-level or higher spell slot.",
+        "Creatures that pass a save and creatures that are only partially inside the area are pushed out of the area. Any other creature is trapped and can't leave by nonmagical means. The cage also traps creatures on the Ethereal Plane, and can only be destroyed by being dealt at least 28 force damage at once or by a {@spell dispel magic} spell cast using an 8th-level or higher spell slot.",
         "If a trapped creature tries to teleport or travel to another plane, it makes a save.",
         "On a fail, the attempt fails and the spell or effect is wasted."
       ],
@@ -11629,7 +11629,7 @@
     {
       "school": "C",
       "entries": [
-        "While casting and concentrating on this spell, you enter a deep trance and awaken an army of trees and plants within range. These plants rise up under your control as a {@creature grove swarm|sns}. Although you are in a trance and deaf and blind with regard to your own senses, you see and hear through your grove swarm's senses. You can command your grove swarm telepathically, ordering it to advance, attack, or retreat. If the grove swarm enters your space, you can order it to carry you.",
+        "While casting and concentrating on this spell, you enter a deep trance and awaken an army of trees and plants within range. These plants rise up under your control as a {@creature grove swarm}. Although you are in a trance and deaf and blind with regard to your own senses, you see and hear through your grove swarm's senses. You can command your grove swarm telepathically, ordering it to advance, attack, or retreat. If the grove swarm enters your space, you can order it to carry you.",
         "If you take any action, the spell ends and the trees and plants set down roots wherever they are currently located."
       ],
       "name": "Forest Army",
@@ -12003,7 +12003,7 @@
               "type": "item",
               "name": "Standard success",
               "entries": [
-                "The target is {@condition charmed}. While {@condition charmed} in this way, it suffers {@dice 5d10} psychic harm the first time each day that it disobeys your command. Your command can be any course of action or inaction that wouldn't result in the target's death. The spell ends if the command is suicidal or you use an action to dismiss the spell. Alternatively, a {@spell remove curse|sns}, {@spell greater restoration|sns}, or {@spell wish} spell cast on the target using a spell slot at least as high as the slot used to cast this spell also ends it."
+                "The target is {@condition charmed}. While {@condition charmed} in this way, it suffers {@dice 5d10} psychic harm the first time each day that it disobeys your command. Your command can be any course of action or inaction that wouldn't result in the target's death. The spell ends if the command is suicidal or you use an action to dismiss the spell. Alternatively, a {@spell remove curse}, {@spell greater restoration}, or {@spell wish} spell cast on the target using a spell slot at least as high as the slot used to cast this spell also ends it."
               ]
             },
             {
@@ -12800,14 +12800,14 @@
               "type": "item",
               "name": "Doors",
               "entries": [
-                "Doors are magically locked as if by an {@spell arcane lock|sns} spell. Additionally, you may conceal up to 10 doors with an illusion as per the illusory object component of the {@spell minor illusion|sns} spell to make the doors appear as unadorned wall sections."
+                "Doors are magically locked as if by an {@spell arcane lock} spell. Additionally, you may conceal up to 10 doors with an illusion as per the illusory object component of the {@spell minor illusion} spell to make the doors appear as unadorned wall sections."
               ]
             },
             {
               "type": "item",
               "name": "Stairs",
               "entries": [
-                "Stairs are filled from top to bottom with webs as per the {@spell web|sns} spell. Until the spell ends, the webbing strands regrow 10 minutes after they are damaged or destroyed."
+                "Stairs are filled from top to bottom with webs as per the {@spell web} spell. Until the spell ends, the webbing strands regrow 10 minutes after they are damaged or destroyed."
               ]
             }
           ]
@@ -12815,15 +12815,15 @@
         "In addition, one of the following spell effects can be placed within the spell's area.",
         {
           "items": [
-            "{@spell Dancing lights|sns} can be placed in 4 corridors and you can choose for them to repeat a simple sequence.",
-            "{@spell Magic mouth|sns} spells can be placed in 2 locations.",
+            "{@spell Dancing lights} can be placed in 4 corridors and you can choose for them to repeat a simple sequence.",
+            "{@spell Magic mouth} spells can be placed in 2 locations.",
             "{@spell stinking cloud|sns|Stinking clouds} can be placed in 2 locations. The clouds return after 10 minutes if dispersed while the spell remains.",
-            "A {@spell gust of wind|sns} can be placed in a corridor or room.",
-            "Pick a 5-foot square. Any creature that passes through it subjected to a {@spell suggestion|sns} spell, hearing the suggestion mentally."
+            "A {@spell gust of wind} can be placed in a corridor or room.",
+            "Pick a 5-foot square. Any creature that passes through it subjected to a {@spell suggestion} spell, hearing the suggestion mentally."
           ],
           "type": "list"
         },
-        "The entirety of the warded area radiates as magic. Each effect must be targeted by separate {@spell dispel magic|sns} spells to be removed.",
+        "The entirety of the warded area radiates as magic. Each effect must be targeted by separate {@spell dispel magic} spells to be removed.",
         "The spell can be made permanent by recasting the spell every day for a year."
       ],
       "name": "Guards and Wards",
@@ -14660,7 +14660,7 @@
         },
         "The target does not need sustenance or air, nor does it age. No divination spells of any sort can be used to reveal the target's location.",
         "When cast, you must specify a condition that will cause the spell to end and release the target. This condition must be based on some observable action or quality and not related to mechanics like level, hit points, or class, and the DM must agree to it.",
-        "A {@spell dispel magic|sns} only dispels an imprisonment if it is cast using a 9th-level spell slot and targets the prison or the material component used to create the prison.",
+        "A {@spell dispel magic} only dispels an imprisonment if it is cast using a 9th-level spell slot and targets the prison or the material component used to create the prison.",
         "Each casting that uses the same spell effect is unique; repeated castings with the same effect free the prior occupant."
       ],
       "name": "Imprisonment",
@@ -14797,7 +14797,7 @@
           ]
         },
         "You infect your target with an arcane disease. At any time after you cast this spell, as long as you are on the same plane of existence as the target, you can use an action to cause {@dice 7d10} necrotic harm to the target. If this harm would reduce the target to 0 hit points, you can choose to leave it with 1 hit point.",
-        "As part of causing the harm, you may expend a 7th-level spell slot to sustain the disease. Otherwise, the spell ends. The spell ends when you die. Casting {@spell remove curse|sns}, {@spell greater restoration|sns}, or {@spell heal|sns} on the target allows the target to make a save, ending the disease on a success. Otherwise the disease can only be cured by a {@spell wish|sns} spell."
+        "As part of causing the harm, you may expend a 7th-level spell slot to sustain the disease. Otherwise, the spell ends. The spell ends when you die. Casting {@spell remove curse}, {@spell greater restoration}, or {@spell heal} on the target allows the target to make a save, ending the disease on a success. Otherwise the disease can only be cured by a {@spell wish} spell."
       ],
       "name": "Inescapable Malady",
       "time": [
@@ -15107,7 +15107,7 @@
         "Until the spell ends, a mystical bond connects the target and the precious stone used to cast this spell.",
         "Any time after, you may crush the stone and speak the name of the item, summoning it instantly into your hand no matter the physical, metaphysical, or planar distances involved, at which point the spell ends. If another creature is holding the item when the stone is crushed, the item is not summoned to you. Instead, the spell grants you the knowledge of who possesses it and a general idea of the creature's location.",
         "Each time you cast this spell, you must use a different precious stone.",
-        "{@spell Dispel magic|sns} or a similar effect targeting the stone ends the spell."
+        "{@spell Dispel magic} or a similar effect targeting the stone ends the spell."
       ],
       "name": "Instant Summons",
       "time": [
@@ -15508,7 +15508,7 @@
           ]
         },
         "Make a check against the DC of a lock or door using your spellcasting ability modifier plus your proficiency bonus. On a success, you unlock or open the target with a loud metallic clanging noise easily audible at up to 300 feet. In addition, any traps on the object are automatically triggered. An item with multiple locks requires multiple castings of this spell to be opened.",
-        "When you target an object held shut by an {@spell arcane lock|sns}, that spell is suppressed for 10 minutes, allowing the object to be opened and shut normally during that time."
+        "When you target an object held shut by an {@spell arcane lock}, that spell is suppressed for 10 minutes, allowing the object to be opened and shut normally during that time."
       ],
       "name": "Knock",
       "time": [
@@ -15522,7 +15522,7 @@
           "type": "entries",
           "name": "Cast at Higher Levels",
           "entries": [
-            "The level of the {@spell arcane lock|sns} you can suppress increases by 1 for each slot level above 3rd. In addition, if the level of your knock spell is 2 or more levels higher than that of the {@spell arcane lock|sns}, you may dispel the arcane lock instead of suppressing it."
+            "The level of the {@spell arcane lock} you can suppress increases by 1 for each slot level above 3rd. In addition, if the level of your knock spell is 2 or more levels higher than that of the {@spell arcane lock}, you may dispel the arcane lock instead of suppressing it."
           ]
         }
       ],
@@ -16528,7 +16528,7 @@
         },
         "Your body becomes catatonic as your soul enters the vessel used as a material component. While within this vessel, you're aware of your surroundings as if you physically occupied the same space.",
         "The only action you can take is to project your soul within range, whether to return to your living body (and end the spell) or to possess a humanoid.",
-        "You may not target creatures protected by {@spell protection from evil and good|sns} or {@spell magic circle|sns} spells. Make a will attack against a creature you try to possess with the following outcomes:",
+        "You may not target creatures protected by {@spell protection from evil and good} or {@spell magic circle} spells. Make a will attack against a creature you try to possess with the following outcomes:",
         {
           "type": "list",
           "items": [
@@ -17534,7 +17534,7 @@
           ]
         },
         "The target is immune to psychic damage, any effect that would read its emotions or thoughts, divination spells, and the {@condition charmed} condition.",
-        "This immunity extends even to the {@spell wish|sns} spell, and magical effects or spells of similar power that would affect the target's mind or gain information about it."
+        "This immunity extends even to the {@spell wish} spell, and magical effects or spells of similar power that would affect the target's mind or gain information about it."
       ],
       "name": "Mind Blank",
       "time": [
@@ -17935,7 +17935,7 @@
                 "The target becomes {@condition charmed} and {@condition dazed}. Until the spell ends, any memories of an event that took place within the last 24 hours and lasted 10 minutes or less may be altered.",
                 "You may destroy the memory, have the target recall the event with perfect clarity, change the details, or create a new memory entirely with the same restrictions in time frame and length.",
                 "You must speak to the target in a language you both know to modify its memories and describe how the memory is changed. The target fills in the gaps in details based on your description.",
-                "If the spell ends before you have finished modifying its memories, the alteration fails. Otherwise, the alteration is complete when the spell ends and only {@spell greater restoration|sns} or {@spell remove curse|sns} can restore the memory.",
+                "If the spell ends before you have finished modifying its memories, the alteration fails. Otherwise, the alteration is complete when the spell ends and only {@spell greater restoration} or {@spell remove curse} can restore the memory.",
                 "The DM may deem a modified memory too illogical or nonsensical to affect a creature, in which case the modified memory is simply dismissed by the target. In addition, a modified memory doesn't specifically change the behaviour of a creature, especially if the memory conflicts with the creature's personality, beliefs, or innate tendencies.",
                 "There may also be events that are practically unforgettable and after being modified can be remembered correctly when another creature succeeds on a {@skill Persuasion} check to stir the target's memories. This check is made with disadvantage if the creature does not have indisputable proof on hand that is relevant to the altered memory."
               ]
@@ -18689,7 +18689,7 @@
             "One celestial, elemental, fey, or fiend"
           ]
         },
-        "The target must remain within range for the entire casting of the spell (usually by means of a {@spell magic circle|sns} spell). Make a ranged will attack against the target with the following outcomes:",
+        "The target must remain within range for the entire casting of the spell (usually by means of a {@spell magic circle} spell). Make a ranged will attack against the target with the following outcomes:",
         {
           "type": "list",
           "items": [
@@ -18803,7 +18803,7 @@
             "One creature, or you and up to 8 willing creatures linking hands in a circle"
           ]
         },
-        "Willing targets are transported to a plane of existence that you choose. If the destination is generally described, targets arrive near that destination in a location chosen by the Narrator. If you know the correct sequence of an existing teleportation circle (see {@spell teleportation circle|sns}), you can choose it as the destination (when the designated circle is too small for all targets to fit, any additional targets are shunted to the closest unoccupied spaces).",
+        "Willing targets are transported to a plane of existence that you choose. If the destination is generally described, targets arrive near that destination in a location chosen by the Narrator. If you know the correct sequence of an existing teleportation circle (see {@spell teleportation circle}), you can choose it as the destination (when the designated circle is too small for all targets to fit, any additional targets are shunted to the closest unoccupied spaces).",
         "Alternatively this spell can be used offensively to banish an unwilling target. You make a ranged armour attack with the following outcomes:",
         {
           "type": "list",
@@ -19411,7 +19411,7 @@
         "When a creature that can see the barrier moves within 20 feet of the area or starts its turn within 20 feet of the area, it makes a save, becoming {@condition blinded} for 1 minute on a fail.",
         "The wall has 7 layers, each layer of a different color in order from red to violet. Once a layer is destroyed, it is gone for the duration of the spell.",
         "To pass or reach through the barrier a creature does so one layer at a time and must make a save for each layer or be subjected to that layer's effects. On a successful save, any damage taken from a layer is reduced by half.",
-        "An {@spell antimagic field|sns} has no effect on the wall or its layers.",
+        "An {@spell antimagic field} has no effect on the wall or its layers.",
         {
           "type": "list",
           "items": [
@@ -19441,7 +19441,7 @@
               "type": "item",
               "name": "Green",
               "entries": [
-                "The creature suffers {@dice 10d6} poison harm. A {@spell passwall|sns} spell, or any spell of equal or greater level which can create a portal on a solid surface, destroys the layer."
+                "The creature suffers {@dice 10d6} poison harm. A {@spell passwall} spell, or any spell of equal or greater level which can create a portal on a solid surface, destroys the layer."
               ]
             },
             {
@@ -19464,7 +19464,7 @@
               "name": "Violet",
               "entries": [
                 "The creature is {@condition blinded}. At the start of your next turn, the creature makes a save, ending the effect on a success.",
-                "On a failed save, the creature is banished to another random plane and is no longer blind. If it originated from another plane it returns there, while other creatures are generally cast into the Astral Plane or Ethereal Plane. This layer can be destroyed by {@spell dispel magic|sns} or a similar spell of equal or greater level capable of ending spells or magical effects."
+                "On a failed save, the creature is banished to another random plane and is no longer blind. If it originated from another plane it returns there, while other creatures are generally cast into the Astral Plane or Ethereal Plane. This layer can be destroyed by {@spell dispel magic} or a similar spell of equal or greater level capable of ending spells or magical effects."
               ]
             }
           ]
@@ -20125,7 +20125,7 @@
             "Up to a 300-foot sphere"
           ]
         },
-        "You transform the land around you into a blasted hellscape. When you cast the spell, all nonmagical vegetation in the area immediately dies. In addition, you can create any of the following effects within the area. Fiends are immune to these effects, as are any creatures you specify at the time you cast the spell. A successful {@spell dispel magic|sns} ends a single effect, not the entire area.",
+        "You transform the land around you into a blasted hellscape. When you cast the spell, all nonmagical vegetation in the area immediately dies. In addition, you can create any of the following effects within the area. Fiends are immune to these effects, as are any creatures you specify at the time you cast the spell. A successful {@spell dispel magic} ends a single effect, not the entire area.",
         {
           "type": "list",
           "items": [
@@ -20545,7 +20545,7 @@
               "type": "item",
               "name": "Standard success",
               "entries": [
-                "The sphere lasts until the spell ends and can be destroyed without harming anyone inside by being dealt at least 16 force damage at once or by being targeted with a {@spell dispel magic|sns} spell cast using a 4th-level or higher spell slot. The sphere is immune to all other damage, and no spell effects, physical objects, or anything else can pass through, though a target can breathe while inside it. The target cannot be damaged by any attacks or effects originating from outside the sphere, and the target cannot damage anything outside of it.",
+                "The sphere lasts until the spell ends and can be destroyed without harming anyone inside by being dealt at least 16 force damage at once or by being targeted with a {@spell dispel magic} spell cast using a 4th-level or higher spell slot. The sphere is immune to all other damage, and no spell effects, physical objects, or anything else can pass through, though a target can breathe while inside it. The target cannot be damaged by any attacks or effects originating from outside the sphere, and the target cannot damage anything outside of it.",
                 "The target can use an action to roll the sphere at half its Speed. Similarly, the sphere can be picked up and moved by other creatures."
               ]
             },
@@ -25740,7 +25740,7 @@
         "You create an invisible wall of force at a point you choose. The wall is a horizontal or vertical barrier, or at an angle, centred on a space within your line of sight. It can be free floating or resting on a solid surface. You can form it into a hemispherical dome or a sphere, either with a radius of up to 10 feet. You may also choose to create a flat surface made up of a contiguous group of ten 10-foot square sections. The wall is 1/4 inch thick.",
         "If the wall enters a creature's space when it appears, the creature is pushed to one side of the wall (your choice), but when a creature would be surrounded on all sides by the wall (or the wall and another solid surface), it can use its reaction to make a save. On a success, it can move up to its Speed to escape. Any creature without a special sense like blindsight has disadvantage on this save.",
         "Nothing can physically pass through the wall.",
-        "It can be destroyed with {@spell dispel magic|sns} cast using a spell slot of at least 5th-level or by being dealt at least 28 force damage at once. It is otherwise immune to damage. The wall also extends into the Ethereal Plane, blocking ethereal travel through it."
+        "It can be destroyed with {@spell dispel magic} cast using a spell slot of at least 5th-level or by being dealt at least 28 force damage at once. It is otherwise immune to damage. The wall also extends into the Ethereal Plane, blocking ethereal travel through it."
       ],
       "name": "Wall of Force",
       "time": [
@@ -26826,7 +26826,7 @@
         {
           "items": [
             "One nonmagical object of your choice that is worth up to 25,000 gold and no more than 300 feet in any dimension appears in an unoccupied space you can see on the ground.",
-            "Up to 20 creatures that you can see to regain all their hit points, and each is further healed as per the {@spell greater restoration|sns} spell.",
+            "Up to 20 creatures that you can see to regain all their hit points, and each is further healed as per the {@spell greater restoration} spell.",
             "Up to 10 creatures that you can see gain 50% resistance to a damage type you choose.",
             "Up to 10 creatures you can see gain immunity to a single spell or other magical effect for 8 hours.",
             "You force a reroll of any roll made within the last round (including your last turn). You can force the reroll to be made with advantage or disadvantage, and you can choose whether to use the reroll or the original roll."
@@ -27706,7 +27706,7 @@
         },
         "You place a curse on the target. Until the spell ends, you deal an extra {@dice 1d6} necrotic damage to the target whenever you hit it with an armour attack. Also, choose one ability when you cast the spell. The target has disadvantage on ability checks made with the chosen ability.",
         "If the target drops to 0 hit points before this spell ends, you can use a bonus action on a subsequent turn of yours to curse a new creature.",
-        "A {@spell remove curse|sns} cast on the target ends this spell early."
+        "A {@spell remove curse} cast on the target ends this spell early."
       ],
       "name": "Hex",
       "time": [
@@ -28346,7 +28346,7 @@
               "type": "item",
               "name": "Minor success",
               "entries": [
-                "You create an illusion as per the {@spell minor illusion|sns} cantrip that is perceivable only to the target and lasts for 1 round."
+                "You create an illusion as per the {@spell minor illusion} cantrip that is perceivable only to the target and lasts for 1 round."
               ]
             },
             {
@@ -29473,7 +29473,7 @@
     {
       "school": "V",
       "entries": [
-        "A wave of healing energy washes over the creature you touch. The target regains all its hit points. If the creature is {@condition charmed}, {@condition frightened}, {@staggered|sns}, or {@condition debilitated}, the condition ends. If the creature is {@condition prone}, it can use its reaction to stand up. This spell has no effect on undead or constructs."
+        "A wave of healing energy washes over the creature you touch. The target regains all its hit points. If the creature is {@condition charmed}, {@condition frightened}, {@condition staggered}, or {@condition debilitated}, the condition ends. If the creature is {@condition prone}, it can use its reaction to stand up. This spell has no effect on undead or constructs."
       ],
       "name": "Power Word Heal",
       "time": [
@@ -30530,7 +30530,7 @@
             "col-8"
           ],
           "colLabels": [
-            "{@dice d8}}",
+            "{@dice d8}",
             "Damage Type"
           ],
           "caption": "Chaos Bolt"
@@ -33271,7 +33271,7 @@
             "One Tiny, nonmagical object that isn't attached to another object or a surface and isn't being carried by another creature"
           ]
         },
-        "You touch the target and it animates and sprouts little arms and legs, becoming a creature under your control until the spell ends or the creature drops to 0 hit points. See the {@creature tiny servant|sns} stat block for its statistics.",
+        "You touch the target and it animates and sprouts little arms and legs, becoming a creature under your control until the spell ends or the creature drops to 0 hit points. See the {@creature tiny servant} stat block for its statistics.",
         "As a bonus action, you can mentally command the creature if it is within 120 feet of you. If you control multiple creatures with this spell, you can command any or all of them at the same time, issuing the same command to each one. You decide what action the creature will take and where it will move during its next turn, or you can issue a simple, general command, such as to fetch a key, stand watch, or stack some books. If you issue no commands, the servant does nothing other than defend itself against hostile creatures. Once given an order, the servant continues to follow that order until its task is complete.",
         "When the creature drops to 0 hit points, it reverts to its original form, and any remaining damage carries over to that form."
       ],
@@ -33561,7 +33561,7 @@
             "30-foot cube within range"
           ]
         },
-        "You fortify the fabric of the planes in the area. Portals inside close and can't be opened for the duration. Spells and other effects that allow planar travel or open portals, such as {@spell gate|sns} or {@spell plane shift|sns}, fail if used to enter or leave the area. The cube is stationary."
+        "You fortify the fabric of the planes in the area. Portals inside close and can't be opened for the duration. Spells and other effects that allow planar travel or open portals, such as {@spell gate} or {@spell plane shift}, fail if used to enter or leave the area. The cube is stationary."
       ],
       "name": "Gate Seal",
       "time": [
@@ -33984,7 +33984,7 @@
     {
       "school": "C",
       "entries": [
-        "You call forth the spirit of a construct. It manifests in an unoccupied space that you can see within range. This corporeal form uses the {@creature Construct Spirit|sns} stat block. When you cast the spell, choose a material: Clay, Metal, or Stone. The creature resembles a golem or a modron (your choice) made of the chosen material, which determines certain traits in its stat block. The creature disappears when it drops to 0 hit points or when the spell ends.",
+        "You call forth the spirit of a construct. It manifests in an unoccupied space that you can see within range. This corporeal form uses the {@creature Construct Spirit} stat block. When you cast the spell, choose a material: Clay, Metal, or Stone. The creature resembles a golem or a modron (your choice) made of the chosen material, which determines certain traits in its stat block. The creature disappears when it drops to 0 hit points or when the spell ends.",
         "The creature is an ally to you and your companions. It obeys your verbal commands (no action required by you). If you don't issue any, it takes the Dodge action and uses its move to avoid danger."
       ],
       "name": "Summon Construct",
@@ -34663,7 +34663,7 @@
             "One creature"
           ]
         },
-        "You send ribbons of negative energy at the target. Unless the target is undead, make a ranged fortitude attack against it that deals {@dice 8d8} necrotic damage. A target killed by this damage rises up as a {@creature zombie|sns} at the start of your next turn. The zombie pursues whatever creature it can see that is closest to it.",
+        "You send ribbons of negative energy at the target. Unless the target is undead, make a ranged fortitude attack against it that deals {@dice 8d8} necrotic damage. A target killed by this damage rises up as a {@creature zombie} at the start of your next turn. The zombie pursues whatever creature it can see that is closest to it.",
         "If you target an undead with this spell, you do not attack the target. Instead, roll {@dice 4d8}. The target gains the total as temporary hit points."
       ],
       "name": "Negative Energy Flood",
@@ -34841,7 +34841,7 @@
     {
       "school": "C",
       "entries": [
-        "You call forth a {@creature draconic spirit|sns}. It manifests in an unoccupied space within range. When you cast this spell, choose a family of dragon: chromatic, gem, or metallic. The creature resembles a dragon of the chosen family, which determines certain traits in its stat block. The creature disappears when it drops to 0 hit points or when the spell ends.",
+        "You call forth a {@creature draconic spirit}. It manifests in an unoccupied space within range. When you cast this spell, choose a family of dragon: chromatic, gem, or metallic. The creature resembles a dragon of the chosen family, which determines certain traits in its stat block. The creature disappears when it drops to 0 hit points or when the spell ends.",
         "The creature obeys your verbal commands (no action required by you). If you don't issue any, it takes the Dodge action and uses its move to avoid danger."
       ],
       "name": "Summon Draconic Spirit",
@@ -35379,7 +35379,7 @@
         },
         "You invoke the spirits of nature to protect an area outdoors or underground. Builds and other structures are excluded from the affected area. If you cast this spell in the same area every day for a year, the spell lasts until dispelled.",
         "The spell creates the following effects within the area. When you cast this spell, you can specify creatures as friends who are immune to the effects. You can also specify a password that, when spoken aloud, makes the speaker immune to these effects.",
-        "The entire warded area radiates magic. A {@spell dispel magic|sns} cast on the area, if successful, removes only one of the following effects, not the entire area. That spell's caster chooses which effect to end. Only when all its effects are gone is this spell dispelled.",
+        "The entire warded area radiates magic. A {@spell dispel magic} cast on the area, if successful, removes only one of the following effects, not the entire area. That spell's caster chooses which effect to end. Only when all its effects are gone is this spell dispelled.",
         {
           "type": "entries",
           "name": "Solid Fog",
@@ -35391,14 +35391,14 @@
           "type": "entries",
           "name": "Grasping Undergrowth",
           "entries": [
-            "You can fill any number of 5-foot spaces on the ground that aren't filled with fog with grasping weeds and vines, as if they were affected by an {@spell entangle|sns} spell. To a creature immune to this effect, the weeds and vines feel soft and reshape themselves to serve as temporary seats or beds."
+            "You can fill any number of 5-foot spaces on the ground that aren't filled with fog with grasping weeds and vines, as if they were affected by an {@spell entangle} spell. To a creature immune to this effect, the weeds and vines feel soft and reshape themselves to serve as temporary seats or beds."
           ]
         },
         {
           "type": "entries",
           "name": "Grove Guardians",
           "entries": [
-            "You can animate up to four trees in the area, causing them to uproot themselves from the ground. These trees have the same statistics as an {@creature awakened tree|sns}, except they can't speak, and their bark is covered with druidic symbols. If any creature not immune to this effect enters the warded area, the grove guardians fight until they have driven off or slain the intruders. The grove guardians also obey your spoken commands (no action required by you) that you issue while in the area. If you don't give them commands and no intruders are present, the grove guardians do nothing. The grove guardians can't leave the warded area. When the spell ends, the magic animating them disappears, and the trees take root again if possible."
+            "You can animate up to four trees in the area, causing them to uproot themselves from the ground. These trees have the same statistics as an {@creature awakened tree}, except they can't speak, and their bark is covered with druidic symbols. If any creature not immune to this effect enters the warded area, the grove guardians fight until they have driven off or slain the intruders. The grove guardians also obey your spoken commands (no action required by you) that you issue while in the area. If you don't give them commands and no intruders are present, the grove guardians do nothing. The grove guardians can't leave the warded area. When the spell ends, the magic animating them disappears, and the trees take root again if possible."
           ]
         },
         {
@@ -35409,12 +35409,12 @@
             {
               "type": "list",
               "items": [
-                "A constant {@spell gust of wind|sns} in two locations of your choice.",
-                "{@spell Spike growth|sns} in one location of your choice.",
-                "{@spell Wind wall|sns} in two locations of your choice."
+                "A constant {@spell gust of wind} in two locations of your choice.",
+                "{@spell Spike growth} in one location of your choice.",
+                "{@spell Wind wall} in two locations of your choice."
               ]
             },
-            "To a creature immune to this effect, the winds are a fragrant, gentle breeze, and the area of {@spell spike growth|sns} is harmless."
+            "To a creature immune to this effect, the winds are a fragrant, gentle breeze, and the area of {@spell spike growth} is harmless."
           ]
         }
       ],
@@ -36117,7 +36117,7 @@
           "name": "Eyes of the Dead",
           "entries": [
             "You can use an action to name a place the humanoid saw in life, which creates an invisible sensor somewhere in that place if it is on the same plane of existence you're currently on. The sensor remains for as long as you concentrate, up to 10 minutes (as if you were concentrating on a spell). You receive visual and auditory information from the sensor as if you were in its space using your senses.",
-            "A creature that can see the sensor (such as one using {@spell see invisibility|sns} or {@spell truesight|sns}) sees a translucent image of the tormented humanoid whose soul you caged."
+            "A creature that can see the sensor (such as one using {@spell see invisibility} or {@spell truesight}) sees a translucent image of the tormented humanoid whose soul you caged."
           ]
         }
       ],
@@ -36452,7 +36452,7 @@
         "The temple opposes types of creatures you choose when you cast this spell. Choose one or more of the following: celestials, elementals, fey, fiends, or undead. If a creature of the chosen type attempts to enter the temple, that creature must make a save. On a failed save, it can't enter the temple for 24 hours. Even if the creature can enter the temple, the magic there hinders it; whenever it makes an attack roll, ability check, or save inside the temple, it must roll a {@dice d4} and subtract the number rolled from the {@dice d20} roll.",
         "In addition, the sensors created by divination spells can't appear inside the temple, and creatures within can't be targeted by divination spells.",
         "Finally, whenever any creature inside the temple regains hit points from a spell of 1st level or higher, the creature regains additional hit points equal to your Wisdom modifier plus your proficiency bonus.",
-        "The temple is made from opaque magical force that extends into the Ethereal Plane, thus blocking ethereal travel into the temple's interior. Nothing can physically pass through the temple's exterior. It can't be dispelled by {@spell dispel magic|sns}, and {spell antimagic field|sns} has no effect on it. A {@spell disintegrate|sns} spell destroys the temple instantly.",
+        "The temple is made from opaque magical force that extends into the Ethereal Plane, thus blocking ethereal travel into the temple's interior. Nothing can physically pass through the temple's exterior. It can't be dispelled by {@spell dispel magic}, and {spell antimagic field} has no effect on it. A {@spell disintegrate} spell destroys the temple instantly.",
         "Casting this spell on the same spot every day for a year makes this effect permanent."
       ],
       "name": "Temple of the Gods",
@@ -36796,7 +36796,7 @@
         "A fortress of stone erupts from a square area of ground of your choice that you can see within range. The area is 120 feet on each side, and it must not have any buildings or other structures on it. Any creatures in the area are harmlessly lifted up as the fortress rises.",
         "The fortress has four turrets with square bases, each one 20 feet on a side and 30 feet tall, with one turret on each corner. The turrets are connected to each other by stone walls that are each 80 feet long, creating an enclosed area. Each wall is 1 foot thick and is composed of panels that are 10 feet wide and 20 feet tall. Each panel is contiguous with two other panels or one other panel and a turret. You can place up to four stone doors in the fortress' outer wall.",
         "A small keep stands inside the enclosed area. The keep has a square base that is 50 feet on each side, and it has three floors with 10-foot-high ceilings. Each of the floors can be divided into as many rooms as you like, provided each room is at least 5 feet on each side. The floors of the keep are connected by stone staircases, its walls are 6 inches thick, and interior rooms can have stone doors or open archways as you choose. The keep is furnished and decorated however you like, and it contains sufficient food to serve a nine-course banquet for up to 100 people each day. Furnishings, food, and other objects created by this spell crumble to dust if removed from the fortress.",
-        "A staff of one hundred invisible servants obeys any command given to them by creatures you designate when you cast the spell. Each servant functions as if created by the {@spell unseen servant|sns} spell.",
+        "A staff of one hundred invisible servants obeys any command given to them by creatures you designate when you cast the spell. Each servant functions as if created by the {@spell unseen servant} spell.",
         "The walls, turrets, and keep are all made of stone that can be damaged. Each 10-foot-by-10-foot section of stone has 2 Armour and 33 hit points per inch of thickness. It is immune to poison and psychic damage. Reducing a section of stone to 0 hit points destroys it and might cause connected sections to buckle and collapse at the DM's discretion.",
         "After 7 days or when you cast this spell somewhere else, the fortress harmlessly crumbles and sinks back into the ground, leaving any creatures that were inside it safely on the ground.",
         "Casting this spell on the same spot once every 7 days for a year makes the fortress permanent."
@@ -37529,7 +37529,7 @@
                   "type": "item",
                   "name": "Standard success",
                   "entries": [
-                    "The target is cursed for 1 minute or until it passes a passive save. While cursed, the creature has disadvantage on ability checks and armour attack rolls. A {@spell remove curse|sns} spell ends the effect."
+                    "The target is cursed for 1 minute or until it passes a passive save. While cursed, the creature has disadvantage on ability checks and armour attack rolls. A {@spell remove curse} spell ends the effect."
                   ]
                 },
                 {

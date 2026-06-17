@@ -67,23 +67,23 @@
           "rows": [
             [
               "1st",
-              "{@spell bane|sns}, {@spell corpse explosion|sns}, {@spell false life|sns}, {@spell inflict wounds|sns}"
+              "{@spell bane}, {@spell corpse explosion}, {@spell false life}, {@spell inflict wounds}"
             ],
             [
               "3rd",
-              "{@spell deadweight|sns}, {@spell lemure transformation|sns}, {@spell ray of enfeeblement|sns}, {@spell shatter|sns}"
+              "{@spell deadweight}, {@spell lemure transformation}, {@spell ray of enfeeblement}, {@spell shatter}"
             ],
             [
               "5th",
-              "{@spell bestow curse|sns}, {@spell dispel magic|sns}, {@spell slow|sns}, {@spell vampiric touch|sns}"
+              "{@spell bestow curse}, {@spell dispel magic}, {@spell slow}, {@spell vampiric touch}"
             ],
             [
               "7th",
-              "{@spell blight|sns}, {@spell confusion|sns}, {@spell control water|sns}, {@spell ice storm|sns}"
+              "{@spell blight}, {@spell confusion}, {@spell control water}, {@spell ice storm}"
             ],
             [
               "9th",
-              "{@spell cloudkill|sns}, {@spell cone of cold|sns}, {@spell contagion|sns}, {@spell insect plague|sns}"
+              "{@spell cloudkill}, {@spell cone of cold}, {@spell contagion}, {@spell insect plague}"
             ]
           ]
         }
@@ -172,7 +172,7 @@
       "header": 2,
       "entries": [
         "At tier 4, your understanding of the nature of destruction gives you the ability to undo its damage.",
-        "You can spend 1 sorcery point to cast {@spell cure wounds|sns}, heightened to the highest level spell you can cast.",
+        "You can spend 1 sorcery point to cast {@spell cure wounds}, heightened to the highest level spell you can cast.",
         "Alternatively, you can spend an action and concentrate on a damaged or destroyed object, then spend 1 sorcery point for every 30 feet across that object is. Over the course of a minute, you reverse the damage to the object, potentially restoring it to its prime. This requires concentration, and if your concentration fails, the restoration fails as well.",
         "This cannot restore things that were reshaped into new items. You can rebuild a shattered boat, but cannot cause the metal in a suit of armour to turn back into an ingot or into raw ore."
       ]

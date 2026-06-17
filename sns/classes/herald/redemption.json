@@ -158,23 +158,23 @@
           "rows": [
             [
               "2nd",
-              "{@spell sanctuary|sns}, {@spell sleep|sns}"
+              "{@spell sanctuary}, {@spell sleep}"
             ],
             [
               "5th",
-              "{@spell calm emotions|sns}, {@spell hold person|sns}"
+              "{@spell calm emotions}, {@spell hold person}"
             ],
             [
               "9th",
-              "{@spell counterspell|sns}, {@spell hypnotic pattern|sns}"
+              "{@spell counterspell}, {@spell hypnotic pattern}"
             ],
             [
               "13th",
-              "{@spell resilient sphere|sns}, {@spell stoneskin|sns}"
+              "{@spell resilient sphere}, {@spell stoneskin}"
             ],
             [
               "17th",
-              "{@spell hold monster|sns}, {@spell wall of force|sns}"
+              "{@spell hold monster}, {@spell wall of force}"
             ]
           ]
         }

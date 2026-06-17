@@ -48,7 +48,7 @@
       "subclassSource": "sns",
       "level": 1,
       "entries": [
-        "When you select this subclass at tier 1, you gain proficiency with the {@skill Persuasion} skill. If you are already proficient in {@skill Persuasion}, you gain an expertise die instead. You also learn the {@spell message|sns}, {@spell minor illusion|sns}, and {@spell thaumaturgy|sns} cantrips, and they do not count against your maximum cantrips known."
+        "When you select this subclass at tier 1, you gain proficiency with the {@skill Persuasion} skill. If you are already proficient in {@skill Persuasion}, you gain an expertise die instead. You also learn the {@spell message}, {@spell minor illusion}, and {@spell thaumaturgy} cantrips, and they do not count against your maximum cantrips known."
       ]
     },
     {

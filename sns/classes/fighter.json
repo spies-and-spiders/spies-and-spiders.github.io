@@ -49,7 +49,7 @@
         {
           "colLabels": [
             "{@filter Knacks Known|optionalfeatures|feature type=sk}",
-            "{@filter Maneuvers Known|maneuvers}",
+            "{@filter Maneuvers Known|maneuvers|degree=1;2;3;4;5}",
             "Maneuver Degree"
           ],
           "rows": [
@@ -415,7 +415,7 @@
       "classSource": "sns",
       "level": 1,
       "entries": [
-        "At 1st level, you gain the ability to use {@filter combat maneuvers|maneuvers}. You gain proficiency in two combat traditions of your choice. You learn three maneuvers of your choice from traditions you are proficient with.",
+        "At 1st level, you gain the ability to use {@filter combat maneuvers|maneuvers|degree=1;2;3;4;5}. You gain proficiency in two combat traditions of your choice. You learn three maneuvers of your choice from traditions you are proficient with.",
         "You gain an exertion pool equal to twice your proficiency bonus, regaining any spent exertion at the end of a short or long rest. You use your maneuvers by spending points from your exertion pool. The Maneuvers Known column of the Fighter table shows when you learn more maneuvers from a tradition you are proficient with, while the Maneuver Degree column shows the highest degree you can select maneuvers from at a given level.",
         "Additionally, whenever you complete a long rest, you can choose one of the maneuvers you know and replace it with another maneuver of the same degree from a tradition you are proficient with."
       ]
@@ -889,7 +889,7 @@
         "SK"
       ],
       "entries": [
-        "A steady stance and careful footwork is instinctive to you. You have advantage on any check or save to avoid falling {@condition prone} or handle difficult ground (such as against a {@spell grease|sns} spell or slippery ice), and any non-armour attacks against you attempting to do similar things to you have disadvantage. You are never {@condition prone} after taking fall damage, and when calculating fall damage you treat the fall distance as if it were shorter by a number of feet equal to your proficiency bonus x 10."
+        "A steady stance and careful footwork is instinctive to you. You have advantage on any check or save to avoid falling {@condition prone} or handle difficult ground (such as against a {@spell grease} spell or slippery ice), and any non-armour attacks against you attempting to do similar things to you have disadvantage. You are never {@condition prone} after taking fall damage, and when calculating fall damage you treat the fall distance as if it were shorter by a number of feet equal to your proficiency bonus x 10."
       ]
     },
     {

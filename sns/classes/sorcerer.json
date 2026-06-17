@@ -650,7 +650,7 @@
           "entries": [
             "The Sorcerer table shows how many spell slots you have to cast your sorcerer spells of 1st level and higher. To cast one of these spells, you must expend a slot of the spell's level or higher. You regain all expended spell slots when you finish a long rest.",
             "You prepare the list of sorcerer spells that are available for you to cast. To do so, choose a number of sorcerer spells from the {@filter sorcerer spell list|spells|class=sorcerer (sns)} equal to the value in the Spells Prepared column of the Sorcerer table. The spells must be of a level for which you have spell slots.",
-            "For example, if you're a 3rd-level sorcerer, you have four 1st-level and two 2nd-level spell slots. Your list of prepared spells can include four spells of 1st or 2nd level, in any combination, chosen from the sorcerer spell list. If you prepare the 1st-level spell {@spell magic missile|sns}, you can cast it using a 1st-level or a 2nd-level slot. Casting the spell doesn't remove it from your list of prepared spells.",
+            "For example, if you're a 3rd-level sorcerer, you have four 1st-level and two 2nd-level spell slots. Your list of prepared spells can include four spells of 1st or 2nd level, in any combination, chosen from the sorcerer spell list. If you prepare the 1st-level spell {@spell magic missile}, you can cast it using a 1st-level or a 2nd-level slot. Casting the spell doesn't remove it from your list of prepared spells.",
             "You can change your list of prepared spells when you finish a long rest."
           ]
         },
@@ -665,7 +665,7 @@
           "type": "entries",
           "name": "Spellcasting Focus",
           "entries": [
-            "You can use an {@item arcane focus|sns} as a spellcasting focus for your sorcerer spells."
+            "You can use an {@item arcane focus} as a spellcasting focus for your sorcerer spells."
           ]
         }
       ]
@@ -929,7 +929,7 @@
                   "type": "item",
                   "name": "Treacherous Spell",
                   "entries": [
-                    "When you cast a spell, you can spend 1 sorcery point to alter its components in subtle ways. A creature attempting to identify the spell perceives it as a different spell of your choice, of the same or lower level. Attempts to {@spell counterspell|sns} this spell are made at disadvantage."
+                    "When you cast a spell, you can spend 1 sorcery point to alter its components in subtle ways. A creature attempting to identify the spell perceives it as a different spell of your choice, of the same or lower level. Attempts to {@spell counterspell} this spell are made at disadvantage."
                   ]
                 }
               ]
@@ -990,7 +990,7 @@
                   "name": "Twinned Spell",
                   "entries": [
                     "When you cast a spell that targets only one creature and doesn't have a range of Self, you can spend a number of Sorcery Points equal to the spell's level (or 1 for a cantrip) to target a second creature in range with the same spell.",
-                    "To be eligible, a spell must be incapable of targeting more than one creature at the spell's current level. For example, {@spell magic missile|sns} and {@spell scorching ray|sns} are ineligible, but {@spell ray of frost|sns} can be modified by Twinned Spell."
+                    "To be eligible, a spell must be incapable of targeting more than one creature at the spell's current level. For example, {@spell magic missile} and {@spell scorching ray} are ineligible, but {@spell ray of frost} can be modified by Twinned Spell."
                   ]
                 }
               ]

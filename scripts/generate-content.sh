@@ -15,7 +15,7 @@ jq_inplace() {
 bb scripts/generate-merged-json.bb
 
 # Prepare SNS data
-jq -c -s '(.[0] | {monster}) * {monster: ([.[0].monster, .[1].monster] | add)}' data/generated/sns.json data/feats.json > data/bestiary/bestiary-sns.json
+jq -c -s '(.[0] | {monster}) * {monster: ([.[0].monster, .[1].monster, .[2].monster] | add)}' data/generated/sns.json data/feats.json data/spells/spells-sns.json > data/bestiary/bestiary-sns.json
 cat data/generated/sns.json | jq -c '{class,subclass,classFeature,subclassFeature}' > data/class/class-sns.json
 
 mkdir -p data/book && jq -c -s --argjson now "$(date +'%s')" '(.[0] | {book,data}) + {_meta: (.[1]._meta + {dateLastModified: $now})}' data/books.json data/generated/sns.json > data/book/book-sns.json

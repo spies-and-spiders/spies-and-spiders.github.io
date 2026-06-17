@@ -575,7 +575,7 @@
           "name": "Armour of Conviction",
           "entries": [
             "While you are not wearing any body armour or wielding a shield, your armour is equal to half your Wisdom modifier.",
-            "Also, in addition to the spells you normally prepare, you always have {@spell shield of faith|sns} prepared."
+            "Also, in addition to the spells you normally prepare, you always have {@spell shield of faith} prepared."
           ]
         },
         {
@@ -647,7 +647,7 @@
           "entries": [
             "The Cleric table shows how many spell slots you have to cast your {@filter cleric spells|spells|class=cleric (sns)} of 1st level and higher. To cast one of these spells, you must expend a slot of the spell's level or higher. You regain all expended spell slots when you finish a long rest.",
             "You prepare the list of cleric spells that are available for you to cast, choosing from the cleric spell list. When you do so, choose a number of cleric spells equal to your Wisdom modifier + your cleric level (minimum of one spell). The spells must be of a level for which you have spell slots.",
-            "For example, if you are a 3rd-level cleric, you have four 1st-level and two 2nd-level spell slots. With a Wisdom of 16, your list of prepared spells can include six spells of 1st or 2nd level, in any combination. If you prepare the 1st-level spell {@spell cure wounds|sns}, you can cast it using a 1st-level or 2nd-level slot. Casting the spell doesn't remove it from your list of prepared spells.",
+            "For example, if you are a 3rd-level cleric, you have four 1st-level and two 2nd-level spell slots. With a Wisdom of 16, your list of prepared spells can include six spells of 1st or 2nd level, in any combination. If you prepare the 1st-level spell {@spell cure wounds}, you can cast it using a 1st-level or 2nd-level slot. Casting the spell doesn't remove it from your list of prepared spells.",
             "You can change your list of prepared spells when you finish a long rest. Preparing a new list of cleric spells requires time spent in prayer and meditation: at least 1 minute per spell level for each spell on your list."
           ]
         },
@@ -662,7 +662,7 @@
           "type": "entries",
           "name": "Spellcasting Focus",
           "entries": [
-            "You can use a {@item holy symbol|sns} as a spellcasting focus for your cleric spells."
+            "You can use a {@item holy symbol} as a spellcasting focus for your cleric spells."
           ]
         }
       ]
@@ -820,7 +820,7 @@
           "type": "entries",
           "name": "Rule of Ritual",
           "entries": [
-            "You make formal religious observances and perform ritual timekeeping. You can spend 1 hour during a long rest to make these observances, and if you do you only need 4 hours of sleep instead of the normal 6. You learn the {@spell guidance|sns} cantrip if you do not already know it, and when you grant expertise dice with a levelled spell, the expertise die you grant increases by one step."
+            "You make formal religious observances and perform ritual timekeeping. You can spend 1 hour during a long rest to make these observances, and if you do you only need 4 hours of sleep instead of the normal 6. You learn the {@spell guidance} cantrip if you do not already know it, and when you grant expertise dice with a levelled spell, the expertise die you grant increases by one step."
           ]
         },
         {
@@ -1131,7 +1131,7 @@
         "SF"
       ],
       "entries": [
-        "In addition to the spells you normally prepare, you always have {@spell speak with dead|sns} prepared, and you can use this feature to cast it once between long rests without spending a spell slot. When you do so, you do not have to target a corpse; you can also target a grave marker, memorial, statue, painting, or other depiction of the deceased creature you wish to talk to. If the chosen creature is not dead, or if such a creature never existed in the first place, the spell fails."
+        "In addition to the spells you normally prepare, you always have {@spell speak with dead} prepared, and you can use this feature to cast it once between long rests without spending a spell slot. When you do so, you do not have to target a corpse; you can also target a grave marker, memorial, statue, painting, or other depiction of the deceased creature you wish to talk to. If the chosen creature is not dead, or if such a creature never existed in the first place, the spell fails."
       ]
     },
     {
@@ -1161,7 +1161,7 @@
         "SF"
       ],
       "entries": [
-        "Falling from a height greater than 30 feet causes your greater entity to intervene. You are protected as if by the {@spell feather fall|sns} spell. This sign does not use your reaction."
+        "Falling from a height greater than 30 feet causes your greater entity to intervene. You are protected as if by the {@spell feather fall} spell. This sign does not use your reaction."
       ]
     },
     {
@@ -1239,7 +1239,7 @@
         "SF"
       ],
       "entries": [
-        "Choose a creature type from fiend, fey, celestial, elemental, or undead. You know when a creature of this type is within 60 feet of you, although you do not know its location. The {@spell nondetection|sns} spell protects against this feature. You may select this sign multiple times, choosing a different creature type each time."
+        "Choose a creature type from fiend, fey, celestial, elemental, or undead. You know when a creature of this type is within 60 feet of you, although you do not know its location. The {@spell nondetection} spell protects against this feature. You may select this sign multiple times, choosing a different creature type each time."
       ]
     },
     {

@@ -91,23 +91,23 @@
           "rows": [
             [
               "1st",
-              "{@spell corpse explosion|sns}, {@spell false life|sns}"
+              "{@spell corpse explosion}, {@spell false life}"
             ],
             [
               "5th",
-              "{@spell gentle repose|sns}, {@spell lesser restoration|sns}"
+              "{@spell gentle repose}, {@spell lesser restoration}"
             ],
             [
               "9th",
-              "{@spell life transference|sns}, {@spell venomous succor|sns}"
+              "{@spell life transference}, {@spell venomous succor}"
             ],
             [
               "13th",
-              "{@spell fabricate|sns}, {@spell private sanctum|sns}"
+              "{@spell fabricate}, {@spell private sanctum}"
             ],
             [
               "17th",
-              "{@spell greater restoration|sns}, {@spell mass cure wounds|sns}"
+              "{@spell greater restoration}, {@spell mass cure wounds}"
             ]
           ]
         }
@@ -125,7 +125,7 @@
       "entries": [
         "Also at tier 1 you learn the secrets of giving life to dead flesh and become able to create a monstrous minion.",
         "You can create this monstrous minion by spending a long rest working on a humanoid corpse that has been dead no more than 24 hours, or the corpse of a previously-killed monstrous minion. This monstrous minion is unique and its exact appearance is up to you. It is a minion and requires your concentration to maintain, but you cannot lose this concentration against your will. Your monstrous minion makes death saves and tracks wounds upon reaching 0 hit points.",
-        "Your monstrous minion is a {@creature zombie|sns} with the following improvements.",
+        "Your monstrous minion is a {@creature zombie} with the following improvements.",
         {
           "type": "list",
           "items": [
@@ -239,7 +239,7 @@
       "level": 3,
       "header": 2,
       "entries": [
-        "Starting at tier 2, you can have your monstrous minion release foul gases from its body that can be detonated by your {@spell corpse explosion|sns} spell. This allows you to target your monstrous minion with that spell as if it were a corpse, but when you cast the spell in this way it cannot {@condition poisoned|poison} creatures."
+        "Starting at tier 2, you can have your monstrous minion release foul gases from its body that can be detonated by your {@spell corpse explosion} spell. This allows you to target your monstrous minion with that spell as if it were a corpse, but when you cast the spell in this way it cannot {@condition poisoned|poison} creatures."
       ]
     },
     {
@@ -325,7 +325,7 @@
       "level": 9,
       "header": 2,
       "entries": [
-        "At tier 5 you've harnessed death - mostly. You gain the {@spell Inescapable Malady|sns} spell and when you prepare your artificer spells you can prepare it and create a spell invention for it (or forgo it for a modification) in addition to your normal number of prepared spells. This spell counts as a 5th-level artificer spell for you (including for extending its effects) and you can cast it without the usual material components, but a creature you target with it cannot be targeted by this feature again."
+        "At tier 5 you've harnessed death - mostly. You gain the {@spell Inescapable Malady} spell and when you prepare your artificer spells you can prepare it and create a spell invention for it (or forgo it for a modification) in addition to your normal number of prepared spells. This spell counts as a 5th-level artificer spell for you (including for extending its effects) and you can cast it without the usual material components, but a creature you target with it cannot be targeted by this feature again."
       ]
     }
   ]

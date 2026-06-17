@@ -68,23 +68,23 @@
           "rows": [
             [
               "1st",
-              "{@spell burning hands|sns}, {@spell faerie fire|sns}"
+              "{@spell burning hands}, {@spell faerie fire}"
             ],
             [
               "3rd",
-              "{@spell continual flame|sns}, {@spell scorching ray|sns}"
+              "{@spell continual flame}, {@spell scorching ray}"
             ],
             [
               "5th",
-              "{@spell darklight|sns}, {@spell fireball|sns}"
+              "{@spell darklight}, {@spell fireball}"
             ],
             [
               "7th",
-              "{@spell fire shield|sns}, {@spell wall of fire|sns}"
+              "{@spell fire shield}, {@spell wall of fire}"
             ],
             [
               "9th",
-              "{@spell creation|sns}, {@spell wall of force|sns}"
+              "{@spell creation}, {@spell wall of force}"
             ]
           ]
         },
@@ -93,7 +93,7 @@
           "name": "Favoured Illumination",
           "level": 1,
           "entries": [
-            "Starting at tier 1 when you choose this subclass, you learn the {@spell dancing lights|sns}, {@spell light|sns}, or {@spell produce flame|sns} cantrip. This does not count against your number of known cantrips."
+            "Starting at tier 1 when you choose this subclass, you learn the {@spell dancing lights}, {@spell light}, or {@spell produce flame} cantrip. This does not count against your number of known cantrips."
           ]
         },
         {

@@ -147,7 +147,7 @@
       "level": 9,
       "header": 2,
       "entries": [
-        "From tier 5, as a bonus action, you can cast {@spell Gaseous Form|sns} on yourself at will, as if it were cast with a 5th level spell slot.",
+        "From tier 5, as a bonus action, you can cast {@spell Gaseous Form} on yourself at will, as if it were cast with a 5th level spell slot.",
         "Additionally, you recover hit points equal to your Strength modifier whenever you start your turn while conscious and not in sunlight."
       ]
     }

@@ -52,7 +52,7 @@
       "source": "sns",
       "page": 0,
       "entries": [
-        "A dazed creature is {@condition weakened|sns} and {@condition brittle}."
+        "A dazed creature is {@condition weakened} and {@condition brittle}."
       ],
       "hasFluffImages": false
     },
@@ -97,7 +97,7 @@
       "page": 0,
       "entries": [
         "A doomed creature dies at a time determined by the DM, or within 13 ({@dice 2d12}) hours.",
-        "A doomed creature continues to be doomed even after it dies. Magic equivalent to a 7th-level or higher spell can remove the doomed condition (such as {@spell regenerate|sns} or {@spell wish|sns}."
+        "A doomed creature continues to be doomed even after it dies. Magic equivalent to a 7th-level or higher spell can remove the doomed condition (such as {@spell regenerate} or {@spell wish}."
       ],
       "hasFluffImages": false
     },
@@ -175,7 +175,7 @@
           "items": [
             "A grappled creature who is adjacent to the grappler has 0 speed. If it is not adjacent to the grappler, it is {@condition sluggish}.",
             "The condition ends if the grappler is {@condition incapacitated}.",
-            "The condition also ends if an effect removes the grappled creature from the grappler or grappling effect, such as when a creature is hurled away by the {@spell thunderwave|sns} spell."
+            "The condition also ends if an effect removes the grappled creature from the grappler or grappling effect, such as when a creature is hurled away by the {@spell thunderwave} spell."
           ]
         }
       ],
@@ -247,7 +247,7 @@
         {
           "type": "list",
           "items": [
-            "A slowed creature is {@condition sluggish|sns} and {@condition rattled}.",
+            "A slowed creature is {@condition sluggish} and {@condition rattled}.",
             "Armour and reflex attacks against the creature have advantage."
           ]
         }

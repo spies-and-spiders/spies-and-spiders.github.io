@@ -857,7 +857,7 @@
       "classSource": "sns",
       "level": 20,
       "entries": [
-        "At 20th level you've managed to achieve what most inventions are truly designed for, making machines that do your work for you. Whenever you create a spell invention, you may spend 25 gold in material components and expend two uses of your infusion feature to transform that spell invention into a spell automaton that uses the {@creature spell automaton|sns} stat block and it is destroyed if it reaches 0 hit points.",
+        "At 20th level you've managed to achieve what most inventions are truly designed for, making machines that do your work for you. Whenever you create a spell invention, you may spend 25 gold in material components and expend two uses of your infusion feature to transform that spell invention into a spell automaton that uses the {@creature spell automaton} stat block and it is destroyed if it reaches 0 hit points.",
         "The exact design of your spell automaton is up to you, and it may resemble a humanoid creature, a boxy contraption, or be a magical construct flowing with arcane energies.",
         "Your spell automaton is a minion, and requires your concentration to maintain. It obeys your verbal commands (no action required by you). If you don't issue any, it takes the Block action and uses its move to avoid danger.",
         "You can maintain this spell automaton as if it was an infused item, requiring both the prepared spell invention and two uses of your infusion feature. You can repair your spell automaton to full hit points during a long rest so long as your have access to your tools of artifice."
@@ -902,7 +902,7 @@
         "FD"
       ],
       "entries": [
-        "With a little reengineering technology can alleviate all manner of discomforts. Whenever you begin a long rest you may repurpose one of your currently prepared spell inventions. If you do, that long rest counts as being in a Haven. You can determine the exact nature of this repurposed spell invention (some examples include using a {@spell burning hands|sns} spell invenction as a space heater or a {@spell shocking grasp|sns} spell invention as a bug zapper)."
+        "With a little reengineering technology can alleviate all manner of discomforts. Whenever you begin a long rest you may repurpose one of your currently prepared spell inventions. If you do, that long rest counts as being in a Haven. You can determine the exact nature of this repurposed spell invention (some examples include using a {@spell burning hands} spell invenction as a space heater or a {@spell shocking grasp} spell invention as a bug zapper)."
       ]
     },
     {

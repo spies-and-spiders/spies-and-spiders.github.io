@@ -588,7 +588,7 @@
           "type": "entries",
           "name": "Spellcasting Focus",
           "entries": [
-            "You can use an {@item arcane focus|sns} as a spellcasting focus for your warlock spells."
+            "You can use an {@item arcane focus} as a spellcasting focus for your warlock spells."
           ]
         }
       ]
@@ -654,23 +654,23 @@
           "rows": [
             [
               "1st",
-              "{@spell Color Spray|sns}, {@spell Sleep|sns}"
+              "{@spell Color Spray}, {@spell Sleep}"
             ],
             [
               "2nd",
-              "{@spell Levitate|sns}, {@spell Seed Bomb|sns}"
+              "{@spell Levitate}, {@spell Seed Bomb}"
             ],
             [
               "3rd",
-              "{@spell Glyph of Warding|sns}, {@spell Wind Wall|sns}"
+              "{@spell Glyph of Warding}, {@spell Wind Wall}"
             ],
             [
               "4th",
-              "{@spell Confusion|sns}, {@spell Polymorph|sns}"
+              "{@spell Confusion}, {@spell Polymorph}"
             ],
             [
               "5th",
-              "{@spell Insect Plague|sns}, {@spell Mislead|sns}"
+              "{@spell Insect Plague}, {@spell Mislead}"
             ]
           ]
         },
@@ -688,23 +688,23 @@
           "rows": [
             [
               "1st",
-              "{@spell Detect Poison and Disease|sns}, {@spell Inflict Wounds|sns}"
+              "{@spell Detect Poison and Disease}, {@spell Inflict Wounds}"
             ],
             [
               "2nd",
-              "{@spell Acid Arrow|sns}, {@spell Blindness/Deafness|sns}"
+              "{@spell Acid Arrow}, {@spell Blindness/Deafness}"
             ],
             [
               "3rd",
-              "{@spell Bestow Curse|sns}, {@spell Phantom Steed|sns}"
+              "{@spell Bestow Curse}, {@spell Phantom Steed}"
             ],
             [
               "4th",
-              "{@spell Black Tentacles|sns}, {@spell Blight|sns}"
+              "{@spell Black Tentacles}, {@spell Blight}"
             ],
             [
               "5th",
-              "{@spell Cloudkill|sns}, {@spell Contagion|sns}"
+              "{@spell Cloudkill}, {@spell Contagion}"
             ]
           ]
         },
@@ -722,23 +722,23 @@
           "rows": [
             [
               "1st",
-              "{@spell Burning Hands|sns}, {@spell Fog Cloud|sns} (appears as smoke)"
+              "{@spell Burning Hands}, {@spell Fog Cloud} (appears as smoke)"
             ],
             [
               "2nd",
-              "{@spell Flaming Sphere|sns}, {@spell Scorching Ray|sns}"
+              "{@spell Flaming Sphere}, {@spell Scorching Ray}"
             ],
             [
               "3rd",
-              "{@spell Darklight|sns}, {@spell Fireball|sns}"
+              "{@spell Darklight}, {@spell Fireball}"
             ],
             [
               "4th",
-              "{@spell Fire Shield|sns}, {@spell Wall of Fire|sns}"
+              "{@spell Fire Shield}, {@spell Wall of Fire}"
             ],
             [
               "5th",
-              "{@spell Conjure Elemental|sns} (fire only), {@spell Flame Strike|sns}"
+              "{@spell Conjure Elemental} (fire only), {@spell Flame Strike}"
             ]
           ]
         },
@@ -756,23 +756,23 @@
           "rows": [
             [
               "1st",
-              "{@spell Disguise Self|sns}, {@spell Sanctuary|sns}"
+              "{@spell Disguise Self}, {@spell Sanctuary}"
             ],
             [
               "2nd",
-              "{@spell Find Traps|sns}, {@spell Knock|sns}"
+              "{@spell Find Traps}, {@spell Knock}"
             ],
             [
               "3rd",
-              "{@spell Meld Into Stone|sns}, {@spell Speak with Dead|sns}"
+              "{@spell Meld Into Stone}, {@spell Speak with Dead}"
             ],
             [
               "4th",
-              "{@spell Private Sanctum|sns}, {@spell Stone Shape|sns}"
+              "{@spell Private Sanctum}, {@spell Stone Shape}"
             ],
             [
               "5th",
-              "{@spell Passwall|sns}, {@spell Wall of Stone|sns}"
+              "{@spell Passwall}, {@spell Wall of Stone}"
             ]
           ]
         },
@@ -790,23 +790,23 @@
           "rows": [
             [
               "1st",
-              "{@spell Feather Fall|sns}, {@spell Thunderwave|sns}"
+              "{@spell Feather Fall}, {@spell Thunderwave}"
             ],
             [
               "2nd",
-              "{@spell Blur|sns}, {@spell Deadweight|sns}"
+              "{@spell Blur}, {@spell Deadweight}"
             ],
             [
               "3rd",
-              "{@spell Blink|sns}, {@spell Whirlwind Kick|sns}"
+              "{@spell Blink}, {@spell Whirlwind Kick}"
             ],
             [
               "4th",
-              "{@spell Freedom of Movement|sns}, {@spell Greater Invisibility|sns}"
+              "{@spell Freedom of Movement}, {@spell Greater Invisibility}"
             ],
             [
               "5th",
-              "{@spell Storm Kick|sns}, {@spell Tree Stride|sns}"
+              "{@spell Storm Kick}, {@spell Tree Stride}"
             ]
           ]
         },
@@ -824,23 +824,23 @@
           "rows": [
             [
               "1st",
-              "{@spell Command|sns}, {@spell Dramatic Sting|sns}"
+              "{@spell Command}, {@spell Dramatic Sting}"
             ],
             [
               "2nd",
-              "{@spell Detect Thoughts|sns}, {@spell Enthrall|sns}"
+              "{@spell Detect Thoughts}, {@spell Enthrall}"
             ],
             [
               "3rd",
-              "{@spell Nondetection|sns}, {@spell Sending|sns}"
+              "{@spell Nondetection}, {@spell Sending}"
             ],
             [
               "4th",
-              "{@spell Dominate Beast|sns}, {@spell Resilient Sphere|sns}"
+              "{@spell Dominate Beast}, {@spell Resilient Sphere}"
             ],
             [
               "5th",
-              "{@spell Dominate Person|sns}, {@spell Modify Memory|sns}"
+              "{@spell Dominate Person}, {@spell Modify Memory}"
             ]
           ]
         },
@@ -858,23 +858,23 @@
           "rows": [
             [
               "1st",
-              "{@spell Bane|sns}, {@spell Guiding Bolt|sns}"
+              "{@spell Bane}, {@spell Guiding Bolt}"
             ],
             [
               "2nd",
-              "{@spell Moonbeam|sns}, {@spell Silence|sns}"
+              "{@spell Moonbeam}, {@spell Silence}"
             ],
             [
               "3rd",
-              "{@spell Aspect of the Moon|sns}, {@spell Daylight|sns}"
+              "{@spell Aspect of the Moon}, {@spell Daylight}"
             ],
             [
               "4th",
-              "{@spell Accelerando|sns}, {@spell Locate Creature|sns}"
+              "{@spell Accelerando}, {@spell Locate Creature}"
             ],
             [
               "5th",
-              "{@spell Antilife Shell|sns}, {@spell Wall of Force|sns}"
+              "{@spell Antilife Shell}, {@spell Wall of Force}"
             ]
           ]
         }
@@ -903,23 +903,23 @@
           "rows": [
             [
               "1st",
-              "{@spell Color Spray|sns}, {@spell Sleep|sns}"
+              "{@spell Color Spray}, {@spell Sleep}"
             ],
             [
               "2nd",
-              "{@spell Levitate|sns}, {@spell Seed Bomb|sns}"
+              "{@spell Levitate}, {@spell Seed Bomb}"
             ],
             [
               "3rd",
-              "{@spell Glyph of Warding|sns}, {@spell Wind Wall|sns}"
+              "{@spell Glyph of Warding}, {@spell Wind Wall}"
             ],
             [
               "4th",
-              "{@spell Confusion|sns}, {@spell Polymorph|sns}"
+              "{@spell Confusion}, {@spell Polymorph}"
             ],
             [
               "5th",
-              "{@spell Insect Plague|sns}, {@spell Mislead|sns}"
+              "{@spell Insect Plague}, {@spell Mislead}"
             ]
           ]
         },
@@ -937,23 +937,23 @@
           "rows": [
             [
               "1st",
-              "{@spell Detect Poison and Disease|sns}, {@spell Inflict Wounds|sns}"
+              "{@spell Detect Poison and Disease}, {@spell Inflict Wounds}"
             ],
             [
               "2nd",
-              "{@spell Acid Arrow|sns}, {@spell Blindness/Deafness|sns}"
+              "{@spell Acid Arrow}, {@spell Blindness/Deafness}"
             ],
             [
               "3rd",
-              "{@spell Bestow Curse|sns}, {@spell Phantom Steed|sns}"
+              "{@spell Bestow Curse}, {@spell Phantom Steed}"
             ],
             [
               "4th",
-              "{@spell Black Tentacles|sns}, {@spell Blight|sns}"
+              "{@spell Black Tentacles}, {@spell Blight}"
             ],
             [
               "5th",
-              "{@spell Cloudkill|sns}, {@spell Contagion|sns}"
+              "{@spell Cloudkill}, {@spell Contagion}"
             ]
           ]
         },
@@ -971,23 +971,23 @@
           "rows": [
             [
               "1st",
-              "{@spell Burning Hands|sns}, {@spell Fog Cloud|sns} (appears as smoke)"
+              "{@spell Burning Hands}, {@spell Fog Cloud} (appears as smoke)"
             ],
             [
               "2nd",
-              "{@spell Flaming Sphere|sns}, {@spell Scorching Ray|sns}"
+              "{@spell Flaming Sphere}, {@spell Scorching Ray}"
             ],
             [
               "3rd",
-              "{@spell Darklight|sns}, {@spell Fireball|sns}"
+              "{@spell Darklight}, {@spell Fireball}"
             ],
             [
               "4th",
-              "{@spell Fire Shield|sns}, {@spell Wall of Fire|sns}"
+              "{@spell Fire Shield}, {@spell Wall of Fire}"
             ],
             [
               "5th",
-              "{@spell Conjure Elemental|sns} (fire only), {@spell Flame Strike|sns}"
+              "{@spell Conjure Elemental} (fire only), {@spell Flame Strike}"
             ]
           ]
         },
@@ -1005,23 +1005,23 @@
           "rows": [
             [
               "1st",
-              "{@spell Disguise Self|sns}, {@spell Sanctuary|sns}"
+              "{@spell Disguise Self}, {@spell Sanctuary}"
             ],
             [
               "2nd",
-              "{@spell Find Traps|sns}, {@spell Knock|sns}"
+              "{@spell Find Traps}, {@spell Knock}"
             ],
             [
               "3rd",
-              "{@spell Meld Into Stone|sns}, {@spell Speak with Dead|sns}"
+              "{@spell Meld Into Stone}, {@spell Speak with Dead}"
             ],
             [
               "4th",
-              "{@spell Private Sanctum|sns}, {@spell Stone Shape|sns}"
+              "{@spell Private Sanctum}, {@spell Stone Shape}"
             ],
             [
               "5th",
-              "{@spell Passwall|sns}, {@spell Wall of Stone|sns}"
+              "{@spell Passwall}, {@spell Wall of Stone}"
             ]
           ]
         },
@@ -1039,23 +1039,23 @@
           "rows": [
             [
               "1st",
-              "{@spell Feather Fall|sns}, {@spell Thunderwave|sns}"
+              "{@spell Feather Fall}, {@spell Thunderwave}"
             ],
             [
               "2nd",
-              "{@spell Blur|sns}, {@spell Deadweight|sns}"
+              "{@spell Blur}, {@spell Deadweight}"
             ],
             [
               "3rd",
-              "{@spell Blink|sns}, {@spell Whirlwind Kick|sns}"
+              "{@spell Blink}, {@spell Whirlwind Kick}"
             ],
             [
               "4th",
-              "{@spell Freedom of Movement|sns}, {@spell Greater Invisibility|sns}"
+              "{@spell Freedom of Movement}, {@spell Greater Invisibility}"
             ],
             [
               "5th",
-              "{@spell Storm Kick|sns}, {@spell Tree Stride|sns}"
+              "{@spell Storm Kick}, {@spell Tree Stride}"
             ]
           ]
         },
@@ -1073,23 +1073,23 @@
           "rows": [
             [
               "1st",
-              "{@spell Command|sns}, {@spell Dramatic Sting|sns}"
+              "{@spell Command}, {@spell Dramatic Sting}"
             ],
             [
               "2nd",
-              "{@spell Detect Thoughts|sns}, {@spell Enthrall|sns}"
+              "{@spell Detect Thoughts}, {@spell Enthrall}"
             ],
             [
               "3rd",
-              "{@spell Nondetection|sns}, {@spell Sending|sns}"
+              "{@spell Nondetection}, {@spell Sending}"
             ],
             [
               "4th",
-              "{@spell Dominate Beast|sns}, {@spell Resilient Sphere|sns}"
+              "{@spell Dominate Beast}, {@spell Resilient Sphere}"
             ],
             [
               "5th",
-              "{@spell Dominate Person|sns}, {@spell Modify Memory|sns}"
+              "{@spell Dominate Person}, {@spell Modify Memory}"
             ]
           ]
         },
@@ -1107,23 +1107,23 @@
           "rows": [
             [
               "1st",
-              "{@spell Bane|sns}, {@spell Guiding Bolt|sns}"
+              "{@spell Bane}, {@spell Guiding Bolt}"
             ],
             [
               "2nd",
-              "{@spell Moonbeam|sns}, {@spell Silence|sns}"
+              "{@spell Moonbeam}, {@spell Silence}"
             ],
             [
               "3rd",
-              "{@spell Aspect of the Moon|sns}, {@spell Daylight|sns}"
+              "{@spell Aspect of the Moon}, {@spell Daylight}"
             ],
             [
               "4th",
-              "{@spell Accelerando|sns}, {@spell Locate Creature|sns}"
+              "{@spell Accelerando}, {@spell Locate Creature}"
             ],
             [
               "5th",
-              "{@spell Antilife Shell|sns}, {@spell Wall of Force|sns}"
+              "{@spell Antilife Shell}, {@spell Wall of Force}"
             ]
           ]
         }
@@ -1175,7 +1175,7 @@
               "type": "entries",
               "name": "Pact of the Chain",
               "entries": [
-                "You learn the {@spell find familiar|sns} spell and can cast it as a ritual. The spell doesn't count against your number of spells known. When you cast the spell, you can choose one of the normal forms for your familiar or one of the following special forms: {@creature imp}, {@creature pseudodragon}, {@creature quasit}, or {@creature sprite}. You can also opt for the spirit you call forth to be an aberration, elemental, or undead.",
+                "You learn the {@spell find familiar} spell and can cast it as a ritual. The spell doesn't count against your number of spells known. When you cast the spell, you can choose one of the normal forms for your familiar or one of the following special forms: {@creature imp}, {@creature pseudodragon}, {@creature quasit}, or {@creature sprite}. You can also opt for the spirit you call forth to be an aberration, elemental, or undead.",
                 "When you take the Attack action, you can forgo making an attack to allow your familiar to make one attack of its own with its reaction. Additionally, when you use Eldritch Scythe, you can choose to deliver the attack through your familiar as though you had cast a spell with a range of touch."
               ]
             },
@@ -1207,7 +1207,7 @@
       "classSource": "sns",
       "level": 4,
       "entries": [
-        "Also at 4th level, you gain a bonus invocation — one to help you traffic in courts both otherworldly and mortal. Choose one invocation from the following list: {@optfeature Beguiling Influence|sns}, {@optfeature Courts of the Outer Realms|sns}, {@optfeature Eyes of the Runekeeper|sns}, {@optfeature Gaze of Two Minds|sns}, {@optfeature Mask of Many Faces|sns}, {@optfeature Ominous Tormentor|sns}, {@optfeature Psionic Secrecy|sns}, {@optfeature Spellbinding Contract|sns}, {@optfeature Voice of the Chain Master|sns}, {@optfeature Whispers of the Grave|sns}.",
+        "Also at 4th level, you gain a bonus invocation — one to help you traffic in courts both otherworldly and mortal. Choose one invocation from the following list: {@optfeature Beguiling Influence}, {@optfeature Courts of the Outer Realms}, {@optfeature Eyes of the Runekeeper}, {@optfeature Gaze of Two Minds}, {@optfeature Mask of Many Faces}, {@optfeature Ominous Tormentor}, {@optfeature Psionic Secrecy}, {@optfeature Spellbinding Contract}, {@optfeature Voice of the Chain Master}, {@optfeature Whispers of the Grave}.",
         "You gain another bonus invocation in this way at 10th level and again at 16th level. Whenever you complete a long rest, you can choose one of the bonus invocations you know and replace it with another bonus invocation from this list that you could learn at that level."
       ]
     },
@@ -1230,7 +1230,7 @@
       "classSource": "sns",
       "level": 6,
       "entries": [
-        "At 6th level, you gain a bonus invocation — one which represents your growth in the lethal lore behind Eldritch Blast. Choose one invocation from the following list: {@optfeature Agonizing Blast|sns}, {@optfeature Eldritch Bind|sns}, {@optfeature Eldritch Elementalism|sns}, {@optfeature Eldritch Grasp|sns}, {@optfeature Eldritch Prism|sns}, {@optfeature Eldritch Riposte|sns}, {@optfeature Eldritch Severance|sns}, {@optfeature Eldritch Spear|sns}, {@optfeature Eldritch Squall|sns}, {@optfeature Eldritch Tentacle|sns}, {@optfeature Repelling Blast|sns}, {@optfeature Versatile Blast|sns}.",
+        "At 6th level, you gain a bonus invocation — one which represents your growth in the lethal lore behind Eldritch Blast. Choose one invocation from the following list: {@optfeature Agonizing Blast}, {@optfeature Eldritch Bind}, {@optfeature Eldritch Elementalism}, {@optfeature Eldritch Grasp}, {@optfeature Eldritch Prism}, {@optfeature Eldritch Riposte}, {@optfeature Eldritch Severance}, {@optfeature Eldritch Spear}, {@optfeature Eldritch Squall}, {@optfeature Eldritch Tentacle}, {@optfeature Repelling Blast}, {@optfeature Versatile Blast}.",
         "You gain another bonus invocation in this way at 14th level and again at 18th level. Whenever you complete a long rest, you can choose one of the bonus invocations you know and replace it with another bonus invocation from this list that you could learn at that level."
       ]
     },
@@ -1338,8 +1338,8 @@
             {
               "type": "list",
               "items": [
-                "You can cast {@spell plane shift|sns} without material components once between short rests.",
-                "You are under the constant effects of the {@spell foresight|sns} spell. This effect cannot be detected or dispelled by any means short of a {@spell wish|sns} spell.",
+                "You can cast {@spell plane shift} without material components once between short rests.",
+                "You are under the constant effects of the {@spell foresight} spell. This effect cannot be detected or dispelled by any means short of a {@spell wish} spell.",
                 "Once per long rest, you can spend 1 minute in arcane contemplation to regain your spent spell points."
               ]
             }
@@ -1366,7 +1366,7 @@
         "EI"
       ],
       "entries": [
-        "You are under the constant effects of the {@spell mage armour|sns} spell. This effect does not emit a magical aura."
+        "You are under the constant effects of the {@spell mage armour} spell. This effect does not emit a magical aura."
       ]
     },
     {
@@ -1398,7 +1398,7 @@
         }
       ],
       "entries": [
-        "You can cast {@spell hold monster|sns} on a celestial, fiend, or elemental without spending spell points or material components. You must finish a long rest before you can use this invocation on the same creature again."
+        "You can cast {@spell hold monster} on a celestial, fiend, or elemental without spending spell points or material components. You must finish a long rest before you can use this invocation on the same creature again."
       ]
     },
     {
@@ -1472,7 +1472,7 @@
         }
       ],
       "entries": [
-        "You learn the {@spell confusion|sns} spell, and the spell doesn't count against your number of spells known."
+        "You learn the {@spell confusion} spell, and the spell doesn't count against your number of spells known."
       ]
     },
     {
@@ -1707,7 +1707,7 @@
         "EI"
       ],
       "entries": [
-        "You learn the {@spell false life|sns} spell, and the spell doesn't count against your number of spells known. When you cast it on yourself as a 1st-level spell, you can do so without spending spell points or material components."
+        "You learn the {@spell false life} spell, and the spell doesn't count against your number of spells known. When you cast it on yourself as a 1st-level spell, you can do so without spending spell points or material components."
       ]
     },
     {
@@ -1757,7 +1757,7 @@
         "EI"
       ],
       "entries": [
-        "You can cast {@spell disguise self|sns} without spending spell points."
+        "You can cast {@spell disguise self} without spending spell points."
       ]
     },
     {
@@ -1799,7 +1799,7 @@
         }
       ],
       "entries": [
-        "You can cast {@spell slow|sns} once by spending 5 spell points. You cannot do so again until you finish a long rest."
+        "You can cast {@spell slow} once by spending 5 spell points. You cannot do so again until you finish a long rest."
       ]
     },
     {
@@ -1809,7 +1809,7 @@
         "EI"
       ],
       "entries": [
-        "You can cast {@spell silent image|sns} without spending spell points or material components."
+        "You can cast {@spell silent image} without spending spell points or material components."
       ]
     },
     {
@@ -1923,7 +1923,7 @@
         }
       ],
       "entries": [
-        "You can cast {@spell animate dead|sns} once by spending 5 spell points; you can instead cast it as a 4th-level spell by spending 6 spell points, or as a 5th-level spell by spending 7 spell points. You cannot do so again until you finish a long rest."
+        "You can cast {@spell animate dead} once by spending 5 spell points; you can instead cast it as a 4th-level spell by spending 6 spell points, or as a 5th-level spell by spending 7 spell points. You cannot do so again until you finish a long rest."
       ]
     },
     {
@@ -1954,7 +1954,7 @@
         }
       ],
       "entries": [
-        "You can cast {@spell polymorph|sns} once by spending 6 spell points. You cannot do so again until you finish a long rest."
+        "You can cast {@spell polymorph} once by spending 6 spell points. You cannot do so again until you finish a long rest."
       ]
     },
     {
@@ -2038,7 +2038,7 @@
         }
       ],
       "entries": [
-        "You learn the {@spell bestow curse|sns} spell, and the spell doesn't count against your number of spells known."
+        "You learn the {@spell bestow curse} spell, and the spell doesn't count against your number of spells known."
       ]
     },
     {
@@ -2059,7 +2059,7 @@
         }
       ],
       "entries": [
-        "You can cast {@spell geas|sns} once by spending 7 spell points. You cannot do so again until you finish a long rest.",
+        "You can cast {@spell geas} once by spending 7 spell points. You cannot do so again until you finish a long rest.",
         "If the command of the geas is the stipulation of an agreement to which the target consents, the target automatically fails its save against this spell."
       ]
     },
@@ -2070,7 +2070,7 @@
         "EI"
       ],
       "entries": [
-        "You learn the {@spell bane|sns} spell, and the spell doesn't count against your number of spells known."
+        "You learn the {@spell bane} spell, and the spell doesn't count against your number of spells known."
       ]
     },
     {
@@ -2160,7 +2160,7 @@
         }
       ],
       "entries": [
-        "You can cast {@spell speak with dead|sns} without spending spell points."
+        "You can cast {@spell speak with dead} without spending spell points."
       ]
     },
     {
@@ -2202,7 +2202,7 @@
         }
       ],
       "entries": [
-        "You learn the {@spell black tentacles|sns} spell, and the spell doesn't count against your number of spells known."
+        "You learn the {@spell black tentacles} spell, and the spell doesn't count against your number of spells known."
       ]
     },
     {
@@ -2223,7 +2223,7 @@
         }
       ],
       "entries": [
-        "You can cast {@spell levitate|sns} on yourself without spending spell points or material components."
+        "You can cast {@spell levitate} on yourself without spending spell points or material components."
       ]
     },
     {
@@ -2233,7 +2233,7 @@
         "SA"
       ],
       "entries": [
-        "You are under the constant effects of the {@spell speak with animals|sns} spell. This effect does not emit a magical aura."
+        "You are under the constant effects of the {@spell speak with animals} spell. This effect does not emit a magical aura."
       ]
     },
     {
@@ -2268,7 +2268,7 @@
         "SA"
       ],
       "entries": [
-        "You can cast {@spell detect magic|sns} without spending spell points."
+        "You can cast {@spell detect magic} without spending spell points."
       ]
     },
     {
@@ -2289,7 +2289,7 @@
         }
       ],
       "entries": [
-        "You are under the constant effects of the {@spell nondetection|sns} spell."
+        "You are under the constant effects of the {@spell nondetection} spell."
       ]
     },
     {
@@ -2310,7 +2310,7 @@
         }
       ],
       "entries": [
-        "You can cast {@spell alter self|sns} without spending spell points."
+        "You can cast {@spell alter self} without spending spell points."
       ]
     },
     {
@@ -2332,7 +2332,7 @@
       ],
       "entries": [
         "Using a reflective object, such as an ordinary mirror or the smooth surface of water, you can commune with your patron or their emissary. You may do so during a short or long rest, receiving or conveying information related to your master's bidding. This entity may also use such surfaces to bridge communication with you on its own terms.",
-        "You can also use this feature to cast {@spell augury|sns} without spending spell points. Casting the spell in this way does not require material components, although you do need a reflective surface by which your patron might appear to you. Once you cast the spell in this way, you cannot do so again until you finish a long rest."
+        "You can also use this feature to cast {@spell augury} without spending spell points. Casting the spell in this way does not require material components, although you do need a reflective surface by which your patron might appear to you. Once you cast the spell in this way, you cannot do so again until you finish a long rest."
       ]
     },
     {
@@ -2363,7 +2363,7 @@
         "SA"
       ],
       "entries": [
-        "You are under the constant effects of the {@spell jump|sns} spell. This effect does not emit a magical aura."
+        "You are under the constant effects of the {@spell jump} spell. This effect does not emit a magical aura."
       ]
     },
     {
@@ -2395,7 +2395,7 @@
         }
       ],
       "entries": [
-        "You can cast {@spell invisibility|sns} without spending spell points."
+        "You can cast {@spell invisibility} without spending spell points."
       ]
     },
     {
@@ -2416,8 +2416,8 @@
         }
       ],
       "entries": [
-        "You can cast {@spell arcane eye|sns} once without spending spell points. You cannot do so again until you finish a long rest.",
-        "At 15th level, you can instead cast {@spell arcane eye|sns} at will."
+        "You can cast {@spell arcane eye} once without spending spell points. You cannot do so again until you finish a long rest.",
+        "At 15th level, you can instead cast {@spell arcane eye} at will."
       ]
     },
     {

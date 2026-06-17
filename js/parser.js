@@ -1166,7 +1166,7 @@ Parser.spLevelToFull = function (level) {
 
 Parser.maneuverDegreeToFull = function (degree) {
 	if (degree === 0) return "Basic";
-	return `${Parser.getOrdinalForm(degree)} Degree`;
+	return `${Parser.getOrdinalForm(degree)}`;
 };
 
 Parser.getArticle = function (str) {

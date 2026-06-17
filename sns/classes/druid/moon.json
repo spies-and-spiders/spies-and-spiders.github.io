@@ -126,7 +126,7 @@
       "level": 7,
       "header": 2,
       "entries": [
-        "At 10th level, you can expend two uses of Wild Shape at the same time to shapeshift into an {@creature Elemental Form|sns} of one of the following types: Air, Earth, Fire, or Water."
+        "At 10th level, you can expend two uses of Wild Shape at the same time to shapeshift into an {@creature Elemental Form} of one of the following types: Air, Earth, Fire, or Water."
       ]
     },
     {
@@ -139,7 +139,7 @@
       "level": 9,
       "header": 2,
       "entries": [
-        "By tier 5, you have learned to use magic to alter your physical form in more subtle ways. You can cast the {@spell Alter Self|sns} spell at will."
+        "By tier 5, you have learned to use magic to alter your physical form in more subtle ways. You can cast the {@spell Alter Self} spell at will."
       ]
     }
   ]

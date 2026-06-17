@@ -64,23 +64,23 @@
           "rows": [
             [
               "1st",
-              "{@spell fog cloud|sns}, {@spell ray of frost|sns}, {@spell thunderwave|sns}"
+              "{@spell fog cloud}, {@spell ray of frost}, {@spell thunderwave}"
             ],
             [
               "3rd",
-              "{@spell gust of wind|sns}, {@spell shatter|sns}"
+              "{@spell gust of wind}, {@spell shatter}"
             ],
             [
               "5th",
-              "{@spell lightning bolt|sns}, {@spell water breathing|sns}"
+              "{@spell lightning bolt}, {@spell water breathing}"
             ],
             [
               "7th",
-              "{@spell control water|sns}, {@spell ice storm|sns}"
+              "{@spell control water}, {@spell ice storm}"
             ],
             [
               "9th",
-              "{@spell conjure elemental|sns}, {@spell hold monster|sns}"
+              "{@spell conjure elemental}, {@spell hold monster}"
             ]
           ]
         }

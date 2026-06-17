@@ -794,7 +794,7 @@
           "name": "Spell Slots",
           "entries": [
             "The Bard table shows how many spell slots you have to cast your {@filter bard spells|spells|class=bard (sns)} of 1st level and higher. To cast one of these spells, you must expend a slot of the spell's level or higher. You regain all expended spell slots when you finish a long rest.",
-            "For example, if you know the 1st-level spell {@spell cure wounds|sns} and have a 1st-level and a 2nd-level spell slot available, you can cast {@spell cure wounds|sns} using either slot."
+            "For example, if you know the 1st-level spell {@spell cure wounds} and have a 1st-level and a 2nd-level spell slot available, you can cast {@spell cure wounds} using either slot."
           ]
         },
         {
@@ -817,7 +817,7 @@
           "type": "entries",
           "name": "Spellcasting Focus",
           "entries": [
-            "You can use a {@item musical instrument|sns} as a spellcasting focus for your bard spells."
+            "You can use a {@item musical instrument} as a spellcasting focus for your bard spells."
           ]
         }
       ]
@@ -1223,7 +1223,7 @@
       "entries": [
         "At 20th level, your capacity for drawing a crowd reaches dizzying new heights. As an action, you can expend a use of Bardic Inspiration to start an epic performance that lasts for {@dice 1d4} rounds. During that time, you can choose up to 50 creatures that are within 120 feet of you. Each creature able to hear or see your Epic Performance makes a save. If a creature fails its save, it is {@condition charmed} by you for the duration plus 6 days, or until you or your companions do anything harmful to it. A {@condition charmed} creature regards you as a friendly acquaintance.",
         "The performance ends early if you become {@condition incapacitated} or silenced, or if you voluntarily end it (no action required). At the end of the duration, you can expend an additional use of Bardic Inspiration to extend the duration by {@dice 1d4} rounds.",
-        "When your Epic Performance lasts at least 1 minute, at the end of the duration you can target each {@condition charmed} creature as if using the {@spell mass suggestion|sns} spell cast at 9th-level. Instead of making an attack roll as part of this casting, always use the standard success outcome. The commands you give a {@condition charmed} creature are not obvious, and other creatures must make an {@skill Insight} check opposed by your {@skill Deception} check to understand that you are doing anything more than giving a performance. You can give each creature its own set of commands, but can only give out 6 different sets of commands.",
+        "When your Epic Performance lasts at least 1 minute, at the end of the duration you can target each {@condition charmed} creature as if using the {@spell mass suggestion} spell cast at 9th-level. Instead of making an attack roll as part of this casting, always use the standard success outcome. The commands you give a {@condition charmed} creature are not obvious, and other creatures must make an {@skill Insight} check opposed by your {@skill Deception} check to understand that you are doing anything more than giving a performance. You can give each creature its own set of commands, but can only give out 6 different sets of commands.",
         "Once you use this feature, you can't use it again until you finish a long rest."
       ]
     }

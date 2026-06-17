@@ -207,47 +207,47 @@
               "rows": [
                 [
                   "1st",
-                  "{@spell detect evil and good|sns}",
-                  "{@spell sanctuary|sns}",
-                  "{@spell thunderwave|sns}",
-                  "{@spell burning hands|sns}",
-                  "{@spell fog cloud|sns}"
+                  "{@spell detect evil and good}",
+                  "{@spell sanctuary}",
+                  "{@spell thunderwave}",
+                  "{@spell burning hands}",
+                  "{@spell fog cloud}"
                 ],
                 [
                   "2nd",
-                  "{@spell phantasmal force|sns}",
-                  "{@spell spike growth|sns}",
-                  "{@spell gust of wind|sns}",
-                  "{@spell scorching ray|sns}",
-                  "{@spell blur|sns}"
+                  "{@spell phantasmal force}",
+                  "{@spell spike growth}",
+                  "{@spell gust of wind}",
+                  "{@spell scorching ray}",
+                  "{@spell blur}"
                 ],
                 [
                   "3rd",
-                  "{@spell create food and water|sns}",
-                  "{@spell meld into stone|sns}",
-                  "{@spell wind wall|sns}",
-                  "{@spell fireball|sns}",
-                  "{@spell sleet storm|sns}"
+                  "{@spell create food and water}",
+                  "{@spell meld into stone}",
+                  "{@spell wind wall}",
+                  "{@spell fireball}",
+                  "{@spell sleet storm}"
                 ],
                 [
                   "4th",
-                  "{@spell phantasmal killer|sns}",
-                  "{@spell stone shape|sns}",
-                  "{@spell greater invisibility|sns}",
-                  "{@spell fire shield|sns}",
-                  "{@spell control water|sns}"
+                  "{@spell phantasmal killer}",
+                  "{@spell stone shape}",
+                  "{@spell greater invisibility}",
+                  "{@spell fire shield}",
+                  "{@spell control water}"
                 ],
                 [
                   "5th",
-                  "{@spell creation|sns}",
-                  "{@spell wall of stone|sns}",
-                  "{@spell seeming|sns}",
-                  "{@spell flame strike|sns}",
-                  "{@spell cone of cold|sns}"
+                  "{@spell creation}",
+                  "{@spell wall of stone}",
+                  "{@spell seeming}",
+                  "{@spell flame strike}",
+                  "{@spell cone of cold}"
                 ],
                 [
                   "9th",
-                  "{@spell wish|sns}",
+                  "{@spell wish}",
                   "—",
                   "—",
                   "—",
