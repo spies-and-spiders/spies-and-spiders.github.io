@@ -7309,8 +7309,9 @@ Renderer.spell._spellSourceManagerBrew = new Renderer.spell._SpellSourceManager(
 
 Renderer.maneuver = class {
 	static getHtmlPtDegreeTradition (ent) {
-		const ptTraditions = ent.traditions?.length ? ` (${ent.traditions.join(", ")})` : "";
-		return `<i>${Parser.maneuverDegreeToFull(ent.degree)}${ptTraditions}</i>`;
+		const ptDegree = ent.degree === 0 ? Parser.maneuverDegreeToFull(ent.degree) : `${Parser.maneuverDegreeToFull(ent.degree)} degree`;
+		const ptTraditions = ent.traditions?.length ? ent.traditions.join(", ") : "";
+		return `<i>${[ptDegree, ptTraditions, "maneuver"].filter(Boolean).join(" ")}</i>`;
 	}
 
 	static getHtmlPtPoints (ent) { return `<b>Points:</b> ${ent.points ?? 0}`; }
