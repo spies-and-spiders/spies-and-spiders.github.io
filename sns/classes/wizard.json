@@ -44,8 +44,8 @@
       "startingProficiencies": {
         "weapons": [
           "simple knife weapons",
-          "blowguns",
-          "slings"
+          "{@item blowgun||blowguns}",
+          "{@item sling||slings}"
         ],
         "skills": [
           {

@@ -21,15 +21,15 @@
         "armour": [
           "light",
           "medium",
-          "shields"
+          "shield"
         ],
         "weapons": [
           "simple",
-          "hand crossbows",
-          "heavy crossbows",
-          "light hammers",
-          "shrapnel traps",
-          "starknives"
+          "{@item light crossbow||light crossbows}",
+          "{@item heavy crossbow||heavy crossbows}",
+          "{@item light hammer||light hammers}",
+          "{@item shrapnel trap||shrapnel traps}",
+          "{@item starknife||starknives}"
         ],
         "skills": [
           {

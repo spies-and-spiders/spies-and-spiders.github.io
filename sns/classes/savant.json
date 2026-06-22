@@ -18,7 +18,7 @@
       "startingProficiencies": {
         "weapons": [
           "simple",
-          "improvised"
+          "improvised weapons"
         ],
         "skills": [
           {
@@ -26,14 +26,14 @@
               "from": [
                 "brawn",
                 "deception",
-                "magiscience",
+                "finesse",
                 "history",
                 "insight",
                 "investigation",
+                "magiscience",
                 "medicine",
                 "perception",
-                "persuasion",
-                "finesse"
+                "persuasion"
               ],
               "count": 3
             }

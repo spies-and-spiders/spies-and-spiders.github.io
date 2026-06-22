@@ -42,11 +42,11 @@
       ],
       "startingProficiencies": {
         "weapons": [
-          "daggers",
-          "darts",
-          "slings",
-          "quarterstaves",
-          "light crossbows"
+          "{@filter knives|items|type=knife}",
+          "{@filter darts|items|type=dart}",
+          "{@filter slings|items|type=sling}",
+          "{@item quarterstaff||quarterstaves}",
+          "{@item light crossbow||light crossbows}"
         ],
         "skills": [
           {

@@ -44,22 +44,22 @@
         "armour": [
           "light",
           "medium",
-          "{@item shield|sns|shields}"
+          "shield"
         ],
         "weapons": [
-          "arcane staff",
-          "blowgun",
-          "club",
-          "dagger",
-          "dart",
-          "javelin",
-          "mace",
-          "quarterstaff",
-          "scimitar",
-          "scythe",
-          "sickle",
-          "sling",
-          "spear"
+          "{@item arcane staff||arcane staves}",
+          "{@item blowgun||blowguns}",
+          "{@item club||clubs}",
+          "{@item dagger||daggers}",
+          "{@item dart||darts}",
+          "{@item javelin||javelins}",
+          "{@item mace||maces}",
+          "{@item quarterstaff||quarterstaves}",
+          "{@item scimitar||scimitars}",
+          "{@item scythe||scythes}",
+          "{@item sickle||sickles}",
+          "{@item sling||slings}",
+          "{@item spear||spears}"
         ],
         "skills": [
           {

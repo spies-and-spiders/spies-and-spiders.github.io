@@ -21,12 +21,12 @@
         ],
         "weapons": [
           "simple",
-          "dueling daggers",
-          "rapiers",
-          "sabres",
-          "shortbows",
-          "shortswords",
-          "starknives"
+          "{@item duelling dagger|| duelling daggers}",
+          "{@item rapier||rapiers}",
+          "{@item sabre||sabres}",
+          "{@item shortbow||shortbows}",
+          "{@item shortsword||shortswords}",
+          "{@item starknife||starknives}"
         ],
         "skills": [
           {

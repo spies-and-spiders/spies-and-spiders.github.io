@@ -20,7 +20,7 @@
           "light",
           "medium",
           "heavy",
-          "{@item shield|sns|shields}"
+          "shield"
         ],
         "weapons": [
           "simple",

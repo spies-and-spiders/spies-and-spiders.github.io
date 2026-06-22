@@ -6187,14 +6187,14 @@ Renderer.class = class {
 			.segregate(it => ["light", "medium", "heavy"].includes(it));
 
 		const ptsArmour = profsArmour
-			.map((a, i, arr) => Renderer.get().render(`{@filter ${styleHint === "classic" ? a : a.toTitleCase()}${styleHint === "classic" || i === arr.length - 1 ? " armour" : ""}|items|type=${a} armour}`));
+			.map((a, i, arr) => Renderer.get().render(`{@item ${a} armour||${styleHint === "classic" ? a : a.toTitleCase()}${styleHint === "classic" || i === arr.length - 1 ? " armour" : ""}}`));
 
 		const ptsOther = profsOther
 			.map(a => {
 				if (a.full) return Renderer.get().render(a.full);
 				if (a === "shield") {
-					if (styleHint === "classic") Renderer.get().render(`{@item shield|sns|shields}`);
-					return Renderer.get().render(`{@item shield|sns|Shields}`);
+					if (styleHint === "classic") Renderer.get().render(`{@item shield||shields}`);
+					return Renderer.get().render(`{@item shield||Shields}`);
 				}
 				return Renderer.get().render(a);
 			});

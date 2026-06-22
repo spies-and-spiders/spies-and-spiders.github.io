@@ -59,18 +59,6 @@
           }
         ]
       },
-      "multiclassing": {
-        "requirements": {
-          "wis": 13
-        },
-        "proficienciesGained": {
-          "armour": [
-            "light",
-            "medium",
-            "{@item shield|sns|shields}"
-          ]
-        }
-      },
       "classTableGroups": [
         {
           "colLabels": [

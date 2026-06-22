@@ -20,9 +20,9 @@
       "startingProficiencies": {
         "weapons": [
           "simple",
-          "punching daggers",
-          "shortswords",
-          "starknives"
+          "{@item punching dagger||punching daggers}",
+          "{@item shortsword||shortswords}",
+          "{@item starknife||starknives}"
         ],
         "skills": [
           {
