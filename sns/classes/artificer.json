@@ -872,7 +872,7 @@
         "FD"
       ],
       "entries": [
-        "There's always a better trap design if you put your mind to it. You can improve traps as you set them. Traps you improve in this way always have their damage die size increased by 1. This affects trap weapons. Additionally, whenever you score a success or higher on the Hunt & Gather journey activity, you add a {@dice d6} to the amount of Supply you (and only you) found."
+        "There's always a better trap design if you put your mind to it. You can improve traps as you set them. Traps you improve in this way always have their damage die size increased by 1. This affects trap weapons. Additionally, whenever you would lose gold from a Cover Tracks journey activity, you lose 2 gold less."
       ]
     },
     {

@@ -1247,7 +1247,7 @@
       ],
       "entries": [
         "Choose one skill you are proficient with. You gain an expertise die on checks made using the chosen skill.",
-        "In addition, you gain advantage on ability checks made to prepare an ambush. This benefits the Hunt & Gather journey activity."
+        "In addition, you gain advantage on ability checks made to prepare an ambush."
       ]
     },
     {
@@ -1277,7 +1277,7 @@
         "AT"
       ],
       "entries": [
-        "You gain proficiency with {@skill Persuasion}. If you are already proficient with {@skill Persuasion}, you instead gain an expertise die. Whenever you make a {@skill Persuasion} check to earn coins through performance, you gain twice as much as normal. This doubles the perk points you gain from the Busk journey activity."
+        "You gain proficiency with {@skill Persuasion}. If you are already proficient with {@skill Persuasion}, you instead gain an expertise die. Whenever you make a {@skill Persuasion} check to earn coins through performance, you gain twice as much as normal. This halves any gold you would lose from the Busk journey activity."
       ]
     },
     {
@@ -1299,7 +1299,7 @@
       ],
       "entries": [
         "Choose one skill you are proficient with. You gain an expertise die on checks made using the chosen skill.",
-        "In addition, when you succeed on an opposed Intelligence, Wisdom, or Charisma check, you gain advantage on your next opposed Intelligence, Wisdom, or Charisma check against the same creature. This benefits no journey activities."
+        "In addition, when you succeed on an opposed Intelligence, Wisdom, or Charisma check, you gain advantage on your next opposed Intelligence, Wisdom, or Charisma check against the same creature. This affects the Scam journey activity."
       ]
     },
     {

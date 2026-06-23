@@ -1670,7 +1670,7 @@
         "EK"
       ],
       "entries": [
-        "You can change a failure on a Seek Shelter journey activity check into a success.",
+        "At the end of a day of journeying, you can build a shelter to ensure your party are well-rested for the next day. If any members of your journeying party make journey activity checks during the next day, they have advantage on those checks.",
         "Once you have used this feature, you cannot do so again for a week."
       ]
     },
@@ -1681,7 +1681,7 @@
         "EK"
       ],
       "entries": [
-        "Using verbal and nonverbal cues to communicate with beasts, you can gain basic information from them or make a simple request (like delivering a shrot message or small object)."
+        "Using verbal and nonverbal cues to communicate with beasts, you can gain basic information from them or make a simple request (like delivering a short message or small object)."
       ]
     },
     {
@@ -1721,7 +1721,7 @@
         "EK"
       ],
       "entries": [
-        "While traveling, when you would have a failure for a Scout journey activity, you succeed instead, and you can Scout in addition to engaging in any other journey activity."
+        "Whenever you would lose gold from a Scout journey activity, you lose 2 gold less. Additionally, you have advantage on Scout journey activity checks."
       ]
     },
     {
@@ -1731,7 +1731,7 @@
         "EK"
       ],
       "entries": [
-        "On a success or higher on a Harvest journey activity, you can collect natural ingredients and concoct an ointment that speeds healing. This salve is potent for 24 hours and has a number of uses equal to 1 + your Wisdom modifier. As an action, you can use the salve to restore {@dice 1d4} hit points to a creature within reach."
+        "After a Harvest journey activity, you can collect natural ingredients and concoct an ointment that speeds healing. This salve is potent for 24 hours and has a number of uses equal to 1 + your Wisdom modifier. As an action, you can use the salve to restore {@dice 1d4} hit points to a creature within reach."
       ]
     },
     {
@@ -1741,7 +1741,7 @@
         "EK"
       ],
       "entries": [
-        "On a success or higher on a Harvest journey activity, you can collect ingredients and brew two servings of a bitter drink that is potent for 24 hours. Imbibing a serving takes an action and reduces fatigue by one level for 4 hours."
+        "After a Harvest journey activity, you can collect ingredients and brew two servings of a bitter drink that is potent for 24 hours. Imbibing a serving takes an action and reduces fatigue by one level for 4 hours."
       ]
     },
     {
@@ -1751,7 +1751,7 @@
         "EK"
       ],
       "entries": [
-        "You gain advantage on Gather Component journey activity checks."
+        "You gain advantage on Cook journey activity checks."
       ]
     },
     {
@@ -1761,7 +1761,7 @@
         "EK"
       ],
       "entries": [
-        "When you would gain fatigue during a journey, you gain one fewer level of fatigue. Alternatively, you can choose to accept the level of fatigue, allowing up to two traveling companions to forgo gaining a level of fatigue instead. Once you have used this feature, you cannot do so again for a week."
+        "Whenever you start a new journey, you gain 1 Supply. This Supply is lost at the end of the journey."
       ]
     },
     {
@@ -1803,7 +1803,7 @@
         "EK"
       ],
       "entries": [
-        "After a Gather Components journey activity, you can extract 3 doses of liquid poison (when ingested, a creature makes a save or is {@condition poisoned} for 1 hour) from poisonous plants you've foraged. Alternatively, using the same plants you can spend an hour making a dose of antitoxin."
+        "After a Harvest journey activity, you can extract 3 doses of liquid poison (when ingested, a creature makes a save or is {@condition poisoned} for 1 hour) from poisonous plants you've foraged. Alternatively, using the same plants you can spend an hour making a dose of antitoxin."
       ]
     },
     {
@@ -1855,7 +1855,7 @@
         "EK"
       ],
       "entries": [
-        "When traveling you may undertake two journey activities per day instead of one. Both activities must be from the following list: Befriend Creature, Gather Components, Harvest, Scout."
+        "You gain advantage on checks for the following journey activities: Befriend Animal, Cook, Harvest, Scout."
       ]
     },
     {
