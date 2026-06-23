@@ -3,7 +3,7 @@ import {ConverterBase} from "./converter-base.js";
 import {ConverterUtils} from "./converterutils-utils.js";
 import {DiceConvert, SkillTag, TagCondition} from "./converterutils-tags.js";
 import {ConverterUtilsMarkdown} from "./converterutils-markdown.js";
-import {AcConvert, AlignmentConvert, AttachedItemTag, CreatureConditionImmunityConverter, CreatureDamageImmunityConverter, CreatureDamageResistanceConverter, CreatureDamageVulnerabilityConverter, CreatureSavingThrowTagger, CreatureSpecialEquipmentTagger, DamageTypeTag, DetectNamedCreature, LanguageTag, MiscTag, RechargeConvert, SenseFilterTag, SpeedConvert, SpellcastingTraitConvert, SpellcastingTypeTag, TagCreatureSubEntryInto, TagDc, TagHit, TagImmResVulnConditional, TraitActionTag} from "./converterutils-creature.js";
+import {AlignmentConvert, AttachedItemTag, CreatureConditionImmunityConverter, CreatureDamageImmunityConverter, CreatureDamageResistanceConverter, CreatureDamageVulnerabilityConverter, CreatureSavingThrowTagger, CreatureSpecialEquipmentTagger, DamageTypeTag, DetectNamedCreature, LanguageTag, MiscTag, RechargeConvert, SenseFilterTag, SpeedConvert, SpellcastingTraitConvert, SpellcastingTypeTag, TagCreatureSubEntryInto, TagDc, TagHit, TagImmResVulnConditional, TraitActionTag} from "./converterutils-creature.js";
 import {SpellTag} from "./converterutils-entries.js";
 
 class _ConversionStateTextCreature extends ConversionStateTextBase {
@@ -200,10 +200,9 @@ export class ConverterCreature extends ConverterBase {
 				continue;
 			}
 
-			// armour class
+			// initiative
 			if (meta.ixToConvert === 2) {
-				const [ptAc, ptInit] = meta.curLine.split(/\s+Initiative\s*/).map(it => it.trim()).filter(Boolean);
-				stats.ac = ConverterUtils.getStatblockLineHeaderText({reStartStr: "(?:Armour Class|AC)", line: ptAc});
+				const ptInit = meta.curLine.split(/\s+Initiative\s*/).map(it => it.trim()).filter(Boolean)[1];
 				if (ptInit) stats.initiative = ptInit;
 				continue;
 			}
@@ -1248,9 +1247,8 @@ export class ConverterCreature extends ConverterBase {
 				continue;
 			}
 
-			// armour class
+			// armour class (no longer stored; consume the line to keep positions aligned)
 			if (step === 2) {
-				stats.ac = ConverterUtilsMarkdown.getNoDashStarStar(meta.curLine).replace(/(?:Armour Class|AC)/g, "").trim();
 				step++;
 				continue;
 			}
@@ -1540,11 +1538,6 @@ export class ConverterCreature extends ConverterBase {
 		ConverterCreature._PROPS_ENTRIES
 			.filter(prop => stats[prop])
 			.forEach(prop => SpellTag.tryRun(stats[prop], {styleHint: options.styleHint}));
-		AcConvert.tryPostProcessAc(
-			stats,
-			(ac) => options.cbWarning(`${stats.name ? `(${stats.name}) ` : ""}AC "${ac}" requires manual conversion`),
-			(ac) => options.cbWarning(`${stats.name ? `(${stats.name}) ` : ""}Failed to parse AC "${ac}"`),
-		);
 		TagCreatureSubEntryInto.tryRun(stats, (atk) => options.cbWarning(`${stats.name ? `(${stats.name}) ` : ""}Manual attack tagging required for "${atk}"`));
 		TagHit.tryTagHits(stats);
 		TagDc.tryTagDcs(stats);

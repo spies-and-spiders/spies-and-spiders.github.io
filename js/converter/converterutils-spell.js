@@ -117,10 +117,6 @@ export class MiscTagsTagger {
 					this._mutTags_SGT({tags, str, options});
 					if (/you (?:can then )?teleport/i.test(str) || /instantly (?:transports you|teleport)/i.test(str) || /enters(?:[^.]+)portal instantly/i.test(str) || /entering the portal exits from the other portal/i.test(str)) this._addTag({tags, tag: "TP", options});
 
-					if ((str.includes("bonus") || str.includes("penalty")) && str.includes("AC")) this._addTag({tags, tag: "MAC", options});
-					if (/target's (?:base )?AC becomes/.exec(str)) this._addTag({tags, tag: "MAC", options});
-					if (/target's AC can't be less than/.exec(str)) this._addTag({tags, tag: "MAC", options});
-
 					if (/(?:^|\W)(?:pull(?:|ed|s)|push(?:|ed|s)) [^.!?:]*\d+\s+(?:ft|feet|foot|mile|square)/ig.test(str)) this._addTag({tags, tag: "FMV", options});
 
 					if (/rolls? (?:a )?{@dice [^}]+} and consults? the table/.test(str)) this._addTag({tags, tag: "RO", options});

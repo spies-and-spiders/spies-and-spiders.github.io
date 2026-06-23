@@ -458,7 +458,6 @@ export class ConverterItem extends ConverterBase {
 			.forEach(([k, v]) => stats[k] = v);
 
 		// Clean unwanted base properties
-		delete stats.armour;
 		delete stats.value;
 
 		stats.baseItem = `${baseItem.name.toLowerCase()}${baseItem.source === Parser.SRC_SNS ? "" : `|${baseItem.source.toLowerCase()}`}`;

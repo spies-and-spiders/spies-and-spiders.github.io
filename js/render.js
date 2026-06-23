@@ -8255,7 +8255,7 @@ class _RenderCompactBestiaryImplBase {
 
 		const ptCrSpellLevel = this._getCommonHtmlParts_crSpellLevel({mon, opts, isShowCrScaler, isShowSpellLevelScaler, isShowClassLevelScaler});
 
-		const fmtDef = (key, val) => val == null ? "\u2014" : Parser.acToFull(val, {key, isHideFrom: !isClassic});
+		const fmtDef = (key, val) => val == null ? "\u2014" : Parser.defenceToFull(val, {key, isHideFrom: !isClassic});
 
 		return `<tr>
 			<td colspan="1">${fmtDef("arm", mon.arm)}</td>
@@ -9200,7 +9200,7 @@ Renderer.monster = class {
 
 		const fmt = (key, label, val) => `<div class="stats__disp-defence">
 			<div class="stats__disp-defence-label bold small-caps">${label}</div>
-			<div class="stats__disp-defence-value ve-text-center">${val == null ? "—" : Parser.acToFull(val, {renderer, key})}</div>
+			<div class="stats__disp-defence-value ve-text-center">${val == null ? "—" : Parser.defenceToFull(val, {renderer, key})}</div>
 		</div>`;
 
 		return `<div class="stats__grid-defences">
@@ -9695,18 +9695,12 @@ Renderer.item = class {
 		if (item.mastery) damagePartsPre.push(`Mastery: ${item.mastery.map(it => renderer.render(`{@itemMastery ${it}}`)).join(", ")}`);
 
 		// armour
-		if (item.ac != null) {
-			const dexterityMax = (itemTypeAbv === Parser.ITM_TYP_ABV__MEDIUM_ARMOUR && item.dexterityMax == null)
-				? 2
-				: item.dexterityMax;
-			const isAddDex = item.dexterityMax != null || ![Parser.ITM_TYP_ABV__HEAVY_ARMOUR, Parser.ITM_TYP_ABV__SHIELD].includes(itemTypeAbv);
-
+		if (item.armour != null) {
 			const prefix = itemTypeAbv === Parser.ITM_TYP_ABV__SHIELD ? "+" : "";
-			const suffix = isAddDex ? ` + Dex${dexterityMax ? ` (max ${dexterityMax})` : ""}` : "";
 
-			damageParts.push(`AC ${prefix}${item.ac}${suffix}`);
+			damageParts.push(`Armour ${prefix}${item.armour}`);
 		}
-		if (item.acSpecial != null) damageParts.push(item.ac != null ? item.acSpecial : `AC ${item.acSpecial}`);
+		if (item.armourSpecial != null) damageParts.push(item.armour != null ? item.armourSpecial : `Armour ${item.armourSpecial}`);
 
 		// damage
 		if (item.dmg1) damageParts.push(Renderer.item._renderDamage(item.dmg1, {renderer}));
@@ -9716,7 +9710,7 @@ Renderer.item = class {
 		if (item.carryingCapacity) damageParts.push(`Carrying Capacity: ${item.carryingCapacity} lb.`);
 
 		// vehicles
-		if (item.vehSpeed || item.capCargo || item.capPassenger || item.crew || item.crewMin || item.crewMax || item.vehAc || item.vehHp || item.vehDmgThresh || item.travelCost || item.shippingCost) {
+		if (item.vehSpeed || item.capCargo || item.capPassenger || item.crew || item.crewMin || item.crewMax || item.vehHp || item.vehDmgThresh || item.travelCost || item.shippingCost) {
 			const vehPartUpper = item.vehSpeed ? `Speed: ${Parser.numberToVulgar(item.vehSpeed)} mph` : null;
 
 			const vehPartMiddle = item.capCargo || item.capPassenger ? `Carrying Capacity: ${[item.capCargo ? `${Parser.numberToFractional(item.capCargo)} ton${item.capCargo === 0 || item.capCargo > 1 ? "s" : ""} cargo` : null, item.capPassenger ? `${item.capPassenger} passenger${item.capPassenger === 1 ? "" : "s"}` : null].filter(Boolean).join(", ")}` : null;
@@ -9727,7 +9721,6 @@ Renderer.item = class {
 			const vehPartLower = [
 				item.crew ? `Crew ${item.crew}` : null,
 				item.crewMin && item.crewMax ? `Crew ${item.crewMin}-${item.crewMax}` : null,
-				item.vehAc ? `AC ${item.vehAc}` : null,
 				item.vehHp ? `HP ${item.vehHp}${item.vehDmgThresh ? `, Damage Threshold ${item.vehDmgThresh}` : ""}` : null,
 			].filter(Boolean).join(", ");
 
@@ -10525,7 +10518,7 @@ Renderer.item = class {
 		return {
 			baseName: baseItem.name,
 			dmgType: baseItem.dmgType ? Parser.dmgTypeToFull(baseItem.dmgType) : null,
-			bonusAc: inherits.bonusAc,
+			bonusArmour: inherits.bonusArmour,
 			bonusWeapon: inherits.bonusWeapon,
 			bonusWeaponAttack: inherits.bonusWeaponAttack,
 			bonusWeaponDamage: inherits.bonusWeaponDamage,

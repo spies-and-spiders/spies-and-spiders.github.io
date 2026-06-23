@@ -301,7 +301,7 @@ export class BonusTag {
 		if (prop !== "inherits") {
 			delete obj.bonusWeapon;
 			delete obj.bonusWeaponAttack;
-			delete obj.bonusAc;
+			delete obj.bonusArmour;
 			delete obj.bonusSavingThrow;
 			delete obj.bonusSpellAttack;
 			delete obj.bonusSpellSaveDc;
@@ -323,8 +323,8 @@ export class BonusTag {
 		});
 
 		strEntries = strEntries.replace(/\+\s*(\d)([^.]+(?:bonus )?(?:to|on)(?: your)? [^.]*(?:AC|Armour Class|armour class))/g, (...m) => {
-			obj.bonusAc = `+${m[1]}`;
-			return opts.isVariant ? `{=bonusAc}${m[2]}` : m[0];
+			obj.bonusArmour = `+${m[1]}`;
+			return opts.isVariant ? `{=bonusArmour}${m[2]}` : m[0];
 		});
 
 		// FIXME(Future) false positives:
@@ -354,8 +354,8 @@ export class BonusTag {
 		});
 
 		strEntries = strEntries.replace(BonusTag._RE_BASIC_ARMOURS, (...m) => {
-			obj.bonusAc = `+${m[1]}`;
-			return opts.isVariant ? `{=bonusAc}${m[2]}` : m[0];
+			obj.bonusArmour = `+${m[1]}`;
+			return opts.isVariant ? `{=bonusArmour}${m[2]}` : m[0];
 		});
 
 		// region Homebrew
@@ -366,8 +366,8 @@ export class BonusTag {
 				obj.bonusWeapon = `+${m[3]}`;
 				return opts.isVariant ? `${m[1]}${m[2]}{=bonusWeapon}${m[2]}` : m[0];
 			} else if (ConverterUtilsItem.BASIC_ARMOURS.includes(ptItem)) {
-				obj.bonusAc = `+${m[3]}`;
-				return opts.isVariant ? `${m[1]}${m[2]}{=bonusAc}${m[2]}` : m[0];
+				obj.bonusArmour = `+${m[3]}`;
+				return opts.isVariant ? `${m[1]}${m[2]}{=bonusArmour}${m[2]}` : m[0];
 			}
 			return m[0];
 		});
@@ -381,8 +381,8 @@ export class BonusTag {
 		});
 
 		strEntries = strEntries.replace(/(grants )\+\s*(\d)((?: to| on)?(?: your)? [^.]*(?:AC|Armour Class|armour class))/g, (...m) => {
-			obj.bonusAc = `+${m[2]}`;
-			return opts.isVariant ? `${m[1]}{=bonusAc}${m[3]}` : m[0];
+			obj.bonusArmour = `+${m[2]}`;
+			return opts.isVariant ? `${m[1]}{=bonusArmour}${m[3]}` : m[0];
 		});
 		// endregion
 

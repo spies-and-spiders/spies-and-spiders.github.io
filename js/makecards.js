@@ -447,7 +447,6 @@ class MakeCards extends BaseComponent {
 		return [
 			this._ct_subtitle(Renderer.monster.getTypeAlignmentPart(mon)),
 			this._ct_rule(),
-			this._ct_property("Armour class", this._ct_htmlToText(Parser.acToFull(mon.ac))),
 			this._ct_property("Hit points", this._ct_htmlToText(Renderer.monster.getRenderedHp(mon.hp))),
 			...(mon.resource || []).map(res => this._ct_property(res.name, this._ct_htmlToText(Renderer.monster.getRenderedResource(res)))),
 			this._ct_property("Speed", this._ct_htmlToText(Parser.getSpeedString(mon))),

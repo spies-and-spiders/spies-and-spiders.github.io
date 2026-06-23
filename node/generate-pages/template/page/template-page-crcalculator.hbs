@@ -23,7 +23,7 @@
 				<h4>Instructions</h4>
 				<ol>
 					<li>Enter expected CR of the creature.</li>
-					<li>Fill in the HP, AC, and other defensive attributes of the creature.</li>
+					<li>Fill in the HP and other defensive attributes of the creature.</li>
 					<li>Fill in offensives attributes of the creature. DPR is averaged over three rounds!</li>
 					<li>Add any special Monster Features of creature.</li>
 				</ol>
@@ -55,7 +55,6 @@
 						<th>CR</th>
 						<th>XP</th>
 						<th>Prof.<br>Bonus</th>
-						<th>Armor<br>Class</th>
 						<th>Hit<br>Points</th>
 						<th>Attack<br>Bonus</th>
 						<th>Damage/<br>Round</th>
@@ -73,20 +72,10 @@
 					<label for="hp" class="ui-tip__parent">
 						Hit Points:
 						<span class="explanation ui-tip__child">
-							A creature's hit points determine its defensive CR before it is adjusted by its AC.
+							A creature's hit points determine its defensive CR.
 						</span>
 					</label>
 					<input type="number" id="hp" placeholder="Average HP" value="1" min="0" max="850" class="form-control form-control--minimal input-xs">
-				</div>
-
-				<div class="crc__row">
-					<label for="ac" class="ui-tip__parent">
-						Armor Class:
-						<span class="explanation ui-tip__child">
-							A creature's AC adjusts its defensive CR.
-						</span>
-					</label>
-					<input type="number" id="ac" placeholder="AC" value="13" min="1" max="40" class="form-control form-control--minimal input-xs">
 				</div>
 			</div>
 
@@ -200,31 +189,6 @@
 					</span>
 				</div>
 
-				<div class="crc__row">
-					<label for="flying" class="ui-tip__parent">
-						Flies and can deal damage at range (CR 0-9 only):
-						<span class="explanation ui-tip__child">
-							A monster's effective AC is increased by 2 if it can fly and deal damage at range, though only if its expected challenge rating is 10 or lower.
-						</span>
-					</label>
-					<input type="checkbox" id="flying">
-				</div>
-
-				<div class="crc__row">
-					<label for="saveprofs" class="ui-tip__parent">
-						Save Proficiencies:
-						<span class="explanation ui-tip__child">
-							Increase a creature's effective AC by 2 if it has 3 or 4 saving throw proficiencies, or by 4 if it has 5 or 6.
-						</span>
-					</label>
-					<span class="ve-flex-v-center">
-						<select id="saveprofs" class="form-control input-xs">
-							<option value="0" selected>0-2</option>
-							<option value="2">3-4</option>
-							<option value="4">5-6</option>
-						</select>
-					</span>
-				</div>
 			</div>
 		</div>
 	</form>

@@ -489,16 +489,16 @@ Parser.LANGUAGES_ALL = [
 	...Parser.LANGUAGES_SECRET,
 ].sort();
 
-Parser.acToFull = function (ac, {renderer = null, isHideFrom = false, key = "ac"} = {}) {
-	if (typeof ac === "string") return ac; // handle classic format
+Parser.defenceToFull = function (defence, {renderer = null, isHideFrom = false, key = "arm"} = {}) {
+	if (typeof defence === "string") return defence; // handle classic format
 
 	renderer ||= Renderer.get();
 
 	let stack = "";
 	let inBraces = false;
-	for (let i = 0; i < ac.length; ++i) {
-		const cur = ac[i];
-		const nxt = ac[i + 1];
+	for (let i = 0; i < defence.length; ++i) {
+		const cur = defence[i];
+		const nxt = defence[i + 1];
 
 		if (cur.special != null) {
 			if (inBraces) inBraces = false;
@@ -1732,7 +1732,6 @@ Parser.SP_MISC_TAG_TO_FULL = {
 	"SCL": "Scaling Effects",
 	"SCT": "Scaling Targets",
 	"SMN": "Summons Creature",
-	"MAC": "Modifies AC",
 	"TP": "Teleportation",
 	"FMV": "Forced Movement",
 	"RO": "Rollable Effects",
