@@ -5968,6 +5968,26 @@ globalThis.DataUtil = {
 	optionalfeature: class extends _DataUtilPropConfigSingleSource {
 		static _PAGE = UrlUtil.PG_OPT_FEATURES;
 		static _FILENAME = "optionalfeatures.json";
+
+		static _pLoadedFeatureTypes = null;
+
+		/**
+		 * Load the optional-feature-type acronym expansions declared in each book's
+		 * `_meta.optionalFeatureTypes`, merging them into `Parser.OPT_FEATURE_TYPE_TO_FULL`. Memoised.
+		 */
+		static async pInitFeatureTypes () {
+			this._pLoadedFeatureTypes = this._pLoadedFeatureTypes || this._pLoadFeatureTypes();
+			return this._pLoadedFeatureTypes;
+		}
+
+		static async _pLoadFeatureTypes () {
+			const index = await DataUtil.loadJSON(`${Renderer.get().baseUrl}data/books.json`);
+			await Promise.all((index.book || []).map(async ({id}) => {
+				const book = await DataUtil.loadJSON(`${Renderer.get().baseUrl}data/book/book-${id.toLowerCase()}.json`);
+				const featureTypes = book?._meta?.optionalFeatureTypes;
+				if (featureTypes) Object.assign(Parser.OPT_FEATURE_TYPE_TO_FULL, featureTypes);
+			}));
+		}
 	},
 
 	optionalfeatureFluff: class extends _DataUtilPropConfigSingleSource {
