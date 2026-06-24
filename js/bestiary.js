@@ -495,9 +495,14 @@ class BestiaryPage extends ListPageMultiSource {
 		const scaledHash = sub.find(it => it.startsWith(UrlUtil.HASH_START_CREATURE_SCALED));
 		const scaledSpellSummonHash = sub.find(it => it.startsWith(UrlUtil.HASH_START_CREATURE_SCALED_SPELL_SUMMON));
 		const scaledClassSummonHash = sub.find(it => it.startsWith(UrlUtil.HASH_START_CREATURE_SCALED_CLASS_SUMMON));
+		const versionHash = sub.find(it => it.startsWith(UrlUtil.HASH_START_CREATURE_VERSION));
 		const mon = this._dataList[Hist.lastLoadedId];
 
-		if (scaledHash) {
+		if (versionHash) {
+			const ix = Number(UrlUtil.unpackSubHash(versionHash)[VeCt.HASH_VERSION][0]);
+			const monVersion = DataUtil.monster.getVersions(mon)[ix];
+			if (monVersion && monVersion.name !== this._lastRender.entity.name) this._renderStatblock(monVersion, {isVersion: true});
+		} else if (scaledHash) {
 			const scaleTo = Number(UrlUtil.unpackSubHash(scaledHash)[VeCt.HASH_SCALED][0]);
 			const scaleToStr = Parser.numberToCr(scaleTo);
 			if (Parser.isValidCr(scaleToStr) && scaleTo !== Parser.crToNumber(this._lastRender.entity.cr)) {
@@ -616,11 +621,12 @@ class BestiaryPage extends ListPageMultiSource {
 			});
 	}
 
-	_renderStatblock (mon, {isScaledCr = false, isScaledSpellSummon = false, isScaledClassSummon = false} = {}) {
+	_renderStatblock (mon, {isScaledCr = false, isScaledSpellSummon = false, isScaledClassSummon = false, isVersion = false} = {}) {
 		this._lastRender.entity = mon;
 		this._lastRender.isScaledCr = isScaledCr;
 		this._lastRender.isScaledSpellSummon = isScaledSpellSummon;
 		this._lastRender.isScaledClassSummon = isScaledClassSummon;
+		this._lastRender.isVersion = isVersion;
 
 		this._$wrpBtnProf = this._$wrpBtnProf || $(`#wrp-profbonusdice`);
 
@@ -637,7 +643,7 @@ class BestiaryPage extends ListPageMultiSource {
 				this._$wrpBtnProf.append(this._$btnProf);
 				this._tokenDisplay.doShow();
 			},
-			fnPopulate: () => this._renderStatblock_doBuildStatsTab({mon, isScaledCr, isScaledSpellSummon, isScaledClassSummon}),
+			fnPopulate: () => this._renderStatblock_doBuildStatsTab({mon, isScaledCr, isScaledSpellSummon, isScaledClassSummon, isVersion}),
 			isVisible: true,
 		});
 
@@ -694,6 +700,7 @@ class BestiaryPage extends ListPageMultiSource {
 			isScaledCr,
 			isScaledSpellSummon,
 			isScaledClassSummon,
+			isVersion,
 		},
 	) {
 		Renderer.get().setFirstSection(true);
@@ -742,6 +749,26 @@ class BestiaryPage extends ListPageMultiSource {
 				});
 		}
 		if (isScaledClassSummon) selSummonClassLevel.val(`${mon._summonedByClass_level}`, {isSetAttribute: true});
+
+		// region version selector
+		// When rendering a version, `mon` is the resolved version entity; the base creature (which carries `_versions`)
+		//   remains the loaded list entry.
+		const monVersionBase = isVersion ? this._dataList[Hist.lastLoadedId] : mon;
+		const selVersion = Renderer.monster.getSelVersion(monVersionBase);
+		if (selVersion) {
+			selVersion
+				.onChange(evt => {
+					evt.stopPropagation();
+					const ix = Number(selVersion.val());
+					Hist.setSubhash(VeCt.HASH_VERSION, ~ix ? ix : null);
+				});
+			if (isVersion) {
+				const ixVersion = DataUtil.monster.getVersions(monVersionBase)
+					.findIndex(ver => ver.name === mon.name && ver.source === mon.source);
+				if (~ixVersion) selVersion.val(`${ixVersion}`, {isSetAttribute: true});
+			}
+		}
+		// endregion
 
 		// region dice rollers
 		const expectedPB = Parser.crToPb(mon.cr);
@@ -809,7 +836,7 @@ class BestiaryPage extends ListPageMultiSource {
 			Renderer.get().addPlugin("string_@dc", pluginDc);
 			Renderer.get().addPlugin("dice", pluginDice);
 
-			this._$pgContent.empty().append(RenderBestiary.$getRenderedCreature(mon, {$btnScaleCr, $btnResetScaleCr, selSummonSpellLevel, selSummonClassLevel}));
+			this._$pgContent.empty().append(RenderBestiary.$getRenderedCreature(mon, {$btnScaleCr, $btnResetScaleCr, selSummonSpellLevel, selSummonClassLevel, selVersion}));
 		} finally {
 			Renderer.get().removePlugin("dice", pluginDice);
 			Renderer.get().removePlugin("string_@dc", pluginDc);

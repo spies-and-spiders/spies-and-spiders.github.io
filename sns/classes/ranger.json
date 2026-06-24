@@ -1602,7 +1602,7 @@
           "type": "entries",
           "name": "Elemental Mastery",
           "entries": [
-            "By focusing on a specific natural element within 100 feet (air, fire, earth, water, or wood) you can attract similar essences to you. After 10 minutes of meditation, a creature of that element is drawn to your presence and obeys your commands. This creature is based on a CR 7 generic minion (https://homebrewery.naturalcrit.com/share/4FjimI1VqkgS), but with the following modifications:",
+            "By focusing on a specific natural element within 100 feet (air, fire, earth, water, or wood) you can attract similar essences to you. After 10 minutes of meditation, a creature of that element is drawn to your presence and obeys your commands. This creature is based on a {@creature generic minion (CR 7, STR)}, but with the following modifications:",
             {
               "type": "list",
               "items": [
@@ -1628,7 +1628,7 @@
                   "type": "item",
                   "name": "Enraged Fauna",
                   "entries": [
-                    "Up to 3 Huge native creatures of up to CR 8 charge forward (use CR 8 generic minions - https://homebrewery.naturalcrit.com/share/4FjimI1VqkgS), bowling into your enemies. Choose any number of creatures you can see within 100 feet to suffer {@dice 9d6} bludgeoning harm. In addition, you can choose one of the Huge creatures to stay and fight. You can have only one such creature assist in this way at a time, and it retreats when bloodied or when you command it to leave."
+                    "Up to 3 Huge native creatures of up to CR 8 charge forward (see {@creature Generic Minion (CR 8, STR)}), bowling into your enemies. Choose any number of creatures you can see within 100 feet to suffer {@dice 9d6} bludgeoning harm. In addition, you can choose one of the Huge creatures to stay and fight. You can have only one such creature assist in this way at a time, and it retreats when bloodied or when you command it to leave."
                   ]
                 },
                 {
@@ -1660,7 +1660,7 @@
         "EK"
       ],
       "entries": [
-        "After a Befriend Animal journey activity, you can befriend and feed a Medium or smaller beast of your choice, becoming its guardian ranger (use the CR 1/8 generic minion - https://homebrewery.naturalcrit.com/share/4FjimI1VqkgS). It counts as a minion and requires your concentration, but you cannot lose this concentration against your will. The beast won't attack except as a response to being attacked, but it can take other actions as normal and makes death saving throws. You can only be a guardian ranger to one beast at a time."
+        "After a Befriend Animal journey activity, you can befriend and feed a Medium or smaller beast of your choice, becoming its {@creature Generic Minion (CR 1/8, DEX)||guardian ranger}. It counts as a minion and requires your concentration, but you cannot lose this concentration against your will. The beast won't attack except as a response to being attacked, but it can take other actions as normal and makes death saving throws. You can only be a guardian ranger to one beast at a time."
       ]
     },
     {
@@ -2955,7 +2955,7 @@
         "EW"
       ],
       "entries": [
-        "Whenever the undead suffers a major hit that deals non-physical base damage, the attacker rolls on the wild magic table (TEMP while no S&S version available: http://dnd2024.wikidot.com/sorcerer:wild-magic-sorcery)."
+        "Whenever the undead suffers a major hit that deals non-physical base damage, the attacker rolls on the {@table Wild Magic Surge} table."
       ]
     },
     {

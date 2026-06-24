@@ -8808,6 +8808,31 @@ Renderer.monster = class {
 		});
 	}
 
+	/**
+	 * Build a selector listing a creature's `_versions` by name, allowing the user to switch between them.
+	 * @param monBase The base creature (i.e. the one carrying the `_versions` array).
+	 */
+	static getSelVersion (monBase) {
+		if (!monBase?._versions?.length) return;
+
+		const versions = DataUtil.monster.getVersions(monBase);
+		if (!versions.length) return;
+
+		return e_({
+			tag: "select",
+			clazz: "input-xs form-control form-control--minimal w-initial inline-block ve-popwindow__hidden no-print",
+			name: "mon__sel-version",
+			children: [
+				e_({tag: "option", val: "-1", text: monBase.name}),
+				...versions.map((ver, i) => e_({
+					tag: "option",
+					val: i,
+					text: ver.name,
+				})),
+			],
+		});
+	}
+
 	static getCompactRenderedStringSection (mon, renderer, title, key, depth) {
 		if (!mon[key]) return "";
 

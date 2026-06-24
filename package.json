@@ -58,6 +58,7 @@
 		"json-source-map": "^0.6.1",
 		"prettier": "^3.2.5",
 		"probe-image-size": "^7.2.3",
+		"puppeteer": "^25.2.0",
 		"readline-sync": "^1.4.10",
 		"sass": "^1.71.1",
 		"sharp": "^0.33.2",
@@ -74,5 +75,8 @@
 	"directories": {
 		"lib": "lib",
 		"test": "test"
+	},
+	"allowScripts": {
+		"puppeteer@25.2.0": true
 	}
 }

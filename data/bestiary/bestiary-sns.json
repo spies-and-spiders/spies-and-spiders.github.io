@@ -1764,6 +1764,861 @@
       ],
       "summonedBySpell": "Awaken|sns",
       "summonedBySpellLevel": 5
+    },
+    {
+      "name": "Generic Minion (CR 1/8, STR)",
+      "source": "sns",
+      "size": [
+        "M"
+      ],
+      "type": "any",
+      "hp": {
+        "special": "10"
+      },
+      "speed": {
+        "walk": 30
+      },
+      "str": 12,
+      "dex": 10,
+      "int": 10,
+      "wis": 10,
+      "cha": 10,
+      "senses": [],
+      "passive": 10,
+      "languages": [],
+      "action": [
+        {
+          "name": "Melee Attack",
+          "entries": [
+            "{@atk mw} reach 5 ft., one target. 3 bludgeoning, piercing, or slashing damage."
+          ]
+        }
+      ],
+      "arm": [
+        {
+          "arm": 1
+        }
+      ],
+      "fort": [
+        {
+          "fort": 3
+        }
+      ],
+      "ref": [
+        {
+          "ref": 1
+        }
+      ],
+      "wil": [
+        {
+          "wil": 0
+        }
+      ],
+      "majorEffect": [
+        "The target's armour is reduced by 1 for 1 round."
+      ],
+      "_versions": [
+        {
+          "name": "Generic Minion (CR 1/8, DEX)",
+          "source": "sns",
+          "str": 10,
+          "dex": 12,
+          "hp": {
+            "special": "10"
+          },
+          "arm": [
+            {
+              "arm": 1
+            }
+          ],
+          "fort": [
+            {
+              "fort": 3
+            }
+          ],
+          "ref": [
+            {
+              "ref": 1
+            }
+          ],
+          "action": [
+            {
+              "name": "Melee Attack",
+              "entries": [
+                "{@atk mw} reach 5 ft., one target. 3 bludgeoning, piercing, or slashing damage."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Generic Minion (CR 1/4, STR)",
+          "source": "sns",
+          "str": 12,
+          "dex": 10,
+          "hp": {
+            "special": "16"
+          },
+          "arm": [
+            {
+              "arm": 1
+            }
+          ],
+          "fort": [
+            {
+              "fort": 3
+            }
+          ],
+          "ref": [
+            {
+              "ref": 1
+            }
+          ],
+          "action": [
+            {
+              "name": "Melee Attack",
+              "entries": [
+                "{@atk mw} reach 5 ft., one target. 5 bludgeoning, piercing, or slashing damage."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Generic Minion (CR 1/4, DEX)",
+          "source": "sns",
+          "str": 10,
+          "dex": 12,
+          "hp": {
+            "special": "16"
+          },
+          "arm": [
+            {
+              "arm": 1
+            }
+          ],
+          "fort": [
+            {
+              "fort": 3
+            }
+          ],
+          "ref": [
+            {
+              "ref": 1
+            }
+          ],
+          "action": [
+            {
+              "name": "Melee Attack",
+              "entries": [
+                "{@atk mw} reach 5 ft., one target. 5 bludgeoning, piercing, or slashing damage."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Generic Minion (CR 1/2, STR)",
+          "source": "sns",
+          "str": 14,
+          "dex": 10,
+          "hp": {
+            "special": "27"
+          },
+          "arm": [
+            {
+              "arm": 1
+            }
+          ],
+          "fort": [
+            {
+              "fort": 3
+            }
+          ],
+          "ref": [
+            {
+              "ref": 2
+            }
+          ],
+          "action": [
+            {
+              "name": "Melee Attack",
+              "entries": [
+                "{@atk mw} reach 5 ft., one target. 8 bludgeoning, piercing, or slashing damage."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Generic Minion (CR 1/2, DEX)",
+          "source": "sns",
+          "str": 10,
+          "dex": 14,
+          "hp": {
+            "special": "27"
+          },
+          "arm": [
+            {
+              "arm": 1
+            }
+          ],
+          "fort": [
+            {
+              "fort": 3
+            }
+          ],
+          "ref": [
+            {
+              "ref": 2
+            }
+          ],
+          "action": [
+            {
+              "name": "Melee Attack",
+              "entries": [
+                "{@atk mw} reach 5 ft., one target. 8 bludgeoning, piercing, or slashing damage."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Generic Minion (CR 1, STR)",
+          "source": "sns",
+          "str": 14,
+          "dex": 10,
+          "hp": {
+            "special": "33"
+          },
+          "arm": [
+            {
+              "arm": 1
+            }
+          ],
+          "fort": [
+            {
+              "fort": 3
+            }
+          ],
+          "ref": [
+            {
+              "ref": 2
+            }
+          ],
+          "action": [
+            {
+              "name": "Melee Attack",
+              "entries": [
+                "{@atk mw} reach 5 ft., one target. 10 bludgeoning, piercing, or slashing damage."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Generic Minion (CR 1, DEX)",
+          "source": "sns",
+          "str": 10,
+          "dex": 14,
+          "hp": {
+            "special": "33"
+          },
+          "arm": [
+            {
+              "arm": 1
+            }
+          ],
+          "fort": [
+            {
+              "fort": 3
+            }
+          ],
+          "ref": [
+            {
+              "ref": 2
+            }
+          ],
+          "action": [
+            {
+              "name": "Melee Attack",
+              "entries": [
+                "{@atk mw} reach 5 ft., one target. 10 bludgeoning, piercing, or slashing damage."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Generic Minion (CR 2, STR)",
+          "source": "sns",
+          "str": 16,
+          "dex": 10,
+          "hp": {
+            "special": "50"
+          },
+          "arm": [
+            {
+              "arm": 1
+            }
+          ],
+          "fort": [
+            {
+              "fort": 3
+            }
+          ],
+          "ref": [
+            {
+              "ref": 3
+            }
+          ],
+          "action": [
+            {
+              "name": "Melee Attack",
+              "entries": [
+                "{@atk mw} reach 5 ft., one target. 15 bludgeoning, piercing, or slashing damage."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Generic Minion (CR 2, DEX)",
+          "source": "sns",
+          "str": 10,
+          "dex": 16,
+          "hp": {
+            "special": "50"
+          },
+          "arm": [
+            {
+              "arm": 1
+            }
+          ],
+          "fort": [
+            {
+              "fort": 3
+            }
+          ],
+          "ref": [
+            {
+              "ref": 3
+            }
+          ],
+          "action": [
+            {
+              "name": "Melee Attack",
+              "entries": [
+                "{@atk mw} reach 5 ft., one target. 15 bludgeoning, piercing, or slashing damage."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Generic Minion (CR 3, STR)",
+          "source": "sns",
+          "str": 16,
+          "dex": 10,
+          "hp": {
+            "special": "67"
+          },
+          "arm": [
+            {
+              "arm": 2
+            }
+          ],
+          "fort": [
+            {
+              "fort": 3
+            }
+          ],
+          "ref": [
+            {
+              "ref": 3
+            }
+          ],
+          "action": [
+            {
+              "name": "Melee Attack",
+              "entries": [
+                "{@atk mw} reach 5 ft., one target. 20 bludgeoning, piercing, or slashing damage."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Generic Minion (CR 3, DEX)",
+          "source": "sns",
+          "str": 10,
+          "dex": 16,
+          "hp": {
+            "special": "67"
+          },
+          "arm": [
+            {
+              "arm": 2
+            }
+          ],
+          "fort": [
+            {
+              "fort": 3
+            }
+          ],
+          "ref": [
+            {
+              "ref": 3
+            }
+          ],
+          "action": [
+            {
+              "name": "Melee Attack",
+              "entries": [
+                "{@atk mw} reach 5 ft., one target. 20 bludgeoning, piercing, or slashing damage."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Generic Minion (CR 4, STR)",
+          "source": "sns",
+          "str": 18,
+          "dex": 10,
+          "hp": {
+            "special": "84"
+          },
+          "arm": [
+            {
+              "arm": 2
+            }
+          ],
+          "fort": [
+            {
+              "fort": 4
+            }
+          ],
+          "ref": [
+            {
+              "ref": 4
+            }
+          ],
+          "action": [
+            {
+              "name": "Melee Attack",
+              "entries": [
+                "{@atk mw} reach 5 ft., one target. 25 bludgeoning, piercing, or slashing damage."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Generic Minion (CR 4, DEX)",
+          "source": "sns",
+          "str": 10,
+          "dex": 18,
+          "hp": {
+            "special": "84"
+          },
+          "arm": [
+            {
+              "arm": 2
+            }
+          ],
+          "fort": [
+            {
+              "fort": 4
+            }
+          ],
+          "ref": [
+            {
+              "ref": 4
+            }
+          ],
+          "action": [
+            {
+              "name": "Melee Attack",
+              "entries": [
+                "{@atk mw} reach 5 ft., one target. 25 bludgeoning, piercing, or slashing damage."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Generic Minion (CR 5, STR)",
+          "source": "sns",
+          "str": 18,
+          "dex": 10,
+          "hp": {
+            "special": "101"
+          },
+          "arm": [
+            {
+              "arm": 2
+            }
+          ],
+          "fort": [
+            {
+              "fort": 4
+            }
+          ],
+          "ref": [
+            {
+              "ref": 4
+            }
+          ],
+          "action": [
+            {
+              "name": "Melee Attack",
+              "entries": [
+                "{@atk mw} reach 5 ft., one target. 30 bludgeoning, piercing, or slashing damage."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Generic Minion (CR 5, DEX)",
+          "source": "sns",
+          "str": 10,
+          "dex": 18,
+          "hp": {
+            "special": "101"
+          },
+          "arm": [
+            {
+              "arm": 2
+            }
+          ],
+          "fort": [
+            {
+              "fort": 4
+            }
+          ],
+          "ref": [
+            {
+              "ref": 4
+            }
+          ],
+          "action": [
+            {
+              "name": "Melee Attack",
+              "entries": [
+                "{@atk mw} reach 5 ft., one target. 30 bludgeoning, piercing, or slashing damage."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Generic Minion (CR 6, STR)",
+          "source": "sns",
+          "str": 18,
+          "dex": 10,
+          "hp": {
+            "special": "118"
+          },
+          "arm": [
+            {
+              "arm": 2
+            }
+          ],
+          "fort": [
+            {
+              "fort": 4
+            }
+          ],
+          "ref": [
+            {
+              "ref": 4
+            }
+          ],
+          "action": [
+            {
+              "name": "Melee Attack",
+              "entries": [
+                "{@atk mw} reach 5 ft., one target. 35 bludgeoning, piercing, or slashing damage."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Generic Minion (CR 6, DEX)",
+          "source": "sns",
+          "str": 10,
+          "dex": 18,
+          "hp": {
+            "special": "118"
+          },
+          "arm": [
+            {
+              "arm": 2
+            }
+          ],
+          "fort": [
+            {
+              "fort": 4
+            }
+          ],
+          "ref": [
+            {
+              "ref": 4
+            }
+          ],
+          "action": [
+            {
+              "name": "Melee Attack",
+              "entries": [
+                "{@atk mw} reach 5 ft., one target. 35 bludgeoning, piercing, or slashing damage."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Generic Minion (CR 7, STR)",
+          "source": "sns",
+          "str": 18,
+          "dex": 10,
+          "hp": {
+            "special": "140"
+          },
+          "arm": [
+            {
+              "arm": 2
+            }
+          ],
+          "fort": [
+            {
+              "fort": 4
+            }
+          ],
+          "ref": [
+            {
+              "ref": 4
+            }
+          ],
+          "action": [
+            {
+              "name": "Melee Attack",
+              "entries": [
+                "{@atk mw} reach 5 ft., one target. 40 bludgeoning, piercing, or slashing damage."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Generic Minion (CR 7, DEX)",
+          "source": "sns",
+          "str": 10,
+          "dex": 18,
+          "hp": {
+            "special": "140"
+          },
+          "arm": [
+            {
+              "arm": 2
+            }
+          ],
+          "fort": [
+            {
+              "fort": 4
+            }
+          ],
+          "ref": [
+            {
+              "ref": 4
+            }
+          ],
+          "action": [
+            {
+              "name": "Melee Attack",
+              "entries": [
+                "{@atk mw} reach 5 ft., one target. 40 bludgeoning, piercing, or slashing damage."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Generic Minion (CR 8, STR)",
+          "source": "sns",
+          "str": 18,
+          "dex": 10,
+          "hp": {
+            "special": "151"
+          },
+          "arm": [
+            {
+              "arm": 2
+            }
+          ],
+          "fort": [
+            {
+              "fort": 4
+            }
+          ],
+          "ref": [
+            {
+              "ref": 4
+            }
+          ],
+          "action": [
+            {
+              "name": "Melee Attack",
+              "entries": [
+                "{@atk mw} reach 5 ft., one target. 45 bludgeoning, piercing, or slashing damage."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Generic Minion (CR 8, DEX)",
+          "source": "sns",
+          "str": 10,
+          "dex": 18,
+          "hp": {
+            "special": "151"
+          },
+          "arm": [
+            {
+              "arm": 2
+            }
+          ],
+          "fort": [
+            {
+              "fort": 4
+            }
+          ],
+          "ref": [
+            {
+              "ref": 4
+            }
+          ],
+          "action": [
+            {
+              "name": "Melee Attack",
+              "entries": [
+                "{@atk mw} reach 5 ft., one target. 45 bludgeoning, piercing, or slashing damage."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Generic Minion (CR 9, STR)",
+          "source": "sns",
+          "str": 18,
+          "dex": 10,
+          "hp": {
+            "special": "168"
+          },
+          "arm": [
+            {
+              "arm": 3
+            }
+          ],
+          "fort": [
+            {
+              "fort": 4
+            }
+          ],
+          "ref": [
+            {
+              "ref": 4
+            }
+          ],
+          "action": [
+            {
+              "name": "Melee Attack",
+              "entries": [
+                "{@atk mw} reach 5 ft., one target. 50 bludgeoning, piercing, or slashing damage."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Generic Minion (CR 9, DEX)",
+          "source": "sns",
+          "str": 10,
+          "dex": 18,
+          "hp": {
+            "special": "168"
+          },
+          "arm": [
+            {
+              "arm": 3
+            }
+          ],
+          "fort": [
+            {
+              "fort": 4
+            }
+          ],
+          "ref": [
+            {
+              "ref": 4
+            }
+          ],
+          "action": [
+            {
+              "name": "Melee Attack",
+              "entries": [
+                "{@atk mw} reach 5 ft., one target. 50 bludgeoning, piercing, or slashing damage."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Generic Minion (CR 10, STR)",
+          "source": "sns",
+          "str": 20,
+          "dex": 10,
+          "hp": {
+            "special": "185"
+          },
+          "arm": [
+            {
+              "arm": 3
+            }
+          ],
+          "fort": [
+            {
+              "fort": 5
+            }
+          ],
+          "ref": [
+            {
+              "ref": 5
+            }
+          ],
+          "action": [
+            {
+              "name": "Melee Attack",
+              "entries": [
+                "{@atk mw} reach 5 ft., one target. 55 bludgeoning, piercing, or slashing damage."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Generic Minion (CR 10, DEX)",
+          "source": "sns",
+          "str": 10,
+          "dex": 20,
+          "hp": {
+            "special": "185"
+          },
+          "arm": [
+            {
+              "arm": 3
+            }
+          ],
+          "fort": [
+            {
+              "fort": 5
+            }
+          ],
+          "ref": [
+            {
+              "ref": 5
+            }
+          ],
+          "action": [
+            {
+              "name": "Melee Attack",
+              "entries": [
+                "{@atk mw} reach 5 ft., one target. 55 bludgeoning, piercing, or slashing damage."
+              ]
+            }
+          ]
+        }
+      ]
     }
   ]
 }
