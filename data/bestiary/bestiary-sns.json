@@ -1768,6 +1768,7 @@
     {
       "name": "Generic Minion (CR 1/8, STR)",
       "source": "sns",
+      "cr": "1/8",
       "size": [
         "M"
       ],
@@ -1821,6 +1822,7 @@
         {
           "name": "Generic Minion (CR 1/8, DEX)",
           "source": "sns",
+          "cr": "1/8",
           "str": 10,
           "dex": 12,
           "hp": {
@@ -1853,6 +1855,7 @@
         {
           "name": "Generic Minion (CR 1/4, STR)",
           "source": "sns",
+          "cr": "1/4",
           "str": 12,
           "dex": 10,
           "hp": {
@@ -1885,6 +1888,7 @@
         {
           "name": "Generic Minion (CR 1/4, DEX)",
           "source": "sns",
+          "cr": "1/4",
           "str": 10,
           "dex": 12,
           "hp": {
@@ -1917,6 +1921,7 @@
         {
           "name": "Generic Minion (CR 1/2, STR)",
           "source": "sns",
+          "cr": "1/2",
           "str": 14,
           "dex": 10,
           "hp": {
@@ -1949,6 +1954,7 @@
         {
           "name": "Generic Minion (CR 1/2, DEX)",
           "source": "sns",
+          "cr": "1/2",
           "str": 10,
           "dex": 14,
           "hp": {
@@ -1981,6 +1987,7 @@
         {
           "name": "Generic Minion (CR 1, STR)",
           "source": "sns",
+          "cr": "1",
           "str": 14,
           "dex": 10,
           "hp": {
@@ -2013,6 +2020,7 @@
         {
           "name": "Generic Minion (CR 1, DEX)",
           "source": "sns",
+          "cr": "1",
           "str": 10,
           "dex": 14,
           "hp": {
@@ -2045,6 +2053,7 @@
         {
           "name": "Generic Minion (CR 2, STR)",
           "source": "sns",
+          "cr": "2",
           "str": 16,
           "dex": 10,
           "hp": {
@@ -2077,6 +2086,7 @@
         {
           "name": "Generic Minion (CR 2, DEX)",
           "source": "sns",
+          "cr": "2",
           "str": 10,
           "dex": 16,
           "hp": {
@@ -2109,6 +2119,7 @@
         {
           "name": "Generic Minion (CR 3, STR)",
           "source": "sns",
+          "cr": "3",
           "str": 16,
           "dex": 10,
           "hp": {
@@ -2141,6 +2152,7 @@
         {
           "name": "Generic Minion (CR 3, DEX)",
           "source": "sns",
+          "cr": "3",
           "str": 10,
           "dex": 16,
           "hp": {
@@ -2173,6 +2185,7 @@
         {
           "name": "Generic Minion (CR 4, STR)",
           "source": "sns",
+          "cr": "4",
           "str": 18,
           "dex": 10,
           "hp": {
@@ -2205,6 +2218,7 @@
         {
           "name": "Generic Minion (CR 4, DEX)",
           "source": "sns",
+          "cr": "4",
           "str": 10,
           "dex": 18,
           "hp": {
@@ -2237,6 +2251,7 @@
         {
           "name": "Generic Minion (CR 5, STR)",
           "source": "sns",
+          "cr": "5",
           "str": 18,
           "dex": 10,
           "hp": {
@@ -2269,6 +2284,7 @@
         {
           "name": "Generic Minion (CR 5, DEX)",
           "source": "sns",
+          "cr": "5",
           "str": 10,
           "dex": 18,
           "hp": {
@@ -2301,6 +2317,7 @@
         {
           "name": "Generic Minion (CR 6, STR)",
           "source": "sns",
+          "cr": "6",
           "str": 18,
           "dex": 10,
           "hp": {
@@ -2333,6 +2350,7 @@
         {
           "name": "Generic Minion (CR 6, DEX)",
           "source": "sns",
+          "cr": "6",
           "str": 10,
           "dex": 18,
           "hp": {
@@ -2365,6 +2383,7 @@
         {
           "name": "Generic Minion (CR 7, STR)",
           "source": "sns",
+          "cr": "7",
           "str": 18,
           "dex": 10,
           "hp": {
@@ -2397,6 +2416,7 @@
         {
           "name": "Generic Minion (CR 7, DEX)",
           "source": "sns",
+          "cr": "7",
           "str": 10,
           "dex": 18,
           "hp": {
@@ -2429,6 +2449,7 @@
         {
           "name": "Generic Minion (CR 8, STR)",
           "source": "sns",
+          "cr": "8",
           "str": 18,
           "dex": 10,
           "hp": {
@@ -2461,6 +2482,7 @@
         {
           "name": "Generic Minion (CR 8, DEX)",
           "source": "sns",
+          "cr": "8",
           "str": 10,
           "dex": 18,
           "hp": {
@@ -2493,6 +2515,7 @@
         {
           "name": "Generic Minion (CR 9, STR)",
           "source": "sns",
+          "cr": "9",
           "str": 18,
           "dex": 10,
           "hp": {
@@ -2525,6 +2548,7 @@
         {
           "name": "Generic Minion (CR 9, DEX)",
           "source": "sns",
+          "cr": "9",
           "str": 10,
           "dex": 18,
           "hp": {
@@ -2557,6 +2581,7 @@
         {
           "name": "Generic Minion (CR 10, STR)",
           "source": "sns",
+          "cr": "10",
           "str": 20,
           "dex": 10,
           "hp": {
@@ -2589,6 +2614,7 @@
         {
           "name": "Generic Minion (CR 10, DEX)",
           "source": "sns",
+          "cr": "10",
           "str": 10,
           "dex": 20,
           "hp": {
