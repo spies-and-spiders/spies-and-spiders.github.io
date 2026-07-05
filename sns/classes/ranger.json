@@ -1849,16 +1849,6 @@
       ]
     },
     {
-      "name": "Survivalist",
-      "source": "sns",
-      "featureType": [
-        "EK"
-      ],
-      "entries": [
-        "You gain advantage on checks for the following journey activities: Befriend Animal, Cook, Harvest, Scout."
-      ]
-    },
-    {
       "name": "Foreign Interference",
       "source": "sns",
       "featureType": [
