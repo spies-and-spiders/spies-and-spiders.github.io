@@ -407,7 +407,7 @@
                 ],
                 [
                   "8",
-                  "{@optfeature Weak Joints}"
+                  "{@optfeature Prey Panic}"
                 ]
               ]
             }
@@ -2009,13 +2009,13 @@
       ]
     },
     {
-      "name": "Weak Joints",
+      "name": "Prey Panic",
       "source": "sns",
       "featureType": [
         "EW"
       ],
       "entries": [
-        "c"
+        "As a bonus action, a creature within 30 feet of the beast can make an {@skill Intimidation} check with DC equal to 10 + the beast's CR. On a success, the beast uses its reaction to move half its Speed directly away from that creature."
       ]
     },
     {
