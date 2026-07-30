@@ -201,6 +201,7 @@ class ModalFilterOptionalFeatures extends ModalFilterBase {
 	}
 
 	async _pLoadAllData () {
+		await DataUtil.optionalfeature.pInitFeatureTypes();
 		return [
 			...(await DataUtil.loadJSON(`${Renderer.get().baseUrl}data/optionalfeatures.json`)).optionalfeature,
 			...((await PrereleaseUtil.pGetBrewProcessed()).optionalfeature || []),

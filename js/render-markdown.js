@@ -847,10 +847,10 @@ RendererMarkdown.monster = class {
 		const monTypes = Parser.monTypeToFullObj(mon.type);
 		RendererMarkdown.get().isSkipStylingItemLinks = true;
 		const mdRenderer = RendererMarkdown.get();
-		const armPart = mon.arm == null ? "\u2014" : Parser.acToFull(mon.arm, {renderer: mdRenderer, key: "arm"});
-		const fortPart = mon.fort == null ? "\u2014" : Parser.acToFull(mon.fort, {renderer: mdRenderer, key: "fort"});
-		const refPart = mon.ref == null ? "\u2014" : Parser.acToFull(mon.ref, {renderer: mdRenderer, key: "ref"});
-		const wilPart = mon.wil == null ? "\u2014" : Parser.acToFull(mon.wil, {renderer: mdRenderer, key: "wil"});
+		const armPart = mon.arm == null ? "\u2014" : Parser.defenceToFull(mon.arm, {renderer: mdRenderer, key: "arm"});
+		const fortPart = mon.fort == null ? "\u2014" : Parser.defenceToFull(mon.fort, {renderer: mdRenderer, key: "fort"});
+		const refPart = mon.ref == null ? "\u2014" : Parser.defenceToFull(mon.ref, {renderer: mdRenderer, key: "ref"});
+		const wilPart = mon.wil == null ? "\u2014" : Parser.defenceToFull(mon.wil, {renderer: mdRenderer, key: "wil"});
 		RendererMarkdown.get().isSkipStylingItemLinks = false;
 		const resourcePart = mon.resource?.length
 			? mon.resource

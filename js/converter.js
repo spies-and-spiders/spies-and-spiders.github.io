@@ -6,7 +6,7 @@ import {BackgroundConverterUi} from "./converter/converter-ui-background.js";
 import {SpellConverterUi} from "./converter/converter-ui-spell.js";
 import {TableConverterUi} from "./converter/converter-ui-table.js";
 import {EntryConverterUi} from "./converter/converter-ui-entries.js";
-import {AcConvert, AttachedItemTag, MiscTag, SpellcastingTraitConvert} from "./converter/converterutils-creature.js";
+import {AttachedItemTag, MiscTag, SpellcastingTraitConvert} from "./converter/converterutils-creature.js";
 import {ConverterItem} from "./converter/converter-item.js";
 import {TagCondition, TaggerUtils} from "./converter/converterutils-tags.js";
 import {TagJsons} from "./converter/converterutils-entries.js";
@@ -27,7 +27,6 @@ const doPageInit = async () => {
 	const itemsNoGroups = items.filter(it => !it._isItemGroup);
 	SpellcastingTraitConvert.init(spells);
 	ConverterItem.init(itemsNoGroups, classes);
-	AcConvert.init(itemsNoGroups);
 	TaggerUtils.init({legendaryGroups, spells});
 	await TagJsons.pInit({spells});
 	MiscTag.init({items});

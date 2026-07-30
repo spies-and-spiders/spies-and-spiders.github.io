@@ -3,7 +3,6 @@
     {
       "_cr": "0",
       "pb": 2,
-      "ac": 13,
       "hpMin": 1,
       "hpMax": 6,
       "attackBonus": 3,
@@ -14,7 +13,6 @@
     {
       "_cr": "1/8",
       "pb": 2,
-      "ac": 13,
       "hpMin": 7,
       "hpMax": 35,
       "attackBonus": 3,
@@ -25,7 +23,6 @@
     {
       "_cr": "1/4",
       "pb": 2,
-      "ac": 13,
       "hpMin": 36,
       "hpMax": 49,
       "attackBonus": 3,
@@ -36,7 +33,6 @@
     {
       "_cr": "1/2",
       "pb": 2,
-      "ac": 13,
       "hpMin": 50,
       "hpMax": 70,
       "attackBonus": 3,
@@ -47,7 +43,6 @@
     {
       "_cr": "1",
       "pb": 2,
-      "ac": 13,
       "hpMin": 71,
       "hpMax": 85,
       "attackBonus": 3,
@@ -58,7 +53,6 @@
     {
       "_cr": "2",
       "pb": 2,
-      "ac": 13,
       "hpMin": 86,
       "hpMax": 100,
       "attackBonus": 3,
@@ -69,7 +63,6 @@
     {
       "_cr": "3",
       "pb": 2,
-      "ac": 13,
       "hpMin": 101,
       "hpMax": 115,
       "attackBonus": 4,
@@ -80,7 +73,6 @@
     {
       "_cr": "4",
       "pb": 2,
-      "ac": 14,
       "hpMin": 116,
       "hpMax": 130,
       "attackBonus": 5,
@@ -91,7 +83,6 @@
     {
       "_cr": "5",
       "pb": 3,
-      "ac": 15,
       "hpMin": 131,
       "hpMax": 145,
       "attackBonus": 6,
@@ -102,7 +93,6 @@
     {
       "_cr": "6",
       "pb": 3,
-      "ac": 15,
       "hpMin": 146,
       "hpMax": 160,
       "attackBonus": 6,
@@ -113,7 +103,6 @@
     {
       "_cr": "7",
       "pb": 3,
-      "ac": 15,
       "hpMin": 161,
       "hpMax": 175,
       "attackBonus": 6,
@@ -124,7 +113,6 @@
     {
       "_cr": "8",
       "pb": 3,
-      "ac": 16,
       "hpMin": 176,
       "hpMax": 190,
       "attackBonus": 7,
@@ -135,7 +123,6 @@
     {
       "_cr": "9",
       "pb": 4,
-      "ac": 16,
       "hpMin": 191,
       "hpMax": 205,
       "attackBonus": 7,
@@ -146,7 +133,6 @@
     {
       "_cr": "10",
       "pb": 4,
-      "ac": 17,
       "hpMin": 206,
       "hpMax": 220,
       "attackBonus": 7,
@@ -157,7 +143,6 @@
     {
       "_cr": "11",
       "pb": 4,
-      "ac": 17,
       "hpMin": 221,
       "hpMax": 235,
       "attackBonus": 8,
@@ -168,7 +153,6 @@
     {
       "_cr": "12",
       "pb": 4,
-      "ac": 17,
       "hpMin": 236,
       "hpMax": 250,
       "attackBonus": 8,
@@ -179,7 +163,6 @@
     {
       "_cr": "13",
       "pb": 5,
-      "ac": 18,
       "hpMin": 251,
       "hpMax": 265,
       "attackBonus": 8,
@@ -190,7 +173,6 @@
     {
       "_cr": "14",
       "pb": 5,
-      "ac": 18,
       "hpMin": 266,
       "hpMax": 280,
       "attackBonus": 8,
@@ -201,7 +183,6 @@
     {
       "_cr": "15",
       "pb": 5,
-      "ac": 18,
       "hpMin": 281,
       "hpMax": 295,
       "attackBonus": 8,
@@ -212,7 +193,6 @@
     {
       "_cr": "16",
       "pb": 5,
-      "ac": 18,
       "hpMin": 296,
       "hpMax": 310,
       "attackBonus": 9,
@@ -223,7 +203,6 @@
     {
       "_cr": "17",
       "pb": 6,
-      "ac": 19,
       "hpMin": 311,
       "hpMax": 325,
       "attackBonus": 10,
@@ -234,7 +213,6 @@
     {
       "_cr": "18",
       "pb": 6,
-      "ac": 19,
       "hpMin": 326,
       "hpMax": 340,
       "attackBonus": 10,
@@ -245,7 +223,6 @@
     {
       "_cr": "19",
       "pb": 6,
-      "ac": 19,
       "hpMin": 341,
       "hpMax": 355,
       "attackBonus": 10,
@@ -256,7 +233,6 @@
     {
       "_cr": "20",
       "pb": 6,
-      "ac": 19,
       "hpMin": 356,
       "hpMax": 400,
       "attackBonus": 10,
@@ -267,7 +243,6 @@
     {
       "_cr": "21",
       "pb": 7,
-      "ac": 19,
       "hpMin": 401,
       "hpMax": 445,
       "attackBonus": 11,
@@ -278,7 +253,6 @@
     {
       "_cr": "22",
       "pb": 7,
-      "ac": 19,
       "hpMin": 446,
       "hpMax": 490,
       "attackBonus": 11,
@@ -289,7 +263,6 @@
     {
       "_cr": "23",
       "pb": 7,
-      "ac": 19,
       "hpMin": 491,
       "hpMax": 535,
       "attackBonus": 11,
@@ -300,7 +273,6 @@
     {
       "_cr": "24",
       "pb": 7,
-      "ac": 19,
       "hpMin": 536,
       "hpMax": 580,
       "attackBonus": 11,
@@ -311,7 +283,6 @@
     {
       "_cr": "25",
       "pb": 8,
-      "ac": 19,
       "hpMin": 581,
       "hpMax": 625,
       "attackBonus": 12,
@@ -322,7 +293,6 @@
     {
       "_cr": "26",
       "pb": 8,
-      "ac": 19,
       "hpMin": 626,
       "hpMax": 670,
       "attackBonus": 12,
@@ -333,7 +303,6 @@
     {
       "_cr": "27",
       "pb": 8,
-      "ac": 19,
       "hpMin": 671,
       "hpMax": 715,
       "attackBonus": 13,
@@ -344,7 +313,6 @@
     {
       "_cr": "28",
       "pb": 8,
-      "ac": 19,
       "hpMin": 716,
       "hpMax": 760,
       "attackBonus": 13,
@@ -355,7 +323,6 @@
     {
       "_cr": "29",
       "pb": 9,
-      "ac": 19,
       "hpMin": 760,
       "hpMax": 805,
       "attackBonus": 13,
@@ -366,7 +333,6 @@
     {
       "_cr": "30",
       "pb": 9,
-      "ac": 19,
       "hpMin": 805,
       "hpMax": 850,
       "attackBonus": 14,

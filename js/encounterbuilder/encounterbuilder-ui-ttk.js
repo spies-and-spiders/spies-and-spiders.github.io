@@ -10,11 +10,10 @@ export class EncounterBuilderUiTtk {
 		const totalHp = creatureMetas
 			.map(creatureMeta => {
 				const approxHp = creatureMeta.getApproxHp();
-				const approxAc = creatureMeta.getApproxAc();
 
-				if (approxHp == null || approxAc == null) return 0;
+				if (approxHp == null) return 0;
 
-				return (approxHp * (approxAc / 10)) * creatureMeta.count;
+				return approxHp * creatureMeta.count;
 			})
 			.sum();
 

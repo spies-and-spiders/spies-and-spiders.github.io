@@ -430,7 +430,6 @@ PropOrder._MONSTER = [
 	"alignment",
 	"alignmentPrefix",
 
-	"ac",
 	"hp",
 	"speed",
 	"initiative",
@@ -1589,7 +1588,6 @@ PropOrder._VEHICLE = [
 
 	"cost",
 
-	"ac",
 	"pace",
 	"speed",
 
@@ -1727,15 +1725,14 @@ PropOrder._ITEM = [
 	"dmgType",
 	"dmg2",
 
-	"ac",
-	"acSpecial",
+	"armour",
+	"armourSpecial",
 	"strength",
 	"dexterityMax",
 
 	"crew",
 	"crewMin",
 	"crewMax",
-	"vehAc",
 	"vehHp",
 	"vehDmgThresh",
 	"vehSpeed",
@@ -1758,7 +1755,7 @@ PropOrder._ITEM = [
 	"bonusSpellAttack",
 	"bonusSpellDamage",
 	"bonusSpellSaveDc",
-	"bonusAc",
+	"bonusArmour",
 	"bonusSavingThrow",
 	"bonusAbilityCheck",
 	"bonusProficiencyBonus",
@@ -1771,7 +1768,6 @@ PropOrder._ITEM = [
 	"rechargeAmount",
 	"charges",
 
-	"armour",
 	"arrow",
 	"axe",
 	"barding",
@@ -1977,7 +1973,6 @@ PropOrder._OBJECT = [
 	"objectType",
 	"creatureType",
 
-	"ac",
 	"hp",
 	"speed",
 

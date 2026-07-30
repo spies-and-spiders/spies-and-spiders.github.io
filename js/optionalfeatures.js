@@ -76,7 +76,10 @@ class OptionalFeaturesPage extends ListPage {
 		const pageFilter = new PageFilterOptionalFeatures();
 
 		super({
-			dataSource: DataUtil.optionalfeature.loadJSON.bind(DataUtil.optionalfeature),
+			dataSource: async () => {
+				await DataUtil.optionalfeature.pInitFeatureTypes();
+				return DataUtil.optionalfeature.loadJSON();
+			},
 
 			pFnGetFluff: Renderer.optionalfeature.pGetFluff.bind(Renderer.optionalfeature),
 

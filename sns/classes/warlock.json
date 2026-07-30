@@ -1,6 +1,7 @@
 {
   "_meta": {
     "optionalFeatureTypes": {
+      "EI": "Eldritch Invocation",
       "SA": "Secret of Arcana"
     }
   },

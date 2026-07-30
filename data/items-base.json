@@ -13,8 +13,7 @@
       "rarity": "none",
       "weight": 0,
       "value": 0,
-      "ac": 1,
-      "armor": true,
+      "armour": 1,
       "entries": []
     },
     {
@@ -25,8 +24,7 @@
       "rarity": "none",
       "weight": 0,
       "value": 0,
-      "ac": 3,
-      "armor": true,
+      "armour": 3,
       "stealth": true,
       "entries": [
         "This item is made of metal."
@@ -40,8 +38,7 @@
       "rarity": "none",
       "weight": 0,
       "value": 0,
-      "ac": 4,
-      "armor": true,
+      "armour": 4,
       "stealth": true,
       "entries": [
         "This item is made of metal."
@@ -55,7 +52,7 @@
       "rarity": "none",
       "weight": 0,
       "value": 0,
-      "ac": 1,
+      "armour": 1,
       "entries": [
         "This item is made of metal."
       ]

@@ -24,6 +24,7 @@ globalThis.VeCt = {
 	HASH_SCALED: "scaled",
 	HASH_SCALED_SPELL_SUMMON: "scaledspellsummon",
 	HASH_SCALED_CLASS_SUMMON: "scaledclasssummon",
+	HASH_VERSION: "version",
 
 	FILTER_BOX_SUB_HASH_SEARCH_PREFIX: "fbsr",
 
@@ -3412,6 +3413,7 @@ UrlUtil.CAT_TO_HOVER_PAGE[Parser.CAT_ID_ITEM_MASTERY] = "itemMastery";
 UrlUtil.HASH_START_CREATURE_SCALED = `${VeCt.HASH_SCALED}${HASH_SUB_KV_SEP}`;
 UrlUtil.HASH_START_CREATURE_SCALED_SPELL_SUMMON = `${VeCt.HASH_SCALED_SPELL_SUMMON}${HASH_SUB_KV_SEP}`;
 UrlUtil.HASH_START_CREATURE_SCALED_CLASS_SUMMON = `${VeCt.HASH_SCALED_CLASS_SUMMON}${HASH_SUB_KV_SEP}`;
+UrlUtil.HASH_START_CREATURE_VERSION = `${VeCt.HASH_VERSION}${HASH_SUB_KV_SEP}`;
 
 UrlUtil.SUBLIST_PAGES = {
 	[UrlUtil.PG_BESTIARY]: true,
@@ -5968,6 +5970,26 @@ globalThis.DataUtil = {
 	optionalfeature: class extends _DataUtilPropConfigSingleSource {
 		static _PAGE = UrlUtil.PG_OPT_FEATURES;
 		static _FILENAME = "optionalfeatures.json";
+
+		static _pLoadedFeatureTypes = null;
+
+		/**
+		 * Load the optional-feature-type acronym expansions declared in each book's
+		 * `_meta.optionalFeatureTypes`, merging them into `Parser.OPT_FEATURE_TYPE_TO_FULL`. Memoised.
+		 */
+		static async pInitFeatureTypes () {
+			this._pLoadedFeatureTypes = this._pLoadedFeatureTypes || this._pLoadFeatureTypes();
+			return this._pLoadedFeatureTypes;
+		}
+
+		static async _pLoadFeatureTypes () {
+			const index = await DataUtil.loadJSON(`${Renderer.get().baseUrl}data/books.json`);
+			await Promise.all((index.book || []).map(async ({id}) => {
+				const book = await DataUtil.loadJSON(`${Renderer.get().baseUrl}data/book/book-${id.toLowerCase()}.json`);
+				const featureTypes = book?._meta?.optionalFeatureTypes;
+				if (featureTypes) Object.assign(Parser.OPT_FEATURE_TYPE_TO_FULL, featureTypes);
+			}));
+		}
 	},
 
 	optionalfeatureFluff: class extends _DataUtilPropConfigSingleSource {

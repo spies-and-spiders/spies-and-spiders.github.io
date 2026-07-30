@@ -489,16 +489,16 @@ Parser.LANGUAGES_ALL = [
 	...Parser.LANGUAGES_SECRET,
 ].sort();
 
-Parser.acToFull = function (ac, {renderer = null, isHideFrom = false, key = "ac"} = {}) {
-	if (typeof ac === "string") return ac; // handle classic format
+Parser.defenceToFull = function (defence, {renderer = null, isHideFrom = false, key = "arm"} = {}) {
+	if (typeof defence === "string") return defence; // handle classic format
 
 	renderer ||= Renderer.get();
 
 	let stack = "";
 	let inBraces = false;
-	for (let i = 0; i < ac.length; ++i) {
-		const cur = ac[i];
-		const nxt = ac[i + 1];
+	for (let i = 0; i < defence.length; ++i) {
+		const cur = defence[i];
+		const nxt = defence[i + 1];
 
 		if (cur.special != null) {
 			if (inBraces) inBraces = false;
@@ -1732,7 +1732,6 @@ Parser.SP_MISC_TAG_TO_FULL = {
 	"SCL": "Scaling Effects",
 	"SCT": "Scaling Targets",
 	"SMN": "Summons Creature",
-	"MAC": "Modifies AC",
 	"TP": "Teleportation",
 	"FMV": "Forced Movement",
 	"RO": "Rollable Effects",
@@ -2074,29 +2073,9 @@ Parser.featCategoryFromFull = (full) => {
 	return Parser._parse_bToA(Parser.FEAT_CATEGORY_TO_FULL, full.trim().toTitleCase()) || full;
 };
 
-// NOTE: These need to be reflected in omnidexer.js to be indexed
-Parser.OPT_FEATURE_TYPE_TO_FULL = {
-	"AI": "Artificer Infusion",
-	"ED": "Elemental Discipline",
-	"EI": "Eldritch Invocation",
-	"MM": "Metamagic",
-	"MV": "Maneuver",
-	"MV:B": "Maneuver, Battle Master",
-	"MV:C2-UA": "Maneuver, Cavalier V2 (UA)",
-	"AS:V1-UA": "Arcane Shot, V1 (UA)",
-	"AS:V2-UA": "Arcane Shot, V2 (UA)",
-	"AS": "Arcane Shot",
-	"OTH": "Other",
-	"FS:F": "Fighting Style; Fighter",
-	"FS:B": "Fighting Style; Bard",
-	"FS:P": "Fighting Style; Paladin",
-	"FS:R": "Fighting Style; Ranger",
-	"PB": "Pact Boon",
-	"OR": "Onomancy Resonant",
-	"RN": "Rune Knight Rune",
-	"AF": "Alchemical Formula",
-	"TT": "Traveler's Trick",
-};
+// Optional-feature-type acronym expansions are loaded at runtime from each book's
+//   `_meta.optionalFeatureTypes` (see `DataUtil.optionalfeature.pInitFeatureTypes`).
+Parser.OPT_FEATURE_TYPE_TO_FULL = {};
 
 Parser.optFeatureTypeToFull = function (type) {
 	if (Parser.OPT_FEATURE_TYPE_TO_FULL[type]) return Parser.OPT_FEATURE_TYPE_TO_FULL[type];

@@ -84,15 +84,6 @@ export class EncounterBuilderCreatureMeta {
 		return null;
 	}
 
-	getApproxAc () {
-		// Use the first AC listed, as this is usually the "primary"
-		if (this.creature.ac && this.creature.ac[0] != null) {
-			if (this.creature.ac[0].ac) return this.creature.ac[0].ac;
-			if (typeof this.creature.ac[0] === "number") return this.creature.ac[0];
-		}
-		return null;
-	}
-
 	/* -------------------------------------------- */
 
 	isSameCreature (other) {

@@ -1326,6 +1326,8 @@ class ListPage {
 				this.primaryLists.forEach(list => {
 					list.visibleItems.forEach(listItem => {
 						const {btnToggleExpand, dispExpandedOuter, dispExpandedInner} = this._getPreviewEles(listItem);
+						// Skip items already in the target state, as expanding twice appends a duplicate render
+						if (isExpand !== (btnToggleExpand.innerHTML === `[+]`)) return;
 						// Guard each item so one failing render (e.g. a malformed tag in its data) cannot
 						//   halt the loop and leave the remaining items un-toggled.
 						try {

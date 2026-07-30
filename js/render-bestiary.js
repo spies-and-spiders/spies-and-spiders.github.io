@@ -12,6 +12,7 @@ class _RenderBestiaryImplBase {
 	 * @param {jQuery} [opts.$btnResetScaleCr]
 	 * @param {HTMLElementModified} [opts.selSummonSpellLevel]
 	 * @param {HTMLElementModified} [opts.selSummonClassLevel]
+	 * @param {HTMLElementModified} [opts.selVersion]
 	 * @param {boolean} [opts.isSkipExcludesRender]
 	 * @param {boolean} [opts.isSkipTokenRender]
 	 *
@@ -39,6 +40,7 @@ class _RenderBestiaryImplBase {
 	 * @param {jQuery} [opts.$btnResetScaleCr]
 	 * @param {HTMLElementModified} [opts.selSummonSpellLevel]
 	 * @param {HTMLElementModified} [opts.selSummonClassLevel]
+	 * @param {HTMLElementModified} [opts.selVersion]
 	 * @param {boolean} [opts.isSkipExcludesRender]
 	 * @param {boolean} [opts.isSkipTokenRender]
 	 * @param {Renderer} renderer
@@ -526,6 +528,7 @@ class _RenderBestiaryImplClassic extends _RenderBestiaryImplBase {
 			${htmlPtPb}
 		</tr>
 
+		<tr>${opts.selVersion ? $$`<td colspan="6"><strong class="mr-2">Version</strong> ${opts.selVersion}</td>` : ""}</tr>
 		<tr>${opts.selSummonSpellLevel ? $$`<td colspan="6"><strong class="mr-2">Spell Level</strong> ${opts.selSummonSpellLevel}</td>` : ""}</tr>
 		<tr>${opts.selSummonClassLevel ? $$`<td colspan="6"><strong class="mr-2">Class Level</strong> ${opts.selSummonClassLevel}</td>` : ""}</tr>
 
@@ -706,6 +709,7 @@ class _RenderBestiaryImplOne extends _RenderBestiaryImplBase {
 			${this._$getTdChallenge(mon, opts)}
 		</tr>
 
+		<tr>${opts.selVersion ? $$`<td colspan="6"><strong class="mr-2">Version</strong> ${opts.selVersion}</td>` : ""}</tr>
 		<tr>${opts.selSummonSpellLevel ? $$`<td colspan="6"><strong class="mr-2">Spell Level</strong> ${opts.selSummonSpellLevel}</td>` : ""}</tr>
 		<tr>${opts.selSummonClassLevel ? $$`<td colspan="6"><strong class="mr-2">Class Level</strong> ${opts.selSummonClassLevel}</td>` : ""}</tr>
 
@@ -737,6 +741,7 @@ export class RenderBestiary {
 	 * @param [opts.$btnResetScaleCr] CR scaler reset button.
 	 * @param [opts.selSummonSpellLevel] Summon spell level selector.
 	 * @param [opts.selSummonClassLevel] Summon spell level selector.
+	 * @param [opts.selVersion] Creature version selector.
 	 * @param [opts.isSkipExcludesRender] If the "this entity is blocklisted" display should be skipped.
 	 * @param [opts.isSkipTokenRender]
 	 */

@@ -90,7 +90,7 @@ export class UtilsFoundryItem {
 		//  - Ability score modifying items (e.g. belt of giant strength)
 		//  - All other wondrous items, as there are few examples that couldn't in some way be seen as "equipment"
 		if (
-			item.bonusAc
+			item.bonusArmour
 			|| item.bonusSavingThrow
 			|| item.bonusAbilityCheck
 			|| item.bonusSpellAttack
