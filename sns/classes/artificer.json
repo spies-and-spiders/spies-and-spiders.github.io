@@ -642,7 +642,7 @@
                   "type": "item",
                   "name": "Spiked",
                   "entries": [
-                    "A creature that begins its turn grappling the wearer takes 1 thorns damage."
+                    "A creature that begins its turn grappling the wearer suffers 1 piercing harm."
                   ]
                 },
                 {
