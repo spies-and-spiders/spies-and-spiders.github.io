@@ -2842,7 +2842,7 @@
           "type": "entries",
           "name": "Target",
           "entries": [
-            "Up to three creatures"
+            "Up to three creatures (without requiring line of sight)"
           ]
         },
         "The blessing you bestow upon the targets makes them more durable and competent. Until the spell ends, a {@dice d4} is added to attack rolls and saves made by a target"
@@ -13512,7 +13512,7 @@
           "type": "entries",
           "name": "Target",
           "entries": [
-            "One creature that is neither a construct nor undead"
+            "One creature that can sense you and is neither a construct nor undead"
           ]
         },
         "Healing energy washes over the target and it regains hit points equal to {@dice 1d6} + your spellcasting modifier."
