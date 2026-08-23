@@ -187,7 +187,7 @@
           "classFeature": "First Subclass Tier 4|Ranger|sns|7|sns",
           "gainSubclassFeature": true
         },
-        "Flexible Exposure|Ranger|sns|7|sns",
+        "Knowledge is Power|Ranger|sns|7|sns",
         "Ability Score Improvement|Ranger|sns|8|sns",
         "Explorer's Instinct|Ranger|sns|8|sns",
         "Flash of Steel|Ranger|sns|9|sns",
@@ -253,64 +253,8 @@
       "classSource": "sns",
       "level": 1,
       "entries": [
-        "At 1st level, by analysing patterns and drawing from your extensive experience, you gain the ability to expose a creature's weaknesses to you and your allies. Choose one of the following options to determine how you do so.",
-        {
-          "type": "list",
-          "items": [
-            {
-              "type": "entries",
-              "name": "Analyse and Study",
-              "entries": [
-                "Whenever you roll for initiative, choose a creature within 60 feet of you and make one of the following ability checks based on its creature type. The DC is equal to 10 + the creature's CR. On a success, the creature is Exposed.",
-                {
-                  "type": "table",
-                  "colLabels": [
-                    "Check Skill",
-                    "Creature Types"
-                  ],
-                  "colStyles": [
-                    "col-6",
-                    "col-6"
-                  ],
-                  "rows": [
-                    [
-                      "History",
-                      "Celestials, Fiends, Undead"
-                    ],
-                    [
-                      "Magiscience",
-                      "Aberrations, Constructs, Elementals, Oozes"
-                    ],
-                    [
-                      "Medicine",
-                      "Giants, Humanoids"
-                    ],
-                    [
-                      "Nature",
-                      "Beasts, Dragons, Fey, Monstrosities, Plants"
-                    ]
-                  ]
-                },
-                "You can use a reaction at the end of each of your turns to repeat the above ability check against a creature within 60 feet of you."
-              ]
-            },
-            {
-              "type": "entries",
-              "name": "Observe Defences",
-              "entries": [
-                "Whenever you score a major hit against a creature, you can use your reaction to Expose that creature."
-              ]
-            },
-            {
-              "type": "entries",
-              "name": "Observe Offence",
-              "entries": [
-                "Whenever a creature hits you, you can use your reaction to Expose that creature."
-              ]
-            }
-          ]
-        },
-        "Whenever you Expose a creature, you reveal a random weakness it has based on its creature type by rolling a {@dice d8} on one of the following tables. This weakness remains until the creature dies. If you attempt to Expose a creature while a creature is already Exposed by you, the existing Exposed weakness disappears.",
+        "At 1st level, by analysing patterns and drawing from your extensive experience, you gain the ability to expose a creature's weaknesses to you and your allies. Whenever you roll for initiative, you may choose a creature type present amongst the hostile creatures you are aware of in that combat. All hostile creatures of that type are Exposed.",
+        "Whenever you Expose a creature type, you reveal a random weakness they have based on that creature type by rolling a {@dice d8} on one of the following tables. This weakness remains in effect until the end of combat. Additionally, you may use your action to reroll the specific weakness that is currently active, including changing the Exposed creature type if you wish.",
         {
           "type": "entries",
           "name": "Aberrations",
@@ -501,7 +445,7 @@
                 ],
                 [
                   "6",
-                  "{@optfeature Puppetable}"
+                  "{@optfeature Reconfigurable}"
                 ],
                 [
                   "7",
@@ -846,11 +790,11 @@
                 ],
                 [
                   "3",
-                  "{@optfeature Ravenous Hunger}"
+                  "{@optfeature Monophobia}"
                 ],
                 [
                   "4",
-                  "{@optfeature Sciophobia}"
+                  "{@optfeature Ravenous Hunger}"
                 ],
                 [
                   "5",
@@ -1087,7 +1031,7 @@
           "type": "entries",
           "name": "Accuracy Bonus",
           "entries": [
-            "When you make a weapon armour attack, you can use your reaction to gain an attack bonus or damage bonus as shown on the Accuracy Bonus table. Between long rests, you have a number of uses equal to your Wisdom modifier (minimum 1).",
+            "When you make a weapon armour attack against a creature that isn't Exposed by you, you can use your reaction to gain an attack bonus or damage bonus as shown on the Accuracy Bonus table. Between long rests, you have a number of uses equal to your Wisdom modifier (minimum 1).",
             {
               "type": "table",
               "caption": "Accuracy Bonus",
@@ -1120,7 +1064,7 @@
           "type": "entries",
           "name": "Accuracy Reserve",
           "entries": [
-            "If you have not moved since the start of your last turn, you gain a +1 bonus to weapon armour attack rolls during your turn."
+            "If you have not moved since the start of your last turn, you gain a +1 bonus to weapon armour attack rolls during your turn against targets that aren't Exposed by you."
           ]
         }
       ]
@@ -1132,7 +1076,7 @@
       "classSource": "sns",
       "level": 3,
       "entries": [
-        "From 3rd level, you become adept at identifying specific weaknesses in your enemies that you and your allies can exploit. Whenever you Expose a creature, you roll two {@dice d8}s instead of one and can choose one of the results rolled for the weakness that is revealed."
+        "From 3rd level, you become adept at identifying specific weaknesses in your enemies that you and your allies can exploit. Whenever you Expose a creature type, you roll two {@dice d8}s instead of one and can choose one of the results rolled for the weakness that is revealed."
       ]
     },
     {
@@ -1337,13 +1281,13 @@
       ]
     },
     {
-      "name": "Flexible Exposure",
+      "name": "Knowledge is Power",
       "source": "sns",
       "className": "Ranger",
       "classSource": "sns",
       "level": 7,
       "entries": [
-        "At 7th level, you can choose one additional exposure application option from your {@classFeature Expose Weakness|Ranger|sns|1} feature."
+        "At 7th level, you always benefit from knowing more about your enemies. The effects from your Trained Accuracy feature now work against creatures Exposed by you."
       ]
     },
     {
@@ -1855,7 +1799,7 @@
         "EW"
       ],
       "entries": [
-        "The next time the aberration suffers a major hit that deals non-physical base damage, it loses the ability to score major successes with its attacks for the remainder of combat; its major successes are instead counted as standard successes."
+        "The next time an Exposed aberration takes non-physical damage twice between its turns, all Exposed aberrations lose the ability to score major successes with their attacks for the remainder of combat; their major successes are instead counted as standard successes."
       ]
     },
     {
@@ -1865,7 +1809,8 @@
         "EW"
       ],
       "entries": [
-        "Whenever a creature within 60 feet of the aberration gains any of the {@condition charmed}, {@condition dominated}, {@condition fixated}, {@condition frightened}, {@condition rattled}, {@condition strife}, or {@condition taunted} conditions, the aberration must make a save. On a fail, it gains the same condition until it passes a passive save."
+        "Whenever a creature within 60 feet of an Exposed aberration gains any of the {@condition charmed}, {@condition dominated}, {@condition fixated}, {@condition frightened}, {@condition rattled}, {@condition strife}, or {@condition taunted} conditions, the aberration must make a save. On a fail, it gains the same condition until it passes a passive save.",
+        "Additionally, you or any of your allies in combat can use a bonus action to give themselves any of the above conditions for 1 round."
       ]
     },
     {
@@ -1875,7 +1820,7 @@
         "EW"
       ],
       "entries": [
-        "Whenever the aberration targets a creature wearing metal armour or wielding a shield with a damaging attack, the target can use its reaction to partially reflect the attack, reducing the attack's success tier by 1. If a melee or ranged attack is reflected, the aberration also suffers the effects that this tier reduction removed from the attack. For example, a major success being reduced to a success will reflect the major effect, but a standard success becoming a minor success will reflect half the attack's damage."
+        "Whenever an Exposed aberration targets a creature wearing metal armour or wielding a shield with a damaging attack, the attack is partially reflected attack, reducing its success tier by 1. If a melee or ranged attack is reflected, the aberration also suffers the effects that this tier reduction removed from the attack. For example, a major success being reduced to a success will reflect the major effect, but a standard success becoming a minor success will reflect half the attack's damage."
       ]
     },
     {
@@ -1885,7 +1830,8 @@
         "EW"
       ],
       "entries": [
-        "The next time the aberration is healed by you or an ally, it loses the ability to score major and critical successes with its attacks for the remainder of combat; such successes are instead counted as standard successes."
+        "The next time an Exposed aberration is healed by you or an ally, all Exposed aberrations lose the ability to score major and critical successes with their attacks for the remainder of combat; such successes are instead counted as standard successes.",
+        "Additionally, you and your allies can spend a bonus action while adjacent to an Exposed aberration to heal it for 30% of its maximum hit points."
       ]
     },
     {
@@ -1895,7 +1841,7 @@
         "EW"
       ],
       "entries": [
-        "While an illusion spell is active within the aberration's line of sight, the aberration is {@condition confused} and includes itself in options for the condition's free attack."
+        "While a visible, levelled spell with a non-instantaneous duration is active within an Exposed aberration's line of sight, the aberration is {@condition confused}."
       ]
     },
     {
@@ -1905,7 +1851,7 @@
         "EW"
       ],
       "entries": [
-        "Whenever the aberration suffers a major hit that deals physical base damage, the attacker can halve the attack's damage to reduce the aberration's armour by 1 for the remainder of combat."
+        "Whenever an Exposed aberration takes physical damage twice between its turns, the attacker can halve the attack's damage to reduce the armour of all Exposed aberrations by 1 for the remainder of combat."
       ]
     },
     {
@@ -1915,7 +1861,7 @@
         "EW"
       ],
       "entries": [
-        "While the aberration has any of the {@condition debilitated}, {@condition fatigue}, {@condition poisoned}, {@condition sluggish}, or {@condition staggered} conditions, it loses a number of hit points at the start of each of its turns equal to quadruple your proficiency bonus."
+        "While an Exposed aberration has any of the {@condition debilitated}, {@condition fatigue}, {@condition grappled}, {@condition poisoned}, {@condition sluggish}, or {@condition staggered} conditions, it loses a number of hit points at the start of each of its turns equal to quadruple your proficiency bonus."
       ]
     },
     {
@@ -1925,7 +1871,7 @@
         "EW"
       ],
       "entries": [
-        "Whenever the aberration changes from being within darkness to bright light, it uses its reaction to move up to its Speed away from the light source. Additionally, opportunity attacks have advantage against it when it is moving in this way."
+        "Whenever an Exposed aberration starts its turn in bright light, it uses a free action to move up to its Speed away from the light source."
       ]
     },
     {
@@ -1935,7 +1881,7 @@
         "EW"
       ],
       "entries": [
-        "The beast has 50% vulnerability to the damage of melee attacks from creatures flanking it."
+        "Exposed beasts have 50% vulnerability to the damage of melee attacks from creatures flanking them."
       ]
     },
     {
@@ -1945,7 +1891,7 @@
         "EW"
       ],
       "entries": [
-        "As a bonus action, a creature within 30 feet of the beast can make a {@skill Nature} check with DC equal to 10 + the beast's CR. On a success, the beast is {@condition dominated} for the remainder of combat."
+        "As a bonus action, a creature within 30 feet of an Exposed beast can make a {@skill Nature} check with DC equal to 10 + the beast's CR. On a success, the beast is {@condition dominated} for the remainder of combat."
       ]
     },
     {
@@ -1955,7 +1901,7 @@
         "EW"
       ],
       "entries": [
-        "The next time the beast suffers a major hit that deals non-physical base damage, it becomes {@condition slowed} for the remainder of combat."
+        "The next time an Exposed beast takes non-physical damage twice between its turns, all Exposed beasts become {@condition slowed} for the remainder of combat."
       ]
     },
     {
@@ -1965,7 +1911,7 @@
         "EW"
       ],
       "entries": [
-        "As a bonus action, a creature within 30 feet of the beast can make a {@skill Perception} check with DC equal to 10 + the beast's CR. On a success, the beast's attacks have disadvantage against that creature for the remainder of combat."
+        "As a bonus action, a creature within 30 feet of an Exposed beast can make a {@skill Perception} check with DC equal to 10 + the beast's CR. On a success, the attacks of all Exposed beasts have disadvantage against that creature for the remainder of combat."
       ]
     },
     {
@@ -1975,7 +1921,7 @@
         "EW"
       ],
       "entries": [
-        "The beast is always {@condition taunted} by your ally (including yourself) wearing the lightest body armour type. If multiple creatures meet this condition, the beast is taunted by all of them."
+        "An Exposed beast is always {@condition taunted} by your ally (including yourself) wearing the lightest body armour type. If multiple creatures meet this condition, the beast is {@condition taunted} by all of them."
       ]
     },
     {
@@ -1985,7 +1931,7 @@
         "EW"
       ],
       "entries": [
-        "Whenever the beast is knocked {@condition prone}, it cannot stand up until it uses an action to do so. Additionally, it does not impose disadvantage on non-adjacent armour attacks while {@condition prone}."
+        "Whenever an Exposed beast is knocked {@condition prone}, it cannot stand up until it uses an action to do so. Additionally, it does not impose disadvantage on non-adjacent armour attacks while {@condition prone}."
       ]
     },
     {
@@ -1995,7 +1941,7 @@
         "EW"
       ],
       "entries": [
-        "The beast is always {@condition taunted} by your ally (including yourself) holding the most gold. If multiple creatures meet this condition, the beast is taunted by all of them."
+        "An Exposed beast is always {@condition taunted} by your ally (including yourself) holding the most gold. If multiple creatures meet this condition, the beast is {@condition taunted} by all of them."
       ]
     },
     {
@@ -2005,7 +1951,7 @@
         "EW"
       ],
       "entries": [
-        "As a bonus action, a creature within 30 feet of the beast can make an {@skill Intimidation} check with DC equal to 10 + the beast's CR. On a success, the beast uses its reaction to move half its Speed directly away from that creature."
+        "As a bonus action, a creature within 30 feet of an Exposed beast can make an {@skill Intimidation} check with DC equal to 10 + the beast's CR. On a success, the beast uses its reaction to move half its Speed directly away from that creature."
       ]
     },
     {
@@ -2015,7 +1961,7 @@
         "EW"
       ],
       "entries": [
-        "The next time an ally of the celestial dies within 120 feet of it, the celestial gains 50% vulnerability to physical damage for the remainder of combat. If this effect is not active and the celestial has no allies within 120 feet of it, physical attacks against it instead deal additional base damage equal to the celestial's CR."
+        "The next time an Exposed celestial dies, Exposed celestials gain 50% vulnerability to physical damage for the remainder of combat. If there is only one Exposed celestial when this weakness is revealed, physical attacks against that celestial instead deal additional base damage equal to its CR."
       ]
     },
     {
@@ -2025,7 +1971,7 @@
         "EW"
       ],
       "entries": [
-        "The celestial is always {@condition taunted} by your ally (including yourself) that it believes to have committed the most evil deed within the last century. It does not learn what this deed is."
+        "An Exposed celestial is always {@condition taunted} by your ally (including yourself) that it believes to have committed the most evil deed within the last century. It does not learn what this deed is."
       ]
     },
     {
@@ -2035,7 +1981,7 @@
         "EW"
       ],
       "entries": [
-        "While the celestial is {@condition prone}, it has 50% vulnerability to physical damage and incoming attacks against it have +1 critical success range."
+        "While an Exposed celestial is {@condition prone}, it has 50% vulnerability to physical damage and incoming attacks against it have +1 critical success range."
       ]
     },
     {
@@ -2045,7 +1991,7 @@
         "EW"
       ],
       "entries": [
-        "The celestial is always {@condition taunted} by your ally (including yourself) that last dealt non-physical (except radiant) damage to it."
+        "An Exposed celestial is always {@condition taunted} by your ally (including yourself) that last dealt non-physical (except radiant) damage to it."
       ]
     },
     {
@@ -2055,7 +2001,7 @@
         "EW"
       ],
       "entries": [
-        "As a bonus action, a creature within 30 feet of the celestial can make a {@skill History} check with DC equal to 10 + the celestial's CR. On a success, the celestial becomes {@condition slowed} for the remainder of combat."
+        "As a bonus action, a creature within 30 feet of an Exposed celestial can make a {@skill History} check with DC equal to 10 + the celestial's CR. On a success, the celestial becomes {@condition slowed} for the remainder of combat."
       ]
     },
     {
@@ -2065,7 +2011,7 @@
         "EW"
       ],
       "entries": [
-        "A creature can target the celestial with the {@maneuver grab on} basic maneuver, regardless of size difference. Only one creature can grab onto the celestial in this way at a time, and while doing so, the celestial cannot make attacks against the grabber unless it rolls over to do so, has disadvantage on all attacks, and deals double damage to its grabber if it manages to dislodge them."
+        "A creature can target an Exposed celestial with the {@maneuver grab on} basic maneuver, regardless of size difference. Only one creature can grab onto a celestial in this way at a time, and while doing so, the celestial cannot make attacks against the grabber unless it rolls over to do so, has disadvantage on all attacks, and deals double damage to its grabber if it manages to dislodge them."
       ]
     },
     {
@@ -2075,7 +2021,7 @@
         "EW"
       ],
       "entries": [
-        "As a bonus action, a creature within 30 feet of the celestial can knowingly speak a lie, making a {@skill Deception} check with DC equal to 10 + the celestial's CR. On a failure, the celestial's armour is reduced by 3 for the remainder of combat. This effect does not stack."
+        "As a bonus action, a creature within 30 feet of an Exposed celestial can knowingly speak a lie, making a {@skill Deception} check with DC equal to 10 + the celestial's CR. On a failure, the celestial's armour is reduced by 3 for the remainder of combat. This effect does not stack."
       ]
     },
     {
@@ -2085,7 +2031,7 @@
         "EW"
       ],
       "entries": [
-        "Whenever the celestial takes non-physical damage, it emits a burst of power, granting you and allies within 10 feet of it a number of temporary hit points equal to its CR plus your proficiency bonus."
+        "Whenever an Exposed celestial takes non-physical damage, it emits a burst of power, granting you and allies within 10 feet of it a number of temporary hit points equal to its CR plus your proficiency bonus."
       ]
     },
     {
@@ -2095,7 +2041,7 @@
         "EW"
       ],
       "entries": [
-        "The construct has disadvantage on attack rolls against creatures that are proficient with all weapons the construct is wielding (if it is unarmed, it counts as wielding Brass Knuckles)."
+        "An Exposed construct has disadvantage on attack rolls against creatures that are proficient with all weapons the construct is wielding (if it is unarmed, it counts as wielding Brass Knuckles)."
       ]
     },
     {
@@ -2105,7 +2051,7 @@
         "EW"
       ],
       "entries": [
-        "As a bonus action, a creature adjacent to the construct can make a {@skill Magiscience} check with DC equal to 10 + the construct's CR. On a success, the construct gains 50% vulnerability to damage for the remainder of combat."
+        "As a bonus action, a creature adjacent to an Exposed construct can make a {@skill Magiscience} check with DC equal to 10 + the construct's CR. On a success, the construct gains 50% vulnerability to damage for the remainder of combat."
       ]
     },
     {
@@ -2115,17 +2061,17 @@
         "EW"
       ],
       "entries": [
-        "As a bonus action, a creature within 30 feet of the construct can make a {@skill Perception} check with DC equal to 10 + the construct's CR. On a success, that creature's attacks against the construct have +5 critical success range for the remainder of combat."
+        "As a bonus action, a creature within 30 feet of an Exposed construct can make a {@skill Perception} check with DC equal to 10 + the construct's CR. On a success, that creature's attacks against the construct have +5 critical success range for the remainder of combat."
       ]
     },
     {
-      "name": "Puppetable",
+      "name": "Reconfigurable",
       "source": "sns",
       "featureType": [
         "EW"
       ],
       "entries": [
-        "The next time the construct is directly affected by a transmutation spell, it becomes {@condition dominated} for the remainder of combat."
+        "Whenever an Exposed construct is directly affected by a single-target, levelled spell, it becomes {@condition charmed} for the remainder of combat."
       ]
     },
     {
@@ -2135,7 +2081,7 @@
         "EW"
       ],
       "entries": [
-        "The next time the construct suffers a major hit that deals non-physical base damage, it loses the ability to score major successes with its attacks for the remainder of combat; its major successes are instead counted as standard successes."
+        "The next time an Exposed construct takes non-physical damage twice between its turns, all Exposed constructs lose the ability to score major successes with their attacks for the remainder of combat; their major successes are instead counted as standard successes."
       ]
     },
     {
@@ -2145,7 +2091,7 @@
         "EW"
       ],
       "entries": [
-        "Creatures proficient in medium or heavy armour have advantage on attack rolls against the construct."
+        "Creatures proficient in medium armour, heavy armour, or shields have advantage on attack rolls against Exposed constructs."
       ]
     },
     {
@@ -2155,7 +2101,7 @@
         "EW"
       ],
       "entries": [
-        "The construct's intercept range increases to 30 feet, and whenever it has the opportunity to intercept an attack against one of its allies, it does so. Additionally, whenever the construct intercepts an attack, its armour is reduced by 1 for the remainder of combat. While the construct has no allies within 30 feet of it, armour attacks against it have +1 critical success range."
+        "An Exposed construct's intercept range increases to 30 feet, and whenever it has the opportunity to intercept an attack against one of its allies, it does so. Additionally, whenever an Exposed construct intercepts an attack, its armour is reduced by 1 for the remainder of combat. While only one construct is Exposed, armour attacks against it have +1 critical success range."
       ]
     },
     {
@@ -2165,7 +2111,7 @@
         "EW"
       ],
       "entries": [
-        "The next time a {@filter spell with the negation subschool|maneuvers|Tradition=negation} is cast on the construct, or its area includes the construct, the construct becomes {@condition restrained} by the caster and {@condition brittle} for the remainder of combat."
+        "Whenever an area attack from a levelled spell includes an Exposed construct as a target, that construct becomes {@condition brittle} for the remainder of combat."
       ]
     },
     {
@@ -2175,7 +2121,7 @@
         "EW"
       ],
       "entries": [
-        "While the dragon is {@condition charmed}, {@condition dominated}, {@condition fixated}, {@condition frightened}, or {@condition taunted}, it loses a number of hit points at the start of each of its turns equal to quadruple your proficiency bonus."
+        "While an Exposed dragon is {@condition charmed}, {@condition dominated}, {@condition fixated}, {@condition frightened}, {@condition prone}, or {@condition taunted}, it loses a number of hit points at the start of each of its turns equal to quadruple your proficiency bonus."
       ]
     },
     {
@@ -2185,7 +2131,7 @@
         "EW"
       ],
       "entries": [
-        "Whenever the dragon deals physical damage, it gains 50% vulnerability to the next instance of the same damage type from a weapon attack before its next turn. Whenever it deals non-physical damage, it gains similar vulnerability but for spell attacks instead."
+        "Whenever an Exposed dragon deals physical damage, it gains 50% vulnerability to the next instance of the same damage type from a weapon attack before its next turn. Whenever it deals non-physical damage, it gains similar vulnerability but for spell attacks instead."
       ]
     },
     {
@@ -2195,7 +2141,7 @@
         "EW"
       ],
       "entries": [
-        "The next time the dragon suffers a major hit that deals non-physical base damage of a type that the dragon cannot deal itself, it becomes {@condition restrained} by its attacker and {@condition slowed} for the remainder of combat."
+        "The next time an Exposed dragon takes non-physical damage of a type that it cannot deal itself twice between its turns, all Exposed dragons become {@condition restrained} by you and {@condition slowed} for the remainder of combat."
       ]
     },
     {
@@ -2205,7 +2151,7 @@
         "EW"
       ],
       "entries": [
-        "Whenever the dragon suffers a major hit that deals non-physical base damage of a type that the dragon cannot deal itself, it becomes {@condition frightened} of the attacker for the remainder of combat."
+        "The next time an Exposed dragon takes non-physical damage of a type that it cannot deal itself twice between its turns, all Exposed dragons become {@condition frightened} of you for the remainder of combat."
       ]
     },
     {
@@ -2215,7 +2161,7 @@
         "EW"
       ],
       "entries": [
-        "While the dragon is {@condition grappled}, it cannot score major successes with its attacks; its major successes are instead counted as standard successes."
+        "While any Exposed dragon is {@condition grappled}, all Exposed dragons lose the ability to score major successes with their attacks; their major successes are instead counted as standard successes."
       ]
     },
     {
@@ -2225,7 +2171,7 @@
         "EW"
       ],
       "entries": [
-        "Whenever the dragon suffers a major hit that deals physical base damage of a type that the dragon cannot deal itself, that hit's base damage is added again as true damage."
+        "Whenever an Exposed dragon takes physical damage of a type that it cannot deal itself, that attack's base damage is added again as true damage."
       ]
     },
     {
@@ -2235,7 +2181,7 @@
         "EW"
       ],
       "entries": [
-        "The next time the dragon suffers a major hit that deals non-physical base damage of a type that the dragon cannot deal itself, it loses the ability to score major and critical successes with its attacks for the remainder of combat; its major and critical successes are instead counted as standard successes."
+        "The next time an Exposed dragon takes non-physical damage of a type that it cannot deal itself twice between its turns, all Exposed dragons lose the ability to score major and critical successes with their attacks for the remainder of combat; such successes are instead counted as standard successes."
       ]
     },
     {
@@ -2245,7 +2191,7 @@
         "EW"
       ],
       "entries": [
-        "Creatures with height advantage against the dragon have advantage on their attack rolls against it."
+        "Creatures with height advantage against an Exposed dragon or that are riding it with the {@maneuver grab on} basic maneuver have advantage on their attack rolls against it."
       ]
     },
     {
@@ -2255,7 +2201,7 @@
         "EW"
       ],
       "entries": [
-        "When this weakness is first exposed, you identify a glyph located on a random space near the elemental. The glyph fits into the space as required by its non-creature contents, such as being on a wall's surface, the bottom of a table, or floating in space. This space is determined by rolling a {@dice d8} and a {@dice d12}. The {@dice d12} shows the number of 5-foot spaces away from the elemental the space is, in a cardinal direction defined by the {@dice d8} (1 is north, 2 is northeast, 3 is east, and so on in clockwise order). A creature can use a bonus action on the glyph's space to immediately cause the elemental to lose hit points equal to 6 times your proficiency bonus."
+        "When this weakness is first revealed, you identify a glyph located on a random space nearby. The glyph fits into the space as required by its non-creature contents, such as being on a wall's surface, the bottom of a table, or floating in space. This space is determined by rolling a {@dice d8} and a {@dice d12}. The {@dice d12} shows the number of 5-foot spaces away from you the space is, in a cardinal direction defined by the {@dice d8} (1 is north, 2 is northeast, 3 is east, and so on in clockwise order). A creature can use a bonus action on the glyph's space to immediately cause all Exposed elementals to lose hit points equal to 6 times your proficiency bonus."
       ]
     },
     {
@@ -2265,7 +2211,7 @@
         "EW"
       ],
       "entries": [
-        "The next time the elemental suffers a major hit that deals non-physical base damage of a type that the elemental cannot deal itself, it loses the ability to score major and critical successes with its attacks for the remainder of combat; its major and critical successes are instead counted as standard successes."
+        "The next time an Exposed elemental takes non-physical damage of a type that it cannot deal itself twice between its turns, all Exposed elementals lose the ability to score major and critical successes with their attacks for the remainder of combat; such successes are instead counted as standard successes."
       ]
     },
     {
@@ -2275,7 +2221,7 @@
         "EW"
       ],
       "entries": [
-        "While the elemental is {@condition grappled}, it is also {@condition restrained} and {@condition frightened} of its grappler."
+        "While an Exposed elemental is {@condition grappled}, it is also {@condition restrained} and {@condition frightened} of its grappler."
       ]
     },
     {
@@ -2285,7 +2231,7 @@
         "EW"
       ],
       "entries": [
-        "The next time the elemental suffers a major hit that deals non-physical base damage of a type that the elemental cannot deal itself, it becomes {@condition restrained} by the attacker and {@condition slowed} for the remainder of combat."
+        "The next time an Exposed elemental takes non-physical damage of a type that it cannot deal itself twice between its turns, all Exposed elementals become {@condition restrained} by you and {@condition slowed} for the remainder of combat."
       ]
     },
     {
@@ -2295,7 +2241,8 @@
         "EW"
       ],
       "entries": [
-        "The elemental's concentration is occupied by this weakness for the remainder of combat. Whenever its concentration would otherwise be broken, it loses hit points equal to quadruple your proficiency bonus."
+        "All Exposed elementals' concentrations are occupied by this weakness for the remainder of combat. Whenever an Exposed elemental's concentration would otherwise be broken, it loses hit points equal to quadruple your proficiency bonus.",
+        "Additionally, as a bonus action, a creature within 30 feet of an Exposed elemental can make a {@skill Magiscience} check with DC equal to 10 + the elemental's CR, breaking the elemental's concentration on a success."
       ]
     },
     {
@@ -2305,7 +2252,7 @@
         "EW"
       ],
       "entries": [
-        "The next time the elemental suffers a major hit that deals physical base damage of a type that the elemental cannot deal itself, it gains 50% vulnerability to physical damage for the remainder of combat."
+        "The next time an Exposed elemental takes physical damage of a type that it cannot deal itself twice between its turns, all Exposed elementals gain 50% vulnerability to physical damage for the remainder of combat."
       ]
     },
     {
@@ -2315,7 +2262,7 @@
         "EW"
       ],
       "entries": [
-        "Whenever the elemental suffers a major hit that deals physical base damage of a type that the elemental cannot deal itself, that hit's base damage is added again as true damage."
+        "Whenever an Exposed elemental takes physical damage of a type that it cannot deal itself twice between its turns, that attack's base damage is added again as true damage."
       ]
     },
     {
@@ -2325,7 +2272,8 @@
         "EW"
       ],
       "entries": [
-        "The elemental has disadvantage with attack rolls against creatures wearing medium or heavy armour."
+        "An Exposed elemental has disadvantage with attack rolls against creatures wearing metal armour or wielding a shield.",
+        "Additionally, whenever such a creature intercepts an Exposed elemental's attack, the attack retroactively gains disadvantage if it didn't already have advantage or disadvantage."
       ]
     },
     {
@@ -2335,7 +2283,7 @@
         "EW"
       ],
       "entries": [
-        "While an illusion spell is active within the fey's line of sight, the fey has disadvantage on attack rolls."
+        "While a visible, levelled spell with a non-instantaneous duration is active within an Exposed fey's line of sight, that fey is {@condition weakened}."
       ]
     },
     {
@@ -2345,7 +2293,7 @@
         "EW"
       ],
       "entries": [
-        "When this weakness is first exposed, a tiny plant resembling the fey sprouts in a random space near the fey. The plant fits into the space as required by its non-creature contents, such as growing out of a wall's surface, a table's top, or floating in space. This space is determined by rolling a {@dice d8} and a {@dice d12}. The {@dice d12} shows the number of 5-foot spaces away from the fey the space is, in a cardinal direction defined by the {@dice d8} (1 is north, 2 is northeast, 3 is east, and so on in clockwise order). A creature can use a bonus action on the plant's space to immediately cause the fey to lose hit points equal to 6 times your proficiency bonus."
+        "When this weakness is first exposed, a tiny plant resembling the fey sprouts in a random space nearby. The plant fits into the space as required by its non-creature contents, such as growing out of a wall's surface, a table's top, or floating in space. This space is determined by rolling a {@dice d8} and a {@dice d12}. The {@dice d12} shows the number of 5-foot spaces away from you the space is, in a cardinal direction defined by the {@dice d8} (1 is north, 2 is northeast, 3 is east, and so on in clockwise order). A creature can use a bonus action on the plant's space to immediately cause all Exposed fey to lose hit points equal to 6 times your proficiency bonus."
       ]
     },
     {
@@ -2355,7 +2303,7 @@
         "EW"
       ],
       "entries": [
-        "As a bonus action, a creature within 30 feet of the fey can make a {@skill Persuasion} check with DC equal to 10 + the fey's CR. On a success, the fey becomes {@condition poisoned} for the remainder of combat, and fortitude attacks against it have advantage for the same duration."
+        "As a bonus action, a creature within 30 feet of an Exposed fey can make a {@skill Persuasion} check with DC equal to 10 + the fey's CR. On a success, the fey becomes {@condition poisoned} for the remainder of combat, and fortitude attacks against it have advantage for the same duration."
       ]
     },
     {
@@ -2365,7 +2313,7 @@
         "EW"
       ],
       "entries": [
-        "While the fey is {@condition grappled}, it is also {@condition dazed}."
+        "While an Exposed fey is {@condition grappled}, it is also {@condition dazed}."
       ]
     },
     {
@@ -2375,7 +2323,7 @@
         "EW"
       ],
       "entries": [
-        "As a bonus action, a creature within 30 feet of the fey can start singing, making a Charisma check with DC equal to 6 + the fey's CR. On a success, the fey cannot stop itself from dancing for the remainder of combat. While it is dancing, all spell attacks against it have advantage."
+        "As a bonus action, a creature within 30 feet of an Exposed fey can start singing, making a Charisma check with DC equal to 6 + the fey's CR. On a success, the fey cannot stop itself from dancing for the remainder of combat. While it is dancing, all spell attacks against it have advantage."
       ]
     },
     {
@@ -2385,7 +2333,7 @@
         "EW"
       ],
       "entries": [
-        "Creatures wearing metal armour or wielding a shield are considered invisible to the fey."
+        "Creatures wearing metal armour or wielding a shield are considered invisible to an Exposed fey."
       ]
     },
     {
@@ -2395,7 +2343,7 @@
         "EW"
       ],
       "entries": [
-        "As a bonus action, a creature adjacent to the fey may gift it a gold piece, causing it to be {@condition dominated} for the remainder of combat."
+        "As a bonus action, a creature adjacent to an Exposed fey may gift it a gold piece, causing it to be {@condition dominated} for the remainder of combat."
       ]
     },
     {
@@ -2405,7 +2353,7 @@
         "EW"
       ],
       "entries": [
-        "While the fey is within 10 feet of a source of dim or brighter light, a creature also within that area can use its bonus action to force the fey to repeat its last movement exactly. If this movement would cause it to collide with a small or larger creature, object, or structure, it stops and takes damage as if it were being pushed."
+        "While an Exposed fey is within 10 feet of a source of dim or brighter light, a creature also within that area can use its bonus action to force the fey to repeat its last movement exactly. If this movement would cause it to collide with a small or larger creature, object, or structure, it stops and takes damage as if it were being pushed."
       ]
     },
     {
@@ -2415,7 +2363,7 @@
         "EW"
       ],
       "entries": [
-        "Whenever the fiend is directly affected by a {@filter spell with the air subschool|maneuvers|Tradition=air}, it loses hit points equal to quadruple your proficiency bonus."
+        "Whenever an area attack from a levelled spell includes an Exposed fiend as a target, that fiend loses hit points equal to triple your proficiency bonus."
       ]
     },
     {
@@ -2425,7 +2373,7 @@
         "EW"
       ],
       "entries": [
-        "The fiend has a -3 penalty to its attack rolls for the remainder of combat. Whenever a major success is scored against the fiend, it gains a +1 bonus to attack rolls for the remainder of combat."
+        "All Exposed fiends have a -3 penalty to their attack rolls for the remainder of combat. Whenever a major success is scored against an Exposed fiend, it gains a +1 bonus to attack rolls for the remainder of combat."
       ]
     },
     {
@@ -2435,7 +2383,7 @@
         "EW"
       ],
       "entries": [
-        "Whenever the fiend fails to hit a creature taking the Block action with any damaging attack, the attack targets itself instead, using the same final attack roll result but increasing the attack's success tier by 1."
+        "Whenever an Exposed fiend fiend fails to hit a creature taking the Block action with any damaging attack, the attack targets itself instead, using the same final attack roll result but increasing the attack's success tier by 1."
       ]
     },
     {
@@ -2445,7 +2393,7 @@
         "EW"
       ],
       "entries": [
-        "As a bonus action, a creature within 30 feet of the fiend can start singing, making a Charisma check with DC equal to 6 + the fiend's CR. On a success, the fiend has disadvantage on attack rolls against the singer and creatures adjacent to the singer for the remainder of combat."
+        "As a bonus action, a creature within 30 feet of an Exposed fiend can start singing, making a Charisma check with DC equal to 6 + the fiend's CR. On a success, the fiend has disadvantage on attack rolls against the singer and creatures adjacent to the singer for the remainder of combat."
       ]
     },
     {
@@ -2455,7 +2403,7 @@
         "EW"
       ],
       "entries": [
-        "The fiend cannot score major or critical successes with its attacks against creatures with their eyes closed; such attacks are instead counted as standard successes."
+        "An Exposed fiend cannot score major or critical successes with its attacks against creatures with their eyes closed; such attacks are instead counted as standard successes."
       ]
     },
     {
@@ -2465,7 +2413,7 @@
         "EW"
       ],
       "entries": [
-        "The fiend has disadvantage with attacks against creatures with a condition."
+        "An Exposed fiend is always {@condition taunted} by your allies (including yourself) without any conditions."
       ]
     },
     {
@@ -2475,7 +2423,7 @@
         "EW"
       ],
       "entries": [
-        "The next time the fiend suffers a major hit that deals non-physical base damage, it loses the ability to score major successes with its attacks for the remainder of combat; its major successes are instead counted as standard successes."
+        "The next time an Exposed fiend takes non-physical damage twice between its turns, all Exposed fiends lose the ability to score major successes with their attacks for the remainder of combat; their major successes are instead counted as standard successes."
       ]
     },
     {
@@ -2485,7 +2433,7 @@
         "EW"
       ],
       "entries": [
-        "As a bonus action, a creature can say a silent prayer, making a {@skill History} check with DC equal to 10 + the fiend's CR. On a success, that creature gains 50% resistance to the fiend's damage for the remainder of combat."
+        "As a bonus action, a creature can say a silent prayer, making a {@skill History} check with DC equal to 10 + an Exposed fiend's CR. On a success, that creature gains 50% resistance to the fiend's damage for the remainder of combat."
       ]
     },
     {
@@ -2495,7 +2443,7 @@
         "EW"
       ],
       "entries": [
-        "The giant has disadvantage on attack rolls while at least three hostile Medium or smaller creatures are adjacent to it."
+        "An Exposed giant is {@condition weakened} while at least three hostile Medium or smaller creatures are adjacent to it."
       ]
     },
     {
@@ -2505,7 +2453,7 @@
         "EW"
       ],
       "entries": [
-        "The giant has disadvantage on attack rolls against creatures with at least 3 will."
+        "An Exposed giant has disadvantage on attack rolls against creatures with at least 3 will or 3 reflex."
       ]
     },
     {
@@ -2515,7 +2463,7 @@
         "EW"
       ],
       "entries": [
-        "Whenever the giant suffers a major hit that deals non-physical base damage of a type that the giant cannot deal itself, it has disadvantage on attack rolls against the attacker for the remainder of combat."
+        "The next time an Exposed giant takes non-physical damage of a type that it cannot deal itself twice between its turns, all Exposed giants have disadvantage on attack rolls against you for the remainder of combat."
       ]
     },
     {
@@ -2525,7 +2473,7 @@
         "EW"
       ],
       "entries": [
-        "The giant is always {@condition taunted} by your ally (including yourself) with the highest Strength score."
+        "An Exposed giant is always {@condition taunted} by your ally (including yourself) with the highest Strength score."
       ]
     },
     {
@@ -2535,7 +2483,7 @@
         "EW"
       ],
       "entries": [
-        "The next time a {@filter spell with the prismatic subschool|maneuvers|Tradition=prismatic} produces an effect within 60 feet of the giant and within its line of sight, the giant becomes {@condition dominated} by the caster for the remainder of combat."
+        "The next time a source of bright light is created by you or an ally within 60 feet of an Exposed giant and within its line of sight, that giant becomes {@condition charmed} by the light's creator for the remainder of combat."
       ]
     },
     {
@@ -2545,7 +2493,8 @@
         "EW"
       ],
       "entries": [
-        "Whenever the giant starts its turn adjacent to a humanoid, it must make a save. On a fail, the giant's concentration is occupied by this weakness for the remainder of combat. Whenever its concentration would otherwise be broken during this effect, it loses hit points equal to 6 times your proficiency bonus."
+        "Whenever an Exposed giant starts its turn adjacent to a humanoid, it must make a save. On a fail, its concentration is occupied by this weakness for the remainder of combat. Whenever its concentration would otherwise be broken during this effect, it loses hit points equal to 6 times your proficiency bonus.",
+        "Additionally, as a bonus action, a creature within 30 feet of an Exposed giant can make a {@skill Intimidation} check with DC equal to 10 + the giant's CR, breaking the giant's concentration on a success."
       ]
     },
     {
@@ -2555,7 +2504,7 @@
         "EW"
       ],
       "entries": [
-        "While the giant is {@condition charmed}, {@condition dominated}, {@condition fixated}, {@condition frightened}, or {@condition taunted}, it is also {@condition weakened}."
+        "While an Exposed giant is {@condition charmed}, {@condition dominated}, {@condition fixated}, {@condition frightened}, {@condition prone}, or {@condition taunted}, it is also {@condition weakened}."
       ]
     },
     {
@@ -2565,7 +2514,7 @@
         "EW"
       ],
       "entries": [
-        "While the giant has any of the {@condition debilitated}, {@condition fatigue}, {@condition poisoned}, {@condition sluggish}, or {@condition staggered} conditions, it cannot score major successes with its attacks; such major successes are instead counted as standard successes."
+        "While any Exposed giant has any of the {@condition debilitated}, {@condition fatigue}, {@condition poisoned}, {@condition prone}, {@condition sluggish}, or {@condition staggered} conditions, all Exposed giants lose the ability to score major successes with their attacks; their major successes are instead counted as standard successes."
       ]
     },
     {
@@ -2575,7 +2524,7 @@
         "EW"
       ],
       "entries": [
-        "Whenever the humanoid targets a creature wearing metal armour or wielding a shield with a damaging attack, the target can use its reaction to partially reflect the attack, reducing the attack's success tier by 1. If a melee or ranged attack is reflected, the humanoid also suffers the effects that this tier reduction removed from the attack. For example, a major success being reduced to a success will reflect the major effect, but a standard success becoming a minor success will reflect half the attack's damage."
+        "Whenever an Exposed humanoid targets a creature wearing metal armour or wielding a shield with a damaging attack, the target can use its reaction to partially reflect the attack, reducing the attack's success tier by 1. If a melee or ranged attack is reflected, the humanoid also suffers the effects that this tier reduction removed from the attack. For example, a major success being reduced to a success will reflect the major effect, but a standard success becoming a minor success will reflect half the attack's damage."
       ]
     },
     {
@@ -2585,7 +2534,7 @@
         "EW"
       ],
       "entries": [
-        "Attack rolls have advantage against the humanoid while it is standing in difficult terrain."
+        "An Exposed humanoid is {@condition brittle} while it has any of the {@condition fatigue}, {@condition grappled}, {@condition prone}, {@condition restrained}, or {@condition sluggish} conditions."
       ]
     },
     {
@@ -2595,7 +2544,7 @@
         "EW"
       ],
       "entries": [
-        "The next time the humanoid suffers a major hit that deals non-physical base damage, it loses the ability to score major successes with its attacks for the remainder of combat; its major successes are instead counted as standard successes."
+        "The next time an Exposed humanoid takes non-physical damage twice between its turns, all Exposed humanoids lose the ability to score major successes with their attacks for the remainder of combat; their major successes are instead counted as standard successes."
       ]
     },
     {
@@ -2605,7 +2554,7 @@
         "EW"
       ],
       "entries": [
-        "The humanoid is always {@condition taunted} by the creature that last attacked it."
+        "An Exposed humanoid is always {@condition taunted} by the creature that last attacked it."
       ]
     },
     {
@@ -2615,7 +2564,7 @@
         "EW"
       ],
       "entries": [
-        "The next time the humanoid suffers a major hit that deals non-physical base damage, it becomes {@condition restrained} by the attacker for the remainder of combat."
+        "The next time an Exposed humanoid takes non-physical damage twice between its turns, all Exposed humanoids become {@condition restrained} by you for the remainder of combat."
       ]
     },
     {
@@ -2625,7 +2574,7 @@
         "EW"
       ],
       "entries": [
-        "While the humanoid has any of the {@condition charmed}, {@condition dominated}, {@condition fixated}, {@condition frightened}, {@condition rattled}, {@condition strife}, or {@condition taunted} conditions, it gains 50% vulnerability to non-physical damage."
+        "While an Exposed humanoid has any of the {@condition charmed}, {@condition dominated}, {@condition fixated}, {@condition frightened}, {@condition prone}, {@condition rattled}, {@condition strife}, or {@condition taunted} conditions, it gains 50% vulnerability to non-physical damage."
       ]
     },
     {
@@ -2635,7 +2584,7 @@
         "EW"
       ],
       "entries": [
-        "While the humanoid is adjacent to at least two hostile creatures, it loses the ability to score major successes with its attacks; such major successes are instead counted as standard successes."
+        "While any Exposed humanoid is adjacent to at least two creatures hostile to it, all Exposed humanoids lose the ability to score major successes with their attacks; their major successes are instead counted as standard successes."
       ]
     },
     {
@@ -2645,7 +2594,7 @@
         "EW"
       ],
       "entries": [
-        "Whenever the humanoid makes an attack roll with disadvantage, the next attack roll against it has advantage."
+        "Whenever an Exposed humanoid makes an attack roll with disadvantage, the next attack roll against it has advantage."
       ]
     },
     {
@@ -2655,7 +2604,7 @@
         "EW"
       ],
       "entries": [
-        "Whenever a creature makes a damaging melee attack against the monstrosity, the attacker can impose disadvantage on its attack roll. If the attack still hits, the monstrosity loses the ability to score major and critical successes with its attacks for the remainder of combat; its major and critical successes are instead counted as standard successes."
+        "Whenever a creature makes a damaging melee attack against an Exposed monstrosity, the attacker can impose disadvantage on its attack roll. If the attack still hits, all Exposed monstrosities lose the ability to score major and critical successes with their attacks for the remainder of combat; such successes are instead counted as standard successes."
       ]
     },
     {
@@ -2665,7 +2614,7 @@
         "EW"
       ],
       "entries": [
-        "The next time the monstrosity suffers a major hit that deals non-physical base damage, it becomes {@condition restrained} by the attacker for the remainder of combat."
+        "The next time an Exposed monstrosity takes non-physical damage twice between its turns, all Exposed monstrosities become {@condition restrained} by you for the remainder of combat."
       ]
     },
     {
@@ -2675,7 +2624,7 @@
         "EW"
       ],
       "entries": [
-        "While the monstrosity is {@condition charmed}, it is also {@condition dominated} by the charmer. Additionally, whenever the monstrosity is forced by another creature to make an attack as a free action, that attack roll has advantage."
+        "While an Exposed monstrosity is {@condition charmed} or {@condition prone}, it is also {@condition dominated} by the charmer or grappler respectively. Additionally, whenever that monstrosity is forced by another creature to make an attack as a free action, that attack roll has advantage."
       ]
     },
     {
@@ -2685,7 +2634,7 @@
         "EW"
       ],
       "entries": [
-        "While adjacent to a corpse or {@condition prone} creature and within 30 feet of the monstrosity, a creature can use its bonus action to make a {@skill Persuasion} check with DC equal to 10 + the monstrosity's CR. On a success, the monstrosity is {@condition taunted} by the corpse or {@condition prone} creature until the monstrosity is hurt or the {@condition prone} creature stands up."
+        "While adjacent to a corpse or {@condition prone} creature and within 30 feet of an Exposed monstrosity, a creature can use its bonus action to make a {@skill Persuasion} check with DC equal to 10 + the monstrosity's CR. On a success, the monstrosity is {@condition taunted} by the corpse or {@condition prone} creature until the monstrosity is hurt or the {@condition prone} creature stands up."
       ]
     },
     {
@@ -2695,7 +2644,7 @@
         "EW"
       ],
       "entries": [
-        "The monstrosity gains 50% vulnerability to ranged weapon damage for the remainder of combat."
+        "All Exposed monstrosities gain 50% vulnerability to your choice of either melee or ranged weapon damage for the remainder of combat, which you choose when this weakness is first revealed."
       ]
     },
     {
@@ -2705,17 +2654,17 @@
         "EW"
       ],
       "entries": [
-        "Whenever the monstrosity fails to hit a creature taking the Block action with any damaging attack, the target can use its reaction to make an attack against the monstrosity that only targets the monstrosity (range restrictions still apply). The monstrosity has 50% vulnerability to such an attack."
+        "Whenever an Exposed monstrosity fails to hit a creature taking the Block action with any damaging attack, the target can use its reaction to make an attack against the monstrosity that only targets the monstrosity (range restrictions still apply). The monstrosity has 50% vulnerability to such an attack."
       ]
     },
     {
-      "name": "Sciophobia",
+      "name": "Monophobia",
       "source": "sns",
       "featureType": [
         "EW"
       ],
       "entries": [
-        "Whenever the monstrosity changes from being within bright light to darkness, it becomes {@condition frightened} of you and {@condition brittle} until it re-enters bright light."
+        "An Exposed monstrosity is {@condition brittle} while it doesn't have line of sight to any of its allies."
       ]
     },
     {
@@ -2725,7 +2674,7 @@
         "EW"
       ],
       "entries": [
-        "The next time the monstrosity suffers a major hit that deals physical base damage, it loses the ability to score major successes with its attacks for the remainder of combat; its major successes are instead counted as standard successes."
+        "The next time an Exposed monstrosity takes physical damage twice between its turns, all Exposed monstrosities lose the ability to score major successes with their attacks for the remainder of combat; their major successes are instead counted as standard successes."
       ]
     },
     {
@@ -2735,7 +2684,7 @@
         "EW"
       ],
       "entries": [
-        "Whenever a {@filter spell with the water subschool|maneuvers|Tradition=water} is cast on the ooze, or its area includes the ooze, the ooze loses hit points equal to 8 times your proficiency bonus."
+        "Whenever an area attack from a levelled spell includes an Exposed ooze as a target, that ooze loses hit points equal to triple your proficiency bonus."
       ]
     },
     {
@@ -2745,7 +2694,7 @@
         "EW"
       ],
       "entries": [
-        "Whenever the ooze suffers a major hit that deals non-physical base damage, it has disadvantage on attack rolls against the attacker for the remainder of combat."
+        "The next time an Exposed ooze takes non-physical damage twice between its turns, all Exposed oozes have disadvantage on attack rolls against you for the remainder of combat."
       ]
     },
     {
@@ -2755,7 +2704,7 @@
         "EW"
       ],
       "entries": [
-        "The next time a {@filter spell with the earth subschool|maneuvers|Tradition=earth} is cast on the ooze, or its area includes the ooze, the ooze loses the ability to score major successes with its attacks for the remainder of combat; its major successes are instead counted as standard successes."
+        "Whenever an area attack from a levelled spell includes an Exposed ooze as a target, all Exposed oozes lose the ability to score major successes with their attacks for the remainder of combat; their major successes are instead counted as standard successes."
       ]
     },
     {
@@ -2765,7 +2714,7 @@
         "EW"
       ],
       "entries": [
-        "The next time the ooze suffers a major hit that deals non-physical base damage, if there is another ooze within 60 feet of it, it immediately is absorbed into the closest one, increasing the other ooze's size by one step, adding its current hit points to the other ooze's total, and being effectively destroyed. If there is not another ooze within 60 feet, the ooze instead becomes {@condition weakened} for the remainder of combat."
+        "The next time an Exposed ooze takes non-physical damage twice between its turns, if there is another ooze within 60 feet of it, it is immediately absorbed into the closest one, increasing the other ooze's size by one step, adding its current hit points to the other ooze's total, and being effectively destroyed. If there is not another ooze within 60 feet, the ooze instead becomes {@condition weakened} for the remainder of combat."
       ]
     },
     {
@@ -2775,7 +2724,7 @@
         "EW"
       ],
       "entries": [
-        "The next time the ooze suffers a major hit that deals non-physical base damage, it becomes {@condition slowed} for the remainder of combat."
+        "The next time an Exposed ooze takes non-physical damage twice between its turns, all Exposed oozes become {@condition slowed} for the remainder of combat."
       ]
     },
     {
@@ -2785,7 +2734,7 @@
         "EW"
       ],
       "entries": [
-        "The next time the ooze suffers a major hit that deals non-physical base damage, it gains 50% vulnerability to non-physical damage for the remainder of combat."
+        "The next time an Exposed ooze takes non-physical damage twice between its turns, all Exposed oozes gain 50% vulnerability to non-physical damage for the remainder of combat."
       ]
     },
     {
@@ -2795,7 +2744,7 @@
         "EW"
       ],
       "entries": [
-        "Whenever the ooze is pushed or knocked {@condition prone}, it loses hit points equal to quadruple your proficiency bonus."
+        "Whenever an Exposed ooze is pushed or knocked {@condition prone}, it loses hit points equal to quadruple your proficiency bonus."
       ]
     },
     {
@@ -2805,7 +2754,7 @@
         "EW"
       ],
       "entries": [
-        "Whenever the ooze changes from being within darkness to bright light, it becomes {@condition debilitated} until it returns to darkness."
+        "Whenever an Exposed ooze starts its turn in bright light, it becomes {@condition weakened} until it is no longer in bright light."
       ]
     },
     {
@@ -2815,7 +2764,7 @@
         "EW"
       ],
       "entries": [
-        "The plant gains 50% vulnerability to the damage of minions and {@filter spells with the beasts subschool|maneuvers|Tradition=beasts} for the remainder of combat."
+        "All Exposed plants gain 50% vulnerability to the damage of minions and your allies (including yourself) with the lowest hit point maximum for the remainder of combat."
       ]
     },
     {
@@ -2825,7 +2774,7 @@
         "EW"
       ],
       "entries": [
-        "As a bonus action, a creature within 30 feet of the plant can make a {@skill Nature} check with DC equal to 10 + the plant's CR. On a success, the plant gains 50% vulnerability to non-physical damage for the remainder of combat."
+        "As a bonus action, a creature within 30 feet of an Exposed plant can make a {@skill Nature} check with DC equal to 10 + the plant's CR. On a success, the plant gains 50% vulnerability to non-physical damage for the remainder of combat."
       ]
     },
     {
@@ -2835,7 +2784,7 @@
         "EW"
       ],
       "entries": [
-        "When this weakness is first exposed, a root emerges in a random space near the plant. The root fits into the space as required by its non-creature contents, such as growing out of a wall's surface, a table's top, or folds in empty space. This space is determined by rolling a {@dice d8} and a {@dice d12}. The {@dice d12} shows the number of 5-foot spaces away from the plant the space is, in a cardinal direction defined by the {@dice d8} (1 is north, 2 is northeast, 3 is east, and so on in clockwise order). A creature can use a bonus action on the root's space to remove the plant's ability to score major successes with its attacks for 1 round; such major successes are instead counted as standard successes."
+        "When this weakness is first exposed, a root emerges in a random space nearby. The root fits into the space as required by its non-creature contents, such as growing out of a wall's surface, a table's top, or folds in empty space. This space is determined by rolling a {@dice d8} and a {@dice d12}. The {@dice d12} shows the number of 5-foot spaces away from you the space is, in a cardinal direction defined by the {@dice d8} (1 is north, 2 is northeast, 3 is east, and so on in clockwise order). A creature can use a bonus action on the root's space to remove the ability to score major and critical successes with attacks from all Exposed plants for 1 round; such successes are instead counted as standard successes."
       ]
     },
     {
@@ -2845,7 +2794,7 @@
         "EW"
       ],
       "entries": [
-        "The plant has disadvantage with attack rolls against Small or smaller and {@condition prone} creatures."
+        "[LEGACY] The plant has disadvantage with attack rolls against Small or smaller and {@condition prone} creatures."
       ]
     },
     {
@@ -2855,7 +2804,7 @@
         "EW"
       ],
       "entries": [
-        "The next time an ally of the plant dies within 120 feet of it, the plant becomes {@condition frightened} of the creature responsible for the ally's death for the remainder of combat. If this effect is not active and the plant has no allies within 120 feet of it, it is instead {@condition rattled} and {@condition sluggish}."
+        "[LEGACY] The next time an ally of the plant dies within 120 feet of it, the plant becomes {@condition frightened} of the creature responsible for the ally's death for the remainder of combat. If this effect is not active and the plant has no allies within 120 feet of it, it is instead {@condition rattled} and {@condition sluggish}."
       ]
     },
     {
@@ -2865,7 +2814,7 @@
         "EW"
       ],
       "entries": [
-        "The plant gains 50% vulnerability to the damage of armour attacks from adjacent creatures."
+        "[LEGACY] The plant gains 50% vulnerability to the damage of armour attacks from adjacent creatures."
       ]
     },
     {
@@ -2875,7 +2824,7 @@
         "EW"
       ],
       "entries": [
-        "Fortitude and reflex attack rolls have advantage against the plant."
+        "[LEGACY] Fortitude and reflex attack rolls have advantage against the plant."
       ]
     },
     {
@@ -2885,7 +2834,7 @@
         "EW"
       ],
       "entries": [
-        "The next time the plant is healed by you or an ally, it becomes {@condition dominated} by the healer for the remainder of combat."
+        "[LEGACY] The next time the plant is healed by you or an ally, it becomes {@condition dominated} by the healer for the remainder of combat."
       ]
     },
     {
@@ -2895,7 +2844,7 @@
         "EW"
       ],
       "entries": [
-        "The undead gains 50% vulnerability to critical damage."
+        "[LEGACY] The undead gains 50% vulnerability to critical damage."
       ]
     },
     {
@@ -2905,7 +2854,7 @@
         "EW"
       ],
       "entries": [
-        "A creature within 60 feet of the undead can use a bonus action to attempt to convince the undead that its pain and trauma is understood, making a contested {@skill Deception} check against the undead's {@skill Insight}. If the undead loses this contest, it loses the ability to score major successes with its attacks for the remainder of combat; its major successes are instead counted as standard successes."
+        "[LEGACY] A creature within 60 feet of the undead can use a bonus action to attempt to convince the undead that its pain and trauma is understood, making a contested {@skill Deception} check against the undead's {@skill Insight}. If the undead loses this contest, it loses the ability to score major successes with its attacks for the remainder of combat; its major successes are instead counted as standard successes."
       ]
     },
     {
@@ -2915,7 +2864,7 @@
         "EW"
       ],
       "entries": [
-        "Whenever a creature makes a damaging armour attack against the monstrosity, the attacker can impose disadvantage on its attack roll. If they do so, the attack's final base damage is added again as true damage."
+        "[LEGACY] Whenever a creature makes a damaging armour attack against the monstrosity, the attacker can impose disadvantage on its attack roll. If they do so, the attack's final base damage is added again as true damage."
       ]
     },
     {
@@ -2925,7 +2874,7 @@
         "EW"
       ],
       "entries": [
-        "The undead is always {@condition taunted} by your ally (including yourself) with the most current hit points."
+        "[LEGACY] The undead is always {@condition taunted} by your ally (including yourself) with the most current hit points."
       ]
     },
     {
@@ -2935,7 +2884,7 @@
         "EW"
       ],
       "entries": [
-        "When the undead dies, it awards one additional loot."
+        "[LEGACY] When the undead dies, it awards one additional loot."
       ]
     },
     {
@@ -2945,7 +2894,7 @@
         "EW"
       ],
       "entries": [
-        "Whenever the undead suffers a major hit that deals non-physical base damage, the attacker rolls on the {@table Wild Magic Surge} table."
+        "[LEGACY] Whenever the undead suffers a major hit that deals non-physical base damage, the attacker rolls on the {@table Wild Magic Surge} table."
       ]
     },
     {
@@ -2955,7 +2904,7 @@
         "EW"
       ],
       "entries": [
-        "As a bonus action, a creature within 60 feet of the undead can say a silent prayer, making a {@skill History} check with DC equal to 10 + the undead's CR. On a success, spell attack rolls have advantage against the undead for the remainder of combat."
+        "[LEGACY] As a bonus action, a creature within 60 feet of the undead can say a silent prayer, making a {@skill History} check with DC equal to 10 + the undead's CR. On a success, spell attack rolls have advantage against the undead for the remainder of combat."
       ]
     },
     {
@@ -2965,7 +2914,7 @@
         "EW"
       ],
       "entries": [
-        "Damage against the undead is tripled from improvised weapons that were within 60 feet of the undead when this combat started."
+        "[LEGACY] Damage against the undead is tripled from improvised weapons that were within 60 feet of the undead when this combat started."
       ]
     }
   ]
