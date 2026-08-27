@@ -379,6 +379,13 @@
           "entries": [
             "The minion doesn't require air, sustenance, or sleep."
           ]
+        },
+        {
+          "type": "entries",
+          "name": "Inherited Lethality",
+          "entries": [
+            "The minion's critical damage bonus is calculated using your level and proficiency bonus instead of its own."
+          ]
         }
       ],
       "conditionImmune": [
