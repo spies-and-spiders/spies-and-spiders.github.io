@@ -125,17 +125,7 @@
       "entries": [
         "Also at tier 1 you learn the secrets of giving life to dead flesh and become able to create a monstrous minion.",
         "You can create this monstrous minion by spending a long rest working on a humanoid corpse that has been dead no more than 24 hours, or the corpse of a previously-killed monstrous minion. This monstrous minion is unique and its exact appearance is up to you. It is a minion and requires your concentration to maintain, but you cannot lose this concentration against your will. Your monstrous minion makes death saves and tracks wounds upon reaching 0 hit points.",
-        "Your monstrous minion is a {@creature zombie} with the following improvements.",
-        {
-          "type": "list",
-          "items": [
-            "Your monstrous minion's type changes to construct.",
-            "Whenever your monstrous minion rolls initiative, it gains a number of temporary hit points equal to your artificer level squared.",
-            "Your monstrous minion's armour increases by an amount equal to half your proficiency bonus.",
-            "Your monstrous minion adds your proficiency bonus to its damage rolls.",
-            "Your monstrous minion regains all lost hit points at the end of a long rest so long as you tend to it with your tools of artifice."
-          ]
-        },
+        "Your monstrous minion uses the {@creature monstrous minion} stat block and regains all lost hit points at the end of a long rest so long as you tend to it with your tools of artifice.",
         "Whenever you finish a long rest, you can graft modifications onto your monstrous minion at the cost of infusion uses. These modifications only remain functional due to your infusions, and you can maintain these modifications as if they were infused items. Any modifications you fail to maintain are removed whenever you finish a long rest. You can install any of the following modifications at the cost of 1 infusion each.",
         {
           "type": "entries",
@@ -176,7 +166,7 @@
           "type": "entries",
           "name": "Grafted Weapon",
           "entries": [
-            "When you prepare your spell inventions and modifications to your monstrous minion, you may choose to graft a melee weapon onto one of its arms in place of a hand. The melee weapon must be able to be wielded with one hand. Your monstrous minion gains an attack with the grafted weapon, which it becomes proficient with. You may retrieve weapons grafted in this way the next time you prepare modifications for this monstrous minion by removing it, or from its remains if it is destroyed."
+            "When you prepare your spell inventions and modifications to your monstrous minion, you may choose to graft a melee weapon onto one of its arms in place of a hand. The melee weapon must be able to be wielded with one hand. Your monstrous minion gains an attack with the grafted weapon, which it becomes proficient with. Additionally, this attack's damage is increased by an amount equal to your level. You may retrieve weapons grafted in this way the next time you prepare modifications for this monstrous minion by removing it, or from its remains if it is destroyed."
           ]
         },
         {
@@ -190,7 +180,7 @@
           "type": "entries",
           "name": "Shocking Coils",
           "entries": [
-            "Your monstrous minion has spearking coils protruding from its back. A creature suffers {@dice 1d6} lightning harm when it hits your monstrous minion with a melee weapon attack. This damage increases to {@dice 2d6} when you reach 11th level."
+            "Your monstrous minion has spearking coils protruding from its back. A creature suffers {@dice 1d6} lightning harm from your monstrous minion when it hits your monstrous minion with a melee weapon attack. This damage increases to {@dice 2d6} when you reach 11th level."
           ]
         },
         {
@@ -224,7 +214,7 @@
           "type": "list",
           "items": [
             "If the triggering attack dealt damage, your monstrous minion's next attack before your next turn deals additional damage of your attack's base type equal to your level. Otherwise, your monstrous minion gains +1 to all defences for 1 round.",
-            "Instead of you gaining this major effect option, your Monstrous Minion does instead: Your temporary hit points increase by an amount equal to double your master's level."
+            "Instead of you gaining this major effect option, your Monstrous Minion does instead: You heal a number of hit points equal to your master's level."
           ]
         }
       ]
@@ -326,6 +316,90 @@
       "header": 2,
       "entries": [
         "At tier 5 you've harnessed death - mostly. You gain the {@spell Inescapable Malady} spell and when you prepare your artificer spells you can prepare it and create a spell invention for it (or forgo it for a modification) in addition to your normal number of prepared spells. This spell counts as a 5th-level artificer spell for you (including for extending its effects) and you can cast it without the usual material components, but a creature you target with it cannot be targeted by this feature again."
+      ]
+    }
+  ],
+  "monster": [
+    {
+      "int": 3,
+      "passive": 8,
+      "immune": [
+        "poison"
+      ],
+      "str": 12,
+      "senses": [
+        "darkvision 60 ft."
+      ],
+      "name": "Monstrous Minion",
+      "arm": [
+        {
+          "special": "half your proficiency bonus - 1"
+        }
+      ],
+      "action": [
+        {
+          "name": "Grab",
+          "entries": [
+            "{@atk mw} reach 5 ft., one target. {@damage 1d6 + 1} + your proficiency bonus bludgeoning damage. If the target is a Medium or smaller creature, it is {@condition grappled}. Until the grapple ends, the minion can't grab another target."
+          ]
+        },
+        {
+          "name": "Bite",
+          "entries": [
+            "{@atk mw} reach 5 ft., one {@condition grappled} target. {@damage 1d10 + 1} + your proficiency bonus piercing damage, and the minion regains the same number of hit points."
+          ]
+        }
+      ],
+      "hp": {
+        "special": "16 + your level squared"
+      },
+      "dex": 6,
+      "cha": 4,
+      "source": "sns",
+      "type": "construct",
+      "wis": 6,
+      "ref": [
+        {
+          "ref": -2
+        }
+      ],
+      "majorEffect": [
+        "The minion may immediately shift 5 feet."
+      ],
+      "trait": [
+        {
+          "name": "Constructed Fortitude (1/Day)",
+          "entries": [
+            "If the minion is reduced to 0 hit points by damage that isn't radiant or from a critical hit, it's instead reduced to 1 hit point, falls {@condition prone}, and is {@condition incapacitated} until the end of its next turn, appearing to be dead."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Constructed Nature",
+          "entries": [
+            "The minion doesn't require air, sustenance, or sleep."
+          ]
+        }
+      ],
+      "conditionImmune": [
+        "fatigue",
+        "poisoned"
+      ],
+      "size": [
+        "M"
+      ],
+      "speed": {
+        "walk": 20
+      },
+      "fort": [
+        {
+          "fort": 3
+        }
+      ],
+      "wil": [
+        {
+          "wil": -2
+        }
       ]
     }
   ]
