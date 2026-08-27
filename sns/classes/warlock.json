@@ -147,8 +147,8 @@
       "classTableGroups": [
         {
           "colLabels": [
-            "{@filter Cantrips Known|spells|level=0|class=Warlock (sns)}",
-            "{@filter Spells Known|spells|class=Warlock (sns)}",
+            "{@filter Cantrips Known|spells|level=0|class=Warlock}",
+            "{@filter Spells Known|spells|class=Warlock}",
             "Spell Points",
             "Spell Level",
             "{@filter Secrets Known|optionalfeatures|feature type=sa}",
@@ -159,7 +159,7 @@
               2,
               2,
               2,
-              "{@filter 1st|spells|level=1|class=Warlock (sns)}",
+              "{@filter 1st|spells|level=1|class=Warlock}",
               0,
               0
             ],
@@ -167,7 +167,7 @@
               2,
               2,
               4,
-              "{@filter 1st|spells|level=1|class=Warlock (sns)}",
+              "{@filter 1st|spells|level=1|class=Warlock}",
               1,
               1
             ],
@@ -175,7 +175,7 @@
               2,
               4,
               6,
-              "{@filter 2nd|spells|level=2|class=Warlock (sns)}",
+              "{@filter 2nd|spells|level=2|class=Warlock}",
               1,
               2
             ],
@@ -183,7 +183,7 @@
               3,
               5,
               8,
-              "{@filter 2nd|spells|level=2|class=Warlock (sns)}",
+              "{@filter 2nd|spells|level=2|class=Warlock}",
               1,
               2
             ],
@@ -191,7 +191,7 @@
               3,
               6,
               10,
-              "{@filter 3rd|spells|level=3|class=Warlock (sns)}",
+              "{@filter 3rd|spells|level=3|class=Warlock}",
               1,
               3
             ],
@@ -199,7 +199,7 @@
               3,
               7,
               11,
-              "{@filter 3rd|spells|level=3|class=Warlock (sns)}",
+              "{@filter 3rd|spells|level=3|class=Warlock}",
               1,
               3
             ],
@@ -207,7 +207,7 @@
               3,
               8,
               12,
-              "{@filter 4th|spells|level=4|class=Warlock (sns)}",
+              "{@filter 4th|spells|level=4|class=Warlock}",
               1,
               4
             ],
@@ -215,7 +215,7 @@
               3,
               9,
               13,
-              "{@filter 4th|spells|level=4|class=Warlock (sns)}",
+              "{@filter 4th|spells|level=4|class=Warlock}",
               2,
               4
             ],
@@ -223,7 +223,7 @@
               3,
               10,
               14,
-              "{@filter 5th|spells|level=5|class=Warlock (sns)}",
+              "{@filter 5th|spells|level=5|class=Warlock}",
               2,
               5
             ],
@@ -231,7 +231,7 @@
               4,
               11,
               17,
-              "{@filter 5th|spells|level=5|class=Warlock (sns)}",
+              "{@filter 5th|spells|level=5|class=Warlock}",
               2,
               5
             ],
@@ -239,7 +239,7 @@
               4,
               11,
               21,
-              "{@filter 5th|spells|level=5|class=Warlock (sns)}",
+              "{@filter 5th|spells|level=5|class=Warlock}",
               2,
               5
             ],
@@ -247,7 +247,7 @@
               4,
               12,
               22,
-              "{@filter 5th|spells|level=5|class=Warlock (sns)}",
+              "{@filter 5th|spells|level=5|class=Warlock}",
               2,
               6
             ],
@@ -255,7 +255,7 @@
               4,
               12,
               24,
-              "{@filter 5th|spells|level=5|class=Warlock (sns)}",
+              "{@filter 5th|spells|level=5|class=Warlock}",
               2,
               6
             ],
@@ -263,7 +263,7 @@
               4,
               13,
               25,
-              "{@filter 5th|spells|level=5|class=Warlock (sns)}",
+              "{@filter 5th|spells|level=5|class=Warlock}",
               3,
               6
             ],
@@ -271,7 +271,7 @@
               4,
               13,
               26,
-              "{@filter 5th|spells|level=5|class=Warlock (sns)}",
+              "{@filter 5th|spells|level=5|class=Warlock}",
               3,
               7
             ],
@@ -279,7 +279,7 @@
               4,
               14,
               27,
-              "{@filter 5th|spells|level=5|class=Warlock (sns)}",
+              "{@filter 5th|spells|level=5|class=Warlock}",
               3,
               7
             ],
@@ -287,7 +287,7 @@
               4,
               14,
               28,
-              "{@filter 5th|spells|level=5|class=Warlock (sns)}",
+              "{@filter 5th|spells|level=5|class=Warlock}",
               3,
               7
             ],
@@ -295,7 +295,7 @@
               4,
               15,
               29,
-              "{@filter 5th|spells|level=5|class=Warlock (sns)}",
+              "{@filter 5th|spells|level=5|class=Warlock}",
               3,
               8
             ],
@@ -303,7 +303,7 @@
               4,
               15,
               30,
-              "{@filter 5th|spells|level=5|class=Warlock (sns)}",
+              "{@filter 5th|spells|level=5|class=Warlock}",
               3,
               8
             ],
@@ -311,7 +311,7 @@
               4,
               16,
               31,
-              "{@filter 5th|spells|level=5|class=Warlock (sns)}",
+              "{@filter 5th|spells|level=5|class=Warlock}",
               3,
               8
             ]
@@ -1494,7 +1494,7 @@
         }
       ],
       "entries": [
-        "You learn an {@filter 8th-level warlock spell|spells|level=8|class=Warlock (sns)} that you can cast once between long rests."
+        "You learn an {@filter 8th-level warlock spell|spells|level=8|class=Warlock} that you can cast once between long rests."
       ]
     },
     {
