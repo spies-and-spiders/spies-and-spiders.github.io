@@ -2784,7 +2784,7 @@
         "EW"
       ],
       "entries": [
-        "When this weakness is first exposed, a root emerges in a random space nearby. The root fits into the space as required by its non-creature contents, such as growing out of a wall's surface, a table's top, or folds in empty space. This space is determined by rolling a {@dice d8} and a {@dice d12}. The {@dice d12} shows the number of 5-foot spaces away from you the space is, in a cardinal direction defined by the {@dice d8} (1 is north, 2 is northeast, 3 is east, and so on in clockwise order). A creature can use a bonus action on the root's space to remove the ability to score major and critical successes with attacks from all Exposed plants for 1 round; such successes are instead counted as standard successes."
+        "When this weakness is first revealed, a root emerges in a random space nearby. The root fits into the space as required by its non-creature contents, such as growing out of a wall's surface, a table's top, or folds in empty space. This space is determined by rolling a {@dice d8} and a {@dice d12}. The {@dice d12} shows the number of 5-foot spaces away from you the space is, in a cardinal direction defined by the {@dice d8} (1 is north, 2 is northeast, 3 is east, and so on in clockwise order). A creature can use a bonus action on the root's space to remove the ability to score major and critical successes with attacks from all Exposed plants for 1 round; such successes are instead counted as standard successes."
       ]
     },
     {
@@ -2794,7 +2794,7 @@
         "EW"
       ],
       "entries": [
-        "[LEGACY] The plant has disadvantage with attack rolls against Small or smaller and {@condition prone} creatures."
+        "Exposed plants have disadvantage with attack rolls against {@condition prone} creatures and Small or smaller creatures."
       ]
     },
     {
@@ -2804,7 +2804,7 @@
         "EW"
       ],
       "entries": [
-        "[LEGACY] The next time an ally of the plant dies within 120 feet of it, the plant becomes {@condition frightened} of the creature responsible for the ally's death for the remainder of combat. If this effect is not active and the plant has no allies within 120 feet of it, it is instead {@condition rattled} and {@condition sluggish}."
+        "The next time an Exposed plant dies, all Exposed plants become {@condition frightened} of the creature responsible for the death for the remainder of combat. If this effect is not active and there is only one Exposed plant, that plant is instead {@condition rattled} and {@condition sluggish}."
       ]
     },
     {
@@ -2814,7 +2814,7 @@
         "EW"
       ],
       "entries": [
-        "[LEGACY] The plant gains 50% vulnerability to the damage of armour attacks from adjacent creatures."
+        "Exposed plants gain 50% vulnerability to the damage of armour attacks from adjacent creatures."
       ]
     },
     {
@@ -2824,7 +2824,7 @@
         "EW"
       ],
       "entries": [
-        "[LEGACY] Fortitude and reflex attack rolls have advantage against the plant."
+        "Fortitude and reflex attack rolls have advantage against Exposed plants."
       ]
     },
     {
@@ -2834,7 +2834,8 @@
         "EW"
       ],
       "entries": [
-        "[LEGACY] The next time the plant is healed by you or an ally, it becomes {@condition dominated} by the healer for the remainder of combat."
+        "Whenever an Exposed plant is healed by you or an ally, it becomes {@condition dominated} by the healer for the remainder of combat.",
+        "Additionally, you and your allies can spend a bonus action while adjacent to an Exposed plant to heal it for 30% of its maximum hit points."
       ]
     },
     {
@@ -2844,7 +2845,7 @@
         "EW"
       ],
       "entries": [
-        "[LEGACY] The undead gains 50% vulnerability to critical damage."
+        "Exposed undead gain 50% vulnerability to the damage of advantaged attack rolls and critical damage."
       ]
     },
     {
@@ -2854,7 +2855,7 @@
         "EW"
       ],
       "entries": [
-        "[LEGACY] A creature within 60 feet of the undead can use a bonus action to attempt to convince the undead that its pain and trauma is understood, making a contested {@skill Deception} check against the undead's {@skill Insight}. If the undead loses this contest, it loses the ability to score major successes with its attacks for the remainder of combat; its major successes are instead counted as standard successes."
+        "A creature within 60 feet of an Exposed undead can use a bonus action to attempt to convince the undead that its pain and trauma is understood, making a contested {@skill Deception} check against the undead's {@skill Insight}. If the undead loses this contest, all Exposed undead lose the ability to score major successes with their attacks for the remainder of combat; their major successes are instead counted as standard successes."
       ]
     },
     {
@@ -2864,7 +2865,7 @@
         "EW"
       ],
       "entries": [
-        "[LEGACY] Whenever a creature makes a damaging armour attack against the monstrosity, the attacker can impose disadvantage on its attack roll. If they do so, the attack's final base damage is added again as true damage."
+        "Whenever a creature makes a damaging armour attack against an Exposed undead, the attacker can impose disadvantage on its attack roll. If they do so, the attack's final base damage is added again as true damage."
       ]
     },
     {
@@ -2874,7 +2875,7 @@
         "EW"
       ],
       "entries": [
-        "[LEGACY] The undead is always {@condition taunted} by your ally (including yourself) with the most current hit points."
+        "Exposed undead are always {@condition taunted} by your ally (including yourself) with the most current hit points."
       ]
     },
     {
@@ -2884,7 +2885,7 @@
         "EW"
       ],
       "entries": [
-        "[LEGACY] When the undead dies, it awards one additional loot."
+        "Combat in which at least one Exposed undead has died awards one additional loot."
       ]
     },
     {
@@ -2894,7 +2895,7 @@
         "EW"
       ],
       "entries": [
-        "[LEGACY] Whenever the undead suffers a major hit that deals non-physical base damage, the attacker rolls on the {@table Wild Magic Surge} table."
+        "Whenever an Exposed undead takes non-physical damage twice between its turns, the attacker rolls on the {@table Wild Magic Surge} table and resets that undead's counter for this effect."
       ]
     },
     {
@@ -2904,7 +2905,7 @@
         "EW"
       ],
       "entries": [
-        "[LEGACY] As a bonus action, a creature within 60 feet of the undead can say a silent prayer, making a {@skill History} check with DC equal to 10 + the undead's CR. On a success, spell attack rolls have advantage against the undead for the remainder of combat."
+        "As a bonus action, a creature within 60 feet of an Exposed undead can say a silent prayer, making a {@skill History} check with DC equal to 10 + the undead's CR. On a success, spell attack rolls have advantage against that undead for the remainder of combat."
       ]
     },
     {
@@ -2914,7 +2915,7 @@
         "EW"
       ],
       "entries": [
-        "[LEGACY] Damage against the undead is tripled from improvised weapons that were within 60 feet of the undead when this combat started."
+        "Damage against an Exposed undead is tripled from improvised weapons that were within 60 feet of the undead when this combat started."
       ]
     }
   ]
