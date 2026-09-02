@@ -29518,11 +29518,11 @@
           "type": "entries",
           "name": "Target",
           "entries": [
-            "One adjacent creature"
+            "One creature within your reach"
           ]
         },
         "You make a melee weapon attack against the target. On a hit, the target becomes sheathed in booming energy until the start of your next turn. If the target willingly moves 5 feet or more before then, it suffers {@dice 1d8} thunder harm, and the spell ends.",
-        "This spell's damage increases when you reach certain levels. At 5th level, the attack deals an extra {@dice 1d8} thunder damage to the target on a hit, and the damage the target takes for moving increases to {@dice 2d8}. Both damage rolls increase by {@dice 1d8} at 11th level ({@dice 2d8} and {@dice 3d8}) and again at 17th level ({@dice 3d8} and {@dice 4d8})."
+        "This spell's damage increases when you reach certain levels. At 5th level, the attack deals an extra {@dice 1d8} thunder damage to the target, and the damage the target takes for moving increases to {@dice 2d8}. Both damage rolls increase by {@dice 1d8} at 11th level ({@dice 2d8} and {@dice 3d8}) and again at 17th level ({@dice 3d8} and {@dice 4d8})."
       ],
       "name": "Booming Blade",
       "time": [
@@ -29660,11 +29660,11 @@
           "type": "entries",
           "name": "Target",
           "entries": [
-            "One melee weapon you are holding in your main hand"
+            "One weapon you are holding in your main hand"
           ]
         },
-        "You brandish the target and make a melee weapon attack with it against one adjacent creature. On a hit, you can cause green fire to leap from the target to a different creature of your choice adjacent to it. The second creature suffers fire harm equal to your spellcasting ability modifier.",
-        "This spell's damage and harm increase when you reach certain levels. At 5th level, the weapon attack deals an extra {@dice 1d8} fire damage to the target on a hit, and the fire harm to the second creature increases to {@dice 1d8} + your spellcasting ability modifier. Both rolls increase by {@dice 1d8} at 11th level ({@dice 2d8}) and 17th level ({@dice 3d8})."
+        "You brandish the target and make a melee weapon attack with it against one creature within reach. On a hit, you can cause green fire to leap from the attacked creature to a different creature of your choice adjacent to it. The second creature suffers fire harm equal to your spellcasting ability modifier.",
+        "This spell's damage and harm increase when you reach certain levels. At 5th level, the weapon attack deals an extra {@dice 1d8} fire damage to the attacked creature, and the fire harm to the second creature increases to {@dice 1d8} + your spellcasting ability modifier. Both rolls increase by {@dice 1d8} at 11th level ({@dice 2d8}) and 17th level ({@dice 3d8})."
       ],
       "name": "Green-Flame Blade",
       "time": [
