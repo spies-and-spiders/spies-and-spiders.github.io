@@ -299,7 +299,7 @@
         {
           "type": "list",
           "items": [
-            "Whenever you roll for initiative, any creatures of your choice who can sense you gain temporary hit points equal to your level + your Charisma modifier. These hit points last until the combat ends.",
+            "Creatures of your choice within 30 feet of you gain resistance equal to your level.",
             "Whenever you take the Attack action on your turn, you can forgo your attack to allow a creature of your choice who can sense you to immediately use their reaction to either take their own Attack action or cast a cantrip."
           ]
         }
