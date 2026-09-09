@@ -4031,8 +4031,8 @@
             "One creature"
           ]
         },
-        "Channeling the chill of the grave, make a melee armour spell attack against the target that deals {@dice 1d8} necrotic damage. On a hit, the target cannot regain hit points until the end of your next turn and you immediately recover 1 hit point.",
-        "The spell's damage and healing increase by {@dice 1d8} and 1 respectively when you reach 5th level ({@dice 2d8} and 2), 11th level ({@dice 3d8} and 3), and 17th level ({@dice 4d8} and 4)."
+        "Channeling the chill of the grave, make a melee armour spell attack against the target that deals {@dice 1d8} necrotic damage. On a hit, the target cannot regain hit points until the end of your next turn and you gain 1 resistance until your next turn.",
+        "The spell's damage and resistance increase by {@dice 1d8} and 1 respectively when you reach 5th level ({@dice 2d8} and 2), 11th level ({@dice 3d8} and 3), and 17th level ({@dice 4d8} and 4)."
       ],
       "name": "Chill Touch",
       "time": [
@@ -10569,6 +10569,10 @@
         "fromClassList": [
           {
             "name": "Artificer",
+            "source": "sns"
+          },
+          {
+            "name": "Cleric",
             "source": "sns"
           },
           {
@@ -36960,73 +36964,6 @@
       "conditionInflict": [
         "debilitated"
       ]
-    },
-    {
-      "school": "V",
-      "entries": [
-        {
-          "type": "entries",
-          "name": "Target",
-          "entries": [
-            "One creature that is neither a construct nor undead"
-          ]
-        },
-        "The target regains {@dice 1d4} hit points.",
-        "The hit points regained increase by {@dice 1d4} when you reach 5th level ({@dice 2d4}), 11th level ({@dice 3d4}), and 17th level ({@dice 4d4})."
-      ],
-      "name": "Tend Wounds",
-      "time": [
-        {
-          "number": 1,
-          "unit": "action"
-        }
-      ],
-      "duration": [
-        {
-          "type": "instant"
-        }
-      ],
-      "source": "sns",
-      "subschools": [
-        "divine",
-        "healing",
-        "nature"
-      ],
-      "level": 0,
-      "components": {
-        "v": true,
-        "s": true
-      },
-      "classes": {
-        "fromClassList": [
-          {
-            "name": "Artificer",
-            "source": "sns"
-          },
-          {
-            "name": "Bard",
-            "source": "sns"
-          },
-          {
-            "name": "Cleric",
-            "source": "sns"
-          },
-          {
-            "name": "Druid",
-            "source": "sns"
-          },
-          {
-            "name": "Herald",
-            "source": "sns"
-          }
-        ]
-      },
-      "range": {
-        "type": "point",
-        "distance": {
-          "type": "touch"
-        }
-      }
     }
   ]
 }

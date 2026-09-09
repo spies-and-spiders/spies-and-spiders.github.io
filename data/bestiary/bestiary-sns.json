@@ -2645,6 +2645,95 @@
           ]
         }
       ]
+    },
+    {
+      "int": 3,
+      "passive": 8,
+      "immune": [
+        "poison"
+      ],
+      "str": 12,
+      "senses": [
+        "darkvision 60 ft."
+      ],
+      "name": "Monstrous Minion",
+      "arm": [
+        {
+          "special": "half your proficiency bonus - 1"
+        }
+      ],
+      "action": [
+        {
+          "name": "Grab",
+          "entries": [
+            "{@atk mw} reach 5 ft., one target. {@damage 1d6 + 1} + your proficiency bonus bludgeoning damage. If the target is a Medium or smaller creature, it is {@condition grappled} on a hit. Until the grapple ends, the minion can't grab another target."
+          ]
+        },
+        {
+          "name": "Bite",
+          "entries": [
+            "{@atk mw} reach 5 ft., one target. {@damage 1d10 + 1} + your proficiency bonus piercing damage."
+          ]
+        }
+      ],
+      "hp": {
+        "special": "22 + your level squared"
+      },
+      "dex": 6,
+      "cha": 4,
+      "source": "sns",
+      "type": "construct",
+      "wis": 6,
+      "ref": [
+        {
+          "ref": -2
+        }
+      ],
+      "majorEffect": [
+        "The minion may immediately shift 5 feet."
+      ],
+      "trait": [
+        {
+          "name": "Constructed Fortitude (1/Day)",
+          "entries": [
+            "If the minion is reduced to 0 hit points by damage that isn't radiant or from a critical hit, it's instead reduced to 1 hit point, falls {@condition prone}, and is {@condition incapacitated} until the end of its next turn, appearing to be dead."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Constructed Nature",
+          "entries": [
+            "The minion doesn't require air, sustenance, or sleep."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Inherited Lethality",
+          "entries": [
+            "The minion's critical damage bonus is calculated using your level and proficiency bonus instead of its own."
+          ]
+        }
+      ],
+      "conditionImmune": [
+        "fatigue",
+        "poisoned"
+      ],
+      "size": [
+        "M"
+      ],
+      "speed": {
+        "walk": 20
+      },
+      "fort": [
+        {
+          "fort": 3
+        }
+      ],
+      "wil": [
+        {
+          "wil": -2
+        }
+      ]
     }
   ]
 }
