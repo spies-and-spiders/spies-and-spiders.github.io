@@ -21666,7 +21666,7 @@
           ]
         },
         "An ear-splitting ringing sound emanates through the area. Make an area fortitude attack against each creature in the area that deals {@dice 4d6} thunder damage. The attack has advantage against a target made of stone, metal, or other inorganic material.",
-        "Any nonmagical items within the area that are not worn or carried also take damage."
+        "Any nonmagical objects and structures within the area that are not worn or carried also take damage, which is doubled."
       ],
       "name": "Shatter",
       "time": [
