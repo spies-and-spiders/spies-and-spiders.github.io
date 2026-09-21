@@ -214,7 +214,7 @@
           "type": "list",
           "items": [
             "If the triggering attack dealt damage, your monstrous minion's next attack before your next turn deals additional damage of your attack's base type equal to your level. Otherwise, your monstrous minion gains +1 to all defences for 1 round.",
-            "Instead of you gaining this major effect option, your Monstrous Minion does instead: You heal a number of hit points equal to your master's level."
+            "Instead of you gaining this major effect option, your Monstrous Minion does instead: You gain +1 critical hit range for 1 round."
           ]
         }
       ]
