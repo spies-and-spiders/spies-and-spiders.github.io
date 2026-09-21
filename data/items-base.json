@@ -1104,7 +1104,7 @@
           "type": "entries",
           "name": "Parrying",
           "entries": [
-            "After a creature makes a damaging attack against you while you are wielding a parrying weapon, but before damage is dealt, you can use your reaction to reduce the attack's success tier by 1."
+            "Whenever you hit with a parrying weapon, the success tier of the next melee armour attack against you before your next turn is reduced by 1."
           ]
         }
       ]
@@ -1239,7 +1239,7 @@
           "type": "entries",
           "name": "Scaling",
           "entries": [
-            "The scaling trait includes a value. At 5th level, 11th level, and 17th level, a scaling weapon's base damage is increased by the value. This is cumulative. For example, a weapon with Scaling (+5) and a damage of 1d8 + STR will deal 1d8 + STR damage at 1st level, 1d8 + STR + 5 at 5th level, and 1d8 + STR + 10 at 11th level, and so on. Multiple instances of the scaling trait (for example, when an offhand weapon adds it to a weapon that already has the trait) stack together, adding their values together."
+            "The scaling trait includes a value. At 5th level, 11th level, and 17th level, a scaling weapon's base damage is increased by the value. This is cumulative. For example, a weapon with Scaling (+5) and a damage of 1d8 + STR will deal 1d8 + STR damage at 1st level, 1d8 + STR + 5 at 5th level, and 1d8 + STR + 10 at 11th level, and so on. Multiple instances of the scaling trait (for example, when an offhand weapon adds it to a weapon that already has the trait) stack together, adding their values together. For example, a weapon with Scaling (+5) that then gets Scaling (+1) added to it results in the weapon having the trait Scaling (+6)."
           ]
         }
       ]
