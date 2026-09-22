@@ -4056,8 +4056,7 @@
         "attack",
         "necrotic",
         "melee",
-        "spell",
-        "healing"
+        "spell"
       ],
       "level": 0,
       "components": {
@@ -25421,7 +25420,7 @@
             "One creature"
           ]
         },
-        "You cause a searing poison to burn quickly through the target's wounds. The target makes a save. On a fail, the target suffers {@dice 1d6} poison harm and regains {@dice 1d10} hit points at the start of each of its turns for the next {@dice 1d4+1} rounds."
+        "You cause a searing poison to burn quickly through the target's wounds. The target makes a save. On a fail, the target suffers {@dice 1d6} poison harm immediately, and regains {@dice 1d10} hit points at the start of each of its turns for the next {@dice 1d4+1} rounds."
       ],
       "name": "Venomous Succor",
       "time": [
