@@ -2633,9 +2633,6 @@
         }
       ],
       "source": "sns",
-      "damageInflict": [
-        "necrotic"
-      ],
       "subschools": [
         "affliction",
         "arcane",
@@ -32505,6 +32502,9 @@
         "area",
         "spell"
       ],
+      "damageInflict": [
+        "necrotic"
+      ],
       "level": 2,
       "components": {
         "v": true,
@@ -33821,6 +33821,9 @@
         "necrotic",
         "harm"
       ],
+      "damageInflict": [
+        "necrotic"
+      ],
       "level": 4,
       "components": {
         "v": true,
@@ -34307,6 +34310,9 @@
         "spell",
         "ranged",
         "harm"
+      ],
+      "damageInflict": [
+        "necrotic"
       ],
       "level": 5,
       "components": {
@@ -36606,6 +36612,9 @@
         "necrotic",
         "area",
         "spell"
+      ],
+      "damageInflict": [
+        "necrotic"
       ],
       "level": 8,
       "components": {
