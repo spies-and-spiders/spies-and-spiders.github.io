@@ -1056,6 +1056,11 @@
         "weaponry",
         "minion"
       ],
+      "damageInflict": [
+        "bludgeoning",
+        "piercing",
+        "slashing"
+      ],
       "level": 5,
       "components": {
         "v": true,
@@ -1696,11 +1701,7 @@
         "fire",
         "lightning",
         "poison",
-        "thunder",
-        "psychic",
-        "radiant",
-        "necrotic",
-        "force"
+        "thunder"
       ],
       "subschools": [
         "arcane",
@@ -20187,8 +20188,7 @@
       "damageInflict": [
         "fire",
         "poison",
-        "necrotic",
-        "harm"
+        "necrotic"
       ],
       "subschools": [
         "evil",
@@ -22338,10 +22338,6 @@
       "source": "sns",
       "areaTags": [
         "Y"
-      ],
-      "damageInflict": [
-        "cold",
-        "bludgeoning"
       ],
       "subschools": [
         "cold",
@@ -26400,6 +26396,9 @@
         "movement",
         "obscurement"
       ],
+      "damageInflict": [
+        "fire"
+      ],
       "level": 2,
       "components": {
         "v": true,
@@ -28773,7 +28772,8 @@
       ],
       "source": "sns",
       "damageInflict": [
-        "cold"
+        "cold",
+        "acid"
       ],
       "subschools": [
         "cold",
@@ -29077,6 +29077,9 @@
         "radiant",
         "harm"
       ],
+      "damageInflict": [
+        "radiant"
+      ],
       "level": 4,
       "components": {
         "v": true,
@@ -29125,6 +29128,9 @@
       "subschools": [
         "psychic"
       ],
+      "damageInflict": [
+        "psychic"
+      ],
       "level": 4,
       "components": {
         "v": true,
@@ -29170,6 +29176,9 @@
       ],
       "source": "sns",
       "subschools": [
+        "force"
+      ],
+      "damageInflict": [
         "force"
       ],
       "level": 5,
@@ -29275,6 +29284,11 @@
       "subschools": [
         "area",
         "spell",
+        "thunder",
+        "radiant",
+        "necrotic"
+      ],
+      "damageInflict": [
         "thunder",
         "radiant",
         "necrotic"
@@ -29447,6 +29461,9 @@
         "spell",
         "area"
       ],
+      "damageInflict": [
+        "bludgeoning"
+      ],
       "level": 8,
       "components": {
         "v": true,
@@ -29546,6 +29563,9 @@
         "thunder",
         "weaponry"
       ],
+      "damageInflict": [
+        "thunder"
+      ],
       "level": 0,
       "components": {
         "v": false,
@@ -29616,6 +29636,9 @@
         "fire",
         "harm"
       ],
+      "damageInflict": [
+        "fire"
+      ],
       "level": 0,
       "components": {
         "v": true,
@@ -29683,6 +29706,9 @@
         "fire",
         "harm",
         "weaponry"
+      ],
+      "damageInflict": [
+        "fire"
       ],
       "level": 0,
       "components": {
@@ -29846,6 +29872,9 @@
         "spell",
         "poison"
       ],
+      "damageInflict": [
+        "poison"
+      ],
       "level": 0,
       "components": {
         "v": true,
@@ -29916,6 +29945,9 @@
         "spell",
         "lightning"
       ],
+      "damageInflict": [
+        "lightning"
+      ],
       "level": 0,
       "components": {
         "v": true,
@@ -29977,6 +30009,9 @@
       "subschools": [
         "area",
         "spell",
+        "thunder"
+      ],
+      "damageInflict": [
         "thunder"
       ],
       "level": 0,
@@ -30049,6 +30084,9 @@
         "spell",
         "bludgeoning"
       ],
+      "damageInflict": [
+        "bludgeoning"
+      ],
       "level": 0,
       "components": {
         "v": true,
@@ -30101,6 +30139,9 @@
         "shapeshift",
         "melee",
         "spell",
+        "acid"
+      ],
+      "damageInflict": [
         "acid"
       ],
       "level": 0,
@@ -30344,6 +30385,9 @@
         "spell",
         "bludgeoning"
       ],
+      "damageInflict": [
+        "bludgeoning"
+      ],
       "level": 1,
       "components": {
         "v": false,
@@ -30572,6 +30616,16 @@
         "psychic",
         "thunder"
       ],
+      "damageInflict": [
+        "acid",
+        "cold",
+        "fire",
+        "force",
+        "lightning",
+        "poison",
+        "psychic",
+        "thunder"
+      ],
       "level": 1,
       "components": {
         "v": true,
@@ -30626,6 +30680,9 @@
       "subschools": [
         "area",
         "spell",
+        "bludgeoning"
+      ],
+      "damageInflict": [
         "bludgeoning"
       ],
       "level": 1,
@@ -30707,6 +30764,9 @@
         "spell",
         "cold"
       ],
+      "damageInflict": [
+        "cold"
+      ],
       "level": 1,
       "components": {
         "v": true,
@@ -30768,6 +30828,10 @@
         "ranged",
         "spell",
         "harm",
+        "piercing",
+        "cold"
+      ],
+      "damageInflict": [
         "piercing",
         "cold"
       ],
@@ -30990,6 +31054,9 @@
         "acid",
         "harm"
       ],
+      "damageInflict": [
+        "acid"
+      ],
       "level": 1,
       "components": {
         "v": true,
@@ -31054,6 +31121,9 @@
         "area",
         "fire",
         "spell"
+      ],
+      "damageInflict": [
+        "fire"
       ],
       "level": 2,
       "components": {
@@ -31270,6 +31340,12 @@
         "area",
         "spell"
       ],
+      "damageInflict": [
+        "acid",
+        "fire",
+        "lightning",
+        "poison"
+      ],
       "level": 2,
       "components": {
         "v": true,
@@ -31345,6 +31421,9 @@
       "subschools": [
         "bludgeoning",
         "harm"
+      ],
+      "damageInflict": [
+        "bludgeoning"
       ],
       "level": 2,
       "components": {
@@ -31639,6 +31718,9 @@
         "spell",
         "bludgeoning"
       ],
+      "damageInflict": [
+        "bludgeoning"
+      ],
       "level": 2,
       "components": {
         "v": true,
@@ -31716,6 +31798,9 @@
       "subschools": [
         "ranged",
         "spell",
+        "psychic"
+      ],
+      "damageInflict": [
         "psychic"
       ],
       "level": 2,
@@ -32004,6 +32089,9 @@
         "cold",
         "spell"
       ],
+      "damageInflict": [
+        "cold"
+      ],
       "level": 2,
       "components": {
         "v": false,
@@ -32072,6 +32160,9 @@
         "summoning",
         "psychic",
         "weaponry"
+      ],
+      "damageInflict": [
+        "psychic"
       ],
       "level": 2,
       "components": {
@@ -32201,6 +32292,9 @@
         "cold",
         "spell",
         "area"
+      ],
+      "damageInflict": [
+        "cold"
       ],
       "level": 2,
       "components": {
@@ -32579,6 +32673,9 @@
         "harm",
         "mobility"
       ],
+      "damageInflict": [
+        "fire"
+      ],
       "level": 3,
       "components": {
         "v": true,
@@ -32828,6 +32925,9 @@
         "spell",
         "bludgeoning"
       ],
+      "damageInflict": [
+        "bludgeoning"
+      ],
       "level": 3,
       "components": {
         "v": true,
@@ -32906,6 +33006,9 @@
       "subschools": [
         "fire",
         "weaponry"
+      ],
+      "damageInflict": [
+        "fire"
       ],
       "level": 3,
       "components": {
@@ -33102,6 +33205,9 @@
         "fire",
         "harm"
       ],
+      "damageInflict": [
+        "fire"
+      ],
       "level": 3,
       "components": {
         "v": true,
@@ -33162,6 +33268,9 @@
         "area",
         "spell",
         "teleportation"
+      ],
+      "damageInflict": [
+        "thunder"
       ],
       "level": 3,
       "components": {
@@ -33225,6 +33334,9 @@
         "water",
         "spell",
         "area"
+      ],
+      "damageInflict": [
+        "bludgeoning"
       ],
       "level": 3,
       "components": {
@@ -33693,6 +33805,9 @@
         "shapeshift",
         "force"
       ],
+      "damageInflict": [
+        "force"
+      ],
       "level": 4,
       "components": {
         "v": true,
@@ -33752,6 +33867,9 @@
         "psychic",
         "ranged",
         "spell"
+      ],
+      "damageInflict": [
+        "psychic"
       ],
       "level": 4,
       "components": {
@@ -33884,6 +34002,9 @@
         "persistent",
         "harm"
       ],
+      "damageInflict": [
+        "radiant"
+      ],
       "level": 4,
       "components": {
         "v": true,
@@ -33961,6 +34082,10 @@
       "subschools": [
         "lightning",
         "harm"
+      ],
+      "damageInflict": [
+        "bludgeoning",
+        "lightning"
       ],
       "level": 4,
       "components": {
@@ -34080,6 +34205,9 @@
         "area",
         "spell",
         "harm"
+      ],
+      "damageInflict": [
+        "acid"
       ],
       "level": 4,
       "components": {
@@ -34235,6 +34363,9 @@
       "subschools": [
         "radiant",
         "harm"
+      ],
+      "damageInflict": [
+        "radiant"
       ],
       "level": 5,
       "components": {
@@ -34439,6 +34570,9 @@
         "area",
         "spell"
       ],
+      "damageInflict": [
+        "radiant"
+      ],
       "level": 5,
       "components": {
         "v": true,
@@ -34574,6 +34708,9 @@
         "spell",
         "harm"
       ],
+      "damageInflict": [
+        "fire"
+      ],
       "level": 5,
       "components": {
         "v": true,
@@ -34638,6 +34775,9 @@
         "harm",
         "water"
       ],
+      "damageInflict": [
+        "bludgeoning"
+      ],
       "level": 5,
       "components": {
         "v": true,
@@ -34693,6 +34833,9 @@
         "undead",
         "ranged",
         "spell"
+      ],
+      "damageInflict": [
+        "necrotic"
       ],
       "level": 5,
       "components": {
@@ -34823,6 +34966,9 @@
         "spell",
         "melee"
       ],
+      "damageInflict": [
+        "force"
+      ],
       "level": 5,
       "components": {
         "v": false,
@@ -34947,6 +35093,9 @@
         "area",
         "spell"
       ],
+      "damageInflict": [
+        "psychic"
+      ],
       "level": 5,
       "components": {
         "v": true,
@@ -35033,6 +35182,9 @@
         "spell",
         "area"
       ],
+      "damageInflict": [
+        "bludgeoning"
+      ],
       "level": 5,
       "components": {
         "v": true,
@@ -35112,6 +35264,9 @@
         "area",
         "spell",
         "ranged"
+      ],
+      "damageInflict": [
+        "radiant"
       ],
       "level": 5,
       "components": {
@@ -35216,6 +35371,10 @@
         "harm",
         "bludgeoning"
       ],
+      "damageInflict": [
+        "slashing",
+        "bludgeoning"
+      ],
       "level": 5,
       "components": {
         "v": true,
@@ -35301,6 +35460,9 @@
         "harm",
         "earth",
         "area"
+      ],
+      "damageInflict": [
+        "bludgeoning"
       ],
       "level": 6,
       "components": {
@@ -35603,6 +35765,9 @@
         "area",
         "spell"
       ],
+      "damageInflict": [
+        "fire"
+      ],
       "level": 6,
       "components": {
         "v": true,
@@ -35675,6 +35840,9 @@
         "cold",
         "area",
         "spell"
+      ],
+      "damageInflict": [
+        "cold"
       ],
       "level": 6,
       "components": {
@@ -35850,6 +36018,9 @@
         "area",
         "spell"
       ],
+      "damageInflict": [
+        "bludgeoning"
+      ],
       "level": 6,
       "components": {
         "v": true,
@@ -35921,6 +36092,9 @@
         "ranged",
         "spell",
         "harm"
+      ],
+      "damageInflict": [
+        "psychic"
       ],
       "level": 6,
       "components": {
@@ -36219,6 +36393,9 @@
       "subschools": [
         "weaponry"
       ],
+      "damageInflict": [
+        "force"
+      ],
       "level": 6,
       "components": {
         "v": true,
@@ -36279,6 +36456,9 @@
       "subschools": [
         "radiant",
         "harm"
+      ],
+      "damageInflict": [
+        "radiant"
       ],
       "level": 7,
       "components": {
@@ -36362,6 +36542,9 @@
         "shapeshift",
         "force",
         "harm"
+      ],
+      "damageInflict": [
+        "force"
       ],
       "level": 7,
       "components": {
@@ -36547,6 +36730,9 @@
         "bludgeoning",
         "harm"
       ],
+      "damageInflict": [
+        "bludgeoning"
+      ],
       "level": 7,
       "components": {
         "v": true,
@@ -36709,6 +36895,14 @@
         "poison",
         "harm"
       ],
+      "damageInflict": [
+        "acid",
+        "cold",
+        "fire",
+        "lightning",
+        "necrotic",
+        "poison"
+      ],
       "level": 8,
       "components": {
         "v": false,
@@ -36773,6 +36967,9 @@
       "subschools": [
         "psychic",
         "harm"
+      ],
+      "damageInflict": [
+        "psychic"
       ],
       "level": 8,
       "components": {
@@ -36933,6 +37130,9 @@
         "psychic",
         "area",
         "spell"
+      ],
+      "damageInflict": [
+        "psychic"
       ],
       "level": 9,
       "components": {
