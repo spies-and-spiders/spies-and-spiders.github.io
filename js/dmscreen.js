@@ -871,7 +871,7 @@ class Board {
 				</div>
 
 				<div class="ve-mb-4">
-					If you suspect this is the <span class="ve-help" title="Spoiler: it always is">result of a bug</span>, or need help recovering lost data, drop past our <a href="https://discord.gg/5etools" target="_blank" rel="noopener noreferrer">Discord</a>.
+					If you suspect this is the <span class="ve-help" title="Spoiler: it always is">result of a bug</span>, or need help recovering lost data, please <a href="https://github.com/spies-and-spiders/spies-and-spiders.github.io/issues" target="_blank" rel="noopener noreferrer">open an issue</a>.
 				</div>
 
 				<div class="ve-flex-h-right ve-flex-v-center">

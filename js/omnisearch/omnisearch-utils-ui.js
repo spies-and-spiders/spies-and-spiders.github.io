@@ -115,7 +115,7 @@ export class OmnisearchUtilsUi {
 
 		const keysInput = [
 			{keys: ["↵"], description: `Visit first result`},
-			{keys: ["CTRL", "↵"], description: `<span>${Renderer.get().render(`View results in {@5etools search|search.html} page`)}</span>`},
+			{keys: ["CTRL", "↵"], description: `<span>${Renderer.get().render(`View results in {@snstools search|search.html} page`)}</span>`},
 			{keys: ["↓"], description: `Select first result`},
 			{keys: ["PgUp"], description: `View previous results page`},
 			{keys: ["PgDn"], description: `View next results page`},

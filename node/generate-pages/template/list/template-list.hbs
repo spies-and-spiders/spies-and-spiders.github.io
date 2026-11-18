@@ -7,26 +7,21 @@
 
 {{> "overlayNoise" }}
 
-{{> "adLhs" }}
-{{> "adRhs" }}
 
 <div class="viewport-wrapper">
-	{{> "adLeaderboard" }}
 
 	{{> "navbar" }}
 
-	<div class="view-col-group--cancer ve-h-100 mh-0">
-		<div class="container view-col-wrapper view-col-wrapper--cancer" data-cancer-id="cancer-wrapper">
+	<div class="view-col-group ve-h-100 mh-0">
+		<div class="container view-col-wrapper">
 			{{> (lookup . "identPartialListListcontainer") }}
 
-			{{> "adMobile1" }}
 
 			{{> (lookup . "identPartialListContentwrapper") }}
 		</div>
 	</div>
 </div>
 
-{{> "adFooter" }}
 
 {{> "scripts" }}
 

@@ -11,7 +11,7 @@ import "../js/render.js";
 import "../js/render-dice.js";
 import * as ut from "./util.js";
 
-const BASE_SITE_URL = process.env.VET_BASE_SITE_URL || "https://5e.tools/";
+const BASE_SITE_URL = process.env.VET_BASE_SITE_URL || "https://spies.tools/";
 const LOG_EVERY = 1000; // Certain stakeholders prefer less logspam
 const isSkipUaEtc = !!process.env.VET_SEO_IS_SKIP_UA_ETC;
 const isOnlyVanilla = !!process.env.VET_SEO_IS_ONLY_VANILLA;

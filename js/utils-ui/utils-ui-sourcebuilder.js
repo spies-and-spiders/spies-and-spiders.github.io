@@ -172,7 +172,7 @@ export class SourceUiUtil {
 				${iptAuthors}
 			</div></div>
 			<div class="ve-ui-source__row ve-mb-2"><div class="ve-col-12 ve-flex-v-center">
-				<span class="ve-mr-2 ve-ui-source__name ve-help" title="A comma-separated list of people who converted the homebrew to 5etools' format, e.g. 'John Doe, Joe Bloggs'">Converted By</span>
+				<span class="ve-mr-2 ve-ui-source__name ve-help" title="A comma-separated list of people who converted the homebrew to the site's format, e.g. 'John Doe, Joe Bloggs'">Converted By</span>
 				${iptConverters}
 			</div></div>
 			<div class="ve-text-center ve-mb-2">${btnOk}${btnCancel}</div>

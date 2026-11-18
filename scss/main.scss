@@ -7,8 +7,8 @@
 @use "includes/util";
 @use "includes/util--print";
 @use "includes/util--night";
-@use "includes/util-5etools";
-@use "includes/util-5etools--night";
+@use "includes/util-snstools";
+@use "includes/util-snstools--night";
 @use "includes/util-mobile";
 @use "includes/util-popwindow";
 @use "includes/util-accordion";
@@ -30,7 +30,6 @@
 @use "includes/style-managebrew";
 @use "includes/style-initiativetracker";
 @use "includes/style-statblock";
-@use "includes/style-cancer";
 @use "includes/style-incompatible-browser";
 @use "includes/style-theme";
 @use "includes/toast";

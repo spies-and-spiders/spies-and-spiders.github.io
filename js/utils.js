@@ -2,7 +2,7 @@
 
 // in deployment, `IS_DEPLOYED = "<version number>";` should be set below.
 globalThis.IS_DEPLOYED = undefined;
-globalThis.VERSION_NUMBER = /* 5ETOOLS_VERSION__OPEN */"2.41.1"/* 5ETOOLS_VERSION__CLOSE */;
+globalThis.VERSION_NUMBER = /* VERSION__OPEN */"2.41.1"/* VERSION__CLOSE */;
 globalThis.DEPLOYED_IMG_ROOT = undefined;
 // for the roll20 script to set
 globalThis.IS_VTT = false;
@@ -53,8 +53,6 @@ globalThis.VeCt = class {
 	static SYM_WALKER_BREAK = Symbol("walkerBreak");
 
 	static SYM_UTIL_TIMEOUT = Symbol("timeout");
-
-	static LOC_HOSTNAME_CANCER = "5e.tools";
 
 	static URL_BREW = `https://github.com/TheGiddyLimit/homebrew`;
 	static URL_ROOT_BREW = `https://raw.githubusercontent.com/TheGiddyLimit/homebrew/master/`; // N.b. must end with a slash
@@ -3756,7 +3754,7 @@ globalThis.UrlUtil = class {
 	}
 
 	/**
-	 * All internal URL construction should pass through here, to ensure `static.5etools.com` is used when required.
+	 * All internal URL construction should pass through here, to ensure the correct base URL is used.
 	 *
 	 * @param href the link
 	 * @param isBustCache If a cache-busting parameter should always be added.
@@ -4302,7 +4300,7 @@ if (!IS_DEPLOYED && !globalThis.IS_VTT && typeof window !== "undefined") {
 		if (EventUtil.noModifierKeys(e) && typeof d20 === "undefined") {
 			if (e.key === "#") {
 				const spl = window.location.href.split("/");
-				window.prompt("Copy to clipboard: Ctrl+C, Enter", `https://5e.tools/${spl[spl.length - 1]}`);
+				window.prompt("Copy to clipboard: Ctrl+C, Enter", `https://spies.tools/${spl[spl.length - 1]}`);
 			}
 		}
 	});
@@ -9626,65 +9624,4 @@ if (!globalThis.IS_VTT && typeof window !== "undefined") {
 		Renderer.dice.bindOnclickListener(document.body);
 		Renderer.events.bindGeneric();
 	});
-
-	// region Cancer
-	const isDbgCancer = false;
-
-	if (location.hostname.endsWith(VeCt.LOC_HOSTNAME_CANCER)) {
-		const ivsCancer = [];
-		let anyFound = false;
-
-		window.addEventListener("load", () => {
-			let isPadded = false;
-			[
-				"div-gpt-ad-snstools35927", // main banner
-				"div-gpt-ad-snstools35930", // side banner
-				"div-gpt-ad-snstools35928", // sidebar top
-				"div-gpt-ad-snstools35929", // sidebar bottom
-				"div-gpt-ad-snstools36159", // bottom floater
-				"div-gpt-ad-snstools36834", // mobile middle
-			].forEach(id => {
-				const iv = setInterval(() => {
-					const wrp = veEs(`#${id}`);
-					if (!wrp) return;
-					if (!wrp.vee.children().length) return;
-					if (wrp.vee.children()[0].tagName === "SCRIPT") return;
-					const tgt = wrp.vee.closest(".cancer__anchor")?.vee.find(".cancer__disp-cancer");
-					if (tgt) {
-						anyFound = true;
-						tgt.vee.css({display: "flex"}).vee.txt("Advertisements");
-						clearInterval(iv);
-					}
-				}, 250);
-
-				ivsCancer.push(iv);
-			});
-
-			const ivPad = setInterval(() => {
-				if (!anyFound) return;
-				if (isPadded) return;
-				isPadded = true;
-				// Pad the bottom of the page so the adhesive unit doesn't overlap the content
-				veEm(`.view-col-group--cancer`).forEach(ele => ele.vee.appends(`<div class="ve-w-100 ve-no-shrink" style="height: 110px;"></div>`));
-			}, 300);
-			ivsCancer.push(ivPad);
-		});
-
-		// Hack to lock the ad space at a fixed size--prevents the screen from shifting around once loaded
-		setTimeout(() => {
-			const wrps = veEm(`.cancer__wrp-leaderboard-inner`);
-			if (anyFound) wrps.forEach(ele => ele.vee.css({height: 90}));
-			ivsCancer.forEach(iv => clearInterval(iv));
-		}, 6500);
-	} else {
-		if (!isDbgCancer) window.addEventListener("load", () => veEm(`.cancer__anchor`).forEach(ele => ele.remove()));
-	}
-
-	if (isDbgCancer) {
-		window.addEventListener("load", () => {
-			veEm(`.cancer__sidebar-inner--top`).forEach(ele => ele.vee.appends(`<div style="width: 300px; height: 600px; background: #f0f;"></div>`));
-			veEm(`.cancer__sidebar-inner--bottom`).forEach(ele => ele.vee.appends(`<div style="width: 300px; height: 600px; background: #f0f;"></div>`));
-		});
-	}
-	// endregion
 }

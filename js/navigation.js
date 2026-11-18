@@ -167,12 +167,7 @@ class NavBar {
 		this._addElement_li({keyPath: [NavBar._CAT_UTILITIES], page: "makecards.html", aText: "RPG Cards JSON Builder"});
 		this._addElement_li({keyPath: [NavBar._CAT_UTILITIES], page: "converter.html", aText: "Text Converter"});
 		this._addElement_divider({keyPath: [NavBar._CAT_UTILITIES]});
-		this._addElement_li({keyPath: [NavBar._CAT_UTILITIES], page: "plutonium.html", aText: "Plutonium (Foundry Module) Features"});
-		this._addElement_divider({keyPath: [NavBar._CAT_UTILITIES]});
-		this._addElement_li({keyPath: [NavBar._CAT_UTILITIES], page: "https://wiki.tercept.net/en/betteR20", aText: "Roll20 Script Help", isExternal: true, isExternalMark: true});
-		this._addElement_divider({keyPath: [NavBar._CAT_UTILITIES]});
 		this._addElement_li({keyPath: [NavBar._CAT_UTILITIES], page: "changelog.html", aText: "Changelog"});
-		this._addElement_li({keyPath: [NavBar._CAT_UTILITIES], page: NavBar._getCurrentWikiHelpPage(), aText: "Page Help", isExternal: true, isExternalMark: true});
 		this._addElement_divider({keyPath: [NavBar._CAT_UTILITIES]});
 		this._addElement_li({keyPath: [NavBar._CAT_UTILITIES], page: "privacy-policy.html", aText: "Privacy Policy"});
 
@@ -692,11 +687,6 @@ class NavBar {
 
 		if (!currentPage) currentPage = "index.html";
 		return currentPage.trim();
-	}
-
-	static _getCurrentWikiHelpPage () {
-		const slug = NavBar._getCurrentPage().replace(/.html$/i, "");
-		return `https://wiki.tercept.net/en/5eTools/HelpPages/${slug === "index" ? "" : slug}`;
 	}
 
 	static highlightCurrentPage () {

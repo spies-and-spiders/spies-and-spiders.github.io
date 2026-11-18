@@ -29,14 +29,6 @@ export class PageGeneratorBase {
 	_registerPartials () {
 		this._registerPartial({ident: "head", filename: "head/template-head.hbs"});
 
-		this._registerPartial({ident: "adLhs", filename: "ad/template-ad-lhs.hbs"});
-		this._registerPartial({ident: "adLhsScrollingPage", filename: "ad/template-ad-lhs--scrolling-page.hbs"});
-		this._registerPartial({ident: "adRhs", filename: "ad/template-ad-rhs.hbs"});
-		this._registerPartial({ident: "adRhsScrollingPage", filename: "ad/template-ad-rhs--scrolling-page.hbs"});
-		this._registerPartial({ident: "adLeaderboard", filename: "ad/template-ad-leaderboard.hbs"});
-		this._registerPartial({ident: "adMobile1", filename: "ad/template-ad-mobile-1.hbs"});
-		this._registerPartial({ident: "adFooter", filename: "ad/template-ad-footer.hbs"});
-
 		this._registerPartial({ident: "navbar", filename: "navbar/template-navbar.hbs"});
 
 		this._registerPartial({ident: "scripts", filename: "scripts/template-scripts.hbs"});

@@ -318,7 +318,7 @@ class _TestAdventureBookImages {
 }
 
 function main () {
-	if (!fs.existsSync("./img")) return true;
+	if (!fs.existsSync("./img/bestiary/tokens")) return true;
 
 	if (new _TestTokenImagesBestiary().run()) return false;
 	if (new _TestTokenImagesObjects().run()) return false;

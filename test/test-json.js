@@ -35,6 +35,7 @@ async function main () {
 
 	const fileList = Uf.listJsonFiles("data")
 		.filter(filePath => {
+			if (filePath.includes("data/maneuvers")) return false; // no schema exists for maneuvers
 			if (filePath.includes("data/generated")) return _GENERATED_ALLOWLIST.has(filePath.split("/").at(-1));
 			return true;
 		});

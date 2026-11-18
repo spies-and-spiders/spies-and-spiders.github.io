@@ -270,7 +270,7 @@ export class GetBrewUi {
 
 		veT(wrp)`
 		<div class="ve-mt-1"><i>A list of ${this._brewUtil.DISPLAY_NAME} available in the public repository. Click a name to load the ${this._brewUtil.DISPLAY_NAME}, or view the source directly.${this._brewUtil.IS_EDITABLE ? `<br>
-		Contributions are welcome; see the <a href="${this._brewUtil.URL_REPO_DEFAULT}/blob/master/README.md" target="_blank" rel="noopener noreferrer">README</a>, or stop by our <a href="https://discord.gg/5etools" target="_blank" rel="noopener noreferrer">Discord</a>.` : ""}</i></div>
+		Contributions are welcome; see the <a href="${this._brewUtil.URL_REPO_DEFAULT}/blob/master/README.md" target="_blank" rel="noopener noreferrer">README</a>.` : ""}</i></div>
 		<hr class="ve-hr-3">
 		<div class="ve-lst__form-top">
 			${btnAddSelected}
