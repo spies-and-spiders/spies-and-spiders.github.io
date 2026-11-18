@@ -57,7 +57,7 @@ jobs:
         #  - `prerelease`
          - name: Cleanup
            run: |
-             rm -rf *.md *.zip scss spellcheck
+             rm -rf *.md *.zip spellcheck
              ls -lah
          - name: Generate various JS files and data
            run: ./scripts/generate-content.sh
@@ -76,7 +76,7 @@ jobs:
 
          -  name: Cleanup
             run: |
-               rm -rf node_modules node
+               rm -rf node_modules node scss
                ls -lah
 
          -  name: Setup Pages

@@ -264,8 +264,6 @@ class NavBar {
 				title: "Remove all preloaded data, and clear away any caches.",
 			},
 		);
-
-		this._addElement_li({page: "https://wiki.tercept.net/en/5eTools", aText: "Help", isExternal: true});
 	}
 
 	/**

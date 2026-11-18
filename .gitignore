@@ -41,3 +41,16 @@ markdown/config.json
 .lsp
 # Dev scripts
 dev-*.sh
+
+# Generated pages (npm run gen:pages)
+/*.html
+/bestiary/
+/items/
+/spells/
+
+# Compiled styles (npm run build:css)
+/css/*.css
+!/css/fontawesome.css
+
+# Libraries copied from node_modules (npm run build:libs)
+/lib/
