@@ -4,6 +4,7 @@ import {PAGE_GENERATORS_ADVENTURE_BOOK} from "./generate-pages-page-generator-co
 import {PageGeneratorGeneric} from "./generate-pages-page-generator.js";
 import {PAGE_GENERATORS_TABLEPAGE} from "./generate-pages-page-generator-config-tablepage.js";
 import {PAGE_GENERATORS_MANAGER} from "./generate-pages-page-generator-config-manager.js";
+import {PAGE_GENERATORS_SEO_INDEX} from "./generate-pages-page-generator-config-seo.js";
 
 class _PageGeneratorMaps extends PageGeneratorGeneric {
 	_filename = "page/template-page-maps.hbs";
@@ -16,11 +17,8 @@ class _PageGeneratorMaps extends PageGeneratorGeneric {
 		"maps",
 	];
 
-	_scriptsRenderAdditional = [
+	_scriptsModules = [
 		"render-map.js",
-	];
-
-	_scripts = [
 		"maps-util.js",
 		"maps.js",
 	];
@@ -40,7 +38,6 @@ class _PageGeneratorDmscreen extends PageGeneratorGeneric {
 
 	_scriptsLibAdditional = [
 		"peerjs.js",
-		"jquery.panzoom.js",
 		"lzma.js",
 	];
 
@@ -49,11 +46,8 @@ class _PageGeneratorDmscreen extends PageGeneratorGeneric {
 		"utils-p2p.js",
 	];
 
-	_scriptsRenderAdditional = [
-		"render-map.js",
-	];
-
 	_scriptsModules = [
+		"render-map.js",
 		"dmscreen.js",
 	];
 }
@@ -110,10 +104,6 @@ class _PageGeneratorConverter extends PageGeneratorGeneric {
 		"render-markdown.js",
 	];
 
-	_scriptsUtilsAdditional = [
-		"utils-proporder.js",
-	];
-
 	_scriptsModules = [
 		"converter.js",
 	];
@@ -123,14 +113,14 @@ class _PageGeneratorCrcalculator extends PageGeneratorGeneric {
 	_filename = "page/template-page-crcalculator.hbs";
 	_page = "crcalculator.html";
 
-	_pageTitle = "CR Calculator";
+	_pageTitle = "CR Calculator (5e/2014)";
 	_navbarDescription = "Easily build custom creatures.";
 
 	_stylesheets = [
 		"crcalculator",
 	];
 
-	_scripts = [
+	_scriptsModules = [
 		"crcalculator.js",
 	];
 }
@@ -159,7 +149,7 @@ class _PageGeneratorInittrackerplayerview extends PageGeneratorGeneric {
 	_page = "inittrackerplayerview.html";
 
 	_pageTitle = "Initiative Tracker Player View";
-	_navbarDescription = "Press F to toggle fullscreen. Good luck.";
+	_navbarDescriptionHtml = "Press <kbd>f</kbd> to toggle fullscreen. Good luck.";
 
 	_stylesheets = [
 		"inittrackerplayerview",
@@ -216,11 +206,7 @@ class _PageGeneratorLifegen extends PageGeneratorGeneric {
 		"lifegen",
 	];
 
-	_scriptsUtilsAdditional = [
-		"utils-generate.js",
-	];
-
-	_scripts = [
+	_scriptsModules = [
 		"lifegen.js",
 	];
 }
@@ -237,14 +223,13 @@ class _PageGeneratorLootgen extends PageGeneratorGeneric {
 	];
 
 	_scriptsUtilsAdditional = [
-		"utils-generate.js",
+		"filter-common.js",
 		"filter-items.js",
 		"filter-spells.js",
 	];
 
-	_scripts = [
+	_scriptsModules = [
 		"lootgen.js",
-		"lootgen-ui.js",
 	];
 }
 
@@ -259,16 +244,11 @@ class _PageGeneratorMakebrew extends PageGeneratorGeneric {
 		"makebrew",
 	];
 
-	_scriptsLibAdditional = [
-		"bootstrap-typeahead.js",
-	];
-
 	_scriptsRenderAdditional = [
 		"render-markdown.js",
 	];
 
 	_scriptsUtilsAdditional = [
-		"utils-proporder.js",
 		"filter-spells.js",
 	];
 
@@ -286,10 +266,6 @@ class _PageGeneratorMakecards extends PageGeneratorGeneric {
 
 	_stylesheets = [
 		"makecards",
-	];
-
-	_scriptsLibAdditional = [
-		"bootstrap-typeahead.js",
 	];
 
 	_scriptsLibAdditionalRemote = [
@@ -363,7 +339,7 @@ class _PageGeneratorRenderdemo extends PageGeneratorGeneric {
 		"ace.js",
 	];
 
-	_scripts = [
+	_scriptsModules = [
 		"renderdemo.js",
 	];
 }
@@ -402,9 +378,8 @@ class _PageGeneratorStatgen extends PageGeneratorGeneric {
 		"filter-feats.js",
 	];
 
-	_scripts = [
+	_scriptsModules = [
 		"statgen.js",
-		"statgen-ui.js",
 	];
 }
 
@@ -414,6 +389,7 @@ export const PAGE_GENERATORS = 	[
 	...PAGE_GENERATORS_ADVENTURE_BOOK,
 	...PAGE_GENERATORS_TABLEPAGE,
 	...PAGE_GENERATORS_MANAGER,
+	...PAGE_GENERATORS_SEO_INDEX,
 
 	new _PageGeneratorMaps(),
 	new _PageGeneratorDmscreen(),

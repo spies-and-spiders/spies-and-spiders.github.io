@@ -1,0 +1,701 @@
+import {StatGenUtilAdditionalFeats} from "./statgen-util-additionalfeats.js";
+import {MAX_CUSTOM_FEATS} from "./statgen-ui-consts.js";
+import {VetoolsConfig} from "../utils-config/utils-config-config.js";
+import {SITE_STYLE__CLASSIC} from "../consts.js";
+
+export class StatGenUiCompAsi extends BaseComponent {
+	constructor ({parent}) {
+		super();
+		this._parent = parent;
+
+		this._metasAsi = {ability: [], race: [], background: [], custom: []};
+
+		this._doPulseThrottled = MiscUtil.throttle(this._doPulse_.bind(this), 50);
+	}
+
+	/**
+	 * Add this to UI interactions rather than state hooks, as there is a copy of this component per tab.
+	 */
+	_doPulse_ () { this._parent.state.common_pulseAsi = !this._parent.state.common_pulseAsi; }
+
+	_render_renderAsiFeatSection (propCnt, namespace, wrpRows) {
+		const hk = () => {
+			let ix = 0;
+
+			for (; ix < this._parent.state[propCnt]; ++ix) {
+				const ix_ = ix;
+				const {propMode, propIxFeat, propIxAsiPointOne, propIxAsiPointTwo, propIxFeatAbility, propFeatAbilityChooseFrom} = this._parent.getPropsAsi(ix_, namespace);
+
+				if (!this._metasAsi[namespace][ix_]) {
+					this._parent.state[propMode] = this._parent.state[propMode] || (namespace === "ability" ? "asi" : "feat");
+
+					const btnAsi = namespace !== "ability" ? null : veT`<button class="ve-btn ve-btn-xs ve-btn-default ve-w-50p">ASI</button>`
+						.vee.onn("click", () => {
+							this._parent.state[propMode] = "asi";
+							this._doPulseThrottled();
+						});
+
+					const btnFeat = namespace !== "ability" ? veT`<div class="ve-w-100p ve-text-center">Feat</div>` : veT`<button class="ve-btn ve-btn-xs ve-btn-default ve-w-50p">Feat</button>`
+						.vee.onn("click", () => {
+							this._parent.state[propMode] = "feat";
+							this._doPulseThrottled();
+						});
+
+					// region ASI
+					let stgAsi;
+					if (namespace === "ability") {
+						const colsAsi = Parser.ABIL_ABVS.map((it, ixAsi) => {
+							const updateDisplay = () => ipt.vee.val(Number(this._parent.state[propIxAsiPointOne] === ixAsi) + Number(this._parent.state[propIxAsiPointTwo] === ixAsi));
+
+							const ipt = veT`<input class="ve-form-control form-control--minimal ve-text-right ve-input-xs ve-statgen-shared__ipt" type="number" style="width: 42px;">`
+								.vee.disableSpellcheck()
+								.vee.onn("keydown", evt => { if (evt.key === "Escape") ipt.vee.blur(); })
+								.vee.onn("change", () => {
+									const raw = ipt.vee.val().trim();
+									const asNum = Number(raw);
+
+									const activeProps = [propIxAsiPointOne, propIxAsiPointTwo].filter(prop => this._parent.state[prop] === ixAsi);
+
+									if (isNaN(asNum) || asNum <= 0) {
+										this._parent.proxyAssignSimple(
+											"state",
+											{
+												...activeProps.mergeMap(prop => ({[prop]: null})),
+											},
+										);
+										updateDisplay();
+										return this._doPulseThrottled();
+									}
+
+									if (asNum >= 2) {
+										this._parent.proxyAssignSimple(
+											"state",
+											{
+												[propIxAsiPointOne]: ixAsi,
+												[propIxAsiPointTwo]: ixAsi,
+											},
+										);
+										updateDisplay();
+										return this._doPulseThrottled();
+									}
+
+									if (activeProps.length === 2) {
+										this._parent.state[propIxAsiPointTwo] = null;
+										updateDisplay();
+										return this._doPulseThrottled();
+									}
+
+									if (this._parent.state[propIxAsiPointOne] == null) {
+										this._parent.state[propIxAsiPointOne] = ixAsi;
+										updateDisplay();
+										return this._doPulseThrottled();
+									}
+
+									this._parent.state[propIxAsiPointTwo] = ixAsi;
+									updateDisplay();
+									this._doPulseThrottled();
+								});
+
+							const hkSelected = () => updateDisplay();
+							this._parent.addHookBase(propIxAsiPointOne, hkSelected);
+							this._parent.addHookBase(propIxAsiPointTwo, hkSelected);
+							hkSelected();
+
+							return veT`<div class="ve-flex-col ve-h-100 ve-mr-2">
+								<div class="ve-statgen-asi__cell ve-text-center ve-pb-1" title="${Parser.attAbvToFull(it)}">${it.toUpperCase()}</div>
+								<div class="ve-flex-vh-center ve-statgen-asi__cell ve-relative">
+									<div class="ve-absolute ve-no-events ve-statgen-asi__disp-plus">+</div>
+									${ipt}
+								</div>
+							</div>`;
+						});
+
+						stgAsi = veT`<div class="ve-flex-v-center">
+							${colsAsi}
+						</div>`;
+					}
+					// endregion
+
+					// region Feat
+					const {stgFeat, btnChooseFeat, hkIxFeat} = this._render_getMetaFeat({
+						propIxFeat,
+						propIxFeatAbility,
+						propFeatAbilityChooseFrom,
+						filterExpression: namespace === "ability" ? "category=!EB" : null,
+					});
+					// endregion
+
+					const hkMode = () => {
+						if (namespace === "ability") {
+							btnAsi.vee.toggleClass("ve-active", this._parent.state[propMode] === "asi");
+							btnFeat.vee.toggleClass("ve-active", this._parent.state[propMode] === "feat");
+						}
+
+						btnChooseFeat.vee.toggle(this._parent.state[propMode] === "feat");
+
+						if (namespace === "ability") stgAsi.vee.toggle(this._parent.state[propMode] === "asi");
+						stgFeat.vee.toggle(this._parent.state[propMode] === "feat");
+
+						hkIxFeat();
+					};
+					this._parent.addHookBase(propMode, hkMode);
+					hkMode();
+
+					const row = veT`<div class="ve-flex-v-end ve-py-3 ve-px-1">
+						<div class="ve-btn-group">${btnAsi}${btnFeat}</div>
+						<div class="ve-vr-4"></div>
+						${stgAsi}
+						${stgFeat}
+					</div>`.vee.appendTo(wrpRows);
+
+					this._metasAsi[namespace][ix_] = {
+						row,
+					};
+				}
+
+				this._metasAsi[namespace][ix_].row.vee.show().vee.addClass("ve-statgen-asi__row");
+			}
+
+			// Remove border styling from the last visible row
+			if (this._metasAsi[namespace][ix - 1]) this._metasAsi[namespace][ix - 1].row.vee.removeClass("ve-statgen-asi__row");
+
+			for (; ix < this._metasAsi[namespace].length; ++ix) {
+				if (!this._metasAsi[namespace][ix]) continue;
+				this._metasAsi[namespace][ix].row.vee.hide().vee.removeClass("ve-statgen-asi__row");
+			}
+		};
+		this._parent.addHookBase(propCnt, hk);
+		hk();
+	}
+
+	_render_renderAdditionalFeatSection ({namespace, wrpRows, propEntity}) {
+		const fnsCleanupEnt = [];
+		const fnsCleanupGroup = [];
+
+		const {propIxSel, propPrefix} = this._parent.getPropsAdditionalFeats_(namespace);
+
+		const resetGroupState = () => {
+			const nxtState = Object.keys(this._parent.state)
+				.filter(k => k.startsWith(propPrefix) && k !== propIxSel)
+				.mergeMap(k => ({[k]: null}));
+			this._parent.proxyAssignSimple("state", nxtState);
+		};
+
+		const hkEnt = (prop) => {
+			const isInitialLoad = prop == null;
+
+			fnsCleanupEnt.splice(0, fnsCleanupEnt.length).forEach(fn => fn());
+			fnsCleanupGroup.splice(0, fnsCleanupGroup.length).forEach(fn => fn());
+			wrpRows.vee.empty();
+
+			if (!isInitialLoad && !this._parent.isSettingStateFromOverwrite()) resetGroupState();
+
+			const ent = this._parent[namespace]; // e.g. `this._parent.race`
+
+			if ((ent?.feats?.length || 0) > 1) {
+				const {sel: selGroup, unhook: unhookIxGroup} = StatGenUtilAdditionalFeats.getSelIxSetMeta({comp: this._parent, prop: propIxSel, available: ent.feats});
+				fnsCleanupEnt.push(unhookIxGroup);
+				veT`<div class="ve-flex-col ve-mb-2">
+					<div class="ve-flex-v-center ve-mb-2">
+						<div class="ve-mr-2">Feat Set:</div>
+						${selGroup.vee.addClass("ve-max-w-200p")}
+					</div>
+				</div>`.vee.appendTo(wrpRows);
+			} else {
+				this._parent.state[propIxSel] = 0;
+			}
+
+			const wrpRowsInner = veT`<div class="ve-w-100 ve-flex-col ve-min-h-0"></div>`.vee.appendTo(wrpRows);
+
+			const hkIxSel = (prop) => {
+				const isInitialLoad = prop == null;
+
+				fnsCleanupGroup.splice(0, fnsCleanupGroup.length).forEach(fn => fn());
+				wrpRowsInner.vee.empty();
+
+				if (!isInitialLoad && !this._parent.isSettingStateFromOverwrite()) resetGroupState();
+
+				const featSet = ent?.feats?.[this._parent.state[propIxSel]];
+
+				const uidsStatic = StatGenUtilAdditionalFeats.getUidsStatic(featSet);
+
+				const rows = [];
+
+				uidsStatic.map((uid, ix) => {
+					const {propIxFeatAbility, propFeatAbilityChooseFrom} = this._parent.getPropsAdditionalFeatsFeatSet_(namespace, "static", ix);
+					const {name, source} = DataUtil.proxy.unpackUid("feat", uid, "feat", {isLower: true});
+					const feat = this._parent.feats.find(it => it.name.toLowerCase() === name && it.source.toLowerCase() === source);
+					const {stgFeat, hkIxFeat, cleanup} = this._render_getMetaFeat({featStatic: feat, propIxFeatAbility, propFeatAbilityChooseFrom});
+					fnsCleanupGroup.push(cleanup);
+					hkIxFeat();
+
+					const row = veT`<div class="ve-flex-v-end ve-py-3 ve-px-1 ve-statgen-asi__row">
+						<div class="ve-btn-group"><div class="ve-w-100p ve-text-center">Feat</div></div>
+						<div class="ve-vr-4"></div>
+						${stgFeat}
+					</div>`.vee.appendTo(wrpRowsInner);
+					rows.push(row);
+				});
+
+				[...new Array(featSet?.any || 0)].map((_, ix) => {
+					const {propIxFeat, propIxFeatAbility, propFeatAbilityChooseFrom} = this._parent.getPropsAdditionalFeatsFeatSet_(namespace, "choose", ix);
+					const {stgFeat, hkIxFeat, cleanup} = this._render_getMetaFeat({propIxFeat, propIxFeatAbility, propFeatAbilityChooseFrom});
+					fnsCleanupGroup.push(cleanup);
+					hkIxFeat();
+
+					const row = veT`<div class="ve-flex-v-end ve-py-3 ve-px-1 ve-statgen-asi__row">
+						<div class="ve-btn-group"><div class="ve-w-100p ve-text-center">Feat</div></div>
+						<div class="ve-vr-4"></div>
+						${stgFeat}
+					</div>`.vee.appendTo(wrpRowsInner);
+					rows.push(row);
+				});
+
+				[...new Array(featSet?.anyFromCategory?.count || 0)].map((_, ix) => {
+					const {propIxFeat, propIxFeatAbility, propFeatAbilityChooseFrom} = this._parent.getPropsAdditionalFeatsFeatSet_(namespace, "chooseCategory", ix);
+					const {stgFeat, hkIxFeat, cleanup} = this._render_getMetaFeat({
+						propIxFeat,
+						propIxFeatAbility,
+						propFeatAbilityChooseFrom,
+						filterExpression: `category=${featSet.anyFromCategory.category.join(";")}`,
+					});
+					fnsCleanupGroup.push(cleanup);
+					hkIxFeat();
+
+					const row = veT`<div class="ve-flex-v-end ve-py-3 ve-px-1 ve-statgen-asi__row">
+						<div class="ve-btn-group"><div class="ve-w-100p ve-text-center">${Parser.featCategoryToFull(featSet.anyFromCategory.category)} Feat</div></div>
+						<div class="ve-vr-4"></div>
+						${stgFeat}
+					</div>`.vee.appendTo(wrpRowsInner);
+					rows.push(row);
+				});
+
+				// Remove border styling from the last row
+				if (rows.last()) rows.last().vee.removeClass("ve-statgen-asi__row");
+
+				this._doPulseThrottled();
+			};
+			this._parent.addHookBase(propIxSel, hkIxSel);
+			fnsCleanupEnt.push(() => this._parent.removeHookBase(propIxSel, hkIxSel));
+			hkIxSel();
+			this._doPulseThrottled();
+		};
+		this._parent.addHookBase(propEntity, hkEnt);
+		hkEnt();
+	}
+
+	/**
+	 * @param {?string} featStatic Static feat UID.
+	 * @param {?string} propIxFeat Dynamic feat UID property.
+	 * @param {string} propIxFeatAbility Feat chosen ability score set property.
+	 * @param {string} propFeatAbilityChooseFrom Feat chosen-from ability score property.
+	 * @param {?string} filterExpression Filter expression applied when choosing a feat.
+	 * @private
+	 */
+	_render_getMetaFeat ({featStatic = null, propIxFeat = null, propIxFeatAbility, propFeatAbilityChooseFrom, filterExpression = null}) {
+		if (featStatic && propIxFeat) throw new Error(`Cannot combine static feat and feat property!`);
+		if (featStatic == null && propIxFeat == null) throw new Error(`Either a static feat or a feat property must be specified!`);
+
+		const btnChooseFeat = featStatic ? null : veT`<button class="ve-btn ve-btn-xxs ve-btn-default ve-mr-2" title="Choose a Feat"><span class="glyphicon glyphicon-search"></span></button>`
+			.vee.onn("click", async () => {
+				const selecteds = await this._parent.modalFilterFeats.pGetUserSelection({
+					filterExpression: filterExpression ?? "category=", // TODO(Future) hack; revise as required
+				});
+				if (selecteds == null || !selecteds.length) return;
+
+				const selected = selecteds[0];
+				const ix = this._parent.feats.findIndex(it => it.name === selected.name && it.source === selected.values.sourceJson);
+				if (!~ix) throw new Error(`Could not find selected entity: ${JSON.stringify(selected)}`); // Should never occur
+				this._parent.state[propIxFeat] = ix;
+
+				this._doPulseThrottled();
+			});
+
+		// region Feat
+		const dispFeat = veT`<div class="ve-flex-v-center ve-mr-2"></div>`;
+		const stgSelectAbilitySet = veT`<div class="ve-flex-v-center ve-mr-2"></div>`;
+		const stgFeatNoChoice = veT`<div class="ve-flex-v-center ve-mr-2"></div>`;
+		const stgFeatChooseAsiFrom = veT`<div class="ve-flex-v-end"></div>`;
+		const stgFeatChooseAsiWeighted = veT`<div class="ve-flex-v-center"></div>`;
+
+		const stgFeat = veT`<div class="ve-flex-v-center">
+			${btnChooseFeat}
+			${dispFeat}
+			${stgSelectAbilitySet}
+			${stgFeatNoChoice}
+			${stgFeatChooseAsiFrom}
+			${stgFeatChooseAsiWeighted}
+		</div>`;
+
+		const fnsCleanup = [];
+		const fnsCleanupFeat = [];
+		const fnsCleanupFeatAbility = [];
+
+		const hkIxFeat = (prop) => {
+			const isInitialLoad = prop == null;
+
+			const isRetainState = isInitialLoad || this._parent.isSettingStateFromOverwrite();
+
+			fnsCleanupFeat.splice(0, fnsCleanupFeat.length).forEach(fn => fn());
+			fnsCleanupFeatAbility.splice(0, fnsCleanupFeatAbility.length).forEach(fn => fn({isRetainState}));
+
+			if (!isRetainState) {
+				const nxtState = Object.keys(this._parent.state).filter(it => it.startsWith(propFeatAbilityChooseFrom)).mergeMap(it => ({[it]: null}));
+				this._parent.proxyAssignSimple("state", nxtState);
+			}
+
+			const feat = featStatic || this._parent.feats[this._parent.state[propIxFeat]];
+
+			stgFeat.vee.removeClass("ve-flex-v-end").vee.addClass("ve-flex-v-center");
+			dispFeat
+				.vee.toggleClass("ve-italic", !feat)
+				.vee.toggleClass("ve-muted", !feat);
+			dispFeat.vee.html(feat ? Renderer.get().render(`{@feat ${VetoolsConfig.get("styleSwitcher", "style") === SITE_STYLE__CLASSIC ? feat.name.toLowerCase() : feat.name}|${feat.source}}`) : `(Choose a feat)`);
+
+			this._parent.state[propIxFeatAbility] = 0;
+
+			stgSelectAbilitySet.vee.hide();
+			if (feat) {
+				if (feat.ability && feat.ability.length > 1) {
+					const metaChooseAbilitySet = ComponentUiUtil.getSelEnum(
+						this._parent,
+						propIxFeatAbility,
+						{
+							values: feat.ability.map((_, i) => i),
+							fnDisplay: ix => Renderer.getAbilityData([feat.ability[ix]]).asText,
+							asMeta: true,
+						},
+					);
+
+					stgSelectAbilitySet.vee.show().vee.appends(metaChooseAbilitySet.sel);
+					metaChooseAbilitySet.sel.vee.onn("change", () => this._doPulseThrottled());
+					fnsCleanupFeat.push(() => {
+						metaChooseAbilitySet.unhook();
+						metaChooseAbilitySet.sel.remove();
+					});
+				}
+
+				const hkAbilitySet = () => {
+					fnsCleanupFeatAbility.splice(0, fnsCleanupFeatAbility.length).forEach(fn => fn({isRetainState}));
+
+					if (!feat.ability) {
+						stgFeatNoChoice.vee.empty().vee.hide();
+						stgFeatChooseAsiFrom.vee.empty().vee.hide();
+						return;
+					}
+
+					const abilitySet = feat.ability[this._parent.state[propIxFeatAbility]];
+					if (!abilitySet) {
+						stgFeatNoChoice.vee.empty().vee.hide();
+						stgFeatChooseAsiFrom.vee.empty().vee.hide();
+						return;
+					}
+
+					// region Static/no choices
+					const ptsNoChoose = Parser.ABIL_ABVS.filter(ab => abilitySet[ab]).map(ab => `${Parser.attAbvToFull(ab)} ${UiUtil.intToBonus(abilitySet[ab], {isPretty: true})}`);
+					stgFeatNoChoice.vee.empty().vee.toggle(ptsNoChoose.length).vee.html(`<div><span class="ve-mr-2">\u2014</span>${ptsNoChoose.join(", ")}</div>`);
+					// endregion
+
+					// region Choices
+					if (abilitySet.choose && abilitySet.choose.from) {
+						stgFeat.vee.removeClass("ve-flex-v-center").vee.addClass("ve-flex-v-end");
+						stgFeatChooseAsiFrom.vee.show().vee.empty();
+						stgFeatChooseAsiWeighted.vee.empty().vee.hide();
+
+						const count = abilitySet.choose.count || 1;
+						const amount = abilitySet.choose.amount || 1;
+
+						const {rowMetas, cleanup: cleanupAsiPicker} = ComponentUiUtil.getMetaWrpMultipleChoice(
+							this._parent,
+							propFeatAbilityChooseFrom,
+							{
+								values: abilitySet.choose.from,
+								fnDisplay: v => `${Parser.attAbvToFull(v)} ${UiUtil.intToBonus(amount, {isPretty: true})}`,
+								count,
+							},
+						);
+						fnsCleanupFeatAbility.push(({isRetainState = false} = {}) => cleanupAsiPicker({isRetainState}));
+
+						stgFeatChooseAsiFrom.vee.appends(`<div><span class="ve-mr-2">\u2014</span>choose ${count > 1 ? `${count} ` : ""}${UiUtil.intToBonus(amount, {isPretty: true})}</div>`);
+
+						rowMetas.forEach(meta => {
+							meta.cb.vee.onn("change", () => this._doPulseThrottled());
+
+							veT`<label class="ve-flex-col ve-no-select">
+								<div class="ve-flex-vh-center ve-statgen-asi__cell-feat" title="${Parser.attAbvToFull(meta.value)}">${meta.value.toUpperCase()}</div>
+								<div class="ve-flex-vh-center ve-statgen-asi__cell-feat">${meta.cb}</div>
+							</label>`.vee.appendTo(stgFeatChooseAsiFrom);
+						});
+					} else if (abilitySet.choose && abilitySet.choose.weighted) {
+						// TODO(Future) unsupported, for now
+						stgFeatChooseAsiFrom.vee.empty().vee.hide();
+						stgFeatChooseAsiWeighted.vee.show().vee.html(`<i class="ve-muted">The selected ability score format is currently unsupported. Please check back later!</i>`);
+					} else {
+						stgFeatChooseAsiFrom.vee.empty().vee.hide();
+						stgFeatChooseAsiWeighted.vee.empty().vee.hide();
+					}
+					// endregion
+
+					this._doPulseThrottled();
+				};
+				this._parent.addHookBase(propIxFeatAbility, hkAbilitySet);
+				fnsCleanupFeat.push(() => this._parent.removeHookBase(propIxFeatAbility, hkAbilitySet));
+				hkAbilitySet();
+			} else {
+				stgFeatNoChoice.vee.empty().vee.hide();
+				stgFeatChooseAsiFrom.vee.empty().vee.hide();
+				stgFeatChooseAsiWeighted.vee.empty().vee.hide();
+			}
+
+			this._doPulseThrottled();
+		};
+
+		if (!featStatic) {
+			this._parent.addHookBase(propIxFeat, hkIxFeat);
+			fnsCleanup.push(() => this._parent.removeHookBase(propIxFeat, hkIxFeat));
+		}
+
+		const cleanup = () => {
+			fnsCleanup.splice(0, fnsCleanup.length).forEach(fn => fn());
+			fnsCleanupFeat.splice(0, fnsCleanupFeat.length).forEach(fn => fn());
+			fnsCleanupFeatAbility.splice(0, fnsCleanupFeatAbility.length).forEach(fn => fn());
+		};
+
+		return {btnChooseFeat, stgFeat, hkIxFeat, cleanup};
+	}
+
+	render (wrpAsi) {
+		const wrpRowsAsi = veT`<div class="ve-flex-col ve-w-100 ve-overflow-y-auto"></div>`;
+		const wrpRowsRace = veT`<div class="ve-flex-col ve-w-100 ve-overflow-y-auto"></div>`;
+		const wrpRowsBackground = veT`<div class="ve-flex-col ve-w-100 ve-overflow-y-auto"></div>`;
+		const wrpRowsCustom = veT`<div class="ve-flex-col ve-w-100 ve-overflow-y-auto"></div>`;
+
+		this._render_renderAsiFeatSection("common_cntAsi", "ability", wrpRowsAsi);
+		this._render_renderAsiFeatSection("common_cntFeatsCustom", "custom", wrpRowsCustom);
+		this._render_renderAdditionalFeatSection({propEntity: "common_ixRace", namespace: "race", wrpRows: wrpRowsRace});
+		this._render_renderAdditionalFeatSection({propEntity: "common_ixBackground", namespace: "background", wrpRows: wrpRowsBackground});
+
+		const getStgEntity = ({title, wrpRows, propEntity, propIxEntity}) => {
+			const stg = veT`<div class="ve-flex-col">
+				<hr class="ve-hr-3 ve-hr--dotted">
+				<h4 class="ve-my-2 ve-bold">${title} Feats</h4>
+				${wrpRows}
+			</div>`;
+
+			const hkIxEntity = () => {
+				const entity = this._parent[propEntity];
+				stg.vee.toggle(!this._parent.isLevelUp && !!entity?.feats);
+			};
+			this._parent.addHookBase(propIxEntity, hkIxEntity);
+			hkIxEntity();
+
+			return stg;
+		};
+
+		const stgRace = getStgEntity({title: "Species", wrpRows: wrpRowsRace, propEntity: "race", propIxEntity: "common_ixRace"});
+
+		const stgBackground = getStgEntity({title: "Background", wrpRows: wrpRowsBackground, propEntity: "background", propIxEntity: "common_ixBackground"});
+
+		const {ipt: iptCountFeatsCustom, wrp: wrpCountFeatsCustom} = ComponentUiUtil.getIptInt(this._parent, "common_cntFeatsCustom", 0, {min: 0, max: MAX_CUSTOM_FEATS, asMeta: true, decorationLeft: "spacer", decorationRight: "ticker"});
+		iptCountFeatsCustom.vee.removeClass("ve-text-right").vee.addClass("ve-text-center");
+		wrpCountFeatsCustom.vee.addClass("ve-w-100p");
+
+		veT(wrpAsi)`
+			<h4 class="ve-my-2 ve-bold">Ability Score Increases</h4>
+			${this._render_getStageCntAsi()}
+			${wrpRowsAsi}
+
+			${stgRace}
+
+			${stgBackground}
+
+			<hr class="ve-hr-3 ve-hr--dotted">
+			<h4 class="ve-my-2 ve-bold">Additional Feats</h4>
+			<label class="ve-w-100 ve-flex-v-center ve-mb-2">
+				<div class="ve-mr-2 ve-no-shrink">Number of additional feats:</div>${wrpCountFeatsCustom}
+			</label>
+			${wrpRowsCustom}
+		`;
+	}
+
+	_render_getStageCntAsi () {
+		if (!this._parent.isCharacterMode) {
+			const {ipt: iptCountAsi, wrp: wrpCountAsi} = ComponentUiUtil.getIptInt(this._parent, "common_cntAsi", 0, {min: 0, max: 20, asMeta: true, decorationLeft: "spacer", decorationRight: "ticker"});
+			iptCountAsi.vee.removeClass("ve-text-right").vee.addClass("ve-text-center");
+			wrpCountAsi.vee.addClass("ve-w-100p");
+			return veT`<label class="ve-w-100 ve-flex-v-center ve-mb-2"><div class="ve-mr-2 ve-no-shrink">Number of Ability Score Increases to apply:</div>${wrpCountAsi}</label>`;
+		}
+
+		const out = veT`<div class="ve-w-100 ve-flex-v-center ve-mb-2 ve-italic ve-muted">No ability score increases available.</div>`;
+		const hkCntAsis = () => out.vee.toggle(this._parent.state.common_cntAsi === 0);
+		this._parent.addHookBase("common_cntAsi", hkCntAsis);
+		hkCntAsis();
+		return out;
+	}
+
+	_getFormData_getForNamespace_basic (outs, outIsFormCompletes, outFeats, propCnt, namespace) {
+		for (let i = 0; i < this._parent.state[propCnt]; ++i) {
+			const {propMode, propIxFeat, propIxAsiPointOne, propIxAsiPointTwo, propIxFeatAbility, propFeatAbilityChooseFrom} = this._parent.getPropsAsi(i, namespace);
+
+			if (this._parent.state[propMode] === "asi") {
+				const out = {};
+
+				let ttlChosen = 0;
+
+				Parser.ABIL_ABVS.forEach((ab, abI) => {
+					const increase = [this._parent.state[propIxAsiPointOne] === abI, this._parent.state[propIxAsiPointTwo] === abI].filter(Boolean).length;
+					if (increase) out[ab] = increase;
+					ttlChosen += increase;
+				});
+
+				const isFormComplete = ttlChosen === 2;
+
+				outFeats[namespace].push(null); // Pad the array
+
+				outs.push(out);
+				outIsFormCompletes.push(isFormComplete);
+			} else if (this._parent.state[propMode] === "feat") {
+				const {isFormComplete, out} = this._getFormData_doAddFeatMeta({
+					namespace,
+					outFeats,
+					propIxFeat,
+					propIxFeatAbility,
+					propFeatAbilityChooseFrom,
+					featsAdditionType: "choose",
+				});
+				outs.push(out);
+				outIsFormCompletes.push(isFormComplete);
+			}
+		}
+	}
+
+	_getFormData_getForNamespace_additional (outs, outIsFormCompletes, outFeats, namespace) {
+		const ent = this._parent[namespace]; // e.g. `this._parent.race`
+		if (!ent?.feats?.length) return;
+
+		const {propIxSel} = this._parent.getPropsAdditionalFeats_(namespace);
+
+		const featSet = ent.feats[this._parent.state[propIxSel]];
+		if (!featSet) {
+			outIsFormCompletes.push(false);
+			return;
+		}
+
+		const uidsStatic = StatGenUtilAdditionalFeats.getUidsStatic(featSet);
+
+		uidsStatic.map((uid, ix) => {
+			const {propIxFeatAbility, propFeatAbilityChooseFrom} = this._parent.getPropsAdditionalFeatsFeatSet_(namespace, "static", ix);
+			const {name, source} = DataUtil.proxy.unpackUid("feat", uid, "feat", {isLower: true});
+			const feat = this._parent.feats.find(it => it.name.toLowerCase() === name && it.source.toLowerCase() === source);
+
+			if (!feat) throw new Error(`Failed to find feat with UID "${uid}"! Does it exist, and if so, is it blocklisted?`); // Should never occur
+
+			const {isFormComplete, out} = this._getFormData_doAddFeatMeta({
+				namespace,
+				outFeats,
+				featStatic: feat,
+				propIxFeatAbility,
+				propFeatAbilityChooseFrom,
+				featsAdditionType: "static",
+			});
+
+			outs.push(out);
+			outIsFormCompletes.push(isFormComplete);
+		});
+
+		[...new Array(featSet.any || 0)].map((_, ix) => {
+			const {propIxFeat, propIxFeatAbility, propFeatAbilityChooseFrom} = this._parent.getPropsAdditionalFeatsFeatSet_(namespace, "choose", ix);
+
+			const {isFormComplete, out} = this._getFormData_doAddFeatMeta({
+				namespace,
+				outFeats,
+				propIxFeat,
+				propIxFeatAbility,
+				propFeatAbilityChooseFrom,
+				featsAdditionType: "choose",
+			});
+
+			outs.push(out);
+			outIsFormCompletes.push(isFormComplete);
+		});
+
+		[...new Array(featSet?.anyFromCategory?.count || 0)].map((_, ix) => {
+			const {propIxFeat, propIxFeatAbility, propFeatAbilityChooseFrom} = this._parent.getPropsAdditionalFeatsFeatSet_(namespace, "chooseCategory", ix);
+
+			const {isFormComplete, out} = this._getFormData_doAddFeatMeta({
+				namespace,
+				outFeats,
+				propIxFeat,
+				propIxFeatAbility,
+				propFeatAbilityChooseFrom,
+				featsAdditionType: "chooseCategory",
+			});
+
+			outs.push(out);
+			outIsFormCompletes.push(isFormComplete);
+		});
+	}
+
+	_getFormData_doAddFeatMeta ({namespace, outFeats, propIxFeat = null, featStatic = null, propIxFeatAbility, propFeatAbilityChooseFrom, featsAdditionType}) {
+		if (featStatic && propIxFeat) throw new Error(`Cannot combine static feat and feat property!`);
+		if (featStatic == null && propIxFeat == null) throw new Error(`Either a static feat or a feat property must be specified!`);
+
+		const out = {};
+
+		const feat = featStatic || this._parent.feats[this._parent.state[propIxFeat]];
+
+		const featMeta = feat
+			? {ix: this._parent.state[propIxFeat], uid: `${feat.name}|${feat.source}`, featsAdditionType}
+			: {ix: -1, uid: null, featsAdditionType};
+		outFeats[namespace].push(featMeta);
+
+		if (!~featMeta.ix) return {isFormComplete: false, out};
+		if (!feat.ability) return {isFormComplete: true, out};
+
+		const abilitySet = feat.ability[this._parent.state[propIxFeatAbility] || 0];
+
+		// Add static values
+		Parser.ABIL_ABVS.forEach(ab => { if (abilitySet[ab]) out[ab] = abilitySet[ab]; });
+
+		if (!abilitySet.choose) return {isFormComplete: true, out};
+
+		let isFormComplete = true;
+
+		// Track any bonuses chosen, so we can use `"inherit"` when handling a feats "additionalSpells" elsewhere
+		featMeta.abilityChosen = {};
+
+		if (abilitySet.choose.from) {
+			if (isFormComplete) isFormComplete = !!this._parent.state[ComponentUiUtil.getMetaWrpMultipleChoice_getPropIsAcceptable(propFeatAbilityChooseFrom)];
+
+			const ixs = ComponentUiUtil.getMetaWrpMultipleChoice_getSelectedIxs(this._parent, propFeatAbilityChooseFrom);
+			ixs.map(it => abilitySet.choose.from[it]).forEach(ab => {
+				const amount = abilitySet.choose.amount || 1;
+				out[ab] = (out[ab] || 0) + amount;
+				featMeta.abilityChosen[ab] = amount;
+			});
+		}
+
+		return {isFormComplete, out};
+	}
+
+	getFormData () {
+		const outs = [];
+		const isFormCompletes = [];
+		const feats = {ability: [], race: [], background: [], custom: []};
+
+		this._getFormData_getForNamespace_basic(outs, isFormCompletes, feats, "common_cntAsi", "ability");
+		this._getFormData_getForNamespace_basic(outs, isFormCompletes, feats, "common_cntFeatsCustom", "custom");
+		this._getFormData_getForNamespace_additional(outs, isFormCompletes, feats, "race");
+		this._getFormData_getForNamespace_additional(outs, isFormCompletes, feats, "background");
+
+		const data = {};
+		outs.filter(Boolean).forEach(abilBonuses => Object.entries(abilBonuses).forEach(([ab, bonus]) => data[ab] = (data[ab] || 0) + bonus));
+
+		return {
+			isFormComplete: isFormCompletes.every(Boolean),
+			dataPerAsi: outs,
+			data,
+			feats,
+		};
+	}
+}

@@ -1,28 +1,41 @@
 import {FilterItemClassSubclass} from "./filter-item.js";
-import {MISC_FILTER_VALUE__BASIC_RULES_2014, MISC_FILTER_VALUE__FREE_RULES_2024, MISC_FILTER_VALUE__SRD_5_1, MISC_FILTER_VALUE__SRD_5_2} from "./filter-constants.js";
+import {MISC_FILTER_VALUE__BASIC_RULES_2014, MISC_FILTER_VALUE__BASIC_RULES_2024, MISC_FILTER_VALUE__SRD_5_1, MISC_FILTER_VALUE__SRD_5_2} from "./filter-constants.js";
 
 /** @abstract */
 export class PageFilterBase {
 	static defaultSourceSelFn (val) {
-		// Assume the user wants to select their loaded homebrew by default
-		// Overridden by the "Deselect Homebrew Sources by Default" option
-		return SourceUtil.getFilterGroup(val) === SourceUtil.FILTER_GROUP_STANDARD
-			|| (SourceUtil.getFilterGroup(val) === SourceUtil.FILTER_GROUP_PARTNERED && (typeof BrewUtil2 === "undefined" || BrewUtil2.hasSourceJson(val)))
+		// Assume the user wants to select their loaded homebrew/prerelease content by default
+		// Overridden by the options:
+		//   - "Deselect Prerelease Content Sources by Default"
+		//   - "Deselect Homebrew Sources by Default"
+		return PageFilterBase.defaultSourceSelFnStandardPartnered(val)
+			|| SourceUtil.getFilterGroup(val) === SourceUtil.FILTER_GROUP_UNIVERSES_BEYOND
+			|| SourceUtil.getFilterGroup(val) === SourceUtil.FILTER_GROUP_PRERELEASE
 			|| SourceUtil.getFilterGroup(val) === SourceUtil.FILTER_GROUP_HOMEBREW;
+	}
+
+	static defaultSourceSelFnStandardPartnered (val) {
+		return SourceUtil.getFilterGroup(val) === SourceUtil.FILTER_GROUP_STANDARD
+			|| (SourceUtil.getFilterGroup(val) === SourceUtil.FILTER_GROUP_PARTNERED && (typeof BrewUtil2 === "undefined" || BrewUtil2.hasSourceJson(val)));
 	}
 
 	static defaultMiscellaneousDeselFn (val) {
 		return val === "Reprinted";
 	}
 
-	constructor (opts) {
-		opts = opts || {};
+	constructor (opts = null) {
+		opts ||= {};
 		this._sourceFilter = new SourceFilter(opts.sourceFilterOpts);
 		this._filterBox = null;
+		this._miscFilter = null;
 	}
 
+	/**
+	 * @return {?FilterBox}
+	 */
 	get filterBox () { return this._filterBox; }
 	get sourceFilter () { return this._sourceFilter; }
+	get miscFilter () { return this._miscFilter; }
 
 	mutateAndAddToFilters (entity, isExcluded, opts) {
 		this.constructor.mutateForFilters(entity, opts);
@@ -78,7 +91,7 @@ export class PageFilterBase {
 			opts.definedInSource = definedInSource;
 		}
 
-		return new FilterItemClassSubclass(opts);
+		return new FilterItemClassSubclass(opts).getSerialized();
 	}
 
 	static _getSubclassFilterItem ({className, classSource, subclassShortName, subclassName, subclassSource, subSubclassName, isVariantClass, definedInSource}) {
@@ -93,25 +106,40 @@ export class PageFilterBase {
 			item: `${className}: ${classFilterItem.item}${subSubclassName ? `, ${subSubclassName}` : ""}`,
 			nest: className,
 			group,
-		});
+		}).getSerialized();
 	}
 
-	static _isReprinted (ent) {
+	static isReprinted (ent, {fnMissingBuilder = null} = {}) {
 		if (!ent?.reprintedAs?.length) return false;
 		return ent.reprintedAs
 			.some(it => {
+				if (!UrlUtil.URL_TO_HASH_BUILDER[ent.__prop]) {
+					if (fnMissingBuilder) fnMissingBuilder(ent);
+					return true;
+				}
+
 				const unpacked = DataUtil.proxy.unpackUid(ent.__prop, it?.uid ?? it, Parser.getPropTag(ent.__prop));
 				const hash = UrlUtil.URL_TO_HASH_BUILDER[ent.__prop](unpacked);
 				return !ExcludeUtil.isExcluded(hash, ent.__prop, unpacked.source, {isNoCount: true});
 			});
 	}
 
+	static isReskin (ent) {
+		return !!ent.reskinOf?.length;
+	}
+
 	static getListAliases (ent) {
 		return (ent.alias || []).map(it => `"${it}"`).join(",");
 	}
 
-	static _hasFluff (ent) { return ent.hasFluff || ent.fluff?.entries; }
-	static _hasFluffImages (ent) { return ent.hasFluffImages || ent.fluff?.images; }
+	static _hasFluff (ent) { return !!(ent.hasFluff || ent.fluff?.entries); }
+	static _hasFluffImages (ent) { return !!(ent.hasFluffImages || ent.fluff?.images); }
+
+	static _hasSoundClip (ent) { return !!ent.soundClip; }
+
+	static _mutateForFilters_commonSources (ent, {isIncludeBaseSource = false} = {}) {
+		ent._fSources = SourceFilter.getCompleteFilterSources(ent, {isIncludeBaseSource});
+	}
 
 	static _mutateForFilters_commonMisc (ent) {
 		ent._fMisc = [];
@@ -120,14 +148,24 @@ export class PageFilterBase {
 		if (ent.basicRules) ent._fMisc.push(MISC_FILTER_VALUE__BASIC_RULES_2014);
 
 		if (ent.srd52) ent._fMisc.push(MISC_FILTER_VALUE__SRD_5_2);
-		if (ent.freeRules2024) ent._fMisc.push(MISC_FILTER_VALUE__FREE_RULES_2024);
+		if (ent.basicRules2024) ent._fMisc.push(MISC_FILTER_VALUE__BASIC_RULES_2024);
 
 		if (ent.isReprinted) ent._fMisc.push("Reprinted");
+		if (ent._isCopy) ent._fMisc.push("Modified Copy");
 
 		if (this._hasFluff(ent)) ent._fMisc.push("Has Info");
 		if (this._hasFluffImages(ent)) ent._fMisc.push("Has Images");
 
-		if (this._isReprinted(ent)) ent._fMisc.push("Reprinted");
+		if (this._hasSoundClip(ent)) ent._fMisc.push("Has Pronunciation Audio");
+
+		if (this.isReprinted(ent)) ent._fMisc.push("Reprinted");
+		if (this.isReskin(ent)) ent._fMisc.push("Reskin");
+
+		if (ent.tokenCustom) ent._fMisc.push("Has Custom/Unofficial Token");
+		if (ent.tokenCredit) ent._fMisc.push("Has Token Credit");
+
+		if (DataUtil.proxy.hasVersions(ent.__prop, ent)) ent._fMisc.push("Has Flavours");
+		if (ent._versionBase_isVersion) ent._fMisc.push("Is Flavour");
 	}
 	// endregion
 }

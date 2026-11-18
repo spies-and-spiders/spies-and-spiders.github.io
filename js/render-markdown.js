@@ -1,25 +1,13 @@
 "use strict";
 
 // TODO implement remaining methods
-class RendererMarkdown {
+class RendererMarkdown extends Renderer {
 	static CHARS_PER_PAGE = 5500;
 
 	getLineBreak () { return "\n"; }
 
 	constructor () {
-		// FIXME this is awful
-		const renderer = new Renderer();
-		this.__super = {};
-		for (const k in renderer) {
-			if (this[k] === undefined) {
-				if (typeof renderer[k] === "function") this[k] = renderer[k].bind(this);
-				else this[k] = MiscUtil.copy(renderer[k]);
-			} else {
-				if (typeof renderer[k] === "function") this.__super[k] = renderer[k].bind(this);
-				else this.__super[k] = MiscUtil.copy(renderer[k]);
-			}
-		}
-
+		super();
 		this._isSkipStylingItemLinks = false;
 	}
 
@@ -31,7 +19,8 @@ class RendererMarkdown {
 
 	static _fnPostProcess (str) {
 		return str
-			.trim()
+			.replace(/^\s+/, "")
+			.replace(/\n+$/, "\n")
 			.replace(/\n\n+/g, "\n\n")
 			.replace(/(>\n>\n)+/g, ">\n");
 	}
@@ -48,16 +37,17 @@ class RendererMarkdown {
 	*/
 
 	_renderEntriesSubtypes (entry, textStack, meta, options, incDepth) {
+		const displayName = entry._displayName || entry.name;
 		const isInlineTitle = meta.depth >= 2;
 		const nextDepth = incDepth && meta.depth < 2 ? meta.depth + 1 : meta.depth;
 
 		const nxtPrefix = RendererMarkdown._getNextPrefix(options);
-		if (entry.name) {
+		if (displayName) {
 			if (isInlineTitle) {
-				textStack[0] += `${nxtPrefix}***${Renderer.stripTags(entry.name)}.*** `;
+				textStack[0] += `${nxtPrefix}***${Renderer.stripTags(displayName)}.*** `;
 			} else {
 				const hashCount = meta._typeStack.length === 1 && meta.depth === -1 ? 1 : Math.min(6, meta.depth + 3);
-				textStack[0] += `\n${nxtPrefix}${"#".repeat(hashCount)} ${Renderer.stripTags(entry.name)}\n\n`;
+				textStack[0] += `\n${nxtPrefix}${"#".repeat(hashCount)} ${Renderer.stripTags(displayName)}\n\n`;
 			}
 		}
 
@@ -67,7 +57,7 @@ class RendererMarkdown {
 			const len = entry.entries.length;
 			for (let i = 0; i < len; ++i) {
 				meta.depth = nextDepth;
-				const isFirstInline = i === 0 && entry.name && isInlineTitle;
+				const isFirstInline = i === 0 && displayName && isInlineTitle;
 				const suffix = meta.isStatblockInlineMonster ? `  \n` : `\n\n`;
 				this._recursiveRender(entry.entries[i], textStack, meta, {prefix: isFirstInline ? "" : RendererMarkdown._getNextPrefix(options), suffix});
 			}
@@ -97,7 +87,7 @@ class RendererMarkdown {
 
 		const listDepth = Math.max(meta._typeStack.filter(it => it === "list").length - 1, 0);
 
-		if (entry.name) textStack[0] += `##### ${entry.name}`;
+		if (entry.name) textStack[0] += `##### ${Renderer.stripTags(entry.name)}`;
 		const indentSpaces = "  ".repeat(listDepth);
 		const len = entry.items.length;
 
@@ -117,7 +107,8 @@ class RendererMarkdown {
 				textStack[0] += `${RendererMarkdown._getNextPrefix(options)}${indentSpaces}${item.type === "list" ? "" : `- `}`;
 
 				const cacheDepth = this._adjustDepth(meta, 1);
-				this._recursiveRender(entry.items[i], textStack, meta, {suffix: "\n"});
+				if (item?.rendered?.length) textStack[0] += item.rendered;
+				else this._recursiveRender(item, textStack, meta, {suffix: "\n"});
 				if (textStack[0].slice(-2) === "\n\n") textStack[0] = textStack[0].slice(0, -1);
 				meta.depth = cacheDepth;
 			}
@@ -156,10 +147,10 @@ class RendererMarkdown {
 		// Pad labels to style width
 		if (entry.colStyles) {
 			labelRows
-				.filter(labelRow => labelRow.length < entry.colStyles.length)
+				.filter(labelRow => Renderer.table.getHeaderRowSpanWidth(labelRow) < entry.colStyles.length)
 				.forEach(labelRow => {
 					labelRow.push(
-						...[...new Array(entry.colStyles.length - labelRow.length)].map(() => ""),
+						...[...new Array(entry.colStyles.length - Renderer.table.getHeaderRowSpanWidth(labelRow))].map(() => ""),
 					);
 				});
 		}
@@ -171,14 +162,29 @@ class RendererMarkdown {
 			// Pad styles to label width
 			labelRows
 				.forEach(labelRow => {
-					if (labelRow.length > styles.length) {
-						styles = styles.concat([...new Array(labelRow.length - styles.length)].map(() => ""));
+					if (Renderer.table.getHeaderRowSpanWidth(labelRow) > styles.length) {
+						styles = styles.concat([...new Array(Renderer.table.getHeaderRowSpanWidth(labelRow) - styles.length)].map(() => ""));
 					}
 				});
 		}
 		// endregion
 
-		const mdHeaderRows = labelRows.map(labelRow => labelRow.map(label => ` ${Renderer.stripTags(label)} `));
+		const mdHeaderRows = labelRows
+			.map(labelRow => {
+				return labelRow
+					.flatMap(entCellHeader => {
+						const entryNxt = entCellHeader?.type === "cellHeader"
+							? entCellHeader.entry
+							: entCellHeader;
+						const ptCellPrimary = ` ${RendererMarkdown.utils.getCleanTableCell(Renderer.stripTags(entryNxt))} `;
+
+						// No "colspan" equivalent, so add empty cells
+						const cntPadCells = (entCellHeader?.type === "cellHeader" ? entCellHeader?.width || 1 : 1) - 1;
+						if (!cntPadCells) return [ptCellPrimary];
+
+						return [ptCellPrimary, " ".repeat(cntPadCells)];
+					});
+			});
 
 		// Get per-cell max width
 		const widths = [
@@ -229,10 +235,7 @@ class RendererMarkdown {
 				this._recursiveRender(toRenderCell, textStackCell, meta);
 				meta.depth = cacheDepth;
 
-				const mdCell = ` ${textStackCell.join("").trim()} `
-					// Markdown tables can't handle multi-line cells, so HTML linebreaks must be used
-					.split(/\n+/)
-					.join("<br>");
+				const mdCell = ` ${RendererMarkdown.utils.getCleanTableCell(textStackCell.join(""))} `;
 
 				widths[ixCell] = Math.max(widths[ixCell] || 0, mdCell.length);
 				(mdTable[ixRow] = mdTable[ixRow] || [])[ixCell] = mdCell;
@@ -314,7 +317,7 @@ class RendererMarkdown {
 
 	_renderInset (entry, textStack, meta, options) {
 		textStack[0] += "\n";
-		if (entry.name != null) textStack[0] += `> ##### ${entry.name}\n>\n`;
+		if (entry.name != null) textStack[0] += `> ##### ${Renderer.stripTags(entry.name)}\n>\n`;
 		if (entry.entries) {
 			const len = entry.entries.length;
 			for (let i = 0; i < len; ++i) {
@@ -329,7 +332,7 @@ class RendererMarkdown {
 
 	_renderInsetReadaloud (entry, textStack, meta, options) {
 		textStack[0] += "\n";
-		if (entry.name != null) textStack[0] += `>> ##### ${entry.name}\n>>\n`;
+		if (entry.name != null) textStack[0] += `>> ##### ${Renderer.stripTags(entry.name)}\n>>\n`;
 		if (entry.entries) {
 			const len = entry.entries.length;
 			for (let i = 0; i < len; ++i) {
@@ -344,7 +347,7 @@ class RendererMarkdown {
 
 	_renderVariant (entry, textStack, meta, options) {
 		textStack[0] += "\n";
-		if (entry.name != null) textStack[0] += `> ##### Variant: ${entry.name}\n>\n`;
+		if (entry.name != null) textStack[0] += `> ##### Variant: ${Renderer.stripTags(entry.name)}\n>\n`;
 		if (entry.entries) {
 			const len = entry.entries.length;
 			for (let i = 0; i < len; ++i) {
@@ -359,7 +362,7 @@ class RendererMarkdown {
 	}
 
 	_renderVariantSub (entry, textStack, meta, options) {
-		if (entry.name) textStack[0] += `*${entry.name}.* `;
+		if (entry.name) textStack[0] += `*${Renderer.stripTags(entry.name)}.* `;
 
 		if (entry.entries) {
 			const len = entry.entries.length;
@@ -419,7 +422,7 @@ class RendererMarkdown {
 
 	_renderAbilityGeneric (entry, textStack, meta, options) {
 		this._renderPrefix(entry, textStack, meta, options);
-		textStack[0] += `${entry.name ? `**${entry.name}**  = ` : ""}${entry.text}${entry.attributes ? ` ${Parser.attrChooseToFull(entry.attributes)}` : ""}`;
+		textStack[0] += `${entry.name ? `**${entry.name}**  = ` : ""}${entry.entry}${entry.attributes ? ` ${Parser.attrChooseToFull(entry.attributes)}` : ""}`;
 		this._renderSuffix(entry, textStack, meta, options);
 	}
 	// endregion
@@ -449,7 +452,7 @@ class RendererMarkdown {
 
 	_renderLink (entry, textStack, meta, options) {
 		const href = this._renderLink_getHref(entry);
-		textStack[0] += `[${href}](${this.render(entry.text)})`;
+		textStack[0] += `[${href}](${this.render(entry.entry)})`;
 	}
 
 	_renderActions (entry, textStack, meta, options) {
@@ -488,7 +491,7 @@ class RendererMarkdown {
 	// region list items
 	_renderItem (entry, textStack, meta, options) {
 		this._renderPrefix(entry, textStack, meta, options);
-		textStack[0] += `**${this.render(entry.name)}${this._renderItem_isAddPeriod(entry) ? "." : ""}** `;
+		textStack[0] += `**${this.render(entry.name)}${this._renderItemSubtypes_isAddPeriod(entry) ? "." : ""}** `;
 		let addedNewline = false;
 		if (entry.entry) this._recursiveRender(entry.entry, textStack, meta);
 		else if (entry.entries) {
@@ -523,26 +526,33 @@ class RendererMarkdown {
 	 * inline data passed to this method is assumed to be complete, i.e., require no further loading or mutating.
 	 */
 	_renderStatblockInline (entry, textStack, meta, options) {
-		const fnGetRenderCompact = RendererMarkdown.hover.getFnRenderCompact(entry.dataType);
+		const fnGetRenderCompact = RendererMarkdown.hover.getFnRenderCompact(entry.statblockType);
 
 		if (!fnGetRenderCompact) {
 			this._renderPrefix(entry, textStack, meta, options);
-			textStack[0] += `**Cannot render "${entry.type}"\u2014unknown type "${entry.dataType}"!**\n`;
+			textStack[0] += `**Cannot render "${entry.type}"\u2014unknown statblock type "${entry.statblockType}"!**\n`;
+			this._renderSuffix(entry, textStack, meta, options);
+			return;
+		}
+
+		if (!entry.statblockData) {
+			this._renderPrefix(entry, textStack, meta, options);
+			textStack[0] += `**Cannot render "${entry.type}"\u2014no "statblockData"!**\n`;
 			this._renderSuffix(entry, textStack, meta, options);
 			return;
 		}
 
 		this._renderPrefix(entry, textStack, meta, options);
 		// Pass `entry` here to allow e.g. `legendaryGroup` to be included when rendering creatures
-		textStack[0] += fnGetRenderCompact(entry.data, {...entry, meta});
+		textStack[0] += fnGetRenderCompact(entry.statblockData, {...entry, meta});
 		this._renderSuffix(entry, textStack, meta, options);
 	}
 
-	/*
 	_renderStatblock (entry, textStack, meta, options) {
-		// TODO assume the entity is pre-cached, and sync fetch it from the cache?
+		this._renderPrefix(entry, textStack, meta, options);
+		textStack[0] += `**Cannot render "${entry.type}"\u2014entity was not preloaded (${entry.displayName || entry.name || entry.abbreviation || "Unknown"})!**\n`;
+		this._renderSuffix(entry, textStack, meta, options);
 	}
-	*/
 	// endregion
 
 	// region images
@@ -573,7 +583,7 @@ class RendererMarkdown {
 
 	_renderFlowBlock (entry, textStack, meta, options) {
 		textStack[0] += "\n";
-		if (entry.name != null) textStack[0] += `> ##### ${entry.name}\n>\n`;
+		if (entry.name != null) textStack[0] += `> ##### ${Renderer.stripTags(entry.name)}\n>\n`;
 		if (entry.entries) {
 			const len = entry.entries.length;
 			for (let i = 0; i < len; ++i) {
@@ -696,10 +706,23 @@ class RendererMarkdown {
 				break;
 			case "@actSave": textStack[0] += `*${Parser.attAbvToFull(text)} Saving Throw:*`; break;
 			case "@actSaveSuccess": textStack[0] += `*Success:*`; break;
-			case "@actSaveFail": textStack[0] += `*Failure:*`; break;
+			case "@actSaveFail": {
+				const [ordinal] = Renderer.splitTagByPipe(text);
+				if (ordinal) textStack[0] += `*${Parser.numberToText(ordinal, {isOrdinalForm: true}).toTitleCase()} Failure:*`;
+				else textStack[0] += `*Failure:*`;
+				break;
+			}
+			case "@actSaveFailBy": {
+				const [amount] = Renderer.splitTagByPipe(text);
+				textStack[0] += `*Failure by ${amount} or More:*`;
+				break;
+			}
+			case "@actSaveSuccessOrFail": textStack[0] += `*Failure or Success:*`; break;
 			case "@actTrigger": textStack[0] += `*Trigger:*`; break;
-			case "@actResponse": textStack[0] += `*Response:*`; break;
+			case "@actResponse": textStack[0] += `*Response${text.includes("d") ? "\u2014" : ":"}*`; break;
 			case "@h": textStack[0] += `*Hit:* `; break;
+			case "@m": textStack[0] += `*Miss:* `; break;
+			case "@hom": textStack[0] += `*Hit or Miss:* `; break;
 
 			// DCs /////////////////////////////////////////////////////////////////////////////////////////////
 			case "@dc": {
@@ -728,8 +751,8 @@ class RendererMarkdown {
 				textStack[0] += Renderer.stripTags(`{${tag} ${text}}`); break;
 
 			case "@link":
-			case "@snstools":
-				this.__super._renderString_renderTag(textStack, meta, options, tag, text); break;
+			case "@5etools":
+				super._renderString_renderTag(textStack, meta, options, tag, text); break;
 
 			// OTHER HOVERABLES ////////////////////////////////////////////////////////////////////////////////
 			case "@footnote":
@@ -787,14 +810,23 @@ class RendererMarkdown {
 }
 
 RendererMarkdown.utils = class {
+	static getCleanTableCell (str) {
+		return str
+			.trim()
+			.replace(/\|/g, "\\|")
+			// Markdown tables can't handle multi-line cells, so HTML linebreaks must be used
+			.replace(/\n+/g, "<br>");
+	}
+
 	static getPageText (it) {
 		const sourceSub = Renderer.utils.getSourceSubText(it);
 		const baseText = Renderer.utils.isDisplayPage(it.page) ? `**Source:** *${Parser.sourceJsonToAbv(it.source)}${sourceSub}*, page ${it.page}` : "";
 		const addSourceText = this._getPageText_getAltSourceText(it, "additionalSources", "Additional information from");
 		const otherSourceText = this._getPageText_getAltSourceText(it, "otherSources", "Also found in");
+		const referenceSourceText = this._getPageText_getAltSourceText(it, "referenceSources", "Referenced in");
 		const externalSourceText = this._getPageText_getAltSourceText(it, "externalSources", "External sources:");
 
-		return `${[baseText, addSourceText, otherSourceText, externalSourceText].filter(it => it).join(". ")}${baseText && (addSourceText || otherSourceText || externalSourceText) ? "." : ""}`;
+		return `${[baseText, addSourceText, otherSourceText, referenceSourceText, externalSourceText].filter(it => it).join(". ")}${baseText && (addSourceText || otherSourceText || referenceSourceText || externalSourceText) ? "." : ""}`;
 	}
 
 	static _getPageText_getAltSourceText (it, prop, introText) {
@@ -810,10 +842,13 @@ RendererMarkdown.utils = class {
 
 	static compact = class {
 		// TODO(Future) nicely pad widths (render as table?)
-		static getRenderedAbilityScores (ent, {prefix = ""} = "") {
-			return `${prefix}|${Parser.ABIL_ABVS.map(it => `${it.toUpperCase()}|`).join("")}
+		static getRenderedAbilityScores (ent, {prefix = ""} = {}) {
+			const {infosAbilities} = Renderer.monster.getAbilityScoresRenderableEntriesMeta(ent);
+			const renderer = RendererMarkdown.get();
+
+			return `${prefix}|${infosAbilities.map(({abv}) => `${abv.toUpperCase()}|`).join("")}
 ${prefix}|:---:|:---:|:---:|:---:|:---:|:---:|
-${prefix}|${Parser.ABIL_ABVS.map(ab => ent[ab] == null ? `\u2014|` : `${ent[ab]} (${Parser.getAbilityModifier(ent[ab])})|`).join("")}`;
+${prefix}|${infosAbilities.map(({entry}) => `${RendererMarkdown.utils.getCleanTableCell(renderer.render(entry))}|`).join("")}`;
 		}
 	};
 
@@ -833,9 +868,193 @@ ${prefix}|${Parser.ABIL_ABVS.map(ab => ent[ab] == null ? `\u2014|` : `${ent[ab]}
 	}
 };
 
-RendererMarkdown.monster = class {
-	static getCompactRenderedString (mon, opts = {}) {
-		const legendaryGroup = opts.legendaryGroup;
+RendererMarkdown.exporting = class {
+	static PAGE_BREAK_MODE__PRESERVE_STATBLOCK = "preserveStatblock";
+	static PAGE_BREAK_MODE__GENERIC = "generic";
+	static PAGE_BREAK_MODE__NONE = "none";
+
+	static _getPageBreakModeDefault ({prop}) {
+		switch (prop) {
+			case "monster":
+			case "vehicle":
+			case "object":
+				return this.PAGE_BREAK_MODE__PRESERVE_STATBLOCK;
+
+			default: return this.PAGE_BREAK_MODE__GENERIC;
+		}
+	}
+
+	/* -------------------------------------------- */
+
+	static _getPageBreakParts ({parts, joiner, isFluff = false}) {
+		const pages = [];
+
+		let page = [];
+		let charLimit = RendererMarkdown.CHARS_PER_PAGE;
+		parts
+			// Fluff breaks before an overflowing line; entities break after a whole entity
+			.forEach(part => {
+				if (isFluff && page.length && part.length > charLimit) {
+					pages.push(page);
+					page = [];
+					charLimit = RendererMarkdown.CHARS_PER_PAGE;
+				}
+
+				page.push(part);
+				charLimit -= part.length;
+
+				if (!isFluff && charLimit < 0) {
+					pages.push(page);
+					page = [];
+					charLimit = RendererMarkdown.CHARS_PER_PAGE;
+				}
+			});
+
+		if (page.length) pages.push(page);
+
+		return pages
+			.flatMap((page, i) => [
+				...(i ? ["\\pagebreak"] : []),
+				page.join(joiner),
+			]);
+	}
+
+	/* -------------------------------------------- */
+
+	static _getFluff_pageBreak_preserveStatblock ({ent, fluffText}) {
+		return [
+			// Insert a page break before every fluff section
+			"",
+			"\\pagebreak",
+			"",
+			`## ${ent.name}`,
+			...this._getPageBreakParts({parts: fluffText.split("\n"), joiner: "\n", isFluff: true}),
+		];
+	}
+
+	static _getFluff_pageBreak_generic ({ent, fluffText}) {
+		// Avoid specific breaks in fluff; break entire text as a post-step
+		return this._getFluff_pageBreak_none({ent, fluffText});
+	}
+
+	static _getFluff_pageBreak_none ({ent, fluffText}) {
+		return [`## ${ent.name}\n\n${fluffText}`];
+	}
+
+	/* -------------------------------------------- */
+
+	static _getRendered_getParts ({entriesByEntity}) {
+		return entriesByEntity
+			.map(entries => (
+				entries
+					.map(entry => RendererMarkdown.get().render(entry).trim())
+					.join("\n\n")
+			));
+	}
+
+	static _getRendered_pageBreak_preserveStatblock ({entriesByEntity}) {
+		const entries = entriesByEntity
+			.flatMap((entries, i) => {
+				return i < entriesByEntity.length - 1 ? [...entries, "", "\\pagebreak", ""] : entries;
+			});
+		return RendererMarkdown.get().render({entries});
+	}
+
+	static _getRendered_pageBreak_generic ({entriesByEntity}) {
+		const parts = this._getRendered_getParts({entriesByEntity});
+
+		return this._getPageBreakParts({parts, joiner: "\n\n"})
+			.join("\n\n");
+	}
+
+	static _getRendered_pageBreak_none ({entriesByEntity}) {
+		return this._getRendered_getParts({entriesByEntity})
+			.join("\n\n");
+	}
+
+	static _getRendered ({entryMetas}) {
+		const groups = [];
+
+		entryMetas
+			.forEach(({entries, pageBreakMode}) => {
+				const lastGroup = groups.last();
+				if (lastGroup?.pageBreakMode === pageBreakMode) {
+					lastGroup.entriesByEntity.push(entries);
+					return;
+				}
+				groups.push({entriesByEntity: [entries], pageBreakMode});
+			});
+
+		return groups
+			.map(({entriesByEntity, pageBreakMode}) => {
+				switch (pageBreakMode) {
+					case this.PAGE_BREAK_MODE__PRESERVE_STATBLOCK: return this._getRendered_pageBreak_preserveStatblock({entriesByEntity});
+					case this.PAGE_BREAK_MODE__GENERIC: return this._getRendered_pageBreak_generic({entriesByEntity});
+					case this.PAGE_BREAK_MODE__NONE: return this._getRendered_pageBreak_none({entriesByEntity});
+					default: throw new Error(`Unhandled Markdown page-break mode "${pageBreakMode}"!`);
+				}
+			})
+			.map(part => part.trim())
+			.join("\n\n\\pagebreak\n\n");
+	}
+
+	/* -------------------------------------------- */
+
+	static async pGetMarkdownDoc ({ents, prop = null, fnGetProp = null, pFnGetFluff = null, isIncludeFluff = false, pageBreakMode = null}) {
+		if (!ents.length) return "";
+
+		const isAddPageBreaks = VetoolsConfig.get("markdown", "isAddPageBreaks");
+		if (!isAddPageBreaks) pageBreakMode = this.PAGE_BREAK_MODE__NONE;
+
+		const entryMetas = await ents
+			.pSerialAwaitMap(async ent => {
+				const propEnt = fnGetProp?.(ent) ?? prop ?? ent.__prop;
+				const entryMeta = {
+					pageBreakMode: pageBreakMode ?? this._getPageBreakModeDefault({prop: propEnt}),
+					entries: [
+						{type: "statblockInline", statblockType: propEnt, statblockData: ent},
+					],
+				};
+
+				if (!isIncludeFluff) return entryMeta;
+
+				const fluff = pFnGetFluff
+					? await pFnGetFluff(ent)
+					: await Renderer.utils.pGetProxyFluff({entity: ent, prop: propEnt});
+
+				const fluffText = (fluff?.entries || [])
+					.map(entry => RendererMarkdown.get().render(entry))
+					.join("\n\n");
+				if (!fluffText) return entryMeta;
+
+				switch (entryMeta.pageBreakMode) {
+					case this.PAGE_BREAK_MODE__PRESERVE_STATBLOCK: entryMeta.entries.push(...this._getFluff_pageBreak_preserveStatblock({ent, fluffText})); break;
+					case this.PAGE_BREAK_MODE__GENERIC: entryMeta.entries.push(...this._getFluff_pageBreak_generic({ent, fluffText})); break;
+					case this.PAGE_BREAK_MODE__NONE: entryMeta.entries.push(...this._getFluff_pageBreak_none({ent, fluffText})); break;
+					default: throw new Error(`Unhandled Markdown page-break mode "${entryMeta.pageBreakMode}"!`);
+				}
+
+				return entryMeta;
+			});
+
+		return this._getRendered({entryMetas});
+	}
+};
+
+/** @abstract */
+class _RenderCompactMarkdownBestiaryImplBase {
+	_style;
+
+	/**
+	 * @param {object} mon
+	 * @param [opts]
+	 * @param [opts.meta]
+	 * @param [opts.isHideSenses]
+	 * @param [opts.isHideLanguages]
+	 *
+	 * @return {string}
+	 */
+	getCompactRenderedString (mon, opts) {
 		const meta = opts.meta || {};
 
 		let addedStatblockInline;
@@ -844,80 +1063,16 @@ RendererMarkdown.monster = class {
 			addedStatblockInline = true;
 		}
 
-		const monTypes = Parser.monTypeToFullObj(mon.type);
-		RendererMarkdown.get().isSkipStylingItemLinks = true;
-		const mdRenderer = RendererMarkdown.get();
-		const armPart = mon.arm == null ? "\u2014" : Parser.defenceToFull(mon.arm, {renderer: mdRenderer, key: "arm"});
-		const fortPart = mon.fort == null ? "\u2014" : Parser.defenceToFull(mon.fort, {renderer: mdRenderer, key: "fort"});
-		const refPart = mon.ref == null ? "\u2014" : Parser.defenceToFull(mon.ref, {renderer: mdRenderer, key: "ref"});
-		const wilPart = mon.wil == null ? "\u2014" : Parser.defenceToFull(mon.wil, {renderer: mdRenderer, key: "wil"});
-		RendererMarkdown.get().isSkipStylingItemLinks = false;
-		const resourcePart = mon.resource?.length
-			? mon.resource
-				.map(res => `\n>- **${res.name}** ${Renderer.monster.getRenderedResource(res, true)}`)
-				.join("")
-			: "";
-		const abilityScorePart = RendererMarkdown.utils.compact.getRenderedAbilityScores(mon, {prefix: ">"});
-		const savePart = mon.save ? `\n>- **Saving Throws** ${Object.keys(mon.save).sort(SortUtil.ascSortAtts).map(it => RendererMarkdown.monster.getSave(it, mon.save[it])).join(", ")}` : "";
-		const skillPart = mon.skill ? `\n>- **Skills** ${RendererMarkdown.monster.getSkillsString(mon)}` : "";
-		const damVulnPart = mon.vulnerable ? `\n>- **Damage Vulnerabilities** ${Parser.getFullImmRes(mon.vulnerable, {isPlainText: true})}` : "";
-		const damResPart = mon.resist ? `\n>- **Damage Resistances** ${Parser.getFullImmRes(mon.resist, {isPlainText: true})}` : "";
-		const damImmPart = mon.immune ? `\n>- **Damage Immunities** ${Parser.getFullImmRes(mon.immune, {isPlainText: true})}` : "";
-		const condImmPart = mon.conditionImmune ? `\n>- **Condition Immunities** ${Parser.getFullCondImm(mon.conditionImmune, {isPlainText: true})}` : "";
-		const sensePart = !opts.isHideSenses ? `\n>- **Senses** ${mon.senses ? `${Renderer.utils.getRenderedSenses(mon.senses, {isPlainText: true})}, ` : ""}passive Perception ${mon.passive || "\u2014"}` : "";
-		const languagePart = !opts.isHideLanguages ? `\n>- **Languages** ${Renderer.monster.getRenderedLanguages(mon.languages)}` : "";
+		let {ptUnbreakable, ptBreakable} = this._getCompactRenderedString({mon, opts, meta, renderer: RendererMarkdown.get()});
 
-		const pbPart = Renderer.monster.getPbPart(mon, {isPlainText: true});
-
-		const fnGetSpellTraits = RendererMarkdown.monster.getSpellcastingRenderedTraits.bind(RendererMarkdown.monster, meta);
-		const traitArray = Renderer.monster.getOrderedTraits(mon, {fnGetSpellTraits});
-		const actionArray = Renderer.monster.getOrderedActions(mon, {fnGetSpellTraits});
-		const bonusActionArray = Renderer.monster.getOrderedBonusActions(mon, {fnGetSpellTraits});
-		const reactionArray = Renderer.monster.getOrderedReactions(mon, {fnGetSpellTraits});
-
-		const traitsPart = traitArray?.length
-			? `\n${RendererMarkdown.monster._getRenderedSection({prop: "trait", entries: traitArray, depth: 1, meta, prefix: ">"})}`
-			: "";
-
-		const actionsPart = RendererMarkdown.monster.getRenderedSection({arr: actionArray, ent: mon, prop: "action", title: "Actions", meta, prefix: ">"});
-		const bonusActionsPart = RendererMarkdown.monster.getRenderedSection({arr: bonusActionArray, ent: mon, prop: "bonus", title: "Bonus Actions", meta, prefix: ">"});
-		const reactionsPart = RendererMarkdown.monster.getRenderedSection({arr: reactionArray, ent: mon, prop: "reaction", title: "Reactions", meta, prefix: ">"});
-
-		const legendaryActionsPart = mon.legendary
-			? `${RendererMarkdown.monster._getRenderedSectionHeader({mon, title: "Legendary Actions", prop: "legendary", prefix: ">"})}>${Renderer.monster.getLegendaryActionIntro(mon, {renderer: RendererMarkdown.get()})}\n>\n${RendererMarkdown.monster._getRenderedLegendarySection(mon.legendary, 1, meta)}`
-			: "";
-		const mythicActionsPart = mon.mythic
-			? `${RendererMarkdown.monster._getRenderedSectionHeader({mon, title: "Mythic Actions", prop: "mythic", prefix: ">"})}>${Renderer.monster.getSectionIntro(mon, {renderer: RendererMarkdown.get(), prop: "mythic"})}\n>\n${RendererMarkdown.monster._getRenderedLegendarySection(mon.mythic, 1, meta)}`
-			: "";
-
-		const legendaryGroupLairPart = legendaryGroup?.lairActions ? `\n>### Lair Actions\n${RendererMarkdown.monster._getRenderedSection({prop: "lairaction", entries: legendaryGroup.lairActions, depth: -1, meta, prefix: ">"})}` : "";
-		const legendaryGroupRegionalPart = legendaryGroup?.regionalEffects ? `\n>### Regional Effects\n${RendererMarkdown.monster._getRenderedSection({prop: "regionaleffect", entries: legendaryGroup.regionalEffects, depth: -1, meta, prefix: ">"})}` : "";
-
-		const footerPart = mon.footer ? `\n${RendererMarkdown.monster._getRenderedSectionEntries({sectionEntries: mon.footer, sectionDepth: 0, meta, prefix: ">"})}` : "";
-
-		const unbreakablePart = `___
->## ${mon._displayName || mon.name}
->*${mon.level ? `${Parser.getOrdinalForm(mon.level)}-level ` : ""}${Renderer.utils.getRenderedSize(mon.size)} ${monTypes.asText}*
->___
->- **Armour** ${armPart}
->- **Fortitude** ${fortPart}
->- **Reflex** ${refPart}
->- **Will** ${wilPart}
->- **Hit Points** ${mon.hp == null ? "\u2014" : Renderer.monster.getRenderedHp(mon.hp, {isPlainText: true})}${resourcePart}
->- **Speed** ${Parser.getSpeedString(mon)}
->___
-${abilityScorePart}
->___${savePart}${skillPart}${damVulnPart}${damResPart}${damImmPart}${condImmPart}${sensePart}${languagePart}
->- **Challenge** ${Renderer.monster.getChallengeRatingPart(mon, {style: "classic", isPlainText: true})}
-${pbPart ? `>- **Proficiency Bonus** ${pbPart}` : ""}
->___`;
-
-		let breakablePart = `${traitsPart}${actionsPart}${bonusActionsPart}${reactionsPart}${legendaryActionsPart}${mythicActionsPart}${legendaryGroupLairPart}${legendaryGroupRegionalPart}${footerPart}`;
+		ptBreakable = ptBreakable
+			.replace(/\n>\n/g, "\n\n")
+			.replace(/\n\n+/g, "\n\n");
 
 		if (VetoolsConfig.get("markdown", "isAddColumnBreaks")) {
-			let charAllowanceFirstCol = 2200 - unbreakablePart.length;
+			let charAllowanceFirstCol = 2200 - ptUnbreakable.length;
 
-			const breakableLines = breakablePart.split("\n");
+			const breakableLines = ptBreakable.split("\n");
 			for (let i = 0; i < breakableLines.length; ++i) {
 				const l = breakableLines[i];
 				if ((charAllowanceFirstCol -= l.length) < 0) {
@@ -925,17 +1080,356 @@ ${pbPart ? `>- **Proficiency Bonus** ${pbPart}` : ""}
 					break;
 				}
 			}
-			breakablePart = breakableLines.join("\n");
+			ptBreakable = breakableLines.join("\n");
 		}
 
-		const str = `${unbreakablePart}${breakablePart}`;
-
-		const monRender = str.trim().split("\n").map(it => it.trim() ? it : `>`).join("\n");
+		const monRender = `${ptUnbreakable}${ptBreakable}`
+			.trim()
+			.split("\n")
+			.map(it => it.trim() ? it : `>`)
+			.join("\n");
 		const out = `\n${monRender}\n\n`;
 
 		if (addedStatblockInline) delete meta.isStatblockInlineMonster;
 
 		return out;
+	}
+
+	/**
+	 * @return {{ptBreakable: string, ptUnbreakable: string}}
+	 */
+	_getCompactRenderedString ({mon, renderer, opts}) {
+		throw new Error("Unimplemented!");
+	}
+
+	/* -------------------------------------------- */
+
+	_getCommonMdParts (
+		{
+			mon,
+			renderer,
+			opts,
+		},
+	) {
+		return {
+			mdPtName: this._getCommonMdParts_name({mon, renderer, opts}),
+
+			mdPtSizeTypeAlignment: this._getCommonMdParts_sizeTypeAlignment({mon, renderer, opts}),
+
+			mdPtAc: this._getCommonMdParts_ac({mon, renderer, opts}),
+
+			mdPtHpResource: this._getCommonMdParts_hpResource({mon, renderer, opts}),
+
+			mdPtSpeedInitiative: this._getCommonMdParts_speedInitiative({mon, renderer, opts}),
+
+			mdPtAbilityScores: this._getCommonMdParts_abilityScores({mon, renderer, opts}),
+
+			mdPtSave: this._getCommonMdParts_save({mon, renderer, opts}),
+			mdPtSkill: this._getCommonMdParts_skill({mon, renderer, opts}),
+			mdPtTool: this._getCommonMdParts_tool({mon, renderer, opts}),
+			mdPtDamVuln: this._getCommonMdParts_damVuln({mon, renderer, opts}),
+			mdPtDamRes: this._getCommonMdParts_damRes({mon, renderer, opts}),
+			mdPtSense: this._getCommonMdParts_sense({mon, renderer, opts}),
+			mdPtLanguage: this._getCommonMdParts_language({mon, renderer, opts}),
+
+			mdPtCr: this._getCommonMdParts_cr({mon, renderer, opts}),
+			mdPtPb: this._getCommonMdParts_pb({mon, renderer, opts}),
+
+			mdPtBreakable: this._getCommonMdParts_breakable({mon, renderer, opts}),
+		};
+	}
+
+	/* ----- */
+
+	_getCommonMdParts_name ({mon}) { return `>## ${mon._displayName || mon.name}`; }
+
+	_getCommonMdParts_sizeTypeAlignment ({mon, renderer, opts}) {
+		return `>*${Renderer.monster.getTypeAlignmentPart(mon, {renderer})}*`;
+	}
+
+	_getCommonMdParts_ac ({mon, renderer, opts}) {
+		RendererMarkdown.get().isSkipStylingItemLinks = true;
+		const acPart = mon.ac == null ? "\u2014" : Parser.acToFull(mon.ac, {renderer});
+		RendererMarkdown.get().isSkipStylingItemLinks = false;
+		return `>- **Armor Class** ${acPart}`;
+	}
+
+	_getCommonMdParts_hpResource ({mon, renderer, opts}) {
+		const resourcePart = mon.resource?.length
+			? mon.resource
+				.map(res => `\n>- **${res.name}** ${Renderer.monster.getRenderedResource(res, true)}`)
+				.join("")
+			: "";
+		return `>- **${mon.hp?.isTemporary ? "Temporary Hit Points" : "Hit Points"}** ${mon.hp == null ? "\u2014" : Renderer.monster.getRenderedHp(mon.hp, {isPlainText: true})}${resourcePart}`;
+	}
+
+	_getCommonMdParts_speedInitiative ({mon, renderer, opts}) {
+		const initiativePart = this._style === "classic" ? "" : `\n>- **Initiative** ${Renderer.monster.getInitiativePart(mon, {isPlainText: true})}`;
+		return `>- **Speed** ${Parser.getSpeedString(mon)}${initiativePart}`;
+	}
+
+	_getCommonMdParts_abilityScores ({mon, renderer, opts}) {
+		return RendererMarkdown.utils.compact.getRenderedAbilityScores(mon, {prefix: ">"});
+	}
+
+	_getCommonMdParts_save ({mon, renderer, opts}) {
+		return mon.save ? `\n>- **Saving Throws** ${Object.keys(mon.save).sort(SortUtil.ascSortAtts).map(it => RendererMarkdown.monster.getSave(it, mon.save[it])).join(", ")}` : "";
+	}
+
+	_getCommonMdParts_skill ({mon, renderer, opts}) {
+		return mon.skill ? `\n>- **Skills** ${RendererMarkdown.monster.getSkillsString(mon)}` : "";
+	}
+
+	_getCommonMdParts_tool ({mon, renderer, opts}) {
+		return mon.tool ? `\n>- **Tools** ${RendererMarkdown.monster.getToolsString(mon)}` : "";
+	}
+
+	_getCommonMdParts_damVuln ({mon, renderer, opts}) {
+		return mon.vulnerable ? `\n>- **Damage Vulnerabilities** ${Parser.getFullImmRes(mon.vulnerable, {isPlainText: true, isTitleCase: this._style !== "classic"})}` : "";
+	}
+
+	_getCommonMdParts_damRes ({mon, renderer, opts}) {
+		return mon.resist ? `\n>- **Damage Resistances** ${Parser.getFullImmRes(mon.resist, {isPlainText: true, isTitleCase: this._style !== "classic"})}` : "";
+	}
+
+	_getCommonMdParts_sense ({mon, renderer, opts}) {
+		const ptLblPassive = this._style !== "classic" ? "Passive Perception" : "passive Perception";
+		return !opts.isHideSenses ? `\n>- **Senses** ${mon.senses ? `${Renderer.utils.getRenderedSenses(mon.senses, {isPlainText: true, isTitleCase: this._style !== "classic"})}, ` : ""}${ptLblPassive} ${mon.passive || "\u2014"}` : "";
+	}
+
+	_getCommonMdParts_language ({mon, renderer, opts}) {
+		return !opts.isHideLanguages ? `\n>- **Languages** ${Renderer.monster.getRenderedLanguages(mon.languages, {styleHint: this._style})}` : "";
+	}
+
+	_getCommonMdParts_cr ({mon, renderer, opts}) {
+		return `>- **Challenge** ${Renderer.monster.getChallengeRatingPart(mon, {styleHint: this._style, isPlainText: true})}`;
+	}
+
+	_getCommonMdParts_pb ({mon, renderer, opts}) {
+		const pbPart = Renderer.monster.getPbPart(mon, {isPlainText: true});
+		return pbPart ? `>- **Proficiency Bonus** ${pbPart}` : "";
+	}
+
+	_getCommonMdParts_breakable ({mon, renderer, opts}) {
+		const {meta} = opts;
+
+		const fnGetSpellTraits = RendererMarkdown.monster.getSpellcastingRenderedTraits.bind(RendererMarkdown.monster, meta);
+
+		const {
+			entsTrait,
+			entsAction,
+			entsBonusAction,
+			entsReaction,
+			entsLegendaryAction,
+			entsMythicAction,
+		} = Renderer.monster.getSubEntries(mon, {renderer: RendererMarkdown.get(), fnGetSpellTraits});
+
+		const traitsPart = entsTrait?.length
+			? `\n${RendererMarkdown.monster._getRenderedSection({prop: "trait", entries: entsTrait, depth: 1, meta, prefix: ">"})}`
+			: "";
+
+		const actionsPart = RendererMarkdown.monster.getRenderedSection({arr: entsAction, ent: mon, prop: "action", title: "Actions", meta, prefix: ">"});
+		const bonusActionsPart = RendererMarkdown.monster.getRenderedSection({arr: entsBonusAction, ent: mon, prop: "bonus", title: "Bonus Actions", meta, prefix: ">"});
+		const reactionsPart = RendererMarkdown.monster.getRenderedSection({arr: entsReaction, ent: mon, prop: "reaction", title: "Reactions", meta, prefix: ">"});
+
+		const legendaryActionsPart = entsLegendaryAction?.length
+			? `${RendererMarkdown.monster._getRenderedSectionHeader({mon, title: "Legendary Actions", prop: "legendary", prefix: ">"})}>${Renderer.monster.getLegendaryActionIntro(mon, {renderer: RendererMarkdown.get(), styleHint: this._style})}\n>\n${RendererMarkdown.monster._getRenderedLegendarySection(entsLegendaryAction, 1, meta)}`
+			: "";
+		const mythicActionsPart = entsMythicAction?.length
+			? `${RendererMarkdown.monster._getRenderedSectionHeader({mon, title: "Mythic Actions", prop: "mythic", prefix: ">"})}>${Renderer.monster.getSectionIntro(mon, {renderer: RendererMarkdown.get(), prop: "mythic"})}\n>\n${RendererMarkdown.monster._getRenderedLegendarySection(entsMythicAction, 1, meta)}`
+			: "";
+
+		const legendaryGroup = DataUtil.monster.getLegendaryGroup(mon);
+		const legendaryGroupLairPart = legendaryGroup?.lairActions ? `\n>### Lair Actions\n${RendererMarkdown.monster._getRenderedSection({prop: "lairaction", entries: legendaryGroup.lairActions, depth: -1, meta, prefix: ">"})}` : "";
+		const legendaryGroupRegionalPart = legendaryGroup?.regionalEffects ? `\n>### Regional Effects\n${RendererMarkdown.monster._getRenderedSection({prop: "regionaleffect", entries: legendaryGroup.regionalEffects, depth: -1, meta, prefix: ">"})}` : "";
+		const variantsPart = Renderer.monster.getRenderedVariants(mon, {renderer: RendererMarkdown.get()});
+
+		const footerPart = mon.footer ? `\n${RendererMarkdown.monster._getRenderedSectionEntries({sectionEntries: mon.footer, sectionDepth: 0, meta, prefix: ">"})}` : "";
+
+		return `${traitsPart}${actionsPart}${bonusActionsPart}${reactionsPart}${legendaryActionsPart}${mythicActionsPart}${legendaryGroupLairPart}${legendaryGroupRegionalPart}${variantsPart}${footerPart}`;
+	}
+}
+
+class _RenderCompactMarkdownBestiaryImplClassic extends _RenderCompactMarkdownBestiaryImplBase {
+	_style = "classic";
+
+	/* -------------------------------------------- */
+
+	_getMdParts (
+		{
+			mon,
+			renderer,
+			opts,
+		},
+	) {
+		return {
+			mdPtDamageImmunities: this._getMdParts_damageImmunities({mon, renderer, opts}),
+			mdPtConditionImmunities: this._getMdParts_ConditionImmunities({mon, renderer, opts}),
+		};
+	}
+
+	/* ----- */
+	_getMdParts_damageImmunities ({mon, renderer, opts}) {
+		return mon.immune ? `\n>- **Damage Immunities** ${Parser.getFullImmRes(mon.immune, {isPlainText: true})}` : "";
+	}
+
+	_getMdParts_ConditionImmunities ({mon, renderer, opts}) {
+		return mon.conditionImmune ? `\n>- **Condition Immunities** ${Parser.getFullCondImm(mon.conditionImmune, {isPlainText: true})}` : "";
+	}
+
+	/* -------------------------------------------- */
+
+	_getCompactRenderedString ({mon, renderer, opts}) {
+		const {
+			mdPtName,
+			mdPtSizeTypeAlignment,
+			mdPtAc,
+			mdPtHpResource,
+			mdPtSpeedInitiative,
+			mdPtAbilityScores,
+			mdPtSave,
+			mdPtSkill,
+			mdPtTool,
+			mdPtDamVuln,
+			mdPtDamRes,
+			mdPtSense,
+			mdPtLanguage,
+			mdPtCr,
+			mdPtPb,
+			mdPtBreakable,
+		} = this._getCommonMdParts({
+			mon,
+			renderer,
+			opts,
+		});
+
+		const {
+			mdPtDamageImmunities,
+			mdPtConditionImmunities,
+		} = this._getMdParts({
+			mon,
+			renderer,
+			opts,
+		});
+		const ptUnbreakable = `___
+${mdPtName}
+${mdPtSizeTypeAlignment}
+>___
+${mdPtAc}
+${mdPtHpResource}
+${mdPtSpeedInitiative}
+>___
+${mdPtAbilityScores}
+>___${mdPtSave}${mdPtSkill}${mdPtTool}${mdPtDamVuln}${mdPtDamRes}${mdPtDamageImmunities}${mdPtConditionImmunities}${mdPtSense}${mdPtLanguage}
+${mdPtCr}
+${mdPtPb}
+>___`;
+
+		return {
+			ptUnbreakable,
+			ptBreakable: mdPtBreakable,
+		};
+	}
+}
+
+class _RenderCompactMarkdownBestiaryImplOne extends _RenderCompactMarkdownBestiaryImplBase {
+	_style = "one";
+
+	/* -------------------------------------------- */
+
+	_getMdParts (
+		{
+			mon,
+			renderer,
+			opts,
+		},
+	) {
+		return {
+			mdPtImmunities: this._getMdParts_immunities({mon, renderer, opts}),
+			mdPtGear: this._getMdParts_gear({mon, renderer, opts}),
+		};
+	}
+
+	/* ----- */
+
+	_getMdParts_immunities ({mon, renderer, opts}) {
+		const pt = Renderer.monster.getImmunitiesCombinedPart(mon, {isPlainText: true});
+		if (!pt) return "";
+		return `\n>- **Immunities** ${pt}`;
+	}
+
+	_getMdParts_gear ({mon, renderer, opts}) {
+		const pt = Renderer.monster.getGearPart(mon, {renderer});
+		if (!pt) return "";
+		return `\n>- **Gear** ${pt}`;
+	}
+
+	/* -------------------------------------------- */
+
+	_getCompactRenderedString ({mon, renderer, opts}) {
+		const {
+			mdPtName,
+			mdPtSizeTypeAlignment,
+			mdPtAc,
+			mdPtHpResource,
+			mdPtSpeedInitiative,
+			mdPtAbilityScores,
+			mdPtSave,
+			mdPtSkill,
+			mdPtTool,
+			mdPtDamVuln,
+			mdPtDamRes,
+			mdPtSense,
+			mdPtLanguage,
+			mdPtCr,
+			mdPtPb,
+			mdPtBreakable,
+		} = this._getCommonMdParts({
+			mon,
+			renderer,
+			opts,
+		});
+
+		const {
+			mdPtImmunities,
+			mdPtGear,
+		} = this._getMdParts({
+			mon,
+			renderer,
+			opts,
+		});
+		const ptUnbreakable = `___
+${mdPtName}
+${mdPtSizeTypeAlignment}
+>___
+${mdPtAc}
+${mdPtHpResource}
+${mdPtSpeedInitiative}
+>___
+${mdPtAbilityScores}
+>___${mdPtSave}${mdPtSkill}${mdPtTool}${mdPtDamVuln}${mdPtDamRes}${mdPtImmunities}${mdPtGear}${mdPtSense}${mdPtLanguage}
+${mdPtCr}
+${mdPtPb}
+>___`;
+
+		return {
+			ptUnbreakable,
+			ptBreakable: mdPtBreakable,
+		};
+	}
+}
+
+RendererMarkdown.monster = class {
+	static _RENDER_CLASSIC = new _RenderCompactMarkdownBestiaryImplClassic();
+	static _RENDER_ONE = new _RenderCompactMarkdownBestiaryImplOne();
+
+	static getCompactRenderedString (mon, opts = {}) {
+		const styleHint = VetoolsConfig.get("styleSwitcher", "style");
+		switch (styleHint) {
+			case "classic": return this._RENDER_CLASSIC.getCompactRenderedString(mon, opts);
+			case "one": return this._RENDER_ONE.getCompactRenderedString(mon, opts);
+			default: throw new Error(`Unhandled style "${styleHint}"!`);
+		}
 	}
 
 	static getSave (attr, mod) {
@@ -961,6 +1455,16 @@ ${pbPart ? `>- **Proficiency Bonus** ${pbPart}` : ""}
 			const special = mon.skill.special && Renderer.stripTags(mon.skill.special);
 			return [skills, others, special].filter(Boolean).join(", ");
 		} else return skills;
+	}
+
+	static getToolsString (mon) {
+		if (!mon.tool) return "";
+		return Object.entries(mon.tool)
+			.map(([uid, bonus]) => {
+				const {name} = DataUtil.proxy.unpackUid("item", uid, "item");
+				return `${name.toTitleCase()} ${bonus}`;
+			})
+			.join(", ");
 	}
 
 	static getRenderedSection ({arr, ent, prop, title, meta, prefix = ""}) {
@@ -1008,6 +1512,10 @@ ${pbPart ? `>- **Proficiency Bonus** ${pbPart}` : ""}
 				it.name = `${it.name}.`;
 				it.type = it.type || "item";
 			}
+
+			// Tweak spellcasting entries
+			if (it.rendered) it.rendered = it.rendered.replace(/^\*(\*\*[^*]+\*\*)\*/, "$1");
+
 			return it;
 		});
 
@@ -1020,73 +1528,32 @@ ${pbPart ? `>- **Proficiency Bonus** ${pbPart}` : ""}
 		return renderStack.join("");
 	}
 
-	static getSpellcastingRenderedTraits (meta, mon, displayAsProp = "trait") {
+	static getSpellcastingRenderedTraits (meta, mon, {displayAsProp = "trait"} = {}) {
 		const renderer = RendererMarkdown.get();
 		const out = [];
 		const cacheDepth = meta.depth;
 		meta.depth = 2;
-		(mon.spellcasting || []).filter(it => (it.displayAs || "trait") === displayAsProp).forEach(entry => {
-			entry.type = entry.type || "spellcasting";
-			const renderStack = [""];
-			renderer._recursiveRender(entry, renderStack, meta, {prefix: ">"});
-			const rendered = renderStack.join("");
-			if (!rendered.length) return;
-			out.push({name: entry.name, rendered});
-		});
+		(mon.spellcasting || [])
+			.filter(it => (it.displayAs || "trait") === displayAsProp)
+			.forEach(entry => {
+				const isLegendaryMythic = ["legendary", "mythic"].includes(displayAsProp);
+				entry.type = entry.type || "spellcasting";
+				const renderStack = [""];
+				const prefix = isLegendaryMythic ? undefined : ">";
+				renderer._recursiveRender(entry, renderStack, meta, {prefix});
+				const rendered = renderStack.join("");
+				if (!rendered.length) return;
+				out.push({name: entry.name, rendered});
+			});
 		meta.depth = cacheDepth;
 		return out;
 	}
-
-	// region Exporting
-	static async pGetMarkdownDoc (monsters) {
-		const asEntries = (await Promise.all(monsters
-			.map(async (mon, i) => {
-				const monEntry = ({type: "statblockInline", dataType: "monster", data: mon});
-
-				const fluff = await Renderer.monster.pGetFluff(mon);
-
-				const fluffEntries = (fluff || {}).entries || [];
-
-				RendererMarkdown.get().setFirstSection(true);
-				const fluffText = fluffEntries.map(ent => RendererMarkdown.get().render(ent)).join("\n\n");
-
-				const out = [monEntry];
-
-				const isAddPageBreaks = VetoolsConfig.get("markdown", "isAddPageBreaks");
-				if (fluffText) {
-					// Insert a page break before every fluff section
-					if (isAddPageBreaks) out.push("", "\\pagebreak", "");
-
-					out.push(`## ${mon.name}`);
-
-					// Split into runs of <X characters, and join these with page breaks
-					let stack = [];
-					let charLimit = RendererMarkdown.CHARS_PER_PAGE;
-					fluffText.split("\n").forEach(l => {
-						if ((charLimit -= l.length) < 0) {
-							out.push(stack.join("\n"));
-							if (isAddPageBreaks) out.push("", "\\pagebreak", "");
-							stack = [];
-							charLimit = RendererMarkdown.CHARS_PER_PAGE - l.length;
-						}
-						stack.push(l);
-					});
-					if (stack.length) out.push(stack.join("\n"));
-				}
-
-				// Insert a page break after every creature statblock or fluff section
-				if (i !== monsters.length - 1 && isAddPageBreaks) out.push("", "\\pagebreak", "");
-				return out;
-			})))
-			.flat();
-
-		return RendererMarkdown.get().render({entries: asEntries});
-	}
-	// endregion
 };
 
 RendererMarkdown.spell = class {
 	static getCompactRenderedString (sp, opts = {}) {
+		const styleHint = VetoolsConfig.get("styleSwitcher", "style");
+
 		const meta = opts.meta || {};
 
 		const subStack = [""];
@@ -1097,7 +1564,7 @@ ___
 - **Casting Time:** ${Parser.spTimeListToFull(sp.time, sp.meta)}
 - **Range:** ${Parser.spRangeToFull(sp.range)}
 - **Components:** ${Parser.spComponentsToFull(sp.components, sp.level, {isPlainText: true})}
-- **Duration:** ${Parser.spDurationToFull(sp.duration, {isPlainText: true})}
+- **Duration:** ${Parser.spDurationToFull(sp.duration, {isPlainText: true, styleHint})}
 ---\n`;
 
 		const cacheDepth = meta.depth;
@@ -1123,15 +1590,17 @@ RendererMarkdown.item = class {
 	static getCompactRenderedString (item, opts = {}) {
 		const meta = opts.meta || {};
 
+		const styleHint = VetoolsConfig.get("styleSwitcher", "style");
+
 		const subStack = [""];
 
-		const [damage, damageType, propertiesTxt] = Renderer.item.getDamageAndPropertiesText(item, {renderer: RendererMarkdown.get()});
-		const [typeRarityText, subTypeText, tierText] = RendererMarkdown.item.getTypeRarityAndAttunementText(item);
+		const [ptDamage, ptProperties] = Renderer.item.getRenderedDamageAndProperties(item, {renderer: RendererMarkdown.get()});
+		const ptMastery = Renderer.item.getRenderedMastery(item, {renderer: RendererMarkdown.get()});
+		const {typeRarityText, subTypeText, tierText} = RendererMarkdown.item.getTypeRarityAndAttunementTextParts(item, {styleHint});
 
-		const typeRarityTierValueWeight = [typeRarityText, subTypeText, tierText, Parser.itemValueToFullMultiCurrency(item), Parser.itemWeightToFull(item)].filter(Boolean).join(", ").uppercaseFirst();
-		const damageProperties = [damage, damageType, propertiesTxt].filter(Boolean).join(" ").uppercaseFirst();
+		const typeRarityTierValueWeight = [typeRarityText, subTypeText, tierText, Parser.itemValueToFullMultiCurrency(item, {styleHint}), Parser.itemWeightToFull(item)].filter(Boolean).join(", ").uppercaseFirst();
 
-		const ptSubtitle = [typeRarityTierValueWeight, damageProperties].filter(Boolean).join("\n\n");
+		const ptSubtitle = [typeRarityTierValueWeight, ptDamage, ptProperties, ptMastery].filter(Boolean).join("\n\n");
 
 		subStack[0] += `#### ${item._displayName || item.name}${ptSubtitle ? `\n\n${ptSubtitle}` : ""}\n\n${ptSubtitle ? `---\n\n` : ""}`;
 
@@ -1157,18 +1626,33 @@ RendererMarkdown.item = class {
 		return `\n${itemRender}\n\n`;
 	}
 
-	static getTypeRarityAndAttunementText (item) {
-		const typeRarity = [
-			item._typeHtml === "other" ? "" : $(`<div></div>`).html(item._typeHtml).text(),
-			(item.rarity && Renderer.item.doRenderRarity(item.rarity) ? item.rarity : ""),
-		].filter(Boolean).join(", ");
+	static getTypeRarityAndAttunementTextParts (item, {styleHint = null} = {}) {
+		styleHint ||= VetoolsConfig.get("styleSwitcher", "style");
 
-		return [
-			item.reqAttune ? `${typeRarity} ${item._attunement}` : typeRarity,
-			item._subTypeHtml || "",
-			item.tier ? `${item.tier} tier` : "",
-		];
+		const {
+			entryTypeRarity,
+			entrySubtype,
+			entryTier,
+		} = Renderer.item.getTransformedTypeEntriesMeta({item, styleHint});
+
+		return {
+			typeRarityText: RendererMarkdown.get().render(entryTypeRarity),
+			subTypeText: RendererMarkdown.get().render(entrySubtype),
+			tierText: RendererMarkdown.get().render(entryTier),
+		};
 	}
+};
+
+RendererMarkdown.baseitem = class {
+	static getCompactRenderedString (...args) { return RendererMarkdown.item.getCompactRenderedString(...args); }
+};
+
+RendererMarkdown.magicvariant = class {
+	static getCompactRenderedString (...args) { return RendererMarkdown.item.getCompactRenderedString(...args); }
+};
+
+RendererMarkdown.itemGroup = class {
+	static getCompactRenderedString (...args) { return RendererMarkdown.item.getCompactRenderedString(...args); }
 };
 
 RendererMarkdown.legendaryGroup = class {
@@ -1193,14 +1677,38 @@ RendererMarkdown.table = class {
 		const meta = opts.meta || {};
 
 		const subStack = [""];
-		RendererMarkdown.get().recursiveRender(tbl, subStack, meta, {suffix: "\n"});
+		RendererMarkdown.get().recursiveRender({type: "table", ...tbl}, subStack, meta, {suffix: "\n"});
 		return `\n${subStack.join("").trim()}\n\n`;
 	}
 };
 
 RendererMarkdown.tableGroup = class {
 	static getCompactRenderedString (tbl, opts = {}) {
-		return RendererMarkdown.table.getCompactRenderedString(tbl, opts);
+		return RendererMarkdown.generic.getCompactRenderedString({...tbl, entries: tbl.tables}, opts);
+	}
+};
+
+RendererMarkdown.namez = class {
+	static getCompactRenderedString (ent, opts = {}) {
+		const table = Renderer.table.getConvertedEncounterOrNamesTable({
+			group: ent,
+			tableRaw: ent,
+			fnGetNameCaption: Renderer.namez.getDisplayName.bind(Renderer.namez),
+			colLabel1: "Name",
+		});
+		return RendererMarkdown.table.getCompactRenderedString(table, opts);
+	}
+};
+
+RendererMarkdown.encounter = class {
+	static getCompactRenderedString (ent, opts = {}) {
+		const table = Renderer.table.getConvertedEncounterOrNamesTable({
+			group: ent,
+			tableRaw: ent,
+			fnGetNameCaption: Renderer.encounter.getDisplayName.bind(Renderer.encounter),
+			colLabel1: "Encounter",
+		});
+		return RendererMarkdown.table.getCompactRenderedString(table, opts);
 	}
 };
 
@@ -1284,6 +1792,40 @@ RendererMarkdown.status = class {
 	}
 };
 
+RendererMarkdown.race = class {
+	static getCompactRenderedString (ent, opts = {}) {
+		const entriesMeta = Renderer.race.getRaceRenderableEntriesMeta(ent);
+
+		const entries = [
+			entriesMeta.entryAttributes,
+			entriesMeta.entryMain,
+		]
+			.filter(Boolean);
+
+		const entFull = {
+			...ent,
+			entries,
+		};
+
+		const ptHeightAndWeight = this._getHeightAndWeightPart(ent);
+
+		return [
+			RendererMarkdown.utils.withMetaDepth(1, opts, () => {
+				return RendererMarkdown.generic.getCompactRenderedString(entFull, opts);
+			}),
+			ptHeightAndWeight ? `---\n\n${ptHeightAndWeight}` : null,
+		]
+			.filter(Boolean)
+			.join("");
+	}
+
+	static _getHeightAndWeightPart (race) {
+		if (!race.heightAndWeight) return null;
+		if (race._isBaseRace) return null;
+		return RendererMarkdown.get().render({entries: Renderer.race.getHeightAndWeightEntries(race, {isStatic: true})});
+	}
+};
+
 RendererMarkdown.feat = class {
 	static getCompactRenderedString (ent, opts = {}) {
 		const entries = [
@@ -1304,6 +1846,33 @@ RendererMarkdown.feat = class {
 		return RendererMarkdown.utils.withMetaDepth(2, opts, () => {
 			return RendererMarkdown.generic.getCompactRenderedString(entFull, opts);
 		});
+	}
+};
+
+RendererMarkdown.class = class {
+	static getCompactRenderedString (cls, opts = {}) {
+		const styleHint = VetoolsConfig.get("styleSwitcher", "style");
+
+		const cpyEntries = MiscUtil.copyFast(cls.classFeatures || [])
+			.flat()
+			.map(ent => Renderer.class.getDisplayNamedClassFeatureEntry(ent, {styleHint}));
+
+		return RendererMarkdown.utils.withMetaDepth(1, opts, () => RendererMarkdown.generic.getCompactRenderedString({...cls, entries: cpyEntries}, opts));
+	}
+};
+
+RendererMarkdown.subclass = class {
+	static getCompactRenderedString (sc, opts = {}) {
+		const styleHint = VetoolsConfig.get("styleSwitcher", "style");
+
+		const isEditionMismatch = !!opts.isEditionMismatch;
+
+		const cpyEntries = MiscUtil.copyFast((sc.subclassFeatures || []).flat())
+			.map(ent => Renderer.class.getDisplayNamedSubclassFeatureEntry(ent, {styleHint, isEditionMismatch}));
+
+		if (cpyEntries[0]?.name === sc.name) delete cpyEntries[0].name;
+
+		return RendererMarkdown.utils.withMetaDepth(1, opts, () => RendererMarkdown.generic.getCompactRenderedString({...sc, entries: cpyEntries}, opts));
 	}
 };
 
@@ -1374,12 +1943,18 @@ RendererMarkdown.hazard = class {
 
 RendererMarkdown.traphazard = class {
 	static getCompactRenderedString (ent, opts = {}) {
-		const ptHead = RendererMarkdown.utils.withMetaDepth(2, opts, () => {
-			const subtitle = Renderer.traphazard.getSubtitle(ent);
+		const styleHint = VetoolsConfig.get("styleSwitcher", "style");
+
+		return RendererMarkdown.utils.withMetaDepth(2, opts, () => {
+			const subtitle = Renderer.traphazard.getSubtitle(ent, {styleHint});
+
+			const entriesMetaTrap = Renderer.trap.getTrapRenderableEntriesMeta(ent, {styleHint});
 
 			const entries = [
 				subtitle ? `{@i ${subtitle}}` : null,
+				...(entriesMetaTrap.entriesHeader || []),
 				{entries: ent.entries},
+				...(entriesMetaTrap.entriesAttributes || []),
 			]
 				.filter(Boolean);
 
@@ -1390,14 +1965,6 @@ RendererMarkdown.traphazard = class {
 
 			return RendererMarkdown.generic.getCompactRenderedString(entFull, opts);
 		});
-
-		const ptAttributes = RendererMarkdown.utils.withMetaDepth(1, opts, () => {
-			const entriesMeta = Renderer.trap.getTrapRenderableEntriesMeta(ent);
-
-			return RendererMarkdown.generic.getRenderedSubEntry({type: "entries", entries: entriesMeta.entriesAttributes}, opts);
-		});
-
-		return ptHead + ptAttributes;
 	}
 };
 
@@ -1497,6 +2064,7 @@ RendererMarkdown.vehicle = class {
 		switch (ent.vehicleType) {
 			case "SHIP": return RendererMarkdown.vehicle._getRenderedString_ship(ent, opts);
 			case "SPELLJAMMER": return RendererMarkdown.vehicle._getRenderedString_spelljammer(ent, opts);
+			case "ELEMENTAL_AIRSHIP": return RendererMarkdown.vehicle._getRenderedString_elementalAirship(ent, opts);
 			case "INFWAR": return RendererMarkdown.vehicle._getRenderedString_infwar(ent, opts);
 			case "CREATURE": return RendererMarkdown.monster.getCompactRenderedString(ent, {...opts, isHideLanguages: true, isHideSenses: true, page: UrlUtil.PG_VEHICLES});
 			case "OBJECT": return RendererMarkdown.object.getCompactRenderedString(ent, {...opts, page: UrlUtil.PG_VEHICLES});
@@ -1529,7 +2097,7 @@ RendererMarkdown.vehicle = class {
 
 			return [
 				`### Control: ${entry.name}`,
-				entriesMetaSection.entryArmourClass ? renderer.render(entriesMetaSection.entryArmourClass) : null,
+				entriesMetaSection.entryArmorClass ? renderer.render(entriesMetaSection.entryArmorClass) : null,
 				entriesMetaSection.entryHitPoints ? renderer.render(entriesMetaSection.entryHitPoints) : null,
 				RendererMarkdown.get().render({entries: entry.entries}),
 			]
@@ -1544,7 +2112,7 @@ RendererMarkdown.vehicle = class {
 
 			return [
 				`### ${entry.isControl ? `Control and ` : ""}Movement: ${entry.name}`,
-				entriesMetaSection.entryArmourClass ? renderer.render(entriesMetaSection.entryArmourClass) : null,
+				entriesMetaSection.entryArmorClass ? renderer.render(entriesMetaSection.entryArmorClass) : null,
 				entriesMetaSection.entryHitPoints ? renderer.render(entriesMetaSection.entryHitPoints) : null,
 				...(entry.locomotion || [])
 					.map(entry => RendererMarkdown.get().render(Renderer.vehicle.ship.getLocomotionEntries(entry))),
@@ -1562,7 +2130,7 @@ RendererMarkdown.vehicle = class {
 
 			return [
 				`### Weapons: ${entry.name}${entry.count ? ` (${entry.count})` : ""}`,
-				entriesMetaSection.entryArmourClass ? renderer.render(entriesMetaSection.entryArmourClass) : null,
+				entriesMetaSection.entryArmorClass ? renderer.render(entriesMetaSection.entryArmorClass) : null,
 				entriesMetaSection.entryHitPoints ? renderer.render(entriesMetaSection.entryHitPoints) : null,
 				RendererMarkdown.get().render({entries: entry.entries}),
 			]
@@ -1577,7 +2145,7 @@ RendererMarkdown.vehicle = class {
 
 			return [
 				`### ${entry.name}`,
-				entriesMetaSection.entryArmourClass ? renderer.render(entriesMetaSection.entryArmourClass) : null,
+				entriesMetaSection.entryArmorClass ? renderer.render(entriesMetaSection.entryArmorClass) : null,
 				entriesMetaSection.entryHitPoints ? renderer.render(entriesMetaSection.entryHitPoints) : null,
 				RendererMarkdown.get().render({entries: entry.entries}),
 			]
@@ -1608,7 +2176,7 @@ RendererMarkdown.vehicle = class {
 			...(entriesMetaShip.entriesOtherActions || [])
 				.map(entry => RendererMarkdown.vehicle.ship.getOtherSection_({entry})),
 			ent.hull ? "### Hull" : null,
-			entriesMetaSectionHull?.entryArmourClass ? renderer.render(entriesMetaSectionHull.entryArmourClass) : null,
+			entriesMetaSectionHull?.entryArmorClass ? renderer.render(entriesMetaSectionHull.entryArmorClass) : null,
 			entriesMetaSectionHull?.entryHitPoints ? renderer.render(entriesMetaSectionHull.entryHitPoints) : null,
 			...this._getLinesRendered_traits({ent, renderer}),
 			...(ent.control || [])
@@ -1628,17 +2196,16 @@ RendererMarkdown.vehicle = class {
 			.trim();
 	}
 
-	static spelljammer = class {
-		static getWeaponSection_ ({entry}) {
+	static spelljammerElementalAirship = class {
+		static getStationSection_ ({entriesMetaParent, entry, isDisplayEmptyCost = false}) {
 			const renderer = RendererMarkdown.get();
-			const entriesMetaSectionWeapon = Renderer.vehicle.spelljammer.getSectionWeaponEntriesMeta(entry);
-			const entriesMetaSectionHpCost = Renderer.vehicle.spelljammer.getSectionHpCostEntriesMeta(entry);
+			const entriesMeta = Renderer.vehicle.spelljammerElementalAirship.getStationEntriesMeta(entry);
 
 			return [
-				`### ${entriesMetaSectionWeapon.entryName}`,
-				entriesMetaSectionHpCost.entryArmourClass ? renderer.render(entriesMetaSectionHpCost.entryArmourClass) : null,
-				entriesMetaSectionHpCost.entryHitPoints ? renderer.render(entriesMetaSectionHpCost.entryHitPoints) : null,
-				entriesMetaSectionHpCost.entryCost ? renderer.render(entriesMetaSectionHpCost.entryCost) : null,
+				`### ${entriesMetaParent.entryName}`,
+				entriesMeta.entryArmorClass ? renderer.render(entriesMeta.entryArmorClass) : null,
+				entriesMeta.entryHitPoints ? renderer.render(entriesMeta.entryHitPoints) : null,
+				(isDisplayEmptyCost || entry.costs?.length) && entriesMeta.entryCost ? renderer.render(entriesMeta.entryCost) : null,
 				RendererMarkdown.get().render({entries: entry.entries}),
 				...(entry.action || []).map(act => renderer.render(act, 2)),
 			]
@@ -1648,15 +2215,49 @@ RendererMarkdown.vehicle = class {
 		}
 	};
 
+	static spelljammer = class {
+		static getStationSection_ ({entry}) {
+			const entriesMeta = Renderer.vehicle.spelljammer.getStationEntriesMeta(entry);
+			return RendererMarkdown.vehicle.spelljammerElementalAirship.getStationSection_({entriesMetaParent: entriesMeta, entry, isDisplayEmptyCost: true});
+		}
+	};
+
 	static _getRenderedString_spelljammer (ent, opts) {
 		const renderer = RendererMarkdown.get();
-		const entriesMetaSpelljammer = Renderer.vehicle.spelljammer.getVehicleSpelljammerRenderableEntriesMeta(ent);
+		const entriesMeta = Renderer.vehicle.spelljammer.getRenderableEntriesMeta(ent);
 
 		const ptsJoined = [
 			`## ${ent.name}`,
-			renderer.render(entriesMetaSpelljammer.entryTableSummary),
+			renderer.render(entriesMeta.entryTableSummary),
 			...(ent.weapon || [])
-				.map(entry => RendererMarkdown.vehicle.spelljammer.getWeaponSection_({entry})),
+				.map(entry => RendererMarkdown.vehicle.spelljammer.getStationSection_({entry})),
+		]
+			.map(it => it != null ? it.trim() : it)
+			.filter(Boolean)
+			.join("\n\n");
+
+		return ptsJoined
+			.trim();
+	}
+
+	static elementalAirship = class {
+		static getStationSection_ ({entry}) {
+			const entriesMeta = Renderer.vehicle.elementalAirship.getStationEntriesMeta(entry);
+			return RendererMarkdown.vehicle.spelljammerElementalAirship.getStationSection_({entriesMetaParent: entriesMeta, entry});
+		}
+	};
+
+	static _getRenderedString_elementalAirship (ent, opts) {
+		const renderer = RendererMarkdown.get();
+		const entriesMeta = Renderer.vehicle.elementalAirship.getRenderableEntriesMeta(ent);
+
+		const ptsJoined = [
+			`## ${ent.name}`,
+			renderer.render(entriesMeta.entryTableSummary),
+			...(ent.weapon || [])
+				.map(entry => RendererMarkdown.vehicle.elementalAirship.getStationSection_({entry})),
+			...(ent.station || [])
+				.map(entry => RendererMarkdown.vehicle.elementalAirship.getStationSection_({entry})),
 		]
 			.map(it => it != null ? it.trim() : it)
 			.filter(Boolean)
@@ -1701,8 +2302,11 @@ RendererMarkdown.vehicle = class {
 
 RendererMarkdown.vehicleUpgrade = class {
 	static getCompactRenderedString (ent, opts = {}) {
+		const entriesMeta = Renderer.vehicleUpgrade.getVehicleUpgradeRenderableEntriesMeta(ent);
+
 		const entries = [
-			RendererMarkdown.vehicleUpgrade.getUpgradeSummary(ent),
+			entriesMeta.entrySummary,
+			entriesMeta.entryCost,
 			{entries: ent.entries},
 		]
 			.filter(Boolean);
@@ -1715,17 +2319,6 @@ RendererMarkdown.vehicleUpgrade = class {
 		return RendererMarkdown.utils.withMetaDepth(1, opts, () => {
 			return RendererMarkdown.generic.getCompactRenderedString(entFull, opts);
 		});
-	}
-
-	static getUpgradeSummary (ent) {
-		const out = [
-			ent.upgradeType ? ent.upgradeType.map(t => Parser.vehicleTypeToFull(t)) : null,
-			ent.prerequisite ? Renderer.utils.prerequisite.getHtml(ent.prerequisite, {isTextOnly: true}) : null,
-		]
-			.filter(Boolean)
-			.join(", ");
-
-		return out ? `{@i ${out}}` : null;
 	}
 };
 
@@ -1767,7 +2360,170 @@ RendererMarkdown.recipe = class {
 	}
 };
 
+RendererMarkdown.crochetPattern = class {
+	static getCompactRenderedString (ent, opts = {}) {
+		const {entrySkillLevel, entryDesignedBy, entriesMeasurements, entriesHooks} = Renderer.crochetPattern.getCrochetPatternRenderableEntriesMeta(ent);
+
+		const ptHead = RendererMarkdown.utils.withMetaDepth(0, opts, () => {
+			const entries = [
+				`{@i Skill Level: ${entrySkillLevel}.${entryDesignedBy ? ` Designed by ${entryDesignedBy}.` : ""}}`,
+
+				entriesMeasurements?.length ? `#### Finished Measurements` : "",
+				...(entriesMeasurements || []),
+
+				ent.yarn?.length ? `#### Yarn` : "",
+				...(ent.yarn || []),
+
+				entriesHooks?.length ? `#### Hooks` : "",
+				...(entriesHooks || []),
+
+				ent.notions?.length ? `#### Notions` : "",
+				...(ent.notions || []),
+
+				ent.gauge?.length ? `#### Gauge` : "",
+				...(ent.gauge || []),
+
+				ent.stitches?.length ? `#### Special Stitches` : "",
+				...(ent.stitches || []),
+
+				ent.abbreviations?.length ? `#### Special Abbreviations` : "",
+				...(ent.abbreviations || []),
+
+				ent.notes?.length ? `#### Notes` : "",
+				...(ent.notes || []),
+
+				ent.finishing?.length ? `#### Finishing` : "",
+				...(ent.finishing || []),
+			]
+				.filter(Boolean);
+
+			const entFull = {
+				...ent,
+				entries,
+			};
+
+			return RendererMarkdown.generic.getCompactRenderedString(entFull, opts);
+		});
+
+		const ptInstructions = RendererMarkdown.utils.withMetaDepth(0, opts, () => {
+			return RendererMarkdown.generic.getRenderedSubEntry({entries: ent.instructions}, opts);
+		});
+
+		const out = [
+			ptHead,
+			ptInstructions,
+		]
+			.filter(Boolean)
+			.join("\n\n");
+
+		return RendererMarkdown.utils.getNormalizedNewlines(out);
+	}
+};
+
+RendererMarkdown.homecraft = class {
+	static getCompactRenderedString (ent) {
+		switch (ent.__prop) {
+			case "crochetPattern": return RendererMarkdown.crochetPattern.getCompactRenderedString(ent);
+			default: throw new Error(`Unhandled prop "${ent.__prop}"`);
+		}
+	}
+
+	/* -------------------------------------------- */
+
+	static pGetFluff (ent) {
+		switch (ent.__prop) {
+			case "crochetPattern": return RendererMarkdown.crochetPattern.pGetFluff(ent);
+			default: throw new Error(`Unhandled prop "${ent.__prop}"`);
+		}
+	}
+};
+
 RendererMarkdown.variantrule = class {
+	static getCompactRenderedString (ent, opts = {}) {
+		return RendererMarkdown.generic.getCompactRenderedString(ent, opts);
+	}
+};
+
+RendererMarkdown.card = class {
+	static getCompactRenderedString (ent, opts = {}) {
+		const entCard = {
+			...ent,
+			entries: [
+				ent.face,
+				...Renderer.card.getFullEntries(ent),
+			]
+				.filter(Boolean),
+		};
+
+		return RendererMarkdown.generic.getCompactRenderedString(entCard, opts);
+	}
+};
+
+RendererMarkdown.deck = class {
+	static getCompactRenderedString (ent, opts = {}) {
+		const {entryCards} = Renderer.deck.getDeckRenderableEntriesMeta(ent);
+
+		const entDeck = {
+			...ent,
+			entries: [
+				...(ent.entries || []),
+				entryCards,
+			],
+		};
+
+		return RendererMarkdown.generic.getCompactRenderedString(entDeck, opts);
+	}
+};
+
+RendererMarkdown.facility = class {
+	static getCompactRenderedString (ent, opts = {}) {
+		const entriesMeta = Renderer.facility.getFacilityRenderableEntriesMeta(ent);
+
+		const out = [
+			`## ${ent.name}`,
+			entriesMeta.entryLevel ? RendererMarkdown.get().render(entriesMeta.entryLevel) : null,
+			...entriesMeta.entriesDescription
+				.map(entry => RendererMarkdown.get().render(entry)),
+		]
+			.filter(Boolean)
+			.join("\n\n");
+
+		return RendererMarkdown.utils.getNormalizedNewlines(out);
+	}
+};
+
+RendererMarkdown.skill = class {
+	static getCompactRenderedString (ent, opts = {}) {
+		const {entryAbility} = Renderer.skill.getSkillRenderableEntriesMeta(ent);
+
+		const entSkill = {
+			...ent,
+			entries: [
+				entryAbility,
+				...(ent.entries || []),
+			]
+				.filter(Boolean),
+		};
+
+		return RendererMarkdown.generic.getCompactRenderedString(entSkill, opts);
+	}
+};
+
+RendererMarkdown.sense = class {
+	static getCompactRenderedString (ent, opts = {}) {
+		return RendererMarkdown.generic.getCompactRenderedString(ent, opts);
+	}
+};
+
+RendererMarkdown.itemProperty = class {
+	static getCompactRenderedString (ent, opts = {}) {
+		const {entryFaux} = Renderer.itemProperty.getItemPropertyRenderableEntriesMeta(ent);
+
+		return RendererMarkdown.generic.getCompactRenderedString(entryFaux, opts);
+	}
+};
+
+RendererMarkdown.itemMastery = class {
 	static getCompactRenderedString (ent, opts = {}) {
 		return RendererMarkdown.generic.getCompactRenderedString(ent, opts);
 	}
@@ -1777,7 +2533,7 @@ RendererMarkdown.generic = class {
 	static getCompactRenderedString (ent, opts = {}) {
 		const subStack = [""];
 		subStack[0] += `## ${ent._displayName || ent.name}\n\n`;
-		ent.entries.forEach(entry => {
+		(ent.entries || []).forEach(entry => {
 			RendererMarkdown.generic.getRenderedSubEntry(entry, opts, {subStack});
 			subStack[0] += "\n\n";
 		});
@@ -1793,14 +2549,22 @@ RendererMarkdown.generic = class {
 	}
 
 	static getRenderedPrerequisite (ent) {
-		const out = Renderer.utils.prerequisite.getHtml(ent.prerequisite, {isTextOnly: true, isSkipPrefix: true});
+		const out = Renderer.utils.prerequisite.getText(ent.prerequisite, {isSkipPrefix: true});
 		return out ? `Prerequisite: ${out}` : "";
 	}
 };
 
 RendererMarkdown.hover = class {
+	static _PROP_TO_RENDERER = {
+		name: "namez", // (reserved-ish prop)
+	};
+
 	static getFnRenderCompact (prop) {
-		return RendererMarkdown[prop]?.getCompactRenderedString?.bind(RendererMarkdown[prop]);
+		if (this._PROP_TO_RENDERER[prop]) prop = this._PROP_TO_RENDERER[prop];
+
+		if (prop?.endsWith("Fluff")) return RendererMarkdown.generic.getCompactRenderedString.bind(RendererMarkdown.generic);
+		if (RendererMarkdown[prop]?.getCompactRenderedString) return RendererMarkdown[prop].getCompactRenderedString.bind(RendererMarkdown[prop]);
+		return RendererMarkdown.generic.getCompactRenderedString.bind(RendererMarkdown.generic);
 	}
 };
 
@@ -1840,9 +2604,9 @@ class MarkdownConverter {
 
 		// Scrub HTML
 		try {
-			const $jq = $(`<div>${mdStr}</div>`);
-			$jq.find("*").remove();
-			mdStr = $jq.text();
+			const ele = veT`<div>${mdStr}</div>`;
+			ele.vee.findAll("*").forEach(ele => ele.remove());
+			mdStr = ele.vee.txt();
 		} catch (e) {
 			setTimeout(() => { throw e; });
 		}
@@ -2450,6 +3214,15 @@ class MarkdownConverter {
 			const maxWidth = Math.max((tbl.colLabels || []).length, ...tbl.rows.map(it => it.length));
 			tbl.rows.forEach(row => {
 				while (row.length < maxWidth) row.push("");
+			});
+		})();
+
+		(function normalizeRanges () {
+			tbl.rows.forEach(row => {
+				if (!row[0] || typeof row[0] !== "string") return;
+
+				// Collapse "1 - 2" to "1-2"
+				row[0] = row[0].replace(/^(\d+)\s+([-\u2012-\u2014\u2212])\s+(\d+)$/, "$1$2$3");
 			});
 		})();
 

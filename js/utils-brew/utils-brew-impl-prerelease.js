@@ -7,6 +7,7 @@ export class PrereleaseUtil_ extends BrewUtil2Base {
 	_STORAGE_KEY = "PRERELEASE_STORAGE";
 	_STORAGE_KEY_META = "PRERELEASE_META_STORAGE";
 
+	_STORAGE_KEY_RELOAD_MESSAGE = "PRERELEASE_RELOAD_MESSAGE";
 	_STORAGE_KEY_CUSTOM_URL = "PRERELEASE_CUSTOM_REPO_URL";
 	_STORAGE_KEY_MIGRATION_VERSION = "PRERELEASE_STORAGE_MIGRATION";
 
@@ -15,6 +16,7 @@ export class PrereleaseUtil_ extends BrewUtil2Base {
 
 	_VERSION = 1;
 
+	ID = "prerelease";
 	IS_EDITABLE = false;
 	PAGE_MANAGE = UrlUtil.PG_MANAGE_PRERELEASE;
 	URL_REPO_DEFAULT = VeCt.URL_PRERELEASE;
@@ -24,10 +26,7 @@ export class PrereleaseUtil_ extends BrewUtil2Base {
 	DEFAULT_AUTHOR = "SpiesAndSpiders";
 	STYLE_BTN = "ve-btn-primary";
 	IS_PREFER_DATE_ADDED = false;
-
-	/* -------------------------------------------- */
-
-	_pInit_doBindDragDrop () { /* No-op */ }
+	IS_ADD_BTN_ALL_PARTNERED = false;
 
 	/* -------------------------------------------- */
 

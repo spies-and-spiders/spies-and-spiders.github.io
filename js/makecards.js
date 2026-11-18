@@ -27,7 +27,7 @@ class MakeCards extends BaseComponent {
 		this._modalFilterFeats = new ModalFilterFeats({namespace: "makecards.feat"});
 		this._modalFilterOptionalFeatures = new ModalFilterOptionalFeatures({namespace: "makecards.optionalfeatures"});
 
-		this._doSaveStateDebounced = MiscUtil.debounce(() => this._pDoSaveState(), 50);
+		this._doSaveStateDebounced = MiscUtil.debounce(() => this._pDoSaveState(), VeCt.DUR_DEBOUNCE_SAVE);
 	}
 
 	async pInit () {
@@ -46,10 +46,10 @@ class MakeCards extends BaseComponent {
 	}
 
 	_render_configSection () {
-		const $wrpConfig = $(`#wrp_config`).empty();
+		const wrpConfig = veEs(`#wrp_config`).vee.empty();
 
-		const $btnResetDefaults = $(`<button class="ve-btn ve-btn-default ve-btn-xs">Reset</button>`)
-			.click(() => {
+		const btnResetDefaults = veT`<button class="ve-btn ve-btn-default ve-btn-xs">Reset</button>`
+			.vee.onn("click", () => {
 				Object.entries(MakeCards._AVAILABLE_TYPES)
 					.forEach(([entityType, typeMeta]) => {
 						const kColor = `color_${entityType}`;
@@ -60,57 +60,57 @@ class MakeCards extends BaseComponent {
 					});
 			});
 
-		$$($wrpConfig)`<h5 class="split-v-center"><div>New Card Defaults</div>${$btnResetDefaults}</h5>
-		<div class="ve-flex-v-center bold">
-			<div class="ve-col-4 ve-text-center pr-2">Type</div>
-			<div class="ve-col-4 ve-text-center p-2">Color</div>
-			<div class="ve-col-4 ve-text-center pl-2">Icon</div>
+		veT(wrpConfig)`<h5 class="ve-split-v-center"><div>New Card Defaults</div>${btnResetDefaults}</h5>
+		<div class="ve-flex-v-center ve-bold">
+			<div class="ve-col-4 ve-text-center ve-pr-2">Type</div>
+			<div class="ve-col-4 ve-text-center ve-p-2">Color</div>
+			<div class="ve-col-4 ve-text-center ve-pl-2">Icon</div>
 		</div>`;
 
-		const $getColorIconConfigRow = (entityType) => {
+		const getColorIconConfigRow = (entityType) => {
 			const entityMeta = MakeCards._AVAILABLE_TYPES[entityType];
 
 			const kColor = `color_${entityType}`;
 			const kIcon = `icon_${entityType}`;
-			const $iptColor = ComponentUiUtil.$getIptColor(this, kColor).addClass("cards-cfg__ipt-color");
-			const $dispIcon = $(`<div class="cards__disp-btn-icon"></div>`);
-			const $btnChooseIcon = $$`<button class="ve-btn ve-btn-xs ve-btn-default cards__btn-choose-icon">${$dispIcon}</button>`
-				.click(async () => {
+			const iptColor = ComponentUiUtil.getIptColor(this, kColor).vee.addClass("cards-cfg__ipt-color");
+			const dispIcon = veT`<div class="cards__disp-btn-icon"></div>`;
+			const btnChooseIcon = veT`<button class="ve-btn ve-btn-xs ve-btn-default cards__btn-choose-icon">${dispIcon}</button>`
+				.vee.onn("click", async () => {
 					const icon = await MakeCards._pGetUserIcon(this._state[kIcon]);
 					if (icon) this._state[kIcon] = icon;
 				});
-			const hkIcon = () => $dispIcon.css("background-image", `url('${MakeCards._getIconPath(this._state[kIcon])}')`);
+			const hkIcon = () => dispIcon.vee.css({backgroundImage: `url('${MakeCards._getIconPath(this._state[kIcon])}')`});
 			this._addHookBase(kIcon, hkIcon);
 			hkIcon();
 
-			return $$`<div class="ve-flex-v-center stripe-even m-1">
-				<div class="ve-col-4 ve-flex-vh-center pr-2">${entityMeta.searchTitle}</div>
-				<div class="ve-col-4 ve-flex-vh-center p-2">${$iptColor}</div>
-				<div class="ve-col-4 ve-flex-vh-center pl-2">${$btnChooseIcon}</div>
+			return veT`<div class="ve-flex-v-center stripe-even ve-m-1">
+				<div class="ve-col-4 ve-flex-vh-center ve-pr-2">${entityMeta.searchTitle}</div>
+				<div class="ve-col-4 ve-flex-vh-center ve-p-2">${iptColor}</div>
+				<div class="ve-col-4 ve-flex-vh-center ve-pl-2">${btnChooseIcon}</div>
 			</div>`;
 		};
 
-		Object.keys(MakeCards._AVAILABLE_TYPES).forEach(it => $getColorIconConfigRow(it).appendTo($wrpConfig));
+		Object.keys(MakeCards._AVAILABLE_TYPES).forEach(it => getColorIconConfigRow(it).vee.appendTo(wrpConfig));
 	}
 
 	_render_cardList () {
-		const $wrpContainer = $(`#wrp_main`).empty();
+		const wrpContainer = veEs(`#wrp_main`).vee.empty();
 
 		// region Search bar/add button
 		const menuSearch = ContextUtil.getMenu(this._render_getContextMenuOptions());
 
-		const $iptSearch = $(`<input type="search" class="form-control mr-2" placeholder="Search cards...">`);
-		const $btnAdd = $(`<button class="ve-btn ve-btn-primary mr-2"><span class="glyphicon glyphicon-plus"></span> Add</button>`)
-			.click(evt => ContextUtil.pOpenMenu(evt, menuSearch));
-		const $btnReset = $(`<button class="ve-btn ve-btn-danger mr-2"><span class="glyphicon glyphicon-trash"></span> Reset</button>`)
-			.click(async () => {
+		const iptSearch = veT`<input type="search" class="ve-form-control ve-mr-2" placeholder="Search cards...">`;
+		const btnAdd = veT`<button class="ve-btn ve-btn-primary ve-mr-2"><span class="glyphicon glyphicon-plus"></span> Add</button>`
+			.vee.onn("click", evt => ContextUtil.pOpenMenu(evt, menuSearch));
+		const btnReset = veT`<button class="ve-btn ve-btn-danger ve-mr-2"><span class="glyphicon glyphicon-trash"></span> Reset</button>`
+			.vee.onn("click", async () => {
 				if (!await InputUiUtil.pGetUserBoolean({title: "Reset", htmlDescription: "Are you sure?", textYes: "Yes", textNo: "Cancel"})) return;
 				this._list.removeAllItems();
 				this._list.update();
 				this._doSaveStateDebounced();
 			});
-		const $btnExport = $(`<button class="ve-btn ve-btn-default"><span class="glyphicon glyphicon-download"></span> Export JSON</button>`)
-			.click(() => {
+		const btnExport = veT`<button class="ve-btn ve-btn-default"><span class="glyphicon glyphicon-download"></span> Export JSON</button>`
+			.vee.onn("click", () => {
 				const toDownload = this._list.items.map(it => {
 					const entityMeta = MakeCards._AVAILABLE_TYPES[it.values.entityType];
 					return {
@@ -125,12 +125,12 @@ class MakeCards extends BaseComponent {
 				});
 				DataUtil.userDownload("rpg-cards", toDownload, {isSkipAdditionalMetadata: true});
 			});
-		$$`<div class="w-100 no-shrink ve-flex-v-center mb-3">${$iptSearch}${$btnAdd}${$btnReset}${$btnExport}</div>`.appendTo($wrpContainer);
+		veT`<div class="ve-w-100 ve-no-shrink ve-flex-v-center ve-mb-3">${iptSearch}${btnAdd}${btnReset}${btnExport}</div>`.vee.appendTo(wrpContainer);
 		// endregion
 
 		// region Mass operations bar
 		const getSelCards = () => {
-			const out = this._list.visibleItems.filter(it => it.data.$cbSel.prop("checked"));
+			const out = this._list.visibleItems.filter(it => it.data.cbSel.vee.prop("checked"));
 			if (!out.length) {
 				JqueryUtil.doToast({content: "Please select some cards first!", type: "warning"});
 				return null;
@@ -162,40 +162,39 @@ class MakeCards extends BaseComponent {
 				async () => {
 					const sel = getSelCards();
 					if (!sel) return;
-					sel.forEach(it => this._list.removeItemByIndex(it.ix));
+					sel.forEach(it => this._list.removeItemById(it.getId()));
 					this._list.update();
 					this._doSaveStateDebounced();
 				},
 			),
 		]);
 
-		const $btnMass = $(`<button class="ve-btn ve-btn-xs ve-btn-default" title="Carry out actions on selected cards">Mass...</button>`)
-			.click(evt => ContextUtil.pOpenMenu(evt, menuMass));
-		$$`<div class="w-100 no-shrink ve-flex-v-center mb-2">${$btnMass}</div>`.appendTo($wrpContainer);
+		const btnMass = veT`<button class="ve-btn ve-btn-xs ve-btn-default" title="Carry out actions on selected cards">Mass...</button>`
+			.vee.onn("click", evt => ContextUtil.pOpenMenu(evt, menuMass));
+		veT`<div class="ve-w-100 ve-no-shrink ve-flex-v-center ve-mb-2">${btnMass}</div>`.vee.appendTo(wrpContainer);
 		// endregion
 
 		// region Main content
 		// Headers
-		const $cbSelAll = $(`<input type="checkbox" title="Select All">`)
-			.click(() => {
-				const isSel = $cbSelAll.prop("checked");
-				this._list.visibleItems.forEach(it => it.data.$cbSel.prop("checked", isSel));
+		const cbSelAll = veT`<input type="checkbox" title="Select All">`
+			.vee.onn("click", () => {
+				const isSel = cbSelAll.vee.prop("checked");
+				this._list.visibleItems.forEach(it => it.data.cbSel.vee.prop("checked", isSel));
 			});
-		$$`<div class="w-100 no-shrink ve-flex-v-center bold">
-			<div class="ve-col-1 mr-2 ve-flex-vh-center">${$cbSelAll}</div>
-			<div class="ve-col-3 mr-2 ve-flex-vh-center">Name</div>
-			<div class="ve-col-1-5 mr-2 ve-flex-vh-center">Source</div>
-			<div class="ve-col-1-5 mr-2 ve-flex-vh-center">Type</div>
-			<div class="ve-col-1-1 mr-2 ve-flex-vh-center">Color</div>
-			<div class="ve-col-1-1 mr-2 ve-flex-vh-center">Icon</div>
-			<div class="ve-col-1 mr-2 ve-flex-vh-center">Count</div>
+		veT`<div class="ve-w-100 ve-no-shrink ve-flex-v-center ve-bold">
+			<div class="ve-col-1 ve-mr-2 ve-flex-vh-center">${cbSelAll}</div>
+			<div class="ve-col-3 ve-mr-2 ve-flex-vh-center">Name</div>
+			<div class="ve-col-1-5 ve-mr-2 ve-flex-vh-center">Source</div>
+			<div class="ve-col-1-5 ve-mr-2 ve-flex-vh-center">Type</div>
+			<div class="ve-col-1-1 ve-mr-2 ve-flex-vh-center">Color</div>
+			<div class="ve-col-1-1 ve-mr-2 ve-flex-vh-center">Icon</div>
+			<div class="ve-col-1 ve-mr-2 ve-flex-vh-center">Count</div>
 			<div class="ve-col-1-1 ve-flex-v-center ve-flex-h-right"></div>
-		</div>`.appendTo($wrpContainer);
+		</div>`.vee.appendTo(wrpContainer);
 
-		const $wrpList = $(`<div class="w-100 h-100"></div>`);
-		$$`<div class="ve-flex-col h-100 w-100 ve-overflow-y-auto mt-2 ve-overflow-x-hidden">${$wrpList}</div>`.appendTo($wrpContainer);
-
-		this._list = new List({$iptSearch, $wrpList, isUseJquery: true});
+		const wrpList = veT`<div class="ve-w-100 ve-h-100"></div>`;
+		veT`<div class="ve-flex-col ve-h-100 ve-w-100 ve-overflow-y-auto ve-mt-2 ve-overflow-x-hidden">${wrpList}</div>`.vee.appendTo(wrpContainer);
+		this._list = new List({iptSearch, wrpList});
 		this._list.init();
 		// endregion
 	}
@@ -217,10 +216,10 @@ class MakeCards extends BaseComponent {
 				const fromSearch = await it.pFnSearch();
 				if (!fromSearch) return;
 
-				const existing = this._list.items.find(it => it.values.page === fromSearch.page && it.values.source === fromSearch.source && it.values.hash === fromSearch.hash);
+				const existing = this._list.items.find(it => it.data.page === fromSearch.page && it.values.source === fromSearch.source && it.data.hash === fromSearch.hash);
 				if (existing) {
 					existing.values.count++;
-					existing.data.$iptCount.val(existing.values.count);
+					existing.data.iptCount.vee.val(existing.values.count);
 					return this._doSaveStateDebounced();
 				}
 
@@ -254,7 +253,7 @@ class MakeCards extends BaseComponent {
 				const len = selected.length;
 				for (let i = 0; i < len; ++i) {
 					const filterListItem = selected[i];
-					const listItem = await this._pGetListItem({page: type.page, source: filterListItem.values.sourceJson, hash: filterListItem.values.hash, entityType}, true);
+					const listItem = await this._pGetListItem({page: type.page, source: filterListItem.values.sourceJson, hash: filterListItem.data.hash, entityType}, true);
 					this._list.addItem(listItem);
 				}
 				this._list.update();
@@ -306,41 +305,41 @@ class MakeCards extends BaseComponent {
 
 		const loaded = await DataLoader.pCacheAndGet(cardMeta.page, cardMeta.source, cardMeta.hash);
 
-		const $cbSel = $(`<input type="checkbox">`);
+		const cbSel = veT`<input type="checkbox">`;
 
-		const $iptRgb = $(`<input type="color" class="form-control input-xs form-control--minimal">`)
-			.val(cardMeta.color)
-			.change(() => setColor($iptRgb.val()));
+		const iptRgb = veT`<input type="color" class="ve-form-control ve-input-xs form-control--minimal">`
+			.vee.val(cardMeta.color)
+			.vee.onn("change", () => setColor(iptRgb.vee.val()));
 		const setColor = (rgb) => {
-			$iptRgb.val(rgb);
+			iptRgb.vee.val(rgb);
 			listItem.values.color = rgb;
 			this._doSaveStateDebounced();
 		};
 
-		const $dispIcon = $(`<div class="cards__disp-btn-icon"></div>`)
-			.css("background-image", `url('${MakeCards._getIconPath(cardMeta.icon)}')`);
-		const $btnIcon = $$`<button class="ve-btn ve-btn-default ve-btn-xs cards__btn-choose-icon">${$dispIcon}</button>`
-			.click(async () => {
-				const icon = await MakeCards._pGetUserIcon();
+		const dispIcon = veT`<div class="cards__disp-btn-icon"></div>`
+			.vee.css({backgroundImage: `url('${MakeCards._getIconPath(cardMeta.icon)}')`});
+		const btnIcon = veT`<button class="ve-btn ve-btn-default ve-btn-xs cards__btn-choose-icon">${dispIcon}</button>`
+			.vee.onn("click", async () => {
+				const icon = await MakeCards._pGetUserIcon(listItem.values.icon);
 				if (icon) setIcon(icon);
 			});
 		const setIcon = (icon) => {
 			listItem.values.icon = icon;
-			$dispIcon.css("background-image", `url('${MakeCards._getIconPath(icon)}')`);
+			dispIcon.vee.css({backgroundImage: `url('${MakeCards._getIconPath(icon)}')`});
 			this._doSaveStateDebounced();
 		};
 
-		const $iptCount = $(`<input class="form-control form-control--minimal input-xs ve-text-center">`)
-			.change(() => {
-				const asNum = UiUtil.strToInt($iptCount.val(), 1, {min: 1, fallbackOnNaN: 1});
+		const iptCount = veT`<input class="ve-form-control form-control--minimal ve-input-xs ve-text-center">`
+			.vee.onn("change", () => {
+				const asNum = UiUtil.strToInt(iptCount.vee.val(), 1, {min: 1, fallbackOnNaN: 1});
 				listItem.values.count = asNum;
-				$iptCount.val(asNum);
+				iptCount.vee.val(asNum);
 				this._doSaveStateDebounced();
 			})
-			.val(cardMeta.count);
+			.vee.val(cardMeta.count);
 
-		const $btnCopy = $(`<button class="ve-btn ve-btn-default ve-btn-xs mr-2" title="Copy JSON (SHIFT to view JSON)"><span class="glyphicon glyphicon-copy"></span></button>`)
-			.click(async evt => {
+		const btnCopy = veT`<button class="ve-btn ve-btn-default ve-btn-xs ve-mr-2" title="Copy JSON (SHIFT to view JSON)"><span class="glyphicon glyphicon-copy"></span></button>`
+			.vee.onn("click", async evt => {
 				const entityMeta = MakeCards._AVAILABLE_TYPES[listItem.values.entityType];
 				const toCopy = {
 					count: listItem.values.count,
@@ -353,10 +352,8 @@ class MakeCards extends BaseComponent {
 				};
 
 				if (evt.shiftKey) {
-					const $content = Renderer.hover.$getHoverContent_statsCode(toCopy);
-
 					Renderer.hover.getShowWindow(
-						$content,
+						Renderer.hover.getHoverContent_statsCode(toCopy),
 						Renderer.hover.getWindowPositionFromEvent(evt),
 						{
 							title: `Card Data \u2014 ${listItem.name}`,
@@ -366,34 +363,32 @@ class MakeCards extends BaseComponent {
 					);
 				} else {
 					await MiscUtil.pCopyTextToClipboard(JSON.stringify(toCopy, null, 2));
-					JqueryUtil.showCopiedEffect($btnCopy, "Copied JSON!");
+					JqueryUtil.showCopiedEffect(btnCopy, {text: "Copied JSON!"});
 				}
 			});
-		const $btnDelete = $(`<button class="ve-btn ve-btn-danger ve-btn-xs" title="Remove"><span class="glyphicon glyphicon-trash"></span></button>`)
-			.click(() => {
-				this._list.removeItemByIndex(uid);
+		const btnDelete = veT`<button class="ve-btn ve-btn-danger ve-btn-xs" title="Remove"><span class="glyphicon glyphicon-trash"></span></button>`
+			.vee.onn("click", () => {
+				this._list.removeItemById(uid);
 				this._list.update();
 				this._doSaveStateDebounced();
 			});
 
-		const $ele = $$`<label class="ve-flex-v-center my-1 w-100 lst__row lst__row-border lst__row-inner">
-			<div class="ve-col-1 mr-2 ve-flex-vh-center">${$cbSel}</div>
-			<div class="ve-col-3 mr-2 ve-flex-v-center">${loaded.name}</div>
-			<div class="ve-col-1-5 mr-2 ve-flex-vh-center ${Parser.sourceJsonToSourceClassname(loaded.source)}" title="${Parser.sourceJsonToFull(loaded.source)}" ${Parser.sourceJsonToStyle(loaded.source)}>${Parser.sourceJsonToAbv(loaded.source)}</div>
-			<div class="ve-col-1-5 mr-2 ve-flex-vh-center">${Parser.getPropDisplayName(cardMeta.entityType)}</div>
-			<div class="ve-col-1-1 mr-2 ve-flex-vh-center">${$iptRgb}</div>
-			<div class="ve-col-1-1 mr-2 ve-flex-vh-center">${$btnIcon}</div>
-			<div class="ve-col-1 mr-2 ve-flex-vh-center">${$iptCount}</div>
-			<div class="ve-col-1-1 ve-flex-v-center ve-flex-h-right">${$btnCopy}${$btnDelete}</div>
+		const ele = veT`<label class="ve-flex-v-center ve-my-1 ve-w-100 ve-lst__row ve-lst__row-border ve-lst__row-inner">
+			<div class="ve-col-1 ve-mr-2 ve-flex-vh-center">${cbSel}</div>
+			<div class="ve-col-3 ve-mr-2 ve-flex-v-center">${Renderer.get().render(`{@${Parser.getPropTag(cardMeta.entityType)} ${DataUtil.proxy.getUid(loaded.__prop, loaded, {isMaintainCase: true})}}`)}</div>
+			<div class="ve-col-1-5 ve-mr-2 ve-flex-vh-center ${Parser.sourceJsonToSourceClassname(loaded.source)}" title="${Parser.sourceJsonToFull(loaded.source).qq()}">${Parser.sourceJsonToAbv(loaded.source).qq()}</div>
+			<div class="ve-col-1-5 ve-mr-2 ve-flex-vh-center">${Parser.getPropDisplayName(cardMeta.entityType)}</div>
+			<div class="ve-col-1-1 ve-mr-2 ve-flex-vh-center">${iptRgb}</div>
+			<div class="ve-col-1-1 ve-mr-2 ve-flex-vh-center">${btnIcon}</div>
+			<div class="ve-col-1 ve-mr-2 ve-flex-vh-center">${iptCount}</div>
+			<div class="ve-col-1-1 ve-flex-v-center ve-flex-h-right">${btnCopy}${btnDelete}</div>
 		</label>`;
 
-		const listItem = new ListItem(
-			uid,
-			$ele,
-			loaded.name,
-			{
-				page: cardMeta.page,
-				hash: cardMeta.hash,
+		const listItem = new ListItem({
+			id: uid,
+			ele,
+			name: loaded.name,
+			values: {
 				source: cardMeta.source,
 				color: cardMeta.color,
 				icon: cardMeta.icon,
@@ -402,13 +397,15 @@ class MakeCards extends BaseComponent {
 
 				entity: loaded,
 			},
-			{
-				$cbSel,
-				$iptCount,
+			data: {
+				hash: cardMeta.hash,
+				page: cardMeta.page,
+				cbSel,
+				iptCount,
 				setColor,
 				setIcon,
 			},
-		);
+		});
 		return listItem;
 	}
 
@@ -425,7 +422,7 @@ class MakeCards extends BaseComponent {
 	static _ct_dndstats (...attrs) { return `dndstats | ${attrs.join(" | ")}`; }
 
 	static _ct_htmlToText (html) {
-		return $(`<div>${html}</div>`).text().trim();
+		return veT`<div>${html}</div>`.vee.txt().trim();
 	}
 	static _ct_renderEntries (entries, depth = 0) {
 		if (!entries || !entries.length) return [];
@@ -438,16 +435,20 @@ class MakeCards extends BaseComponent {
 
 	static _getCardContents_creature (mon) {
 		const renderer = RendererCard.get();
-		const fnGetSpellTraits = Renderer.monster.getSpellcastingRenderedTraits.bind(Renderer.monster, renderer);
-		const allTraits = Renderer.monster.getOrderedTraits(mon, {fnGetSpellTraits});
-		const allActions = Renderer.monster.getOrderedActions(mon, {fnGetSpellTraits});
-		const allBonusActions = Renderer.monster.getOrderedBonusActions(mon, {fnGetSpellTraits});
-		const allReactions = Renderer.monster.getOrderedReactions(mon, {fnGetSpellTraits});
+
+		const {
+			entsTrait,
+			entsAction,
+			entsBonusAction,
+			entsReaction,
+			entsLegendaryAction,
+			entsMythicAction,
+		} = Renderer.monster.getSubEntries(mon, {renderer});
 
 		return [
-			this._ct_subtitle(Renderer.monster.getTypeAlignmentPart(mon)),
+			this._ct_subtitle(Renderer.monster.getTypeAlignmentPart(mon, {renderer})),
 			this._ct_rule(),
-			this._ct_property("Hit points", this._ct_htmlToText(Renderer.monster.getRenderedHp(mon.hp))),
+			this._ct_property(mon.hp?.isTemporary ? "Temporary hit points" : "Hit points", this._ct_htmlToText(Renderer.monster.getRenderedHp(mon.hp))),
 			...(mon.resource || []).map(res => this._ct_property(res.name, this._ct_htmlToText(Renderer.monster.getRenderedResource(res)))),
 			this._ct_property("Speed", this._ct_htmlToText(Parser.getSpeedString(mon))),
 			this._ct_rule(),
@@ -455,27 +456,28 @@ class MakeCards extends BaseComponent {
 			this._ct_rule(),
 			mon.save ? this._ct_property("Saving Throws", this._ct_htmlToText(Renderer.monster.getSavesPart(mon))) : null,
 			mon.skill ? this._ct_property("Skills", this._ct_htmlToText(Renderer.monster.getSkillsString(Renderer.get(), mon))) : null,
+			mon.tool ? this._ct_property("Skills", this._ct_htmlToText(Renderer.monster.getToolsString(Renderer.get(), mon))) : null,
 			mon.vulnerable ? this._ct_property("Damage Vulnerabilities", this._ct_htmlToText(Parser.getFullImmRes(mon.vulnerable))) : null,
 			mon.resist ? this._ct_property("Damage Resistances", this._ct_htmlToText(Parser.getFullImmRes(mon.resist))) : null,
 			mon.immune ? this._ct_property("Damage Immunities", this._ct_htmlToText(Parser.getFullImmRes(mon.immune))) : null,
 			mon.conditionImmune ? this._ct_property("Condition Immunities", this._ct_htmlToText(Parser.getFullCondImm(mon.conditionImmune))) : null,
-			this._ct_property("Senses", this._ct_htmlToText(Renderer.monster.getSensesPart(mon))),
+			this._ct_property("Senses", this._ct_htmlToText(Renderer.monster.getSensesPart(mon, {isForcePassive: true}))),
 			this._ct_property("Languages", this._ct_htmlToText(Renderer.monster.getRenderedLanguages(mon.languages))),
 			this._ct_property("Challenge", this._ct_htmlToText(Renderer.monster.getChallengeRatingPart(mon))),
 			this._ct_rule(),
-			...(allTraits?.length ? this._ct_renderEntries(allTraits, 2) : []),
-			allActions?.length ? this._ct_section("Actions") : null,
-			...(allActions?.length ? this._ct_renderEntries(allActions, 2) : []),
-			allBonusActions?.length ? this._ct_section("Bonus Actions") : null,
-			...(allBonusActions?.length ? this._ct_renderEntries(allBonusActions, 2) : []),
-			allReactions?.length ? this._ct_section("Reactions") : null,
-			...(allReactions?.length ? this._ct_renderEntries(mon.reaction, 2) : []),
-			mon.legendary ? this._ct_section("Legendary Actions") : null,
-			mon.legendary ? this._ct_text(this._ct_htmlToText(Renderer.monster.getLegendaryActionIntro(mon, {renderer}))) : null,
-			...(mon.legendary ? this._ct_renderEntries(mon.legendary, 2) : []),
-			mon.mythic ? this._ct_section("Mythic Actions") : null,
-			mon.mythic ? this._ct_text(this._ct_htmlToText(Renderer.monster.getSectionIntro(mon, {renderer, prop: "mythic"}))) : null,
-			...(mon.mythic ? this._ct_renderEntries(mon.mythic, 2) : []),
+			...(entsTrait?.length ? this._ct_renderEntries(entsTrait, 2) : []),
+			entsAction?.length ? this._ct_section("Actions") : null,
+			...(entsAction?.length ? this._ct_renderEntries(entsAction, 2) : []),
+			entsBonusAction?.length ? this._ct_section("Bonus Actions") : null,
+			...(entsBonusAction?.length ? this._ct_renderEntries(entsBonusAction, 2) : []),
+			entsReaction?.length ? this._ct_section("Reactions") : null,
+			...(entsReaction?.length ? this._ct_renderEntries(entsReaction, 2) : []),
+			entsLegendaryAction?.length ? this._ct_section("Legendary Actions") : null,
+			entsLegendaryAction?.length ? this._ct_text(this._ct_htmlToText(Renderer.monster.getLegendaryActionIntro(mon, {renderer}))) : null,
+			...(entsLegendaryAction?.length ? this._ct_renderEntries(entsLegendaryAction, 2) : []),
+			entsMythicAction?.length ? this._ct_section("Mythic Actions") : null,
+			entsMythicAction ? this._ct_text(this._ct_htmlToText(Renderer.monster.getSectionIntro(mon, {renderer, prop: "mythic"}))) : null,
+			...(entsMythicAction?.length ? this._ct_renderEntries(entsMythicAction, 2) : []),
 		].filter(Boolean);
 	}
 
@@ -507,12 +509,13 @@ class MakeCards extends BaseComponent {
 	static _getCardContents_item (item) {
 		MakeCards.utils.enhanceItemAlt(item);
 
-		const [typeRarityText, subTypeText, tierText] = Renderer.item.getTypeRarityAndAttunementText(item);
-		const [damage, damageType, propertiesTxt] = Renderer.item.getDamageAndPropertiesText(item);
+		const {typeRarityHtml, subTypeHtml, tierHtml} = Renderer.item.getTypeRarityAndAttunementHtmlParts(item);
+		const [ptDamage, ptProperties] = Renderer.item.getRenderedDamageAndProperties(item);
+		const ptMastery = Renderer.item.getRenderedMastery(item, {isSkipPrefix: true});
 		const ptWeight = Parser.itemWeightToFull(item);
 		const ptValue = Parser.itemValueToFullMultiCurrency(item);
-		const ptDamage = this._ct_htmlToText([damage, damageType].filter(Boolean).join(" "));
-		const ptProperties = this._ct_htmlToText([propertiesTxt].filter(Boolean)).substring(2);
+		const ptDamageCt = this._ct_htmlToText(ptDamage);
+		const ptPropertiesCt = this._ct_htmlToText(ptProperties);
 
 		const itemEntries = [];
 		if (item._fullEntries || (item.entries && item.entries.length)) {
@@ -524,11 +527,12 @@ class MakeCards extends BaseComponent {
 		}
 
 		return [
-			typeRarityText ? this._ct_htmlToText(this._ct_subtitle(typeRarityText.uppercaseFirst())) : null,
-			ptDamage ? this._ct_property(ptDamage.startsWith("AC") ? "Armour Class" : "Damage", ptDamage) : null,
-			ptProperties ? this._ct_property("Properties", ptProperties.uppercaseFirst()) : null,
-			subTypeText ? this._ct_property("Type", subTypeText.uppercaseFirst()) : null,
-			tierText ? this._ct_property("Tier", tierText.uppercaseFirst()) : null,
+			typeRarityHtml ? this._ct_htmlToText(this._ct_subtitle(typeRarityHtml)) : null,
+			ptDamageCt ? this._ct_property(ptDamageCt.startsWith("AC") ? "Armour Class" : "Damage", ptDamageCt) : null,
+			ptPropertiesCt ? this._ct_property("Properties", ptPropertiesCt.uppercaseFirst()) : null,
+			ptMastery ? this._ct_property("Mastery", ptMastery) : null,
+			subTypeHtml ? this._ct_property("Type", subTypeHtml) : null,
+			tierHtml ? this._ct_property("Tier", tierHtml) : null,
 			ptWeight ? this._ct_property("Weight", ptWeight) : null,
 			ptValue ? this._ct_property("Value", ptValue) : null,
 			itemEntries.length ? this._ct_rule() : null,
@@ -544,11 +548,14 @@ class MakeCards extends BaseComponent {
 	}
 
 	static _getCardContents_feat (feat) {
-		const prerequisite = Renderer.utils.prerequisite.getHtml(feat.prerequisite, {isListMode: true});
+		const prerequisite = Renderer.feat.getJoinedCategoryPrerequisites(
+			feat.category,
+			Renderer.utils.prerequisite.getHtml(feat.prerequisite, {isListMode: true}),
+		);
 		const ptRepeatable = Renderer.utils.getRepeatableHtml(feat, {isListMode: true});
 		Renderer.feat.initFullEntries(feat);
 		return [
-			(prerequisite && prerequisite !== "\u2014") ? this._ct_property("Prerequisites", prerequisite) : null,
+			(prerequisite && prerequisite !== "\u2014") ? this._ct_property("Type/Prerequisites", prerequisite) : null,
 			(ptRepeatable && ptRepeatable !== "\u2014") ? this._ct_property("Repeatable", ptRepeatable) : null,
 			(prerequisite || ptRepeatable) ? this._ct_rule() : null,
 			...this._ct_renderEntries(feat._fullEntries || feat.entries, 2),
@@ -602,42 +609,67 @@ class MakeCards extends BaseComponent {
 
 	static _pGetUserIcon (initialVal) {
 		return new Promise(resolve => {
-			const $iptStr = $(`<input class="form-control mb-2">`)
-				.keydown(async evt => {
-					// prevent double-binding the return key if we have autocomplete enabled
-					await MiscUtil.pDelay(17); // arbitrary delay to allow dropdown to render (~1000/60, i.e. 1 60 FPS frame)
-					if ($modalInner.find(`.typeahead.ve-dropdown-menu`).is(":visible")) return;
-					// return key
-					if (evt.which === 13) doClose(true);
-					evt.stopPropagation();
-				});
-
-			if (initialVal) $iptStr.val(initialVal);
-
-			$iptStr.typeahead({
-				source: icon_names,
-				items: "16",
-				fnGetItemPrefix: (iconName) => {
-					return `<span class="cards__disp-typeahead-icon mr-2" style="background-image: url('${MakeCards._getIconPath(iconName)}')"></span> `;
-				},
+			const comp = BaseComponent.fromObject({
+				selectedIcon: initialVal || null,
+				searchTerm: "",
 			});
 
-			const $btnOk = $(`<button class="ve-btn ve-btn-default">Confirm</button>`)
-				.click(() => doClose(true));
-			const {$modalInner, doClose} = UiUtil.getShowModal({
-				title: "Enter Icon",
-				isMinHeight0: true,
+			const btnMetas = icon_names
+				.reduce((accum, iconName) => {
+					const btn = veT`<button class="ve-btn ve-btn-default ve-m-2 ve-no-grow ve-self-flex-start">
+						<img src="${MakeCards._getIconPath(iconName)}" title="${iconName}" loading="lazy" class="ve-w-50p ve-h-50p">
+					</button>`
+						.vee.onn("click", () => {
+							comp._state.selectedIcon = iconName;
+						});
+
+					comp._addHookBase("selectedIcon", () => {
+						btn.vee.toggleClass("ve-active", comp._state.selectedIcon === iconName);
+					})();
+
+					accum[iconName] = {btn};
+
+					return accum;
+				}, {});
+
+			comp._addHookBase("searchTerm", () => {
+				Object.entries(btnMetas)
+					.forEach(([iconName, btnMeta]) => {
+						btnMeta.btn.vee.toggle(iconName.includes(comp._state.searchTerm) || iconName === comp._state.selectedIcon);
+					});
+			});
+
+			const iptSearch = veT`<input class="ve-form-control ve-mb-2">`;
+
+			UiUtil.bindTypingEnd({
+				ipt: iptSearch,
+				fnKeyup: () => comp._state.searchTerm = iptSearch.vee.val().trim().toLowerCase(),
+			});
+
+			const btnOk = veT`<button class="ve-btn ve-btn-default">Confirm</button>`
+				.vee.onn("click", () => doClose(true));
+
+			const {eleModalInner, doClose} = UiUtil.getShowModal({
+				title: "Select Icon",
 				cbClose: (isDataEntered) => {
 					if (!isDataEntered) return resolve(null);
-					const raw = $iptStr.val();
-					if (!raw.trim()) return resolve(null);
-					else return resolve(raw);
+					if (!comp._state.selectedIcon) return resolve(null);
+					else return resolve(comp._state.selectedIcon);
 				},
+				isHeight100: true,
+				isMaxWidth640p: true,
 			});
-			$iptStr.appendTo($modalInner);
-			$$`<div class="ve-flex-vh-center">${$btnOk}</div>`.appendTo($modalInner);
-			$iptStr.focus();
-			$iptStr.select();
+
+			veT(eleModalInner)`
+				<div>${iptSearch}</div>
+				<div class="ve-overflow-y-auto ve-flex ve-flex-wrap ve-w-100 ve-min-h-0 ve-h-100 ve-py-1 ve-bb-1p ve-mb-1 ve-smooth-scroll">
+					${Object.values(btnMetas).map(({btn}) => btn)}
+				</div>
+				<div class="ve-flex-vh-center">${btnOk}</div>
+			`;
+
+			iptSearch.focus();
+			iptSearch.select();
 		});
 	}
 
@@ -656,9 +688,9 @@ class MakeCards extends BaseComponent {
 		return {
 			state: this.getBaseSaveableState(),
 			listItems: this._list.items.map(it => ({
-				page: it.values.page,
+				page: it.data.page,
 				source: it.values.source,
-				hash: it.values.hash,
+				hash: it.data.hash,
 				color: it.values.color,
 				icon: it.values.icon,
 				count: it.values.count,
@@ -721,8 +753,8 @@ MakeCards._AVAILABLE_TYPES = {
 		pFnSearch: SearchWidget.pGetUserItemSearch,
 		fnGetContents: MakeCards._getCardContents_item.bind(MakeCards),
 		fnGetTags: (item) => {
-			const [typeListText] = Renderer.item.getHtmlAndTextTypes(item);
-			return ["item", Parser.sourceJsonToAbv(item.source), ...typeListText];
+			const {textTypes} = Renderer.item.getRenderableTypeEntriesMeta(item);
+			return ["item", Parser.sourceJsonToAbv(item.source), ...textTypes];
 		},
 	},
 	spell: {
@@ -801,7 +833,7 @@ MakeCards.utils = class {
 		const data = await DataUtil.loadJSON(`${Renderer.get().baseUrl}data/makecards.json`);
 		data.reducedItemProperty.forEach(p => MakeCards.utils._addItemProperty(p));
 		data.reducedItemType.forEach(t => {
-			if (t.abbreviation === Parser.ITM_TYP_ABV__VEHICLE_WATER) {
+			if (t.abbreviation === Parser.ITM_TYP_ABV__VEHICLE_WATER && t.source === Parser.SRC_SNS) {
 				const cpy = MiscUtil.copy(t);
 				cpy.abbreviation = Parser.ITM_TYP_ABV__VEHICLE_AIR;
 				cpy.source = Parser.SRC_SNS;
@@ -857,16 +889,21 @@ MakeCards.utils = class {
 
 		if (item.property) {
 			item.property.forEach(p => {
-				const {abbreviation, source} = DataUtil.itemProperty.unpackUid(p, {isLower: true});
+				const uid = p?.uid || p;
+				const {abbreviation, source} = DataUtil.itemProperty.unpackUid(uid, {isLower: true});
+
 				const fromCustom = MiscUtil.get(MakeCards.utils._itemPropertyMap, source, abbreviation);
 				if (fromCustom) {
 					if (fromCustom.entries) {
 						Renderer.item._initFullEntries(item);
 						fromCustom.entries.forEach(e => item._fullEntries.push(e));
 					}
-				} else if (Renderer.item.getProperty(p)?.entries) {
+					return;
+				}
+
+				if (Renderer.item.getProperty(uid)?.entries) {
 					Renderer.item._initFullEntries(item);
-					Renderer.item.getProperty(p).entries.forEach(e => item._fullEntries.push(e));
+					Renderer.item.getProperty(uid).entries.forEach(e => item._fullEntries.push(e));
 				}
 			});
 		}

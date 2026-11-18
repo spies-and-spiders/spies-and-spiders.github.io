@@ -3,9 +3,9 @@ import "../js/parser.js";
 import "../js/utils.js";
 import "../js/render.js";
 import * as ut from "./util.js";
-import "../js/utils-generate-tables-data.js";
 import "../js/utils-dataloader.js";
 import "../js/hist.js";
+import {UtilGenTables} from "../js/generate-tables-data/generate-tables-data-utils.js";
 
 class GenTables {
 	static _GenState = class {
@@ -51,7 +51,7 @@ class GenTables {
 				if (GenTables.ADVENTURE_BLOCKLIST[idx.id]) return null;
 				return {
 					adventure: idx,
-					adventureData: JSON.parse(fs.readFileSync(`./data/adventure/adventure-${idx.id.toLowerCase()}.json`, "utf-8")),
+					adventureData: ut.readJson(`./data/adventure/adventure-${idx.id.toLowerCase()}.json`).adventureData.find(corpusData => corpusData.id === idx.id),
 				};
 			})
 			.filter(Boolean);
@@ -63,7 +63,7 @@ class GenTables {
 				if (GenTables.BOOK_BLOCKLIST[idx.id]) return null;
 				return {
 					book: idx,
-					bookData: JSON.parse(fs.readFileSync(`./data/book/book-${idx.id.toLowerCase()}.json`, "utf-8")),
+					bookData: ut.readJson(`./data/book/book-${idx.id.toLowerCase()}.json`).bookData.find(corpusData => corpusData.id === idx.id),
 				};
 			})
 			.filter(Boolean);
@@ -76,6 +76,7 @@ class GenTables {
 		await this._pAddClassData(genState);
 		await this._pAddVariantRuleData(genState);
 		await this._pAddBackgroundData(genState);
+		await this._pAddItemsData(genState);
 		await this._pAddEncountersData(genState);
 		await this._pAddNamesData(genState);
 
@@ -152,6 +153,14 @@ class GenTables {
 			genState,
 			path: `./data/backgrounds.json`,
 			props: ["background"],
+		});
+	}
+
+	async _pAddItemsData (genState) {
+		return this._pAddGenericEntityData({
+			genState,
+			path: `./data/items.json`,
+			props: ["item"],
 		});
 	}
 

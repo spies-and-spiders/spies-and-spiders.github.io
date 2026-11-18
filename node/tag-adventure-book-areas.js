@@ -1,79 +1,62 @@
-import fs from "fs";
 import * as ut from "./util.js";
 import "../js/parser.js";
 import "../js/utils.js";
 import "../js/render.js";
+import {Command} from "commander";
+import {writeJsonSync} from "5etools-utils/lib/UtilFs.js";
+import {getCliJsonFiles, mutCommanderJsonFileOptions} from "./util-commander.js";
+import {AreaTagger} from "./tag-adventure-book-areas-lib.js";
 
-class AreaTagger {
-	constructor (filePath) {
-		this._filePath = filePath;
-		this._data = ut.readJson(filePath);
+const program = mutCommanderJsonFileOptions({command: new Command()});
 
-		this._maxTag = 0;
-		this._existingTags = null;
-	}
-
-	_getNewTag () {
-		let hexTag;
-		do {
-			if (this._maxTag >= 4095) throw new Error("Exhausted tags!");
-			hexTag = this._maxTag.toString(16).padStart(3, "0");
-			this._maxTag++;
-		} while (this._existingTags.has(hexTag));
-		this._existingTags.add(hexTag);
-		return hexTag;
-	}
-
-	_doPopulateExistingTags () {
-		const map = Renderer.adventureBook.getEntryIdLookup(this._data.data, "populateExistingIds");
-		this._existingTags = new Set(Object.keys(map));
-	}
-
-	_addNewTags () {
-		const handlers = {
-			object: (obj) => {
-				Renderer.ENTRIES_WITH_CHILDREN
-					.filter(meta => meta.key === "entries")
-					.forEach(meta => {
-						if (obj.type !== meta.type) return;
-						if (!obj.id) obj.id = this._getNewTag();
-					});
-
-				if (obj.id) return obj;
-				if (obj.type === "image" && !obj.id && (obj.mapRegions || obj.imageType === "map")) obj.id = this._getNewTag();
-
-				return obj;
-			},
-		};
-
-		this._data.data.forEach(chap => MiscUtil.getWalker().walk(chap, handlers));
-	}
-
-	_doWrite () {
-		const outStr = CleanUtil.getCleanJson(this._data);
-		fs.writeFileSync(this._filePath, outStr, "utf-8");
-	}
-
-	run () {
-		this._doPopulateExistingTags();
-		this._addNewTags();
-		this._doWrite();
-	}
-}
+program.parse(process.argv);
+const params = program.opts();
 
 console.log(`Running area tagging pass...`);
-const adventureIndex = ut.readJson("./data/adventures.json");
-const bookIndex = ut.readJson("./data/books.json");
 
-const doPass = (arr, type) => {
-	arr.forEach(meta => {
-		const areaTagger = new AreaTagger(`./data/${type}/${type}-${meta.id.toLowerCase()}.json`);
-		areaTagger.run();
-		console.log(`\tTagged ${meta.id}...`);
+getCliJsonFiles(
+	{
+		dirs: params.dir,
+		files: params.file,
+		convertedBy: params.convertedBy,
+		author: params.author,
+		filter: params.filter,
+		fnMutDefaultSelection: ({files}) => {
+			[
+				{
+					index: ut.readJson("./data/adventures.json"),
+					type: "adventure",
+				},
+				{
+					index: ut.readJson("./data/books.json"),
+					type: "book",
+				},
+			]
+				.forEach(({index, type}) => {
+					index[type]
+						.forEach(meta => {
+							files.push(`./data/${type}/${type}-${meta.id.toLowerCase()}.json`);
+						});
+				});
+		},
+	},
+)
+	.forEach(jsonFile => {
+		const path = jsonFile.getFilePath();
+		const json = jsonFile.getContents();
+
+		console.log(`\tTagging "${path}"...`);
+
+		["adventureData", "bookData"]
+			.forEach(prop => {
+				const data = json[prop];
+				if (!data?.length) return;
+				data.forEach(corpus => new AreaTagger(corpus).run());
+			});
+
+		writeJsonSync(path, json, {isClean: true});
+
+		console.log(`\tTagged "${path}".`);
 	});
-};
-
-doPass(adventureIndex.adventure, "adventure");
-doPass(bookIndex.book, "book");
 
 console.log(`Area tagging complete.`);

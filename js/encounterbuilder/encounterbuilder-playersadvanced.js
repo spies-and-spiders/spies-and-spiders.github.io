@@ -5,18 +5,21 @@ export class EncounterBuilderRenderableCollectionPlayersAdvanced extends Rendera
 			rdState,
 		},
 	) {
-		super(comp, "playersAdvanced", rdState.$wrpRowsAdvanced);
+		super(comp, "playersAdvanced", rdState.wrpRowsAdvanced);
 	}
 
-	_$getWrpRow () {
-		return $(`<div class="ve-flex-v-center mb-2 ecgen-player__wrp-row"></div>`);
+	_getWrpRow () {
+		return veT`<div class="ve-flex-v-center ve-mb-2 ecgen-player__wrp-row"></div>`;
 	}
 
-	_populateRow ({comp, $wrpRow, entity}) {
-		const $iptName = ComponentUiUtil.$getIptStr(comp, "name")
-			.addClass(`w-100p form-control--minimal no-shrink mr-1`);
+	_populateRow ({comp, wrpRow, entity}) {
+		const iptName = ComponentUiUtil.getIptStr(comp, "name")
+			.vee.addClass(`ve-w-100p`)
+			.vee.addClass(`form-control--minimal`)
+			.vee.addClass(`ve-no-shrink`)
+			.vee.addClass(`ve-mr-1`);
 
-		const $iptLevel = ComponentUiUtil.$getIptInt(
+		const iptLevel = ComponentUiUtil.getIptInt(
 			comp,
 			"level",
 			1,
@@ -25,30 +28,41 @@ export class EncounterBuilderRenderableCollectionPlayersAdvanced extends Rendera
 				max: 20,
 				fallbackOnNaN: 1,
 			},
-		).addClass("w-40p form-control--minimal no-shrink mr-1 ve-text-center");
+		)
+			.vee.addClass("ve-w-40p")
+			.vee.addClass("form-control--minimal")
+			.vee.addClass("ve-no-shrink")
+			.vee.addClass("ve-mr-1")
+			.vee.addClass("ve-text-center");
 
-		const $wrpIptsExtra = $(`<div class="ve-flex-v-center"></div>`);
+		const wrpIptsExtra = veT`<div class="ve-flex-v-center"></div>`;
 		const collectionExtras = new EncounterBuilderRenderableCollectionPlayerAdvancedExtras({
 			comp,
-			$wrpIptsExtra,
+			wrpIptsExtra,
 		});
 		const hkExtras = () => collectionExtras.render();
 		comp._addHookBase("extras", hkExtras);
 		hkExtras();
 
-		const $btnRemove = this._utils.$getBtnDelete({entity, title: "Remove Player"})
-			.addClass("ecgen-player__btn-inline h-ipt-xs no-shrink ml-n1 bl-0 bbl-0 btl-0")
-			.attr("tabindex", "-1");
+		const btnRemove = this._utils.getBtnDelete({entity, title: "Remove Player"})
+			.vee.addClass("ecgen-player__btn-inline")
+			.vee.addClass("ve-h-ipt-xs")
+			.vee.addClass("ve-no-shrink")
+			.vee.addClass("ve-ml-n1")
+			.vee.addClass("ve-bl-0")
+			.vee.addClass("ve-bbl-0")
+			.vee.addClass("ve-btl-0")
+			.vee.attr("tabindex", "-1");
 
-		$$($wrpRow)`
-			${$iptName}
-			${$iptLevel}
-			${$wrpIptsExtra}
-			${$btnRemove}
+		veT(wrpRow)`
+			${iptName}
+			${iptLevel}
+			${wrpIptsExtra}
+			${btnRemove}
 		`;
 
 		return {
-			$wrpIptsExtra,
+			wrpIptsExtra,
 		};
 	}
 }
@@ -58,11 +72,11 @@ class EncounterBuilderRenderableCollectionPlayerAdvancedExtras extends Renderabl
 		{
 			comp,
 
-			$wrpIptsExtra,
+			wrpIptsExtra,
 		},
 	) {
 		super(comp, "extras");
-		this._$wrpIptsExtra = $wrpIptsExtra;
+		this._wrpIptsExtra = wrpIptsExtra;
 	}
 
 	getNewRender (extra, i) {
@@ -72,22 +86,27 @@ class EncounterBuilderRenderableCollectionPlayerAdvancedExtras extends Renderabl
 			this._comp._triggerCollectionUpdate("extras");
 		});
 
-		const $iptVal = ComponentUiUtil.$getIptStr(comp, "value")
-			.addClass(`w-40p no-shrink form-control--minimal ve-text-center mr-1`);
+		const iptVal = ComponentUiUtil.getIptStr(comp, "value")
+			.vee.addClass(`ve-w-40p`)
+			.vee.addClass(`ve-no-shrink`)
+			.vee.addClass(`form-control--minimal`)
+			.vee.addClass(`ve-text-center`)
+			.vee.addClass(`ve-mr-1`)
+		;
 
-		const $wrpRow = $$`<div class="ve-flex-v-h-center">
-			${$iptVal}
+		const wrpRow = veT`<div class="ve-flex-v-h-center">
+			${iptVal}
 		</div>`
-			.appendTo(this._$wrpIptsExtra);
+			.vee.appendTo(this._wrpIptsExtra);
 
 		return {
 			comp,
-			$wrpRow,
+			wrpRow,
 		};
 	}
 
 	doUpdateExistingRender (renderedMeta, extra, i) {
 		renderedMeta.comp._proxyAssignSimple("state", extra.entity, true);
-		if (!renderedMeta.$wrpRow.parent().is(this._$wrpIptsExtra)) renderedMeta.$wrpRow.appendTo(this._$wrpIptsExtra);
+		if (!renderedMeta.wrpRow.vee.parent()?.vee.is(this._wrpIptsExtra)) renderedMeta.wrpRow.vee.appendTo(this._wrpIptsExtra);
 	}
 }

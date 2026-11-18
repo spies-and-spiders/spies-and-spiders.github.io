@@ -31,82 +31,106 @@ Parser.attrChooseToFull = function (attList) {
 	}
 };
 
-Parser.numberToText = function (number) {
+Parser.numberToText = function (number, {isOrdinalForm = false} = {}) {
 	if (number == null) throw new TypeError(`undefined or null object passed to parser`);
-	if (Math.abs(number) >= 100) return `${number}`;
+	if (Math.abs(number) >= 100) return isOrdinalForm ? Parser.getOrdinalForm(number) : `${number}`;
 
-	return `${number < 0 ? "negative " : ""}${Parser.numberToText._getPositiveNumberAsText(Math.abs(number))}`;
+	return `${number < 0 ? "negative " : ""}${Parser.numberToText._getPositiveNumberAsText({number: Math.abs(number), isOrdinalForm})}`;
 };
 
-Parser.numberToText._getPositiveNumberAsText = num => {
-	const [preDotRaw, postDotRaw] = `${num}`.split(".");
+Parser.numberToText._getPositiveNumberAsText = ({number, isOrdinalForm}) => {
+	const [preDotRaw, postDotRaw] = `${number}`.split(".");
 
-	if (!postDotRaw) return Parser.numberToText._getPositiveIntegerAsText(num);
+	if (!postDotRaw) return Parser.numberToText._getPositiveIntegerAsText({number, isOrdinalForm});
 
-	let preDot = preDotRaw === "0" ? "" : `${Parser.numberToText._getPositiveIntegerAsText(Math.trunc(num))} and `;
+	if (isOrdinalForm) return `${preDotRaw}.${Parser.getOrdinalForm(postDotRaw)}`;
 
+	const {str: strPostDot, isPretty: isPrettyPostDot} = Parser.numberToText._getPostDot({postDotRaw});
+
+	if (!isPrettyPostDot) return `${number}`;
+
+	return preDotRaw === "0"
+		? strPostDot
+		: `${Parser.numberToText._getPositiveIntegerAsText({number: Math.trunc(number), isOrdinalForm})} and ${strPostDot}`;
+};
+
+Parser.numberToText._getPostDot = ({postDotRaw}) => {
 	// See also: `Parser.numberToVulgar`
 	switch (postDotRaw) {
-		case "125": return `${preDot}one-eighth`;
-		case "2": return `${preDot}one-fifth`;
-		case "25": return `${preDot}one-quarter`;
-		case "375": return `${preDot}three-eighths`;
-		case "4": return `${preDot}two-fifths`;
-		case "5": return `${preDot}one-half`;
-		case "6": return `${preDot}three-fifths`;
-		case "625": return `${preDot}five-eighths`;
-		case "75": return `${preDot}three-quarters`;
-		case "8": return `${preDot}four-fifths`;
-		case "875": return `${preDot}seven-eighths`;
+		case "125": return {str: `one-eighth`, isPretty: true};
+		case "2": return {str: `one-fifth`, isPretty: true};
+		case "25": return {str: `one-quarter`, isPretty: true};
+		case "375": return {str: `three-eighths`, isPretty: true};
+		case "4": return {str: `two-fifths`, isPretty: true};
+		case "5": return {str: `one-half`, isPretty: true};
+		case "6": return {str: `three-fifths`, isPretty: true};
+		case "625": return {str: `five-eighths`, isPretty: true};
+		case "75": return {str: `three-quarters`, isPretty: true};
+		case "8": return {str: `four-fifths`, isPretty: true};
+		case "875": return {str: `seven-eighths`, isPretty: true};
 
 		default: {
 			// Handle recursive
 			const asNum = Number(`0.${postDotRaw}`);
 
-			if (asNum.toFixed(2) === (1 / 3).toFixed(2)) return `${preDot}one-third`;
-			if (asNum.toFixed(2) === (2 / 3).toFixed(2)) return `${preDot}two-thirds`;
+			if (asNum.toFixed(2) === (1 / 3).toFixed(2)) return {str: `one-third`, isPretty: true};
+			if (asNum.toFixed(2) === (2 / 3).toFixed(2)) return {str: `two-thirds`, isPretty: true};
 
-			if (asNum.toFixed(2) === (1 / 6).toFixed(2)) return `${preDot}one-sixth`;
-			if (asNum.toFixed(2) === (5 / 6).toFixed(2)) return `${preDot}five-sixths`;
+			if (asNum.toFixed(2) === (1 / 6).toFixed(2)) return {str: `one-sixth`, isPretty: true};
+			if (asNum.toFixed(2) === (5 / 6).toFixed(2)) return {str: `five-sixths`, isPretty: true};
+
+			return {str: `${postDotRaw}`, isPretty: false};
 		}
 	}
 };
 
-Parser.numberToText._getPositiveIntegerAsText = num => {
-	switch (num) {
-		case 0: return "zero";
-		case 1: return "one";
-		case 2: return "two";
-		case 3: return "three";
-		case 4: return "four";
-		case 5: return "five";
-		case 6: return "six";
-		case 7: return "seven";
-		case 8: return "eight";
-		case 9: return "nine";
-		case 10: return "ten";
-		case 11: return "eleven";
-		case 12: return "twelve";
-		case 13: return "thirteen";
-		case 14: return "fourteen";
-		case 15: return "fifteen";
-		case 16: return "sixteen";
-		case 17: return "seventeen";
-		case 18: return "eighteen";
-		case 19: return "nineteen";
-		case 20: return "twenty";
-		case 30: return "thirty";
-		case 40: return "forty";
-		case 50: return "fifty";
-		case 60: return "sixty";
-		case 70: return "seventy";
-		case 80: return "eighty";
-		case 90: return "ninety";
+Parser.numberToText._getPositiveIntegerAsText = ({number, isOrdinalForm}) => {
+	switch (number) {
+		case 0: return Parser.numberToText._getOptionallyOrdinal({number, str: "zero", isOrdinalForm});
+		case 1: return Parser.numberToText._getOptionallyOrdinal({number, str: "one", isOrdinalForm});
+		case 2: return Parser.numberToText._getOptionallyOrdinal({number, str: "two", isOrdinalForm});
+		case 3: return Parser.numberToText._getOptionallyOrdinal({number, str: "three", isOrdinalForm});
+		case 4: return Parser.numberToText._getOptionallyOrdinal({number, str: "four", isOrdinalForm});
+		case 5: return Parser.numberToText._getOptionallyOrdinal({number, str: "five", isOrdinalForm});
+		case 6: return Parser.numberToText._getOptionallyOrdinal({number, str: "six", isOrdinalForm});
+		case 7: return Parser.numberToText._getOptionallyOrdinal({number, str: "seven", isOrdinalForm});
+		case 8: return Parser.numberToText._getOptionallyOrdinal({number, str: "eight", isOrdinalForm});
+		case 9: return Parser.numberToText._getOptionallyOrdinal({number, str: "nine", isOrdinalForm});
+		case 10: return Parser.numberToText._getOptionallyOrdinal({number, str: "ten", isOrdinalForm});
+		case 11: return Parser.numberToText._getOptionallyOrdinal({number, str: "eleven", isOrdinalForm});
+		case 12: return Parser.numberToText._getOptionallyOrdinal({number, str: "twelve", isOrdinalForm});
+		case 13: return Parser.numberToText._getOptionallyOrdinal({number, str: "thirteen", isOrdinalForm});
+		case 14: return Parser.numberToText._getOptionallyOrdinal({number, str: "fourteen", isOrdinalForm});
+		case 15: return Parser.numberToText._getOptionallyOrdinal({number, str: "fifteen", isOrdinalForm});
+		case 16: return Parser.numberToText._getOptionallyOrdinal({number, str: "sixteen", isOrdinalForm});
+		case 17: return Parser.numberToText._getOptionallyOrdinal({number, str: "seventeen", isOrdinalForm});
+		case 18: return Parser.numberToText._getOptionallyOrdinal({number, str: "eighteen", isOrdinalForm});
+		case 19: return Parser.numberToText._getOptionallyOrdinal({number, str: "nineteen", isOrdinalForm});
+		case 20: return Parser.numberToText._getOptionallyOrdinal({number, str: "twenty", isOrdinalForm});
+		case 30: return Parser.numberToText._getOptionallyOrdinal({number, str: "thirty", isOrdinalForm});
+		case 40: return Parser.numberToText._getOptionallyOrdinal({number, str: "forty", isOrdinalForm});
+		case 50: return Parser.numberToText._getOptionallyOrdinal({number, str: "fifty", isOrdinalForm});
+		case 60: return Parser.numberToText._getOptionallyOrdinal({number, str: "sixty", isOrdinalForm});
+		case 70: return Parser.numberToText._getOptionallyOrdinal({number, str: "seventy", isOrdinalForm});
+		case 80: return Parser.numberToText._getOptionallyOrdinal({number, str: "eighty", isOrdinalForm});
+		case 90: return Parser.numberToText._getOptionallyOrdinal({number, str: "ninety", isOrdinalForm});
 		default: {
-			const str = String(num);
-			return `${Parser.numberToText._getPositiveIntegerAsText(Number(`${str[0]}0`))}-${Parser.numberToText._getPositiveIntegerAsText(Number(str[1]))}`;
+			const str = String(number);
+			return `${Parser.numberToText._getPositiveIntegerAsText({number: Number(`${str[0]}0`)})}-${Parser.numberToText._getPositiveIntegerAsText({number: Number(str[1]), isOrdinalForm})}`;
 		}
 	}
+};
+
+Parser.numberToText._getOptionallyOrdinal = ({number, str, isOrdinalForm}) => {
+	if (!isOrdinalForm) return str;
+	switch (number) {
+		case 1: return "first";
+		case 2: return "second";
+		case 3: return "third";
+	}
+	if (str.endsWith("y")) return `${str.slice(0, -1)}ieth`;
+	if (str.endsWith("ve")) return `${str.slice(0, -2)}fth`;
+	return `${str}th`;
 };
 
 Parser.textToNumber = function (str) {
@@ -114,16 +138,16 @@ Parser.textToNumber = function (str) {
 	if (!isNaN(str)) return Number(str);
 	switch (str) {
 		case "zero": return 0;
-		case "one": case "a": case "an": return 1;
-		case "two": case "double": return 2;
-		case "three": case "triple": return 3;
-		case "four": case "quadruple": return 4;
-		case "five": return 5;
-		case "six": return 6;
-		case "seven": return 7;
-		case "eight": return 8;
-		case "nine": return 9;
-		case "ten": return 10;
+		case "one": case "a": case "an": case "first": return 1;
+		case "two": case "double": case "second": return 2;
+		case "three": case "triple": case "third": return 3;
+		case "four": case "quadruple": case "fourth": return 4;
+		case "five": case "fifth": return 5;
+		case "six": case "sixth": return 6;
+		case "seven": case "seventh": return 7;
+		case "eight": case "eighth": return 8;
+		case "nine": case "ninth": return 9;
+		case "ten": case "tenth": return 10;
 		case "eleven": return 11;
 		case "twelve": return 12;
 		case "thirteen": return 13;
@@ -218,6 +242,11 @@ Parser._greatestCommonDivisor = function (a, b) {
 	return Parser._greatestCommonDivisor(b, Math.floor(a % b));
 };
 Parser.numberToFractional = function (number) {
+	const isMinus = number < 0;
+	number = Math.abs(Number(number.toFixed(6)));
+
+	if (!number) return `${number}`;
+
 	const len = number.toString().length - 2;
 	let denominator = 10 ** len;
 	let numerator = number * denominator;
@@ -225,7 +254,11 @@ Parser.numberToFractional = function (number) {
 	numerator = Math.floor(numerator / divisor);
 	denominator = Math.floor(denominator / divisor);
 
-	return denominator === 1 ? String(numerator) : `${Math.floor(numerator)}/${Math.floor(denominator)}`;
+	return `${isMinus ? "-" : ""}${denominator === 1 ? String(numerator) : `${Math.floor(numerator)}/${Math.floor(denominator)}`}`;
+};
+
+Parser.isNumberNearEqual = function (a, b) {
+	return Math.abs(a - b) < Number.EPSILON;
 };
 
 Parser.ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -244,6 +277,10 @@ Parser.attFullToAbv = function (full) {
 
 Parser.sizeAbvToFull = function (abv) {
 	return Parser._parse_aToB(Parser.SIZE_ABV_TO_FULL, abv);
+};
+
+Parser.sizeAbvToShort = function (abv) {
+	return Parser._parse_aToB(Parser.SIZE_ABV_TO_SHORT, abv);
 };
 
 Parser.getAbilityModNumber = function (abilityScore) {
@@ -274,7 +311,7 @@ Parser.getSpeedString = (ent, {isMetric = false, isSkipZeroWalk = false, isLongF
 
 		if (ent.speed.choose && !ent.speed.hidden?.includes("choose")) {
 			joiner = "; ";
-			stack.push(`${ent.speed.choose.from.sort().joinConjunct(", ", " or ")} ${ent.speed.choose.amount} ${unit}${ent.speed.choose.note ? ` ${ent.speed.choose.note}` : ""}`);
+			stack.push(`${ent.speed.choose.from.sort().map(prop => Parser._getSpeedString_getSpeedName({prop, styleHint})).joinConjunct(", ", " or ")} ${ent.speed.choose.amount} ${unit}${ent.speed.choose.note ? ` ${ent.speed.choose.note}` : ""}`);
 		}
 
 		return stack.join(joiner) + (ent.speed.note ? ` ${ent.speed.note}` : "");
@@ -288,7 +325,7 @@ Parser._getSpeedString_addSpeedMode = ({ent, prop, stack, isMetric, isSkipZeroWa
 	if (ent.speed.alternate && ent.speed.alternate[prop]) ent.speed.alternate[prop].forEach(speed => Parser._getSpeedString_addSpeed({prop, speed, isMetric, unit, stack, styleHint}));
 };
 Parser._getSpeedString_addSpeed = ({prop, speed, isMetric, unit, stack, styleHint}) => {
-	const ptName = prop === "walk" ? "" : `${prop[styleHint === "classic" ? "toString" : "toTitleCase"]()} `;
+	const ptName = Parser._getSpeedString_getSpeedName({prop, styleHint});
 	const ptValue = Parser._getSpeedString_getVal({prop, speed, isMetric});
 	const ptUnit = speed === true ? "" : ` ${unit}`;
 	const ptCondition = Parser._getSpeedString_getCondition({speed});
@@ -304,6 +341,7 @@ Parser._getSpeedString_getVal = ({prop, speed, isMetric}) => {
 	return isMetric ? Parser.metric.getMetricNumber({originalValue: num, originalUnit: Parser.UNT_FEET}) : num;
 };
 Parser._getSpeedString_getCondition = ({speed}) => speed.condition ? ` ${Renderer.get().render(speed.condition)}` : "";
+Parser._getSpeedString_getSpeedName = ({prop, styleHint}) => prop === "walk" ? "" : `${prop[styleHint === "classic" ? "toString" : "toTitleCase"]()} `;
 
 Parser.SPEED_MODES = ["walk", "burrow", "climb", "fly", "swim"];
 
@@ -333,7 +371,7 @@ Parser.raceCreatureTypesToFull = function (creatureTypes) {
 };
 
 Parser.crToXp = function (cr, {isDouble = false} = {}) {
-	if (cr != null && cr.xp) return (isDouble ? cr.xp * 2 : cr.xp).toLocaleString();
+	if (cr != null && cr.xp) return (isDouble ? cr.xp * 2 : cr.xp).toLocaleStringVe();
 
 	const toConvert = cr ? (cr.cr || cr) : null;
 	if (toConvert === "Unknown" || toConvert == null || !Parser.XP_CHART_ALT[toConvert]) return "Unknown";
@@ -341,7 +379,7 @@ Parser.crToXp = function (cr, {isDouble = false} = {}) {
 	//   Exceptions, such as MM's Frog and Sea Horse, have their XP set to 0 on the creature
 	if (toConvert === "0") return "10";
 	const xp = Parser.XP_CHART_ALT[toConvert];
-	return (isDouble ? 2 * xp : xp).toLocaleString();
+	return (isDouble ? 2 * xp : xp).toLocaleStringVe();
 };
 
 Parser.crToXpNumber = function (cr) {
@@ -351,19 +389,9 @@ Parser.crToXpNumber = function (cr) {
 	return Parser.XP_CHART_ALT[toConvert] ?? null;
 };
 
-Parser.LEVEL_TO_XP_EASY = [0, 25, 50, 75, 125, 250, 300, 350, 450, 550, 600, 800, 1000, 1100, 1250, 1400, 1600, 2000, 2100, 2400, 2800];
-Parser.LEVEL_TO_XP_MEDIUM = [0, 50, 100, 150, 250, 500, 600, 750, 900, 1100, 1200, 1600, 2000, 2200, 2500, 2800, 3200, 3900, 4100, 4900, 5700];
-Parser.LEVEL_TO_XP_HARD = [0, 75, 150, 225, 375, 750, 900, 1100, 1400, 1600, 1900, 2400, 3000, 3400, 3800, 4300, 4800, 5900, 6300, 7300, 8500];
-Parser.LEVEL_TO_XP_DEADLY = [0, 100, 200, 400, 500, 1100, 1400, 1700, 2100, 2400, 2800, 3600, 4500, 5100, 5700, 6400, 7200, 8800, 9500, 10900, 12700];
-Parser.LEVEL_TO_XP_DAILY = [0, 300, 600, 1200, 1700, 3500, 4000, 5000, 6000, 7500, 9000, 10500, 11500, 13500, 15000, 18000, 20000, 25000, 27000, 30000, 40000];
-
 Parser.LEVEL_XP_REQUIRED = [0, 300, 900, 2700, 6500, 14000, 23000, 34000, 48000, 64000, 85000, 100000, 120000, 140000, 165000, 195000, 225000, 265000, 305000, 355000];
 
 Parser.CRS = ["0", "1/8", "1/4", "1/2", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30"];
-
-Parser.levelToXpThreshold = function (level) {
-	return [Parser.LEVEL_TO_XP_EASY[level], Parser.LEVEL_TO_XP_MEDIUM[level], Parser.LEVEL_TO_XP_HARD[level], Parser.LEVEL_TO_XP_DEADLY[level]];
-};
 
 Parser.isValidCr = function (cr) {
 	return Parser.CRS.includes(cr);
@@ -375,7 +403,7 @@ Parser.crToNumber = function (cr, opts = {}) {
 	if (cr === "Unknown" || cr === "\u2014" || cr == null) return isDefaultNull ? null : VeCt.CR_UNKNOWN;
 	if (cr.cr) return Parser.crToNumber(cr.cr, opts);
 
-	const parts = cr.trim().split("/");
+	const parts = cr.trim().split("/").filter(Boolean);
 	if (!parts.length || parts.length >= 3) return isDefaultNull ? null : VeCt.CR_CUSTOM;
 	if (isNaN(parts[0])) return isDefaultNull ? null : VeCt.CR_CUSTOM;
 
@@ -397,10 +425,11 @@ Parser.numberToCr = function (number, safe) {
 };
 
 Parser.crToPb = function (cr) {
-	if (cr === "Unknown" || cr == null) return 0;
-	cr = cr.cr || cr;
-	if (Parser.crToNumber(cr) < 5) return 2;
-	return Math.ceil(cr / 4) + 1;
+	const crNumber = Parser.crToNumber(cr);
+	if (crNumber === VeCt.CR_UNKNOWN) return 0;
+	if (crNumber === VeCt.CR_CUSTOM || crNumber < 0) return null;
+	if (crNumber < 5) return 2;
+	return Math.ceil(crNumber / 4) + 1;
 };
 
 Parser.levelToPb = function (level) {
@@ -454,6 +483,7 @@ Parser.skillToShort = function (skill) {
 
 Parser.LANGUAGES_STANDARD = [
 	"Common",
+	"Common Sign Language",
 	"Dwarvish",
 	"Elvish",
 	"Giant",
@@ -637,36 +667,13 @@ Parser.sourceJsonToDate = function (source) {
 	if (typeof BrewUtil2 !== "undefined" && BrewUtil2.hasSourceJson(source)) return BrewUtil2.sourceJsonToDate(source);
 	return Parser._parse_aToB(Parser.SOURCE_JSON_TO_DATE, source, null);
 };
-Parser.sourceJsonToColor = function (source) {
-	source = Parser._getSourceStringFromSource(source);
-	if (Parser.hasSourceAbv(source)) return "";
-	if (typeof PrereleaseUtil !== "undefined" && PrereleaseUtil.hasSourceJson(source)) return PrereleaseUtil.sourceJsonToColor(source);
-	if (typeof BrewUtil2 !== "undefined" && BrewUtil2.hasSourceJson(source)) return BrewUtil2.sourceJsonToColor(source);
-	return "";
+
+Parser.sourceJsonToSourceClassname = function (source, {sourceJson = null} = {}) {
+	sourceJson ||= Parser.sourceJsonToJson(source);
+	return `ve-source__${sourceJson.replace(/[^A-Za-z0-9-_]/g, "_")}`;
 };
 
-Parser.sourceJsonToSourceClassname = function (source) {
-	const sourceCased = Parser.sourceJsonToJson(source);
-	return `source__${sourceCased}`;
-};
-
-Parser.sourceJsonToStyle = function (source) {
-	source = Parser._getSourceStringFromSource(source);
-	if (Parser.hasSourceJson(source)) return "";
-	if (typeof PrereleaseUtil !== "undefined" && PrereleaseUtil.hasSourceJson(source)) return PrereleaseUtil.sourceJsonToStyle(source);
-	if (typeof BrewUtil2 !== "undefined" && BrewUtil2.hasSourceJson(source)) return BrewUtil2.sourceJsonToStyle(source);
-	return "";
-};
-
-Parser.sourceJsonToStylePart = function (source) {
-	source = Parser._getSourceStringFromSource(source);
-	if (Parser.hasSourceJson(source)) return "";
-	if (typeof PrereleaseUtil !== "undefined" && PrereleaseUtil.hasSourceJson(source)) return PrereleaseUtil.sourceJsonToStylePart(source);
-	if (typeof BrewUtil2 !== "undefined" && BrewUtil2.hasSourceJson(source)) return BrewUtil2.sourceJsonToStylePart(source);
-	return "";
-};
-
-Parser.sourceJsonToMarkerHtml = function (source, {isList = true, isAddBrackets = null, additionalStyles = ""} = {}) {
+Parser.sourceJsonToMarkerHtml = function (source, {isList = false, isStatsName = false, isAddBrackets = false, additionalStyles = ""} = {}) {
 	source = Parser._getSourceStringFromSource(source);
 	return "";
 };
@@ -685,7 +692,23 @@ Parser.itemValueToFull = function (item, opts = {isShortForm: false, isSmallUnit
 	return Parser._moneyToFull(item, "value", "valueMult", opts);
 };
 
-Parser.itemValueToFullMultiCurrency = function (item, opts = {isShortForm: false, isSmallUnits: false}) {
+/**
+ * @param item
+ * @param {object} [opts]
+ * @param {?boolean} [opts.isShortForm]
+ * @param {?boolean} [opts.isSmallUnits]
+ * @param {?number} [opts.multiplier]
+ * @param {?string} [opts.styleHint]
+ */
+Parser.itemValueToFullMultiCurrency = function (
+	item,
+	opts = {
+		isShortForm: false,
+		isSmallUnits: false,
+		multiplier: null,
+		styleHint: null,
+	},
+) {
 	return Parser._moneyToFullMultiCurrency(item, "value", "valueMult", opts);
 };
 
@@ -708,12 +731,14 @@ Parser._moneyToFull = function (it, prop, propMult, opts = {isShortForm: false, 
 	if (it[prop] == null && it[propMult] == null) return "";
 	if (it[prop] != null) {
 		const {coin, mult} = Parser.getCurrencyAndMultiplier(it[prop], it.currencyConversion);
-		return `${(it[prop] * mult).toLocaleString(undefined, {maximumFractionDigits: 5})}${opts.isSmallUnits ? `<span class="small ml-1">${coin}</span>` : ` ${coin}`}`;
+		return `${(it[prop] * mult).toLocaleStringVe()}${opts.isSmallUnits ? `<span class="small ve-ml-1">${coin}</span>` : ` ${coin}`}`;
 	} else if (it[propMult] != null) return opts.isShortForm ? `×${it[propMult]}` : `base value ×${it[propMult]}`;
 	return "";
 };
 
-Parser._moneyToFullMultiCurrency = function (it, prop, propMult, {isShortForm, multiplier} = {}) {
+Parser._moneyToFullMultiCurrency = function (it, prop, propMult, {isShortForm, multiplier, styleHint} = {}) {
+	styleHint ||= VetoolsConfig.get("styleSwitcher", "style");
+
 	if (it[prop]) {
 		const conversionTable = Parser.getCurrencyConversionTable(it.currencyConversion);
 
@@ -734,8 +759,12 @@ Parser._moneyToFullMultiCurrency = function (it, prop, propMult, {isShortForm, m
 		return [...conversionTable]
 			.reverse()
 			.filter(meta => simplified[meta.coin])
-			.map(meta => `${simplified[meta.coin].toLocaleString(undefined, {maximumFractionDigits: 5})} ${meta.coin}`)
+			.map(meta => `${simplified[meta.coin].toLocaleStringVe()} ${styleHint === "classic" ? meta.coin : meta.coin.toUpperCase()}`)
 			.join(", ");
+	}
+
+	if (it[prop] === 0) {
+		return `0 ${styleHint === "classic" ? "gp" : "GP"}`;
 	}
 
 	if (it[propMult]) return isShortForm ? `×${it[propMult]}` : `base value ×${it[propMult]}`;
@@ -823,12 +852,14 @@ Parser.coinAbvToFull = function (coin) {
 /**
  * @param currency Object of the form `{pp: <n>, gp: <m>, ... }`.
  * @param isDisplayEmpty If "empty" values (i.e., those which are 0) should be displayed.
+ * @param styleHint
  */
-Parser.getDisplayCurrency = function (currency, {isDisplayEmpty = false} = {}) {
+Parser.getDisplayCurrency = function (currency, {isDisplayEmpty = false, styleHint = null} = {}) {
+	styleHint ||= VetoolsConfig.get("styleSwitcher", "style");
 	return [...Parser.COIN_ABVS]
 		.reverse()
 		.filter(abv => isDisplayEmpty ? currency[abv] != null : currency[abv])
-		.map(abv => `${currency[abv].toLocaleString()} ${abv}`)
+		.map(abv => `${currency[abv].toLocaleStringVe()} ${styleHint === "classic" ? abv : abv.toUpperCase()}`)
 		.join(", ");
 };
 
@@ -844,7 +875,7 @@ Parser.itemWeightToFull = function (item, isShortForm) {
 		if (vulgarGlyph) return `${integerPart || ""}${vulgarGlyph} lb.${(item.weightNote ? ` ${item.weightNote}` : "")}`;
 
 		// Fall back on decimal pounds or ounces
-		return `${(item.weight < 1 ? item.weight * 16 : item.weight).toLocaleString(undefined, {maximumFractionDigits: 5})} ${item.weight < 1 ? "oz" : "lb"}.${(item.weightNote ? ` ${item.weightNote}` : "")}`;
+		return `${(item.weight < 1 ? item.weight * 16 : item.weight).toLocaleStringVe()} ${item.weight < 1 ? "oz" : "lb"}.${(item.weightNote ? ` ${item.weightNote}` : "")}`;
 	}
 	if (item.weightMult) return isShortForm ? `×${item.weightMult}` : `base weight ×${item.weightMult}`;
 	return "";
@@ -871,6 +902,8 @@ Parser.itemRechargeToFull = function (recharge) {
 Parser.ITEM_MISC_TAG_TO_FULL = {
 	"CF/W": "Creates Food/Water",
 	"CNS": "Consumable",
+	"DRK": "Drink",
+	"FOD": "Food",
 	"TT": "Trinket Table",
 };
 Parser.itemMiscTagToFull = function (type) {
@@ -898,7 +931,6 @@ Parser.ITM_PROP__TWO_HANDED = "2H";
 Parser.ITM_PROP__AMMUNITION = "A";
 Parser.ITM_PROP__AMMUNITION_FUTURISTIC = "AF|DMG";
 Parser.ITM_PROP__BURST_FIRE = "BF|DMG";
-Parser.ITM_PROP__EXTENDED_REACH = "ER|TDCSR";
 Parser.ITM_PROP__FINESSE = "F";
 Parser.ITM_PROP__HEAVY = "H";
 Parser.ITM_PROP__LIGHT = "L";
@@ -909,7 +941,6 @@ Parser.ITM_PROP__RELOAD = "RLD|DMG";
 Parser.ITM_PROP__SPECIAL = "S";
 Parser.ITM_PROP__THROWN = "T";
 Parser.ITM_PROP__VERSATILE = "V";
-Parser.ITM_PROP__VESTIGE_OF_DIVERGENCE = "Vst|TDCSR";
 
 Parser.ITM_PROP__ODND_TWO_HANDED = "2H|XPHB";
 Parser.ITM_PROP__ODND_AMMUNITION = "A|XPHB";
@@ -953,6 +984,7 @@ Parser.ITM_TYP_ABV__VEHICLE_WATER = "SHP";
 Parser.ITM_TYP_ABV__VEHICLE_SPACE = "SPC";
 Parser.ITM_TYP_ABV__TOOL = "T";
 Parser.ITM_TYP_ABV__TACK_AND_HARNESS = "TAH";
+Parser.ITM_TYP_ABV__TRADE_BAR = "TB";
 Parser.ITM_TYP_ABV__TRADE_GOOD = "TG";
 Parser.ITM_TYP_ABV__VEHICLE_LAND = "VEH";
 Parser.ITM_TYP_ABV__WAND = "WD";
@@ -1021,9 +1053,26 @@ Parser.ITM_TYP__ODND_SPELLCASTING_FOCUS = "SCF|XPHB";
 Parser.ITM_TYP__ODND_VEHICLE_WATER = "SHP|XPHB";
 Parser.ITM_TYP__ODND_TOOL = "T|XPHB";
 Parser.ITM_TYP__ODND_TACK_AND_HARNESS = "TAH|XPHB";
+Parser.ITM_TYP__ODND_TRADE_BAR = "TB|XDMG";
 Parser.ITM_TYP__ODND_TRADE_GOOD = "TG|XDMG";
 Parser.ITM_TYP__ODND_VEHICLE_LAND = "VEH|XPHB";
 Parser.ITM_TYP__ODND_WAND = "WD|XDMG";
+
+Parser.ITM_RARITY_TO_SHORT = {
+	"common": "Com.",
+	"uncommon": "Unc.",
+	"rare": "Rare",
+	"very rare": "V.Rare",
+	"legendary": "Leg.",
+	"artifact": "Art.",
+	"varies": "Var.",
+};
+Parser.itemRarityToShort = function (rarity) {
+	if (!rarity) return rarity;
+	if (Parser.ITM_RARITY_TO_SHORT[rarity]) return Parser.ITM_RARITY_TO_SHORT[rarity];
+	if (rarity.length <= 4) return rarity.toTitleCase();
+	return `${rarity.toTitleCase().slice(0, 3)}.`;
+};
 
 Parser._decimalSeparator = (0.1).toLocaleString().substring(1, 2);
 Parser._numberCleanRegexp = Parser._decimalSeparator === "." ? new RegExp(/[\s,]*/g, "g") : new RegExp(/[\s.]*/g, "g");
@@ -1053,53 +1102,69 @@ Parser.weightValueToNumber = function (value) {
 	else throw new Error(`Badly formatted value ${value}`);
 };
 
-Parser.dmgTypeToFull = function (dmgType) {
-	return Parser._parse_aToB(Parser.DMGTYPE_JSON_TO_FULL, dmgType);
+Parser.dmgTypeToFull = function (dmgType, {styleHint = null} = {}) {
+	if (!dmgType) return dmgType;
+
+	styleHint ||= VetoolsConfig.get("styleSwitcher", "style");
+
+	const out = Parser._parse_aToB(Parser.DMGTYPE_JSON_TO_FULL, dmgType);
+	if (styleHint !== "classic") return out.toTitleCase();
+	return out;
 };
 
 Parser.skillProficienciesToFull = function (skillProficiencies, {styleHint = null} = {}) {
 	styleHint ||= VetoolsConfig.get("styleSwitcher", "style");
 
-	const ptSource = styleHint === "classic" ? Parser.SRC_SNS : Parser.SRC_SNS;
+	const ptSourceDefault = Parser.SRC_SNS;
 
-	function renderSingle (skProf) {
-		if (skProf.any) {
-			skProf = MiscUtil.copyFast(skProf);
-			skProf.choose = {"from": Object.keys(Parser.SKILL_TO_ATB_ABV), "count": skProf.any};
-			delete skProf.any;
-		}
+	const getRenderedSkill = uid => {
+		const unpacked = DataUtil.proxy.unpackUid("skill", uid, "skill");
+		const ptSource = uid.includes("|")
+			? unpacked.source
+			: unpacked.source.toLowerCase() === Parser.SRC_SNS.toLowerCase()
+				? ptSourceDefault
+				: unpacked.source;
+		return Renderer.get().render(`{@skill ${unpacked.name.toTitleCase()}|${ptSource}}`);
+	};
 
-		const keys = Object.keys(skProf).sort(SortUtil.ascSortLower);
-
-		const ixChoose = keys.indexOf("choose");
-		if (~ixChoose) keys.splice(ixChoose, 1);
-
-		const baseStack = [];
-		keys.filter(k => skProf[k]).forEach(k => baseStack.push(Renderer.get().render(`{@skill ${k.toTitleCase()}|${ptSource}}`)));
-
-		let ptChoose = "";
-		if (~ixChoose) {
-			const chObj = skProf.choose;
-			const count = chObj.count ?? 1;
-			if (chObj.from.length === 18) {
-				ptChoose = styleHint === "classic"
-					? `choose any ${count === 1 ? "skill" : chObj.count}`
-					: `Choose ${chObj.count}`;
-			} else {
-				ptChoose = styleHint === "classic"
-					? `choose ${count} from ${chObj.from.map(it => Renderer.get().render(`{@skill ${it.toTitleCase()}|${ptSource}}`)).joinConjunct(", ", " and ")}`
-					: Renderer.get().render(`{@i Choose ${count}:} ${chObj.from.map(it => `{@skill ${it.toTitleCase()}|${ptSource}}`).joinConjunct(", ", " or ")}`);
+	return skillProficiencies
+		.map(skProf => {
+			if (skProf.any) {
+				skProf = MiscUtil.copyFast(skProf);
+				skProf.choose = {"from": Object.keys(Parser.SKILL_TO_ATB_ABV), "count": skProf.any};
+				delete skProf.any;
 			}
-		}
 
-		const base = baseStack.joinConjunct(", ", " and ");
+			const keys = Object.keys(skProf).sort(SortUtil.ascSortLower);
 
-		if (baseStack.length && ptChoose.length) return `${base}; and ${ptChoose}`;
-		else if (baseStack.length) return base;
-		else if (ptChoose.length) return ptChoose;
-	}
+			const ixChoose = keys.indexOf("choose");
+			if (~ixChoose) keys.splice(ixChoose, 1);
 
-	return skillProficiencies.map(renderSingle).join(` <i>or</i> `);
+			const baseStack = [];
+			keys.filter(k => skProf[k]).forEach(k => baseStack.push(getRenderedSkill(k)));
+
+			let ptChoose = "";
+			if (~ixChoose) {
+				const chObj = skProf.choose;
+				const count = chObj.count ?? 1;
+				if (chObj.from.length === 18) {
+					ptChoose = styleHint === "classic"
+						? `choose any ${count === 1 ? "skill" : chObj.count}`
+						: Renderer.get().render(`{@i Choose any ${chObj.count} ${count === 1 ? "skill" : "skills"}} (see {@book chapter 1|XPHB|1|Skill List})`);
+				} else {
+					ptChoose = styleHint === "classic"
+						? `choose ${count} from ${chObj.from.map(it => getRenderedSkill(it)).joinConjunct(", ", " and ")}`
+						: Renderer.get().render(`{@i Choose ${count}:} ${chObj.from.map(it => getRenderedSkill(it)).joinConjunct(", ", " or ")}`);
+				}
+			}
+
+			const base = baseStack.joinConjunct(", ", " and ");
+
+			if (baseStack.length && ptChoose.length) return `${base}; and ${ptChoose}`;
+			else if (baseStack.length) return base;
+			else if (ptChoose.length) return ptChoose;
+		})
+		.join(` <i>or</i> `);
 };
 
 // sp-prefix functions are for parsing spell data, and shared with the roll20 script
@@ -1131,19 +1196,27 @@ Parser.spSchoolAbvToShort = function (school) {
 };
 
 Parser.spSchoolAbvToStyle = function (school) { // For prerelease/homebrew
-	const stylePart = Parser.spSchoolAbvToStylePart(school);
+	return Parser._colorableMetaAbvToStyle({key: school, prop: "spellSchools"});
+};
+
+Parser.spSchoolAbvToStylePart = function (school) { // For prerelease/homebrew
+	return Parser._colorableMetaAbvToStylePart({key: school, prop: "spellSchools"});
+};
+
+Parser._colorableMetaAbvToStyle = function ({key, prop}) {
+	const stylePart = Parser._colorableMetaAbvToStylePart({key, prop});
 	if (!stylePart) return stylePart;
 	return `style="${stylePart}"`;
 };
 
-Parser.spSchoolAbvToStylePart = function (school) { // For prerelease/homebrew
-	return Parser._spSchoolAbvToStylePart_prereleaseBrew({school, brewUtil: PrereleaseUtil})
-		|| Parser._spSchoolAbvToStylePart_prereleaseBrew({school, brewUtil: BrewUtil2})
+Parser._colorableMetaAbvToStylePart = function ({key, prop}) {
+	return Parser._colorableMetaAbvToStylePart_prereleaseBrew({key, prop, brewUtil: PrereleaseUtil})
+		|| Parser._colorableMetaAbvToStylePart_prereleaseBrew({key, prop, brewUtil: BrewUtil2})
 		|| "";
 };
 
-Parser._spSchoolAbvToStylePart_prereleaseBrew = function ({school, brewUtil}) {
-	const rawColor = brewUtil.getMetaLookup("spellSchools")?.[school]?.color;
+Parser._colorableMetaAbvToStylePart_prereleaseBrew = function ({key, prop, brewUtil}) {
+	const rawColor = brewUtil.getMetaLookup(prop)?.[key]?.color;
 	if (!rawColor || !rawColor.trim()) return "";
 	const validColor = BrewUtilShared.getValidColor(rawColor);
 	if (validColor.length) return MiscUtil.getColorStylePart(validColor);
@@ -1389,10 +1462,31 @@ Parser.UNT_LBS = "lbs";
 Parser.UNT_TONS_IMPERIAL = "tns";
 Parser.UNT_TONS_METRIC = "Mg";
 
+Parser.UNT_INCHES = "inches";
 Parser.UNT_FEET = "feet";
 Parser.UNT_YARDS = "yards";
 Parser.UNT_MILES = "miles";
+
+Parser.UNT_CUBIC_FEET = "cubic feet";
+
+Parser.getNormalizedUnit = function (unit) {
+	if (unit == null) return unit;
+
+	unit = unit.toLowerCase().trim();
+
+	switch (unit) {
+		case "inch": case "in.": case "in": case Parser.UNT_INCHES: return Parser.UNT_INCHES;
+		case "foot": case "ft.": case "ft": case Parser.UNT_FEET: return Parser.UNT_FEET;
+		case "yard": case "yd.": case "yd": case Parser.UNT_YARDS: return Parser.UNT_YARDS;
+		case "mile": case "mi.": case "mi": case Parser.UNT_MILES: return Parser.UNT_MILES;
+
+		case "pound": case "pounds": case "lbs.": case "lb.": case "lb": case Parser.UNT_LBS: return Parser.UNT_LBS;
+		default: return unit;
+	}
+};
+
 Parser.SP_DIST_TYPE_TO_FULL = {
+	[Parser.UNT_INCHES]: "Inches",
 	[Parser.UNT_FEET]: "Feet",
 	[Parser.UNT_YARDS]: "Yards",
 	[Parser.UNT_MILES]: "Miles",
@@ -1420,9 +1514,9 @@ Parser.SP_RANGE_TO_ICON = {
 	[Parser.RNG_CYLINDER]: "fa-database",
 	[Parser.RNG_SELF]: "fa-street-view",
 	[Parser.RNG_SIGHT]: "fa-eye",
-	[Parser.RNG_UNLIMITED_SAME_PLANE]: "fa-globe-americas",
+	[Parser.RNG_UNLIMITED_SAME_PLANE]: "fa-earth-americas",
 	[Parser.RNG_UNLIMITED]: "fa-infinity",
-	[Parser.RNG_TOUCH]: "fa-hand-paper",
+	[Parser.RNG_TOUCH]: "fa-hand",
 };
 
 Parser.spRangeTypeToIcon = function (range) {
@@ -1431,7 +1525,7 @@ Parser.spRangeTypeToIcon = function (range) {
 
 Parser.spRangeToShortHtml = function (range) {
 	switch (range.type) {
-		case Parser.RNG_SPECIAL: return `<span class="fas fa-fw ${Parser.spRangeTypeToIcon(range.type)} help-subtle" title="Special"></span>`;
+		case Parser.RNG_SPECIAL: return `<span class="fas fa-fw ${Parser.spRangeTypeToIcon(range.type)} ve-help-subtle" title="Special"></span>`;
 		case Parser.RNG_POINT: return Parser.spRangeToShortHtml._renderPoint(range);
 		case Parser.RNG_LINE:
 		case Parser.RNG_CUBE:
@@ -1452,7 +1546,8 @@ Parser.spRangeToShortHtml._renderPoint = function (range) {
 		case Parser.RNG_UNLIMITED:
 		case Parser.RNG_UNLIMITED_SAME_PLANE:
 		case Parser.RNG_SPECIAL:
-		case Parser.RNG_TOUCH: return `<span class="fas fa-fw ${Parser.spRangeTypeToIcon(dist.type)} help-subtle" title="${Parser.spRangeTypeToFull(dist.type)}"></span>`;
+		case Parser.RNG_TOUCH: return `<span class="fas fa-fw ${Parser.spRangeTypeToIcon(dist.type)} ve-help-subtle" title="${Parser.spRangeTypeToFull(dist.type)}"></span>`;
+		case Parser.UNT_INCHES:
 		case Parser.UNT_FEET:
 		case Parser.UNT_YARDS:
 		case Parser.UNT_MILES:
@@ -1462,13 +1557,15 @@ Parser.spRangeToShortHtml._renderPoint = function (range) {
 };
 Parser.spRangeToShortHtml._renderArea = function (range) {
 	const size = range.distance;
-	return `<span class="fas fa-fw ${Parser.spRangeTypeToIcon(Parser.RNG_SELF)} help-subtle" title="Self"></span> ${size.amount}<span class="ve-small">-${Parser.getSingletonUnit(size.type, true)}</span> ${Parser.spRangeToShortHtml._getAreaStyleString(range)}`;
+	return `<span class="fas fa-fw ${Parser.spRangeTypeToIcon(Parser.RNG_SELF)} ve-help-subtle" title="Self"></span> ${size.amount}<span class="ve-small">-${Parser.getSingletonUnit(size.type, true)}</span> ${Parser.spRangeToShortHtml._getAreaStyleString(range)}`;
 };
 Parser.spRangeToShortHtml._getAreaStyleString = function (range) {
-	return `<span class="fas fa-fw ${Parser.spRangeTypeToIcon(range.type)} help-subtle" title="${Parser.spRangeTypeToFull(range.type)}"></span>`;
+	return `<span class="fas fa-fw ${Parser.spRangeTypeToIcon(range.type)} ve-help-subtle" title="${Parser.spRangeTypeToFull(range.type)}"></span>`;
 };
 
-Parser.spRangeToFull = function (range) {
+Parser.spRangeToFull = function (range, {styleHint, isDisplaySelfArea = false} = {}) {
+	styleHint ||= VetoolsConfig.get("styleSwitcher", "style");
+
 	switch (range.type) {
 		case Parser.RNG_SPECIAL: return Parser.spRangeTypeToFull(range.type);
 		case Parser.RNG_POINT: return Parser.spRangeToFull._renderPoint(range);
@@ -1480,7 +1577,7 @@ Parser.spRangeToFull = function (range) {
 		case Parser.RNG_SPHERE:
 		case Parser.RNG_HEMISPHERE:
 		case Parser.RNG_CYLINDER:
-			return Parser.spRangeToFull._renderArea(range);
+			return Parser.spRangeToFull._renderArea({range, styleHint, isDisplaySelfArea});
 	}
 };
 Parser.spRangeToFull._renderPoint = function (range) {
@@ -1492,6 +1589,7 @@ Parser.spRangeToFull._renderPoint = function (range) {
 		case Parser.RNG_UNLIMITED_SAME_PLANE:
 		case Parser.RNG_SPECIAL:
 		case Parser.RNG_TOUCH: return Parser.spRangeTypeToFull(dist.type);
+		case Parser.UNT_INCHES:
 		case Parser.UNT_FEET:
 		case Parser.UNT_YARDS:
 		case Parser.UNT_MILES:
@@ -1499,7 +1597,8 @@ Parser.spRangeToFull._renderPoint = function (range) {
 			return `${dist.amount} ${dist.amount === 1 ? Parser.getSingletonUnit(dist.type) : dist.type}`;
 	}
 };
-Parser.spRangeToFull._renderArea = function (range) {
+Parser.spRangeToFull._renderArea = function ({range, styleHint, isDisplaySelfArea = false}) {
+	if (styleHint !== "classic" && !isDisplaySelfArea) return "Self";
 	const size = range.distance;
 	return `Self (${size.amount}-${Parser.getSingletonUnit(size.type)}${Parser.spRangeToFull._getAreaStyleString(range)}${range.type === Parser.RNG_CYLINDER ? `${size.amountSecondary != null && size.typeSecondary != null ? `, ${size.amountSecondary}-${Parser.getSingletonUnit(size.typeSecondary)}-high` : ""} cylinder` : ""})`;
 };
@@ -1513,7 +1612,10 @@ Parser.spRangeToFull._getAreaStyleString = function (range) {
 };
 
 Parser.getSingletonUnit = function (unit, isShort) {
+	if (!unit) return unit;
 	switch (unit) {
+		case Parser.UNT_INCHES:
+			return isShort ? "in." : "inch";
 		case Parser.UNT_FEET:
 			return isShort ? "ft." : "foot";
 		case Parser.UNT_YARDS:
@@ -1538,33 +1640,16 @@ Parser._getSingletonUnit_prereleaseBrew = function ({unit, isShort, brewUtil}) {
 	if (fromBrew) return fromBrew;
 };
 
-Parser.RANGE_TYPES = [
-	{type: Parser.RNG_POINT, hasDistance: true, isRequireAmount: false},
+Parser.getInchesToFull = function (inches, {isShort = false} = {}) {
+	const feet = Math.floor(inches / 12);
+	inches = inches % 12;
 
-	{type: Parser.RNG_LINE, hasDistance: true, isRequireAmount: true},
-	{type: Parser.RNG_CUBE, hasDistance: true, isRequireAmount: true},
-	{type: Parser.RNG_CONE, hasDistance: true, isRequireAmount: true},
-	{type: Parser.RNG_EMANATION, hasDistance: true, isRequireAmount: true},
-	{type: Parser.RNG_RADIUS, hasDistance: true, isRequireAmount: true},
-	{type: Parser.RNG_SPHERE, hasDistance: true, isRequireAmount: true},
-	{type: Parser.RNG_HEMISPHERE, hasDistance: true, isRequireAmount: true},
-	{type: Parser.RNG_CYLINDER, hasDistance: true, isRequireAmount: true},
-
-	{type: Parser.RNG_SPECIAL, hasDistance: false, isRequireAmount: false},
-];
-
-Parser.DIST_TYPES = [
-	{type: Parser.RNG_SELF, hasAmount: false},
-	{type: Parser.RNG_TOUCH, hasAmount: false},
-
-	{type: Parser.UNT_FEET, hasAmount: true},
-	{type: Parser.UNT_YARDS, hasAmount: true},
-	{type: Parser.UNT_MILES, hasAmount: true},
-
-	{type: Parser.RNG_SIGHT, hasAmount: false},
-	{type: Parser.RNG_UNLIMITED_SAME_PLANE, hasAmount: false},
-	{type: Parser.RNG_UNLIMITED, hasAmount: false},
-];
+	return [
+		feet ? `${feet} ${isShort ? `ft.` : !feet ? Parser.getSingletonUnit(Parser.UNT_FEET) : Parser.UNT_FEET}` : null,
+		inches ? `${Parser.numberToVulgar(inches)} ${isShort ? `in.` : !inches ? Parser.getSingletonUnit(Parser.UNT_INCHES) : Parser.UNT_INCHES}` : null,
+	].filter(Boolean)
+		.join(" ");
+};
 
 Parser.spComponentsToFull = function (comp, level, {isPlainText = false} = {}) {
 	if (!comp) return "None";
@@ -1588,34 +1673,13 @@ Parser.spEndTypeToFull = function (type) {
 	return Parser._parse_aToB(Parser.SP_END_TYPE_TO_FULL, type);
 };
 
-Parser.spDurationToFull = function (dur, {isPlainText = false} = {}) {
-	let hasSubOr = false;
+Parser.spDurationToFull = function (durations, {isPlainText = false, styleHint} = {}) {
+	styleHint ||= VetoolsConfig.get("styleSwitcher", "style");
 
-	const outParts = dur
-		.map(d => {
-			const ptCondition = d.condition ? ` (${d.condition})` : "";
+	const entriesMeta = Renderer.generic.getRenderableDurationEntriesMeta(durations, {styleHint});
 
-			switch (d.type) {
-				case "special":
-					if (d.concentration) return `${isPlainText ? "Concentration" : Renderer.get().render(`{@status Concentration}`)}${ptCondition}`;
-					return `Special${ptCondition}`;
-				case "instant":
-					return `Instantaneous${ptCondition}`;
-				case "sustained":
-					return "Sustained";
-				case "timed":
-					return `${d.concentration ? `${isPlainText ? "Concentration" : Renderer.get().render(`{@status Concentration}`)}, ` : ""}${d.concentration ? "u" : d.duration.upTo ? "U" : ""}${d.concentration || d.duration.upTo ? "p to " : ""}${d.duration.amount} ${d.duration.amount === 1 ? d.duration.type : `${d.duration.type}s`}${ptCondition}`;
-				case "permanent": {
-					if (!d.ends) return `Permanent${ptCondition}`;
-
-					const endsToJoin = d.ends.map(m => Parser.spEndTypeToFull(m));
-					hasSubOr = hasSubOr || endsToJoin.length > 1;
-					return `Until ${endsToJoin.joinConjunct(", ", " or ")}${ptCondition}`;
-				}
-			}
-		});
-
-	return `${outParts.joinConjunct(hasSubOr ? "; " : ", ", " or ")}${dur.length > 1 ? " (see below)" : ""}`;
+	if (isPlainText) return Renderer.stripTags(entriesMeta.entryDuration);
+	return Renderer.get().render(entriesMeta.entryDuration);
 };
 
 Parser.DURATION_TYPES = [
@@ -1644,23 +1708,27 @@ Parser.spClassesToFull = function (sp, {isTextOnly = false, subclassLookup = {}}
 	return `${Parser.spMainClassesToFull(fromClassList, {isTextOnly})}${fromSubclasses ? `, ${fromSubclasses}` : ""}`;
 };
 
-Parser.spMainClassesToFull = function (fromClassList, {isTextOnly = false} = {}) {
+Parser.spMainClassesToFull = function (fromClassList, {isTextOnly = false, isIncludeSource = false} = {}) {
 	return fromClassList
 		.map(clsStub => ({hash: UrlUtil.URL_TO_HASH_BUILDER[UrlUtil.PG_CLASSES](clsStub), clsStub}))
 		.filter(it => !ExcludeUtil.isInitialised || !ExcludeUtil.isExcluded(it.hash, "class", it.clsStub.source))
 		.sort((a, b) => SortUtil.ascSort(a.clsStub.name, b.clsStub.name))
 		.map(it => {
-			if (isTextOnly) return it.clsStub.name;
+			if (isTextOnly) {
+				if (isIncludeSource) return `${it.clsStub.name} (${Parser.sourceJsonToAbv(it.clsStub.source)})`;
+				return it.clsStub.name;
+			}
 
 			const definedInSource = it.clsStub.definedInSource || it.clsStub.source;
 			const ptLink = Renderer.get().render(`{@class ${it.clsStub.name}|${it.clsStub.source}}`);
+			const ptSource = isIncludeSource ? ` (${Parser.sourceJsonToAbv(it.clsStub.source)})` : "";
 			const ptTitle = definedInSource === it.clsStub.source ? `Class source/spell list defined in: ${Parser.sourceJsonToFull(definedInSource)}.` : `Class source: ${Parser.sourceJsonToFull(it.clsStub.source)}. Spell list defined in: ${Parser.sourceJsonToFull(definedInSource)}.`;
-			return `<span title="${ptTitle.qq()}">${ptLink}</span>`;
+			return `<span title="${ptTitle.qq()}">${ptLink}${ptSource}</span>`;
 		})
 		.join(", ") || "";
 };
 
-Parser.spSubclassesToFull = function (fromSubclassList, {isTextOnly = false, subclassLookup = {}} = {}) {
+Parser.spSubclassesToFull = function (fromSubclassList, {isTextOnly = false, isIncludeSource = false, subclassLookup = {}} = {}) {
 	return fromSubclassList
 		.filter(mt => {
 			if (!ExcludeUtil.isInitialised) return true;
@@ -1683,19 +1751,23 @@ Parser.spSubclassesToFull = function (fromSubclassList, {isTextOnly = false, sub
 			const byName = SortUtil.ascSort(a.class.name, b.class.name);
 			return byName || SortUtil.ascSort(a.subclass.name, b.subclass.name);
 		})
-		.map(c => Parser._spSubclassItem({fromSubclass: c, isTextOnly}))
+		.map(c => Parser._spSubclassItem({fromSubclass: c, isTextOnly, isIncludeSource}))
 		.join(", ") || "";
 };
 
-Parser._spSubclassItem = function ({fromSubclass, isTextOnly}) {
+Parser._spSubclassItem = function ({fromSubclass, isTextOnly = false, isIncludeSource = false}) {
 	const c = fromSubclass.class;
 	const sc = fromSubclass.subclass;
 	const text = `${sc.shortName}${sc.subSubclass ? ` (${sc.subSubclass})` : ""}`;
-	if (isTextOnly) return text;
+	if (isTextOnly) {
+		if (isIncludeSource) return `${text} (${Parser.sourceJsonToAbv(sc.source)})`;
+		return text;
+	}
 
-	const classPart = `<span title="Source: ${Parser.sourceJsonToFull(c.source)}${c.definedInSource ? ` From a class spell list defined in: ${Parser.sourceJsonToFull(c.definedInSource)}` : ""}">${Renderer.get().render(`{@class ${c.name}|${c.source}}`)}</span>`;
+	const ptClass = `<span title="Source: ${Parser.sourceJsonToFull(c.source)}${c.definedInSource ? ` From a class spell list defined in: ${Parser.sourceJsonToFull(c.definedInSource)}` : ""}">${Renderer.get().render(`{@class ${c.name}|${c.source}}`)}</span>`;
+	const ptSource = isIncludeSource ? ` (${Parser.sourceJsonToAbv(sc.source)})` : "";
 
-	return `<span class="italic" title="Source: ${Parser.sourceJsonToFull(fromSubclass.subclass.source)}">${Renderer.get().render(`{@class ${c.name}|${c.source}|${text}|${sc.shortName}|${sc.source}}`)}</span> ${classPart}`;
+	return `<span class="ve-italic" title="Source: ${Parser.sourceJsonToFull(fromSubclass.subclass.source)}">${Renderer.get().render(`{@class ${c.name}|${c.source}|${text}|${sc.shortName}|${sc.source}}`)}</span>${isIncludeSource ? ptSource : ""} ${ptClass}`;
 };
 
 Parser.SPELL_ATTACK_TYPE_TO_FULL = {};
@@ -1719,6 +1791,7 @@ Parser.SPELL_AREA_TYPE_TO_FULL = {
 	"L": "Line",
 	"H": "Hemisphere",
 	"W": "Wall",
+	"E": "Emanation",
 };
 Parser.spAreaTypeToFull = function (type) {
 	return Parser._parse_aToB(Parser.SPELL_AREA_TYPE_TO_FULL, type);
@@ -1737,6 +1810,7 @@ Parser.SP_MISC_TAG_TO_FULL = {
 	"RO": "Rollable Effects",
 	"LGTS": "Creates Sunlight",
 	"LGT": "Creates Light",
+	"UA": "Uses Action",
 	"UBA": "Uses Bonus Action",
 	"PS": "Plane Shifting",
 	"OBS": "Obscures Vision",
@@ -1745,6 +1819,9 @@ Parser.SP_MISC_TAG_TO_FULL = {
 	"OBJ": "Affects Objects",
 	"ADV": "Grants Advantage",
 	"PIR": "Permanent If Repeated",
+	"BO": "Burns Objects",
+	"WLT": "Targets Willing Creatures",
+	"ALT": "Targets Allies",
 };
 Parser.spMiscTagToFull = function (type) {
 	return Parser._parse_aToB(Parser.SP_MISC_TAG_TO_FULL, type);
@@ -1800,7 +1877,7 @@ Parser.monTypeToFullObj = function (type) {
 
 	const tagMetas = Parser.monTypeToFullObj._getTagMetas(type.tags);
 	if (tagMetas.length) {
-		out.tags.push(...tagMetas.map(({filterTag}) => filterTag));
+		out.tags.push(...tagMetas.flatMap(({filterTags}) => filterTags));
 		const ptTags = ` (${tagMetas.map(({displayTag}) => displayTag).join(", ")})`;
 		out.asText += ptTags;
 		out.asTextShort += ptTags;
@@ -1815,7 +1892,7 @@ Parser.monTypeToFullObj = function (type) {
 
 		const tagMetas = Parser.monTypeToFullObj._getTagMetas(type.sidekickTags);
 		if (tagMetas.length) {
-			out.tagsSidekick.push(...tagMetas.map(({filterTag}) => filterTag));
+			out.tagsSidekick.push(...tagMetas.flatMap(({filterTags}) => filterTags));
 			if (!type.sidekickHidden) out.asTextSidekick += ` (${tagMetas.map(({displayTag}) => displayTag).join(", ")})`;
 		}
 	}
@@ -1829,15 +1906,30 @@ Parser.monTypeToFullObj._getTagMetas = (tags) => {
 		? tags.map(tag => {
 			if (typeof tag === "string") { // handles e.g. "Fiend (Devil)"
 				return {
-					filterTag: tag.toLowerCase(),
+					filterTags: [tag.toLowerCase()],
 					displayTag: tag.toTitleCase(),
 				};
-			} else { // handles e.g. "Humanoid (Chondathan Human)"
+			}
+
+			// handles e.g. drow -> "Humanoid (Elf)"
+			if (tag.prefixHidden) {
 				return {
-					filterTag: tag.tag.toLowerCase(),
-					displayTag: `${tag.prefix} ${tag.tag}`.toTitleCase(),
+					filterTags: [
+						tag.tag.toLowerCase(),
+						`${tag.prefix} ${tag.tag}`.toLowerCase(),
+					],
+					displayTag: tag.tag.toTitleCase(),
 				};
 			}
+
+			// handles e.g. "Humanoid (Chondathan Human)"
+			return {
+				filterTags: [
+					tag.tag.toLowerCase(),
+					`${tag.prefix} ${tag.tag}`.toLowerCase(),
+				],
+				displayTag: `${tag.prefix} ${tag.tag}`.toTitleCase(),
+			};
 		})
 		: [];
 };
@@ -1850,79 +1942,79 @@ Parser.monTypeFromPlural = function (type) {
 	return Parser._parse_bToA(Parser.MON_TYPE_TO_PLURAL, type);
 };
 
-Parser.getFullImmRes = function (toParse, {isPlainText = false, isTitleCase = false} = {}) {
-	if (!toParse?.length) return "";
+/* -------------------------------------------- */
 
-	let maxDepth = 0;
-
-	const renderString = (str, {isTitleCase = false} = {}) => {
-		if (isTitleCase) str = str.toTitleCase();
-		return isPlainText ? Renderer.stripTags(`${str}`) : Renderer.get().render(`${str}`);
-	};
-
-	const render = (val, depth = 0) => {
-		maxDepth = Math.max(maxDepth, depth);
-		if (typeof val === "string") return renderString(val, {isTitleCase});
-
-		if (val.special) return renderString(val.special);
-
-		const stack = [];
-
-		if (val.preNote) stack.push(renderString(val.preNote));
-
-		const prop = val.immune ? "immune" : val.resist ? "resist" : val.vulnerable ? "vulnerable" : null;
-		if (prop) {
-			const toJoin = val[prop].length === Parser.DMG_TYPES.length && CollectionUtil.deepEquals(Parser.DMG_TYPES, val[prop])
-				? ["all damage"[isTitleCase ? "toTitleCase" : "toString"]()]
-				: val[prop].map(nxt => render(nxt, depth + 1));
-			stack.push(renderString(depth ? toJoin.join(maxDepth ? "; " : ", ") : toJoin.joinConjunct(", ", " and ")));
-		}
-
-		if (val.note) stack.push(renderString(val.note));
-
-		return stack.join(" ");
-	};
-
-	const arr = toParse.map(it => render(it));
-
-	if (arr.length <= 1) return arr.join("");
-
-	let out = "";
-	for (let i = 0; i < arr.length - 1; ++i) {
-		const it = arr[i];
-		const nxt = arr[i + 1];
-
-		const orig = toParse[i];
-		const origNxt = toParse[i + 1];
-
-		out += it;
-		out += (it.includes(",") || nxt.includes(",") || (orig && orig.cond) || (origNxt && origNxt.cond)) ? "; " : ", ";
-	}
-	out += arr.last();
-	return out;
+Parser._getFullImmRes_isSimpleTerm = val => {
+	if (typeof val === "string" || val.special) return true;
+	const prop = Parser._getFullImmRes_getNextProp(val);
+	return prop == null;
 };
 
-Parser.getFullCondImm = function (condImm, {isPlainText = false, isEntry = false, isTitleCase = false} = {}) {
+Parser._getFullImmRes_getNextProp = obj => ["immune", "resist", "vulnerable", "conditionImmune"].find(prop => prop in obj) || null;
+
+Parser._getFullImmRes_getRenderedString = (str, {isPlainText = false, isEntry = false, isTitleCase = false, fnGetModString} = {}) => {
+	if (isTitleCase) str = str.toTitleCase();
+	if (isPlainText) return Renderer.stripTags(`${str}`);
+	if (fnGetModString) str = fnGetModString(str);
+	if (isEntry) return str;
+	return Renderer.get().render(`${str}`);
+};
+
+Parser._getFullImmRes_getRenderedObject = (obj, {isPlainText = false, isEntry = false, isTitleCase = false, mode} = {}) => {
+	const stack = [];
+
+	if (obj.preNote) stack.push(Parser._getFullImmRes_getRenderedString(obj.preNote, {isPlainText}));
+
+	const prop = Parser._getFullImmRes_getNextProp(obj);
+	if (prop) stack.push(Parser._getFullImmRes_getRenderedArray(obj[prop], {isPlainText, isEntry, isTitleCase, isGroup: true, mode}));
+
+	if (obj.note) stack.push(Parser._getFullImmRes_getRenderedString(obj.note, {isPlainText}));
+
+	return stack.join(" ");
+};
+
+Parser._getFullImmRes_getRenderedArray = (values, {isPlainText = false, isEntry = false, isTitleCase = false, isGroup = false, mode} = {}) => {
 	if (isPlainText && isEntry) throw new Error(`Options "isPlainText" and "isEntry" are mutually exclusive!`);
 
-	if (!condImm?.length) return "";
+	if (mode === "damageType" && values.length === Parser.DMG_TYPES.length && CollectionUtil.deepEquals(Parser.DMG_TYPES, values)) {
+		return "all damage"[isTitleCase ? "toTitleCase" : "toString"]();
+	}
 
-	const render = condition => {
-		if (isTitleCase) condition = condition.toTitleCase();
-		if (isPlainText) return condition;
-		const ent = `{@condition ${condition}}`;
-		if (isEntry) return ent;
-		return Renderer.get().render(ent);
-	};
+	return values
+		.map((val, i, arr) => {
+			const isSimpleCur = Parser._getFullImmRes_isSimpleTerm(val);
 
-	return condImm
-		.map(it => {
-			if (it.special) return Renderer.get().render(it.special);
-			if (it.conditionImmune) return `${it.preNote ? `${it.preNote} ` : ""}${it.conditionImmune.map(render).join(", ")}${it.note ? ` ${it.note}` : ""}`;
-			return render(it);
+			const rendCur = isSimpleCur
+				? val.special
+					? Parser._getFullImmRes_getRenderedString(val.special, {isPlainText, isTitleCase: false})
+					: Parser._getFullImmRes_getRenderedString(val, {isPlainText, isEntry, isTitleCase, fnGetModString: mode === "condition" ? str => `{@condition ${str}}` : null})
+				: Parser._getFullImmRes_getRenderedObject(val, {isPlainText, isEntry, isTitleCase, mode});
+
+			if (i === arr.length - 1) return rendCur;
+
+			const isSimpleNxt = Parser._getFullImmRes_isSimpleTerm(arr[i + 1]);
+
+			if (!isSimpleCur || !isSimpleNxt) return `${rendCur}; `;
+			if (!isGroup || i !== arr.length - 2 || arr.length < 2) return `${rendCur}, `;
+			if (arr.length === 2) return `${rendCur} and `;
+			return `${rendCur}, and `;
 		})
-		.sort(SortUtil.ascSortLower).join(", ");
+		.join("");
 };
+
+Parser.getFullImmRes = function (values, {isPlainText = false, isTitleCase = false} = {}) {
+	if (!values?.length) return "";
+	return Parser._getFullImmRes_getRenderedArray(values, {isPlainText, isTitleCase, mode: "damageType"});
+};
+
+Parser.getFullCondImm = function (values, {isPlainText = false, isEntry = false, isTitleCase = false} = {}) {
+	if (isPlainText && isEntry) throw new Error(`Options "isPlainText" and "isEntry" are mutually exclusive!`);
+
+	if (!values?.length) return "";
+	return Parser._getFullImmRes_getRenderedArray(values, {isPlainText, isTitleCase, isEntry, mode: "condition"});
+};
+
+/* -------------------------------------------- */
 
 Parser.MON_SENSE_TAG_TO_FULL = {
 	"B": "blindsight",
@@ -2011,6 +2103,173 @@ Parser.monLanguageTagToFull = function (tag) {
 
 Parser.ENVIRONMENTS = ["arctic", "coastal", "desert", "forest", "grassland", "hill", "mountain", "swamp", "underdark", "underwater", "urban"];
 
+Parser.ENVIRONMENT__PLANAR_FEYWILD = "planar, feywild";
+Parser.ENVIRONMENT__PLANAR_SHADOWFELL = "planar, shadowfell";
+
+Parser.ENVIRONMENT__PLANAR_WATER = "planar, water";
+Parser.ENVIRONMENT__PLANAR_EARTH = "planar, earth";
+Parser.ENVIRONMENT__PLANAR_FIRE = "planar, fire";
+Parser.ENVIRONMENT__PLANAR_AIR = "planar, air";
+
+Parser.ENVIRONMENT__PLANAR_OOZE = "planar, ooze";
+Parser.ENVIRONMENT__PLANAR_MAGMA = "planar, magma";
+Parser.ENVIRONMENT__PLANAR_ASH = "planar, ash";
+Parser.ENVIRONMENT__PLANAR_ICE = "planar, ice";
+
+Parser.ENVIRONMENT__PLANAR_ELEMENTAL_CHAOS = "planar, elemental chaos";
+
+Parser.ENVIRONMENT__PLANAR_ETHEREAL = "planar, ethereal";
+Parser.ENVIRONMENT__PLANAR_ASTRAL = "planar, astral";
+
+Parser.ENVIRONMENT__PLANAR_ARBOREA = "planar, arborea";
+Parser.ENVIRONMENT__PLANAR_ARCADIA = "planar, arcadia";
+Parser.ENVIRONMENT__PLANAR_BEASTLANDS = "planar, beastlands";
+Parser.ENVIRONMENT__PLANAR_BYTOPIA = "planar, bytopia";
+Parser.ENVIRONMENT__PLANAR_ELYSIUM = "planar, elysium";
+Parser.ENVIRONMENT__PLANAR_MOUNT_CELESTIA = "planar, mount celestia";
+Parser.ENVIRONMENT__PLANAR_YSGARD = "planar, ysgard";
+
+Parser.ENVIRONMENT__PLANAR_ABYSS = "planar, abyss";
+Parser.ENVIRONMENT__PLANAR_ACHERON = "planar, acheron";
+Parser.ENVIRONMENT__PLANAR_CARCERI = "planar, carceri";
+Parser.ENVIRONMENT__PLANAR_GEHENNA = "planar, gehenna";
+Parser.ENVIRONMENT__PLANAR_HADES = "planar, hades";
+Parser.ENVIRONMENT__PLANAR_NINE_HELLS = "planar, nine hells";
+Parser.ENVIRONMENT__PLANAR_PANDEMONIUM = "planar, pandemonium";
+
+Parser.ENVIRONMENT__PLANAR_LIMBO = "planar, limbo";
+Parser.ENVIRONMENT__PLANAR_MECHANUS = "planar, mechanus";
+Parser.ENVIRONMENT__PLANAR_OUTLANDS = "planar, outlands";
+
+Parser.ENVIRONMENT__PLANAR_EMERALD_DREAM = "planar, emerald dream";
+Parser.ENVIRONMENT__PLANAR_TWISTING_NETHER = "planar, twisting nether";
+
+Parser.ENVIRONMENT__GROUP_PLANAR = "planar";
+Parser.ENVIRONMENT__GROUP_PLANAR_TRANSITIVE = "planar, transitive";
+Parser.ENVIRONMENT__GROUP_PLANAR_ELEMENTAL = "planar, elemental";
+Parser.ENVIRONMENT__GROUP_PLANAR_INNER = "planar, inner";
+Parser.ENVIRONMENT__GROUP_PLANAR_UPPER = "planar, upper";
+Parser.ENVIRONMENT__GROUP_PLANAR_LOWER = "planar, lower";
+
+Parser.ENVIRONMENT_GROUPS = {
+	[Parser.ENVIRONMENT__GROUP_PLANAR_TRANSITIVE]: [
+		Parser.ENVIRONMENT__PLANAR_ETHEREAL,
+		Parser.ENVIRONMENT__PLANAR_ASTRAL,
+	],
+	[Parser.ENVIRONMENT__GROUP_PLANAR_ELEMENTAL]: [
+		Parser.ENVIRONMENT__PLANAR_WATER,
+		Parser.ENVIRONMENT__PLANAR_EARTH,
+		Parser.ENVIRONMENT__PLANAR_FIRE,
+		Parser.ENVIRONMENT__PLANAR_AIR,
+	],
+	[Parser.ENVIRONMENT__GROUP_PLANAR_INNER]: [
+		Parser.ENVIRONMENT__PLANAR_WATER,
+		Parser.ENVIRONMENT__PLANAR_EARTH,
+		Parser.ENVIRONMENT__PLANAR_FIRE,
+		Parser.ENVIRONMENT__PLANAR_AIR,
+
+		Parser.ENVIRONMENT__PLANAR_OOZE,
+		Parser.ENVIRONMENT__PLANAR_MAGMA,
+		Parser.ENVIRONMENT__PLANAR_ASH,
+		Parser.ENVIRONMENT__PLANAR_ICE,
+
+		Parser.ENVIRONMENT__PLANAR_ELEMENTAL_CHAOS,
+	],
+	[Parser.ENVIRONMENT__GROUP_PLANAR_UPPER]: [
+		Parser.ENVIRONMENT__PLANAR_ARBOREA,
+		Parser.ENVIRONMENT__PLANAR_ARCADIA,
+		Parser.ENVIRONMENT__PLANAR_BEASTLANDS,
+		Parser.ENVIRONMENT__PLANAR_BYTOPIA,
+		Parser.ENVIRONMENT__PLANAR_ELYSIUM,
+		Parser.ENVIRONMENT__PLANAR_MOUNT_CELESTIA,
+		Parser.ENVIRONMENT__PLANAR_YSGARD,
+	],
+	[Parser.ENVIRONMENT__GROUP_PLANAR_LOWER]: [
+		Parser.ENVIRONMENT__PLANAR_ABYSS,
+		Parser.ENVIRONMENT__PLANAR_ACHERON,
+		Parser.ENVIRONMENT__PLANAR_CARCERI,
+		Parser.ENVIRONMENT__PLANAR_GEHENNA,
+		Parser.ENVIRONMENT__PLANAR_HADES,
+		Parser.ENVIRONMENT__PLANAR_NINE_HELLS,
+		Parser.ENVIRONMENT__PLANAR_PANDEMONIUM,
+	],
+};
+Parser.ENVIRONMENT_GROUPS[Parser.ENVIRONMENT__GROUP_PLANAR] = [
+	...Parser.ENVIRONMENT_GROUPS[Parser.ENVIRONMENT__GROUP_PLANAR_TRANSITIVE],
+	...Parser.ENVIRONMENT_GROUPS[Parser.ENVIRONMENT__GROUP_PLANAR_INNER],
+	...Parser.ENVIRONMENT_GROUPS[Parser.ENVIRONMENT__GROUP_PLANAR_UPPER],
+	...Parser.ENVIRONMENT_GROUPS[Parser.ENVIRONMENT__GROUP_PLANAR_LOWER],
+	Parser.ENVIRONMENT__PLANAR_LIMBO,
+	Parser.ENVIRONMENT__PLANAR_MECHANUS,
+	Parser.ENVIRONMENT__PLANAR_OUTLANDS,
+];
+
+Parser.getExpandedEnvironments = function (env) {
+	if (!Parser.ENVIRONMENT_GROUPS[env]) return env;
+	return [...Parser.ENVIRONMENT_GROUPS[env]];
+};
+
+Parser.ENVIRONMENT_DISPLAY_NAMES = {
+	[Parser.ENVIRONMENT__PLANAR_FEYWILD]: "Planar (Feywild)",
+	[Parser.ENVIRONMENT__PLANAR_SHADOWFELL]: "Planar (Shadowfell)",
+
+	[Parser.ENVIRONMENT__PLANAR_WATER]: "Planar (Elemental Plane of Water)",
+	[Parser.ENVIRONMENT__PLANAR_EARTH]: "Planar (Elemental Plane of Earth)",
+	[Parser.ENVIRONMENT__PLANAR_FIRE]: "Planar (Elemental Plane of Fire)",
+	[Parser.ENVIRONMENT__PLANAR_AIR]: "Planar (Elemental Plane of Air)",
+
+	[Parser.ENVIRONMENT__PLANAR_OOZE]: "Planar (Para-elemental Plane of Ooze)",
+	[Parser.ENVIRONMENT__PLANAR_MAGMA]: "Planar (Para-elemental Plane of Magma)",
+	[Parser.ENVIRONMENT__PLANAR_ASH]: "Planar (Para-elemental Plane of Ash)",
+	[Parser.ENVIRONMENT__PLANAR_ICE]: "Planar (Para-elemental Plane of Ice)",
+
+	[Parser.ENVIRONMENT__PLANAR_ELEMENTAL_CHAOS]: "Planar (Elemental Chaos)",
+
+	[Parser.ENVIRONMENT__PLANAR_ETHEREAL]: "Planar (Ethereal Plane)",
+	[Parser.ENVIRONMENT__PLANAR_ASTRAL]: "Planar (Astral Plane)",
+
+	[Parser.ENVIRONMENT__PLANAR_ARBOREA]: "Planar (Arborea)",
+	[Parser.ENVIRONMENT__PLANAR_ARCADIA]: "Planar (Arcadia)",
+	[Parser.ENVIRONMENT__PLANAR_BEASTLANDS]: "Planar (Beastlands)",
+	[Parser.ENVIRONMENT__PLANAR_BYTOPIA]: "Planar (Bytopia)",
+	[Parser.ENVIRONMENT__PLANAR_ELYSIUM]: "Planar (Elysium)",
+	[Parser.ENVIRONMENT__PLANAR_MOUNT_CELESTIA]: "Planar (Mount Celestia)",
+	[Parser.ENVIRONMENT__PLANAR_YSGARD]: "Planar (Ysgard)",
+
+	[Parser.ENVIRONMENT__PLANAR_ABYSS]: "Planar (Abyss)",
+	[Parser.ENVIRONMENT__PLANAR_ACHERON]: "Planar (Acheron)",
+	[Parser.ENVIRONMENT__PLANAR_CARCERI]: "Planar (Carceri)",
+	[Parser.ENVIRONMENT__PLANAR_GEHENNA]: "Planar (Gehenna)",
+	[Parser.ENVIRONMENT__PLANAR_HADES]: "Planar (Hades)",
+	[Parser.ENVIRONMENT__PLANAR_NINE_HELLS]: "Planar (Nine Hells)",
+	[Parser.ENVIRONMENT__PLANAR_PANDEMONIUM]: "Planar (Pandemonium)",
+
+	[Parser.ENVIRONMENT__PLANAR_LIMBO]: "Planar (Limbo)",
+	[Parser.ENVIRONMENT__PLANAR_MECHANUS]: "Planar (Mechanus)",
+
+	[Parser.ENVIRONMENT__PLANAR_OUTLANDS]: "Planar (Outlands)",
+
+	[Parser.ENVIRONMENT__PLANAR_EMERALD_DREAM]: "Planar (Emerald Dream)",
+	[Parser.ENVIRONMENT__PLANAR_TWISTING_NETHER]: "Planar (Twisting Nether)",
+
+	[Parser.ENVIRONMENT__GROUP_PLANAR_TRANSITIVE]: "Planar (Transitive Planes)",
+	[Parser.ENVIRONMENT__GROUP_PLANAR_ELEMENTAL]: "Planar (Elemental Planes)",
+	[Parser.ENVIRONMENT__GROUP_PLANAR_INNER]: "Planar (Inner Planes)",
+	[Parser.ENVIRONMENT__GROUP_PLANAR_UPPER]: "Planar (Upper Planes)",
+	[Parser.ENVIRONMENT__GROUP_PLANAR_LOWER]: "Planar (Lower Planes)",
+};
+
+Parser.getEnvironmentDisplayName = function (env) {
+	return Parser.ENVIRONMENT_DISPLAY_NAMES[env] || env.toTitleCase();
+};
+
+Parser.TREASURE_TYPES = ["arcana", "armaments", "implements", "relics"];
+
+Parser.getTreasureTypeEntry = function (typ) {
+	if (Parser.TREASURE_TYPES.includes(typ)) return `{@table Random Magic Items - ${typ.toTitleCase()}|${Parser.SRC_SNS}|${typ.toTitleCase()}}`;
+	return typ.toTitleCase();
+};
+
 // psi-prefix functions are for parsing psionic data, and shared with the roll20 script
 Parser.PSI_ABV_TYPE_TALENT = "T";
 Parser.PSI_ABV_TYPE_DISCIPLINE = "D";
@@ -2028,17 +2287,16 @@ Parser.psiTypeToMeta = type => {
 	return out;
 };
 
-Parser.psiOrderToFull = (order) => {
-	return order === undefined ? Parser.PSI_ORDER_NONE : order;
+Parser.psiTypeAbvToStyle = function (type) { // For prerelease/homebrew
+	return Parser._colorableMetaAbvToStyle({key: type, prop: "psionicTypes"});
 };
 
-Parser.prereqSpellToFull = function (spell, {isTextOnly = false} = {}) {
-	if (spell) {
-		const [text, suffix] = spell.split("#");
-		if (!suffix) return isTextOnly ? spell : Renderer.get().render(`{@spell ${spell}}`);
-		else if (suffix === "c") return (isTextOnly ? Renderer.stripTags : Renderer.get().render.bind(Renderer.get()))(`{@spell ${text}} cantrip`);
-		else if (suffix === "x") return (isTextOnly ? Renderer.stripTags : Renderer.get().render.bind(Renderer.get()))("{@spell hex} spell or a warlock feature that curses");
-	} else return VeCt.STR_NONE;
+Parser.psiTypeAbvToStylePart = function (type) { // For prerelease/homebrew
+	return Parser._colorableMetaAbvToStylePart({key: type, prop: "psionicTypes"});
+};
+
+Parser.psiOrderToFull = (order) => {
+	return order === undefined ? Parser.PSI_ORDER_NONE : order;
 };
 
 Parser.prereqPactToFull = function (pact) {
@@ -2057,6 +2315,8 @@ Parser.prereqPatronToShort = function (patron) {
 };
 
 Parser.FEAT_CATEGORY_TO_FULL = {
+	"D": "Dragonmark",
+	"DG": "Dark Gift",
 	"G": "General",
 	"O": "Origin",
 	"FS": "Fighting Style",
@@ -2066,7 +2326,10 @@ Parser.FEAT_CATEGORY_TO_FULL = {
 };
 
 Parser.featCategoryToFull = (category) => {
-	return Parser._parse_aToB(Parser.FEAT_CATEGORY_TO_FULL, category) || category;
+	if (Parser.FEAT_CATEGORY_TO_FULL[category]) return Parser.FEAT_CATEGORY_TO_FULL[category];
+	if (PrereleaseUtil.getMetaLookup("featCategories")?.[category]) return PrereleaseUtil.getMetaLookup("featCategories")[category];
+	if (BrewUtil2.getMetaLookup("featCategories")?.[category]) return BrewUtil2.getMetaLookup("featCategories")[category];
+	return category;
 };
 
 Parser.featCategoryFromFull = (full) => {
@@ -2090,6 +2353,7 @@ Parser.CHAR_OPTIONAL_FEATURE_TYPE_TO_FULL = {
 	"DG": "Dark Gift",
 	"RF:B": "Replacement Feature: Background",
 	"CS": "Character Secret", // Specific to IDRotF (rules on page 14)
+	"PTH": "Path",
 };
 
 Parser.charCreationOptionTypeToFull = function (type) {
@@ -2103,8 +2367,8 @@ Parser.weightToFull = function (lbs, isSmallUnit) {
 	const tons = Math.floor(lbs / 2000);
 	lbs = lbs - (2000 * tons);
 	return [
-		tons ? `${tons}${isSmallUnit ? `<span class="ve-small ml-1">` : " "}ton${tons === 1 ? "" : "s"}${isSmallUnit ? `</span>` : ""}` : null,
-		lbs ? `${lbs}${isSmallUnit ? `<span class="ve-small ml-1">` : " "}lb.${isSmallUnit ? `</span>` : ""}` : null,
+		tons ? `${tons}${isSmallUnit ? `<span class="ve-small ve-ml-1">` : " "}ton${tons === 1 ? "" : "s"}${isSmallUnit ? `</span>` : ""}` : null,
+		lbs ? `${lbs}${isSmallUnit ? `<span class="ve-small ve-ml-1">` : " "}lb.${isSmallUnit ? `</span>` : ""}` : null,
 	].filter(Boolean).join(", ");
 };
 
@@ -2132,7 +2396,7 @@ Parser.CAT_ID_CULT = 19;
 Parser.CAT_ID_BOON = 20;
 Parser.CAT_ID_DISEASE = 21;
 Parser.CAT_ID_METAMAGIC = 22;
-Parser.CAT_ID_MANEUVER_BATTLEMASTER = 23;
+Parser.CAT_ID_MANEUVER_BATTLE_MASTER = 23;
 Parser.CAT_ID_TABLE = 24;
 Parser.CAT_ID_TABLE_GROUP = 25;
 Parser.CAT_ID_MANEUVER_CAVALIER = 26;
@@ -2144,8 +2408,8 @@ Parser.CAT_ID_VEHICLE = 31;
 Parser.CAT_ID_PACT_BOON = 32;
 Parser.CAT_ID_ELEMENTAL_DISCIPLINE = 33;
 Parser.CAT_ID_ARTIFICER_INFUSION = 34;
-Parser.CAT_ID_SHIP_UPGRADE = 35;
-Parser.CAT_ID_INFERNAL_WAR_MACHINE_UPGRADE = 36;
+Parser.CAT_ID_VEHICLE_UPGRADE_SHIP = 35;
+Parser.CAT_ID_VEHICLE_UPGRADE_INFERNAL_WAR_MACHINE = 36;
 Parser.CAT_ID_ONOMANCY_RESONANT = 37;
 Parser.CAT_ID_RUNE_KNIGHT_RUNE = 37;
 Parser.CAT_ID_ALCHEMICAL_FORMULA = 38;
@@ -2158,7 +2422,7 @@ Parser.CAT_ID_BOOK = 44;
 Parser.CAT_ID_PAGE = 45;
 Parser.CAT_ID_LEGENDARY_GROUP = 46;
 Parser.CAT_ID_CHAR_CREATION_OPTIONS = 47;
-Parser.CAT_ID_RECIPES = 48;
+Parser.CAT_ID_RECIPE = 48;
 Parser.CAT_ID_STATUS = 49;
 Parser.CAT_ID_SKILLS = 50;
 Parser.CAT_ID_SENSES = 51;
@@ -2166,6 +2430,31 @@ Parser.CAT_ID_DECK = 52;
 Parser.CAT_ID_CARD = 53;
 Parser.CAT_ID_ITEM_MASTERY = 54;
 Parser.CAT_ID_MANEUVER_SNS = 55;
+Parser.CAT_ID_VEHICLE_UPGRADE_OTHER = 56;
+
+Parser.CAT_ID_GROUPS = {
+	"optionalfeature": [
+		Parser.CAT_ID_ELDRITCH_INVOCATION,
+		Parser.CAT_ID_METAMAGIC,
+		Parser.CAT_ID_MANEUVER_BATTLE_MASTER,
+		Parser.CAT_ID_MANEUVER_CAVALIER,
+		Parser.CAT_ID_ARCANE_SHOT,
+		Parser.CAT_ID_OPTIONAL_FEATURE_OTHER,
+		Parser.CAT_ID_FIGHTING_STYLE,
+		Parser.CAT_ID_PACT_BOON,
+		Parser.CAT_ID_ELEMENTAL_DISCIPLINE,
+		Parser.CAT_ID_ARTIFICER_INFUSION,
+		Parser.CAT_ID_ONOMANCY_RESONANT,
+		Parser.CAT_ID_RUNE_KNIGHT_RUNE,
+		Parser.CAT_ID_ALCHEMICAL_FORMULA,
+		Parser.CAT_ID_MANEUVER,
+	],
+	"vehicleUpgrade": [
+		Parser.CAT_ID_VEHICLE_UPGRADE_SHIP,
+		Parser.CAT_ID_VEHICLE_UPGRADE_INFERNAL_WAR_MACHINE,
+		Parser.CAT_ID_VEHICLE_UPGRADE_OTHER,
+	],
+};
 
 Parser.CAT_ID_TO_FULL = {};
 Parser.CAT_ID_TO_FULL[Parser.CAT_ID_CREATURE] = "Bestiary";
@@ -2185,12 +2474,12 @@ Parser.CAT_ID_TO_FULL[Parser.CAT_ID_DEITY] = "Deity";
 Parser.CAT_ID_TO_FULL[Parser.CAT_ID_OBJECT] = "Object";
 Parser.CAT_ID_TO_FULL[Parser.CAT_ID_TRAP] = "Trap";
 Parser.CAT_ID_TO_FULL[Parser.CAT_ID_HAZARD] = "Hazard";
-Parser.CAT_ID_TO_FULL[Parser.CAT_ID_QUICKREF] = "Quick Reference (2014)";
+Parser.CAT_ID_TO_FULL[Parser.CAT_ID_QUICKREF] = "Quick Reference (5e/2014)";
 Parser.CAT_ID_TO_FULL[Parser.CAT_ID_CULT] = "Cult";
 Parser.CAT_ID_TO_FULL[Parser.CAT_ID_BOON] = "Boon";
 Parser.CAT_ID_TO_FULL[Parser.CAT_ID_DISEASE] = "Disease";
 Parser.CAT_ID_TO_FULL[Parser.CAT_ID_METAMAGIC] = "Metamagic";
-Parser.CAT_ID_TO_FULL[Parser.CAT_ID_MANEUVER_BATTLEMASTER] = "Maneuver; Battlemaster";
+Parser.CAT_ID_TO_FULL[Parser.CAT_ID_MANEUVER_BATTLE_MASTER] = "Maneuver; Battle Master";
 Parser.CAT_ID_TO_FULL[Parser.CAT_ID_TABLE] = "Table";
 Parser.CAT_ID_TO_FULL[Parser.CAT_ID_TABLE_GROUP] = "Table";
 Parser.CAT_ID_TO_FULL[Parser.CAT_ID_MANEUVER_CAVALIER] = "Maneuver; Cavalier";
@@ -2202,8 +2491,9 @@ Parser.CAT_ID_TO_FULL[Parser.CAT_ID_VEHICLE] = "Vehicle";
 Parser.CAT_ID_TO_FULL[Parser.CAT_ID_PACT_BOON] = "Pact Boon";
 Parser.CAT_ID_TO_FULL[Parser.CAT_ID_ELEMENTAL_DISCIPLINE] = "Elemental Discipline";
 Parser.CAT_ID_TO_FULL[Parser.CAT_ID_ARTIFICER_INFUSION] = "Infusion";
-Parser.CAT_ID_TO_FULL[Parser.CAT_ID_SHIP_UPGRADE] = "Ship Upgrade";
-Parser.CAT_ID_TO_FULL[Parser.CAT_ID_INFERNAL_WAR_MACHINE_UPGRADE] = "Infernal War Machine Upgrade";
+Parser.CAT_ID_TO_FULL[Parser.CAT_ID_VEHICLE_UPGRADE_SHIP] = "Ship Upgrade";
+Parser.CAT_ID_TO_FULL[Parser.CAT_ID_VEHICLE_UPGRADE_INFERNAL_WAR_MACHINE] = "Infernal War Machine Upgrade";
+Parser.CAT_ID_TO_FULL[Parser.CAT_ID_VEHICLE_UPGRADE_OTHER] = "Vehicle Upgrade";
 Parser.CAT_ID_TO_FULL[Parser.CAT_ID_ONOMANCY_RESONANT] = "Onomancy Resonant";
 Parser.CAT_ID_TO_FULL[Parser.CAT_ID_RUNE_KNIGHT_RUNE] = "Rune Knight Rune";
 Parser.CAT_ID_TO_FULL[Parser.CAT_ID_ALCHEMICAL_FORMULA] = "Alchemical Formula";
@@ -2216,7 +2506,7 @@ Parser.CAT_ID_TO_FULL[Parser.CAT_ID_BOOK] = "Book";
 Parser.CAT_ID_TO_FULL[Parser.CAT_ID_PAGE] = "Page";
 Parser.CAT_ID_TO_FULL[Parser.CAT_ID_LEGENDARY_GROUP] = "Legendary Group";
 Parser.CAT_ID_TO_FULL[Parser.CAT_ID_CHAR_CREATION_OPTIONS] = "Character Creation Option";
-Parser.CAT_ID_TO_FULL[Parser.CAT_ID_RECIPES] = "Recipe";
+Parser.CAT_ID_TO_FULL[Parser.CAT_ID_RECIPE] = "Recipe";
 Parser.CAT_ID_TO_FULL[Parser.CAT_ID_STATUS] = "Status";
 Parser.CAT_ID_TO_FULL[Parser.CAT_ID_DECK] = "Deck";
 Parser.CAT_ID_TO_FULL[Parser.CAT_ID_CARD] = "Card";
@@ -2257,12 +2547,13 @@ Parser.CAT_ID_TO_PROP[Parser.CAT_ID_ARCANE_SHOT] = "optionalfeature";
 Parser.CAT_ID_TO_PROP[Parser.CAT_ID_OPTIONAL_FEATURE_OTHER] = "optionalfeature";
 Parser.CAT_ID_TO_PROP[Parser.CAT_ID_FIGHTING_STYLE] = "optionalfeature";
 Parser.CAT_ID_TO_PROP[Parser.CAT_ID_METAMAGIC] = "optionalfeature";
-Parser.CAT_ID_TO_PROP[Parser.CAT_ID_MANEUVER_BATTLEMASTER] = "optionalfeature";
+Parser.CAT_ID_TO_PROP[Parser.CAT_ID_MANEUVER_BATTLE_MASTER] = "optionalfeature";
 Parser.CAT_ID_TO_PROP[Parser.CAT_ID_PACT_BOON] = "optionalfeature";
 Parser.CAT_ID_TO_PROP[Parser.CAT_ID_ELEMENTAL_DISCIPLINE] = "optionalfeature";
 Parser.CAT_ID_TO_PROP[Parser.CAT_ID_ARTIFICER_INFUSION] = "optionalfeature";
-Parser.CAT_ID_TO_PROP[Parser.CAT_ID_SHIP_UPGRADE] = "vehicleUpgrade";
-Parser.CAT_ID_TO_PROP[Parser.CAT_ID_INFERNAL_WAR_MACHINE_UPGRADE] = "vehicleUpgrade";
+Parser.CAT_ID_TO_PROP[Parser.CAT_ID_VEHICLE_UPGRADE_SHIP] = "vehicleUpgrade";
+Parser.CAT_ID_TO_PROP[Parser.CAT_ID_VEHICLE_UPGRADE_INFERNAL_WAR_MACHINE] = "vehicleUpgrade";
+Parser.CAT_ID_TO_PROP[Parser.CAT_ID_VEHICLE_UPGRADE_OTHER] = "vehicleUpgrade";
 Parser.CAT_ID_TO_PROP[Parser.CAT_ID_ONOMANCY_RESONANT] = "optionalfeature";
 Parser.CAT_ID_TO_PROP[Parser.CAT_ID_RUNE_KNIGHT_RUNE] = "optionalfeature";
 Parser.CAT_ID_TO_PROP[Parser.CAT_ID_ALCHEMICAL_FORMULA] = "optionalfeature";
@@ -2277,7 +2568,7 @@ Parser.CAT_ID_TO_PROP[Parser.CAT_ID_BOOK] = "book";
 Parser.CAT_ID_TO_PROP[Parser.CAT_ID_PAGE] = null;
 Parser.CAT_ID_TO_PROP[Parser.CAT_ID_LEGENDARY_GROUP] = "legendaryGroup";
 Parser.CAT_ID_TO_PROP[Parser.CAT_ID_CHAR_CREATION_OPTIONS] = "charoption";
-Parser.CAT_ID_TO_PROP[Parser.CAT_ID_RECIPES] = "recipe";
+Parser.CAT_ID_TO_PROP[Parser.CAT_ID_RECIPE] = "recipe";
 Parser.CAT_ID_TO_PROP[Parser.CAT_ID_STATUS] = "status";
 Parser.CAT_ID_TO_PROP[Parser.CAT_ID_DECK] = "deck";
 Parser.CAT_ID_TO_PROP[Parser.CAT_ID_CARD] = "card";
@@ -2306,18 +2597,19 @@ Parser.spClassesToCurrentAndLegacy = function (fromClassList) {
  *
  * @param sp a spell
  * @param subclassLookup Data loaded from `generated/gendata-subclass-lookup.json`. Of the form: `{PHB: {Barbarian: {PHB: {Berserker: "Path of the Berserker"}}}}`
+ * @param isIncludeSource
  * @returns {*[]} A two-element array. First item is a string of all the current subclasses, second item a string of
  * all the legacy/superseded subclasses
  */
-Parser.spSubclassesToCurrentAndLegacyFull = function (sp, subclassLookup) {
-	return Parser._spSubclassesToCurrentAndLegacyFull({sp, subclassLookup, prop: "fromSubclass"});
+Parser.spSubclassesToCurrentAndLegacyFull = function (sp, subclassLookup, {isIncludeSource = false} = {}) {
+	return Parser._spSubclassesToCurrentAndLegacyFull({sp, subclassLookup, prop: "fromSubclass", isIncludeSource});
 };
 
-Parser.spVariantSubclassesToCurrentAndLegacyFull = function (sp, subclassLookup) {
-	return Parser._spSubclassesToCurrentAndLegacyFull({sp, subclassLookup, prop: "fromSubclassVariant"});
+Parser.spVariantSubclassesToCurrentAndLegacyFull = function (sp, subclassLookup, {isIncludeSource = false} = {}) {
+	return Parser._spSubclassesToCurrentAndLegacyFull({sp, subclassLookup, prop: "fromSubclassVariant", isIncludeSource});
 };
 
-Parser._spSubclassesToCurrentAndLegacyFull = ({sp, subclassLookup, prop}) => {
+Parser._spSubclassesToCurrentAndLegacyFull = ({sp, subclassLookup, prop, isIncludeSource = false}) => {
 	const fromSubclass = Renderer.spell.getCombinedClasses(sp, prop);
 	if (!fromSubclass.length) return ["", ""];
 
@@ -2358,7 +2650,7 @@ Parser._spSubclassesToCurrentAndLegacyFull = ({sp, subclassLookup, prop}) => {
 			const nm = c.subclass.name;
 			const src = c.subclass.source;
 
-			const toAdd = Parser._spSubclassItem({fromSubclass: c, isTextOnly: false});
+			const toAdd = Parser._spSubclassItem({fromSubclass: c, isTextOnly: false, isIncludeSource});
 
 			const fromLookup = MiscUtil.get(
 				subclassLookup,
@@ -2423,27 +2715,35 @@ Parser.trapHazTypeToFull = function (type) {
 };
 
 Parser.TRAP_HAZARD_TYPE_TO_FULL = {
-	MECH: "Mechanical Trap",
-	MAG: "Magical Trap",
-	SMPL: "Simple Trap",
-	CMPX: "Complex Trap",
-	HAZ: "Hazard",
-	WTH: "Weather",
-	ENV: "Environmental Hazard",
-	WLD: "Wilderness Hazard",
-	GEN: "Generic",
-	EST: "Eldritch Storm",
+	"MECH": "Mechanical Trap",
+	"MAG": "Magical Trap",
+	"SMPL": "Simple Trap",
+	"CMPX": "Complex Trap",
+	"HAZ": "Hazard",
+	"WTH": "Weather",
+	"ENV": "Environmental Hazard",
+	"WLD": "Wilderness Hazard",
+	"GEN": "Generic",
+	"EST": "Eldritch Storm",
+	"TRP": "Trap",
+	"HAUNT": "Haunted Trap",
 };
 
-Parser.tierToFullLevel = function (tier) {
-	return Parser._parse_aToB(Parser.TIER_TO_FULL_LEVEL, tier);
+Parser._TIER_TO_LEVEL_RANGE = {
+	"1": [1, 4],
+	"2": [5, 10],
+	"3": [11, 16],
+	"4": [17, 20],
 };
+Parser.tierToFullLevel = function (tier, {styleHint} = {}) {
+	const range = Parser._parse_aToB(Parser._TIER_TO_LEVEL_RANGE, tier);
+	if (!range) return `Tier ${tier}`;
 
-Parser.TIER_TO_FULL_LEVEL = {};
-Parser.TIER_TO_FULL_LEVEL[1] = "1st\u20134th Level";
-Parser.TIER_TO_FULL_LEVEL[2] = "5th\u201310th Level";
-Parser.TIER_TO_FULL_LEVEL[3] = "11th\u201316th Level";
-Parser.TIER_TO_FULL_LEVEL[4] = "17th\u201320th Level";
+	styleHint ||= VetoolsConfig.get("styleSwitcher", "style");
+
+	if (styleHint === "classic") return `${range.map(n => Parser.getOrdinalForm(n)).join("\u2013")} Level`;
+	return `Levels ${range.join("\u2013")}`;
+};
 
 Parser.trapInitToFull = function (init) {
 	return Parser._parse_aToB(Parser.TRAP_INIT_TO_FULL, init);
@@ -2458,14 +2758,27 @@ Parser.ATK_TYPE_TO_FULL = {};
 Parser.ATK_TYPE_TO_FULL["MW"] = "Melee Weapon Attack";
 Parser.ATK_TYPE_TO_FULL["RW"] = "Ranged Weapon Attack";
 
-Parser.bookOrdinalToAbv = (ordinal, preNoSuff) => {
+Parser.bookOrdinalToAbv = (ordinal, {isPreNoSuff = false, isPlainText = false} = {}) => {
 	if (ordinal === undefined) return "";
 	switch (ordinal.type) {
-		case "part": return `${preNoSuff ? " " : ""}Part ${ordinal.identifier}${preNoSuff ? "" : " \u2014 "}`;
-		case "chapter": return `${preNoSuff ? " " : ""}Ch. ${ordinal.identifier}${preNoSuff ? "" : ": "}`;
-		case "episode": return `${preNoSuff ? " " : ""}Ep. ${ordinal.identifier}${preNoSuff ? "" : ": "}`;
-		case "appendix": return `${preNoSuff ? " " : ""}App.${ordinal.identifier != null ? ` ${ordinal.identifier}` : ""}${preNoSuff ? "" : ": "}`;
-		case "level": return `${preNoSuff ? " " : ""}Level ${ordinal.identifier}${preNoSuff ? "" : ": "}`;
+		case "part": return `${isPreNoSuff ? " " : ""}${Parser._bookOrdinalToAbv_getPt({ordinal, isPlainText})} ${ordinal.identifier}${isPreNoSuff ? "" : " \u2014 "}`;
+		case "chapter": return `${isPreNoSuff ? " " : ""}${Parser._bookOrdinalToAbv_getPt({ordinal, isPlainText})} ${ordinal.identifier}${isPreNoSuff ? "" : ": "}`;
+		case "episode": return `${isPreNoSuff ? " " : ""}${Parser._bookOrdinalToAbv_getPt({ordinal, isPlainText})} ${ordinal.identifier}${isPreNoSuff ? "" : ": "}`;
+		case "appendix": return `${isPreNoSuff ? " " : ""}${Parser._bookOrdinalToAbv_getPt({ordinal, isPlainText})}${ordinal.identifier != null ? ` ${ordinal.identifier}` : ""}${isPreNoSuff ? "" : ": "}`;
+		case "level": return `${isPreNoSuff ? " " : ""}${Parser._bookOrdinalToAbv_getPt({ordinal, isPlainText})} ${ordinal.identifier}${isPreNoSuff ? "" : ": "}`;
+		case "section": return `${isPreNoSuff ? " " : ""}${Parser._bookOrdinalToAbv_getPt({ordinal, isPlainText})} ${ordinal.identifier}${isPreNoSuff ? "" : ": "}`;
+		default: throw new Error(`Unhandled ordinal type "${ordinal.type}"`);
+	}
+};
+
+Parser._bookOrdinalToAbv_getPt = ({ordinal, isPlainText = false}) => {
+	switch (ordinal.type) {
+		case "part": return `Part`;
+		case "chapter": return isPlainText ? `Ch.` : `<span title="Chapter">Ch.</span>`;
+		case "episode": return isPlainText ? `Ep.` : `<span title="Episode">Ep.</span>`;
+		case "appendix": return isPlainText ? `App.` : `<span title="Appendix">App.</span>`;
+		case "section": return isPlainText ? `Sec.` : `<span title="Section">Sec.</span>`;
+		case "level": return `Level`;
 		default: throw new Error(`Unhandled ordinal type "${ordinal.type}"`);
 	}
 };
@@ -2478,10 +2791,12 @@ Parser.imageTypeToFull = function (imageType) {
 	return Parser._parse_aToB(Parser.IMAGE_TYPE_TO_FULL, imageType, "Other");
 };
 
-Parser.nameToTokenName = function (name) {
-	return name
+Parser.nameToTokenName = function (name, {isUrlEncode = false} = {}) {
+	const out = name
 		.toAscii()
 		.replace(/"/g, "");
+	if (!isUrlEncode) return out;
+	return encodeURIComponent(out);
 };
 
 Parser.bytesToHumanReadable = function (bytes, {fixedDigits = 2} = {}) {
@@ -2544,6 +2859,29 @@ Parser.SP_SCHOOL_ABV_TO_SHORT[Parser.SKL_ABV_TRA] = "Trans.";
 Parser.SP_SCHOOL_ABV_TO_SHORT[Parser.SKL_ABV_CON] = "Conj.";
 Parser.SP_SCHOOL_ABV_TO_SHORT[Parser.SKL_ABV_PSI] = "Psi.";
 
+Parser.SP_SCHOOL_ABV_TO_CSS_CLASS = {};
+Parser.SP_SCHOOL_ABV_TO_CSS_CLASS[Parser.SKL_ABV_ABJ] = "ve-sp__school--a";
+Parser.SP_SCHOOL_ABV_TO_CSS_CLASS[Parser.SKL_ABV_CON] = "ve-sp__school--c";
+Parser.SP_SCHOOL_ABV_TO_CSS_CLASS[Parser.SKL_ABV_DIV] = "ve-sp__school--d";
+Parser.SP_SCHOOL_ABV_TO_CSS_CLASS[Parser.SKL_ABV_ENC] = "ve-sp__school--e";
+Parser.SP_SCHOOL_ABV_TO_CSS_CLASS[Parser.SKL_ABV_EVO] = "ve-sp__school--v";
+Parser.SP_SCHOOL_ABV_TO_CSS_CLASS[Parser.SKL_ABV_ILL] = "ve-sp__school--i";
+Parser.SP_SCHOOL_ABV_TO_CSS_CLASS[Parser.SKL_ABV_NEC] = "ve-sp__school--n";
+Parser.SP_SCHOOL_ABV_TO_CSS_CLASS[Parser.SKL_ABV_PSI] = "ve-sp__school--p";
+Parser.SP_SCHOOL_ABV_TO_CSS_CLASS[Parser.SKL_ABV_TRA] = "ve-sp__school--t";
+
+Parser.spSchoolAbvToStyleClass = function (school) {
+	return Parser.SP_SCHOOL_ABV_TO_CSS_CLASS[school] || "";
+};
+
+Parser.PSI_ABV_TYPE_TO_CSS_CLASS = {};
+Parser.PSI_ABV_TYPE_TO_CSS_CLASS[Parser.PSI_ABV_TYPE_TALENT] = "ve-psi__type--t";
+Parser.PSI_ABV_TYPE_TO_CSS_CLASS[Parser.PSI_ABV_TYPE_DISCIPLINE] = "ve-psi__type--d";
+
+Parser.psiTypeAbvToStyleClass = function (type) {
+	return Parser.PSI_ABV_TYPE_TO_CSS_CLASS[type] || "";
+};
+
 Parser.ATB_ABV_TO_FULL = {
 	"str": "Strength",
 	"dex": "Dexterity",
@@ -2573,7 +2911,10 @@ Parser.TP_MONSTROSITY = "monstrosity";
 Parser.TP_OOZE = "ooze";
 Parser.TP_PLANT = "plant";
 Parser.TP_UNDEAD = "undead";
-Parser.MON_TYPES = [Parser.TP_ABERRATION, Parser.TP_BEAST, Parser.TP_CELESTIAL, Parser.TP_CONSTRUCT, Parser.TP_DRAGON, Parser.TP_ELEMENTAL, Parser.TP_FEY, Parser.TP_FIEND, Parser.TP_GIANT, Parser.TP_HUMANOID, Parser.TP_MONSTROSITY, Parser.TP_OOZE, Parser.TP_PLANT, Parser.TP_UNDEAD];
+Parser.TP_VEHICLE = "vehicle";
+Parser.TP_SPECIAL = "special";
+Parser.MON_TYPES = [Parser.TP_ABERRATION, Parser.TP_BEAST, Parser.TP_CELESTIAL, Parser.TP_CONSTRUCT, Parser.TP_DRAGON, Parser.TP_ELEMENTAL, Parser.TP_FEY, Parser.TP_FIEND, Parser.TP_GIANT, Parser.TP_HUMANOID, Parser.TP_MONSTROSITY, Parser.TP_OOZE, Parser.TP_PLANT, Parser.TP_UNDEAD, Parser.TP_VEHICLE, Parser.TP_SPECIAL];
+Parser.MON_TYPES_STANDARD = Parser.MON_TYPES.filter(it => ![Parser.TP_VEHICLE, Parser.TP_SPECIAL].includes(it));
 Parser.MON_TYPE_TO_PLURAL = {};
 Parser.MON_TYPE_TO_PLURAL[Parser.TP_ABERRATION] = "aberrations";
 Parser.MON_TYPE_TO_PLURAL[Parser.TP_BEAST] = "beasts";
@@ -2589,6 +2930,8 @@ Parser.MON_TYPE_TO_PLURAL[Parser.TP_MONSTROSITY] = "monstrosities";
 Parser.MON_TYPE_TO_PLURAL[Parser.TP_OOZE] = "oozes";
 Parser.MON_TYPE_TO_PLURAL[Parser.TP_PLANT] = "plants";
 Parser.MON_TYPE_TO_PLURAL[Parser.TP_UNDEAD] = "undead";
+Parser.MON_TYPE_TO_PLURAL[Parser.TP_VEHICLE] = "vehicles";
+Parser.MON_TYPE_TO_PLURAL[Parser.TP_SPECIAL] = "special";
 
 Parser.SZ_FINE = "F";
 Parser.SZ_DIMINUTIVE = "D";
@@ -2600,18 +2943,34 @@ Parser.SZ_HUGE = "H";
 Parser.SZ_GARGANTUAN = "G";
 Parser.SZ_COLOSSAL = "C";
 Parser.SZ_VARIES = "V";
+
 Parser.SIZE_ABVS = [Parser.SZ_TINY, Parser.SZ_SMALL, Parser.SZ_MEDIUM, Parser.SZ_LARGE, Parser.SZ_HUGE, Parser.SZ_GARGANTUAN, Parser.SZ_VARIES];
-Parser.SIZE_ABV_TO_FULL = {};
-Parser.SIZE_ABV_TO_FULL[Parser.SZ_FINE] = "Fine";
-Parser.SIZE_ABV_TO_FULL[Parser.SZ_DIMINUTIVE] = "Diminutive";
-Parser.SIZE_ABV_TO_FULL[Parser.SZ_TINY] = "Tiny";
-Parser.SIZE_ABV_TO_FULL[Parser.SZ_SMALL] = "Small";
-Parser.SIZE_ABV_TO_FULL[Parser.SZ_MEDIUM] = "Medium";
-Parser.SIZE_ABV_TO_FULL[Parser.SZ_LARGE] = "Large";
-Parser.SIZE_ABV_TO_FULL[Parser.SZ_HUGE] = "Huge";
-Parser.SIZE_ABV_TO_FULL[Parser.SZ_GARGANTUAN] = "Gargantuan";
-Parser.SIZE_ABV_TO_FULL[Parser.SZ_COLOSSAL] = "Colossal";
-Parser.SIZE_ABV_TO_FULL[Parser.SZ_VARIES] = "Varies";
+
+Parser.SIZE_ABV_TO_FULL = {
+	[Parser.SZ_FINE]: "Fine",
+	[Parser.SZ_DIMINUTIVE]: "Diminutive",
+	[Parser.SZ_TINY]: "Tiny",
+	[Parser.SZ_SMALL]: "Small",
+	[Parser.SZ_MEDIUM]: "Medium",
+	[Parser.SZ_LARGE]: "Large",
+	[Parser.SZ_HUGE]: "Huge",
+	[Parser.SZ_GARGANTUAN]: "Gargantuan",
+	[Parser.SZ_COLOSSAL]: "Colossal",
+	[Parser.SZ_VARIES]: "Varies",
+};
+
+Parser.SIZE_ABV_TO_SHORT = {
+	[Parser.SZ_FINE]: "Fin.",
+	[Parser.SZ_DIMINUTIVE]: "Dmtv.",
+	[Parser.SZ_TINY]: "Tin.",
+	[Parser.SZ_SMALL]: "Sml.",
+	[Parser.SZ_MEDIUM]: "Med.",
+	[Parser.SZ_LARGE]: "Lrg.",
+	[Parser.SZ_HUGE]: "Hge.",
+	[Parser.SZ_GARGANTUAN]: "Grgn.",
+	[Parser.SZ_COLOSSAL]: "Clsl.",
+	[Parser.SZ_VARIES]: "Vars.",
+};
 
 Parser.XP_CHART_ALT = {
 	"0": 10,
@@ -2709,9 +3068,17 @@ Parser.ruleTypeToFull = function (ruleType) {
 Parser.VEHICLE_TYPE_TO_FULL = {
 	"SHIP": "Ship",
 	"SPELLJAMMER": "Spelljammer Ship",
+	"ELEMENTAL_AIRSHIP": "Elemental Airship",
 	"INFWAR": "Infernal War Machine",
 	"CREATURE": "Creature",
 	"OBJECT": "Object",
+};
+
+Parser.vehicleTypeToFull = function (vehicleType) {
+	return Parser._parse_aToB(Parser.VEHICLE_TYPE_TO_FULL, vehicleType);
+};
+
+Parser.VEHICLE_UPGRADE_TYPE_TO_FULL = {
 	"SHP:H": "Ship Upgrade, Hull",
 	"SHP:M": "Ship Upgrade, Movement",
 	"SHP:W": "Ship Upgrade, Weapon",
@@ -2722,8 +3089,47 @@ Parser.VEHICLE_TYPE_TO_FULL = {
 	"IWM:G": "Infernal War Machine Upgrade, Gadget",
 };
 
-Parser.vehicleTypeToFull = function (vehicleType) {
-	return Parser._parse_aToB(Parser.VEHICLE_TYPE_TO_FULL, vehicleType);
+Parser.vehicleUpgradeTypeToFull = function (type) {
+	if (Parser.VEHICLE_UPGRADE_TYPE_TO_FULL[type]) return Parser.VEHICLE_UPGRADE_TYPE_TO_FULL[type];
+	if (PrereleaseUtil.getMetaLookup("vehicleUpgradeTypes")?.[type]) return PrereleaseUtil.getMetaLookup("vehicleUpgradeTypes")[type];
+	if (BrewUtil2.getMetaLookup("vehicleUpgradeTypes")?.[type]) return BrewUtil2.getMetaLookup("vehicleUpgradeTypes")[type];
+	return type;
+};
+
+Parser.CROCHET_PATTERN_SKILL_LEVEL_TO_FULL = {
+	"B": "Beginner",
+	"I": "Intermediate",
+	"A": "Advanced",
+};
+
+Parser.crochetPatternSkilLevelToFull = function (lvl) {
+	return Parser._parse_aToB(Parser.CROCHET_PATTERN_SKILL_LEVEL_TO_FULL, lvl);
+};
+
+Parser.CROCHET_HOOK_MM_TO_US = {
+	"2.25": "B/1",
+	"2.75": "C",
+	"3.25": "D",
+	"3.50": "E/4",
+	"3.75": "F",
+	"4": "G/6",
+	"4.25": "G/6",
+	"4.50": "7",
+	"5": "H/8",
+	"5.25": "I",
+	"5.50": "I/9",
+	"6": "J/10",
+	"6.50": "K",
+	"9": "M/13",
+	"10": "N/15",
+	"12": "P/16",
+	"15": "Q",
+	"16": "Q",
+	"19": "S",
+};
+
+Parser.crochetHookMmToUs = function (sz) {
+	return Parser._parse_aToB(Parser.CROCHET_HOOK_MM_TO_US, sz);
 };
 
 // SOURCES =============================================================================================================
@@ -2761,10 +3167,7 @@ Parser.getTagSource = function (tag, source) {
 
 	tag = tag.trim();
 
-	const tagMeta = Renderer.tag.TAG_LOOKUP[tag];
-
-	if (!tagMeta) throw new Error(`Unhandled tag "${tag}"`);
-	return tagMeta.defaultSource;
+	return Renderer.tag.getTagInfo(tag, {isRequired: true}).defaultSource;
 };
 
 Parser.PROP_TO_TAG = {
@@ -2775,13 +3178,33 @@ Parser.PROP_TO_TAG = {
 	"baseitem": "item",
 	"itemGroup": "item",
 	"magicvariant": "item",
+	"crochetPattern": "crochet",
 };
+Parser._RE_PROP_RAW_PREFIX = /^raw_/;
 Parser.getPropTag = function (prop) {
+	if (!prop) return prop;
+	prop = prop.replace(Parser._RE_PROP_RAW_PREFIX, "");
 	if (Parser.PROP_TO_TAG[prop]) return Parser.PROP_TO_TAG[prop];
+	if (prop?.endsWith("Fluff")) return null;
 	return prop;
 };
 
+// Note that ordering is important; we expect the "primary" prop to be first
+Parser.TAG_TO_PROPS = {
+	"creature": ["monster"],
+	"optfeature": ["optionalfeature"],
+	"table": ["table", "tableGroup"],
+	"vehupgrade": ["vehicleUpgrade"],
+	"item": ["item", "baseitem", "itemGroup", "magicvariant"],
+	"legroup": ["legendaryGroup"],
+};
+Parser.getTagProps = function (tag) {
+	if (Parser.TAG_TO_PROPS[tag]) return Parser.TAG_TO_PROPS[tag];
+	return [tag];
+};
+
 Parser.PROP_TO_DISPLAY_NAME = {
+	"monster": "Creature",
 	"variantrule": "Rule",
 	"optionalfeature": "Option/Feature",
 	"magicvariant": "Magic Item Variant",
@@ -2793,12 +3216,19 @@ Parser.PROP_TO_DISPLAY_NAME = {
 	"bookData": "Book Text",
 	"makebrewCreatureTrait": "Homebrew Builder Creature Trait",
 	"charoption": "Other Character Creation Option",
+	"encounterShape": "Encounter Shape",
+	"crochetPattern": "Crochet Pattern",
+	"renderdemo": "Renderer Sample",
 
 	"bonus": "Bonus Action",
 	"legendary": "Legendary Action",
 	"mythic": "Mythic Action",
 	"lairActions": "Lair Action",
 	"regionalEffects": "Regional Effect",
+
+	// '24-specific
+	"race": "Species",
+	"subrace": "Subspecies",
 };
 Parser.getPropDisplayName = function (prop, {suffix = ""} = {}) {
 	if (Parser.PROP_TO_DISPLAY_NAME[prop]) return `${Parser.PROP_TO_DISPLAY_NAME[prop]}${suffix}`;
@@ -2837,46 +3267,80 @@ Parser.SENSES = [
 	{"name": "tremorsense", "source": Parser.SRC_SNS},
 	{"name": "truesight", "source": Parser.SRC_SNS},
 ];
+Parser._SENSES_MODERN = [
+	{"name": "blindsight", "source": Parser.SRC_SNS},
+	{"name": "darkvision", "source": Parser.SRC_SNS},
+	{"name": "tremorsense", "source": Parser.SRC_SNS},
+	{"name": "truesight", "source": Parser.SRC_SNS},
+];
+Parser.getSenses = function ({styleHint = null} = {}) {
+	styleHint ||= VetoolsConfig.get("styleSwitcher", "style");
+	return styleHint === "classic" ? Parser._SENSES_LEGACY : Parser._SENSES_MODERN;
+};
 
 Parser.NUMBERS_ONES = ["", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
 Parser.NUMBERS_TENS = ["", "", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"];
 Parser.NUMBERS_TEENS = ["ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"];
 
 // region Metric conversion
-Parser.metric = {
+Parser.metric = class {
 	// See MPMB's breakdown: https://old.reddit.com/r/dndnext/comments/6gkuec
-	MILES_TO_KILOMETRES: 1.6,
-	FEET_TO_METRES: 0.3, // 5 ft = 1.5 m
-	YARDS_TO_METRES: 0.9, // (as above)
-	POUNDS_TO_KILOGRAMS: 0.5, // 2 lb = 1 kg
+	static MILES_TO_KILOMETRES = 1.6;
+	static FEET_TO_METRES = 0.3; // 5 ft = 1.5 m
+	static YARDS_TO_METRES = 0.9; // (as above)
+	static POUNDS_TO_KILOGRAMS = 0.5; // 2 lb = 1 kg
+	// Other additions
+	static INCHES_TO_CENTIMETERS = 2.5; // 1 in = 2.5 cm
+	static CUBIC_FEET_TO_LITRES = 28; // 1 ft³ = 28 L
 
-	getMetricNumber ({originalValue, originalUnit, toFixed = null}) {
+	/**
+	 * @param {number} originalValue
+	 * @param {string} originalUnit
+	 * @param {?boolean} toFixed
+	 */
+	static getMetricNumber ({originalValue, originalUnit, toFixed = null}) {
 		if (originalValue == null || isNaN(originalValue)) return originalValue;
 
 		originalValue = Number(originalValue);
 		if (!originalValue) return originalValue;
 
 		let out = null;
-		switch (originalUnit) {
-			case "ft.": case "ft": case Parser.UNT_FEET: out = originalValue * Parser.metric.FEET_TO_METRES; break;
-			case "yd.": case "yd": case Parser.UNT_YARDS: out = originalValue * Parser.metric.YARDS_TO_METRES; break;
-			case "mi.": case "mi": case Parser.UNT_MILES: out = originalValue * Parser.metric.MILES_TO_KILOMETRES; break;
-			case "lb.": case "lb": case Parser.UNT_LBS: out = originalValue * Parser.metric.POUNDS_TO_KILOGRAMS; break;
+		switch (Parser.getNormalizedUnit(originalUnit)) {
+			case Parser.UNT_INCHES: out = originalValue * Parser.metric.INCHES_TO_CENTIMETERS; break;
+			case Parser.UNT_FEET: out = originalValue * Parser.metric.FEET_TO_METRES; break;
+			case Parser.UNT_YARDS: out = originalValue * Parser.metric.YARDS_TO_METRES; break;
+			case Parser.UNT_MILES: out = originalValue * Parser.metric.MILES_TO_KILOMETRES; break;
+			case Parser.UNT_LBS: out = originalValue * Parser.metric.POUNDS_TO_KILOGRAMS; break;
+			case Parser.UNT_CUBIC_FEET: out = originalValue * Parser.metric.CUBIC_FEET_TO_LITRES; break;
 			default: return originalValue;
 		}
 		if (toFixed != null) return NumberUtil.toFixedNumber(out, toFixed);
 		return out;
-	},
+	}
 
-	getMetricUnit ({originalUnit, isShortForm = false, isPlural = true}) {
-		switch (originalUnit) {
-			case "ft.": case "ft": case Parser.UNT_FEET: return isShortForm ? "m" : `meter`[isPlural ? "toPlural" : "toString"]();
-			case "yd.": case "yd": case Parser.UNT_YARDS: return isShortForm ? "m" : `meter`[isPlural ? "toPlural" : "toString"]();
-			case "mi.": case "mi": case Parser.UNT_MILES: return isShortForm ? "km" : `kilometre`[isPlural ? "toPlural" : "toString"]();
-			case "lb.": case "lb": case Parser.UNT_LBS: return isShortForm ? "kg" : `kilogram`[isPlural ? "toPlural" : "toString"]();
+	/**
+	 * @param {number} originalValue
+	 * @param {boolean} isShortForm
+	 * @param {isPlural} isShortForm
+	 */
+	static getMetricUnit ({originalUnit, isShortForm = false, isPlural = true}) {
+		switch (Parser.getNormalizedUnit(originalUnit)) {
+			case Parser.UNT_INCHES: return isShortForm ? "cm" : `centimeter`[isPlural ? "toPlural" : "toString"]();
+			case Parser.UNT_FEET: return isShortForm ? "m" : `meter`[isPlural ? "toPlural" : "toString"]();
+			case Parser.UNT_YARDS: return isShortForm ? "m" : `meter`[isPlural ? "toPlural" : "toString"]();
+			case Parser.UNT_MILES: return isShortForm ? "km" : `kilometer`[isPlural ? "toPlural" : "toString"]();
+			case Parser.UNT_LBS: return isShortForm ? "kg" : `kilogram`[isPlural ? "toPlural" : "toString"]();
+			case Parser.UNT_CUBIC_FEET: return isShortForm ? "L" : `liter`[isPlural ? "toPlural" : "toString"]();
 			default: return originalUnit;
 		}
-	},
+	}
+
+	static _MM_PER_INCHES = 25.4;
+
+	// Display to the nearest 0.5 in.
+	static getApproxDisplayInches (distMm) {
+		return Math.round((distMm / this._MM_PER_INCHES) * 2) / 2;
+	}
 };
 // endregion
 // region Map grids

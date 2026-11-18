@@ -1,6 +1,4 @@
-"use strict";
-
-class MapsUtil {
+export class MapsUtil {
 	static _IMAGE_TYPES = new Set(["map", "mapPlayer"]);
 
 	static getImageData ({prop, head, body}) {
@@ -16,7 +14,7 @@ class MapsUtil {
 			const chapter = body[i];
 
 			const outChapter = {
-				name: `${Parser.bookOrdinalToAbv(contentsItem.ordinal)}${contentsItem.name}`,
+				name: `${Parser.bookOrdinalToAbv(contentsItem.ordinal, {isPlainText: true})}${contentsItem.name}`,
 				ix: i,
 				images: [],
 			};
@@ -60,5 +58,3 @@ class MapsUtil {
 			: null;
 	}
 }
-
-globalThis.MapsUtil = MapsUtil;

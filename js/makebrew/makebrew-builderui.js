@@ -26,7 +26,7 @@ export class BuilderUi {
 	 * @param [options] Options object.
 	 * @param [options.eleType] HTML element to use.
 	 * @param [options.isMarked] If a "group" vertical marker should be displayed between the name and the row body.
-	 * @param [options.isRow] If the row body should use ve-flex row (instead of ve-flex col).
+	 * @param [options.isRow] If the row body should use flex row (instead of flex col).
 	 * @param [options.title] Tooltip text.
 	 */
 	static getLabelledRowTuple (name, options) {
@@ -34,35 +34,35 @@ export class BuilderUi {
 
 		const eleType = options.eleType || "div";
 
-		const $rowInner = $(`<div class="${options.isRow ? "ve-flex" : "ve-flex-col"} w-100"></div>`);
-		const $row = $$`<div class="mb-2 mkbru__row stripe-even"><${eleType} class="mkbru__wrp-row ve-flex-v-center"><span class="mr-2 mkbru__row-name ve-shrink-10 ${options.isMarked ? `mkbru__row-name--marked` : ""} ${options.title ? "help" : ""}" ${options.title ? `title="${options.title.qq()}"` : ""}>${name}</span>${options.isMarked ? `<div class="mkbru__row-mark mr-2"></div>` : ""}${$rowInner}</${eleType}></div>`;
-		return [$row, $rowInner];
+		const rowInner = veT`<div class="${options.isRow ? "ve-flex" : "ve-flex-col"} ve-w-100"></div>`;
+		const row = veT`<div class="ve-mb-2 mkbru__row stripe-even--faint"><${eleType} class="mkbru__wrp-row ve-flex-v-center"><span class="ve-mr-2 mkbru__row-name ${options.isMarked ? `mkbru__row-name--marked` : ""} ${options.title ? "help" : ""}" ${options.title ? `title="${options.title.qq()}"` : ""}>${name}</span>${options.isMarked ? `<div class="mkbru__row-mark ve-mr-2"></div>` : ""}${rowInner}</${eleType}></div>`;
+		return [row, rowInner];
 	}
 
-	static __$getRow (name, $ipt, options) {
+	static __getRow (name, ipt, options) {
 		options = options || {};
 
 		const eleType = options.eleType || "div";
 
-		return $$`<div class="mb-2 mkbru__row stripe-even"><${eleType} class="mkbru__wrp-row ve-flex-v-center">
-		<span class="mr-2 mkbru__row-name ${options.title ? "help" : ""}" ${options.title ? `title="${options.title.qq()}"` : ""}>${name}</span>
-		${$ipt}
+		return veT`<div class="ve-mb-2 mkbru__row stripe-even--faint"><${eleType} class="mkbru__wrp-row ve-flex-v-center">
+		<span class="ve-mr-2 mkbru__row-name ${options.title ? "help" : ""}" ${options.title ? `title="${options.title.qq()}"` : ""}>${name}</span>
+		${ipt}
 		<${eleType}/></div>`;
 	}
 
-	static $getStateIptString (name, fnRender, state, options, ...path) {
+	static getStateIptString (name, fnRender, state, options, ...path) {
 		if (options.nullable == null) options.nullable = true;
 
 		const initialState = MiscUtil.get(state, ...path);
-		const $ipt = $(`<input class="form-control input-xs form-control--minimal ${options.type ? `type="${options.type}"` : ""}">`)
-			.val(initialState)
-			.change(() => {
-				const raw = $ipt.val().trim();
+		const ipt = veT`<input class="ve-form-control ve-input-xs form-control--minimal ${options.type ? `type="${options.type}"` : ""}">`
+			.vee.val(initialState || null)
+			.vee.onn("change", () => {
+				const raw = ipt.vee.val().trim();
 				const set = BuilderUi.__setProp(raw || !options.nullable ? raw : null, options, state, ...path);
 				fnRender();
 				if (options.callback) options.callback(set);
 			});
-		return BuilderUi.__$getRow(name, $ipt, options);
+		return BuilderUi.__getRow(name, ipt, options);
 	}
 
 	/**
@@ -73,48 +73,66 @@ export class BuilderUi {
 	 * @param [options.nullable]
 	 * @param [options.placeholder]
 	 * @param [options.withHeader]
+	 * @param [options.fnGetHeader]
 	 * @param [options.fnPostProcess]
+	 * @param [options.asMeta]
 	 * @param path
 	 * @return {*}
 	 */
-	static $getStateIptEntries (name, fnRender, state, options, ...path) {
+	static getStateIptEntries (name, fnRender, state, options, ...path) {
+		if (options.withHeader && options.fnGetHeader) throw new Error(`"withHeader" and "fnGetHeader" are mutually exclusive!`);
+
 		if (options.nullable == null) options.nullable = true;
 
 		let initialState = MiscUtil.get(state, ...path);
-		if (options.withHeader && initialState) initialState = initialState[0].entries;
+		if ((options.withHeader || options.fnGetHeader) && initialState) initialState = initialState[0].entries;
 
-		const $ipt = $(`<textarea class="form-control form-control--minimal resize-vertical" ${options.placeholder ? `placeholder="${options.placeholder}"` : ""}/>`)
-			.val(UiUtil.getEntriesAsText(initialState))
-			.change(() => {
-				const raw = $ipt.val();
-				let out = raw || !options.nullable ? UiUtil.getTextAsEntries(raw) : null;
+		const onChange = () => {
+			const raw = ipt.vee.val();
+			let out = raw || !options.nullable ? UiUtil.getTextAsEntries(raw) : null;
 
-				if (out && options.fnPostProcess) {
-					out = options.fnPostProcess(out);
-					$ipt.val(UiUtil.getEntriesAsText(out));
-				}
+			if (out && options.fnPostProcess) {
+				out = options.fnPostProcess(out);
+				ipt.vee.val(UiUtil.getEntriesAsText(out));
+			}
 
-				if (options.withHeader && out) {
-					out = [
-						{
-							type: "entries",
-							name: options.withHeader,
-							entries: out,
-						},
-					];
-				}
+			if (
+				(options.withHeader || options.fnGetHeader)
+				&& out
+			) {
+				const name = options.withHeader || options.fnGetHeader(state);
+				out = [
+					{
+						type: "entries",
+						name,
+						entries: out,
+					},
+				];
+			}
 
-				BuilderUi.__setProp(out, options, state, ...path);
-				fnRender();
-			});
-		return BuilderUi.__$getRow(name, $ipt, options);
+			BuilderUi.__setProp(out, options, state, ...path);
+			fnRender();
+		};
+
+		const ipt = veT`<textarea class="ve-form-control form-control--minimal ve-resize-vertical" ${options.placeholder ? `placeholder="${options.placeholder}"` : ""}/>`
+			.vee.val(UiUtil.getEntriesAsText(initialState))
+			.vee.onn("change", () => onChange());
+
+		const row = BuilderUi.__getRow(name, ipt, options);
+		if (options.asMeta) {
+			return {
+				row,
+				onChange,
+			};
+		}
+		return row;
 	}
 
-	static $getStateIptStringArray (name, fnRender, state, options, ...path) {
+	static getStateIptStringArray (name, fnRender, state, options, ...path) {
 		if (options.nullable == null) options.nullable = true;
 
-		const [$row, $rowInner] = BuilderUi.getLabelledRowTuple(name, {isMarked: true});
-		const initialState = this._$getStateIptStringArray_getInitialState(state, ...path);
+		const [row, rowInner] = BuilderUi.getLabelledRowTuple(name, {isMarked: true});
+		const initialState = this._getStateIptStringArray_getInitialState(state, ...path);
 		const stringRows = [];
 
 		const doUpdateState = () => {
@@ -123,61 +141,61 @@ export class BuilderUi {
 			fnRender();
 		};
 
-		const $wrpRows = $(`<div></div>`).appendTo($rowInner);
-		initialState.forEach(string => BuilderUi._$getStateIptStringArray_getRow(doUpdateState, stringRows, string).$wrp.appendTo($wrpRows));
+		const wrpRows = veT`<div></div>`.vee.appendTo(rowInner);
+		initialState.forEach(string => BuilderUi._getStateIptStringArray_getRow(doUpdateState, stringRows, string).wrp.vee.appendTo(wrpRows));
 
-		const $wrpBtnAdd = $(`<div></div>`).appendTo($rowInner);
-		$(`<button class="ve-btn ve-btn-xs ve-btn-default">Add ${options.shortName}</button>`)
-			.appendTo($wrpBtnAdd)
-			.click(() => {
-				BuilderUi._$getStateIptStringArray_getRow(doUpdateState, stringRows).$wrp.appendTo($wrpRows);
+		const wrpBtnAdd = veT`<div></div>`.vee.appendTo(rowInner);
+		veT`<button class="ve-btn ve-btn-xs ve-btn-default">Add ${options.shortName}</button>`
+			.vee.appendTo(wrpBtnAdd)
+			.vee.onn("click", () => {
+				BuilderUi._getStateIptStringArray_getRow(doUpdateState, stringRows).wrp.vee.appendTo(wrpRows);
 				doUpdateState();
 			});
 
-		return $row;
+		return row;
 	}
 
-	static _$getStateIptStringArray_getInitialState (state, ...path) {
+	static _getStateIptStringArray_getInitialState (state, ...path) {
 		const initialState = MiscUtil.get(state, ...path) || [];
 		if (initialState == null || initialState instanceof Array) return initialState;
 		// Tolerate/"migrate" single-string data, as this is a common change in data structures
 		if (typeof initialState === "string") return [initialState];
 	}
 
-	static _$getStateIptStringArray_getRow (doUpdateState, stringRows, initialString) {
-		const getState = () => $iptString.val().trim();
+	static _getStateIptStringArray_getRow (doUpdateState, stringRows, initialString) {
+		const getState = () => iptString.vee.val().trim();
 
-		const $iptString = $(`<input class="form-control form-control--minimal input-xs mr-2">`)
-			.change(() => doUpdateState());
-		if (initialString && initialString.trim()) $iptString.val(initialString);
+		const iptString = veT`<input class="ve-form-control form-control--minimal ve-input-xs ve-mr-2">`
+			.vee.onn("change", () => doUpdateState());
+		if (initialString && initialString.trim()) iptString.vee.val(initialString);
 
-		const $btnRemove = $(`<button class="ve-btn ve-btn-xs ve-btn-danger" title="Remove Row"><span class="glyphicon glyphicon-trash"></span></button>`)
-			.click(() => {
+		const btnRemove = veT`<button class="ve-btn ve-btn-xs ve-btn-danger" title="Remove Row"><span class="glyphicon glyphicon-trash"></span></button>`
+			.vee.onn("click", () => {
 				stringRows.splice(stringRows.indexOf(out), 1);
-				$wrp.empty().remove();
+				wrp.vee.empty().remove();
 				doUpdateState();
 			});
 
-		const $wrp = $$`<div class="ve-flex-v-center mb-2">${$iptString}${$btnRemove}</div>`;
-		const out = {$wrp, getState};
+		const wrp = veT`<div class="ve-flex-v-center ve-mb-2">${iptString}${btnRemove}</div>`;
+		const out = {wrp, getState};
 		stringRows.push(out);
 		return out;
 	}
 
-	static $getStateIptNumber (name, fnRender, state, options, ...path) {
+	static getStateIptNumber (name, fnRender, state, options, ...path) {
 		if (options.nullable == null) options.nullable = true;
 
 		const initialState = MiscUtil.get(state, ...path);
-		const $ipt = $(`<input class="form-control input-xs form-control--minimal" ${options.placeholder ? `placeholder="${options.placeholder}"` : ""}>`)
-			.val(initialState)
-			.change(() => {
+		const ipt = veT`<input class="ve-form-control ve-input-xs form-control--minimal" ${options.placeholder ? `placeholder="${options.placeholder}"` : ""}>`
+			.vee.val(initialState || null)
+			.vee.onn("change", () => {
 				const defaultVal = options.nullable ? null : 0;
-				const val = UiUtil.strToInt($ipt.val(), defaultVal, {fallbackOnNaN: defaultVal});
+				const val = UiUtil.strToInt(ipt.vee.val(), defaultVal, {fallbackOnNaN: defaultVal});
 				BuilderUi.__setProp(val, options, state, ...path);
-				$ipt.val(val);
+				ipt.vee.val(val);
 				fnRender();
 			});
-		return BuilderUi.__$getRow(name, $ipt, options);
+		return BuilderUi.__getRow(name, ipt, options);
 	}
 
 	/**
@@ -190,37 +208,37 @@ export class BuilderUi {
 	 * @param options.vals
 	 * @param path
 	 */
-	static $getStateIptEnum (name, fnRender, state, options, ...path) {
+	static getStateIptEnum (name, fnRender, state, options, ...path) {
 		if (options.nullable == null) options.nullable = true;
 
 		const initialState = MiscUtil.get(state, ...path);
-		const $sel = $(`<select class="form-control input-xs form-control--minimal">`);
-		if (options.nullable) $sel.append(`<option value="-1">(None)</option>`);
-		options.vals.forEach((v, i) => $(`<option>`).val(i).text(options.fnDisplay ? options.fnDisplay(v) : v).appendTo($sel));
-		const ixInitial = options.vals.indexOf(initialState);
-		$sel.val(ixInitial)
-			.change(() => {
-				const ixOut = Number($sel.val());
+		const sel = veT`<select class="ve-form-control ve-input-xs form-control--minimal">`;
+		if (options.nullable) sel.vee.appends(`<option value="-1">(None)</option>`);
+		options.vals.forEach((v, i) => sel.vee.appends(`<option value="${i}">${(options.fnDisplay ? options.fnDisplay(v) : v).qq()}</option>`));
+		const ixInitial = options.vals.indexOf(initialState || null);
+		sel.vee.val(`${ixInitial}`)
+			.vee.onn("change", () => {
+				const ixOut = Number(sel.vee.val());
 				const out = ~ixOut ? options.vals[ixOut] : null;
 				BuilderUi.__setProp(out, options, state, ...path);
 				fnRender();
 			});
-		return BuilderUi.__$getRow(name, $sel, options);
+		return BuilderUi.__getRow(name, sel, options);
 	}
 
-	static $getStateIptBoolean (name, fnRender, state, options, ...path) {
+	static getStateIptBoolean (name, fnRender, state, options, ...path) {
 		if (options.nullable == null) options.nullable = true;
 
 		const initialState = MiscUtil.get(state, ...path);
-		const $ipt = $(`<input class="mkbru__ipt-cb" type="checkbox">`)
-			.prop("checked", initialState)
-			.change(() => {
+		const ipt = veT`<input class="mkbru__ipt-cb" type="checkbox">`
+			.vee.prop("checked", !!initialState)
+			.vee.onn("change", () => {
 				// assumes false => null, unless not nullable
-				const raw = !!$ipt.prop("checked");
+				const raw = !!ipt.vee.prop("checked");
 				BuilderUi.__setProp(raw || !options.nullable ? raw : null, options, state, ...path);
 				fnRender();
 			});
-		return BuilderUi.__$getRow(name, $$`<div class="w-100 ve-flex-v-center">${$ipt}</div>`, {...options, eleType: "label"});
+		return BuilderUi.__getRow(name, veT`<div class="ve-w-100 ve-flex-v-center">${ipt}</div>`, {...options, eleType: "label"});
 	}
 
 	/**
@@ -234,44 +252,44 @@ export class BuilderUi {
 	 * @param path
 	 * @return {*}
 	 */
-	static $getStateIptBooleanArray (name, fnRender, state, options, ...path) {
+	static getStateIptBooleanArray (name, fnRender, state, options, ...path) {
 		if (options.nullable == null) options.nullable = true;
-		const [$row, $rowInner] = BuilderUi.getLabelledRowTuple(name, {isMarked: true});
+		const [row, rowInner] = BuilderUi.getLabelledRowTuple(name, {isMarked: true});
 
 		const initialState = MiscUtil.get(state, ...path) || [];
-		const $wrpIpts = $(`<div class="ve-flex-col w-100 mr-2"></div>`).appendTo($rowInner);
+		const wrpIpts = veT`<div class="ve-flex-col ve-w-100 ve-mr-2"></div>`.vee.appendTo(rowInner);
 		const inputs = [];
 		options.vals.forEach(val => {
-			const $cb = $(`<input class="mkbru__ipt-cb" type="checkbox">`)
-				.prop("checked", initialState.includes(val))
-				.change(() => {
+			const cb = veT`<input class="mkbru__ipt-cb" type="checkbox">`
+				.vee.prop("checked", initialState.includes(val))
+				.vee.onn("change", () => {
 					BuilderUi.__setProp(getState(), options, state, ...path);
 					fnRender();
 				});
-			inputs.push({$ipt: $cb, val});
-			$$`<label class="ve-flex-v-center split stripe-odd--faint"><span>${options.fnDisplay ? options.fnDisplay(val) : val}</span>${$cb}</label>`.appendTo($wrpIpts);
+			inputs.push({ipt: cb, val});
+			veT`<label class="ve-flex-v-center ve-split stripe-odd--faint"><span>${options.fnDisplay ? options.fnDisplay(val) : val}</span>${cb}</label>`.vee.appendTo(wrpIpts);
 		});
 
 		const getState = () => {
-			const raw = inputs.map(it => it.$ipt.prop("checked") ? it.val : false).filter(Boolean);
+			const raw = inputs.map(it => it.ipt.vee.prop("checked") ? it.val : false).filter(Boolean);
 			return raw.length || !options.nullable ? raw : null;
 		};
 
-		return $row;
+		return row;
 	}
 
 	/**
-	 * @param $ipt The input to sort.
+	 * @param ipt The input to sort.
 	 * @param cb Callback function.
 	 * @param sortOptions Sort order options.
 	 * @param sortOptions.bottom Regex patterns that, should a token match, that token should be sorted to the end. Warning: slow.
 	 */
-	static $getSplitCommasSortButton ($ipt, cb, sortOptions) {
+	static getSplitCommasSortButton (ipt, cb, sortOptions = null) {
 		sortOptions = sortOptions || {};
-		return $(`<button class="ve-btn ve-btn-xs ve-btn-default">Sort</button>`)
-			.click(() => {
-				const spl = $ipt.val().split(StrUtil.COMMAS_NOT_IN_PARENTHESES_REGEX);
-				$ipt.val(spl.sort((a, b) => {
+		return veT`<button class="ve-btn ve-btn-xs ve-btn-default">Sort</button>`
+			.vee.onn("click", () => {
+				const spl = ipt.vee.val().split(StrUtil.COMMAS_NOT_IN_PARENTHESES_REGEX);
+				ipt.vee.val(spl.sort((a, b) => {
 					if (sortOptions.bottom) {
 						const ixA = sortOptions.bottom.findIndex(re => {
 							const m = re.test(a);
@@ -294,9 +312,9 @@ export class BuilderUi {
 			});
 	}
 
-	static $getUpButton (cbUpdate, rows, myRow) {
-		return $(`<button class="ve-btn ve-btn-xs ve-btn-default mkbru__btn-up-row ml-2" title="Move Up"><span class="glyphicon glyphicon-arrow-up"></span></button>`)
-			.click(() => {
+	static getUpButton (cbUpdate, rows, myRow) {
+		return veT`<button class="ve-btn ve-btn-xs ve-btn-default mkbru__btn-up-row ve-ml-2" title="Move Up"><span class="glyphicon glyphicon-arrow-up"></span></button>`
+			.vee.onn("click", () => {
 				const ix = rows.indexOf(myRow);
 				const cache = rows[ix - 1];
 				rows[ix - 1] = myRow;
@@ -305,9 +323,9 @@ export class BuilderUi {
 			});
 	}
 
-	static $getDownButton (cbUpdate, rows, myRow) {
-		return $(`<button class="ve-btn ve-btn-xs ve-btn-default mkbru__btn-down-row ml-2" title="Move Down"><span class="glyphicon glyphicon-arrow-down"></span></button>`)
-			.click(() => {
+	static getDownButton (cbUpdate, rows, myRow) {
+		return veT`<button class="ve-btn ve-btn-xs ve-btn-default mkbru__btn-down-row ve-ml-2" title="Move Down"><span class="glyphicon glyphicon-arrow-down"></span></button>`
+			.vee.onn("click", () => {
 				const ix = rows.indexOf(myRow);
 				const cache = rows[ix + 1];
 				rows[ix + 1] = myRow;
@@ -317,42 +335,48 @@ export class BuilderUi {
 	}
 
 	// FIXME refactor this to use one of the variant in utils-ui
-	static $getDragPad (cbUpdate, rows, myRow, options) {
+	static getDragPad (cbUpdate, rows, myRow, options) {
 		const dragMeta = {};
 		const doDragCleanup = () => {
 			dragMeta.on = false;
-			dragMeta.$wrap.remove();
-			dragMeta.$dummies.forEach($d => $d.remove());
-			$(document.body).off(`mouseup.drag__stop`);
+			dragMeta.wrap.remove();
+			dragMeta.dummies.forEach(eleD => eleD.remove());
+			veE(document.body).vee.off(`mouseup`, dragMeta.onMouseup);
 		};
 
 		const doDragRender = () => {
 			if (dragMeta.on) doDragCleanup();
 
-			$(document.body).on(`mouseup.drag__stop`, () => {
+			const onMouseup = () => {
 				if (dragMeta.on) doDragCleanup();
-			});
+			};
+			dragMeta.onMouseup = onMouseup;
+
+			veE(document.body).vee.onn(`mouseup`, onMouseup);
 
 			dragMeta.on = true;
-			dragMeta.$wrap = $(`<div class="ve-flex-col ui-drag__wrp-drag-block"></div>`).appendTo(options.$wrpRowsOuter);
-			dragMeta.$dummies = [];
+			dragMeta.wrap = veT`<div class="ve-flex-col ve-ui-drag__wrp-drag-block"></div>`.vee.appendTo(options.wrpRowsOuter);
+			dragMeta.dummies = [];
 
 			const ixRow = rows.indexOf(myRow);
 
 			rows.forEach((row, i) => {
-				const dimensions = {w: row.$ele.outerWidth(true), h: row.$ele.outerHeight(true)};
-				const $dummy = $(`<div class="${i === ixRow ? "ui-drag__wrp-drag-dummy--highlight" : "ui-drag__wrp-drag-dummy--lowlight"}"></div>`)
-					.width(dimensions.w).height(dimensions.h)
-					.mouseup(() => {
+				const dimensions = {w: row.ele.vee.outerWidth(), h: row.ele.vee.outerHeight()};
+				const eleDummy = veT`<div class="${i === ixRow ? "ve-ui-drag__wrp-drag-dummy--highlight" : "ve-ui-drag__wrp-drag-dummy--lowlight"}"></div>`
+					.vee.css({
+						width: `${dimensions.w}px`,
+						height: `${dimensions.h}px`,
+					})
+					.vee.onn("mouseup", () => {
 						if (dragMeta.on) {
 							doDragCleanup();
 						}
 					})
-					.appendTo(dragMeta.$wrap);
-				dragMeta.$dummies.push($dummy);
+					.vee.appendTo(dragMeta.wrap);
+				dragMeta.dummies.push(eleDummy);
 
 				if (i !== ixRow) { // on entering other areas, swap positions
-					$dummy.mouseenter(() => {
+					eleDummy.vee.onn("mouseenter", () => {
 						const cache = rows[i];
 						rows[i] = myRow;
 						rows[ixRow] = cache;
@@ -366,15 +390,10 @@ export class BuilderUi {
 			});
 		};
 
-		return $(`<div class="ml-2 ui-drag__patch" title="Drag to Reorder">
-		<div class="ui-drag__patch-col"><div>&#8729</div><div>&#8729</div><div>&#8729</div></div>
-		<div class="ui-drag__patch-col"><div>&#8729</div><div>&#8729</div><div>&#8729</div></div>
-		</div>`).mousedown(() => doDragRender());
-	}
-}
-
-export class PageUiUtil {
-	static $getSideMenuDivider (heavy) {
-		return $(`<hr class="w-100 hr-2 sidemenu__row__divider ${heavy ? "sidemenu__row__divider--heavy" : ""}">`);
+		return veT`<div class="ve-ml-2 ve-ui-drag__patch" title="Drag to Reorder">
+			<div class="ve-ui-drag__patch-col"><div>&#8729</div><div>&#8729</div><div>&#8729</div></div>
+			<div class="ve-ui-drag__patch-col"><div>&#8729</div><div>&#8729</div><div>&#8729</div></div>
+		</div>`
+			.vee.onn("mousedown", () => doDragRender());
 	}
 }

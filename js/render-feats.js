@@ -20,6 +20,8 @@ class _RenderFeatsImplBase extends RenderPageImplBase {
 		return {
 			...super._getCommonHtmlParts({ent, renderer, opts}),
 
+			htmlPtRepeatable: this._getCommonHtmlParts_repeatable({ent}),
+
 			htmlPtEntries: this._getCommonHtmlParts_entries({ent, renderer}),
 		};
 	}
@@ -31,7 +33,14 @@ class _RenderFeatsImplBase extends RenderPageImplBase {
 			ent.category,
 			Renderer.utils.prerequisite.getHtml(ent.prerequisite, {styleHint: this._style}),
 		);
-		return ptCategoryPrerequisite ? `<tr><td colspan="6" class="pb-2 pt-0"><i>${ptCategoryPrerequisite}</i></td></tr>` : "";
+		return ptCategoryPrerequisite ? `<tr><td colspan="6" class="ve-pb-2 ve-pt-0"><i>${ptCategoryPrerequisite}</i></td></tr>` : "";
+	}
+
+	/* ----- */
+
+	_getCommonHtmlParts_repeatable ({ent}) {
+		const ptRepeatable = Renderer.utils.getRepeatableHtml(ent);
+		return ptRepeatable ? `<tr><td colspan="6">${ptRepeatable}</td></tr>` : "";
 	}
 
 	/* ----- */
@@ -51,45 +60,18 @@ class _RenderFeatsImplClassic extends _RenderFeatsImplBase {
 
 	/* -------------------------------------------- */
 
-	_getHtmlParts (
-		{
-			ent,
-			opts,
-			renderer,
-		},
-	) {
-		return {
-			htmlPtRepeatable: this._getCommonHtmlParts_repeatable({ent}),
-		};
-	}
-
-	/* ----- */
-
-	_getCommonHtmlParts_repeatable ({ent}) {
-		const ptRepeatable = Renderer.utils.getRepeatableHtml(ent);
-		return ptRepeatable ? `<tr><td colspan="6">${ptRepeatable}</td></tr>` : "";
-	}
-
-	/* -------------------------------------------- */
-
 	_getRendered ({ent, opts, renderer}) {
 		const {
 			htmlPtIsExcluded,
 			htmlPtName,
 
 			htmlPtPrerequisites,
+			htmlPtRepeatable,
 
 			htmlPtEntries,
 
 			htmlPtPage,
 		} = this._getCommonHtmlParts({
-			ent,
-			opts,
-			renderer,
-		});
-		const {
-			htmlPtRepeatable,
-		} = this._getHtmlParts({
 			ent,
 			opts,
 			renderer,
@@ -100,16 +82,16 @@ class _RenderFeatsImplClassic extends _RenderFeatsImplBase {
 
 			${htmlPtIsExcluded}
 			${htmlPtName}
-			
+
 			${htmlPtPrerequisites}
 			${htmlPtRepeatable}
-		
-			<tr><td colspan="6" class="py-0"><div class="ve-tbl-divider"></div></td></tr>
-			
+
+			<tr><td colspan="6" class="ve-py-0"><div class="ve-tbl-divider"></div></td></tr>
+
 			<tr><td colspan="6">
 				${htmlPtEntries}
 			</td></tr>
-			
+
 			${htmlPtPage}
 			${Renderer.utils.getBorderTr()}
 		`;
@@ -127,6 +109,7 @@ class _RenderFeatsImplOne extends _RenderFeatsImplBase {
 			htmlPtName,
 
 			htmlPtPrerequisites,
+			htmlPtRepeatable,
 
 			htmlPtEntries,
 
@@ -142,13 +125,14 @@ class _RenderFeatsImplOne extends _RenderFeatsImplBase {
 
 			${htmlPtIsExcluded}
 			${htmlPtName}
-			
+
 			${htmlPtPrerequisites}
-			
-			<tr class="text"><td colspan="6">
+			${htmlPtRepeatable}
+
+			<tr><td colspan="6">
 				${htmlPtEntries}
 			</td></tr>
-			
+
 			${htmlPtPage}
 			${Renderer.utils.getBorderTr()}
 		`;
@@ -159,11 +143,11 @@ export class RenderFeats {
 	static _RENDER_CLASSIC = new _RenderFeatsImplClassic();
 	static _RENDER_ONE = new _RenderFeatsImplOne();
 
-	static $getRenderedFeat (ent) {
+	static getRenderedFeat (ent) {
 		const styleHint = VetoolsConfig.get("styleSwitcher", "style");
 		switch (styleHint) {
-			case SITE_STYLE__CLASSIC: return this._RENDER_CLASSIC.$getRendered(ent);
-			case SITE_STYLE__ONE: return this._RENDER_ONE.$getRendered(ent);
+			case SITE_STYLE__CLASSIC: return this._RENDER_CLASSIC.getRendered(ent);
+			case SITE_STYLE__ONE: return this._RENDER_ONE.getRendered(ent);
 			default: throw new Error(`Unhandled style "${styleHint}"!`);
 		}
 	}

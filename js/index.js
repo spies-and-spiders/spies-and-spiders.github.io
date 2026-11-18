@@ -10,9 +10,12 @@ class IndexPage {
 	}
 
 	static _pOnLoad_initElements () {
-		$(`#current_year`).text((new Date()).getFullYear());
+		veEs(`#current_year`).vee.txt((new Date()).getFullYear());
 
-		$(`#version_number`).text(VERSION_NUMBER);
+		veEs(`#version_number`).vee.txt(VERSION_NUMBER);
+
+		veEm(`[data-link-type="better20"]`)
+			.forEach(lnk => lnk.vee.attr("href", `${lnk.vee.attr("href")}?v=${VERSION_NUMBER}_${Date.now()}`));
 
 		window.__cmp2 = () => {
 			alert("This only works on a live version of the site!");
@@ -28,6 +31,8 @@ class IndexPage {
 		await this._pOnLoad_pInitGeneric();
 		this._pOnLoad_initElements();
 		await this._pOnLoad_pAddHashChangeListener();
+
+		window.dispatchEvent(new Event("toolsLoaded"));
 	}
 
 	/* -------------------------------------------- */

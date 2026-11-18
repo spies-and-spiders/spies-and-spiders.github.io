@@ -10,15 +10,15 @@ export class MultiFilter extends FilterBase {
 		Object.assign(
 			this.__state,
 			{
-				...MultiFilter._DETAULT_STATE,
-				mode: opts.mode || MultiFilter._DETAULT_STATE.mode,
+				...MultiFilter._DEFAULT_STATE,
+				mode: opts.mode || MultiFilter._DEFAULT_STATE.mode,
 			},
 		);
 		this._defaultState = MiscUtil.copy(this.__state);
 		this._state = this._getProxy("state", this.__state);
 
-		this.__$wrpFilter = null;
-		this._$wrpChildren = null;
+		this.__wrpFilter = null;
+		this._wrpChildren = null;
 	}
 
 	getChildFilters () {
@@ -200,16 +200,16 @@ export class MultiFilter extends FilterBase {
 	}
 
 	_getHeaderControls (opts) {
-		const wrpSummary = e_({
+		const wrpSummary = veE({
 			tag: "div",
-			clazz: "fltr__summary_item",
-		}).hideVe();
+			clazz: "ve-fltr__summary_item",
+		}).vee.hide();
 
 		const btnForceMobile = this._isAddDropdownToggle ? ComponentUiUtil.getBtnBool(
 			this,
 			"isUseDropdowns",
 			{
-				$ele: $(`<button class="ve-btn ve-btn-default ve-btn-xs ml-2">Show as Dropdowns</button>`),
+				ele: veT`<button class="ve-btn ve-btn-default ve-btn-xs ve-ml-2">Show as Dropdowns</button>`,
 				stateName: "uiMeta",
 				stateProp: "_uiMeta",
 			},
@@ -223,26 +223,26 @@ export class MultiFilter extends FilterBase {
 		this._addHook("uiMeta", "isUseDropdowns", hkChildrenDropdowns);
 		hkChildrenDropdowns();
 
-		const btnResetAll = e_({
+		const btnResetAll = veE({
 			tag: "button",
-			clazz: "ve-btn ve-btn-default ve-btn-xs ml-2",
-			text: "Reset All",
+			clazz: "ve-btn ve-btn-default ve-btn-xs ve-ml-2",
+			txt: "Reset All",
 			click: () => this._filters.forEach(it => it.reset()),
 		});
 
-		const wrpBtns = e_({tag: "div", clazz: "ve-flex", children: [btnForceMobile, btnResetAll].filter(Boolean)});
+		const wrpBtns = veE({tag: "div", clazz: "ve-flex", children: [btnForceMobile, btnResetAll].filter(Boolean)});
 		this._getHeaderControls_addExtraStateBtns(opts, wrpBtns);
 
 		const btnShowHide = this._getBtnShowHide({isMulti: opts.isMulti});
-		const wrpControls = e_({
+		const wrpControls = veE({
 			tag: "div",
 			clazz: "ve-flex-v-center",
 			children: [
 				wrpSummary,
 				wrpBtns,
-				e_({
+				veE({
 					tag: "div",
-					clazz: "ve-btn-group ve-flex-v-center ml-2",
+					clazz: "ve-btn-group ve-flex-v-center ve-ml-2",
 					children: [
 						btnShowHide,
 						this._getBtnMenu({isMulti: opts.isMulti}),
@@ -252,17 +252,17 @@ export class MultiFilter extends FilterBase {
 		});
 
 		const hkIsHidden = () => {
-			wrpBtns.toggleVe(!this._uiMeta.isHidden);
-			btnShowHide.toggleClass("active", this._uiMeta.isHidden);
-			this._$wrpChildren.toggleVe(!this._uiMeta.isHidden);
-			wrpSummary.toggleVe(this._uiMeta.isHidden);
+			wrpBtns.vee.toggle(!this._uiMeta.isHidden);
+			btnShowHide.vee.toggleClass("ve-active", this._uiMeta.isHidden);
+			this._wrpChildren.vee.toggle(!this._uiMeta.isHidden);
+			wrpSummary.vee.toggle(this._uiMeta.isHidden);
 
 			// Skip updating renders if results would be invisible
 			if (!this._uiMeta.isHidden) return;
 
 			const numActive = this._filters.map(it => it.getValues()[it.header]._isActive).filter(Boolean).length;
 			if (numActive) {
-				e_({ele: wrpSummary, title: `${numActive} hidden active filter${numActive === 1 ? "" : "s"}`, text: `(${numActive})`});
+				veE({ele: wrpSummary, title: `${numActive} hidden active filter${numActive === 1 ? "" : "s"}`, txt: `(${numActive})`});
 			}
 		};
 		this._addHook("uiMeta", "isHidden", hkIsHidden);
@@ -274,39 +274,39 @@ export class MultiFilter extends FilterBase {
 
 	_getHeaderControls_addExtraStateBtns (opts, wrpStateBtnsOuter) {}
 
-	$render (opts) {
-		const btnAndOr = e_({
-			tag: "div",
-			clazz: `fltr__group-comb-toggle ve-muted`,
+	render (opts) {
+		const btnAndOr = veE({
+			tag: "button",
+			clazz: `ve-btn ve-btn-default ve-btn-xxs ve-italic ve-w-70p`,
 			click: () => this._state.mode = this._state.mode === "and" ? "or" : "and",
 			contextmenu: () => this._state.mode = this._state.mode === "and" ? "or" : "and",
 			title: `"Group AND" requires all filters in this group to match. "Group OR" required any filter in this group to match.`,
 		});
 
-		const hookAndOr = () => btnAndOr.innerText = `(group ${this._state.mode.toUpperCase()})`;
+		const hookAndOr = () => btnAndOr.innerText = `Group ${this._state.mode.toUpperCase()}`;
 		this._addHook("state", "mode", hookAndOr);
 		hookAndOr();
 
-		const $children = this._filters.map((it, i) => it.$render({...opts, isMulti: true, isFirst: i === 0}));
-		this._$wrpChildren = $$`<div>${$children}</div>`;
+		const children = this._filters.map((it, i) => it.render({...opts, isMulti: true, isFirst: i === 0}));
+		this._wrpChildren = veT`<div>${children}</div>`;
 
 		const wrpControls = this._getHeaderControls(opts);
 
-		return this.__$wrpFilter = $$`<div class="ve-flex-col">
-			${opts.isFirst ? "" : `<div class="fltr__dropdown-divider mb-1"></div>`}
-			<div class="split fltr__h fltr__h--multi ${this._minimalUi ? "fltr__minimal-hide" : ""} mb-1">
+		return this.__wrpFilter = veT`<div class="ve-flex-col">
+			${opts.isFirst ? "" : `<div class="ve-fltr__dropdown-divider ve-mb-1"></div>`}
+			<div class="ve-split ve-fltr__h ve-fltr__h--multi ${this._minimalUi ? "ve-fltr__minimal-hide" : ""} ve-mb-1">
 				<div class="ve-flex-v-center">
-					<div class="mr-2">${this._getRenderedHeader()}</div>
+					<div class="ve-mr-2">${this._getRenderedHeader()}</div>
 					${btnAndOr}
 				</div>
 				${wrpControls}
 			</div>
-			${this._$wrpChildren}
+			${this._wrpChildren}
 		</div>`;
 	}
 
-	$renderMinis (opts) {
-		this._filters.map((it, i) => it.$renderMinis({...opts, isMulti: true, isFirst: i === 0}));
+	renderMinis (opts) {
+		this._filters.map((it, i) => it.renderMinis({...opts, isMulti: true, isFirst: i === 0}));
 	}
 
 	/**
@@ -374,18 +374,18 @@ export class MultiFilter extends FilterBase {
 	addItem () { throw new Error(`Cannot add item to MultiFilter! Add the item to a child filter instead.`); }
 
 	handleSearch (searchTerm) {
-		const isHeaderMatch = this.header.toLowerCase().includes(searchTerm);
+		const isHeaderMatch = this._getHeaderDisplayName().toLowerCase().includes(searchTerm);
 
 		if (isHeaderMatch) {
-			if (this.__$wrpFilter) this.__$wrpFilter.toggleClass("fltr__hidden--search", false);
+			if (this.__wrpFilter) this.__wrpFilter.vee.toggleClass("ve-fltr__hidden--search", false);
 			// Force-display the children if the parent is visible
 			this._filters.forEach(it => it.handleSearch(""));
 			return true;
 		}
 
 		const numVisible = this._filters.map(it => it.handleSearch(searchTerm)).reduce((a, b) => a + b, 0);
-		if (!this.__$wrpFilter) return;
-		this.__$wrpFilter.toggleClass("fltr__hidden--search", numVisible === 0);
+		if (!this.__wrpFilter) return;
+		this.__wrpFilter.vee.toggleClass("ve-fltr__hidden--search", numVisible === 0);
 	}
 
 	getDefaultMeta () {
@@ -405,7 +405,7 @@ export class MultiFilter extends FilterBase {
 	doTeardown () { this._filters.forEach(it => it.doTeardown()); }
 	trimState_ () { this._filters.forEach(it => it.trimState_()); }
 }
-MultiFilter._DETAULT_STATE = {
+MultiFilter._DEFAULT_STATE = {
 	mode: "and",
 };
 MultiFilter._DEFAULT_UI_META = {

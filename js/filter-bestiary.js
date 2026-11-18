@@ -17,13 +17,8 @@ class PageFilterBestiary extends PageFilterBase {
 	// region static
 	static sortMonsters (a, b, o) {
 		if (o.sortBy === "count") return SortUtil.ascSort(a.data.count, b.data.count) || SortUtil.compareListNames(a, b);
-		switch (o.sortBy) {
-			case "name": return SortUtil.compareListNames(a, b);
-			case "type": return SortUtil.ascSort(a.values.type, b.values.type) || SortUtil.compareListNames(a, b);
-			case "source": return SortUtil.ascSort(a.values.source, b.values.source) || SortUtil.compareListNames(a, b);
-			case "cr": return SortUtil.ascSortCr(a.values.cr, b.values.cr) || SortUtil.compareListNames(a, b);
-			case "page": return SortUtil.ascSort(a.values.page, b.values.page) || SortUtil.compareListNames(a, b);
-		}
+		if (o.sortBy === "cr") return SortUtil.ascSortCr(a.values.cr, b.values.cr) || SortUtil.compareListNames(a, b);
+		return SortUtil.listSort(a, b, o);
 	}
 
 	static ascSortMiscFilter (a, b) {
@@ -58,8 +53,30 @@ class PageFilterBestiary extends PageFilterBase {
 	static _getConditionDisplayText (uid) { return uid.split("|")[0].toTitleCase(); }
 	// endregion
 
+	/* -------------------------------------------- */
+
+	// (Exposed for Plutonium use)
+	_getMiscFilterDeselFn () {
+		return (it) => ["Adventure NPC", "Reprinted"].includes(it);
+	}
+
+	_getMiscFilter () {
+		return new Filter({
+			header: "Miscellaneous",
+			items: ["Familiar", ...Object.keys(Parser.MON_MISC_TAG_TO_FULL), "Bonus Actions", "Lair Actions", "Legendary", "Mythic", "Adventure NPC", "Spellcaster", ...Object.values(Parser.ATB_ABV_TO_FULL).map(it => `${PageFilterBestiary.MISC_FILTER_SPELLCASTER}${it}`), "Regional Effects", "Reactions", "Reprinted", "Swarm", "Has Variants", "Modified Copy", "Has Alternate Token", "Has Info", "Has Images", "Has Token", "Has Recharge", "Legacy", "AC from Item(s)", "AC from Natural Armor", "AC from Unarmored Defense", "Summoned by Spell", "Summoned by Class", "Reduced Threat", "Has Gear", "Has Equipment"],
+			displayFn: (it) => Parser.monMiscTagToFull(it).uppercaseFirst(),
+			deselFn: this._getMiscFilterDeselFn(),
+			itemSortFn: PageFilterBestiary.ascSortMiscFilter,
+			isMiscFilter: true,
+		});
+	}
+
+	/* -------------------------------------------- */
+
 	constructor (opts) {
 		super(opts);
+
+		const styleHint = VetoolsConfig.get("styleSwitcher", "style");
 
 		this._crFilter = new RangeFilter({
 			header: "Challenge Rating",
@@ -84,6 +101,16 @@ class PageFilterBestiary extends PageFilterBase {
 		});
 		this._speedFilter = new RangeFilter({header: "Speed", min: 30, max: 30, suffix: " ft"});
 		this._speedTypeFilter = new Filter({header: "Speed Type", items: [...Parser.SPEED_MODES, "hover"], displayFn: StrUtil.uppercaseFirst});
+		this._speedFilterWalk = new RangeFilter({header: "Walk", min: 30, max: 30, suffix: " ft"});
+		this._speedFilterBurrow = new RangeFilter({header: "Burrow", min: 30, max: 30, suffix: " ft"});
+		this._speedFilterClimb = new RangeFilter({header: "Climb", min: 30, max: 30, suffix: " ft"});
+		this._speedFilterFly = new RangeFilter({header: "Fly", min: 30, max: 30, suffix: " ft"});
+		this._speedFilterSwim = new RangeFilter({header: "Swim", min: 30, max: 30, suffix: " ft"});
+		this._speedsFilter = new MultiFilter({
+			header: "Speeds",
+			filters: [this._speedFilterWalk, this._speedFilterBurrow, this._speedFilterClimb, this._speedFilterFly, this._speedFilterSwim],
+			isAddDropdownToggle: true,
+		});
 		this._strengthFilter = new RangeFilter({header: "Strength", min: 1, max: 30});
 		this._dexterityFilter = new RangeFilter({header: "Dexterity", min: 1, max: 30});
 		this._constitutionFilter = new RangeFilter({header: "Constitution", min: 1, max: 30});
@@ -108,14 +135,14 @@ class PageFilterBestiary extends PageFilterBase {
 		this._typeFilter = new Filter({
 			header: "Type",
 			items: [...Parser.MON_TYPES],
-			displayFn: StrUtil.toTitleCase,
+			displayFn: StrUtil.toTitleCase.bind(StrUtil),
 			itemSortFn: SortUtil.ascSortLower,
 		});
-		this._tagFilter = new Filter({header: "Tag", displayFn: StrUtil.toTitleCase});
+		this._tagFilter = new Filter({header: "Tag", displayFn: StrUtil.toTitleCase.bind(StrUtil)});
 		this._sidekickTypeFilter = new Filter({
 			header: "Sidekick Type",
 			items: ["expert", "spellcaster", "warrior"],
-			displayFn: StrUtil.toTitleCase,
+			displayFn: StrUtil.toTitleCase.bind(StrUtil),
 			itemSortFn: SortUtil.ascSortLower,
 		});
 		this._sidekickTagFilter = new Filter({header: "Sidekick Tag", displayFn: StrUtil.toTitleCase});
@@ -177,8 +204,9 @@ class PageFilterBestiary extends PageFilterBase {
 		});
 		this._environmentFilter = new Filter({
 			header: "Environment",
-			items: ["arctic", "coastal", "desert", "forest", "grassland", "hill", "mountain", "none", "swamp", "underdark", "underwater", "urban"],
-			displayFn: StrUtil.uppercaseFirst,
+			headerDisplayName: styleHint === "classic" ? "Environment" : "Habitat",
+			items: [...Parser.ENVIRONMENTS],
+			displayFn: Parser.getEnvironmentDisplayName,
 		});
 		this._vulnerableFilter = FilterCommon.getDamageVulnerableFilter();
 		this._resistFilter = FilterCommon.getDamageResistFilter();
@@ -188,7 +216,7 @@ class PageFilterBestiary extends PageFilterBase {
 		this._traitFilter = new Filter({
 			header: "Traits",
 			items: [
-				"Aggressive", "Ambusher", "Amorphous", "Amphibious", "Antimagic Susceptibility", "Brute", "Charge", "Damage Absorption", "Death Burst", "Devil's Sight", "False Appearance", "Fey Ancestry", "Flyby", "Hold Breath", "Illumination", "Immutable Form", "Incorporeal Movement", "Keen Senses", "Legendary Resistances", "Light Sensitivity", "Magic Resistance", "Magic Weapons", "Pack Tactics", "Pounce", "Rampage", "Reckless", "Regeneration", "Rejuvenation", "Shapechanger", "Siege Monster", "Sneak Attack", "Spider Climb", "Sunlight Sensitivity", "Tunneler", "Turn Immunity", "Turn Resistance", "Undead Fortitude", "Water Breathing", "Web Sense", "Web Walker",
+				"Aggressive", "Ambusher", "Amorphous", "Amphibious", "Antimagic Susceptibility", "Brute", "Charge", "Damage Absorption", "Death Burst", "Devil's Sight", "False Appearance", "Fey Ancestry", "Flyby", "Hold Breath", "Illumination", "Immutable Form", "Incorporeal Movement", "Keen Senses", "Legendary Resistances", "Light Sensitivity", "Magic Resistance", "Magic Weapons", "Pack Tactics", "Pounce", "Rampage", "Reckless", "Regeneration", "Rejuvenation", "Shapechanger", "Siege Monster", "Sneak Attack", "Spider Climb", "Sunlight Sensitivity", "Sure-Footed", "Tunneler", "Turn Immunity", "Turn Resistance", "Undead Fortitude", "Water Breathing", "Web Sense", "Web Walker",
 			],
 		});
 		this._actionReactionFilter = new Filter({
@@ -224,7 +252,10 @@ class PageFilterBestiary extends PageFilterBase {
 	static mutateForFilters (mon) {
 		Renderer.monster.initParsed(mon);
 
+		this._mutateForFilters_commonSources(mon);
+
 		this._mutateForFilters_speed(mon);
+		this._mutateForFilters_environment(mon);
 
 		const _fDef = (arr, key) => { const vals = (arr || []).map(it => it.special ? null : (it[key] != null ? it[key] : it)).filter(it => it !== null); return vals.length ? vals : null; };
 		mon._fArm = _fDef(mon.arm, "arm");
@@ -238,8 +269,7 @@ class PageFilterBestiary extends PageFilterBase {
 		mon._fImm = mon.immune ? PageFilterBestiary.getAllImmRest(mon.immune, "immune") : [];
 		mon._fCondImm = mon.conditionImmune ? PageFilterBestiary.getAllImmRest(mon.conditionImmune, "conditionImmune") : [];
 		mon._fSkill = mon.skill ? Object.keys(mon.skill) : [];
-		mon._fSources = SourceFilter.getCompleteFilterSources(mon);
-		mon._fPassive = !isNaN(mon.passive) ? Number(mon.passive) : null;
+		mon._fPassive = typeof mon.passive === "number" ? mon.passive : null;
 
 		Parser.ABIL_ABVS
 			.forEach(ab => {
@@ -260,24 +290,22 @@ class PageFilterBestiary extends PageFilterBase {
 			}
 		}
 		if (mon.isNpc) mon._fMisc.push("Adventure NPC");
+		if (mon.isNamedCreature) mon._fMisc.push("Named Creature");
 		const legGroup = DataUtil.monster.getLegendaryGroup(mon);
 		if (legGroup) {
 			if (legGroup.lairActions) mon._fMisc.push("Lair Actions");
 			if (legGroup.regionalEffects) mon._fMisc.push("Regional Effects");
 		}
-		if (mon.reaction) mon._fMisc.push("Reactions");
-		if (mon.bonus) mon._fMisc.push("Bonus Actions");
 		if (mon.variant) mon._fMisc.push("Has Variants");
-		if (mon._isCopy) mon._fMisc.push("Modified Copy");
 		if (mon.altArt) mon._fMisc.push("Has Alternate Token");
 		if (Renderer.monster.hasToken(mon)) mon._fMisc.push("Has Token");
-		if (mon.mythic) mon._fMisc.push("Mythic");
 		if (this._hasFluff(mon)) mon._fMisc.push("Has Info");
 		if (this._hasFluffImages(mon)) mon._fMisc.push("Has Images");
 		if (this._hasRecharge(mon)) mon._fMisc.push("Has Recharge");
-		if (mon._versionBase_isVersion) mon._fMisc.push("Is Variant");
 		if (mon.summonedBySpell) mon._fMisc.push("Summoned by Spell");
 		if (mon.summonedByClass) mon._fMisc.push("Summoned by Class");
+		if (mon._copy_templates?.some(({name, source}) => name === "Reduced Threat" && source === Parser.SRC_SNS)) mon._fMisc.push("Reduced Threat");
+		if (mon.gear?.length) mon._fMisc.push("Has Gear");
 
 		const spellcasterMeta = this._getSpellcasterMeta(mon);
 		if (spellcasterMeta) {
@@ -292,7 +320,15 @@ class PageFilterBestiary extends PageFilterBase {
 		mon._fMajorEffectCount = mon.majorEffect?.length ?? 0;
 	}
 
+	static _F_SPEED_PROP_MAPPING = Object.fromEntries(Parser.SPEED_MODES.map(prop => [prop, `_fSpeed${prop.uppercaseFirst()}`]));
+
 	static _mutateForFilters_speed (mon) {
+		mon._fSpeedWalk = null;
+		mon._fSpeedBurrow = null;
+		mon._fSpeedClimb = null;
+		mon._fSpeedFly = null;
+		mon._fSpeedSwim = null;
+
 		if (mon.speed == null) {
 			mon._fSpeedType = [];
 			mon._fSpeed = null;
@@ -302,19 +338,37 @@ class PageFilterBestiary extends PageFilterBase {
 		if (typeof mon.speed === "number" && mon.speed > 0) {
 			mon._fSpeedType = ["walk"];
 			mon._fSpeed = mon.speed;
+			mon._fSpeedWalk = mon.speed;
 			return;
 		}
 
-		mon._fSpeedType = Object.keys(mon.speed).filter(k => mon.speed[k]);
-		if (mon._fSpeedType.length) mon._fSpeed = mon._fSpeedType.map(k => mon.speed[k].number || mon.speed[k]).filter(it => !isNaN(it)).sort((a, b) => SortUtil.ascSort(b, a))[0];
-		else mon._fSpeed = 0;
+		let maxSpeed = 0;
+		mon._fSpeedType = Parser.SPEED_MODES
+			.filter(prop => {
+				const v = mon.speed[prop];
+				if (!v) return false;
+				const num = v.number || v;
+				if (typeof num !== "number") return false;
+				maxSpeed = Math.max(maxSpeed, num);
+				mon[this._F_SPEED_PROP_MAPPING[prop]] = num;
+				return true;
+			});
+
+		mon._fSpeed = maxSpeed;
+
 		if (mon.speed.canHover) mon._fSpeedType.push("hover");
+	}
+
+	static _mutateForFilters_environment (mon) {
+		if (!mon.environment) return mon._fEnvironment = ["none"];
+		mon._fEnvironment = mon.environment
+			.flatMap(env => Parser.getExpandedEnvironments(env));
 	}
 
 	/* -------------------------------------------- */
 
 	static _getInitWalker () {
-		return PageFilterBestiary._WALKER = PageFilterBestiary._WALKER || MiscUtil.getWalker({isNoModification: true});
+		return PageFilterBestiary._WALKER ||= MiscUtil.getWalker({isNoModification: true});
 	}
 
 	/* -------------------------------------------- */
@@ -354,8 +408,18 @@ class PageFilterBestiary extends PageFilterBase {
 
 	/* -------------------------------------------- */
 
+	static _RECHARGE_ENTRY_PROPS = [
+		"trait",
+		"action",
+		"bonus",
+		"reaction",
+		"legendary",
+		"mythic",
+	];
+
 	static _hasRecharge (mon) {
-		for (const prop of PageFilterBestiary._BASIC_ENTRY_PROPS) {
+		if (mon.spellcasting?.some(ent => ent.recharge)) return true;
+		for (const prop of PageFilterBestiary._RECHARGE_ENTRY_PROPS) {
 			if (!mon[prop]) continue;
 			for (const ent of mon[prop]) {
 				if (!ent?.name) continue;
@@ -367,13 +431,17 @@ class PageFilterBestiary extends PageFilterBase {
 
 	/* -------------------------------------------- */
 
+	// TODO(ESM) switch to using `UtilsEntityCreature.getEquipmentUids`
 	static _getEquipmentList (mon) {
 		if (mon.gear) {
 			return mon.gear
-				.map(ref => (ref.item || ref).toLowerCase());
+				.map(ref => DataUtil.proxy.unpackUid("item", ref.item || ref, "item", {isLower: true}).name);
 		}
 
-		const itemSet = new Set(mon.attachedItems || []);
+		const itemSet = new Set(
+			(mon.attachedItems || [])
+				.map(ref => DataUtil.proxy.unpackUid("item", ref.item || ref, "item", {isLower: true}).name),
+		);
 
 		const walker = this._getInitWalker();
 
@@ -383,7 +451,7 @@ class PageFilterBestiary extends PageFilterBase {
 		}
 
 		for (const trait of (mon.trait || [])) {
-			if (!trait.name.toLowerCase().startsWith("special equipment")) continue;
+			if (!trait.name?.toLowerCase().startsWith("special equipment")) continue;
 			walker.walk(
 				trait.entries,
 				{
@@ -399,8 +467,7 @@ class PageFilterBestiary extends PageFilterBase {
 	static _getEquipmentList_stringHandler (itemSet, str) {
 		str
 			.replace(PageFilterBestiary._RE_ITEM_TAG, (...m) => {
-				const unpacked = DataUtil.proxy.unpackUid("item", m[1], "item", {isLower: true});
-				itemSet.add(DataUtil.proxy.getUid("item", unpacked));
+				itemSet.add(DataUtil.proxy.unpackUid("item", m[1], "item", {isLower: true}).name);
 				return "";
 			});
 	}
@@ -412,6 +479,7 @@ class PageFilterBestiary extends PageFilterBase {
 
 		this._sourceFilter.addItem(mon._fSources);
 		this._crFilter.addItem(mon._fCr);
+		this._typeFilter.addItem(mon._pTypes.types);
 		this._strengthFilter.addItem(mon._fStr);
 		this._dexterityFilter.addItem(mon._fDex);
 		this._constitutionFilter.addItem(mon._fCon);
@@ -438,7 +506,6 @@ class PageFilterBestiary extends PageFilterBase {
 		this._spellSlotLevelFilter.addItem(mon._fSpellSlotLevels);
 		this._spellKnownFilter.addItem(mon._fSpellsKnown);
 		this._equipmentFilter.addItem(mon._fEquipment);
-		if (mon._versionBase_isVersion) this._miscFilter.addItem("Is Variant");
 		this._miscFilter.addItem(mon._fMisc);
 		this._majorEffectCountFilter.addItem(mon._fMajorEffectCount);
 		this._damageTypeFilterBase.addItem(mon.damageTags);
@@ -559,22 +626,23 @@ class ModalFilterBestiary extends ModalFilterBase {
 			modalTitle: `Creature${opts.isRadio ? "" : "s"}`,
 			pageFilter: new PageFilterBestiary(),
 			fnSort: PageFilterBestiary.sortMonsters,
+			previewButtonHandler: new ListUiPreviewButtonHandlerStatsFluff({page: UrlUtil.PG_BESTIARY}),
 		});
 	}
 
-	_$getColumnHeaders () {
+	_getColumnHeaders () {
 		const btnMeta = [
 			{sort: "name", text: "Name", width: "4"},
 			{sort: "type", text: "Type", width: "4"},
 			{sort: "cr", text: "CR", width: "2"},
 			{sort: "source", text: "Source", width: "1"},
 		];
-		return ModalFilterBase._$getFilterColumnHeaders(btnMeta);
+		return ModalFilterBase._getFilterColumnHeaders(btnMeta);
 	}
 
 	async _pLoadAllData () {
 		return [
-			...(await DataUtil.monster.pLoadAll()),
+			...(await DataLoader.pCacheAndGetAllSite(UrlUtil.PG_BESTIARY)),
 			...((await PrereleaseUtil.pGetBrewProcessed()).monster || []),
 			...((await BrewUtil2.pGetBrewProcessed()).monster || []),
 		];
@@ -585,46 +653,48 @@ class ModalFilterBestiary extends ModalFilterBase {
 		pageFilter.mutateAndAddToFilters(mon);
 
 		const eleRow = document.createElement("div");
-		eleRow.className = "px-0 w-100 ve-flex-col no-shrink";
+		eleRow.className = "ve-px-0 ve-w-100 ve-flex-col ve-no-shrink";
 
 		const hash = UrlUtil.URL_TO_HASH_BUILDER[UrlUtil.PG_BESTIARY](mon);
 		const source = Parser.sourceJsonToAbv(mon.source);
-		const type = mon._pTypes.asText;
+		const type = mon._pTypes.asTextShort;
 		const cr = mon._pCr;
 
-		eleRow.innerHTML = `<div class="w-100 ve-flex-vh-center lst__row-border veapp__list-row no-select lst__wrp-cells">
-			<div class="ve-col-0-5 pl-0 ve-flex-vh-center">${this._isRadio ? `<input type="radio" name="radio" class="no-events">` : `<input type="checkbox" class="no-events">`}</div>
+		eleRow.innerHTML = `<div class="ve-w-100 ve-flex-vh-center ve-lst__row-border veapp__list-row ve-no-select ve-lst__wrp-cells">
+			<div class="ve-col-0-5 ve-pl-0 ve-flex-vh-center">${this._isRadio ? `<input type="radio" name="radio" class="ve-no-events">` : `<input type="checkbox" class="ve-no-events">`}</div>
 
-			<div class="ve-col-0-5 px-1 ve-flex-vh-center">
-				<div class="ui-list__btn-inline px-2 no-select" title="Toggle Preview (SHIFT to Toggle Info Preview)">[+]</div>
+			<div class="ve-col-0-5 ve-px-1 ve-flex-vh-center">
+				<div class="ve-ui-list__btn-inline ve-px-2 ve-no-select" title="Toggle Preview (SHIFT to Toggle Info Preview)">[+]</div>
 			</div>
 
-			<div class="ve-col-4 px-1 ${mon._versionBase_isVersion ? "italic" : ""} ${this._getNameStyle()}">${mon._versionBase_isVersion ? `<span class="px-3"></span>` : ""}${mon.name}</div>
-			<div class="ve-col-4 px-1">${type}</div>
-			<div class="ve-col-2 px-1 ve-text-center">${cr}</div>
-			<div class="ve-col-1 ve-flex-h-center ${Parser.sourceJsonToSourceClassname(mon.source)} pl-1 pr-0" title="${Parser.sourceJsonToFull(mon.source)}" ${Parser.sourceJsonToStyle(mon.source)}>${source}${Parser.sourceJsonToMarkerHtml(mon.source)}</div>
+			<div class="ve-col-4 ve-px-1 ${mon._versionBase_isVersion ? "ve-italic" : ""} ${this._getNameStyle()}">${mon._versionBase_isVersion ? `<span class="ve-px-3"></span>` : ""}${mon.name}</div>
+			<div class="ve-col-4 ve-px-1">${type}</div>
+			<div class="ve-col-2 ve-px-1 ve-text-center">${cr}</div>
+			<div class="ve-col-1 ve-flex-h-center ${Parser.sourceJsonToSourceClassname(mon.source)} ve-pl-1 ve-pr-0" title="${Parser.sourceJsonToFull(mon.source)}">${source}${Parser.sourceJsonToMarkerHtml(mon.source, {isList: true})}</div>
 		</div>`;
 
 		const btnShowHidePreview = eleRow.firstElementChild.children[1].firstElementChild;
 
-		const listItem = new ListItem(
-			itI,
-			eleRow,
-			mon.name,
-			{
-				hash,
+		const listItem = new ListItem({
+			id: itI,
+			ele: eleRow,
+			name: mon.name,
+			values: {
 				source,
 				sourceJson: mon.source,
+				...ListItem.getCommonValues(mon),
 				type,
 				cr,
 			},
-			{
+			data: {
+				hash,
+				page: mon.page,
 				cbSel: eleRow.firstElementChild.firstElementChild.firstElementChild,
 				btnShowHidePreview,
 			},
-		);
+		});
 
-		ListUiUtil.bindPreviewButton(UrlUtil.PG_BESTIARY, this._allData, listItem, btnShowHidePreview);
+		this._previewButtonHandler.bindPreviewButton({entity: mon, listItem, btnShowHidePreview});
 
 		return listItem;
 	}

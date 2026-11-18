@@ -294,3 +294,5 @@ class ListSyntaxManeuvers extends ListUiUtil.ListSyntax {
 }
 
 globalThis.ListSyntaxManeuvers = ListSyntaxManeuvers;
+
+globalThis.PageFilterManeuvers = PageFilterManeuvers;

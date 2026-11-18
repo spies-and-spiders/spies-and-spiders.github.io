@@ -62,26 +62,33 @@ class PageFilterClassesBase extends PageFilterBase {
 		cls.source = cls.source || Parser.SRC_SNS;
 		cls.subclasses = cls.subclasses || [];
 
-		cls._fSources = SourceFilter.getCompleteFilterSources(cls);
-
-		cls._fSourceSubclass = [
-			...new Set([
-				cls.source,
-				...cls.subclasses.map(it => [it.source, ...(it.otherSources || []).map(it => it.source)]).flat(),
-			]),
-		];
-
-		cls._fPrimaryAbility = this._mutateForFilters_getFilterPrimaryAbility(cls);
-
-		this._mutateForFilters_commonMisc(cls);
-		if (cls.isSidekick) cls._fMisc.push("Sidekick");
-
 		cls.subclasses.forEach(sc => {
 			sc.source = sc.source || cls.source; // default subclasses to same source as parent
 			sc.shortName = sc.shortName || sc.name; // ensure shortName
 
 			this._mutateForFilters_commonMisc(sc);
+
+			// Retain subclasses when blue-misc-filtering classes
+			if (cls.isHero) sc._fMisc.push("Hero Class");
+			if (this.isReskin(cls) && !sc._fMisc.includes("Reskin")) sc._fMisc.push("Reskin");
+
+			this._mutateForFilters_commonSources(sc);
 		});
+
+		this._mutateForFilters_commonMisc(cls);
+		this._mutateForFilters_commonSources(cls);
+
+		cls._fSourceSubclass = [
+			...new Set([
+				cls.source,
+				...cls.subclasses.map(it => it._fSources).flat(),
+			]),
+		];
+
+		cls._fPrimaryAbility = this._mutateForFilters_getFilterPrimaryAbility(cls);
+
+		if (cls.isSidekick) cls._fMisc.push("Sidekick");
+		if (cls.isHero) cls._fMisc.push("Hero Class");
 	}
 
 	_addEntrySourcesToFilter (entry) { this._addEntrySourcesToFilter_walk(entry); }
@@ -110,7 +117,7 @@ class PageFilterClassesBase extends PageFilterBase {
 		// region Sources
 		// Note that we assume that, for fluff from a given source, a class/subclass will exist from that source.
 		//   This allows us to skip loading the class/subclass fluff in order to track the fluff's sources.
-		this._sourceFilter.addItem(cls.source);
+		this._sourceFilter.addItem(cls._fSources);
 		this._miscFilter.addItem(cls._fMisc);
 
 		cls.classFeatures.forEach(lvlFeatures => lvlFeatures.forEach(feature => this._addEntrySourcesToFilter(feature)));
@@ -118,7 +125,7 @@ class PageFilterClassesBase extends PageFilterBase {
 		cls.subclasses.forEach(sc => {
 			const isScExcluded = (subclassExclusions[sc.source] || {})[sc.name] || false;
 			if (!isScExcluded) {
-				this._sourceFilter.addItem(sc.source);
+				this._sourceFilter.addItem(sc._fSources);
 				this._miscFilter.addItem(sc._fMisc);
 				sc.subclassFeatures.forEach(lvlFeatures => lvlFeatures.forEach(feature => this._addEntrySourcesToFilter(feature)));
 			}
@@ -151,37 +158,32 @@ class PageFilterClassesBase extends PageFilterBase {
 			.some(sc => this.isSubclassVisible(f, cls, sc));
 	}
 
-	isSubclassVisible (f, cls, sc) {
-		if (
-			this._filterBox.toDisplayByFilters(
-				f,
-				{
-					filter: this._sourceFilter,
-					value: sc.source,
-				},
-				{
-					filter: this._miscFilter,
-					value: sc._fMisc,
-				},
-			)
-		) return true;
+	_getSubclassFilterToValueTuples (sc) {
+		return [
+			{
+				filter: this._sourceFilter,
+				value: sc._fSources,
+			},
+			{
+				filter: this._miscFilter,
+				value: sc._fMisc,
+			},
+		];
+	}
 
-		if (!sc.otherSources?.length) return false;
-
-		return sc.otherSources
-			.some(src => {
-				return this._filterBox.toDisplayByFilters(
-					f,
-					{
-						filter: this._sourceFilter,
-						value: src,
-					},
-					{
-						filter: this._miscFilter,
-						value: sc._fMisc,
-					},
-				);
+	doSetSubclassesVisible (subclasses) {
+		subclasses
+			.forEach(sc => {
+				this._getSubclassFilterToValueTuples(sc)
+					.forEach(({filter, value}) => filter.setPillsToDisplay([value]));
 			});
+	}
+
+	isSubclassVisible (f, cls, sc) {
+		return this._filterBox.toDisplayByFilters(
+			f,
+			...this._getSubclassFilterToValueTuples(sc),
+		);
 	}
 
 	/** Return the first active source we find; use this as a fake source for things we want to force-display. */
@@ -202,7 +204,7 @@ class PageFilterClassesBase extends PageFilterBase {
 		return [
 			this.isAnySubclassDisplayed(values, cls)
 				? cls._fSourceSubclass
-				: (cls._fSources ?? cls.source),
+				: cls._fSources,
 			cls._fPrimaryAbility,
 			cls._fMisc,
 			null, // Options filter
@@ -269,7 +271,7 @@ class PageFilterClasses extends PageFilterClassesBase {
 		return [
 			this.isAnySubclassDisplayed(values, cls)
 				? cls._fSourceSubclass
-				: (cls._fSources ?? cls.source),
+				: cls._fSources,
 			cls._fPrimaryAbility,
 			cls._fMisc,
 			cls._fLevelRange,

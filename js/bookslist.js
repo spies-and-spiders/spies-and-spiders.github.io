@@ -1,6 +1,23 @@
-"use strict";
+import {UtilBookUtil} from "./bookutils/bookutils-utils.js";
 
-class AdventuresBooksList {
+export class AdventuresBooksList {
+	static _getHeaderText ({header}) {
+		return header.header || header;
+	}
+
+	static _getScrollHash ({bookSource, header, headerText, headerCounts}) {
+		if (header.statblock) {
+			return `${VeCt.HASH_PREFIX_STATS_SCROLLER}${UtilBookUtil.getStatblockHash({header, bookSource})}`;
+		}
+
+		const headerTextClean = headerText.toLowerCase().trim();
+		const headerPos = headerCounts[headerTextClean] || 0;
+		headerCounts[headerTextClean] = headerPos + 1;
+		const headerIndex = header.index ?? headerPos;
+
+		return `${UrlUtil.encodeForHash(headerText)}${headerIndex > 0 ? `,${headerIndex}` : ""}`;
+	}
+
 	static _getDateStr (advBook) {
 		if (!advBook.published) return "\u2014";
 		const date = new Date(advBook.published);
@@ -19,8 +36,8 @@ class AdventuresBooksList {
 	}
 
 	static _sortAdventuresBooks (dataList, a, b, o) {
-		a = dataList[a.ix];
-		b = dataList[b.ix];
+		a = dataList[a.getId()];
+		b = dataList[b.getId()];
 
 		if (o.sortBy === "name") return this._sortAdventuresBooks_byName(a, b, o);
 		if (o.sortBy === "storyline") return this._sortAdventuresBooks_orFallback(SortUtil.ascSort, "storyline", a, b, o);
@@ -58,7 +75,7 @@ class AdventuresBooksList {
 		this._dataList = [];
 	}
 
-	async pOnPageLoad () {
+	async pOnPageLoad ({handleBrew}) {
 		await Promise.all([
 			PrereleaseUtil.pInit(),
 			BrewUtil2.pInit(),
@@ -69,34 +86,34 @@ class AdventuresBooksList {
 			await ExcludeUtil.pInitialise(),
 		]);
 
-		const $iptSearch = $(`#search`);
+		const iptSearch = veEs(`#search`);
 
 		const fnSort = (a, b, o) => this._fnSort(this._dataList, a, b, o);
 		this._list = new List({
-			$wrpList: $(".books"),
-			$iptSearch,
+			wrpList: veEs(".books"),
+			iptSearch,
 			fnSort,
 			sortByInitial: this._sortByInitial,
 			sortDirInitial: this._sortDirInitial,
-			isUseJquery: true,
 		});
-		SortUtil.initBtnSortHandlers($(`#filtertools`), this._list);
+		SortUtil.initBtnSortHandlers(veEs(`#filtertools`), this._list);
 
-		const $wrpBookshelf = $(".books--alt");
+		const wrpBookshelf = veEs(".books--alt");
 		this._listAlt = new List({
-			$wrpList: $wrpBookshelf,
-			$iptSearch,
+			wrpList: wrpBookshelf,
+			iptSearch,
 			fnSort,
 			sortByInitial: this._sortByInitial,
 			sortDirInitial: this._sortDirInitial,
 		});
 
-		$("#reset").click(() => {
+		veEs("#reset").vee.onn("click", () => {
 			this._list.reset();
 			this._listAlt.reset();
+			iptSearch.vee.val("");
 
 			this._list.items.forEach(li => {
-				if (li.data.$btnToggleExpand.text() === "[\u2212]") li.data.$btnToggleExpand.click();
+				if (li.data.btnToggleExpand.vee.txt() === "[\u2212]") li.data.btnToggleExpand.vee.trigger("click");
 			});
 		});
 
@@ -106,12 +123,12 @@ class AdventuresBooksList {
 		// TODO(MODULES) refactor
 		import("./utils-brew/utils-brew-ui-manage.js")
 			.then(({ManageBrewUi}) => {
-				ManageBrewUi.bindBtngroupManager(e_({id: "btngroup-manager"}));
+				ManageBrewUi.bindBtngroupManager(veE({id: "btngroup-manager"}));
 			});
 		this._list.init();
 		this._listAlt.init();
 
-		if (ExcludeUtil.isAllContentExcluded(this._dataList)) $wrpBookshelf.append(ExcludeUtil.getAllContentBlocklistedHtml());
+		if (ExcludeUtil.isAllContentExcluded(this._dataList)) wrpBookshelf.vee.appends(ExcludeUtil.getAllContentBlocklistedHtml());
 
 		window.dispatchEvent(new Event("toolsLoaded"));
 	}
@@ -125,79 +142,91 @@ class AdventuresBooksList {
 			const it = this._dataList[this._dataIx];
 			if (this._enhanceRowDataFn) this._enhanceRowDataFn(it);
 
-			const isExcluded = ExcludeUtil.isExcluded(UrlUtil.URL_TO_HASH_BUILDER[this._rootPage](it), this._dataProp, it.source);
+			const isExcluded = ExcludeUtil.isExcluded(UrlUtil.URL_TO_HASH_BUILDER[this._rootPage](it), this._dataProp, it.source)
+				|| (
+					it.parentSource
+						? ExcludeUtil.isExcluded(UrlUtil.URL_TO_HASH_BUILDER[this._rootPage](it), this._dataProp, it.parentSource)
+						: false
+				);
 
-			const $elesContents = [];
+			const elesContents = [];
 			it.contents.map((chapter, ixChapter) => {
-				const $lnkChapter = $$`<a href="${this._rootPage}#${UrlUtil.encodeForHash(it.id)},${ixChapter}" class="ve-flex w-100 bklist__row-chapter lst__row-border lst__row-inner lst__row lst__wrp-cells bold">
+				const lnkChapter = veT`<a href="${this._rootPage}#${UrlUtil.encodeForHash(it.id)},${ixChapter}" class="ve-flex ve-w-100 bklist__row-chapter ve-lst__row-border ve-lst__row-inner ve-lst__row ve-lst__wrp-cells ve-bold">
 					${Parser.bookOrdinalToAbv(chapter.ordinal)}${chapter.name}
 				</a>`;
-				$elesContents.push($lnkChapter);
+				elesContents.push(lnkChapter);
 
 				if (!chapter.headers) return;
 
 				const headerCounts = {};
 
 				chapter.headers.forEach(header => {
-					const headerText = BookUtil.getHeaderText(header);
+					const headerText = this.constructor._getHeaderText({header});
+					const headerHash = this.constructor._getScrollHash({bookSource: it.source, header, headerText, headerCounts});
 
-					const headerTextClean = headerText.toLowerCase().trim();
-					const headerPos = headerCounts[headerTextClean] || 0;
-					headerCounts[headerTextClean] = (headerCounts[headerTextClean] || 0) + 1;
-					const $lnk = $$`<a href="${this._rootPage}#${UrlUtil.encodeForHash(it.id)},${ixChapter},${UrlUtil.encodeForHash(headerText)}${header.index ? `,${header.index}` : ""}${headerPos > 0 ? `,${headerPos}` : ""}" class="lst__row lst__row-border lst__row-inner lst__wrp-cells bklist__row-section ve-flex w-100">
-						${BookUtil.getContentsSectionHeader(header)}
+					const lnk = veT`<a href="${this._rootPage}#${UrlUtil.encodeForHash(it.id)},${ixChapter},${headerHash}" class="ve-lst__row ve-lst__row-border ve-lst__row-inner ve-lst__wrp-cells bklist__row-section ve-flex ve-w-100">
+						${BookUtil._getContentsSectionHeader(header)}
 					</a>`;
-					$elesContents.push($lnk);
+					elesContents.push(lnk);
 				});
 			});
 
-			const $wrpContents = $$`<div class="ve-flex w-100 relative">
-				<div class="vr-0 absolute bklist__vr-contents"></div>
-				<div class="ve-flex-col w-100 bklist__wrp-rows-inner">${$elesContents}</div>
-			</div>`.hideVe();
+			const wrpContents = veT`<div class="ve-flex ve-w-100 ve-relative">
+				<div class="ve-vr-0 ve-absolute bklist__vr-contents"></div>
+				<div class="ve-flex-col ve-w-100 bklist__wrp-rows-inner">${elesContents}</div>
+			</div>`.vee.hide();
 
-			const $btnToggleExpand = $(`<span class="px-2 py-1p bold mobile__hidden no-select">[+]</span>`)
-				.click(evt => {
+			const btnToggleExpand = veT`<span class="ve-px-2 ve-py-1p ve-bold ve-mobile-sm__hidden ve-no-select">[+]</span>`
+				.vee.onn("click", evt => {
 					evt.stopPropagation();
 					evt.preventDefault();
-					$btnToggleExpand.text($btnToggleExpand.text() === "[+]" ? "[\u2212]" : "[+]");
-					$wrpContents.toggleVe();
+					btnToggleExpand.vee.txt(btnToggleExpand.vee.txt() === "[+]" ? "[\u2212]" : "[+]");
+					wrpContents.vee.toggle();
 				});
 
-			const $eleLi = $$`<div class="ve-flex-col w-100">
-				<a href="${this._rootPage}#${UrlUtil.encodeForHash(it.id)}" class="split-v-center lst__row-border lst__row-inner lst__row ${isExcluded ? `lst__row--blocklisted` : ""}">
-					<span class="w-100 ve-flex">${this._rowBuilderFn(it)}</span>
-					${$btnToggleExpand}
+			const eleLi = veT`<div class="ve-flex-col ve-w-100">
+				<a href="${this._rootPage}#${UrlUtil.encodeForHash(it.id)}" class="ve-split-v-center ve-lst__row-border ve-lst__row-inner ve-lst__row ${isExcluded ? `ve-lst__row--blocklisted` : ""}">
+					<span class="ve-w-100 ve-flex">${this._rowBuilderFn(it)}</span>
+					${btnToggleExpand}
 				</a>
-				${$wrpContents}
+				${wrpContents}
 			</div>`;
 
-			const listItem = new ListItem(
-				this._dataIx,
-				$eleLi,
-				it.name,
-				{
-					source: Parser.sourceJsonToAbv(it.source),
-					alias: (it.alias || []).map(it => `"${it}"`).join(","),
+			const listItemValues = {
+				source: Parser.sourceJsonToAbv(it.source),
+				...ListItem.getCommonValues(it, {isCorpus: true}),
+				storyline: it.storyline || "",
+			};
+
+			const listItem = new ListItem({
+				id: this._dataIx,
+				ele: eleLi,
+				name: it.name,
+				values: listItemValues,
+				data: {
+					btnToggleExpand,
 				},
-				{
-					$btnToggleExpand,
-				},
-			);
+			});
 
 			this._list.addItem(listItem);
 
+			const ptTitle = [
+				it.coverCredit ? `Credit: ${it.coverCredit.qq()}` : null,
+			]
+				.filter(Boolean)
+				.join(". ");
+
 			// region Alt list (covers/thumbnails)
-			const eleLiAlt = $(`<a href="${this._rootPage}#${UrlUtil.encodeForHash(it.id)}" class="ve-flex-col ve-flex-v-center m-3 bks__wrp-bookshelf-item ${isExcluded ? `bks__wrp-bookshelf-item--blocklisted` : ""} py-3 px-2 ${Parser.sourceJsonToSourceClassname(it.source)}" ${Parser.sourceJsonToStyle(it.source)}>
-				<img src="${Renderer.adventureBook.getCoverUrl(it)}" class="mb-2 bks__bookshelf-image" loading="lazy" alt="Cover Image: ${(it.name || "").qq()}">
+			const eleLiAlt = veT`<a href="${this._rootPage}#${UrlUtil.encodeForHash(it.id)}" class="ve-flex-col ve-flex-v-center ve-m-3 bks__wrp-bookshelf-item ${isExcluded ? `bks__wrp-bookshelf-item--blocklisted` : ""} ve-py-3 ve-px-2 ${Parser.sourceJsonToSourceClassname(it.source)}" ${ptTitle ? `title="${ptTitle}"` : ""}>
+				<img src="${Renderer.adventureBook.getCoverUrl(it)}" class="ve-mb-2 bks__bookshelf-image" loading="lazy" alt="Cover Image: ${(it.name || "").qq()}">
 				<div class="bks__bookshelf-item-name ve-flex-vh-center ve-text-center">${it.name}</div>
-			</a>`)[0];
-			const listItemAlt = new ListItem(
-				this._dataIx,
-				eleLiAlt,
-				it.name,
-				{source: it.source},
-			);
+			</a>`;
+			const listItemAlt = new ListItem({
+				id: this._dataIx,
+				ele: eleLiAlt,
+				name: it.name,
+				values: listItemValues,
+			});
 			this._listAlt.addItem(listItemAlt);
 			// endregion
 		}

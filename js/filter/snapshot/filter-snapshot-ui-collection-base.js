@@ -1,6 +1,6 @@
 export class FilterSnapshotBaseSelectClickHandler extends RenderableCollectionSelectClickHandler {
 	_setHighlighted (item, {toVal = false} = {}) {
-		item.stgHeader.toggleClass("list-multi-selected", toVal);
+		item.stgHeader.vee.toggleClass("list-multi-selected", toVal);
 	}
 }
 
@@ -11,13 +11,12 @@ export class RenderableCollectionFilterSnapshotBase extends RenderableCollection
 			filterBox,
 			comp,
 			prop,
-			$wrpRows,
+			wrpRows,
 			selectClickHandler,
 		},
 	) {
-		super(comp, prop, $wrpRows);
+		super(comp, prop, wrpRows, {selectClickHandler});
 		this._filterBox = filterBox;
-		this._selectClickHandler = selectClickHandler;
 	}
 
 	/* -------------------------------------------- */
@@ -34,43 +33,26 @@ export class RenderableCollectionFilterSnapshotBase extends RenderableCollection
 
 	/* -------------------------------------------- */
 
-	getNewRender (entity, i) {
-		const rendered = super.getNewRender(entity, i);
-
-		const [wrpRow] = rendered.$wrpRow;
-		e_({ele: wrpRow})
-			.onn("click", evt => this._selectClickHandler.handleSelectClick(rendered, evt, {isPassThroughEvents: true}));
-
-		rendered.wrpCbSel
-			.onn("mousedown", evt => {
-				evt.preventDefault();
-				evt.stopPropagation();
-			})
-		;
-
-		return rendered;
-	}
-
 	_getWrpRow () {
-		return ee`<div class="ve-flex-col w-100"></div>`;
+		return veT`<div class="ve-flex-col ve-w-100"></div>`;
 	}
 
 	/* -------------------------------------------- */
 
 	static _getCbSel () {
-		return ee`<input type="checkbox" class="no-events">`;
+		return veT`<input type="checkbox" class="ve-no-events">`;
 	}
 
 	static _getBtnToggleExpand (comp, {isSibling = false} = {}) {
-		const btnExpand = ee`<div class="py-1 ve-flex-vh-center h-100 clickable no-select${isSibling ? ` mr-1 px-2` : ` w-100`}"></div>`
-			.onn("click", evt => {
+		const btnExpand = veT`<div class="ve-py-1 ve-flex-vh-center ve-h-100 ve-clickable ve-no-select ${isSibling ? `ve-mr-1 ve-px-2` : `ve-w-100`}"></div>`
+			.vee.onn("click", evt => {
 				evt.stopPropagation();
 				comp._state.manager_loader_isExpanded = !comp._state.manager_loader_isExpanded;
 			});
 		comp._addHookBase("manager_loader_isExpanded", () => {
 			btnExpand
-				.txt(comp._state.manager_loader_isExpanded ? `[\u2013]` : `[+]`)
-				.tooltip(comp._state.manager_loader_isExpanded ? "Collapse" : "Expand");
+				.vee.txt(comp._state.manager_loader_isExpanded ? `[\u2212]` : `[+]`)
+				.vee.tooltip(comp._state.manager_loader_isExpanded ? "Collapse" : "Expand");
 		})();
 		return btnExpand;
 	}
@@ -126,7 +108,7 @@ export class RenderableCollectionFilterSnapshotBase extends RenderableCollection
 			[
 				...ptsFilter,
 				filtersDefault.length
-					? `<span class="ve-text-right w-140p no-shrink mr-2 bold ve-muted">Default:</span><span class="ve-muted">${filtersDefault.join(" | ")}</span>`
+					? `<span class="ve-text-right ve-w-140p ve-no-shrink ve-mr-2 ve-bold ve-muted">Default:</span><span class="ve-muted">${filtersDefault.join(" | ")}</span>`
 					: null,
 			],
 		);
@@ -135,7 +117,7 @@ export class RenderableCollectionFilterSnapshotBase extends RenderableCollection
 	_getPreviewStateDisplayState_getJoined (pts) {
 		return pts
 			.filter(Boolean)
-			.map((pt, i, arr) => `<div class="ve-flex-v-center ${arr.length - 1 === i ? "" : "mb-1"}">${pt}</div>`)
+			.map((pt, i, arr) => `<div class="ve-flex-v-center ${arr.length - 1 === i ? "" : "ve-mb-1"}">${pt}</div>`)
 			.join("\n");
 	}
 

@@ -1,4 +1,5 @@
 import {ConverterConst} from "./converterutils-const.js";
+import {SITE_STYLE__CLASSIC} from "../consts.js";
 
 class DamageTagger {
 	static _addDamageTypeToSet (set, str, options) {
@@ -14,10 +15,14 @@ export class DamageInflictTagger extends DamageTagger {
 	static tryRun (sp, options) {
 		const tags = new Set();
 
-		JSON.stringify([sp.entries, sp.entriesHigherLevel]).replace(/(?:{@damage [^}]+}|\d+) (\w+)((?:, \w+)*)(,? or \w+)? damage/ig, (...m) => {
-			if (m[1]) this._addDamageTypeToSet(tags, m[1], options);
-			if (m[2]) m[2].split(",").map(it => it.trim()).filter(Boolean).forEach(str => this._addDamageTypeToSet(tags, str, options));
-			if (m[3]) this._addDamageTypeToSet(tags, m[3].split(" ").last(), options);
+		MiscUtil.getWalker({isNoModification: true, keyBlocklist: MiscUtil.GENERIC_WALKER_ENTRIES_KEY_BLOCKLIST}).walk([sp.entries, sp.entriesHigherLevel], {
+			string: str => {
+				str.replace(/(?:{@damage [^}]+}|\d+) (\w+)((?:, \w+)*)(,? or \w+)? damage/ig, (...m) => {
+					if (m[1]) this._addDamageTypeToSet(tags, m[1], options);
+					if (m[2]) m[2].split(",").map(it => it.trim()).filter(Boolean).forEach(str => this._addDamageTypeToSet(tags, str, options));
+					if (m[3]) this._addDamageTypeToSet(tags, m[3].split(" ").last(), options);
+				});
+			},
 		});
 
 		if (!tags.size) return;
@@ -27,17 +32,21 @@ export class DamageInflictTagger extends DamageTagger {
 
 class DamageResVulnImmuneTagger extends DamageTagger {
 	static get _RE () {
-		return (this.__RE ||= new RegExp(`${this._TYPE} to (?<ptBase>\\w+)(?<ptList>(?:, \\w+)*)(?<ptConj>,? or \\w+)? damage`, "gi"));
+		return (this.__RE ||= new RegExp(`${this._TYPE} to (?<ptBase>\\w+)(?<ptList>(?:, \\w+)*)(?<ptConj>,? (?:or|and) \\w+)? damage`, "gi"));
 	}
 
 	static tryRun (sp, options) {
 		const tags = new Set();
 
-		JSON.stringify([sp.entries, sp.entriesHigherLevel]).replace(this._RE, (...m) => {
-			const {ptBase, ptList, ptConj} = m.last();
-			if (ptBase) this._addDamageTypeToSet(tags, ptBase, options);
-			if (ptList) ptList.split(",").map(it => it.trim()).filter(Boolean).forEach(str => this._addDamageTypeToSet(tags, str, options));
-			if (ptConj) this._addDamageTypeToSet(tags, ptConj.split(" ").last(), options);
+		MiscUtil.getWalker({isNoModification: true, keyBlocklist: MiscUtil.GENERIC_WALKER_ENTRIES_KEY_BLOCKLIST}).walk([sp.entries, sp.entriesHigherLevel], {
+			string: str => {
+				Renderer.stripTags(str).replace(this._RE, (...m) => {
+					const {ptBase, ptList, ptConj} = m.last();
+					if (ptBase) this._addDamageTypeToSet(tags, ptBase, options);
+					if (ptList) ptList.split(",").map(it => it.trim()).filter(Boolean).forEach(str => this._addDamageTypeToSet(tags, str, options));
+					if (ptConj) this._addDamageTypeToSet(tags, ptConj.split(" ").last(), options);
+				});
+			},
 		});
 
 		if (!tags.size) return;
@@ -95,8 +104,27 @@ export class MiscTagsTagger {
 		tags.add(tag);
 	}
 
-	static _mutTags_SGT ({tags, str, options}) {
-		if (/you can see/ig.test(str)) this._addTag({tags, tag: "SGT", options});
+	static _mutTags_SGT ({tags, str, stripped, options}) {
+		if (/you can see/ig.test(stripped)) this._addTag({tags, tag: "SGT", options});
+	}
+
+	static _mutTags_BO ({tags, stripped, options}) {
+		if (/\bobjects?\b[^.!?]*\bstarts? (?:burning|to burn)\b/i.test(stripped)) return this._addTag({tags, tag: "BO", options});
+
+		if (/\bignites?[^.!?]*\bflammable objects?\b/i.test(stripped)) return this._addTag({tags, tag: "BO", options});
+		if (/\bflammable objects?[^.!?]*\bignites?\b/i.test(stripped)) return this._addTag({tags, tag: "BO", options});
+
+		if (/\b(?:you|embers?)\b[^.!?]*\blight\b[^.!?]*\b(?:candles?|torches?|lamps?|campfires?)\b/i.test(stripped)) return this._addTag({tags, tag: "BO", options});
+	}
+
+	static _mutTags_WLT ({tags, stripped, options}) {
+		if (new RegExp(`\\bwilling (?:creature|${Parser.MON_TYPES_STANDARD.join("|")})s?\\b|\\bcreatures? (?:[^.!?]+ )?that (?:is|are) willing\\b`, "i").test(stripped)) this._addTag({tags, tag: "WLT", options});
+	}
+
+	static _mutTags_ALT ({tags, stripped, options}) {
+		if (/(?<!\bto )\byou and your allies\b/i.test(stripped)) return this._addTag({tags, tag: "ALT", options});
+		if (/\b(?:friendly|nonhostile) creatures?\b/i.test(stripped)) return this._addTag({tags, tag: "ALT", options});
+		if (new RegExp(`\\b(?:creature|${Parser.MON_TYPES_STANDARD.join("|")})s? (?:you touch )?that (?:is|are) friendly to you\\b(?! are fighting)`, "i").test(stripped)) return this._addTag({tags, tag: "ALT", options});
 	}
 
 	static tryRun (sp, options) {
@@ -109,48 +137,61 @@ export class MiscTagsTagger {
 				string: (str) => {
 					const stripped = Renderer.stripTags(str);
 
-					if (/becomes permanent/ig.test(str)) this._addTag({tags, tag: "PRM", options});
-					if (/when you reach/ig.test(str)) this._addTag({tags, tag: "SCL", options});
-					if ((/regain|restore/ig.test(str) && /hit point/ig.test(str)) || /heal/ig.test(str)) this._addTag({tags, tag: "HL", options});
-					if (/temporary hit points/ig.test(str)) this._addTag({tags, tag: "THP", options});
-					if (/you summon/ig.test(str) || /creature shares your initiative count/ig.test(str)) this._addTag({tags, tag: "SMN", options});
-					this._mutTags_SGT({tags, str, options});
-					if (/you (?:can then )?teleport/i.test(str) || /instantly (?:transports you|teleport)/i.test(str) || /enters(?:[^.]+)portal instantly/i.test(str) || /entering the portal exits from the other portal/i.test(str)) this._addTag({tags, tag: "TP", options});
+					if (/becomes permanent/ig.test(stripped)) this._addTag({tags, tag: "PRM", options});
+					if (/when you reach/ig.test(stripped)) this._addTag({tags, tag: "SCL", options});
+					if ((/regain|restore/ig.test(stripped) && /hit point/ig.test(stripped)) || /heal/ig.test(stripped)) this._addTag({tags, tag: "HL", options});
+					if (/temporary hit points/ig.test(stripped)) this._addTag({tags, tag: "THP", options});
+					if (/you summon/ig.test(stripped) || /creature shares your initiative count/ig.test(stripped)) this._addTag({tags, tag: "SMN", options});
+					this._mutTags_SGT({tags, str, stripped, options});
+					this._mutTags_BO({tags, stripped, options});
+					this._mutTags_WLT({tags, stripped, options});
+					this._mutTags_ALT({tags, stripped, options});
+					if (/you (?:can then )?teleport/i.test(stripped) || /instantly (?:transports you|teleport)/i.test(stripped) || /enters(?:[^.]+)portal instantly/i.test(stripped) || /entering the portal exits from the other portal/i.test(stripped)) this._addTag({tags, tag: "TP", options});
 
-					if (/(?:^|\W)(?:pull(?:|ed|s)|push(?:|ed|s)) [^.!?:]*\d+\s+(?:ft|feet|foot|mile|square)/ig.test(str)) this._addTag({tags, tag: "FMV", options});
+					if ((stripped.includes("bonus") || stripped.includes("penalty")) && stripped.includes("AC")) this._addTag({tags, tag: "MAC", options});
+					if (/target's (?:base )?AC becomes/.exec(stripped)) this._addTag({tags, tag: "MAC", options});
+					if (/target's AC can't be less than/.exec(stripped)) this._addTag({tags, tag: "MAC", options});
+
+					if (/(?:^|\W)(?:pull(?:|ed|s)|push(?:|ed|s)) [^.!?:]*\d+\s+(?:ft|feet|foot|mile|square)/ig.test(stripped)) this._addTag({tags, tag: "FMV", options});
 
 					if (/rolls? (?:a )?{@dice [^}]+} and consults? the table/.test(str)) this._addTag({tags, tag: "RO", options});
 
-					if ((/\bbright light\b/i.test(str) || /\bdim light\b/i.test(str)) && /\b\d+[- ]foot[- ]radius\b/i.test(str)) {
-						if (/\bsunlight\b/.test(str)) this._addTag({tags, tag: "LGTS", options});
+					if ((/\bbright light\b/i.test(stripped) || /\bdim light\b/i.test(stripped)) && /\b\d+[- ]foot(?:[- ]radius| emanation)\b/i.test(stripped)) {
+						if (/\bsunlight\b/.test(stripped)) this._addTag({tags, tag: "LGTS", options});
 						else this._addTag({tags, tag: "LGT", options});
 					}
 
-					if (/\bbonus action\b/i.test(str)) this._addTag({tags, tag: "UBA", options});
-
-					if (/\b(?:lightly|heavily) obscured\b/i.test(str)) this._addTag({tags, tag: "OBS", options});
-
-					if (/\b(?:is|creates an area of|becomes?) difficult terrain\b/i.test(Renderer.stripTags(str)) || /spends? \d+ (?:feet|foot) of movement for every 1 foot/.test(str)) this._addTag({tags, tag: "DFT", options});
+					if (/\bbonus action\b/i.test(stripped)) this._addTag({tags, tag: "UBA", options});
+					if (/\b(use your action|you (?:can )?take a [^.!?]+ action|as a [^.!?]+ action,? you|as an action,? you|you can dismiss this (spell|effect) as an action|as your action)\b/i.test(stripped)) this._addTag({tags, tag: "UA", options});
 
 					if (
-						/\battacks? deals? an extra\b[^.!?]+\bdamage\b/.test(str)
-						|| /\bdeals? an extra\b[^.!?]+\bdamage\b[^.!?]+\b(?:weapon attack|when it hits)\b/.test(str)
-						|| /weapon attacks?\b[^.!?]+\b(?:takes an extra|deal an extra)\b[^.!?]+\bdamage/.test(str)
+						/\b(?:lightly|heavily) obscured\b/i.test(stripped)
+						|| /\bmagical darkness spreads\b/i.test(stripped)
+						|| /\bdarkness fills the area\b/i.test(stripped)
+						|| /\bno light(?:[^.]+)can illuminate the area\b/i.test(stripped)
+					) this._addTag({tags, tag: "OBS", options});
+
+					if (/\b(?:is|creates an area of|becomes?|into) difficult terrain\b/i.test(Renderer.stripTags(stripped)) || /spends? \d+ (?:feet|foot) of movement for every 1 foot/.test(stripped)) this._addTag({tags, tag: "DFT", options});
+
+					if (
+						/\battacks? deals? an extra\b[^.!?]+\bdamage\b/.test(stripped)
+						|| /\bdeals? an extra\b[^.!?]+\bdamage\b[^.!?]+\b(?:weapon attack|when it hits)\b/.test(stripped)
+						|| /weapon attacks?\b[^.!?]+\b(?:takes an extra|deal an extra)\b[^.!?]+\bdamage/.test(stripped)
 					) this._addTag({tags, tag: "AAD", options});
 
 					if (
-						/\b(?:any|one|a) creatures? or objects?\b/i.test(str)
-						|| /\b(?:flammable|nonmagical|metal|unsecured) objects?\b/.test(str)
-						|| /\bobjects?\b[^.!?]+\b(?:created by magic|(?:that )?you touch|that is neither held nor carried)\b/.test(str)
-						|| /\bobject\b[^.!?]+\bthat isn't being worn or carried\b/.test(str)
-						|| /\bobjects? (?:of your choice|that is familiar to you|of (?:Tiny|Small|Medium|Large|Huge|Gargantuan) size)\b/.test(str)
-						|| /\b(?:Tiny|Small|Medium|Large|Huge|Gargantuan) or smaller object\b/.test(str)
-						|| /\baffected by this spell, the object is\b/.test(str)
-						|| /\ball creatures and objects\b/i.test(str)
-						|| /\ba(?:ny|n)? (?:(?:willing|visible|affected) )?(?:creature|place) or an object\b/i.test(str)
-						|| /\bone creature, object, or magical effect\b/i.test(str)
-						|| /\ba person, place, or object\b/i.test(str)
-						|| /\b(choose|touch|manipulate|soil) (an|one) object\b/i.test(str)
+						/\b(?:any|one|a) creatures? or objects?\b/i.test(stripped)
+						|| /\b(?:flammable|nonmagical|metal|unsecured) objects?\b/.test(stripped)
+						|| /\bobjects?\b[^.!?]+\b(?:created by magic|(?:that )?you touch|that is neither held nor carried)\b/.test(stripped)
+						|| /\bobject\b[^.!?]+\bthat isn't being worn or carried\b/.test(stripped)
+						|| /\bobjects? (?:of your choice|that is familiar to you|of (?:Tiny|Small|Medium|Large|Huge|Gargantuan) size)\b/.test(stripped)
+						|| /\b(?:Tiny|Small|Medium|Large|Huge|Gargantuan) or smaller object\b/.test(stripped)
+						|| /\baffected by this spell, the object is\b/.test(stripped)
+						|| /\ball creatures and objects\b/i.test(stripped)
+						|| /\ba(?:ny|n)? (?:(?:willing|visible|affected) )?(?:creature|place) or an object\b/i.test(stripped)
+						|| /\bone creature, object, or magical effect\b/i.test(stripped)
+						|| /\ba person, place, or object\b/i.test(stripped)
+						|| /\b(choose|touch|manipulate|soil) (an|one) object\b/i.test(stripped)
 					) this._addTag({tags, tag: "OBJ", options});
 
 					if (
@@ -179,8 +220,8 @@ export class MiscTagsTagger {
 					const stripped = Renderer.stripTags(str);
 
 					if (
-						new RegExp(`you can target [^.]+ additional (?:creature|${Parser.MON_TYPES.join("|")}) for each spell slot level`, "ig").test(stripped)
-						|| new RegExp(`you can (?:target|affect) [^.]+ additional [^.]*(?:creature|${Parser.MON_TYPES.join("|")}) for each slot level above`, "ig").test(stripped)
+						new RegExp(`you can (?:target|affect) [^.]+ additional (?:creature|${Parser.MON_TYPES_STANDARD.join("|")}) for each spell slot level`, "ig").test(stripped)
+						|| new RegExp(`you can (?:target|affect) [^.]+ additional [^.]*(?:creature|${Parser.MON_TYPES_STANDARD.join("|")}) for each slot level above`, "ig").test(stripped)
 					) this._addTag({tags, tag: "SCT", options});
 				},
 			},
@@ -189,7 +230,7 @@ export class MiscTagsTagger {
 		(sp.time || [])
 			.forEach(time => {
 				if (!time.condition) return;
-				this._mutTags_SGT({tags, str: time.condition, options});
+				this._mutTags_SGT({tags, str: time.condition, stripped: Renderer.stripTags(time.condition), options});
 			});
 
 		sp.miscTags = [...tags].sort(SortUtil.ascSortLower);
@@ -229,14 +270,16 @@ export class ScalingLevelDiceTagger {
 		return {rollsFirstLine, rollsSecondLine};
 	}
 
-	static _RE_DAMAGE_TYPE = new RegExp(`\\b${ConverterConst.STR_RE_DAMAGE_TYPE}\\b`, "i");
-
 	static _getLabel ({sp, options}) {
 		let label;
 
+		const reDamageType = options.styleHint === SITE_STYLE__CLASSIC
+			? new RegExp(`\\b${ConverterConst.STR_RE_DAMAGE_TYPE}\\b`, "i")
+			: new RegExp(`\\b${ConverterConst.STR_RE_DAMAGE_TYPE}\\b`);
+
 		const handlers = {
 			string: str => {
-				const mDamageType = this._RE_DAMAGE_TYPE.exec(str);
+				const mDamageType = reDamageType.exec(str);
 				if (mDamageType) {
 					label = `${mDamageType[1]} damage`;
 					return true;
@@ -459,9 +502,9 @@ export class AffectedCreatureTypeTagger {
 			...(sp.affectsCreatureType || []),
 			...setAffected,
 		]);
-		if (!setAffectedOut.size) Parser.MON_TYPES.forEach(it => setAffectedOut.add(it));
+		if (!setAffectedOut.size) Parser.MON_TYPES_STANDARD.forEach(it => setAffectedOut.add(it));
 
-		sp.affectsCreatureType = [...CollectionUtil.setDiff(setAffectedOut, setNotAffected)].sort(SortUtil.ascSortLower);
+		sp.affectsCreatureType = [...setAffectedOut.difference(setNotAffected)].sort(SortUtil.ascSortLower);
 		if (!sp.affectsCreatureType.length) delete sp.affectsCreatureType;
 	}
 
@@ -471,4 +514,4 @@ export class AffectedCreatureTypeTagger {
 		return "";
 	}
 }
-AffectedCreatureTypeTagger._RE_TYPES = new RegExp(`\\b(${[...Parser.MON_TYPES, ...Object.values(Parser.MON_TYPE_TO_PLURAL)].map(it => it.escapeRegexp()).join("|")})\\b`, "gi");
+AffectedCreatureTypeTagger._RE_TYPES = new RegExp(`\\b(${Parser.MON_TYPES_STANDARD.flatMap(it => [it, Parser.monTypeToPlural(it)]).map(it => it.escapeRegexp()).join("|")})\\b`, "gi");

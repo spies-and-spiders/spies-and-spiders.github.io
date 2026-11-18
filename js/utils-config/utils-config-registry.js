@@ -1,6 +1,7 @@
 import {ConfigSettingsGroup} from "./util-config-settings-group.js";
 import {ConfigSettingBoolean, ConfigSettingEnum, ConfigSettingExternal} from "./utils-config-setting-base.js";
 import {SITE_STYLE__CLASSIC, SITE_STYLE__ONE, SITE_STYLE_DISPLAY} from "../consts.js";
+import {StyleSwitcher} from "../styleswitch.js";
 
 const settingsGroupStyleSwitcher = new ConfigSettingsGroup({
 	groupId: "styleSwitcher",
@@ -18,7 +19,7 @@ const settingsGroupStyleSwitcher = new ConfigSettingsGroup({
 		)(),
 		new ConfigSettingEnum({
 			configId: "style",
-			name: `<span>Style <span class="ve-small">(see also: <a class="https://2014.5e.tools" rel="noopener noreferrer" target="_blank">2014.5e.tools</a>)</span></span>`,
+			name: `<span>Style <span class="ve-small">(see also: <a href="https://2014.5e.tools" rel="noopener noreferrer" target="_blank">2014.5e.tools</a>)</span></span>`,
 			help: `The styling to be applied when rendering specific information (stat blocks, etc.). Does not affect what content is available, only how it is displayed. See also: https://2014.5e.tools.`,
 			isRowLabel: true,
 			isReloadRequired: true,
@@ -31,6 +32,16 @@ const settingsGroupStyleSwitcher = new ConfigSettingsGroup({
 		}),
 		new (
 			class extends ConfigSettingExternal {
+				_configId = "styleRollbox";
+				_name = "Dice Roller Position";
+				_help = "The position of the dice roller.";
+				_isRowLabel = true;
+
+				_getEleExternal () { return StyleSwitcher.getSelRollboxPosition(); }
+			}
+		)(),
+		new (
+			class extends ConfigSettingExternal {
 				_configId = "isWideMode";
 				_name = "Wide Mode (Experimental)";
 				_help = "This feature is unsupported. Expect bugs.";
@@ -39,6 +50,20 @@ const settingsGroupStyleSwitcher = new ConfigSettingsGroup({
 				_getEleExternal () { return StyleSwitcher.getCbWide(); }
 			}
 		)(),
+	],
+});
+
+const settingsGroupUi = new ConfigSettingsGroup({
+	groupId: "ui",
+	name: "UI",
+	configSettings: [
+		new ConfigSettingBoolean({
+			configId: "isNotifyUpdates",
+			name: `Show Notification on Update`,
+			help: `If a notification should be shown when a background content update completes, prompting the user to reload and/or view the changelog.`,
+			isRowLabel: true,
+			default: true,
+		}),
 	],
 });
 
@@ -84,5 +109,6 @@ const settingsGroupMarkdown = new ConfigSettingsGroup({
 
 export const SETTINGS_GROUPS = [
 	settingsGroupStyleSwitcher,
+	settingsGroupUi,
 	settingsGroupMarkdown,
 ];

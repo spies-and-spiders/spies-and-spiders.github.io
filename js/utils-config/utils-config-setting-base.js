@@ -36,21 +36,21 @@ class _ConfigSettingBase {
 	render (rdState, wrpRows) {
 		const tag = this._isRowLabel ? "label" : "div";
 
-		ee`<${tag} class="py-1 w-100 split-v-center" title="${this._help.qq()}">
+		veT`<${tag} class="ve-py-1 ve-w-100 ve-split-v-center" title="${this._help.qq()}">
 			${this._renderLabel(rdState)}
 			${this._renderUi(rdState)}
 		</${tag}>`
-			.appendTo(wrpRows);
+			.vee.appendTo(wrpRows);
 	}
 
 	_renderLabel (rdState) {
-		const ptReload = this._isReloadRequired ? `<span class="ml-2 text-danger ve-small" title="Requires Refresh">‡</span>` : "";
-		return `<div class="w-66 no-shrink mr-2 ve-flex-v-center">${this._name}${ptReload}</div>`;
+		const ptReload = this._isReloadRequired ? `<span class="ve-ml-2 text-danger ve-small" title="Requires Refresh">‡</span>` : "";
+		return `<div class="ve-w-66 ve-no-shrink ve-mr-2 ve-flex-v-center">${this._name}${ptReload}</div>`;
 	}
 
 	/**
 	 * @abstract
-	 * @return {HTMLElementModified}
+	 * @return {HTMLElementExtended}
 	 */
 	_renderUi (rdState) { throw new Error("Unimplemented!"); }
 
@@ -70,7 +70,7 @@ export class ConfigSettingExternal extends _ConfigSettingBase {
 
 	/**
 	 * @abstract
-	 * @return {HTMLElementModified}
+	 * @return {HTMLElementExtended}
 	 */
 	_getEleExternal () { throw new Error("Unimplemented!"); }
 

@@ -5,6 +5,7 @@ class PlutoniumPage {
 			BrewUtil2.pInit(),
 		]);
 		ExcludeUtil.pInitialise().then(null); // don't await, as this is only used for search
+		window.dispatchEvent(new Event("toolsLoaded"));
 	}
 
 	static _IMAGES = [
@@ -26,9 +27,9 @@ class PlutoniumPage {
 			.forEach(({path, id}) => {
 				const url = Renderer.get().getMediaUrl("img", path);
 
-				$(`#${id}`)
-					.html(`<img class="big-help-gif" src="${url}" loading="lazy">`)
-					.attr("href", url);
+				veEs(`#${id}`)
+					.vee.html(`<img class="big-help-gif" src="${url}" loading="lazy">`)
+					.vee.attr("href", url);
 			});
 	}
 

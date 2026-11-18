@@ -1,4 +1,4 @@
-"use strict";
+import {MapsUtil} from "./maps-util.js";
 
 class MapsPage extends BaseComponent {
 	static _STORAGE_STATE = "state";
@@ -18,7 +18,7 @@ class MapsPage extends BaseComponent {
 	constructor () {
 		super();
 
-		this.saveSettingsDebounced = MiscUtil.debounce(() => StorageUtil.pSetForPage(this.constructor._STORAGE_STATE, this.getBaseSaveableState()), 50);
+		this.saveSettingsDebounced = MiscUtil.debounce(() => StorageUtil.pSetForPage(this.constructor._STORAGE_STATE, this.getBaseSaveableState()), VeCt.DUR_DEBOUNCE_SAVE);
 	}
 
 	getBaseSaveableState () {
@@ -71,10 +71,7 @@ class MapsPage extends BaseComponent {
 
 		this._addHookAllBase(() => this.saveSettingsDebounced());
 
-		Renderer.get().setLazyImages(true);
-		this._renderContent({mapData});
-		Renderer.initLazyImageLoaders();
-		Renderer.get().setLazyImages(false);
+		Renderer.get().withLazyImages(() => this._renderContent({mapData}), {isAllowCanvas: true});
 
 		window.dispatchEvent(new Event("toolsLoaded"));
 	}
@@ -142,23 +139,23 @@ class MapsPage extends BaseComponent {
 			.map((chapter, ixChapter) => this._render_chapter({chapter, ixChapter, propsDisplayChapter, renderState, source, sourceMeta, propDisplaySource}));
 
 		// region Display
-		const $wrpContent = $$`<div class="ve-flex-col w-100 px-4 py-2 maps-gallery__wrp-book">
-			<h3 class="mt-0 mb-2">${Renderer.get().render(`{@${sourceMeta.prop} ${Parser.sourceJsonToFull(source)}|${sourceMeta.id}}`)}</h3>
-			${rendersChapter.map(({$wrpContent}) => $wrpContent)}
-			<hr class="hr-4">
+		const wrpContent = veT`<div class="ve-flex-col ve-w-100 ve-px-4 ve-py-2 maps-gallery__wrp-book">
+			<h3 class="ve-mt-0 ve-mb-2">${Renderer.get().render(`{@${sourceMeta.prop} ${Parser.sourceJsonToFull(source)}|${sourceMeta.id}}`)}</h3>
+			${rendersChapter.map(({wrpContent}) => wrpContent)}
+			<hr class="ve-hr-4">
 		</div>`;
 		// endregion
 
 		// region Menu
-		const $cbSource = ComponentUiUtil.$getCbBool(this, propDisplaySource, {isDisplayNullAsIndeterminate: true, isTreatIndeterminateNullAsPositive: true});
+		const cbSource = ComponentUiUtil.getCbBool(this, propDisplaySource, {isDisplayNullAsIndeterminate: true, isTreatIndeterminateNullAsPositive: true});
 
-		const $wrpMenu = $$`<div class="ve-flex-col w-100">
-			<label class="split-v-center maps-menu__label-cb pl-2 clickable">
-				<div class="mr-3 text-clip-ellipsis" title="${titleName.qq()}">${shortNameHtml}</div>
-				${$cbSource.addClass("no-shrink")}
+		const wrpMenu = veT`<div class="ve-flex-col ve-w-100">
+			<label class="ve-split-v-center maps-menu__label-cb ve-pl-2 ve-clickable">
+				<div class="ve-mr-3 ve-text-clip-ellipsis" title="${titleName.qq()}">${shortNameHtml}</div>
+				${cbSource.vee.addClass("ve-no-shrink")}
 			</label>
 			<div class="ve-flex-col">
-				${rendersChapter.map(({$wrpMenu}) => $wrpMenu)}
+				${rendersChapter.map(({wrpMenu}) => wrpMenu)}
 			</div>
 		</div>`;
 		// endregion
@@ -190,15 +187,15 @@ class MapsPage extends BaseComponent {
 		};
 		this._addHookBase(propDisplaySource, hkBubbleDown);
 
-		const hkDisplaySource = () => $wrpContent.toggleVe(this._state[propDisplaySource] !== false);
+		const hkDisplaySource = () => wrpContent.vee.toggle(this._state[propDisplaySource] !== false);
 		this._addHookBase(propDisplaySource, hkDisplaySource);
 		hkDisplaySource();
 
-		const hkSearch = () => $wrpMenu.toggleVe(this._isVisibleSourceSearch({searchName}));
+		const hkSearch = () => wrpMenu.vee.toggle(this._isVisibleSourceSearch({searchName}));
 		this._addHookBase("search", hkSearch);
 		hkSearch();
 
-		return {$wrpMenu, $wrpContent, searchName, propDisplaySource};
+		return {wrpMenu, wrpContent, searchName, propDisplaySource};
 	}
 
 	_render_chapter ({chapter, ixChapter, propsDisplayChapter, renderState, source, sourceMeta, propDisplaySource}) {
@@ -219,32 +216,32 @@ class MapsPage extends BaseComponent {
 		};
 		this._addHookBase(propDisplayChapter, hkBubbleUp);
 
-		const $btnScrollTo = $(`<button class="ve-btn ve-btn-default ve-btn-xxs maps-menu__btn-chapter-scroll no-shrink" title="Scroll To"><span class="glyphicon glyphicon-triangle-right"></span></button>`)
-			.click(() => {
+		const btnScrollTo = veT`<button class="ve-btn ve-btn-default ve-btn-xxs maps-menu__btn-chapter-scroll ve-no-shrink" title="Scroll To"><span class="glyphicon glyphicon-triangle-right"></span></button>`
+			.vee.onn("click", () => {
 				if (!this._state[propDisplayChapter]) this._state[propDisplayChapter] = true;
-				$wrpContent[0].scrollIntoView({block: "nearest", inline: "nearest"});
+				wrpContent[0].scrollIntoView({block: "nearest", inline: "nearest"});
 			});
 
-		const $cbChapter = ComponentUiUtil.$getCbBool(this, propDisplayChapter, {isDisplayNullAsIndeterminate: true, isTreatIndeterminateNullAsPositive: true});
+		const cbChapter = ComponentUiUtil.getCbBool(this, propDisplayChapter, {isDisplayNullAsIndeterminate: true, isTreatIndeterminateNullAsPositive: true});
 
-		const $wrpMenu = $$`<div class="ve-flex-v-center maps-menu__label-cb">
-			${$btnScrollTo}
-			<label class="split-v-center clickable w-100 min-w-0">
-				<div class="mr-3 text-clip-ellipsis" title="${chapter.name.qq()}">${chapter.name}</div>
-				${$cbChapter.addClass("no-shrink")}
+		const wrpMenu = veT`<div class="ve-flex-v-center maps-menu__label-cb">
+			${btnScrollTo}
+			<label class="ve-split-v-center ve-clickable ve-w-100 ve-min-w-0">
+				<div class="ve-mr-3 ve-text-clip-ellipsis" title="${chapter.name.qq()}">${chapter.name}</div>
+				${cbChapter.vee.addClass("ve-no-shrink")}
 			</label>
 		</div>`;
 
-		const $wrpContent = $$`<div class="ve-flex-col w-100 maps-gallery__wrp-chapter px-2 py-3 my-2 shadow-big">
-			<h4 class="mt-0 mb-2">${Renderer.get().render(`{@${sourceMeta.prop} ${chapter.name}|${sourceMeta.id}|${chapter.ix}}`)}</h4>
+		const wrpContent = veT`<div class="ve-flex-col ve-w-100 maps-gallery__wrp-chapter ve-px-2 ve-py-3 ve-my-2 ve-shadow-big">
+			<h4 class="ve-mt-0 ve-mb-2">${Renderer.get().render(`{@${sourceMeta.prop} ${chapter.name}|${sourceMeta.id}|${chapter.ix}}`)}</h4>
 			<div class="ve-flex ve-flex-wrap">${chapter.images.map(it => Renderer.get().render(it))}</div>
 		</div>`;
 
-		const hkDisplayChapter = () => $wrpContent.toggleVe(this._state[propDisplayChapter]);
+		const hkDisplayChapter = () => wrpContent.vee.toggle(this._state[propDisplayChapter]);
 		this._addHookBase(propDisplayChapter, hkDisplayChapter);
 		hkDisplayChapter();
 
-		return {$wrpMenu, $wrpContent};
+		return {wrpMenu, wrpContent};
 	}
 
 	_getShortNameHtml ({source, sourceMeta}) {
@@ -284,7 +281,7 @@ class MapsPage extends BaseComponent {
 	_isVisibleSourceSearch ({searchName}) { return searchName.includes(this._state.search.trim().toLowerCase()); }
 
 	_renderContent ({mapData}) {
-		const $root = $(`#content`);
+		const root = veEs(`#content`);
 
 		const renderState = new this.constructor._RenderState();
 
@@ -312,48 +309,48 @@ class MapsPage extends BaseComponent {
 		};
 		this._addHookBase("isAllChecked", hkBubbleDown);
 
-		const {$wrp: $wrpIptSearch} = ComponentUiUtil.$getIptStr(this, "search", {placeholder: "Search sources...", decorationLeft: "search", decorationRight: "clear", asMeta: true});
+		const {wrp: wrpIptSearch} = ComponentUiUtil.getIptStr(this, "search", {placeholder: "Search sources...", decorationLeft: "search", decorationRight: "clear", asMeta: true});
 
-		const $cbIsAllChecked = ComponentUiUtil.$getCbBool(this, "isAllChecked", {isDisplayNullAsIndeterminate: true, isTreatIndeterminateNullAsPositive: true});
+		const cbIsAllChecked = ComponentUiUtil.getCbBool(this, "isAllChecked", {isDisplayNullAsIndeterminate: true, isTreatIndeterminateNullAsPositive: true});
 
-		const $sldImageScale = ComponentUiUtil.$getSliderNumber(this, "imageScale", {min: 0.1, max: 2.0, step: 0.1});
+		const sldImageScale = ComponentUiUtil.getSliderNumber(this, "imageScale", {min: 0.1, max: 2.0, step: 0.1});
 
 		const hkImageScale = () => {
-			if (!renderState.eleStyle) renderState.eleStyle = e_({tag: "style"}).appendTo(document.head);
-			renderState.eleStyle.html(`
-				.maps .rd__image { max-height: ${60 * this._state.imageScale}vh; }
+			if (!renderState.eleStyle) renderState.eleStyle = veE({tag: "style"}).vee.appendTo(document.head);
+			renderState.eleStyle.vee.html(`
+				.maps .ve-rd__image { max-height: ${60 * this._state.imageScale}vh; }
 			`);
 		};
 		this._addHookBase("imageScale", hkImageScale);
 		hkImageScale();
 
-		const $dispNoneVisible = $(`<div class="ve-flex-vh-center h-100 w-100">
-			<div class="ve-flex ve-muted initial-message initial-message--med italic maps__disp-message-initial px-3">Select some sources to view from the sidebar</div>
-		</div>`);
-		const hkAnyVisible = () => $dispNoneVisible.toggleVe(this._state.isAllChecked === false);
+		const dispNoneVisible = veT`<div class="ve-flex-vh-center ve-h-100 ve-w-100">
+			<div class="ve-flex ve-muted initial-message initial-message--med ve-italic maps__disp-message-initial ve-px-3">Select some sources to view from the sidebar</div>
+		</div>`;
+		const hkAnyVisible = () => dispNoneVisible.vee.toggle(this._state.isAllChecked === false);
 		this._addHookBase("isAllChecked", hkAnyVisible);
 		hkAnyVisible();
 
-		$$($root.empty())`
-			<div class="ve-flex-col h-100 no-shrink maps-menu pr-4 py-3 shadow-big ve-overflow-y-auto smooth-scroll scrollbar-stable mobile__w-100 mobile__my-4">
-				<label class="split-v-center pl-2 py-1">
-					<div class="mr-3 no-shrink">Image Scale</div>
-					${$sldImageScale}
+		veT(root.vee.empty())`
+			<div class="ve-flex-col ve-h-100 ve-no-shrink maps-menu ve-pr-4 ve-py-3 ve-shadow-big ve-overflow-y-auto ve-smooth-scroll ve-scrollbar-stable ve-mobile-sm__w-100 ve-mobile-sm__my-4">
+				<label class="ve-split-v-center ve-pl-2 ve-py-1">
+					<div class="ve-mr-3 ve-no-shrink">Image Scale</div>
+					${sldImageScale}
 				</label>
 
-				<div class="split-v-center pl-2 py-1">
-					${$wrpIptSearch.addClass("mr-3")}
-					${$cbIsAllChecked.title("Select All")}
+				<div class="ve-split-v-center ve-pl-2 ve-py-1">
+					${wrpIptSearch.vee.addClass("ve-mr-3")}
+					${cbIsAllChecked.vee.tooltip("Select All")}
 				</div>
 
-				<hr class="hr-3">
+				<hr class="ve-hr-3">
 
-				${rendersSource.map(({$wrpMenu}) => $wrpMenu)}
+				${rendersSource.map(({wrpMenu}) => wrpMenu)}
 			</div>
 
-			<div class="w-100 h-100 mobile__h-initial ve-overflow-y-auto smooth-scroll ve-flex-col">
-				${$dispNoneVisible}
-				${rendersSource.map(({$wrpContent}) => $wrpContent)}
+			<div class="ve-w-100 ve-h-100 ve-mobile-sm__h-initial ve-overflow-y-auto ve-smooth-scroll ve-flex-col">
+				${dispNoneVisible}
+				${rendersSource.map(({wrpContent}) => wrpContent)}
 			</div>
 		`;
 	}

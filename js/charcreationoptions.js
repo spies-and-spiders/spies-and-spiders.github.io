@@ -5,12 +5,12 @@ class CharCreationOptionsSublistManager extends SublistManager {
 		return [
 			new SublistCellTemplate({
 				name: "Type",
-				css: "ve-col-5 ve-text-center pl-0 pr-1",
+				css: "ve-col-5 ve-text-center ve-pl-0 ve-pr-1",
 				colStyle: "text-center",
 			}),
 			new SublistCellTemplate({
 				name: "Name",
-				css: "bold ve-col-7 pl-1 pr-0",
+				css: "ve-bold ve-col-7 ve-pl-1 ve-pr-0",
 				colStyle: "",
 			}),
 		];
@@ -19,28 +19,30 @@ class CharCreationOptionsSublistManager extends SublistManager {
 	pGetSublistItem (it, hash) {
 		const cellsText = [it.name, it._fOptionType];
 
-		const $ele = $$`<div class="lst__row lst__row--sublist ve-flex-col">
-			<a href="#${hash}" class="lst__row-border lst__row-inner">
+		const ele = veT`<div class="ve-lst__row ve-lst__row--sublist ve-flex-col">
+			<a href="#${hash}" class="ve-lst__row-border ve-lst__row-inner">
 				${this.constructor._getRowCellsHtml({values: cellsText})}
 			</a>
 		</div>`
-			.contextmenu(evt => this._handleSublistItemContextMenu(evt, listItem))
-			.click(evt => this._listSub.doSelect(listItem, evt));
+			.vee.onn("contextmenu", evt => this._handleSublistItemContextMenu(evt, listItem))
+			.vee.onn("click", evt => this._listSub.doSelect(listItem, evt));
 
-		const listItem = new ListItem(
-			hash,
-			$ele,
-			it.name,
-			{
-				hash,
+		const listItem = new ListItem({
+			id: hash,
+			ele,
+			name: it.name,
+			values: {
 				source: Parser.sourceJsonToAbv(it.source),
+				...ListItem.getCommonValues(it),
 				type: it._fOptionType,
 			},
-			{
+			data: {
+				hash,
+				page: it.page,
 				entity: it,
 				mdRow: [...cellsText],
 			},
-		);
+		});
 		return listItem;
 	}
 }
@@ -56,6 +58,12 @@ class CharCreationOptionsPage extends ListPage {
 			pageFilter,
 
 			dataProps: ["charoption"],
+
+			bookViewOptions: {
+				nameSingular: "character creation option",
+				namePlural: "character creation options",
+				pageTitle: "Character Creation Options Book View",
+			},
 		});
 	}
 
@@ -63,30 +71,32 @@ class CharCreationOptionsPage extends ListPage {
 		this._pageFilter.mutateAndAddToFilters(it, isExcluded);
 
 		const eleLi = document.createElement("div");
-		eleLi.className = `lst__row ve-flex-col ${isExcluded ? "lst__row--blocklisted" : ""}`;
+		eleLi.className = `ve-lst__row ve-flex-col ${isExcluded ? "ve-lst__row--blocklisted" : ""}`;
 
 		const hash = UrlUtil.autoEncodeHash(it);
 		const source = Parser.sourceJsonToAbv(it.source);
 
-		eleLi.innerHTML = `<a href="#${hash}" class="lst__row-border lst__row-inner">
-			<span class="ve-col-5 ve-text-center pl-0 pr-1">${it._fOptionType}</span>
-			<span class="bold ve-col-5 px-1">${it.name}</span>
-			<span class="ve-col-2 ve-text-center ${Parser.sourceJsonToSourceClassname(it.source)}" title="${Parser.sourceJsonToFull(it.source)} pl-1 pr-0" ${Parser.sourceJsonToStyle(it.source)}>${source}</span>
+		eleLi.innerHTML = `<a href="#${hash}" class="ve-lst__row-border ve-lst__row-inner">
+			<span class="ve-col-5 ve-text-center ve-pl-0 ve-pr-1">${it._fOptionType}</span>
+			<span class="ve-bold ve-col-5 ve-px-1">${it.name}</span>
+			<span class="ve-col-2 ve-text-center ${Parser.sourceJsonToSourceClassname(it.source)}" title="${Parser.sourceJsonToFull(it.source)} ve-pl-1 ve-pr-0">${source}</span>
 		</a>`;
 
-		const listItem = new ListItem(
-			itI,
-			eleLi,
-			it.name,
-			{
-				hash,
+		const listItem = new ListItem({
+			id: itI,
+			ele: eleLi,
+			name: it.name,
+			values: {
 				source,
+				...ListItem.getCommonValues(it),
 				type: it._fOptionType,
 			},
-			{
+			data: {
+				hash,
+				page: it.page,
 				isExcluded,
 			},
-		);
+		});
 
 		eleLi.addEventListener("click", (evt) => this._list.doSelect(listItem, evt));
 		eleLi.addEventListener("contextmenu", (evt) => this._openContextMenu(evt, this._list, listItem));
@@ -95,10 +105,12 @@ class CharCreationOptionsPage extends ListPage {
 	}
 
 	_renderStats_doBuildStatsTab ({ent}) {
-		this._$pgContent.empty().append(RenderCharCreationOptions.$getRenderedCharCreationOption(ent));
+		this._pgContent.vee.empty().vee.appends(RenderCharCreationOptions.getRenderedCharCreationOption(ent));
 	}
 }
 
 const charCreationOptionsPage = new CharCreationOptionsPage();
 charCreationOptionsPage.sublistManager = new CharCreationOptionsSublistManager();
 window.addEventListener("load", () => charCreationOptionsPage.pOnLoad());
+
+globalThis.dbg_page = charCreationOptionsPage;

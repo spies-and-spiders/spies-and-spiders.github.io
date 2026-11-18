@@ -8,20 +8,20 @@ class CollectionBoxSnapshotDecks extends RenderableCollectionGenericRows {
 			wrpRows,
 		},
 	) {
-		super(comp, "boxSnapshotIds", $(wrpRows));
+		super(comp, "boxSnapshotIds", wrpRows);
 		this._compManager = compManager;
 	}
 
 	_getWrpRow () {
-		return ee`<div class="ve-flex-col w-100 py-1"></div>`;
+		return veT`<div class="ve-flex-col ve-w-100 ve-py-1"></div>`;
 	}
 
-	_populateRow ({comp, $wrpRow, entity}) {
-		const $iptName = ComponentUiUtil.$getIptStr(comp, "_manager_name", {placeholder: "Name"});
+	_populateRow ({comp, wrpRow, entity}) {
+		const iptName = ComponentUiUtil.getIptStr(comp, "_manager_name", {placeholder: "Name"});
 
 		const btnDelete = this._utils.getBtnDelete({entity});
 
-		const $padDrag = this._utils.$getPadDrag({$wrpRow});
+		const padDrag = this._utils.getPadDrag({wrpRow});
 
 		// Sync our transient name back to the real snapshot state on change
 		comp._addHookBase("_manager_name", () => {
@@ -33,11 +33,11 @@ class CollectionBoxSnapshotDecks extends RenderableCollectionGenericRows {
 			this._compManager._triggerCollectionUpdate("boxSnapshots");
 		});
 
-		$$($wrpRow)`
+		veT(wrpRow)`
 			<div class="ve-flex-v-center">
-				${$iptName.addClass("mr-2")}
-				${btnDelete.addClass("mr-2")}
-				${$padDrag}
+				${iptName.vee.addClass("ve-mr-2")}
+				${btnDelete.vee.addClass("ve-mr-2")}
+				${padDrag}
 			</div>
 		`;
 	}
@@ -48,14 +48,14 @@ export class RenderableCollectionSnapshotDecks extends RenderableCollectionFilte
 		{
 			filterBox,
 			comp,
-			$wrpRows,
+			wrpRows,
 			selectClickHandler,
 		},
 	) {
-		super({filterBox, comp, prop: "boxSnapshotDecks", $wrpRows, selectClickHandler});
+		super({filterBox, comp, prop: "boxSnapshotDecks", wrpRows, selectClickHandler});
 	}
 
-	_populateRow ({comp, $wrpRow, entity}) {
+	_populateRow ({comp, wrpRow, entity}) {
 		// region Bind cache-flush hooks
 		comp._addHookBase("boxSnapshotIds", () => {
 			if (this._comp._state.boxSnapshotDeckDefaultId !== entity.id) return;
@@ -66,7 +66,7 @@ export class RenderableCollectionSnapshotDecks extends RenderableCollectionFilte
 		const {stgHeader, wrpCbSel, cbSel, fnCleanup: fnCleanupStgHeader} = this._populateRow_stgHeader({comp, entity});
 		const {stgDetails} = this._populateRow_stgDetails({comp, entity});
 
-		$$($wrpRow)`
+		veT(wrpRow)`
 			${stgHeader}
 			${stgDetails}
 		`;
@@ -84,37 +84,37 @@ export class RenderableCollectionSnapshotDecks extends RenderableCollectionFilte
 	_populateRow_stgHeader ({comp, entity}) {
 		const cbSel = this.constructor._getCbSel();
 
-		const wrpCbSel = ee`<label class="ve-col-0-5 h-100 ve-flex-h-center">
+		const wrpCbSel = veT`<label class="ve-col-0-5 ve-h-100 ve-flex-h-center">
 			${cbSel}
 		</label>`;
 
 		const btnToggleExpand = this.constructor._getBtnToggleExpand(comp, {isSibling: true});
 
-		const btnIsDefault = ee`<button class="ve-btn ve-btn-default ve-btn-xs mr-1" title="Set as Default Filter State"><span class="glyphicon glyphicon-heart"></span></button>`
-			.onn("click", () => {
+		const btnIsDefault = veT`<button class="ve-btn ve-btn-default ve-btn-xs ve-mr-1" title="Set as Default Filter State"><span class="glyphicon glyphicon-heart"></span></button>`
+			.vee.onn("click", () => {
 				if (this._comp._state.boxSnapshotDeckDefaultId === entity.id) this._comp._state.boxSnapshotDeckDefaultId = null;
 				else this._comp._state.boxSnapshotDeckDefaultId = entity.id;
 			});
 		const hkIsDefault = this._comp._addHookBase("boxSnapshotDeckDefaultId", () => {
-			btnIsDefault.toggleClass("active", this._comp._state.boxSnapshotDeckDefaultId === entity.id);
+			btnIsDefault.vee.toggleClass("ve-active", this._comp._state.boxSnapshotDeckDefaultId === entity.id);
 		});
 		hkIsDefault();
 
-		const btnApply = ee`<button class="ve-btn ve-btn-xs ve-btn-primary" title="Apply as Filters"><span class="glyphicon glyphicon-ok"></span></button>`
-			.onn("click", async () => {
+		const btnApply = veT`<button class="ve-btn ve-btn-xs ve-btn-primary" title="Apply as Filters"><span class="glyphicon glyphicon-ok"></span></button>`
+			.vee.onn("click", async () => {
 				this._comp.doSetFiltersFromBoxSnapshotDeck_(entity.entity);
 				JqueryUtil.doToast("Applied Snapshot Deck as Filters!");
 			});
 
-		const $iptName = ComponentUiUtil.$getIptStr(comp, "manager_name", {placeholder: "Name"});
+		const iptName = ComponentUiUtil.getIptStr(comp, "manager_name", {placeholder: "Name"});
 
-		const btnAddSnapshot = ee`<button class="ve-btn ve-btn-default ve-btn-xs mr-1" title="Add Snapshot"><span class="glyphicon glyphicon-plus"></span></button>`
-			.onn("click", async () => {
+		const btnAddSnapshot = veT`<button class="ve-btn ve-btn-default ve-btn-xs ve-mr-1" title="Add Snapshot"><span class="glyphicon glyphicon-plus"></span></button>`
+			.vee.onn("click", async () => {
 				await this._populateRow_onClick_pAddSnapshot({comp});
 			});
 
-		const btnDuplicate = ee`<button class="ve-btn ve-btn-default ve-btn-xs mr-1" title="Duplicate"><span class="glyphicon glyphicon-duplicate"></span></button>`
-			.onn("click", () => {
+		const btnDuplicate = veT`<button class="ve-btn ve-btn-default ve-btn-xs ve-mr-1" title="Duplicate"><span class="glyphicon glyphicon-duplicate"></span></button>`
+			.vee.onn("click", () => {
 				const cpy = MiscUtil.copyFast(entity.entity);
 
 				const nameRoot = (cpy.manager_name || "").replace(/\s+\(\d+\)$/, "");
@@ -133,7 +133,7 @@ export class RenderableCollectionSnapshotDecks extends RenderableCollectionFilte
 
 		const btnDelete = this._utils.getBtnDelete({entity});
 
-		const stgHeader = ee`<div class="ve-flex-v-center w-100 py-1 lst__row lst__row-border lst__row-inner">
+		const stgHeader = veT`<div class="ve-flex-v-center ve-w-100 ve-py-1 ve-lst__row ve-lst__row-border ve-lst__row-inner">
 			${wrpCbSel}
 
 			<div class="ve-flex-vh-center ve-col-1">
@@ -142,8 +142,8 @@ export class RenderableCollectionSnapshotDecks extends RenderableCollectionFilte
 				${btnApply}
 			</div>
 
-			<div class="ve-flex-v-center ve-col-10 px-1">
-				${$iptName[0]}
+			<div class="ve-flex-v-center ve-col-9-5 ve-px-1">
+				${iptName}
 			</div>
 
 			<div class="ve-flex-vh-center ve-grow">
@@ -162,51 +162,51 @@ export class RenderableCollectionSnapshotDecks extends RenderableCollectionFilte
 	}
 
 	_populateRow_stgDetails ({comp, entity}) {
-		const wrpRowsBoxSnapshotDecks = ee`<div class="ve-flex-col w-100 relative pl-2"></div>`;
+		const wrpRowsBoxSnapshotDecks = veT`<div class="ve-flex-col ve-w-100 ve-relative ve-pl-2"></div>`;
 		const collectionBoxSnapshotDecks = new CollectionBoxSnapshotDecks({
 			compManager: this._comp,
 			comp,
 			wrpRows: wrpRowsBoxSnapshotDecks,
 		});
 
-		const btnNoSnapshotsAdd = ee`<button class="ve-btn ve-btn-default ve-btn-xs">Add Snapshot</button>`
-			.onn("click", async () => {
+		const btnNoSnapshotsAdd = veT`<button class="ve-btn ve-btn-default ve-btn-xs">Add Snapshot</button>`
+			.vee.onn("click", async () => {
 				await this._populateRow_onClick_pAddSnapshot({comp});
 			});
 
-		const dispNoSnapshotDecks = ee`<div class="pl-2 py-1 ve-flex-v-center">
-			<i class="ve-muted mr-2 ve-self-flex-end">This deck contains no snapshots.</i>
+		const dispNoSnapshotDecks = veT`<div class="ve-pl-2 ve-py-1 ve-flex-v-center">
+			<i class="ve-muted ve-mr-2 ve-self-flex-end">This deck contains no snapshots.</i>
 			${btnNoSnapshotsAdd}
 		</div>`;
 
-		const wrpDisplayState = ee`<div class="ve-flex-col w-100"></div>`;
+		const wrpDisplayState = veT`<div class="ve-flex-col ve-w-100"></div>`;
 
 		comp._addHookBase("boxSnapshotIds", () => {
 			collectionBoxSnapshotDecks.render();
-			dispNoSnapshotDecks.toggleVe(!comp._state.boxSnapshotIds.length);
+			dispNoSnapshotDecks.vee.toggle(!comp._state.boxSnapshotIds.length);
 
-			wrpDisplayState.html(
+			wrpDisplayState.vee.html(
 				this._getDeckSnapshotsDisplayState({boxSnapshotDeck: entity.entity}),
 			);
 		})();
 
-		const stgDetails = ee`<div class="ve-flex relative accordion__wrp-preview w-100">
-			<div class="vr-0 absolute accordion__vr-preview"></div>
-			<div class="ve-flex-col py-3 ml-4 accordion__wrp-preview-inner w-100 min-w-0">
-				<h5 class="mt-0 mb-1 pl-2">Snapshots</h5>
+		const stgDetails = veT`<div class="ve-flex ve-relative ve-accordion__wrp-preview ve-w-100">
+			<div class="ve-vr-0 ve-absolute ve-accordion__vr-preview"></div>
+			<div class="ve-flex-col ve-py-3 ve-ml-4 ve-accordion__wrp-preview-inner ve-w-100 ve-min-w-0">
+				<h5 class="ve-mt-0 ve-mb-1 ve-pl-2">Snapshots</h5>
 				${wrpRowsBoxSnapshotDecks}
 				${dispNoSnapshotDecks}
-				<hr class="hr-3">
-				<div class="ve-flex-col pl-2 w-100">
-					<h5 class="mt-0 mb-1">Preview</h5>
+				<hr class="ve-hr-3">
+				<div class="ve-flex-col ve-pl-2 ve-w-100">
+					<h5 class="ve-mt-0 ve-mb-1">Preview</h5>
 					${wrpDisplayState}
 				</div>
 			</div>
 		</div>`
-			.onn("click", evt => evt.stopPropagation())
-			.onn("mousedown", evt => evt.stopPropagation());
+			.vee.onn("click", evt => evt.stopPropagation())
+			.vee.onn("mousedown", evt => evt.stopPropagation());
 
-		comp._addHookBase("manager_loader_isExpanded", () => stgDetails.toggleVe(!!comp._state.manager_loader_isExpanded))();
+		comp._addHookBase("manager_loader_isExpanded", () => stgDetails.vee.toggle(!!comp._state.manager_loader_isExpanded))();
 
 		return {
 			stgDetails,

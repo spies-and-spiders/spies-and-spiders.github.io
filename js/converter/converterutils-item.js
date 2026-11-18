@@ -1,61 +1,64 @@
 import {AlignmentUtil} from "./converterutils-utils-alignment.js";
 import {ConverterConst} from "./converterutils-const.js";
 
-class ConverterUtilsItem {}
-ConverterUtilsItem.BASIC_WEAPONS = [
-	"club",
-	"dagger",
-	"greatclub",
-	"handaxe",
-	"javelin",
-	"light hammer",
-	"mace",
-	"quarterstaff",
-	"sickle",
-	"spear",
-	"light crossbow",
-	"dart",
-	"shortbow",
-	"sling",
-	"battleaxe",
-	"flail",
-	"glaive",
-	"greataxe",
-	"greatsword",
-	"halberd",
-	"lance",
-	"longsword",
-	"maul",
-	"morningstar",
-	"pike",
-	"rapier",
-	"scimitar",
-	"shortsword",
-	"trident",
-	"war pick",
-	"warhammer",
-	"whip",
-	"blowgun",
-	"hand crossbow",
-	"heavy crossbow",
-	"longbow",
-	"net",
-];
-ConverterUtilsItem.BASIC_ARMOURS = [
-	"padded armour",
-	"leather armour",
-	"studded leather armour",
-	"hide armour",
-	"chain shirt",
-	"scale mail",
-	"breastplate",
-	"half plate armour",
-	"ring mail",
-	"chain mail",
-	"splint armour",
-	"plate armour",
-	"shield",
-];
+class ConverterUtilsItem {
+	static BASIC_WEAPONS = [
+		"club",
+		"dagger",
+		"greatclub",
+		"handaxe",
+		"javelin",
+		"light hammer",
+		"mace",
+		"quarterstaff",
+		"sickle",
+		"spear",
+		"light crossbow",
+		"dart",
+		"shortbow",
+		"sling",
+		"battleaxe",
+		"flail",
+		"glaive",
+		"greataxe",
+		"greatsword",
+		"halberd",
+		"lance",
+		"longsword",
+		"maul",
+		"morningstar",
+		"pike",
+		"rapier",
+		"scimitar",
+		"shortsword",
+		"trident",
+		"war pick",
+		"warhammer",
+		"whip",
+		"blowgun",
+		"hand crossbow",
+		"heavy crossbow",
+		"longbow",
+		"net",
+	];
+	static BASIC_ARMOURS = [
+		"padded armour",
+		"leather armour",
+		"studded leather armour",
+		"hide armour",
+		"chain shirt",
+		"scale mail",
+		"breastplate",
+		"half plate armour",
+		"ring mail",
+		"chain mail",
+		"splint armour",
+		"plate armour",
+		"shield",
+	];
+
+	static RE_LANGUAGES = /\b(?<language>Abyssal|Aquan|Auran|Celestial|Common|Deep Speech|Draconic|Druidic|Dwarvish|Elvish|Giant|Gnomish|Goblin|Halfling|Ignan|Infernal|Orc|Primordial|Sylvan|Terran|Thieves' cant|Undercommon)\b/;
+}
 
 export class ChargeTag {
 	static _checkAndTag (obj, opts) {
@@ -93,13 +96,13 @@ export class RechargeTypeTag {
 		const mLongRest = /All charges are restored when you finish a long rest/i.test(strEntries);
 		if (mLongRest) return obj.recharge = "restLong";
 
-		const mDawn = /charges? at dawn|charges? daily (?:at|in the twilight before) dawn|charges?(?:, which (?:are|you) regain(?:ed)?)? each day at dawn|charges and regains all of them at dawn|charges and regains[^.]+each dawn|recharging them all each dawn|charges that are replenished each dawn/gi.exec(strEntries);
+		const mDawn = /charges? at dawn|charges? (?:daily|nightly),? (?:at|in the twilight before) dawn|charges?(?:, which (?:are|you) regain(?:ed)?)? each day at dawn|charges and regains all of them at dawn|charges and regains[^.]+each dawn|recharging them all each dawn|charges that are replenished each dawn/gi.exec(strEntries);
 		if (mDawn) return obj.recharge = "dawn";
 
-		const mDusk = /charges? daily at dusk|charges? each (?:day at dusk|nightfall)|regains all charges at dusk/gi.exec(strEntries);
+		const mDusk = /charges? (?:daily|nightly),? at dusk|charges? each (?:(?:day|night) at dusk|nightfall)|regains all charges at dusk/gi.exec(strEntries);
 		if (mDusk) return obj.recharge = "dusk";
 
-		const mMidnight = /charges? daily at midnight|Each night at midnight[^.]+charges/gi.exec(strEntries);
+		const mMidnight = /charges? (?:daily|nightly),? at midnight|Each night at midnight[^.]+charges/gi.exec(strEntries);
 		if (mMidnight) return obj.recharge = "midnight";
 
 		const mDecade = /regains [^ ]+ expended charge every ten years/gi.exec(strEntries);
@@ -126,7 +129,7 @@ export class RechargeAmountTag {
 		// region Dawn
 		[
 			"(?<charges>",
-			")[^.]*?\\b(?:charges? (?:at|each) dawn|charges? daily (?:at|in the twilight before) dawn|charges?(?:, which (?:are|you) regain(?:ed)?)? each day at dawn)",
+			")[^.]*?\\b(?:charges? (?:at|each) dawn|charges? (?:daily|nightly),? (?:at|in the twilight before) dawn|charges?(?:, which (?:are|you) regain(?:ed)?)? each day at dawn)",
 		],
 		[
 			"charges and regains (?<charges>",
@@ -137,14 +140,14 @@ export class RechargeAmountTag {
 		// region Dusk
 		[
 			"(?<charges>",
-			")[^.]*?\\b(?:charges? daily at dusk|charges? each (?:day at dusk|nightfall))",
+			")[^.]*?\\b(?:charges? (?:daily|nightly),? at dusk|charges? each (?:(?:day|night) at dusk|nightfall))",
 		],
 		// endregion
 
 		// region Midnight
 		[
 			"(?<charges>",
-			")[^.]*?\\b(?:charges? daily at midnight)",
+			")[^.]*?\\b(?:charges? (?:daily|nightly),? at midnight)",
 		],
 		[
 			"Each night at midnight[^.]+regains (?<charges>",
@@ -263,7 +266,7 @@ export class AttachedSpellTag {
 
 	static _checkAndTag_tables ({obj, walker, outSet}) {
 		const walkerHandlers = {
-			obj: [
+			object: [
 				(obj) => {
 					if (obj.type !== "table") return obj;
 
@@ -322,9 +325,9 @@ export class BonusTag {
 			return opts.isVariant ? `{=bonusWeaponAttack}${m[2]}` : m[0];
 		});
 
-		strEntries = strEntries.replace(/\+\s*(\d)([^.]+(?:bonus )?(?:to|on)(?: your)? [^.]*(?:AC|Armour Class|armour class))/g, (...m) => {
-			obj.bonusArmour = `+${m[1]}`;
-			return opts.isVariant ? `{=bonusArmour}${m[2]}` : m[0];
+		strEntries = strEntries.replace(/\+\s*(\d)([^.]+(?:bonus )?(?:to|on)(?: your)? [^.]*(?:AC|Armor Class|armor class|{@variantrule Armor Class\|XPHB}))/g, (...m) => {
+			obj.bonusAc = `+${m[1]}`;
+			return opts.isVariant ? `{=bonusAc}${m[2]}` : m[0];
 		});
 
 		// FIXME(Future) false positives:
@@ -501,6 +504,8 @@ export class ItemOtherTagsTag {
 		strEntries.replace(/you are[^.]* considered proficient/gi, () => tgt.grantsProficiency = true);
 
 		strEntries.replace(/[Yy]ou can speak( and understand)? [A-Z]/g, () => tgt.grantsLanguage = true);
+		strEntries.replace(/[Yy]ou can speak, read, and write [A-Z]/g, () => tgt.grantsLanguage = true);
+		strEntries.replace(new RegExp(`[Yy]ou know ${ConverterUtilsItem.RE_LANGUAGES.source}`, "g"), () => tgt.grantsLanguage = true);
 	}
 }
 
@@ -672,15 +677,24 @@ export class ConditionImmunityTag {
 						all.add("disease");
 					});
 
-					str.replace(/you (?:have|gain|are) (?:[^.!?]+ )?(?:immune) ([^.!?]+)/gi, (...m) => {
-						m[1].replace(/{@condition ([^}]+)}/gi, (...n) => {
-							all.add(n[1].toLowerCase());
-						});
-					});
+					str
+						.replace(/you (?:have|gain|are) (?:[^.!?]+ )?(?:immune) ([^.!?]+)/gi, (...m) => {
+							m[1].replace(/{@condition ([^}]+)}/gi, (...n) => {
+								all.add(n[1].toLowerCase());
+							});
+						})
+						.replace(/\byou can't be ([^.!?]+)/gi, (...m) => {
+							if (/\bsurprised\b/i.test(Renderer.stripTags(m[1]))) return;
+
+							m[1].replace(/{@condition ([^}]+)}/gi, (...n) => {
+								all.add(n[1].toLowerCase());
+							});
+						})
+					;
 				},
 			},
 		);
-		if (all.size) obj.conditionImmune = [...all].sort(SortUtil.ascSortLower);
+		if (all.size) obj.conditionImmune = [...all, ...(obj.conditionImmune || [])].unique().sort(SortUtil.ascSortLower);
 		else delete obj.conditionImmune;
 	}
 
@@ -716,8 +730,9 @@ export class ReqAttuneTagTag {
 		});
 
 		// "by a creature that can speak Infernal"
-		req = req.replace(/(?:a creature that can )?speak \b(Abyssal|Aquan|Auran|Celestial|Common|Deep Speech|Draconic|Druidic|Dwarvish|Elvish|Giant|Gnomish|Goblin|Halfling|Ignan|Infernal|Orc|Primordial|Sylvan|Terran|Thieves' cant|Undercommon)\b/g, (...m) => {
-			tags.push({languageProficiency: m[1].toLowerCase()});
+		req = req.replace(new RegExp(`(?:a creature that can )?speak ${ConverterUtilsItem.RE_LANGUAGES.source}`, "g"), (...m) => {
+			const {language} = m.at(-1);
+			tags.push({languageProficiency: language.toLowerCase()});
 			return "";
 		});
 
@@ -801,3 +816,228 @@ ReqAttuneTagTag._RAVNICA_GUILD_BACKGROUNDS = {
 	"Selesnya": "Selesnya Initiate|GGR",
 	"Simic": "Simic Scientist|GGR",
 };
+ReqAttuneTagTag._EBERRON_MARK_RACES = {
+	"Mark of Warding": ["Dwarf (Mark of Warding)|ERLW"],
+	"Mark of Shadow": ["Elf (Mark of Shadow)|ERLW"],
+	"Mark of Scribing": ["Gnome (Mark of Scribing)|ERLW"],
+	"Mark of Detection": ["Half-Elf (Variant; Mark of Detection)|ERLW"],
+	"Mark of Storm": ["Half-Elf (Variant; Mark of Storm)|ERLW"],
+	"Mark of Finding": [
+		"Half-Orc (Variant; Mark of Finding)|ERLW",
+		"Human (Variant; Mark of Finding)|ERLW",
+	],
+	"Mark of Healing": ["Halfling (Mark of Healing)|ERLW"],
+	"Mark of Hospitality": ["Halfling (Mark of Hospitality)|ERLW"],
+	"Mark of Handling": ["Human (Mark of Handling)|ERLW"],
+	"Mark of Making": ["Human (Mark of Making)|ERLW"],
+	"Mark of Passage": ["Human (Mark of Passage)|ERLW"],
+	"Mark of Sentinel": ["Human (Mark of Sentinel)|ERLW"],
+};
+
+export class LightTag {
+	static _getSingleRegex_lightInShape ({lightType, radiusName}) {
+		return new RegExp(`\\b${lightType} light in a (?<${radiusName}>\\d+)-foot[- ](?<shape>radius|cone)\\b`, "gi");
+	}
+	static _getSingleRegex_lightOutTo ({lightType, radiusName}) {
+		return new RegExp(`\\b${lightType} light out to (?:a range of )?(?<${radiusName}>\\d+) feet\\b`, "gi");
+	}
+	static _getSingleRegex_shapeOfLight ({lightType, radiusName}) {
+		return new RegExp(`\\b(?<${radiusName}>\\d+)-foot[- ](?<shape>radius|cone) of ${lightType} light\\b`, "gi");
+	}
+
+	static _checkAndTag (obj, opts) {
+		if (obj.light?.length) return;
+
+		const light = [];
+
+		MiscUtil.getWalker({isNoModification: true}).walk(obj.entries, {string: str => {
+			let strStrippedTmp = Renderer.stripTags(str);
+			[
+				// Bright and dim
+				/\bbright light in a (?<rBright>\d+)-foot[- ](?<shape>radius|cone) and dim light for an (?<isAdditional>additional) (?<rDim>\d+) (?:feet|foot|ft\.)\b/gi,
+				/\blight in a \d+-foot[- ](?<shape>radius|cone); the (?<isAdditional>closest) (?<rBright>\d+) feet is bright light, and the farthest (?<rDim>\d+) feet is dim light\b/gi,
+				/\bbright light in a (?<shape>radius|cone) of your choice up to (?<rBrightDim>\d+) feet and dim light for the (?<isAdditional>same) distance beyond that\b/gi,
+
+				// Bright only
+				this._getSingleRegex_lightInShape({lightType: "bright", radiusName: "rBright"}),
+				this._getSingleRegex_lightOutTo({lightType: "bright", radiusName: "rBright"}),
+				this._getSingleRegex_shapeOfLight({lightType: "bright", radiusName: "rBright"}),
+
+				// Dim only
+				this._getSingleRegex_lightInShape({lightType: "dim", radiusName: "rDim"}),
+				this._getSingleRegex_lightOutTo({lightType: "dim", radiusName: "rDim"}),
+				this._getSingleRegex_shapeOfLight({lightType: "dim", radiusName: "rDim"}),
+			]
+				.forEach(re => {
+					strStrippedTmp = strStrippedTmp
+						.replace(re, (...m) => {
+							const {rBright, rDim, rBrightDim, shape, isAdditional} = m.at(-1);
+
+							const rBrightNum = rBright ? Number(rBright) : rBrightDim ? Number(rBrightDim) : null;
+							const rDimNum = rDim ? Number(rDim) : rBrightDim ? Number(rBrightDim) : null;
+							const shapeClean = shape ? shape.toLowerCase().trim() : null;
+
+							const out = {};
+							if (rBrightNum) out.bright = rBrightNum;
+							if (rDimNum) out.dim = isAdditional && rBrightNum ? (rBrightNum + rDimNum) : rDimNum;
+
+							// Treat "radius" as the default
+							if (shapeClean && shapeClean !== "radius") out.shape = shapeClean;
+
+							light.push(out);
+						});
+				});
+		}});
+
+		if (light.length) obj.light = light;
+	}
+
+	static tryRun (ent, opts) {
+		if (ent.entries) this._checkAndTag(ent, opts);
+		if (ent.inherits?.entries) this._checkAndTag(ent.inherits, opts);
+	}
+}
+
+export class AttachedSpellChargesTag {
+	static _getSpellUid (spell) {
+		return spell.toLowerCase().trim().replace(/\|phb$/, "");
+	}
+
+	static _checkAndTag (obj, opts) {
+		if (!(obj.attachedSpells instanceof Array)) return;
+
+		const spellsOther = new Set(obj.attachedSpells.map(it => it.toLowerCase().replace(/\|phb$/, "")));
+		const spellsByCharge = {};
+		const spellsByDaily = {};
+
+		MiscUtil.getWalker({isNoModification: true}).walk(
+			obj.entries,
+			{
+				string: str => {
+					str = str.replace(/{@spell (?<spell>[^}]+)} \(((?<lvl>\d+)..[- ]level version, )?(?<cntCharges>\d+) charges?\)/gi, (...m) => {
+						const {spell, lvl, cntCharges} = m.at(-1);
+						const spellUid = this._getSpellUid(spell);
+						spellsOther.delete(spellUid);
+						const spellUidWithLevel = lvl
+							? `${spellUid}#${lvl}`
+							: spellUid;
+						(spellsByCharge[cntCharges] ||= new Set()).add(spellUidWithLevel);
+					});
+
+					str = str.replace(/expend (?:no more than )?(?<cntCharges>\d+) (?:of its )?charges? to cast {@spell (?<spell>[^}]+)}( \(((?<lvl>\d+)..[- ]level version)?\))?/gi, (...m) => {
+						const {spell, lvl, cntCharges} = m.at(-1);
+						const spellUid = this._getSpellUid(spell);
+						spellsOther.delete(spellUid);
+						const spellUidWithLevel = lvl
+							? `${spellUid}#${lvl}`
+							: spellUid;
+						(spellsByCharge[cntCharges] ||= new Set()).add(spellUidWithLevel);
+					});
+
+					if (/\buntil the next dawn\b/i.test(str)) {
+						str = str.replace(/{@spell (?<spell>[^}]+)}/gi, (...m) => {
+							const {spell} = m.at(-1);
+							const spellUid = this._getSpellUid(spell);
+							spellsOther.delete(spellUid);
+							(spellsByDaily["1e"] ||= new Set()).add(spellUid);
+						});
+					}
+				},
+				object: obj => {
+					if (obj.type !== "table") return;
+					if (obj.colLabels?.length !== 2) return;
+					if (typeof obj.colLabels[1] !== "string" || !/\bcharges?\b/i.test(obj.colLabels[1])) return;
+					if (!obj.rows?.length) return;
+					obj.rows
+						.forEach(([c1, c2]) => {
+							if (typeof c1 !== "string") return;
+							if (isNaN(c2)) return;
+
+							c1.replace(/{@spell (?<spell>[^}]+)}/gi, (...m) => {
+								const {spell} = m.at(-1);
+								const spellUid = this._getSpellUid(spell);
+								spellsOther.delete(spellUid);
+								(spellsByCharge[c2] ||= new Set()).add(spellUid);
+							});
+						});
+				},
+			},
+		);
+
+		if (!Object.keys(spellsByCharge).length && !Object.keys(spellsByDaily).length) return;
+
+		if (spellsOther.size && opts.isSkipUnknown) return;
+
+		obj.attachedSpells = {};
+		if (Object.keys(spellsByCharge).length) {
+			obj.attachedSpells.charges = Object.fromEntries(
+				Object.entries(spellsByCharge)
+					.map(([cnt, set]) => [cnt, [...set].sort(SortUtil.ascSortLower)]),
+			);
+		}
+		if (Object.keys(spellsByDaily).length) {
+			obj.attachedSpells.daily = Object.fromEntries(
+				Object.entries(spellsByDaily)
+					.map(([cnt, set]) => [cnt, [...set].sort(SortUtil.ascSortLower)]),
+			);
+		}
+		if (spellsOther.size) obj.attachedSpells.other = [...spellsOther].sort(SortUtil.ascSortLower);
+	}
+
+	static tryRun (ent, opts = {}) {
+		if (ent.entries && ent.attachedSpells) this._checkAndTag(ent, opts);
+		if (ent.inherits?.entries && ent.inherits?.attachedSpells) this._checkAndTag(ent.inherits, opts);
+	}
+}
+
+export class InstrumentBaseItemTag {
+	static _IS_INIT = false;
+	static _RE_INSTRUMENT = null;
+	static _LOOKUP_INSTRUMENT = null;
+
+	static init ({items}) {
+		const itemsBaseInstruments = items.filter(item => item._category === "Basic" && [Parser.ITM_TYP__INSTRUMENT, Parser.ITM_TYP__ODND_INSTRUMENT].includes(item.type));
+		if (!itemsBaseInstruments.length) throw new Error(`No items!`);
+		this._RE_INSTRUMENT = new RegExp(`\\b(?<instrumentName>${itemsBaseInstruments.map(itm => itm.name).unique().map(name => RegExp.escape(name)).join("|")})\\b`);
+		this._LOOKUP_INSTRUMENT = itemsBaseInstruments
+			.reduce((accum, itm) => {
+				(accum[itm.name.toLowerCase()] ||= {})[itm.type] = {baseItemUid: DataUtil.proxy.getUid("item", itm)};
+				return accum;
+			}, {});
+
+		this._IS_INIT = true;
+	}
+
+	static tryRun (ent, opts) {
+		if (!this._IS_INIT) throw new Error(`Uninitialized!`);
+		opts ||= {};
+
+		if (ent.inherits) return;
+		if (ent.type && ent.baseItem) return;
+
+		const m = this._RE_INSTRUMENT.exec(ent.name);
+		if (!m) return;
+
+		const source = SourceUtil.getEntitySource(ent);
+
+		const {instrumentName} = m.groups;
+		const info = this._LOOKUP_INSTRUMENT[instrumentName.toLowerCase()];
+
+		if (SourceUtil.isClassicSource(source)) {
+			if (!info[Parser.ITM_TYP__INSTRUMENT]) {
+				if (opts.cbWarning) opts.cbWarning(`(${ent.name}) Had likely instrument name "${instrumentName}", but no instrument with this name was available in classic sources!`);
+				return;
+			}
+			ent.type ||= Parser.ITM_TYP__INSTRUMENT;
+			ent.baseItem ||= info[Parser.ITM_TYP__INSTRUMENT].baseItemUid;
+			return;
+		}
+
+		if (!info[Parser.ITM_TYP__ODND_INSTRUMENT]) {
+			if (opts.cbWarning) opts.cbWarning(`(${ent.name}) Had likely instrument name "${instrumentName}", but no instrument with this name was available in modern sources!`);
+			return;
+		}
+		ent.type ||= Parser.ITM_TYP__ODND_INSTRUMENT;
+		ent.baseItem ||= info[Parser.ITM_TYP__ODND_INSTRUMENT].baseItemUid;
+	}
+}

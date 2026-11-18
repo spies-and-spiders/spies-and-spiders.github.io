@@ -5,32 +5,32 @@ class SpellsSublistManager extends SublistManager {
 		return [
 			new SublistCellTemplate({
 				name: "Name",
-				css: "bold ve-col-3-2 pl-0 pr-1",
+				css: "ve-bold ve-col-3-2 ve-pl-0 ve-pr-1",
 				colStyle: "",
 			}),
 			new SublistCellTemplate({
 				name: "Level",
-				css: "capitalize ve-col-1-5 px-1 ve-text-center",
+				css: "ve-capitalize ve-col-1-5 ve-px-1 ve-text-center",
 				colStyle: "text-center",
 			}),
 			new SublistCellTemplate({
 				name: "Time",
-				css: "ve-col-1-8 px-1 ve-text-center",
+				css: "ve-col-1-8 ve-px-1 ve-text-center",
 				colStyle: "text-center",
 			}),
 			new SublistCellTemplate({
 				name: "School",
-				css: "capitalize ve-col-1-6 px-1 ve-text-center",
+				css: "ve-capitalize ve-col-1-6 ve-px-1 ve-text-center",
 				colStyle: "text-center",
 			}),
 			new SublistCellTemplate({
 				name: "C.",
-				css: "concentration--sublist ve-col-0-7 px-1 ve-text-center",
+				css: "concentration--sublist ve-col-0-7 ve-px-1 ve-text-center",
 				colStyle: "text-center",
 			}),
 			new SublistCellTemplate({
 				name: "Range",
-				css: "range ve-col-3-2 pl-1 pr-0 ve-text-right",
+				css: "range ve-col-3-2 ve-pl-1 ve-pr-0 ve-text-right",
 				colStyle: "text-right",
 			}),
 		];
@@ -40,7 +40,7 @@ class SpellsSublistManager extends SublistManager {
 		const school = Parser.spSchoolAndSubschoolsAbvsShort(spell.school, spell.subschools);
 		const time = PageFilterSpells.getTblTimeStr(spell.time[0]);
 		const concentration = spell._isConc ? "×" : "";
-		const range = Parser.spRangeToFull(spell.range);
+		const range = Parser.spRangeToFull(spell.range, {isDisplaySelfArea: true});
 
 		const cellsText = [
 			spell.name,
@@ -49,7 +49,7 @@ class SpellsSublistManager extends SublistManager {
 			new SublistCell({
 				text: school,
 				title: Parser.spSchoolAndSubschoolsAbvsToFull(spell.school, spell.subschools),
-				css: `sp__school-${spell.school}`,
+				css: Parser.spSchoolAbvToStyleClass(spell.school),
 				style: Parser.spSchoolAbvToStyle(spell.school),
 			}),
 			new SublistCell({
@@ -59,20 +59,20 @@ class SpellsSublistManager extends SublistManager {
 			range,
 		];
 
-		const $ele = $(`<div class="lst__row lst__row--sublist ve-flex-col">
-			<a href="#${UrlUtil.autoEncodeHash(spell)}" title="${spell.name}" class="lst__row-border lst__row-inner">
+		const ele = veT`<div class="ve-lst__row ve-lst__row--sublist ve-flex-col">
+			<a href="#${UrlUtil.autoEncodeHash(spell)}" title="${spell.name}" class="ve-lst__row-border ve-lst__row-inner">
 				${this.constructor._getRowCellsHtml({values: cellsText})}
 			</a>
-		</div>`)
-			.contextmenu(evt => this._handleSublistItemContextMenu(evt, listItem))
-			.click(evt => this._listSub.doSelect(listItem, evt));
+		</div>`
+			.vee.onn("contextmenu", evt => this._handleSublistItemContextMenu(evt, listItem))
+			.vee.onn("click", evt => this._listSub.doSelect(listItem, evt));
 
-		const listItem = new ListItem(
-			hash,
-			$ele,
-			spell.name,
-			{
-				hash,
+		const listItem = new ListItem({
+			id: hash,
+			ele,
+			name: spell.name,
+			values: {
+				...ListItem.getCommonValues(spell),
 				school,
 				level: spell.level,
 				time,
@@ -81,11 +81,13 @@ class SpellsSublistManager extends SublistManager {
 				normalisedTime: spell._normalisedTime,
 				normalisedRange: spell._normalisedRange,
 			},
-			{
+			data: {
+				hash,
+				page: spell.page,
 				entity: spell,
 				mdRow: [...cellsText],
 			},
-		);
+		});
 		return listItem;
 	}
 }
@@ -104,105 +106,93 @@ class SpellPageBookView extends ListPageBookView {
 	constructor (opts) {
 		super({
 			pageTitle: "Spells Book View",
+			nameSingular: "spell",
 			namePlural: "spells",
-			propMarkdown: "spell",
 			...opts,
 		});
 
-		this._bookViewLastOrder = null;
-		this._$wrpContent = null;
+		const lastOrder = StorageUtil.syncGetForPage(SpellPageBookView._BOOK_VIEW_MODE_K);
+		this._bookViewLastOrder = `${lastOrder ?? 0}`;
 	}
 
 	_getSorted (a, b) {
-		return this._bookViewLastOrder === "0" ? SortUtil.ascSort(a.level, b.level) : SortUtil.ascSortLower(a.name, b.name);
+		return (this._bookViewLastOrder === "0" ? SortUtil.ascSort(a.level, b.level) : 0)
+			|| SortUtil.ascSortLower(a.name, b.name);
 	}
 
-	async _$pGetWrpControls ({$wrpContent}) {
-		const out = await super._$pGetWrpControls({$wrpContent});
+	async _pGetWrpControls ({wrpContent}) {
+		const out = await super._pGetWrpControls({wrpContent});
 
-		const {$wrpPrint} = out;
+		const {wrpPrint} = out;
 
-		this._bookViewLastOrder = StorageUtil.syncGetForPage(SpellPageBookView._BOOK_VIEW_MODE_K);
-		if (this._bookViewLastOrder != null) this._bookViewLastOrder = `${this._bookViewLastOrder}`;
+		const onChangeSortMode = async () => {
+			const val = selSortMode.vee.val();
+			this._bookViewLastOrder = val;
+			await this._pGetRenderContentMeta({wrpContent});
 
-		const $selSortMode = $(`<select class="form-control input-sm">
+			StorageUtil.syncSetForPage(SpellPageBookView._BOOK_VIEW_MODE_K, val);
+		};
+
+		const selSortMode = veT`<select class="ve-form-control ve-input-xs">
 			<option value="0">Spell Level</option>
 			<option value="1">Alphabetical</option>
-		</select>`)
-			.change(() => {
-				if (!this._bookViewToShow.length && Hist.lastLoadedId != null) return;
+		</select>`
+			.vee.onn("change", () => onChangeSortMode());
 
-				const val = $selSortMode.val();
-				if (val === "0") this._renderByLevel();
-				else this._renderByAlpha();
-
-				StorageUtil.syncSetForPage(SpellPageBookView._BOOK_VIEW_MODE_K, val);
-			});
-		if (this._bookViewLastOrder != null) $selSortMode.val(this._bookViewLastOrder);
-		$$`<div class="ve-flex-vh-center ml-3"><div class="mr-2 no-wrap">Sort order:</div>${$selSortMode}</div>`.appendTo($wrpPrint);
+		selSortMode.vee.val(`${this._bookViewLastOrder ?? 0}`);
+		veT`<label class="ve-flex-vh-center ve-ml-3"><span class="ve-mr-2 ve-no-wrap">Sort Order:</span>${selSortMode}</label>`.vee.appendTo(wrpPrint);
 
 		return out;
 	}
 
-	_renderSpell ({stack, sp}) {
-		stack.push(`<div class="bkmv__wrp-item ve-inline-block print__ve-block print__my-2"><table class="w-100 stats stats--book stats--bkmv"><tbody>`);
-		stack.push(Renderer.spell.getCompactRenderedString(sp));
-		stack.push(`</tbody></table></div>`);
-	}
-
-	_renderByLevel () {
-		let isAnyEntityRendered = false;
-		const stack = [];
-		for (let i = 0; i < 10; ++i) {
-			const atLvl = this._bookViewToShow.filter(sp => sp.level === i);
-			if (atLvl.length) {
-				stack.push(`<div class="bkmv__no-breaks">`);
-				stack.push(`<div class="bkmv__spacer-name ve-flex-v-center no-shrink no-print pl-2">${Parser.spLevelToFullLevelText(i)}</div>`);
-				atLvl.forEach(sp => this._renderSpell({stack, sp}));
-				isAnyEntityRendered = true;
-				stack.push(`</div>`);
-			}
+	_pGetRenderContentMeta_getRenderedEntries ({entityMetas, cntEntsPinned}) {
+		if (!cntEntsPinned && entityMetas.length) {
+			return [
+				`<div class="ve-w-100 ve-h-100 ve-no-breaks">`,
+				this._getRenderedEnt(entityMetas[0].entity),
+				`</div>`,
+			]
+				.join("");
 		}
-		this._$wrpContent.empty().append(stack.join(""));
-		this._bookViewLastOrder = "0";
-		return {isAnyEntityRendered};
+
+		if (this._bookViewLastOrder === "1") {
+			return entityMetas
+				.map(({entity}) => this._getRenderedEnt(entity))
+				.join("");
+		}
+
+		if (this._bookViewLastOrder === "0") {
+			return Array.from({length: 10})
+				.map((_, i) => {
+					const atLvl = entityMetas.filter(({entity}) => entity.level === i);
+					if (!atLvl.length) return null;
+
+					return [
+						`<div class="bkmv__no-breaks"><div class="bkmv__spacer-name ve-flex-v-center ve-no-shrink ve-print__hidden ve-pl-2">${Parser.spLevelToFullLevelText(i)}</div>`,
+						...atLvl.map(({entity}) => this._getRenderedEnt(entity)),
+						`</div>`,
+					];
+				})
+				.filter(Boolean)
+				.flat()
+				.join("");
+		}
+
+		throw new Error(`Unhandled spell sort mode "${this._bookViewLastOrder}"`);
 	}
 
-	_renderByAlpha () {
-		const stack = [];
-		this._bookViewToShow.forEach(sp => this._renderSpell({stack, sp}));
-		this._$wrpContent.empty().append(stack.join(""));
-		this._bookViewLastOrder = "1";
-		return {isAnyEntityRendered: !!this._bookViewToShow.length};
-	}
+	async _pGetRenderContentMeta ({wrpContent, wrpContentOuter}) {
+		wrpContent.vee.addClass("ve-p-2");
 
-	_renderNoneSelected () {
-		const stack = [];
-		stack.push(`<div class="w-100 h-100 no-breaks">`);
-		this._renderSpell({stack, sp: this._fnGetEntLastLoaded()});
-		stack.push(`</div>`);
-		this._$wrpContent.empty().append(stack.join(""));
-		return {isAnyEntityRendered: false};
-	}
+		const {entityMetas, cntEntsPinned} = this._getRenderableContentMeta();
+		const ptEntries = this._pGetRenderContentMeta_getRenderedEntries({entityMetas, cntEntsPinned});
 
-	_renderSpells () {
-		if (!this._bookViewToShow.length && Hist.lastLoadedId != null) return this._renderNoneSelected();
-		else if (this._bookViewLastOrder === "1") return this._renderByAlpha();
-		else return this._renderByLevel();
-	}
-
-	async _pGetRenderContentMeta ({$wrpContent, $wrpControls}) {
-		this._$wrpContent = $wrpContent;
-		$wrpContent.addClass("p-2");
-
-		this._bookViewToShow = this._sublistManager.getSublistedEntities()
-			.sort((a, b) => SortUtil.ascSortLower(a.name, b.name));
-
-		const {isAnyEntityRendered} = this._renderSpells();
+		wrpContent.vee.empty();
+		if (ptEntries.length) wrpContent.vee.appends(ptEntries);
 
 		return {
-			cntSelectedEnts: this._bookViewToShow.length,
-			isAnyEntityRendered,
+			cntSelectedEnts: cntEntsPinned,
+			isAnyEntityRendered: !!ptEntries.length,
 		};
 	}
 }
@@ -243,7 +233,7 @@ class SpellsPage extends ListPageMultiSource {
 						name: "School",
 						transform: (sp) => {
 							const ptMeta = Parser.spMetaToArr(sp.meta);
-							return `<span class="sp__school-${sp.school}" ${Parser.spSchoolAbvToStyle(sp.school)}>${Parser.spSchoolAndSubschoolsAbvsToFull(sp.school, sp.subschools)}</span>${ptMeta.length ? ` (${ptMeta.join(", ")})` : ""}`;
+							return `<span class="${Parser.spSchoolAbvToStyleClass(sp.school)}" ${Parser.spSchoolAbvToStyle(sp.school)}>${Parser.spSchoolAndSubschoolsAbvsToFull(sp.school, sp.subschools)}</span>${ptMeta.length ? ` (${ptMeta.join(", ")})` : ""}`;
 						},
 					},
 					range: {name: "Range", transform: (it) => Parser.spRangeToFull(it)},
@@ -252,14 +242,23 @@ class SpellsPage extends ListPageMultiSource {
 						name: "Classes",
 						transform: (sp) => {
 							const [current] = Parser.spClassesToCurrentAndLegacy(Renderer.spell.getCombinedClasses(sp, "fromClassList"));
-							return Parser.spMainClassesToFull(current);
+							return Parser.spMainClassesToFull(current, {isIncludeSource: true});
 						},
 					},
 					_classesVariant: {
 						name: "Optional/Variant Classes",
 						transform: (sp) => {
 							const [current] = Parser.spVariantClassesToCurrentAndLegacy(Renderer.spell.getCombinedClasses(sp, "fromClassListVariant"));
-							return Parser.spMainClassesToFull(current);
+							return Parser.spMainClassesToFull(current, {isIncludeSource: true});
+						},
+					},
+					_subclasses: {
+						name: "Subclasses",
+						transform: (sp, additionalData) => {
+							const fromSubclass = Renderer.spell.getCombinedClasses(sp, "fromSubclass");
+							if (!fromSubclass.length) return "";
+							const [current] = Parser.spSubclassesToCurrentAndLegacyFull(sp, additionalData.subclassLookup, {isIncludeSource: true});
+							return current;
 						},
 					},
 					entries: {name: "Text", transform: (it) => Renderer.get().render({type: "entries", entries: it}, 1), flex: 3},
@@ -279,6 +278,12 @@ class SpellsPage extends ListPageMultiSource {
 		this._bookViewLastOrder = null;
 	}
 
+	async _pGetTableViewAdditionalData () {
+		return {
+			subclassLookup: await DataUtil.class.pGetSubclassLookup(),
+		};
+	}
+
 	get _bindOtherButtonsOptions () {
 		return {
 			upload: {
@@ -293,7 +298,7 @@ class SpellsPage extends ListPageMultiSource {
 				}),
 			},
 			other: [
-				this._bindOtherButtonsOptions_openAsSinglePage({slugPage: "spells", fnGetHash: () => Hist.getHashParts()[0]}),
+				this._bindOtherButtonsOptions_openAsSinglePage({slugPage: "spells"}),
 			].filter(Boolean),
 		};
 	}
@@ -310,51 +315,33 @@ class SpellsPage extends ListPageMultiSource {
 		const source = Parser.sourceJsonToAbv(spell.source);
 		const time = PageFilterSpells.getTblTimeStr(spell.time[0]);
 		const school = Parser.spSchoolAndSubschoolsAbvsShort(spell.school, spell.subschools);
+		const schoolClassName = Parser.spSchoolAbvToStyleClass(spell.school);
 		const concentration = spell._isConc ? "×" : "";
-		const range = Parser.spRangeToFull(spell.range);
+		const range = Parser.spRangeToFull(spell.range, {isDisplaySelfArea: true});
 
-		const eleLi = e_({
+		const eleLi = veE({
 			tag: "div",
-			clazz: `lst__row ve-flex-col ${isExcluded ? "lst__row--blocklisted" : ""}`,
+			clazz: `ve-lst__row ve-flex-col ${isExcluded ? "ve-lst__row--blocklisted" : ""}`,
 			click: (evt) => this._list.doSelect(listItem, evt),
 			contextmenu: (evt) => this._openContextMenu(evt, this._list, listItem),
-			children: [
-				e_({
-					tag: "a",
-					href: `#${hash}`,
-					clazz: "lst__row-border lst__row-inner",
-					children: [
-						e_({tag: "span", clazz: `bold ve-col-2-9 pl-0 pr-1`, text: spell.name}),
-						e_({tag: "span", clazz: `ve-col-1-5 px-1 ve-text-center`, text: PageFilterSpells.getTblLevelStr(spell)}),
-						e_({tag: "span", clazz: `ve-col-1-7 px-1 ve-text-center`, text: time}),
-						e_({
-							tag: "span",
-							clazz: `ve-col-1-2 px-1 sp__school-${spell.school} ve-text-center`,
-							title: Parser.spSchoolAndSubschoolsAbvsToFull(spell.school, spell.subschools),
-							style: Parser.spSchoolAbvToStylePart(spell.school),
-							text: school,
-						}),
-						e_({tag: "span", clazz: `ve-col-0-6 px-1 ve-text-center`, title: "Concentration", text: concentration}),
-						e_({tag: "span", clazz: `ve-col-2-4 px-1 ve-text-right`, text: range}),
-						e_({
-							tag: "span",
-							clazz: `ve-col-1-7 ve-text-center ${Parser.sourceJsonToSourceClassname(spell.source)} pl-1 pr-0`,
-							style: Parser.sourceJsonToStylePart(spell.source),
-							title: `${Parser.sourceJsonToFull(spell.source)}${Renderer.utils.getSourceSubText(spell)}`,
-							text: source,
-						}),
-					],
-				}),
-			],
+			html: `<a href="#${hash.qq()}" class="ve-lst__row-border ve-lst__row-inner">
+				<span class="ve-bold ve-col-2-9 ve-pl-0 ve-pr-1">${spell.name.qq()}</span>
+				<span class="ve-col-1-5 ve-px-1 ve-text-center">${PageFilterSpells.getTblLevelStr(spell).qq()}</span>
+				<span class="ve-col-1-7 ve-px-1 ve-text-center">${time.qq()}</span>
+				<span class="ve-col-1-2 ve-px-1 ${schoolClassName.qq()} ve-text-center" title="${Parser.spSchoolAndSubschoolsAbvsToFull(spell.school, spell.subschools).qq()}" ${Parser.spSchoolAbvToStyle(spell.school) || ""}>${school.qq()}</span>
+				<span class="ve-col-0-6 ve-px-1 ve-text-center" title="Concentration">${concentration}</span>
+				<span class="ve-col-2-4 ve-px-1 ve-text-right">${range.qq()}</span>
+				<span class="ve-col-1-7 ve-text-center ${Parser.sourceJsonToSourceClassname(spell.source).qq()} ve-pl-1 ve-pr-0" title="${`${Parser.sourceJsonToFull(spell.source)}${Renderer.utils.getSourceSubText(spell)}`.qq()}">${source.qq()}</span>
+			</a>`,
 		});
 
-		const listItem = new ListItem(
-			spI,
-			eleLi,
-			spell.name,
-			{
-				hash,
+		const listItem = new ListItem({
+			id: spI,
+			ele: eleLi,
+			name: spell.name,
+			values: {
 				source,
+				...ListItem.getCommonValues(spell),
 				level: spell.level,
 				time,
 				school: Parser.spSchoolAbvToFull(spell.school),
@@ -362,10 +349,12 @@ class SpellsPage extends ListPageMultiSource {
 				normalisedTime: spell._normalisedTime,
 				normalisedRange: spell._normalisedRange,
 			},
-			{
+			data: {
+				hash,
+				page: spell.page,
 				isExcluded,
 			},
-		);
+		});
 
 		return listItem;
 	}
@@ -373,7 +362,7 @@ class SpellsPage extends ListPageMultiSource {
 	_tabTitleStats = "Spell";
 
 	_renderStats_doBuildStatsTab ({ent}) {
-		this._$pgContent.empty().append(RenderSpells.$getRenderedSpell(ent, {subclassLookup: this._subclassLookup, settings: this._compSettings.getValues()}));
+		this._pgContent.vee.empty().vee.appends(RenderSpells.getRenderedSpell(ent, {subclassLookup: this._subclassLookup, settings: this._compSettings.getValues()}));
 	}
 
 	async _pOnLoad_pPreDataLoad () {

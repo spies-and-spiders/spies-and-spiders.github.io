@@ -9,8 +9,9 @@ export class EntryCoalesceEntryLists {
 	 * @param stats
 	 * @param prop
 	 * @param {"classic" | "one" | null} styleHint
+	 * @param {?function} isPossibleHangingListItem Optional additional filtering function
 	 */
-	static mutCoalesce (stats, prop, {styleHint = null} = {}) {
+	static mutCoalesce (stats, prop, {styleHint = null, isPossibleHangingListItem = null} = {}) {
 		if (!stats[prop]) return;
 
 		styleHint ||= VetoolsConfig.get("styleSwitcher", "style");
@@ -18,8 +19,10 @@ export class EntryCoalesceEntryLists {
 		this._WALKER ||= MiscUtil.getWalker({keyBlocklist: MiscUtil.GENERIC_WALKER_ENTRIES_KEY_BLOCKLIST});
 
 		this._mutCoalesce_listsBasic({stats, prop, styleHint});
-		this._mutCoalesce_listsHanging({stats, prop, styleHint});
+		this._mutCoalesce_listsHanging({stats, prop, styleHint, isPossibleHangingListItem});
 		this._mutCoalesce_listsHangingAttributes({stats, prop, styleHint});
+
+		this._mutCoalesce_separateUsageNote({stats, prop, styleHint});
 	}
 
 	static _mutCoalesce_listsBasic ({stats, prop}) {
@@ -68,9 +71,19 @@ export class EntryCoalesceEntryLists {
 		);
 	}
 
-	static _mutCoalesce_listsHanging ({stats, prop, styleHint}) {
+	static _mutCoalesce_listsHanging ({stats, prop, styleHint, isPossibleHangingListItem}) {
 		if (styleHint === SITE_STYLE__CLASSIC) return;
 
+		const getNewList = () => ({type: "list", style: "list-hang-notitle", items: []});
+		const isListItemEntry = ent => ent?.type === "entries" && (!isPossibleHangingListItem || isPossibleHangingListItem(ent));
+
+		const isIntroString = ({str, entNxt}) => {
+			return str.trim().endsWith(":")
+				&& /\b(choose|choice|one of the following|following benefits|options)\b/i.exec(str)
+				&& isListItemEntry(entNxt);
+		};
+
+		// Walk for "string into entries"
 		stats[prop] = this._WALKER.walk(
 			stats[prop],
 			{
@@ -80,10 +93,8 @@ export class EntryCoalesceEntryLists {
 					const out = [];
 					let tmpList = null;
 
-					const getNewList = () => ({type: "list", style: "list-hang-notitle", items: []});
-					const checkFinalizeList = () => {
-						if (!tmpList?.items?.length) return;
-						out.push(tmpList);
+					const doCheckFinalizeList = () => {
+						if (tmpList?.items?.length) out.push(tmpList);
 						tmpList = null;
 					};
 
@@ -92,19 +103,17 @@ export class EntryCoalesceEntryLists {
 						const entNxt = arr[i + 1];
 
 						if (typeof ent === "string") {
-							checkFinalizeList();
+							doCheckFinalizeList();
 							out.push(ent);
 
-							if (
-								ent.trim().endsWith(":")
-								&& /\b(choose|choice)\b/i.exec(ent)
-								&& entNxt?.type === "entries"
-							) {
+							if (isIntroString({str: ent, entNxt})) {
 								tmpList = getNewList();
 							}
 
 							continue;
 						}
+
+						if (!isListItemEntry(ent)) doCheckFinalizeList();
 
 						if (!tmpList) {
 							out.push(ent);
@@ -116,7 +125,63 @@ export class EntryCoalesceEntryLists {
 						);
 					}
 
-					checkFinalizeList();
+					doCheckFinalizeList();
+
+					return out;
+				},
+			},
+			"entries",
+		);
+
+		// Walk for "trailing entry into entries"
+		stats[prop] = this._WALKER.walk(
+			stats[prop],
+			{
+				array: (arr, objProp) => {
+					if (objProp !== "entries") return arr;
+
+					const out = [];
+					let entryParent = null;
+					let tmpList = null;
+
+					const doCheckFinalizeList = () => {
+						if (tmpList?.items?.length) (entryParent?.entries || out).push(tmpList);
+						tmpList = null;
+						entryParent = null;
+					};
+
+					for (let i = 0; i < arr.length; ++i) {
+						const ent = arr[i];
+						const entNxt = arr[i + 1];
+
+						if (!isListItemEntry(ent)) {
+							doCheckFinalizeList();
+							out.push(ent);
+							continue;
+						}
+
+						const trailingEnt = ent?.entries?.at(-1);
+
+						if (typeof trailingEnt === "string" && isIntroString({str: trailingEnt, entNxt})) {
+							doCheckFinalizeList();
+							entryParent = ent;
+							out.push(ent);
+							tmpList = getNewList();
+							continue;
+						}
+
+						if (!tmpList) {
+							entryParent = null;
+							out.push(ent);
+							continue;
+						}
+
+						tmpList.items.push(
+							ConverterUtils.mutSetEntryTypePretty({obj: ent, type: "item"}),
+						);
+					}
+
+					doCheckFinalizeList();
 
 					return out;
 				},
@@ -145,6 +210,39 @@ export class EntryCoalesceEntryLists {
 				.map(it => ({type: "item", ...it})),
 		};
 		stats[prop].splice(0, ixEnd + 1, lst);
+	}
+
+	/** Attempt to pull out "usage" notes which have been mistakenly included in lists etc. */
+	static _mutCoalesce_separateUsageNote ({stats, prop, styleHint}) {
+		if (styleHint === SITE_STYLE__CLASSIC) return;
+
+		stats[prop] = this._WALKER.walk(
+			stats[prop],
+			{
+				array: (arr, objProp) => {
+					if (objProp !== "entries") return arr;
+
+					const entLast = arr.at(-1);
+					if (entLast?.type !== "list" || entLast?.style !== "list-hang-notitle" || !entLast?.items?.length) return arr;
+
+					const itmLast = entLast.items.at(-1);
+					if (
+						itmLast?.type !== "item"
+						|| !itmLast?.entries?.length
+						|| itmLast.entries.length < 2
+						|| typeof itmLast.entries.at(-1) !== "string"
+					) return arr;
+
+					if (!/^(When|Once)/i.test(itmLast.entries.at(-1))) return arr;
+
+					const txtLast = itmLast.entries.pop();
+					arr.push(txtLast);
+
+					return arr;
+				},
+			},
+			"entries",
+		);
 	}
 }
 
@@ -231,7 +329,8 @@ export class EntryCoalesceRawLines {
 
 			if (ConverterUtils.isJsonLine(state.curLine)) {
 				state.popNestedEntries(); // this implicitly pops nested lists
-				state.addEntry({entry: ConverterUtils.getJsonFromLine(state.curLine)});
+				state.addEntry({entry: ConverterUtils.getJsonFromLine(state.curLine), isSkipStack: true});
+				state.popNestedEntries();
 				state.incrementLine();
 				continue;
 			}

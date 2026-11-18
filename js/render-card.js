@@ -1,17 +1,6 @@
 "use strict";
 
-class RendererCard {
-	constructor () {
-		// FIXME this is awful
-		const renderer = new Renderer();
-		for (const k in renderer) {
-			if (this[k] === undefined) {
-				if (typeof renderer[k] === "function") this[k] = renderer[k].bind(this);
-				else this[k] = MiscUtil.copy(renderer[k]);
-			}
-		}
-	}
-
+class RendererCard extends Renderer {
 	static get () {
 		return new RendererCard().setFnPostProcess(RendererCard._fnPostProcess);
 	}
@@ -103,8 +92,12 @@ class RendererCard {
 
 				const headerRowMeta = headerRowMetas[ixRow];
 				for (let ixCell = 0; ixCell < headerRowMeta.length; ++ixCell) {
-					const label = headerRowMeta[ixCell];
-					this._recursiveRender(label, textStack, meta);
+					const entCellHeader = headerRowMeta[ixCell];
+					const entryNxt = entCellHeader?.type === "cellHeader"
+						? entCellHeader.entry
+						: entCellHeader;
+					this._recursiveRender(entryNxt, textStack, meta);
+					if (entCellHeader?.type === "cellHeader" && entCellHeader.width) for (let i = 1; i < entCellHeader.width; ++i) textStack[0] += _VERTICAL_LINE;
 					if (ixCell !== headerRowMeta.length - 1) textStack[0] += _VERTICAL_LINE;
 				}
 
@@ -264,7 +257,7 @@ class RendererCard {
 
 	_renderAbilityGeneric (entry, textStack, meta, options) {
 		this._renderPrefix(entry, textStack, meta, options);
-		textStack[0] += `${entry.name ? `<b>${entry.name}</b> = ` : ""}${entry.text}${entry.attributes ? ` ${Parser.attrChooseToFull(entry.attributes)}` : ""}`;
+		textStack[0] += `${entry.name ? `<b>${entry.name}</b> = ` : ""}${entry.entry}${entry.attributes ? ` ${Parser.attrChooseToFull(entry.attributes)}` : ""}`;
 		this._renderSuffix(entry, textStack, meta, options);
 	}
 	// endregion
@@ -293,7 +286,7 @@ class RendererCard {
 	}
 
 	_renderLink (entry, textStack, meta, options) {
-		this._recursiveRender(entry.text, textStack, meta);
+		this._recursiveRender(entry.entry, textStack, meta);
 	}
 
 	/*
@@ -314,7 +307,9 @@ class RendererCard {
 	// region list items
 	_renderItem (entry, textStack, meta, options) {
 		this._renderPrefix(entry, textStack, meta, options);
-		textStack[0] += `<b>${this.render(entry.name)}</b> `;
+		textStack[0] += `<b>`;
+		this._recursiveRender(entry.name, textStack, meta);
+		textStack[0] += `${this._renderItemSubtypes_isAddPeriod(entry) ? "." : ""}</b> `;
 		if (entry.entry) this._recursiveRender(entry.entry, textStack, meta);
 		else if (entry.entries) {
 			const len = entry.entries.length;
@@ -329,7 +324,7 @@ class RendererCard {
 
 	_renderItemSub (entry, textStack, meta, options) {
 		this._renderPrefix(entry, textStack, meta, options);
-		this._recursiveRender(entry.entry, textStack, meta, {prefix: `bullet | <i>${this.render(entry.name)}</i> `, suffix: "\n"});
+		this._recursiveRender(entry.entry, textStack, meta, {prefix: `bullet | <i>${Renderer.stripTags(entry.name)}</i> `, suffix: "\n"});
 		this._renderSuffix(entry, textStack, meta, options);
 	}
 
@@ -438,9 +433,10 @@ RendererCard.utils = class {
 		const baseText = Renderer.utils.isDisplayPage(it.page) ? `text | <b>Source:</b> <i>${Parser.sourceJsonToAbv(it.source)}${sourceSub}</i>, page ${it.page}` : "";
 		const addSourceText = this._getPageText_getAltSourceText(it, "additionalSources", "Additional information from");
 		const otherSourceText = this._getPageText_getAltSourceText(it, "otherSources", "Also found in");
+		const referenceSourceText = this._getPageText_getAltSourceText(it, "referenceSources", "Referenced in");
 		const externalSourceText = this._getPageText_getAltSourceText(it, "externalSources", "External sources:");
 
-		return `${[baseText, addSourceText, otherSourceText, externalSourceText].filter(it => it).join(". ")}${baseText && (addSourceText || otherSourceText || externalSourceText) ? "." : ""}\n`;
+		return `${[baseText, addSourceText, otherSourceText, referenceSourceText, externalSourceText].filter(it => it).join(". ")}${baseText && (addSourceText || otherSourceText || referenceSourceText || externalSourceText) ? "." : ""}\n`;
 	}
 
 	static _getPageText_getAltSourceText (it, prop, introText) {

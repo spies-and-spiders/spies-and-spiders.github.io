@@ -1,7 +1,8 @@
 import {ActionTag, DiceConvert, SenseTag, SkillTag, TagCondition, TaggerUtils} from "./converterutils-tags.js";
 import {VetoolsConfig} from "../utils-config/utils-config-config.js";
 import {ConverterTaggerInitializable} from "./converterutils-taggerbase.js";
-import {SITE_STYLE__ONE} from "../consts.js";
+import {SITE_STYLE__CLASSIC, SITE_STYLE__ONE} from "../consts.js";
+import {WALKER_CONVERTER, WALKER_CONVERTER_KEY_BLOCKLIST} from "./converterutils-walker.js";
 
 const LAST_KEY_ALLOWLIST = new Set([
 	"entries",
@@ -21,10 +22,12 @@ export class TagJsons {
 		await SpellTag.pInit(spells);
 		await ItemTag.pInit();
 		await ActionTag.pInit();
+		await TrapTag.pInit();
 		await HazardTag.pInit();
 		await CoreRuleTag.pInit();
 		await FeatTag.pInit();
 		await AdventureBookTag.pInit();
+		await CreatureTag.pInit();
 	}
 
 	/**
@@ -35,34 +38,37 @@ export class TagJsons {
 	 * @param {"classic" | "one" | null} styleHint
 	 */
 	static mutTagObject (json, {keySet = null, isOptimistic = true, creaturesToTag = null, styleHint = null} = {}) {
-		TagJsons.OPTIMISTIC = isOptimistic;
 		styleHint ||= VetoolsConfig.get("styleSwitcher", "style");
 
 		const fnCreatureTagSpecific = CreatureTag.getFnTryRunSpecific(creaturesToTag);
 
 		Object.keys(json)
 			.forEach(k => {
+				if (WALKER_CONVERTER_KEY_BLOCKLIST.has(k)) return;
 				if (keySet != null && !keySet.has(k)) return;
 
-				json[k] = TagJsons.WALKER.walk(
+				json[k] = WALKER_CONVERTER.walk(
 					{_: json[k]},
 					{
 						object: (obj, lastKey) => {
 							if (lastKey != null && !LAST_KEY_ALLOWLIST.has(lastKey)) return obj;
 
 							obj = TagCondition.tryRun(obj, {styleHint});
-							obj = SkillTag.tryRun(obj, {styleHint});
+							obj = SkillTag.tryRunStrictCapsWords(obj, {styleHint});
+							// spells > senses, as "casts Darkvision" should reference the spell
+							// spells > rules, as "Cone of Cold" can be mis-tagged as "Cone [AoE] of Cold"
+							obj = SpellTag.tryRun(obj, {styleHint, isOptimistic});
 							obj = SenseTag.tryRun(obj, {styleHint});
-							obj = SpellTag.tryRun(obj, {styleHint});
-							// items > actions, as "Hide Armour" can be mis-tagged as "Hide"
+							// items > actions, as "Hide Armor" can be mis-tagged as "Hide"
 							obj = ItemTag.tryRun(obj, {styleHint});
-							obj = ActionTag.tryRun(obj, {styleHint});
+							obj = ActionTag.tryRunStrictCapsWords(obj, {styleHint});
 							obj = TableTag.tryRun(obj, {styleHint});
+							obj = TrapTag.tryRunStrictCapsWords(obj, {styleHint});
 							obj = TrapTag.tryRun(obj, {styleHint});
+							obj = HazardTag.tryRunStrictCapsWords(obj, {styleHint});
 							obj = HazardTag.tryRun(obj, {styleHint});
 							obj = ChanceTag.tryRun(obj, {styleHint});
 							obj = QuickrefTag.tryRun(obj, {styleHint});
-							// rules > dice, as "D20 Test" can be mis-tagged as a rollable dice
 							obj = CoreRuleTag.tryRun(obj, {styleHint});
 							obj = DiceConvert.getTaggedEntry(obj, {styleHint});
 							obj = FeatTag.tryRun(obj, {styleHint});
@@ -83,21 +89,29 @@ export class TagJsons {
 	 * @param {boolean} isOptimistic
 	 * @param {"classic" | null} styleHint
 	 */
-	static mutTagObjectStrictCapsWords (json, {keySet = null, styleHint = null} = {}) {
+	static mutTagObjectStrictCapsWords (json, {keySet = null, isOptimistic = false, styleHint = null} = {}) {
 		styleHint ||= VetoolsConfig.get("styleSwitcher", "style");
 
 		Object.keys(json)
 			.forEach(k => {
+				if (WALKER_CONVERTER_KEY_BLOCKLIST.has(k)) return;
 				if (keySet != null && !keySet.has(k)) return;
 
-				json[k] = TagJsons.WALKER.walk(
+				json[k] = WALKER_CONVERTER.walk(
 					{_: json[k]},
 					{
 						object: (obj, lastKey) => {
 							if (lastKey != null && !LAST_KEY_ALLOWLIST.has(lastKey)) return obj;
 
+							obj = TagCondition.tryRunStrictCapsWords(obj, {styleHint});
+							obj = SkillTag.tryRunStrictCapsWords(obj, {styleHint});
 							obj = ItemTag.tryRunStrictCapsWords(obj, {styleHint});
+							obj = ActionTag.tryRunStrictCapsWords(obj, {styleHint});
 							obj = SpellTag.tryRunStrictCapsWords(obj, {styleHint});
+							obj = TrapTag.tryRunStrictCapsWords(obj, {styleHint});
+							obj = HazardTag.tryRunStrictCapsWords(obj, {styleHint});
+							obj = CoreRuleTag.tryRun(obj, {styleHint});
+							obj = CreatureTag.tryRunStrictCapsWords(obj, {styleHint});
 
 							return obj;
 						},
@@ -107,17 +121,7 @@ export class TagJsons {
 	}
 }
 
-TagJsons.OPTIMISTIC = true;
-
 TagJsons._BLOCKLIST_FILE_PREFIXES = null;
-
-TagJsons.WALKER_KEY_BLOCKLIST = new Set([
-	...MiscUtil.GENERIC_WALKER_ENTRIES_KEY_BLOCKLIST,
-]);
-
-TagJsons.WALKER = MiscUtil.getWalker({
-	keyBlocklist: TagJsons.WALKER_KEY_BLOCKLIST,
-});
 
 export class SpellTag extends ConverterTaggerInitializable {
 	static _SPELL_NAMES = {};
@@ -153,13 +157,15 @@ export class SpellTag extends ConverterTaggerInitializable {
 		this._SPELL_NAME_REGEX_SPELL = new RegExp(`\\b(${spellNamesFiltered.map(it => it.escapeRegexp()).join("|")}) (spell|cantrip)`, "gi");
 		this._SPELL_NAME_REGEX_AND = new RegExp(`\\b(${spellNamesFiltered.map(it => it.escapeRegexp()).join("|")}) (and {@spell)`, "gi");
 		this._SPELL_NAME_REGEX_CAST = new RegExp(`(?<prefix>casts?(?: the(?: spell)?)? )(?<spell>${spellNamesFiltered.map(it => it.escapeRegexp()).join("|")})\\b`, "gi");
-		this._SPELL_NAME_REGEX_STRICT = new RegExp(`^(${Object.keys(this._SPELL_NAMES).map(it => it.escapeRegexp()).join("|")})$`, "gi");
+		this._SPELL_NAME_REGEX_STRICT = new RegExp(`^(${Object.values(this._SPELL_NAMES).map(it => it.name.escapeRegexp()).join("|")})$`, "g");
 	}
 
-	static _tryRun (ent, {styleHint = null} = {}) {
+	static _tryRun (ent, {styleHint = null, blocklistNames = null, isOptimistic = true} = {}) {
 		styleHint ||= VetoolsConfig.get("styleSwitcher", "style");
 
-		return TagJsons.WALKER.walk(
+		if (blocklistNames) blocklistNames = blocklistNames.getWithBlocklistIgnore([ent.name]);
+
+		return WALKER_CONVERTER.walk(
 			ent,
 			{
 				string: (str) => {
@@ -171,7 +177,7 @@ export class SpellTag extends ConverterTaggerInitializable {
 						0,
 						str,
 						{
-							fnTag: (strMod) => this._fnTag({strMod, styleHint}),
+							fnTag: (strMod) => this._fnTag({strMod, styleHint, blocklistNames, isOptimistic}),
 						},
 					);
 					return ptrStack._;
@@ -186,12 +192,13 @@ export class SpellTag extends ConverterTaggerInitializable {
 		return this._SPELL_NAMES_LEGACY[name];
 	}
 
-	static _fnTag ({strMod, styleHint}) {
-		if (TagJsons.OPTIMISTIC) {
+	static _fnTag ({strMod, styleHint, blocklistNames, isOptimistic}) {
+		if (isOptimistic) {
 			strMod = strMod
 				.replace(this._SPELL_NAME_REGEX_SPELL, (...m) => {
 					const spellMeta = this._getSpellMeta({name: m[1], styleHint});
 					if (!spellMeta) return m[0];
+					if (blocklistNames?.isBlocked(spellMeta.name)) return m[0];
 					return `{@spell ${m[1]}${spellMeta.source !== Parser.SRC_SNS ? `|${spellMeta.source}` : ""}} ${m[2]}`;
 				});
 		}
@@ -201,6 +208,7 @@ export class SpellTag extends ConverterTaggerInitializable {
 			.replace(/\b(antimagic field|dispel magic)\b/gi, (...m) => {
 				const spellMeta = this._getSpellMeta({name: m[1], styleHint});
 				if (!spellMeta) return m[0];
+				if (blocklistNames?.isBlocked(spellMeta.name)) return m[0];
 				return `{@spell ${m[1]}${spellMeta.source !== Parser.SRC_SNS ? `|${spellMeta.source}` : ""}}`;
 			});
 
@@ -208,6 +216,7 @@ export class SpellTag extends ConverterTaggerInitializable {
 			.replace(this._SPELL_NAME_REGEX_CAST, (...m) => {
 				const spellMeta = this._getSpellMeta({name: m.last().spell, styleHint});
 				if (!spellMeta) return m[0];
+				if (blocklistNames?.isBlocked(spellMeta.name)) return m[0];
 				return `${m.last().prefix}{@spell ${m.last().spell}${spellMeta.source !== Parser.SRC_SNS ? `|${spellMeta.source}` : ""}}`;
 			});
 
@@ -215,19 +224,22 @@ export class SpellTag extends ConverterTaggerInitializable {
 			.replace(this._SPELL_NAME_REGEX_AND, (...m) => {
 				const spellMeta = this._getSpellMeta({name: m[1], styleHint});
 				if (!spellMeta) return m[0];
+				if (blocklistNames?.isBlocked(spellMeta.name)) return m[0];
 				return `{@spell ${m[1]}${spellMeta.source !== Parser.SRC_SNS ? `|${spellMeta.source}` : ""}} ${m[2]}`;
 			})
-			.replace(/(spells(?:|[^.!?:{]*): )([^.!?]+)/gi, (...m) => {
-				const spellPart = m[2].replace(this._SPELL_NAME_REGEX, (...n) => {
-					const spellMeta = this._getSpellMeta({name: n[1], styleHint});
+			.replace(/(spells(?:|[^.!?:{]*): )([^.!?]+)/gi, (...mOuter) => {
+				const spellPart = mOuter[2].replace(this._SPELL_NAME_REGEX, (...m) => {
+					const spellMeta = this._getSpellMeta({name: m[1], styleHint});
 					if (!spellMeta) return m[0];
-					return `{@spell ${n[1]}${spellMeta.source !== Parser.SRC_SNS ? `|${spellMeta.source}` : ""}}`;
+					if (blocklistNames?.isBlocked(spellMeta.name)) return m[0];
+					return `{@spell ${m[1]}${spellMeta.source !== Parser.SRC_SNS ? `|${spellMeta.source}` : ""}}`;
 				});
-				return `${m[1]}${spellPart}`;
+				return `${mOuter[1]}${spellPart}`;
 			})
 			.replace(this._SPELL_NAME_REGEX_CAST, (...m) => {
 				const spellMeta = this._getSpellMeta({name: m.last().spell, styleHint});
 				if (!spellMeta) return m[0];
+				if (blocklistNames?.isBlocked(spellMeta.name)) return m[0];
 				return `${m.last().prefix}{@spell ${m.last().spell}${spellMeta.source !== Parser.SRC_SNS ? `|${spellMeta.source}` : ""}}`;
 			})
 		;
@@ -235,10 +247,12 @@ export class SpellTag extends ConverterTaggerInitializable {
 
 	/* -------------------------------------------- */
 
-	static _tryRunStrictCapsWords (ent, {styleHint = null} = {}) {
+	static _tryRunStrictCapsWords (ent, {styleHint = null, blocklistNames = null} = {}) {
 		styleHint ||= VetoolsConfig.get("styleSwitcher", "style");
 
-		return TagJsons.WALKER.walk(
+		if (blocklistNames) blocklistNames = blocklistNames.getWithBlocklistIgnore([ent.name]);
+
+		return WALKER_CONVERTER.walk(
 			ent,
 			{
 				string: (str) => {
@@ -248,74 +262,122 @@ export class SpellTag extends ConverterTaggerInitializable {
 						ptrStack,
 						str,
 						{
-							fnTag: (strMod) => this._fnTagStrict({strMod, styleHint}),
+							fnTag: (strMod) => this._fnTagStrict({strMod, styleHint, blocklistNames}),
 						},
 					);
-					return ptrStack._;
+					return ptrStack._
+						.replace(/{@spell (Resistance)\|XPHB}( to)/g, "$1$2")
+						.replace(/(bypasses ){@spell (Resistance)\|XPHB}/g, "$1$2")
+
+						.replace(/{@spell (Darkvision)\|XPHB}( can't| \d+ (?:ft\.|feet))/g, "$1$2")
+
+						.replace(/(Dim Light or ){@spell (Darkness)\|XPHB}/g, "$1$2")
+						.replace(/(magical ){@spell (Darkness)\|XPHB}/g, "$1$2")
+
+						.replace(/{@spell (Fly)\|XPHB}( \d+ (?:ft\.|feet))/g, "$1$2")
+					;
 				},
 			},
 		);
 	}
 
-	static _fnTagStrict ({strMod, styleHint}) {
-		return strMod
-			.replace(this._SPELL_NAME_REGEX_STRICT, (...m) => {
-				const spellMeta = this._getSpellMeta({name: m[1], styleHint});
-				if (!spellMeta) return m[0];
-				return `{@spell ${m[1]}|${spellMeta.source}}`;
-			});
+	static _fnTagStrict ({strMod, styleHint, blocklistNames}) {
+		const mBase = strMod.match(this._SPELL_NAME_REGEX_STRICT);
+		if (mBase?.length) {
+			const [strMatch] = mBase;
+			const spellMeta = this._getSpellMeta({name: strMatch, styleHint});
+			if (!spellMeta) return strMatch;
+			if (blocklistNames?.isBlocked(spellMeta.name)) return strMatch;
+			return `{@spell ${strMatch}|${spellMeta.source}}`;
+		}
+
+		// Split title-case runs on lowercase conjunctions/etc., as we may have e.g.:
+		//   - "Fireball or Counterspell"
+		//   - "replace one Fireball with Hold Monster" (Pit Fiend; XMM)
+		const pts = this._getCapsWordConjunctionTokens(strMod);
+		if (pts.length === 1) return strMod;
+
+		return pts
+			.map(pt => {
+				return pt
+					.replace(this._SPELL_NAME_REGEX_STRICT, (...m) => {
+						const spellMeta = this._getSpellMeta({name: m[1], styleHint});
+						if (!spellMeta) return m[0];
+						if (blocklistNames?.isBlocked(spellMeta.name)) return m[0];
+						return `{@spell ${m[1]}|${spellMeta.source}}`;
+					});
+			})
+			.join(" ");
 	}
 }
 
 export class ItemTag extends ConverterTaggerInitializable {
 	static _WALKER = MiscUtil.getWalker({
 		keyBlocklist: new Set([
-			...TagJsons.WALKER_KEY_BLOCKLIST,
+			...WALKER_CONVERTER_KEY_BLOCKLIST,
 			"packContents", // Avoid tagging item pack contents
-			"items", // Avoid tagging item group item lists
 		]),
 	});
 
 	static async _pInit () {
 		const itemArr = await Renderer.item.pBuildList();
 		const standardItems = itemArr.filter(it => !SourceUtil.isNonstandardSource(it.source));
-
 		const [standardItemsClassic, standardItemsOne] = standardItems.segregate(ent => SourceUtil.isClassicSource(ent.source));
 
-		await this._pInit_one({standardItems: standardItemsOne});
-		await this._pInit_classic({standardItems: standardItemsClassic});
+		const itemProperties = await DataLoader.pCacheAndGetAllSite("itemProperty");
+		const standardItemProperties = itemProperties.filter(it => !SourceUtil.isNonstandardSource(it.source));
+		const [standardItemPropertiesClassic, standardItemPropertiesOne] = standardItemProperties.segregate(ent => SourceUtil.isClassicSource(ent.source));
+
+		await this._pInit_one({standardItems: standardItemsOne, standardProperties: standardItemPropertiesOne});
+		await this._pInit_classic({standardItems: standardItemsClassic, standardProperties: standardItemPropertiesClassic});
 	}
 
 	static _ITEM_NAMES__ONE = {};
-	static _ITEM_NAMES_REGEX_TOOLS__ONE = null;
+	static _ITEM_PROPERTY_NAMES__ONE = {};
 	static ITEM_NAMES_REGEX_OTHER__ONE = null;
 	static _ITEM_NAMES_REGEX_EQUIPMENT__ONE = null;
 	static _ITEM_NAMES_REGEX_STRICT__ONE = null;
+	static _ITEM_NAMES_GEMSTONE__ONE = {};
+	static _ITEM_NAMES_REGEX_GEMSTONE__ONE = null;
+	static _ITEM_PROPERTY_REGEX__ONE = null;
 
-	static async _pInit_one ({standardItems}) {
+	static async _pInit_one ({standardItems, standardProperties}) {
 		await this._pInit_generic({
 			standardItems,
+			standardProperties,
 			lookupItemNames: this._ITEM_NAMES__ONE,
-			propItemNamesRegexTools: "_ITEM_NAMES_REGEX_TOOLS__ONE",
+			lookupItemPropertyNames: this._ITEM_PROPERTY_NAMES__ONE,
 			propItemNamesRegexOther: "ITEM_NAMES_REGEX_OTHER__ONE",
 			propItemNamesRegexEquipment: "_ITEM_NAMES_REGEX_EQUIPMENT__ONE",
 			propItemNamesRegexStrict: "_ITEM_NAMES_REGEX_STRICT__ONE",
+			lookupItemNamesGemstone: this._ITEM_NAMES_GEMSTONE__ONE,
+			propItemNamesRegexGemstone: "_ITEM_NAMES_REGEX_GEMSTONE__ONE",
+			propItemPropertyNamesRegex: "_ITEM_PROPERTY_REGEX__ONE",
 			srcPhb: Parser.SRC_SNS,
 		});
 	}
 
 	static _ITEM_NAMES__CLASSIC = {};
-	static _ITEM_NAMES_REGEX_TOOLS__CLASSIC = null;
+	static _ITEM_PROPERTY_NAMES__CLASSIC = {};
 	static ITEM_NAMES_REGEX_OTHER__CLASSIC = null;
 	static _ITEM_NAMES_REGEX_EQUIPMENT__CLASSIC = null;
+	static _ITEM_NAMES_REGEX_STRICT__CLASSIC = null;
+	static _ITEM_NAMES_GEMSTONE__CLASSIC = {};
+	static _ITEM_NAMES_REGEX_GEMSTONE__CLASSIC = null;
+	static _ITEM_PROPERTY_REGEX__CLASSIC = null;
 
-	static async _pInit_classic ({standardItems}) {
+	static async _pInit_classic ({standardItems, standardProperties}) {
 		await this._pInit_generic({
 			standardItems,
+			standardProperties,
 			lookupItemNames: this._ITEM_NAMES__CLASSIC,
-			propItemNamesRegexTools: "_ITEM_NAMES_REGEX_TOOLS__CLASSIC",
+			lookupItemPropertyNames: this._ITEM_PROPERTY_NAMES__CLASSIC,
 			propItemNamesRegexOther: "ITEM_NAMES_REGEX_OTHER__CLASSIC",
 			propItemNamesRegexEquipment: "_ITEM_NAMES_REGEX_EQUIPMENT__CLASSIC",
+			propItemNamesRegexStrict: "_ITEM_NAMES_REGEX_STRICT__CLASSIC",
+			lookupItemNamesGemstone: this._ITEM_NAMES_GEMSTONE__CLASSIC,
+			propItemNamesRegexGemstone: "_ITEM_NAMES_REGEX_GEMSTONE__CLASSIC",
+			propItemPropertyNamesRegex: "_ITEM_PROPERTY_REGEX__CLASSIC",
 			srcPhb: Parser.SRC_SNS,
 		});
 	}
@@ -339,11 +401,15 @@ export class ItemTag extends ConverterTaggerInitializable {
 	static _pInit_generic (
 		{
 			standardItems,
+			standardProperties,
 			lookupItemNames,
-			propItemNamesRegexTools,
+			lookupItemPropertyNames,
 			propItemNamesRegexOther,
 			propItemNamesRegexEquipment,
 			propItemNamesRegexStrict,
+			lookupItemNamesGemstone,
+			propItemNamesRegexGemstone,
+			propItemPropertyNamesRegex,
 			srcPhb,
 		},
 	) {
@@ -355,7 +421,6 @@ export class ItemTag extends ConverterTaggerInitializable {
 			lookupItemNames[tool.name.toLowerCase()] = {name: tool.name, source: tool.source};
 		});
 
-		if (tools.length) this[propItemNamesRegexTools] = new RegExp(`\\b(${tools.map(it => it.name.escapeRegexp()).join("|")})\\b`, "gi");
 		// endregion
 
 		// region Other items
@@ -363,35 +428,79 @@ export class ItemTag extends ConverterTaggerInitializable {
 			.filter(it => {
 				if (it.type && this._TOOL_TYPES.has(DataUtil.itemType.unpackUid(it.type).abbreviation)) return false;
 				// Disallow specific items
-				if (it.name === "Wave" && it.source === Parser.SRC_SNS) return false;
-				// Allow all non-specific-variant DMG items
-				if (it.source === Parser.SRC_SNS && it.source === Parser.SRC_SNS && !Renderer.item.isMundane(it) && it._category !== "Specific Variant") return true;
+				if (it.name === "Wave" && [Parser.SRC_SNS, Parser.SRC_SNS].includes(it.source)) return false;
+				// Allow all non-mundane DMG items
+				if ([Parser.SRC_SNS, Parser.SRC_SNS].includes(it.source) && !Renderer.item.isMundane(it)) return true;
 				// Allow "sufficiently complex name" items
-				return it.name.split(" ").length > 2;
+				if (it.name.split(" ").length > 2) return true;
+				// Allow basic weapons
+				if (it.weaponCategory && Renderer.item.isMundane(it)) return true;
+				// Allow specific variants, as generally longer "basic weapon" names
+				if (it._category === "Specific Variant") return true;
+				return false;
 			})
-			// Prefer specific variants first, as they have longer names
-			.sort((itemA, itemB) => Number(itemB._category === "Specific Variant") - Number(itemA._category === "Specific Variant") || SortUtil.ascSortLower(itemA.name, itemB.name))
+			.sort((itemA, itemB) => {
+				// Prefer specific variants first, as they have longer names
+				const compType = Number(itemB._category === "Specific Variant") - Number(itemA._category === "Specific Variant");
+				if (compType) return compType;
+				// Prefer names with more parts
+				const compTks = itemB.name.split(" ").length - itemA.name.split(" ").length;
+				if (compTks) return compTks;
+				return SortUtil.ascSortLower(itemA.name, itemB.name);
+			})
 		;
 		otherItems.forEach(it => {
 			lookupItemNames[it.name.toLowerCase()] = {name: it.name, source: it.source};
 		});
 
-		if (otherItems.length) this[propItemNamesRegexOther] = new RegExp(`\\b(${otherItems.map(it => it.name.escapeRegexp()).join("|")})\\b`, "gi");
+		// Match tools and other items together, so a tool cannot end up part of a longer item name/tag
+		const itemNames = [...tools, ...otherItems].map(it => it.name);
+		if (itemNames.length) this[propItemNamesRegexOther] = TaggerUtils.getNameRegex(itemNames, {flags: "gi"});
 		// endregion
 
 		// region Basic equipment
 		// (Has some overlap with others)
 		const itemsEquipment = standardItems
 			.filter(itm => itm.source === srcPhb && (!itm.type || !this._NON_EQUIPMENT_TYPES.has(DataUtil.itemType.unpackUid(itm.type).abbreviation)));
-		if (itemsEquipment.length) this[propItemNamesRegexEquipment] = new RegExp(`\\b(${itemsEquipment.map(it => it.name.escapeRegexp()).join("|")})\\b`, "gi");
+		if (itemsEquipment.length) this[propItemNamesRegexEquipment] = TaggerUtils.getNameRegex(itemsEquipment.map(it => it.name), {flags: "gi"});
 		itemsEquipment.forEach(itm => lookupItemNames[itm.name.toLowerCase()] = {name: itm.name, source: itm.source});
 		// endregion
 
 		// region Strict naming
 		if (propItemNamesRegexStrict) {
 			this[propItemNamesRegexStrict] = new RegExp(`^(${standardItems.map(it => it.name.escapeRegexp()).join("|")})$`, "gi");
-			standardItems.forEach(itm => lookupItemNames[itm.name.toLowerCase()] = {name: itm.name, source: itm.source});
+
+			standardItems.forEach(itm => {
+				const key = itm.name.toLowerCase();
+				// Prevent e.g. SCAG "Musical Instrument" overriding PHB
+				if (lookupItemNames[key]?.source === srcPhb) return;
+				lookupItemNames[key] = {name: itm.name, source: itm.source};
+			});
 		}
+		// endregion
+
+		// region Gemstones
+		const gemstones = standardItems
+			.filter(it => it.type && DataUtil.itemType.unpackUid(it.type).abbreviation === Parser.ITM_TYP_ABV__TREASURE_GEMSTONE);
+		const gemstoneNames = gemstones
+			.flatMap(it => {
+				const namePlural = it.name.toPlural();
+				lookupItemNamesGemstone[it.name.toLowerCase()] = {name: it.name, source: it.source, valueGp: it.value / 100, isPlural: false};
+				lookupItemNamesGemstone[namePlural.toLowerCase()] = {name: it.name, source: it.source, valueGp: it.value / 100, isPlural: true};
+				return [it.name, namePlural];
+			})
+			.sort((nameA, nameB) => nameB.length - nameA.length || SortUtil.ascSortLower(nameA, nameB));
+
+		if (gemstoneNames.length) this[propItemNamesRegexGemstone] = new RegExp(`\\b(?<itemName>${gemstoneNames.map(it => it.escapeRegexp()).join("|")})\\b(?: (?<itemSuffix>gemstones?|gems?|stones?|crystals?))?(?=(?: \\((?:worth [^.!?]*?)?(?<valueParens>[\\d,]+)\\+? gp|[^.!?]*?\\bworth\\b[^.!?]*?(?<value>[\\d,]+)\\+? gp))`, "gi");
+		// endregion
+
+		// region Item properties
+		standardProperties.forEach(ent => {
+			const name = Renderer.item.getPropertyName(ent);
+			lookupItemPropertyNames[name.toLowerCase()] = {abbreviation: ent.abbreviation, source: ent.source};
+		});
+
+		if (standardProperties.length) this[propItemPropertyNamesRegex] = new RegExp(`(?<=the )(?<propertyName>${standardProperties.map(ent => Renderer.item.getPropertyName(ent).escapeRegexp()).join("|")})(?= property)`, "gi");
 		// endregion
 	}
 
@@ -404,7 +513,7 @@ export class ItemTag extends ConverterTaggerInitializable {
 	static _tryRun (ent, {styleHint = null} = {}) {
 		styleHint ||= VetoolsConfig.get("styleSwitcher", "style");
 
-		return this._WALKER.walk(
+		const entTagged = this._WALKER.walk(
 			ent,
 			{
 				string: (str) => {
@@ -436,6 +545,75 @@ export class ItemTag extends ConverterTaggerInitializable {
 							fnTag: this._fnTag_classic.bind(this),
 						},
 					);
+
+					str = ptrStack._;
+					ptrStack._ = "";
+
+					if (styleHint === SITE_STYLE__ONE) {
+						TaggerUtils.walkerStringHandler(
+							["@itemProperty"],
+							ptrStack,
+							0,
+							0,
+							str,
+							{
+								fnTag: this._fnTag_one_properties.bind(this),
+							},
+						);
+
+						str = ptrStack._;
+						ptrStack._ = "";
+					}
+
+					TaggerUtils.walkerStringHandler(
+						["@itemProperty"],
+						ptrStack,
+						0,
+						0,
+						str,
+						{
+							fnTag: this._fnTag_classic_properties.bind(this),
+						},
+					);
+
+					return ptrStack._;
+				},
+			},
+		);
+
+		return this._WALKER.walk(
+			entTagged,
+			{
+				string: (str) => {
+					const ptrStack = {_: ""};
+
+					if (styleHint === SITE_STYLE__ONE) {
+						TaggerUtils.walkerStringHandler(
+							["@item"],
+							ptrStack,
+							0,
+							0,
+							str,
+							{
+								fnTag: this._fnTag_one_gemstones.bind(this),
+							},
+						);
+
+						str = ptrStack._;
+						ptrStack._ = "";
+					}
+
+					TaggerUtils.walkerStringHandler(
+						["@item"],
+						ptrStack,
+						0,
+						0,
+						str,
+						{
+							fnTag: this._fnTag_classic_gemstones.bind(this),
+						},
+					);
+
 					return ptrStack._;
 				},
 			},
@@ -443,14 +621,6 @@ export class ItemTag extends ConverterTaggerInitializable {
 	}
 
 	static _fnTag_one (strMod) {
-		if (this._ITEM_NAMES_REGEX_TOOLS__ONE != null) {
-			strMod = strMod
-				.replace(this._ITEM_NAMES_REGEX_TOOLS__ONE, (...m) => {
-					const itemMeta = this._ITEM_NAMES__ONE[m[1].toLowerCase()];
-					return `{@item ${m[1]}|${itemMeta.source}}`;
-				});
-		}
-
 		if (this.ITEM_NAMES_REGEX_OTHER__ONE != null) {
 			strMod = strMod
 				.replace(this.ITEM_NAMES_REGEX_OTHER__ONE, (...m) => {
@@ -463,19 +633,70 @@ export class ItemTag extends ConverterTaggerInitializable {
 	}
 
 	static _fnTag_classic (strMod) {
-		if (this._ITEM_NAMES_REGEX_TOOLS__CLASSIC != null) {
-			strMod = strMod
-				.replace(this._ITEM_NAMES_REGEX_TOOLS__CLASSIC, (...m) => {
-					const itemMeta = this._ITEM_NAMES__CLASSIC[m[1].toLowerCase()];
-					return `{@item ${m[1]}${itemMeta.source !== Parser.SRC_SNS ? `|${itemMeta.source}` : ""}}`;
-				});
-		}
-
 		if (this.ITEM_NAMES_REGEX_OTHER__CLASSIC != null) {
 			strMod = strMod
 				.replace(this.ITEM_NAMES_REGEX_OTHER__CLASSIC, (...m) => {
 					const itemMeta = this._ITEM_NAMES__CLASSIC[m[1].toLowerCase()];
 					return `{@item ${m[1]}${itemMeta.source !== Parser.SRC_SNS ? `|${itemMeta.source}` : ""}}`;
+				});
+		}
+
+		return strMod;
+	}
+
+	static _fnTag_gemstones ({strMod, itemNamesRegex, itemNames}) {
+		if (itemNamesRegex == null) return strMod;
+
+		return strMod
+			.replace(itemNamesRegex, (...m) => {
+				const {itemName, valueParens, value} = m.at(-1);
+
+				const itemMeta = itemNames[itemName.toLowerCase()];
+				const valueGp = Number((valueParens || value).replace(/,/g, ""));
+				if (valueGp !== itemMeta.valueGp) return m[0];
+
+				const ptUid = m[0].toLowerCase() === itemMeta.name.toLowerCase()
+					? DataUtil.proxy.getUidPacked("item", {name: m[0], source: itemMeta.source}, "item", {isMaintainCase: true})
+					: DataUtil.proxy.getUidPacked("item", {name: itemMeta.name, source: itemMeta.source}, "item", {isMaintainCase: true, displayName: m[0]});
+
+				return `{@item ${ptUid}}`;
+			});
+	}
+
+	static _fnTag_one_gemstones (strMod) {
+		return this._fnTag_gemstones({
+			strMod,
+			itemNamesRegex: this._ITEM_NAMES_REGEX_GEMSTONE__ONE,
+			itemNames: this._ITEM_NAMES_GEMSTONE__ONE,
+		});
+	}
+
+	static _fnTag_classic_gemstones (strMod) {
+		return this._fnTag_gemstones({
+			strMod,
+			itemNamesRegex: this._ITEM_NAMES_REGEX_GEMSTONE__CLASSIC,
+			itemNames: this._ITEM_NAMES_GEMSTONE__CLASSIC,
+		});
+	}
+
+	static _fnTag_one_properties (strMod) {
+		if (this._ITEM_PROPERTY_REGEX__ONE != null) {
+			strMod = strMod
+				.replace(this._ITEM_PROPERTY_REGEX__ONE, (...m) => {
+					const meta = this._ITEM_PROPERTY_NAMES__ONE[m[1].toLowerCase()];
+					return `{@itemProperty ${meta.abbreviation}|${meta.source}|${m[1]}}`;
+				});
+		}
+
+		return strMod;
+	}
+
+	static _fnTag_classic_properties (strMod) {
+		if (this._ITEM_PROPERTY_REGEX__CLASSIC != null) {
+			strMod = strMod
+				.replace(this._ITEM_PROPERTY_REGEX__CLASSIC, (...m) => {
+					const meta = this._ITEM_PROPERTY_NAMES__CLASSIC[m[1].toLowerCase()];
+					return `{@itemProperty ${meta.abbreviation}|${meta.source !== Parser.SRC_SNS ? `${meta.source}` : ""}|${m[1]}}`;
 				});
 		}
 
@@ -551,8 +772,10 @@ export class ItemTag extends ConverterTaggerInitializable {
 
 	/* -------------------------------------------- */
 
-	static _tryRunStrictCapsWords (ent) {
-		return TagJsons.WALKER.walk(
+	static _tryRunStrictCapsWords (ent, {styleHint = null} = {}) {
+		styleHint ||= VetoolsConfig.get("styleSwitcher", "style");
+
+		return WALKER_CONVERTER.walk(
 			ent,
 			{
 				string: (str) => {
@@ -562,7 +785,7 @@ export class ItemTag extends ConverterTaggerInitializable {
 						ptrStack,
 						str,
 						{
-							fnTag: (strMod) => this._fnTagStrict({strMod}),
+							fnTag: (strMod) => this._fnTagStrict({strMod, styleHint}),
 						},
 					);
 					return ptrStack._;
@@ -571,18 +794,25 @@ export class ItemTag extends ConverterTaggerInitializable {
 		);
 	}
 
-	static _fnTagStrict ({strMod}) {
-		return strMod
-			.replace(this._ITEM_NAMES_REGEX_STRICT__ONE, (...m) => {
+	static _fnTagStrict ({strMod, styleHint}) {
+		if (styleHint === SITE_STYLE__ONE) {
+			const out = strMod.replace(this._ITEM_NAMES_REGEX_STRICT__ONE, (...m) => {
 				const itemMeta = this._ITEM_NAMES__ONE[m[1].toLowerCase()];
 				return `{@item ${m[1]}|${itemMeta.source}}`;
 			});
+			if (out !== strMod) return out;
+		}
+
+		return strMod.replace(this._ITEM_NAMES_REGEX_STRICT__CLASSIC, (...m) => {
+			const itemMeta = this._ITEM_NAMES__CLASSIC[m[1].toLowerCase()];
+			return `{@item ${m[1]}|${itemMeta.source}}`;
+		});
 	}
 }
 
 export class TableTag {
 	static tryRun (it) {
-		return TagJsons.WALKER.walk(
+		return WALKER_CONVERTER.walk(
 			it,
 			{
 				string: (str) => {
@@ -610,13 +840,50 @@ export class TableTag {
 	}
 }
 
-export class TrapTag {
-	static tryRun (it) {
-		return TagJsons.WALKER.walk(
-			it,
+export class TrapTag extends ConverterTaggerInitializable {
+	static _RE_BASIC_XDMG = null;
+	static _RE_BASIC_XDMG_LOWER = null;
+	static _RE_TRAP_SEE = /\b(?<name>Fire-Breathing Statue|Sphere of Annihilation|Collapsing Roof|Falling Net|Pits|Poison Darts|Poison Needle|Rolling Sphere)(?<suffix> \(see)/gi;
+
+	static async _pInit () {
+		const trapData = await DataLoader.pCacheAndGetAllSite("trap");
+
+		const coreTraps = [...trapData]
+			.filter(ent => ent.source === Parser.SRC_SNS);
+
+		this._RE_BASIC_XDMG = new RegExp(`\\b(?<name>${(coreTraps.map(ent => ent.name).join("|"))})\\b`, "g");
+		this._RE_BASIC_XDMG_LOWER = new RegExp(`\\b(?<name>${(coreTraps.map(ent => ent.name.toLowerCase()).join("|"))})\\b`, "g");
+	}
+
+	/**
+	 * @param ent
+	 * @param {"classic" | "one" | null} styleHint
+	 */
+	static _tryRun (ent, {styleHint = null} = {}) {
+		styleHint ||= VetoolsConfig.get("styleSwitcher", "style");
+
+		return WALKER_CONVERTER.walk(
+			ent,
 			{
 				string: (str) => {
 					const ptrStack = {_: ""};
+
+					if (styleHint === SITE_STYLE__ONE) {
+						TaggerUtils.walkerStringHandler(
+							["@trap"],
+							ptrStack,
+							0,
+							0,
+							str,
+							{
+								fnTag: this._fnTag_one.bind(this),
+							},
+						);
+
+						str = ptrStack._;
+						ptrStack._ = "";
+					}
+
 					TaggerUtils.walkerStringHandler(
 						["@trap"],
 						ptrStack,
@@ -624,7 +891,7 @@ export class TrapTag {
 						0,
 						str,
 						{
-							fnTag: this._fnTag.bind(this),
+							fnTag: this._fnTag_classic.bind(this),
 						},
 					);
 					return ptrStack._;
@@ -633,13 +900,52 @@ export class TrapTag {
 		);
 	}
 
-	static _fnTag (strMod) {
+	static _fnTag_one (strMod) {
 		return strMod
-			.replace(TrapTag._RE_TRAP_SEE, (...m) => `{@trap ${m[1]}}${m[2]}`)
+			.replace(this._RE_BASIC_XDMG, (...m) => `{@trap ${m.at(-1).name}|${Parser.SRC_SNS}}`)
+			.replace(this._RE_BASIC_XDMG_LOWER, (...m) => `{@trap ${m.at(-1).name}|${Parser.SRC_SNS}}`)
+		;
+	}
+
+	static _fnTag_classic (strMod) {
+		return strMod
+			.replace(this._RE_TRAP_SEE, (...m) => {
+				const {name, suffix} = m.at(-1);
+				return `{@trap ${name}}${suffix}`;
+			})
+		;
+	}
+
+	static _tryRunStrictCapsWords (ent, {styleHint = null} = {}) {
+		if (styleHint === SITE_STYLE__CLASSIC) return ent;
+
+		return WALKER_CONVERTER.walk(
+			ent,
+			{
+				string: (str) => {
+					const ptrStack = {_: ""};
+
+					TaggerUtils.walkerStringHandlerStrictCapsWords(
+						["@trap"],
+						ptrStack,
+						str,
+						{
+							fnTag: strMod => this._fnTagStrict_one(strMod),
+						},
+					);
+
+					return ptrStack._;
+				},
+			},
+		);
+	}
+
+	static _fnTagStrict_one (strMod) {
+		return strMod
+			.replace(this._RE_BASIC_XDMG, (...m) => `{@trap ${m.at(-1).name}|${Parser.SRC_SNS}}`)
 		;
 	}
 }
-TrapTag._RE_TRAP_SEE = /\b(Fire-Breathing Statue|Sphere of Annihilation|Collapsing Roof|Falling Net|Pits|Poison Darts|Poison Needle|Rolling Sphere)( \(see)/gi;
 
 export class HazardTag extends ConverterTaggerInitializable {
 	static _RE_BASIC_XPHB = null;
@@ -661,7 +967,7 @@ export class HazardTag extends ConverterTaggerInitializable {
 	static _tryRun (ent, {styleHint = null} = {}) {
 		styleHint ||= VetoolsConfig.get("styleSwitcher", "style");
 
-		return TagJsons.WALKER.walk(
+		return WALKER_CONVERTER.walk(
 			ent,
 			{
 				string: (str) => {
@@ -708,15 +1014,48 @@ export class HazardTag extends ConverterTaggerInitializable {
 
 	static _fnTag_classic (strMod) {
 		return strMod
-			.replace(HazardTag._RE_HAZARD_SEE, (...m) => {
+			.replace(this._RE_HAZARD_SEE, (...m) => {
 				const {name, suffix} = m.at(-1);
 				return `{@hazard ${name}}${suffix}`;
 			})
 		;
 	}
+
+	static _tryRunStrictCapsWords (ent, {styleHint = null} = {}) {
+		if (styleHint === SITE_STYLE__CLASSIC) return ent;
+
+		return WALKER_CONVERTER.walk(
+			ent,
+			{
+				string: (str) => {
+					const ptrStack = {_: ""};
+
+					TaggerUtils.walkerStringHandlerStrictCapsWords(
+						["@hazard"],
+						ptrStack,
+						str,
+						{
+							fnTag: strMod => this._fnTagStrict_one(strMod),
+						},
+					);
+
+					return ptrStack._
+						.replace(/(?<prefix>\bstarts )burning\b/g, (...m) => {
+							return `${m.at(-1).prefix}{@hazard burning|XPHB}`;
+						});
+				},
+			},
+		);
+	}
+
+	static _fnTagStrict_one (strMod) {
+		return strMod
+			.replace(this._RE_BASIC_XPHB, (...m) => `{@hazard ${m.at(-1).name}|${Parser.SRC_SNS}}`)
+		;
+	}
 }
 
-export class CreatureTag {
+export class CreatureTag extends ConverterTaggerInitializable {
 	/**
 	 * Dynamically create a walker which can be re-used.
 	 */
@@ -744,7 +1083,7 @@ export class CreatureTag {
 		};
 
 		return (it) => {
-			return TagJsons.WALKER.walk(
+			return WALKER_CONVERTER.walk(
 				it,
 				{
 					string: (str) => {
@@ -765,11 +1104,104 @@ export class CreatureTag {
 			);
 		};
 	}
+
+	/* -------------------------------------------- */
+
+	static _WALKER = MiscUtil.getWalker({
+		keyBlocklist: new Set([
+			...WALKER_CONVERTER_KEY_BLOCKLIST,
+		]),
+	});
+
+	static _LOOKUP_CLASSIC = null;
+	static _LOOKUP_CLASSIC_PLURAL = null;
+
+	static _LOOKUP_ONE = null;
+	static _LOOKUP_ONE_PLURAL = null;
+
+	static _RE_CLASSIC = null;
+	static _RE_CLASSIC_PLURAL = null;
+	static _RE_ONE = null;
+	static _RE_ONE_PLURAL = null;
+
+	static async _pInit () {
+		const creatures = await DataLoader.pCacheAndGetAllSite(UrlUtil.PG_BESTIARY);
+
+		this._LOOKUP_CLASSIC = {};
+		this._LOOKUP_CLASSIC_PLURAL = {};
+		this._LOOKUP_ONE = {};
+		this._LOOKUP_ONE_PLURAL = {};
+
+		creatures
+			.forEach(
+				function (mon) {
+					const {lookup, lookupPlural} = this[Number(SourceUtil.isClassicSource(SourceUtil.getEntitySource(mon)))];
+
+					lookup[mon.name.toLowerCase()] = mon.source;
+					lookupPlural[mon.name.toPlural().toLowerCase()] = `${mon.name}|${mon.source}`;
+				},
+				[
+					{lookup: this._LOOKUP_ONE, lookupPlural: this._LOOKUP_ONE_PLURAL},
+					{lookup: this._LOOKUP_CLASSIC, lookupPlural: this._LOOKUP_CLASSIC_PLURAL},
+				],
+			);
+
+		// (Note `_CLASSIC` versions not initialized, as unused)
+		this._RE_ONE = new RegExp(`^(${Object.keys(this._LOOKUP_ONE).map(it => it.escapeRegexp()).join("|")})$`, "gi");
+		this._RE_ONE_PLURAL = new RegExp(`^(${Object.keys(this._LOOKUP_ONE_PLURAL).map(it => it.escapeRegexp()).join("|")})$`, "gi");
+	}
+
+	/* -------------------------------------------- */
+
+	/**
+	 * @param ent
+	 * @param {"classic" | "one" | null} styleHint
+	 */
+	static _tryRun (ent, {styleHint = null} = {}) {
+		styleHint ||= VetoolsConfig.get("styleSwitcher", "style");
+
+		// No-op
+		return ent;
+	}
+
+	/* -------------------------------------------- */
+
+	static _tryRunStrictCapsWords (ent) {
+		return WALKER_CONVERTER.walk(
+			ent,
+			{
+				string: (str) => {
+					const ptrStack = {_: ""};
+					TaggerUtils.walkerStringHandlerStrictCapsWords(
+						["@creature"],
+						ptrStack,
+						str,
+						{
+							fnTag: (strMod) => this._fnTagStrict({strMod}),
+						},
+					);
+					return ptrStack._;
+				},
+			},
+		);
+	}
+
+	static _fnTagStrict ({strMod}) {
+		return strMod
+			.replace(this._RE_ONE, (...m) => {
+				const source = this._LOOKUP_ONE[m[1].toLowerCase()];
+				return `{@creature ${m[1]}|${source}}`;
+			})
+			.replace(this._RE_ONE_PLURAL, (...m) => {
+				const uid = this._LOOKUP_ONE_PLURAL[m[1].toLowerCase()];
+				return `{@creature ${uid}|${m[1]}}`;
+			});
+	}
 }
 
 export class ChanceTag {
 	static tryRun (it) {
-		return TagJsons.WALKER.walk(
+		return WALKER_CONVERTER.walk(
 			it,
 			{
 				string: (str) => {
@@ -802,7 +1234,7 @@ export class QuickrefTag {
 		// Avoid tagging; we expect these to be tagged as core rules
 		if (styleHint === SITE_STYLE__ONE) return ent;
 
-		return TagJsons.WALKER.walk(
+		return WALKER_CONVERTER.walk(
 			ent,
 			{
 				string: (str) => {
@@ -859,35 +1291,48 @@ export class CoreRuleTag extends ConverterTaggerInitializable {
 		"Spell",
 		"Illusions",
 	]);
+	static _ALIASES_XPHB = {
+		"Proficiency Bonus": "Proficiency",
+		"Half Cover": "Cover",
+		"Three-Quarters Cover": "Cover",
+		"Total Cover": "Cover",
+		"Short": "Short Rest",
+		"Hit Point Die": "Hit Point Dice",
+		"Death Saving Throws": "Death Saving Throw",
+		"D20 Tests": "D20 Test",
+	};
 	static _LOOKUP_XPHB = {};
 
 	static async _pInit () {
 		const variantruleData = await DataUtil.variantrule.loadJSON();
 
 		const coreRules = [...variantruleData.variantrule]
-			.filter(rule => SourceUtil.getEntitySource(rule) === Parser.SRC_SNS && rule.ruleType === "C" && !this._BLOCKLIST_XPHB.has(rule.name))
-			.map(rule => ({
-				...MiscUtil.copyFast(rule),
-				_sortWeight: rule.name.countSubstring(" "),
-			}))
-			.sort((a, b) => SortUtil.ascSort(b._sortWeight, a._sortWeight));
+			.filter(rule => SourceUtil.getEntitySource(rule) === Parser.SRC_SNS && rule.ruleType === "C" && !this._BLOCKLIST_XPHB.has(rule.name));
 
 		coreRules
 			.forEach(rule => {
 				this._LOOKUP_XPHB[rule.name] = rule;
-
-				const nameNoSquareBrackets = rule.name.replace(/ \[[^\]]]+$/, "").trim();
+			});
+		coreRules
+			.forEach(rule => {
+				const nameNoSquareBrackets = rule.name.replace(/ \[[^\]]+\]$/, "").trim();
 				const nameNoPlural = rule.name.replace(/s$/, "").trim();
 
-				this._LOOKUP_XPHB[nameNoSquareBrackets] = rule;
-				this._LOOKUP_XPHB[nameNoPlural] = rule;
+				this._LOOKUP_XPHB[nameNoSquareBrackets] ||= rule;
+				this._LOOKUP_XPHB[nameNoPlural] ||= rule;
+			});
+		Object.entries(this._ALIASES_XPHB)
+			.forEach(([alias, name]) => {
+				this._LOOKUP_XPHB[alias] = this._LOOKUP_XPHB[name];
 			});
 
-		this._RE_BASIC_XPHB = new RegExp(`\\b(?<ruleName>${(Object.keys(this._LOOKUP_XPHB).join("|"))})\\b`, "g");
+		this._RE_BASIC_XPHB = TaggerUtils.getNameRegex(Object.keys(this._LOOKUP_XPHB), {flags: "g"});
 	}
 
-	static _tryRun (it) {
-		return TagJsons.WALKER.walk(
+	static _tryRun (it, {styleHint = null} = {}) {
+		if (styleHint === SITE_STYLE__CLASSIC) return it;
+
+		return WALKER_CONVERTER.walk(
 			it,
 			{
 				string: (str) => {
@@ -908,30 +1353,49 @@ export class CoreRuleTag extends ConverterTaggerInitializable {
 		);
 	}
 
-	static _fnTag (strMod) {
+	static _fnTag (strMod, context) {
 		return strMod
 			.replace(this._RE_BASIC_XPHB, (...m) => {
-				const {ruleName} = m.at(-1);
-				const rule = this._LOOKUP_XPHB[ruleName];
-				if (ruleName === rule.name) return `{@variantrule ${ruleName}|${Parser.SRC_SNS}}`;
-				return `{@variantrule ${rule.name}|${Parser.SRC_SNS}|${ruleName}}`;
-			})
-			.replace(/{@variantrule Proficiency\|sns} Bonus/g, (...m) => {
-				return `{@variantrule Proficiency|sns|Proficiency Bonus}`;
-			})
-			.replace(/Short or {@variantrule Long Rest\|sns}/g, (...m) => {
-				return `{@variantrule Short Rest|sns|Short} or {@variantrule Long Rest|sns}`;
-			})
-			.replace(/(Half|Three-Quarters|Total) {@variantrule Cover\|sns}/g, (...m) => {
-				return `{@variantrule Cover|sns|${m[1]} Cover}`;
-			})
-			.replace(/\b(Cone|Cube|Cylinder|Emanation|Line|Sphere)\b/g, (...m) => {
-				return `{@variantrule ${m[1]} [Area of Effect]|sns|${m[1]}}`;
-			})
-			.replace(/\b(Friendly|Hostile|Indifferent)\b/g, (...m) => {
-				return `{@variantrule ${m[1]} [Attitude]|sns|${m[1]}}`;
+				const {name} = m.at(-1);
+				const ixStart = context.ixStart + m.at(-3);
+				const ptPrecedes = context.str.slice(0, ixStart);
+				const ptFollows = context.str.slice(ixStart + name.length);
+
+				if (name === "Short" && !/^ or Long Rest\b/.test(Renderer.stripTags(ptFollows))) return m[0];
+				if (name === "Action" && /\bLegendary $/.test(ptPrecedes)) return m[0];
+				if (name === "Flying" && /^ Sword\b/.test(ptFollows)) return m[0];
+
+				const rule = this._LOOKUP_XPHB[name];
+				if (name === rule.name) return `{@variantrule ${name}|${Parser.SRC_SNS}}`;
+				return `{@variantrule ${rule.name}|${Parser.SRC_SNS}|${name}}`;
 			})
 		;
+	}
+
+	static _tryRunStrictCapsWords (ent, {styleHint = null} = {}) {
+		if (styleHint === SITE_STYLE__CLASSIC) return ent;
+
+		return WALKER_CONVERTER.walk(
+			ent,
+			{
+				string: (str) => {
+					const ptrStack = {_: ""};
+					TaggerUtils.walkerStringHandlerStrictCapsWords(
+						["@variantrule"],
+						ptrStack,
+						str,
+						{
+							fnTag: (strMod, context) => this._fnTagStrict_one(strMod, context),
+						},
+					);
+					return ptrStack._;
+				},
+			},
+		);
+	}
+
+	static _fnTagStrict_one (strMod, context) {
+		return this._fnTag(strMod, context);
 	}
 }
 
@@ -951,7 +1415,7 @@ export class FeatTag extends ConverterTaggerInitializable {
 	}
 
 	static _tryRun (it) {
-		return TagJsons.WALKER.walk(
+		return WALKER_CONVERTER.walk(
 			it,
 			{
 				string: (str) => {
@@ -1032,7 +1496,7 @@ export class AdventureBookTag extends ConverterTaggerInitializable {
 	}
 
 	static _tryRun (it) {
-		return TagJsons.WALKER.walk(
+		return WALKER_CONVERTER.walk(
 			it,
 			{
 				string: (str) => {

@@ -27,7 +27,7 @@ const DATA_DIRS = ["./data", "./sns"];
 const IGNORED_FILE_NAMES = new Set([
 	"changelog.json",
 	"index.json",
-	"renderdemo.json", //TODO could be good to update this and then include it in the test, useful as a reference for future work?
+	"renderdemo.json", // TODO could be good to update this and then include it in the test, useful as a reference for future work?
 	"optionalfeatures.json", // generated from `sns/**`
 	"class-sns.json", // generated from `sns/**`
 ]);
@@ -134,7 +134,7 @@ class TagTestUtil {
 		primaryIndex
 			.forEach(indexItem => TagTestUrlLookup.addIndexItem(indexItem));
 		const highestId = primaryIndex.last().id;
-		const secondaryIndexItem = Omnidexer.decompressIndex(await utS.UtilSearchIndex.pGetIndexAdditionalItem({baseIndex: highestId + 1, doLogging: false}));
+		const secondaryIndexItem = Omnidexer.decompressIndex(await utS.UtilSearchIndex.pGetIndexAdditional(Parser.CAT_ID_ITEM, {baseIndex: highestId + 1, doLogging: false}));
 		secondaryIndexItem
 			.forEach(indexItem => TagTestUrlLookup.addIndexItem(indexItem));
 

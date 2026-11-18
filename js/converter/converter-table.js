@@ -19,81 +19,97 @@ export class ConverterTable extends ConverterBase {
 		if (!inText || !inText.trim()) return options.cbWarning("No input!");
 		inText = this._getCleanInput(inText, options);
 
-		const handleTable = ($table, caption) => {
-			const tbl = {
-				type: "table",
-				caption,
-				colLabels: [],
-				colStyles: [],
-				rows: [],
-			};
-
-			const getCleanHeaderText = ($ele) => {
-				let txt = $ele.text().trim();
-
-				// if it's all-uppercase, title-case it
-				if (txt.toUpperCase() === txt) txt = txt.toTitleCase();
-
-				return txt;
-			};
-
-			// Caption
-			if ($table.find(`caption`).length) {
-				tbl.caption = $table.find(`caption`).text().trim();
-			}
-
-			// Columns
-			if ($table.find(`thead`).length) {
-				const $headerRows = $table.find(`thead tr`);
-				if ($headerRows.length !== 1) options.cbWarning(`Table header had ${$headerRows.length} rows!`);
-				$headerRows.each((i, r) => {
-					const $r = $(r);
-					if (i === 0) { // use first tr as column headers
-						$r.find(`th, td`).each((i, h) => tbl.colLabels.push(getCleanHeaderText($(h))));
-					} else { // use others as rows
-						const row = [];
-						$r.find(`th, td`).each((i, h) => row.push(getCleanHeaderText($(h))));
-						if (row.length) tbl.rows.push(row);
-					}
-				});
-				$table.find(`thead`).remove();
-			} else if ($table.find(`th`).length) {
-				$table.find(`th`).each((i, h) => tbl.colLabels.push(getCleanHeaderText($(h))));
-				$table.find(`th`).parent().remove();
-			}
-
-			// Rows
-			const handleTableRow = (i, r) => {
-				const $r = $(r);
-				const row = [];
-				$r.find(`td`).each((i, cell) => {
-					const $cell = $(cell);
-					row.push($cell.text().trim());
-				});
-				tbl.rows.push(row);
-			};
-
-			if ($table.find(`tbody`).length) {
-				$table.find(`tbody tr`).each(handleTableRow);
-			} else {
-				$table.find(`tr`).each(handleTableRow);
-			}
-
-			MarkdownConverter.postProcessTable(tbl);
-			options.cbOutput(tbl, options.isAppend);
-		};
-
-		const $input = $(inText);
-		if ($input.is("table")) {
-			handleTable($input);
+		const wrpInput = veT`<div>${inText}</div>`;
+		if (wrpInput.vee.first().vee.is("table")) {
+			this._doParseHtml_doConvertEleTable(wrpInput.vee.first(), options);
 		} else {
 			// TODO pull out any preceding text to use as the caption; pass this in
 			const caption = "";
-			$input.find("table").each((i, e) => {
-				const $table = $(e);
-				handleTable($table, caption);
-			});
+			wrpInput
+				.vee.findAll("table")
+				.forEach((eleTable, i) => {
+					this._doParseHtml_doConvertEleTable(eleTable, options, {caption, isForceAppend: !!i});
+				});
 		}
+	}
+
+	/**
+	 * @param {HTMLElementExtended} eleTable
+	 * @param options
+	 * @param {?string} caption
+	 * @param {?boolean} isForceAppend
+	 */
+	static _doParseHtml_doConvertEleTable (eleTable, options, {caption = null, isForceAppend = false} = {}) {
+		const tbl = {
+			type: "table",
+			caption,
+			colLabels: [],
+			colStyles: [],
+			rows: [],
+		};
+
+		const getCleanHeaderText = (ele) => {
+			let txt = ele.vee.txt().trim();
+
+			// if it's all-uppercase, title-case it
+			if (txt.toUpperCase() === txt) txt = txt.toTitleCase();
+
+			return txt;
+		};
+
+		// Caption
+		const elesCaption = eleTable.vee.findAll(`caption`);
+		if (elesCaption.length) {
+			tbl.caption = elesCaption.map(ele => ele.vee.txt().trim()).join(" ");
+		}
+
+		// Columns
+		const eleTableHead = eleTable.vee.find(`thead`);
+		if (eleTableHead) {
+			const elesHeaderRow = eleTableHead.vee.findAll(`tr`);
+			if (elesHeaderRow.length !== 1) options.cbWarning(`Table header had ${elesHeaderRow.length} rows!`);
+			elesHeaderRow.forEach((eleHeaderRow, i) => {
+				// use first tr as column headers
+				if (!i) {
+					eleHeaderRow.vee.findAll(`th, td`).forEach(ele => tbl.colLabels.push(getCleanHeaderText(ele)));
+					return;
+				}
+
+				// use others as rows
+				const rowEntries = [];
+				eleHeaderRow.vee.findAll(`th, td`).forEach(ele => rowEntries.push(getCleanHeaderText(ele)));
+				if (rowEntries.length) tbl.rows.push(rowEntries);
+			});
+			eleTableHead.remove();
+		} else {
+			eleTable.vee.findAll("th")
+				.forEach(ele => {
+					tbl.colLabels.push(getCleanHeaderText(ele));
+					ele.remove();
+				});
+		}
+
+		// Rows
+		const handleTableRow = (eleBodyRow, i) => {
+			const rowEntries = [];
+			eleBodyRow
+				.vee.findAll(`td`)
+				.forEach(eleCell => {
+					rowEntries.push(eleCell.vee.txt().trim());
+				});
+			tbl.rows.push(rowEntries);
+		};
+
+		const eleTableBody = eleTable.vee.find(`tbody`);
+		if (eleTableBody) {
+			eleTableBody.vee.findAll(`tr`).forEach(handleTableRow);
+		} else {
+			eleTable.vee.find(`tr`).forEach(handleTableRow);
+		}
+
+		MarkdownConverter.postProcessTable(tbl);
+		options.cbOutput(tbl, options.isAppend || isForceAppend);
+		return tbl;
 	}
 
 	/**
@@ -134,5 +150,6 @@ export class ConverterTable extends ConverterBase {
 				else options.cbOutput(out, true);
 			}
 		});
+		return toOutput;
 	}
 }

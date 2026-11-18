@@ -1,10 +1,11 @@
-import {AttachedSpellTag, BasicTextClean, BonusTag, ChargeTag, ConditionImmunityTag, DamageImmunityTag, DamageResistanceTag, DamageVulnerabilityTag, ItemMiscTag, ItemOtherTagsTag, ItemSpellcastingFocusTag, RechargeAmountTag, RechargeTypeTag, ReqAttuneTagTag} from "./converterutils-item.js";
+import {AttachedSpellChargesTag, AttachedSpellTag, BasicTextClean, BonusTag, ChargeTag, ConditionImmunityTag, DamageImmunityTag, DamageResistanceTag, DamageVulnerabilityTag, InstrumentBaseItemTag, ItemMiscTag, ItemOtherTagsTag, ItemSpellcastingFocusTag, LightTag, RechargeAmountTag, RechargeTypeTag, ReqAttuneTagTag} from "./converterutils-item.js";
 import {ConverterBase} from "./converter-base.js";
 import {ArtifactPropertiesTag, TagCondition} from "./converterutils-tags.js";
 import {TagJsons} from "./converterutils-entries.js";
 import {ConverterUtils} from "./converterutils-utils.js";
 import {EntryCoalesceEntryLists, EntryCoalesceRawLines} from "./converterutils-entrycoalesce.js";
 import {SITE_STYLE__CLASSIC, SITE_STYLE__ONE} from "../consts.js";
+import {PropOrder} from "../utils-proporder.js";
 
 export class ConverterItem extends ConverterBase {
 	static _ALL_ITEMS = null;
@@ -15,9 +16,21 @@ export class ConverterItem extends ConverterBase {
 		"scale": "scale mail",
 	};
 
+	static _getLookupArmorName (name) {
+		return name.toLowerCase().trim().replace(/ armor$/i, "");
+	}
+
 	static init (itemData, classData) {
 		this._ALL_ITEMS = itemData;
 		this._ALL_CLASSES = classData.class;
+
+		itemData
+			.filter(itm => Renderer.item.isMundane(itm) && itm.type && [Parser.ITM_TYP_ABV__HEAVY_ARMOR, Parser.ITM_TYP_ABV__LIGHT_ARMOR, Parser.ITM_TYP_ABV__MEDIUM_ARMOR].includes(DataUtil.itemType.unpackUid(itm.type).abbreviation) && [Parser.SRC_SNS].includes(itm.source))
+			.forEach(itm => {
+				this._GENERIC_REQUIRES_LOOKUP_ARMOR[this._getLookupArmorName(itm.name)] = ({styleHint}) => [{"name": itm.name, "source": styleHint === SITE_STYLE__ONE ? Parser.SRC_SNS : Parser.SRC_SNS}];
+
+				this._GENERIC_EXCLUDES_LOOKUP_ARMOR[this._getLookupArmorName(itm.name)] = {"name": itm.name};
+			});
 	}
 
 	static getItem (itemName, {styleHint}) {
@@ -49,6 +62,7 @@ export class ConverterItem extends ConverterBase {
 	 * @param options.isAppend Default output append mode.
 	 * @param options.source Entity source.
 	 * @param options.page Entity page.
+	 * @param [options.isAddPageNumber] Whether to include the page in the output. Defaults to true if a page is provided.
 	 * @param options.titleCaseFields Array of fields to be title-cased in this entity (if enabled).
 	 * @param options.isTitleCase Whether title-case fields should be title-cased in this entity.
 	 * @param options.styleHint
@@ -97,10 +111,11 @@ export class ConverterItem extends ConverterBase {
 
 		const statsOut = this._getFinalState(item, options);
 		options.cbOutput(statsOut, options.isAppend);
+		return statsOut;
 	}
 
 	static _getFinalState (item, options) {
-		if (!item.entries.length) delete item.entries;
+		if (!item.entries?.length) delete item.entries;
 		else this._setWeight(item, options);
 
 		if (item.staff) this._setQuarterstaffStats(item, options);
@@ -114,12 +129,26 @@ export class ConverterItem extends ConverterBase {
 
 	// SHARED UTILITY FUNCTIONS ////////////////////////////////////////////////////////////////////////////////////////
 	static _doItemPostProcess (stats, options) {
-		TagCondition.tryTagConditions(stats, {styleHint: options.styleHint});
-		ArtifactPropertiesTag.tryRun(stats);
-		if (stats.entries) {
-			EntryCoalesceEntryLists.mutCoalesce(stats, "entries", {styleHint: options.styleHint});
+		this._doPostProcess_removePage(stats, options);
 
-			if (/is a (tiny|small|medium|large|huge|gargantuan) object/.test(JSON.stringify(stats.entries))) options.cbWarning(`${stats.name ? `(${stats.name}) ` : ""}Item may be an object!`);
+		TagCondition.tryTagConditions(stats, {styleHint: options.styleHint});
+		ArtifactPropertiesTag.tryRun(stats, {styleHint: options.styleHint});
+		if (stats.entries) {
+			EntryCoalesceEntryLists.mutCoalesce(
+				stats,
+				"entries",
+				{
+					styleHint: options.styleHint,
+
+					isPossibleHangingListItem: ent => {
+						// Artifact-specific; never merge
+						if (/^(?:Random Properties$|Destroying\b)/i.test(ent.name || "")) return false;
+						return true;
+					},
+				},
+			);
+
+			if (/is a (tiny|small|medium|large|huge|gargantuan) object/i.test(JSON.stringify(stats.entries))) options.cbWarning(`${stats.name ? `(${stats.name}) ` : ""}Item may be an object!`);
 		}
 		this._doItemPostProcess_addTags(stats, options);
 		BasicTextClean.tryRun(stats);
@@ -129,7 +158,7 @@ export class ConverterItem extends ConverterBase {
 		const manName = stats.name ? `(${stats.name}) ` : "";
 		TagJsons.mutTagObject(stats, {keySet: new Set(["entries"]), isOptimistic: true, styleHint: options.styleHint});
 		ChargeTag.tryRun(stats);
-		RechargeTypeTag.tryRun(stats, {cbMan: () => options.cbWarning(`${manName}Recharge type requires manual conversion`)});
+		RechargeTypeTag.tryRun(stats, {cbMan: () => options.cbWarning(`${manName}Recharge type may require manual conversion`)});
 		RechargeAmountTag.tryRun(stats, {cbMan: () => options.cbWarning(`${manName}Recharge amount requires manual conversion`)});
 		ItemMiscTag.tryRun(stats);
 		BonusTag.tryRun(stats);
@@ -141,6 +170,9 @@ export class ConverterItem extends ConverterBase {
 		ConditionImmunityTag.tryRun(stats, {cbMan: () => options.cbWarning(`${manName}Condition immunity tagging requires manual conversion`)});
 		ReqAttuneTagTag.tryRun(stats, {cbMan: () => options.cbWarning(`${manName}Attunement requirement tagging requires manual conversion`)});
 		AttachedSpellTag.tryRun(stats);
+		AttachedSpellChargesTag.tryRun(stats);
+		LightTag.tryRun(stats);
+		InstrumentBaseItemTag.tryRun(stats);
 
 		// TODO
 		//  - tag damage type?
@@ -155,41 +187,6 @@ export class ConverterItem extends ConverterBase {
 	// SHARED PARSING FUNCTIONS ////////////////////////////////////////////////////////////////////////////////////////
 	static _setCleanTaglineInfo (stats, curLine, options) {
 		const parts = curLine.trim().split(StrUtil.COMMAS_NOT_IN_PARENTHESES_REGEX).map(it => it.trim()).filter(Boolean);
-
-		const handlePartRarity = (rarity) => {
-			rarity = rarity.trim().toLowerCase();
-			switch (rarity) {
-				case "common": stats.rarity = rarity; return true;
-				case "uncommon": stats.rarity = rarity; return true;
-				case "rare": stats.rarity = rarity; return true;
-				case "very rare": stats.rarity = rarity; return true;
-				case "legendary": stats.rarity = rarity; return true;
-				case "artifact": stats.rarity = rarity; return true;
-				case "varies":
-				case "rarity varies": {
-					stats.rarity = "varies";
-					stats.__prop = "itemGroup";
-					return true;
-				}
-				case "unknown rarity": {
-					// Make a best-guess as to whether or not the item is magical
-					if (stats.wondrous || stats.staff) stats.rarity = "unknown (magic)";
-					if (
-						stats.type
-						&& [
-							Parser.ITM_TYP_ABV__POTION,
-							Parser.ITM_TYP_ABV__RING,
-							Parser.ITM_TYP_ABV__ROD,
-							Parser.ITM_TYP_ABV__WAND,
-							Parser.ITM_TYP_ABV__SCROLL,
-						].includes(DataUtil.itemType.unpackUid(stats.type).abbreviation)
-					) return "unknown (magic)";
-					else stats.rarity = "unknown";
-					return true;
-				}
-			}
-			return false;
-		};
 
 		let baseItem = null;
 
@@ -208,19 +205,20 @@ export class ConverterItem extends ConverterBase {
 				case "rod": stats.type = options.styleHint === SITE_STYLE__ONE ? Parser.ITM_TYP__ODND_ROD : Parser.ITM_TYP__ROD; continue;
 				case "wand": stats.type = options.styleHint === SITE_STYLE__ONE ? Parser.ITM_TYP__ODND_WAND : Parser.ITM_TYP__WAND; continue;
 				case "scroll": stats.type = options.styleHint === SITE_STYLE__ONE ? Parser.ITM_TYP__ODND_SCROLL : Parser.ITM_TYP__SCROLL; continue;
+				case "adventuring gear": stats.type = options.styleHint === SITE_STYLE__ONE ? Parser.ITM_TYP__ODND_ADVENTURING_GEAR : Parser.ITM_TYP__ADVENTURING_GEAR; continue;
 			}
 			// endregion
 
 			// region rarity/attunement
 			// Check if the part is an exact match for a rarity string
-			const isHandledRarity = handlePartRarity(partLower);
+			const isHandledRarity = this._setCleanTaglineInfo_handlePartRarity({stats, rarity: partLower});
 			if (isHandledRarity) continue;
 
 			if (partLower.includes("(requires attunement")) {
 				const [rarityRaw, ...rest] = part.split("(");
 				const rarity = rarityRaw.trim().toLowerCase();
 
-				const isHandledRarity = rarity ? handlePartRarity(rarity) : true;
+				const isHandledRarity = rarity ? this._setCleanTaglineInfo_handlePartRarity({stats, rarity: rarity}) : true;
 				if (!isHandledRarity) options.cbWarning(`${stats.name ? `(${stats.name}) ` : ""}Rarity "${rarityRaw}" requires manual conversion`);
 
 				let attunement = rest.join("(");
@@ -228,7 +226,7 @@ export class ConverterItem extends ConverterBase {
 				if (!attunement) {
 					stats.reqAttune = true;
 				} else {
-					stats.reqAttune = attunement.toLowerCase();
+					stats.reqAttune = attunement;
 				}
 
 				// if specific attunement is required, absorb any further parts which are class names
@@ -267,19 +265,14 @@ export class ConverterItem extends ConverterBase {
 					stats.type = options.styleHint === SITE_STYLE__ONE ? Parser.ITM_TYP__ODND_ROD : Parser.ITM_TYP__ROD;
 				}
 
-				if (
-					/ or /.test(mBaseWeapon.groups.ptParens)
-					&& this._GENERIC_REQUIRES_LOOKUP_WEAPON[mBaseWeapon.groups.ptParens.toLowerCase()]
-				) {
-					(stats.requires ||= []).push(...this._setCleanTaglineInfo_getGenericRequires({stats, str: mBaseWeapon.groups.ptParens, options}));
-					stats.__genericType = true;
-					continue;
-				}
-
 				const ptsParens = ConverterUtils.splitConjunct(mBaseWeapon.groups.ptParens);
+				const ptsParensNoAny = ptsParens.map(pt => pt.replace(/^any /i, ""));
 
-				if (ptsParens.length > 1 && ptsParens.every(pt => this._GENERIC_REQUIRES_LOOKUP_WEAPON[pt.toLowerCase()])) {
-					ptsParens.forEach(pt => {
+				if (
+					ptsParensNoAny.every(pt => this._GENERIC_REQUIRES_LOOKUP_WEAPON_CATEGORY[pt.toLowerCase()])
+					|| (ptsParensNoAny.length > 1 && ptsParensNoAny.every(pt => this._GENERIC_REQUIRES_LOOKUP_WEAPON[pt.toLowerCase()]))
+				) {
+					ptsParensNoAny.forEach(pt => {
 						(stats.requires ||= []).push(
 							...this._setCleanTaglineInfo_getGenericRequires({stats, str: pt, options}),
 						);
@@ -296,30 +289,51 @@ export class ConverterItem extends ConverterBase {
 					continue;
 				}
 
-				throw new Error(`Multiple base item(s) for "${mBaseWeapon.groups.ptParens}"`);
+				if (options.styleHint === SITE_STYLE__CLASSIC) options.cbWarning(`${stats.name ? `(${stats.name}) ` : ""}Multiple base item(s) for "${mBaseWeapon.groups.ptParens}"`);
+
+				// e.g. XDMG items have broken down "any sword" into a specific list of items
+				(stats.requires ||= [])
+					.push(...baseItems.map(({name, source}) => ({name, source})));
+				stats.__genericType = true;
+				continue;
 			}
 
-			const mBaseArmour = /^armou?r \((?<type>[^)]+)\)$/i.exec(part);
-			if (mBaseArmour) {
-				if (this._setCleanTaglineInfo_isMutAnyArmour({stats, mBaseArmour, options})) {
+			const mBaseArmor = /^armou?r \((?<type>[^)]+)\)$/i.exec(part);
+			if (mBaseArmor) {
+				if (this._setCleanTaglineInfo_isMutAnyArmour({stats, mBaseArmor, options})) {
 					stats.__genericType = true;
 					continue;
 				}
 
-				const ptsParens = ConverterUtils.splitConjunct(mBaseArmour.groups.type);
+				const ptsParens = ConverterUtils.splitConjunct(mBaseArmor.groups.type);
 
-				if (ptsParens.length > 1 && ptsParens.every(pt => this._GENERIC_REQUIRES_LOOKUP_ARMOUR[pt.toLowerCase()])) {
-					ptsParens.forEach(pt => {
+				const ptsParensClean = ptsParens.map(pt => this._getLookupArmorName(pt));
+
+				const [ptsInclude, ptsExclude] = ptsParensClean.segregate(pt => !/^\bbut not\b/i.test(pt))
+					.map((arr, i) => !i ? arr : arr.map(pt => pt.replace(/^\bbut not\b/i, "").trim()));
+
+				if (
+					ptsParensClean.length > 1
+					&& ptsInclude.every(pt => this._GENERIC_REQUIRES_LOOKUP_ARMOR[pt.toLowerCase()])
+					&& ptsExclude.every(pt => this._GENERIC_EXCLUDES_LOOKUP_ARMOR[pt.toLowerCase()])
+				) {
+					ptsInclude.forEach(pt => {
 						(stats.requires ||= []).push(
 							...this._setCleanTaglineInfo_getGenericRequires({stats, str: pt, options}),
+						);
+					});
+					ptsExclude.forEach(pt => {
+						Object.assign(
+							(stats.excludes ||= {}),
+							this._GENERIC_EXCLUDES_LOOKUP_ARMOR[pt.toLowerCase()],
 						);
 					});
 					stats.__genericType = true;
 					continue;
 				}
 
-				baseItem = this._setCleanTaglineInfo_getArmourBaseItem(mBaseArmour.groups.type, options);
-				if (!baseItem) throw new Error(`Could not find base item "${mBaseArmour.groups.type}"`);
+				baseItem = this._setCleanTaglineInfo_getArmourBaseItem(mBaseArmor.groups.type, options);
+				if (!baseItem) throw new Error(`Could not find base item "${mBaseArmor.groups.type}"`);
 				continue;
 			}
 			// endregion
@@ -329,6 +343,41 @@ export class ConverterItem extends ConverterBase {
 		}
 
 		this._setCleanTaglineInfo_handleBaseItem(stats, baseItem, options);
+	}
+
+	static _setCleanTaglineInfo_handlePartRarity ({stats, rarity}) {
+		rarity = rarity.trim().toLowerCase();
+		switch (rarity) {
+			case "common": stats.rarity = rarity; return true;
+			case "uncommon": stats.rarity = rarity; return true;
+			case "rare": stats.rarity = rarity; return true;
+			case "very rare": stats.rarity = rarity; return true;
+			case "legendary": stats.rarity = rarity; return true;
+			case "artifact": stats.rarity = rarity; return true;
+			case "varies":
+			case "rarity varies": {
+				stats.rarity = "varies";
+				stats.__prop = "itemGroup";
+				return true;
+			}
+			case "unknown rarity": {
+				// Make a best-guess as to whether or not the item is magical
+				if (stats.wondrous || stats.staff) stats.rarity = "unknown (magic)";
+				if (
+					stats.type
+					&& [
+						Parser.ITM_TYP_ABV__POTION,
+						Parser.ITM_TYP_ABV__RING,
+						Parser.ITM_TYP_ABV__ROD,
+						Parser.ITM_TYP_ABV__WAND,
+						Parser.ITM_TYP_ABV__SCROLL,
+					].includes(DataUtil.itemType.unpackUid(stats.type).abbreviation)
+				) return "unknown (magic)";
+				else stats.rarity = "unknown";
+				return true;
+			}
+		}
+		return false;
 	}
 
 	static _GENERIC_CATEGORY_TO_PROP = {
@@ -349,9 +398,13 @@ export class ConverterItem extends ConverterBase {
 			return true;
 		}
 
-		const mWeaponAnyX = /^weapon \(any ([^)]+)\)$/i.exec(part);
+		const mWeaponAnyX = /^weapon \(any (?<ptParens>[^)]+)\)$/i.exec(part);
 		if (mWeaponAnyX) {
-			(stats.requires ||= []).push(...this._setCleanTaglineInfo_getGenericRequires({stats, str: mWeaponAnyX[1].trim(), options}));
+			const ptsAny = ConverterUtils.splitConjunct(mWeaponAnyX.groups.ptParens);
+			// e.g. "any ammunition or melee weapon"
+			if (ptsAny.length > 1) return false;
+
+			(stats.requires ||= []).push(...this._setCleanTaglineInfo_getGenericRequires({stats, str: mWeaponAnyX.groups.ptParens.trim(), options}));
 
 			if (mWeaponAnyX[1].trim().toLowerCase() === "ammunition") stats.ammo = true;
 
@@ -400,29 +453,40 @@ export class ConverterItem extends ConverterBase {
 		}
 	}
 
-	static _setCleanTaglineInfo_isMutAnyArmour ({stats, mBaseArmour, options}) {
-		if (/^any /i.test(mBaseArmour.groups.type)) {
-			const ptAny = mBaseArmour.groups.type.replace(/^any /i, "");
-			const [ptInclude, ptExclude] = ptAny.split(/\bexcept\b/i).map(it => it.trim()).filter(Boolean);
+	static _setCleanTaglineInfo_isMutAnyArmor ({stats, mBaseArmor, options}) {
+		if (/^any /i.test(mBaseArmor.groups.type)) {
+			const ptAny = mBaseArmor.groups.type.replace(/^any /i, "");
+
+			if (/^armor$/.test(ptAny)) {
+				(stats.requires ||= [])
+					.push(...[
+						{"type": options.styleHint === SITE_STYLE__ONE ? Parser.ITM_TYP__ODND_LIGHT_ARMOR : Parser.ITM_TYP__LIGHT_ARMOR},
+						{"type": options.styleHint === SITE_STYLE__ONE ? Parser.ITM_TYP__ODND_MEDIUM_ARMOR : Parser.ITM_TYP__MEDIUM_ARMOR},
+						{"type": options.styleHint === SITE_STYLE__ONE ? Parser.ITM_TYP__ODND_HEAVY_ARMOR : Parser.ITM_TYP__HEAVY_ARMOR},
+					]);
+				return true;
+			}
+
+			const [ptInclude, ptExclude] = ptAny.split(/(?:, )?\b(?:except|but not)\b/i).map(it => it.trim()).filter(Boolean);
 
 			if (ptInclude) {
 				stats.requires = [
 					...(stats.requires || []),
-					...ptInclude.split(/\b(?:or|,)\b/g).map(it => it.trim()).filter(Boolean).map(it => this._setCleanTaglineInfo_getProcArmourPart({pt: it, options})),
+					...ptInclude.split(/\bor\b|,/g).map(it => it.trim()).filter(Boolean).map(it => this._setCleanTaglineInfo_getProcArmorPart({pt: it, options})),
 				];
 			}
 
 			if (ptExclude) {
 				Object.assign(
 					stats.excludes = stats.excludes || {},
-					ptExclude.split(/\b(?:or|,)\b/g).map(it => it.trim()).filter(Boolean).mergeMap(it => this._setCleanTaglineInfo_getProcArmourPart({pt: it, options})),
+					ptExclude.split(/\bor\b|,/g).map(it => it.trim()).filter(Boolean).mergeMap(it => this._setCleanTaglineInfo_getProcArmorPart({pt: it, options})),
 				);
 			}
 
 			return true;
 		}
 
-		const ptsType = ConverterUtils.splitConjunct(mBaseArmour.groups.type);
+		const ptsType = ConverterUtils.splitConjunct(mBaseArmor.groups.type);
 
 		if (!ptsType
 			.every(ptType => /^(?:light|medium|heavy)$/i.test(ptType))
@@ -445,7 +509,7 @@ export class ConverterItem extends ConverterBase {
 			"source",
 			"srd",
 			"basicRules",
-			"freeRules2024",
+			"basicRules2024",
 			"srd52",
 			"page",
 			"hasFluff",
@@ -463,15 +527,13 @@ export class ConverterItem extends ConverterBase {
 		stats.baseItem = `${baseItem.name.toLowerCase()}${baseItem.source === Parser.SRC_SNS ? "" : `|${baseItem.source.toLowerCase()}`}`;
 	}
 
-	static _GENERIC_REQUIRES_LOOKUP_WEAPON = {
+	static _GENERIC_REQUIRES_LOOKUP_WEAPON_NAMED = {
 		"weapon": [{"weapon": true}],
 		"sword": [{"sword": true}],
 		"axe": [{"axe": true}],
 		"armour": [{"armour": true}],
 		"bow": [{"bow": true}],
-		"longbow or shortbow": [{"bow": true}],
 		"crossbow": [{"crossbow": true}],
-		"bow or crossbow": [{"bow": true}, {"crossbow": true}],
 		"spear": [{"spear": true}],
 		"polearm": [{"polearm": true}],
 		"dagger": [{"dagger": true}],
@@ -480,22 +542,65 @@ export class ConverterItem extends ConverterBase {
 		"hammer": [{"hammer": true}],
 		"mace": [{"mace": true}],
 		"staff": [{"staff": true}],
-		"spear or javelin": [{"spear": true}],
 
-		"ammunition": ({styleHint}) => [{"type": styleHint === SITE_STYLE__ONE ? Parser.ITM_TYP__ODND_AMMUNITION : Parser.ITM_TYP__AMMUNITION}, {"type": Parser.ITM_TYP__AMMUNITION_FUTURISTIC}],
 		"arrow": [{"arrow": true}],
 		"bolt": [{"bolt": true}],
-		"arrow or bolt": [{"arrow": true}, {"bolt": true}],
+	};
 
-		"melee": [{"type": Parser.ITM_TYP__MELEE_WEAPON}],
+	static _GENERIC_REQUIRES_LOOKUP_WEAPON_CATEGORY = {
+		"ammunition": ({styleHint}) => [{"type": styleHint === SITE_STYLE__ONE ? Parser.ITM_TYP__ODND_AMMUNITION : Parser.ITM_TYP__AMMUNITION}, {"type": styleHint === SITE_STYLE__ONE ? Parser.ITM_TYP__ODND_AMMUNITION_FUTURISTIC : Parser.ITM_TYP__AMMUNITION_FUTURISTIC}],
+
+		"melee": ({styleHint}) => [{"type": styleHint === SITE_STYLE__ONE ? Parser.ITM_TYP__ODND_MELEE_WEAPON : Parser.ITM_TYP__MELEE_WEAPON}],
+		"melee weapon": ({styleHint}) => [{"type": styleHint === SITE_STYLE__ONE ? Parser.ITM_TYP__ODND_MELEE_WEAPON : Parser.ITM_TYP__MELEE_WEAPON}],
+
+		"simple": [{"weaponCategory": "simple"}],
+		"simple weapon": [{"weaponCategory": "simple"}],
+		"martial": [{"weaponCategory": "martial"}],
 		"martial weapon": [{"weaponCategory": "martial"}],
 
-		"bludgeoning": [{"dmgType": "B"}],
-		"weapon that deals bludgeoning damage": [{"dmgType": "B"}],
-		"piercing": [{"dmgType": "P"}],
-		"slashing": [{"dmgType": "S"}],
+		"simple melee weapon": ({styleHint}) => [{"weaponCategory": "simple", "type": styleHint === SITE_STYLE__ONE ? Parser.ITM_TYP__ODND_MELEE_WEAPON : Parser.ITM_TYP__MELEE_WEAPON}],
+		"martial melee weapon": ({styleHint}) => [{"weaponCategory": "martial", "type": styleHint === SITE_STYLE__ONE ? Parser.ITM_TYP__ODND_MELEE_WEAPON : Parser.ITM_TYP__MELEE_WEAPON}],
+
+		...Object.fromEntries(
+			Object.entries(Parser.DMGTYPE_JSON_TO_FULL)
+				.map(([json, full]) => ([full, [{dmgType: json}]])),
+		),
+		...Object.fromEntries(
+			Object.entries(Parser.DMGTYPE_JSON_TO_FULL)
+				.map(([json, full]) => ([`weapon that deals ${full} damage`, [{dmgType: json}]])),
+		),
 
 		"melee bludgeoning weapon": ({styleHint}) => [{"type": styleHint === SITE_STYLE__ONE ? Parser.ITM_TYP__ODND_MELEE_WEAPON : Parser.ITM_TYP__MELEE_WEAPON, "dmgType": "B"}],
+
+		"melee weapon with the finesse property": ({styleHint}) => [{"weaponCategory": "martial", "property": styleHint === SITE_STYLE__ONE ? Parser.ITM_PROP__ODND_FINESSE : Parser.ITM_PROP__FINESSE}],
+
+		"martial with the ammunition property": ({styleHint}) => [{"weaponCategory": "martial", "property": styleHint === SITE_STYLE__ONE ? Parser.ITM_PROP__ODND_AMMUNITION : Parser.ITM_PROP__AMMUNITION}],
+		"martial with the thrown property": ({styleHint}) => [{"weaponCategory": "martial", "property": styleHint === SITE_STYLE__ONE ? Parser.ITM_PROP__ODND_THROWN : Parser.ITM_PROP__THROWN}],
+	};
+
+	static _GENERIC_REQUIRES_LOOKUP_WEAPON = {
+		...this._GENERIC_REQUIRES_LOOKUP_WEAPON_NAMED,
+		...this._GENERIC_REQUIRES_LOOKUP_WEAPON_CATEGORY,
+	};
+
+	// TODO(Future) consider using
+	static _GENERIC_REQUIRES_LOOKUP_WEAPON_APPROXIMATION = {
+		"longbow or shortbow": [{"bow": true}],
+		"spear or javelin": [{"spear": true}],
+		"bow or crossbow": [{"bow": true}, {"crossbow": true}],
+		"arrow or bolt": [{"arrow": true}, {"bolt": true}],
+
+		// region XDMG
+		"battleaxe, greataxe, or halberd": ({styleHint}) => [{"axe": true, "property": styleHint === SITE_STYLE__ONE ? Parser.ITM_PROP__ODND_TWO_HANDED : Parser.ITM_PROP__TWO_HANDED}, {"halberd": true, "property": styleHint === SITE_STYLE__ONE ? Parser.ITM_PROP__ODND_TWO_HANDED : Parser.ITM_PROP__TWO_HANDED}],
+		"battleaxe, greataxe, halberd, or handaxe": [{"axe": true}, {"halberd": true}],
+
+		"greatsword, longsword, rapier, scimitar, or shortsword": [{"sword": true}],
+		"glaive, greatsword, longsword, or scimitar": [{"sword": true, "dmgType": "S"}, {"sword": true, "dmgType": "S"}],
+		"glaive, greatsword, longsword, rapier, scimitar, or shortsword": [{"sword": true}, {"glaive": true}],
+		"glaive, greatsword, longsword, rapier, scimitar, sickle, or shortsword": [{"sword": true}, {"glaive": true}, {"name": "Sickle"}],
+
+		"maul or warhammer": ({styleHint}) => [{"hammer": true, "property": styleHint === SITE_STYLE__ONE ? Parser.ITM_PROP__ODND_TWO_HANDED : Parser.ITM_PROP__TWO_HANDED}, {"hammer": true, "property": styleHint === SITE_STYLE__ONE ? Parser.ITM_PROP__ODND_VERSATILE : Parser.ITM_PROP__VERSATILE}],
+		// endregion
 	};
 
 	static _GENERIC_REQUIRES_LOOKUP_ARMOUR = {
@@ -503,7 +608,11 @@ export class ConverterItem extends ConverterBase {
 		"medium": ({styleHint}) => [{"type": styleHint === SITE_STYLE__ONE ? Parser.ITM_TYP__ODND_MEDIUM_ARMOUR : Parser.ITM_TYP__MEDIUM_ARMOUR}],
 		"heavy": ({styleHint}) => [{"type": styleHint === SITE_STYLE__ONE ? Parser.ITM_TYP__ODND_HEAVY_ARMOUR : Parser.ITM_TYP__HEAVY_ARMOUR}],
 
-		"hide": ({styleHint}) => [{"name": "Hide Armour", "source": styleHint === SITE_STYLE__ONE ? Parser.SRC_SNS : Parser.SRC_SNS}],
+		// (Additionally populated during `init`)
+	};
+
+	static _GENERIC_EXCLUDES_LOOKUP_ARMOR = {
+		// (Populated during `init`)
 	};
 
 	static _setCleanTaglineInfo_getGenericRequires ({stats, str, options}) {
@@ -519,7 +628,7 @@ export class ConverterItem extends ConverterBase {
 		return [{[str.toCamelCase()]: true}];
 	}
 
-	static _RE_CATEGORIES_PREFIX_SUFFIX = /(?:weapon|blade|armour|sword|polearm|bow|crossbow|axe|ammunition|arrows?|bolts?)/;
+	static _RE_CATEGORIES_PREFIX_SUFFIX = /(?:weapon|blade|armor|sword|polearm|bow|crossbow|axe|hammer|ammunition|arrows?|bolts?|plate|chain)/;
 	static _RE_CATEGORIES_PREFIX = new RegExp(`^${this._RE_CATEGORIES_PREFIX_SUFFIX.source} `, "i");
 	static _RE_CATEGORIES_SUFFIX = new RegExp(` ${this._RE_CATEGORIES_PREFIX_SUFFIX.source}$`, "i");
 
@@ -543,6 +652,7 @@ export class ConverterItem extends ConverterBase {
 
 		stats.__prop = "magicvariant";
 		stats.type = options.styleHint === SITE_STYLE__ONE ? Parser.ITM_TYP__ODND_GENERIC_VARIANT : Parser.ITM_TYP__GENERIC_VARIANT;
+		if (options.styleHint === SITE_STYLE__CLASSIC) stats.edition = SITE_STYLE__CLASSIC;
 	}
 
 	static _setWeight (stats, options) {
@@ -561,19 +671,23 @@ export class ConverterItem extends ConverterBase {
 		});
 	}
 
-	static _setQuarterstaffStats (stats) {
-		const cpyStatsQuarterstaff = MiscUtil.copy(ConverterItem._ALL_ITEMS.find(it => it.name === "Quarterstaff" && it.source === Parser.SRC_SNS));
+	static _setQuarterstaffStats (stats, options) {
+		const cpyStatsQuarterstaff = MiscUtil.copy(ConverterItem._ALL_ITEMS.find(it => it.name === "Quarterstaff" && it.source === (options.styleHint === SITE_STYLE__CLASSIC ? Parser.SRC_SNS : Parser.SRC_SNS)));
 
 		// remove unwanted properties
 		delete cpyStatsQuarterstaff.name;
 		delete cpyStatsQuarterstaff.source;
+		delete cpyStatsQuarterstaff.otherSources;
 		delete cpyStatsQuarterstaff.page;
 		delete cpyStatsQuarterstaff.rarity;
 		delete cpyStatsQuarterstaff.value;
 		delete cpyStatsQuarterstaff.srd;
 		delete cpyStatsQuarterstaff.srd52;
 		delete cpyStatsQuarterstaff.basicRules;
-		delete cpyStatsQuarterstaff.freeRules2024;
+		delete cpyStatsQuarterstaff.basicRules2024;
+		delete cpyStatsQuarterstaff.reprintedAs;
+		delete cpyStatsQuarterstaff.hasFluff;
+		delete cpyStatsQuarterstaff.hasFluffImages;
 
 		Object.entries(cpyStatsQuarterstaff)
 			.filter(([k]) => !k.startsWith("_"))
@@ -601,6 +715,9 @@ export class ConverterItem extends ConverterBase {
 			polearm: true,
 			lance: true,
 			rapier: true,
+			glaive: true,
+			halberd: true,
+			whip: true,
 			arrow: true,
 			bolt: true,
 			bulletFirearm: true,
@@ -608,6 +725,16 @@ export class ConverterItem extends ConverterBase {
 			needleBlowgun: true,
 			weapon: true,
 		})
+			.forEach(prop => delete stats[prop]);
+		// endregion
+
+		// region other props
+		[
+			"reprintedAs",
+			"edition",
+			"otherSources",
+			"referenceSources",
+		]
 			.forEach(prop => delete stats[prop]);
 		// endregion
 	}

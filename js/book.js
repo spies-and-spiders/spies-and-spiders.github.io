@@ -1,9 +1,9 @@
-"use strict";
+import {BookUtil} from "./bookutils.js";
 
 const JSON_URL = "data/books.json";
 
 window.addEventListener("load", async () => {
-	BookUtil.$dispBook = $(`#pagecontent`);
+	BookUtil.dispBook = veEs(`#pagecontent`);
 	await Promise.all([
 		PrereleaseUtil.pInit(),
 		BrewUtil2.pInit(),
@@ -13,19 +13,17 @@ window.addEventListener("load", async () => {
 });
 
 async function onJsonLoad (data) {
-	BookUtil.baseDataUrl = "data/book/book-";
 	BookUtil.allPageUrl = "books.html";
 	BookUtil.propHomebrewData = "bookData";
 	BookUtil.typeTitle = "Book";
-	BookUtil.initLinkGrabbers();
-	BookUtil.initScrollTopFloat();
+	await BookUtil.pInit();
 
 	BookUtil.contentType = "book";
 
 	BookUtil.bookIndex = data?.book || [];
 
-	$(`#page__subtitle`).text(`Select a book from the list on the left`);
-	$(`.book-loading-message`).text(`Select a book to begin`);
+	veEs(`#page__subtitle`).vee.txt(`Select a book from the list on the left`);
+	veEs(`.book-loading-message`).vee.txt(`Select a book to begin`);
 
 	BookUtil.bookIndexPrerelease = (await PrereleaseUtil.pGetBrewProcessed())?.book || [];
 	BookUtil.bookIndexBrew = (await BrewUtil2.pGetBrewProcessed())?.book || [];

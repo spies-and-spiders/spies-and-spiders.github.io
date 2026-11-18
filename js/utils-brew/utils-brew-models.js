@@ -1,184 +1,4 @@
-export class _BrewDocContentMigrator {
-	static mutMakeCompatible (json) {
-		this._mutMakeCompatible_item(json);
-		this._mutMakeCompatible_monster(json);
-		this._mutMakeCompatible_object(json);
-		this._mutMakeCompatible_subclass(json);
-	}
-
-	/* ----- */
-
-	static _mutMakeCompatible_item (json) {
-		if (!json.variant) return false;
-
-		// 2022-07-09
-		json.magicvariant = json.variant;
-		delete json.variant;
-	}
-
-	/* ----- */
-
-	static _mutMakeCompatible_monster (json) {
-		if (!json.monster) return false;
-
-		json.monster.forEach(mon => {
-			// 2022-03-22
-			if (typeof mon.size === "string") mon.size = [mon.size];
-
-			// 2022=05-29
-			if (mon.summonedBySpell && !mon.summonedBySpellLevel) mon.summonedBySpellLevel = 1;
-		});
-	}
-
-	/* ----- */
-
-	static _mutMakeCompatible_object (json) {
-		if (!json.object) return false;
-
-		json.object.forEach(obj => {
-			// 2023-10-07
-			if (typeof obj.size === "string") obj.size = [obj.size];
-		});
-	}
-
-	/* ----- */
-
-	static _mutMakeCompatible_subclass (json) {
-		this._mutMakeCompatible_subclass_oneSubclassCopies(json);
-	}
-
-	static _PROPS_SUBCLASS_MAINTAIN = ["name", "source", "shortName", "className"];
-	static _PROPS_SUBCLASS_COPY = [...this._PROPS_SUBCLASS_MAINTAIN, "classSource"];
-
-	static _PROPS_SUBCLASS_FEATURE_MAINTAIN = ["name", "className", "source", "subclassShortName", "subclassSource"];
-	static _PROPS_SUBCLASS_FEATURE_COPY = [...this._PROPS_SUBCLASS_FEATURE_MAINTAIN, "level", "classSource"];
-
-	static _MIN_SUBCLASS_FEATURE_LEVEL = 3; // 2024+ classes all gain initial subclass features at level 3
-
-	/**
-	 * @since 2024-09-20
-	 * Copy subclasses (and subclass features, if they are below level 3) from reprinted 2014-era classes to
-	 *   their 2024-era counterparts
-	 */
-	static _mutMakeCompatible_subclass_oneSubclassCopies (json) {
-		const hasCopies = (json.subclass || []).some(sc => sc.source !== Parser.SRC_SNS && sc.classSource === Parser.SRC_SNS);
-		if (!hasCopies) return false;
-
-		const internalCopies = MiscUtil.getOrSet(json, "_meta", "internalCopies", []);
-		if (!internalCopies.includes("subclass")) internalCopies.push("subclass");
-
-		const outSubclasses = [];
-		const outSubclassFeatures = [];
-		const depsSubclass = new Set();
-
-		json.subclass
-			.filter(sc => sc.source !== Parser.SRC_SNS && sc.classSource === Parser.SRC_SNS)
-			.forEach(sc => {
-				const scNxt = {
-					classSource: Parser.SRC_SNS,
-				};
-				this._PROPS_SUBCLASS_MAINTAIN.forEach(prop => scNxt[prop] = MiscUtil.copyFast(sc[prop]));
-				scNxt._copy = {
-					...Object.fromEntries(
-						this._PROPS_SUBCLASS_COPY
-							.map(prop => [prop, MiscUtil.copyFast(sc[prop])]),
-					),
-					"_preserve": {
-						"page": true,
-						"otherSources": true,
-						"srd": true,
-						"basicRules": true,
-						"reprintedAs": true,
-					},
-				};
-
-				if (sc.hasFluff || sc.hasFluffImages) {
-					scNxt.fluff = {
-						_subclassFluff: Object.fromEntries(
-							this._PROPS_SUBCLASS_COPY
-								.map(prop => [prop, MiscUtil.copyFast(sc[prop])]),
-						),
-					};
-				}
-
-				const fauxScHash = UrlUtil.URL_TO_HASH_BUILDER["subclass"](scNxt);
-				const scExisting = json.subclass.find(sc => UrlUtil.URL_TO_HASH_BUILDER["subclass"](sc) === fauxScHash);
-
-				// If the brew already defines a version of the subclass for the 2024-era class, avoid making one
-				if (scExisting) return;
-
-				// `.subclassFeatures` may not exist for e.g. "_copy" subclasses; always "_copy" these
-				const [scfRefsLowLevel, scfRefsOther] = (sc.subclassFeatures || [])
-					.segregate(scfRef => {
-						const uid = scfRef.subclassFeature || scfRef;
-						const unpacked = DataUtil.class.unpackUidSubclassFeature(uid);
-						return unpacked.level < this._MIN_SUBCLASS_FEATURE_LEVEL;
-					});
-
-				outSubclasses.push(scNxt);
-
-				if (!scfRefsLowLevel.length) return;
-
-				scNxt.subclassFeatures = [
-					...scfRefsLowLevel
-						.map(scfRef => {
-							const uid = scfRef.subclassFeature || scfRef;
-							const unpacked = DataUtil.class.unpackUidSubclassFeature(uid);
-
-							// When copying a site subclass feature re-used in a homebrew subclass,
-							//   include the site class as a dependency.
-							// Note that we do not do this for e.g. homebrew depending on homebrew,
-							//   as we assume the brew already defines this relationship.
-							const sourceJson = Parser.sourceJsonToJson(unpacked.source);
-							if (SourceUtil.isSiteSource(sourceJson)) {
-								depsSubclass.add(unpacked.className.toLowerCase());
-							}
-
-							const scfNxt = {
-								classSource: Parser.SRC_SNS,
-								level: this._MIN_SUBCLASS_FEATURE_LEVEL,
-							};
-							this._PROPS_SUBCLASS_FEATURE_MAINTAIN.forEach(prop => scfNxt[prop] = MiscUtil.copyFast(unpacked[prop]));
-							scfNxt._copy = {
-								...Object.fromEntries(
-									this._PROPS_SUBCLASS_FEATURE_COPY
-										.map(prop => [prop, MiscUtil.copyFast(unpacked[prop])]),
-								),
-								"_preserve": {
-									"page": true,
-								},
-							};
-
-							outSubclassFeatures.push(scfNxt);
-
-							const uidNxt = DataUtil.class.packUidSubclassFeature(scfNxt);
-							if (scfRef.subclassFeature) {
-								return {
-									...MiscUtil.copy(scfRef),
-									subclassFeature: uidNxt,
-								};
-							}
-							return uidNxt;
-						}),
-					...scfRefsOther,
-				];
-			});
-
-		if (outSubclasses.length) json.subclass.push(...outSubclasses);
-		if (outSubclassFeatures.length) json.subclassFeature.push(...outSubclassFeatures);
-
-		if (outSubclassFeatures.length && !internalCopies.includes("subclassFeature")) internalCopies.push("subclassFeature");
-
-		if (depsSubclass.size) {
-			const tgt = MiscUtil.getOrSet(json, "_meta", "dependencies", "subclass", []);
-			depsSubclass.forEach(dep => {
-				if (!tgt.includes(dep)) tgt.push(dep);
-			});
-		}
-
-		return true;
-	}
-}
+import {BrewDocContentMigrator} from "./utils-brew-content-migrator.js";
 
 export class BrewDoc {
 	// Things which are stored in "_meta", but are "content metadata" rather than "file metadata."
@@ -187,7 +7,9 @@ export class BrewDoc {
 		"senses",
 		"spellSchools",
 		"spellDistanceUnits",
+		"featCategories",
 		"optionalFeatureTypes",
+		"vehicleUpgradeTypes",
 		"psionicTypes",
 		"currencyConversions",
 	];
@@ -261,7 +83,7 @@ export class BrewDoc {
 		jsons.forEach(json => {
 			json = isCopy ? MiscUtil.copyFast(json) : json;
 
-			if (isMutMakeCompatible) _BrewDocContentMigrator.mutMakeCompatible(json);
+			if (isMutMakeCompatible) BrewDocContentMigrator.mutMakeCompatible(json);
 
 			Object.entries(json)
 				.forEach(([prop, val]) => {
