@@ -24,8 +24,8 @@ class _PageGeneratorBook extends PageGeneratorAdventureBookBase {
 class _PageGeneratorQuickref extends PageGeneratorAdventureBookBase {
 	_page = UrlUtil.PG_QUICKREF;
 
-	_pageTitle = "Quick Reference (5e/2014)";
-	_navbarTitle = "Quick Reference (5e/2014)";
+	_pageTitle = "Quick Reference";
+	_navbarTitle = "Quick Reference";
 	_navbarDescriptionHtml = "Browse content. Press <kbd>f</kbd> to find, and <kbd>g</kbd> to go to page.";
 	_scriptIdentAdvBook = "quickreference";
 	_advBookPlaceholder = `Trans rights are human rights.`;

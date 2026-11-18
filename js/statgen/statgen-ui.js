@@ -1,6 +1,5 @@
 import {StatGenUiCompAsi} from "./statgen-ui-comp-asi.js";
 import {StatGenUiRenderLevelOneBackground} from "./statgen-ui-comp-levelone-background.js";
-import {StatGenUiRenderLevelOneRace} from "./statgen-ui-comp-levelone-race.js";
 import {StatGenUiRenderableCollectionPbRules} from "./statgen-ui-comp-pbrules.js";
 import {MAX_CUSTOM_FEATS, MODE_NONE} from "./statgen-ui-consts.js";
 import {VetoolsConfig} from "../utils-config/utils-config-config.js";
@@ -34,13 +33,11 @@ export class StatGenUi extends BaseComponent {
 
 	/**
 	 * @param opts
-	 * @param opts.races
 	 * @param opts.backgrounds
 	 * @param opts.feats
 	 * @param [opts.tabMetasAdditional]
 	 * @param [opts.isCharacterMode] Disables some functionality (e.g. changing number of ability scores)
 	 * @param [opts.isFvttMode]
-	 * @param [opts.modalFilterRaces]
 	 * @param [opts.modalFilterBackgrounds]
 	 * @param [opts.modalFilterFeats]
 	 * @param [opts.existingScores]
@@ -51,7 +48,6 @@ export class StatGenUi extends BaseComponent {
 
 		TabUiUtilSide.decorate(this, {isInitMeta: true});
 
-		this._races = opts.races;
 		this._backgrounds = opts.backgrounds;
 		this._feats = opts.feats;
 		this._tabMetasAdditional = opts.tabMetasAdditional;
@@ -75,7 +71,6 @@ export class StatGenUi extends BaseComponent {
 			this._IX_TAB_MANUAL = cnt;
 		}
 
-		this._modalFilterRaces = opts.modalFilterRaces || new ModalFilterRaces({namespace: "statgen.races", isRadio: true, allData: this._races});
 		this._modalFilterBackgrounds = opts.modalFilterBackgrounds || new ModalFilterBackgrounds({namespace: "statgen.backgrounds", isRadio: true, allData: this._backgrounds});
 		this._modalFilterFeats = opts.modalFilterFeats || new ModalFilterFeats({namespace: "statgen.feats", isRadio: true, allData: this._feats});
 
@@ -138,10 +133,6 @@ export class StatGenUi extends BaseComponent {
 
 	set common_cntAsi (val) { this._state.common_cntAsi = val; }
 
-	addHookIxRace (hook) { this._addHookBase("common_ixRace", hook); }
-	get ixRace () { return this._state.common_ixRace; }
-	set ixRace (ixRace) { this._state.common_ixRace = ixRace; }
-
 	addHookIxBackground (hook) { this._addHookBase("common_ixBackground", hook); }
 	get ixBackground () { return this._state.common_ixBackground; }
 	set ixBackground (ixBackground) { this._state.common_ixBackground = ixBackground; }
@@ -158,7 +149,6 @@ export class StatGenUi extends BaseComponent {
 	addHookBase (prop, hook) { return this._addHookBase(prop, hook); }
 	removeHookBase (prop, hook) { return this._removeHookBase(prop, hook); }
 	proxyAssignSimple (hookProp, toObj, isOverwrite) { return this._proxyAssignSimple(hookProp, toObj, isOverwrite); }
-	get race () { return this._races[this._state.common_ixRace]; }
 	get background () { return this._backgrounds[this._state.common_ixBackground]; }
 	get isLevelUp () { return this._isLevelUp; }
 	isSettingStateFromOverwrite () { return this._isSettingStateFromOverwrite; }
@@ -200,7 +190,6 @@ export class StatGenUi extends BaseComponent {
 	addHookActiveTag (hook) { this._addHookActiveTab(hook); }
 
 	async pInit () {
-		await this._modalFilterRaces.pPopulateHiddenWrapper();
 		await this._modalFilterBackgrounds.pPopulateHiddenWrapper();
 		await this._modalFilterFeats.pPopulateHiddenWrapper();
 	}
@@ -889,14 +878,6 @@ export class StatGenUi extends BaseComponent {
 		const metasTotalAndMod = this._render_getMetasTotalAndMod();
 
 		const {
-			wrpOuter: wrpRaceOuter,
-			stgSel: stgRaceSel,
-			dispPreview: dispPreviewRace,
-			hrPreview: hrPreviewRaceTashas,
-			dispTashas,
-		} = this._renderLevelOneRace.render();
-
-		const {
 			wrpOuter: wrpBackgroundOuter,
 			stgSel: stgBackgroundSel,
 			dispPreview: dispPreviewBackground,
@@ -933,7 +914,6 @@ export class StatGenUi extends BaseComponent {
 						</div>
 
 						${wrpBackgroundOuter}
-						${wrpRaceOuter}
 
 						<div class="ve-flex-col ve-mr-3">
 							<div class="ve-my-1 ve-statgen-pb__header"></div>
@@ -955,7 +935,6 @@ export class StatGenUi extends BaseComponent {
 					</div>
 
 					${stgBackgroundSel}
-					${stgRaceSel}
 				</div>
 
 				${vrPbCustom}
@@ -970,10 +949,6 @@ export class StatGenUi extends BaseComponent {
 
 			${hrPreviewBackground}
 
-			${dispPreviewRace}
-			${hrPreviewRaceTashas}
-			${dispTashas}
-
 			${wrpAsi}
 		</div>`;
 
@@ -983,8 +958,6 @@ export class StatGenUi extends BaseComponent {
 			.vee.appends(stgMain)
 			.vee.appends(stgNone);
 	}
-
-	_renderLevelOneRace = new StatGenUiRenderLevelOneRace({parent: this});
 
 	_renderLevelOneBackground = new StatGenUiRenderLevelOneBackground({parent: this});
 
@@ -1133,56 +1106,10 @@ export class StatGenUi extends BaseComponent {
 		};
 	}
 
-	_pb_getRaceAbilityList () {
-		const race = this.race;
-		if (!race?.ability?.length) return null;
-
-		return race.ability
-			.map(fromRace => {
-				if (
-					this._state.common_isTashas
-					&& this._state.common_isAllowTashasRules
-				) {
-					const weights = [];
-
-					if (fromRace.choose && fromRace.choose.weighted && fromRace.choose.weighted.weights) {
-						weights.push(...fromRace.choose.weighted.weights);
-					}
-
-					Parser.ABIL_ABVS.forEach(it => {
-						if (fromRace[it]) weights.push(fromRace[it]);
-					});
-
-					if (fromRace.choose && fromRace.choose.from) {
-						const count = fromRace.choose.count || 1;
-						const amount = fromRace.choose.amount || 1;
-						for (let i = 0; i < count; ++i) weights.push(amount);
-					}
-
-					weights.sort((a, b) => SortUtil.ascSort(b, a));
-
-					fromRace = {
-						choose: {
-							weighted: {
-								from: [...Parser.ABIL_ABVS],
-								weights,
-							},
-						},
-					};
-				}
-
-				return fromRace;
-			});
-	}
-
 	_pb_getBackgroundAbilityList () {
 		const background = this.background;
 		if (!background?.ability?.length) return null;
 		return background.ability;
-	}
-
-	_pb_getRaceAbility () {
-		return this._pb_getRaceAbilityList()?.[this._state.common_ixAbilityScoreSetRace || 0];
 	}
 
 	_pb_getBackgroundAbility () {
@@ -1255,12 +1182,6 @@ export class StatGenUi extends BaseComponent {
 			};
 
 			handleEntityAbility({
-				fromEntity: this._pb_getRaceAbility(),
-				propChoiceMetasFrom: "common_raceChoiceMetasFrom",
-				propChoiceWeighted: "common_raceChoiceMetasWeighted",
-			});
-
-			handleEntityAbility({
 				fromEntity: this._pb_getBackgroundAbility(),
 				propChoiceMetasFrom: "common_backgroundChoiceMetasFrom",
 				propChoiceWeighted: "common_backgroundChoiceMetasWeighted",
@@ -1282,13 +1203,6 @@ export class StatGenUi extends BaseComponent {
 			out.state[propHash] = UrlUtil.URL_TO_HASH_BUILDER[page](this[propData][out.state[propIxEntity]]);
 			delete out.state[propIxEntity];
 		};
-
-		handleEntity({
-			propIxEntity: "common_ixRace",
-			page: UrlUtil.PG_RACES,
-			propData: "_races",
-			propHash: "_pb_raceHash",
-		});
 
 		handleEntity({
 			propIxEntity: "common_ixBackground",
@@ -1337,13 +1251,6 @@ export class StatGenUi extends BaseComponent {
 			});
 			if (~ixEntity) saved.state[propIxEntity] = ixEntity;
 		};
-
-		handleEntityHash({
-			propHash: "_pb_raceHash",
-			page: UrlUtil.PG_RACES,
-			propData: "_races",
-			propIxEntity: "common_ixRace",
-		});
 
 		handleEntityHash({
 			propHash: "_pb_backgroundHash",
@@ -1404,9 +1311,6 @@ export class StatGenUi extends BaseComponent {
 	_getDefaultStateCommonResettable () {
 		return {
 			...Parser.ABIL_ABVS.mergeMap(ab => ({[this.constructor._common_getProps(ab).propUserBonus]: 0})),
-
-			common_raceChoiceMetasFrom: [],
-			common_raceChoiceMetasWeighted: [],
 
 			common_backgroundChoiceMetasFrom: [],
 			common_backgroundChoiceMetasWeighted: [],
@@ -1472,12 +1376,9 @@ export class StatGenUi extends BaseComponent {
 	_getDefaultState () {
 		return {
 			// region Common
-			common_isPreviewRace: false,
 			common_isAllowTashasRules: VetoolsConfig.get("styleSwitcher", "style") !== SITE_STYLE__ONE,
 			common_isTashas: false,
 			common_isShowTashasRules: false,
-			common_ixRace: null,
-			common_ixAbilityScoreSetRace: 0,
 
 			common_isPreviewBackground: false,
 			common_ixBackground: null,

@@ -17,6 +17,24 @@
 		}
 
 		&__ {
+			&grid-defences {
+				display: inline-grid;
+				grid-template-columns: repeat(2, 1fr);
+				gap: 2px;
+			}
+
+			&disp-defence {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				padding: 1px 8px;
+				background: #22220015;
+
+				&-label {
+					font-family: Convergence, Arial, sans-serif;
+				}
+			}
+
 			&btn-name-pronounce,
 			&btn-stats-name {
 				vertical-align: top;
@@ -181,24 +199,6 @@
 			&lbl-score {
 				padding: 0;
 				width: 7%;
-			}
-
-			&grid-defences {
-				display: inline-grid;
-				grid-template-columns: repeat(2, 1fr);
-				gap: 2px;
-			}
-
-			&disp-defence {
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-				padding: 1px 8px;
-				background: #22220015;
-
-				&-label {
-					font-family: Convergence, Arial, sans-serif;
-				}
 			}
 
 			&lbl-spacer {

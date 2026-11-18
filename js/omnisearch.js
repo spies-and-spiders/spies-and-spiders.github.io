@@ -142,13 +142,6 @@ class OmnisearchUi {
 	}
 
 	static _render_wrpSearchFilters ({rdState}) {
-		const btnCyclePartneredMode = veT`<button class="ve-btn ve-btn-default ve-btn-xs omni__btn-partnered-mode" tabindex="-1"></button>`;
-		OmnisearchUtilsUi.bindBtnCyclePartneredMode({
-			btn: btnCyclePartneredMode,
-			omnisearchState: OmnisearchState,
-			fnDoSearch: this._pDoSearch.bind(this, {rdState}),
-		});
-
 		const [
 			btnToggleBrew,
 			btnToggleBlocklisted,
@@ -168,7 +161,6 @@ class OmnisearchUi {
 			<div class="ve-flex-v-center ve-mr-2 ve-mobile-sm__mr-0 ve-mobile-sm__mb-2 ve-mobile-sm__w-100 ve-mobile-sm__flex-h-right">
 				<span class="ve-mr-2 ve-italic ve-relative ve-top-1p">Include</span>
 				<div class="ve-btn-group ve-flex-v-center">
-					${btnCyclePartneredMode}
 					${btnToggleBrew}
 				</div>
 			</div>

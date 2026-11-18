@@ -8,7 +8,7 @@ export class StatGenUiCompAsi extends BaseComponent {
 		super();
 		this._parent = parent;
 
-		this._metasAsi = {ability: [], race: [], background: [], custom: []};
+		this._metasAsi = {ability: [], background: [], custom: []};
 
 		this._doPulseThrottled = MiscUtil.throttle(this._doPulse_.bind(this), 50);
 	}
@@ -190,7 +190,7 @@ export class StatGenUiCompAsi extends BaseComponent {
 
 			if (!isInitialLoad && !this._parent.isSettingStateFromOverwrite()) resetGroupState();
 
-			const ent = this._parent[namespace]; // e.g. `this._parent.race`
+			const ent = this._parent[namespace]; // e.g. `this._parent.background`
 
 			if ((ent?.feats?.length || 0) > 1) {
 				const {sel: selGroup, unhook: unhookIxGroup} = StatGenUtilAdditionalFeats.getSelIxSetMeta({comp: this._parent, prop: propIxSel, available: ent.feats});
@@ -466,13 +466,11 @@ export class StatGenUiCompAsi extends BaseComponent {
 
 	render (wrpAsi) {
 		const wrpRowsAsi = veT`<div class="ve-flex-col ve-w-100 ve-overflow-y-auto"></div>`;
-		const wrpRowsRace = veT`<div class="ve-flex-col ve-w-100 ve-overflow-y-auto"></div>`;
 		const wrpRowsBackground = veT`<div class="ve-flex-col ve-w-100 ve-overflow-y-auto"></div>`;
 		const wrpRowsCustom = veT`<div class="ve-flex-col ve-w-100 ve-overflow-y-auto"></div>`;
 
 		this._render_renderAsiFeatSection("common_cntAsi", "ability", wrpRowsAsi);
 		this._render_renderAsiFeatSection("common_cntFeatsCustom", "custom", wrpRowsCustom);
-		this._render_renderAdditionalFeatSection({propEntity: "common_ixRace", namespace: "race", wrpRows: wrpRowsRace});
 		this._render_renderAdditionalFeatSection({propEntity: "common_ixBackground", namespace: "background", wrpRows: wrpRowsBackground});
 
 		const getStgEntity = ({title, wrpRows, propEntity, propIxEntity}) => {
@@ -492,8 +490,6 @@ export class StatGenUiCompAsi extends BaseComponent {
 			return stg;
 		};
 
-		const stgRace = getStgEntity({title: "Species", wrpRows: wrpRowsRace, propEntity: "race", propIxEntity: "common_ixRace"});
-
 		const stgBackground = getStgEntity({title: "Background", wrpRows: wrpRowsBackground, propEntity: "background", propIxEntity: "common_ixBackground"});
 
 		const {ipt: iptCountFeatsCustom, wrp: wrpCountFeatsCustom} = ComponentUiUtil.getIptInt(this._parent, "common_cntFeatsCustom", 0, {min: 0, max: MAX_CUSTOM_FEATS, asMeta: true, decorationLeft: "spacer", decorationRight: "ticker"});
@@ -504,8 +500,6 @@ export class StatGenUiCompAsi extends BaseComponent {
 			<h4 class="ve-my-2 ve-bold">Ability Score Increases</h4>
 			${this._render_getStageCntAsi()}
 			${wrpRowsAsi}
-
-			${stgRace}
 
 			${stgBackground}
 
@@ -570,7 +564,7 @@ export class StatGenUiCompAsi extends BaseComponent {
 	}
 
 	_getFormData_getForNamespace_additional (outs, outIsFormCompletes, outFeats, namespace) {
-		const ent = this._parent[namespace]; // e.g. `this._parent.race`
+		const ent = this._parent[namespace]; // e.g. `this._parent.background`
 		if (!ent?.feats?.length) return;
 
 		const {propIxSel} = this._parent.getPropsAdditionalFeats_(namespace);
@@ -681,11 +675,10 @@ export class StatGenUiCompAsi extends BaseComponent {
 	getFormData () {
 		const outs = [];
 		const isFormCompletes = [];
-		const feats = {ability: [], race: [], background: [], custom: []};
+		const feats = {ability: [], background: [], custom: []};
 
 		this._getFormData_getForNamespace_basic(outs, isFormCompletes, feats, "common_cntAsi", "ability");
 		this._getFormData_getForNamespace_basic(outs, isFormCompletes, feats, "common_cntFeatsCustom", "custom");
-		this._getFormData_getForNamespace_additional(outs, isFormCompletes, feats, "race");
 		this._getFormData_getForNamespace_additional(outs, isFormCompletes, feats, "background");
 
 		const data = {};

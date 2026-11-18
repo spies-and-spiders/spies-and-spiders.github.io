@@ -76,13 +76,6 @@ class SearchPage {
 		const btnHelp = veT`<button class="ve-btn ve-btn-default ve-mr-2 ve-mobile-sm__hidden" title="Help"><span class="glyphicon glyphicon-info-sign"></span></button>`
 			.vee.onn("click", () => OmnisearchUtilsUi.doShowHelp());
 
-		const btnCyclePartneredMode = veT`<button class="ve-btn ve-btn-default pg-search__btn-partnered-mode"></button>`;
-		OmnisearchUtilsUi.bindBtnCyclePartneredMode({
-			btn: btnCyclePartneredMode,
-			omnisearchState: OmnisearchState,
-			fnDoSearch: this._pDoSearch.bind(this),
-		});
-
 		const [
 			btnToggleBrew,
 			btnToggleBlocklisted,
@@ -116,7 +109,6 @@ class SearchPage {
 					${btnHelp}
 					<div class="ve-mr-2 ve-ml-1 ve-mobile-sm__ml-0 ve-mobile-sm__mb-2 ve-italic">Include</div>
 					<div class="ve-flex-v-center ve-btn-group ve-mr-2 ve-mobile-sm__mb-2 ve-mobile-sm__mr-0">
-						${btnCyclePartneredMode}
 						${btnToggleBrew}
 					</div>
 					<div class="ve-flex-v-center ve-btn-group ve-mr-2 ve-mobile-sm__mb-2 ve-mobile-sm__mr-0">

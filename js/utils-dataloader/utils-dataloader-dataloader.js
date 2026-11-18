@@ -273,6 +273,13 @@ class DataTypeLoaderItemMastery extends DataTypeLoaderSingleSource {
 	}
 }
 
+class DataTypeLoaderRenderDemo extends DataTypeLoaderSingleSource {
+	static PROPS = ["renderdemo"];
+	static PAGE = UrlUtil.PG_DEMO_RENDER;
+
+	_filename = "renderdemo.json";
+}
+
 class DataTypeLoaderEncounterShape extends DataTypeLoaderSingleSource {
 	static PROPS = ["encounterShape"];
 
@@ -1266,6 +1273,7 @@ export class DataLoader {
 		DataTypeLoaderSense.register({fnRegister});
 		DataTypeLoaderLegendaryGroup.register({fnRegister, dependencies: [new DataLoaderDependency({page: "legendaryGroupTemplate"})]});
 		DataTypeLoaderEncounterShape.register({fnRegister});
+		DataTypeLoaderRenderDemo.register({fnRegister});
 		DataTypeLoaderBestiaryTemplate.register({fnRegister});
 		DataTypeLoaderItemProperty.register({fnRegister});
 		DataTypeLoaderItemEntry.register({fnRegister});

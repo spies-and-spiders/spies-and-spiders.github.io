@@ -23,7 +23,7 @@ class _LootGenMagicItemSpellUtils {
 			dispSpell.vee.html(rendererWrapped.er(`{@spell ${comp._state.spell.name}|${comp._state.spell.source}}`));
 		})();
 
-		const dispFilter = veT`<div class="no-wrap"></div>`;
+		const dispFilter = veT`<div class="ve-no-wrap"></div>`;
 		comp._addHookBase("spellLevel", () => {
 			if (comp._state.spellLevel == null) {
 				return dispFilter

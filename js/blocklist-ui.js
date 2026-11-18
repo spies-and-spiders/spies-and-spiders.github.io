@@ -44,7 +44,6 @@ class BlocklistUtil {
 		"vehicles.json",
 		"decks.json",
 		"languages.json",
-		"bastions.json",
 	];
 
 	static async pLoadData (

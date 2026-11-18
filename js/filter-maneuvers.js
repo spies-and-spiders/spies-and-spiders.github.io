@@ -158,7 +158,7 @@ class PageFilterManeuvers extends PageFilterBase {
 		this._traditionFilter = new Filter({
 			header: "Tradition",
 			items: [],
-			displayFn: StrUtil.toTitleCase,
+			displayFn: str => StrUtil.toTitleCase(str),
 		});
 		this._pointsFilter = new RangeFilter({
 			header: "Points",

@@ -8762,19 +8762,19 @@ Renderer.maneuver = class {
 		renderStack.push(`
 			${Renderer.utils.getExcludedTr({entity: ent, dataProp: "maneuver", page: UrlUtil.PG_MANEUVERS})}
 			${Renderer.utils.getNameTr(ent, {page: UrlUtil.PG_MANEUVERS})}
-			<tr><td colspan="6" class="pb-2">
-				<div class="pb-2">${this.getHtmlPtDegreeTradition(ent)}</div>
-				<div class="ve-flex pb-2 w-100">
-					<div class="ve-flex-col ve-grow min-w-25 pr-2">
+			<tr><td colspan="6" class="ve-pb-2">
+				<div class="ve-pb-2">${this.getHtmlPtDegreeTradition(ent)}</div>
+				<div class="ve-flex ve-pb-2 ve-w-100">
+					<div class="ve-flex-col ve-grow ve-min-w-25 ve-pr-2">
 						<div>${Renderer.spell.getHtmlPtCastingTime(ent)}</div>
 						<div>${this.getHtmlPtPoints(ent)}</div>
 					</div>
-					<div class="ve-flex-col ve-grow min-w-25">
+					<div class="ve-flex-col ve-grow ve-min-w-25">
 						<div>${Renderer.spell.getHtmlPtRange(ent)}</div>
 						<div>${Renderer.spell.getHtmlPtDuration(ent)}</div>
 					</div>
 				</div>
-				${htmlPtPrerequisites ? `<div class="pb-2">${htmlPtPrerequisites}</div>` : ""}
+				${htmlPtPrerequisites ? `<div class="ve-pb-2">${htmlPtPrerequisites}</div>` : ""}
 		`);
 		renderer.recursiveRender({type: "entries", entries: ent.entries}, renderStack, {depth: 1});
 		renderStack.push(`</td></tr>`);
@@ -10958,28 +10958,36 @@ Renderer.monster = class {
 		if (infosAbilities.every(info => info.isSpecial)) return ptSpecial;
 
 		const ptHeaders = Array.from(
-			{length: 9},
-			(_, i) => `<div class="ve-muted ve-text-center small-caps">${i % 3 === 2 ? "mod" : ""}</div>`,
+			{length: 11},
+			(_, i) => {
+				const colClass = i % 4 === 0
+					? "ve-stats-tbl-ability-scores__lbl-abv"
+					: i % 4 === 3 ? "ve-stats-tbl-ability-scores__lbl-spacer" : "ve-stats-tbl-ability-scores__lbl-score";
+				return `<td class="${colClass}"><div class="ve-muted ve-text-center ve-small-caps ve-no-wrap">${i % 4 === 2 ? "mod" : ""}</div></td>`;
+			},
 		)
 			.join("");
 
 		const ptsCells = Parser.ABIL_ABVS
 			.flatMap((abv, i) => {
 				const styleName = i < 3 ? "physical" : "mental";
+				const styleClassNameScore = this._ABILITY_ROW_STYLE_TO_CLASS_SCORE[styleName];
+				const styleClassNameBonus = this._ABILITY_ROW_STYLE_TO_CLASS_BONUS[styleName];
 
 				const numScore = typeof mon[abv] === "number" ? mon[abv] : null;
 				const ptScore = numScore != null ? `${mon[abv]}` : `\u2013`;
 				const ptBonus = numScore != null ? Renderer.utils.getAbilityRoller(mon, abv, {isDisplayAsBonus: true}) : `\u2013`;
 
 				return [
-					`<div class="bold small-caps ve-text-right stats__disp-as-score stats__disp-as-score--label stats__disp-as-score--${styleName}">${abv.toTitleCase()}</div>`,
-					`<div class="ve-text-center stats__disp-as-score stats__disp-as-score--${styleName}">${ptScore}</div>`,
-					`<div class="ve-text-center stats__disp-as-bonus stats__disp-as-bonus--${styleName} ${i % 3 !== 2 ? "mr-2" : ""}">${ptBonus}</div>`,
+					`<td class="ve-stats-tbl-ability-scores__lbl-abv ${styleClassNameScore} ve-stats__disp-as-score--label"><div class="ve-bold ve-small-caps ve-text-right">${abv.toTitleCase()}</div></td>`,
+					`<td class="ve-stats-tbl-ability-scores__lbl-score ${styleClassNameScore}"><div class="ve-text-center">${ptScore}</div></td>`,
+					`<td class="ve-stats-tbl-ability-scores__lbl-score ${styleClassNameBonus}"><div class="ve-text-center">${ptBonus}</div></td>`,
+					i % 3 !== 2 ? `<td class="ve-stats-tbl-ability-scores__lbl-spacer"><div></div></td>` : "",
 				];
 			});
 
-		const ptsCellsPhysical = ptsCells.slice(0, 14);
-		const ptsCellsMental = ptsCells.slice(14);
+		const ptsCellsPhysical = ptsCells.slice(0, 11);
+		const ptsCellsMental = ptsCells.slice(11);
 
 		return `
 		<tr><td colspan="6" class="ve-pt-0 ve-pb-3">
@@ -11024,7 +11032,7 @@ Renderer.monster = class {
 		if (ent == null || (ent.arm == null && ent.fort == null && ent.ref == null && ent.wil == null)) return "—";
 
 		const fmt = (key, label, val) => `<div class="ve-stats__disp-defence">
-			<div class="ve-stats__disp-defence-label bold small-caps">${label}</div>
+			<div class="ve-stats__disp-defence-label ve-bold ve-small-caps">${label}</div>
 			<div class="ve-stats__disp-defence-value ve-text-center">${val == null ? "—" : Parser.defenceToFull(val, {renderer, key})}</div>
 		</div>`;
 
@@ -14222,8 +14230,8 @@ Renderer.vehicle = class {
 		return `
 			${Renderer.utils.getExcludedTr({entity: ent, datProp: "vehicle", page: UrlUtil.PG_VEHICLES})}
 			${Renderer.utils.getNameTr(ent, {isInlinedToken, page: UrlUtil.PG_VEHICLES})}
-			<tr><td colspan="6" class="pb-2">${renderer.render(entriesMetaInfwar.entrySizeWeight)}</td></tr>
-			<tr><td colspan="6" class="pb-2">
+			<tr><td colspan="6" class="ve-pb-2">${renderer.render(entriesMetaInfwar.entrySizeWeight)}</td></tr>
+			<tr><td colspan="6" class="ve-pb-2">
 				${Renderer.vehicle.getDefencesPart(ent, {renderer})}
 				${Renderer.vehicle.infwar.PROPS_RENDERABLE_ENTRIES_ATTRIBUTES.map(prop => `<div>${renderer.render(entriesMetaInfwar[prop])}</div>`).join("")}
 				<div class="ve-muted ve-small ve-help-subtle ve-ml-2" title="${Renderer.stripTags(entriesMetaInfwar.entrySpeedNoteTitle).qq()}">${renderer.render(entriesMetaInfwar.entrySpeedNote)}</div>

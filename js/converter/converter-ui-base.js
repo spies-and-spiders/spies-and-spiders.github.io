@@ -71,7 +71,7 @@ export class ConverterUiBase extends BaseComponent {
 	_getSample (format) {
 		const ents = this._converterData.converterSample
 			.filter(ent => ent.converterId === this._converterId && ent.format === format);
-		if (ents.length <= 1) return ents[0].text;
+		if (ents.length <= 1) return ents[0]?.text;
 		return ents.find(ent => ent.edition === this._state.styleHint)?.text || ents[0]?.text;
 	}
 
@@ -284,7 +284,10 @@ export class ConverterUiBase extends BaseComponent {
 	}
 
 	_renderSettings_samples ({wrpModesSamples}) {
-		const btnsSamples = this._modes.map(mode => {
+		const modesWithSamples = this._modes.filter(mode => this._getSample(mode));
+		if (!modesWithSamples.length) return;
+
+		const btnsSamples = modesWithSamples.map(mode => {
 			return veT`<button class="ve-btn ve-btn-xs ve-btn-default">Sample ${ConverterUiBase._getDisplayMode(mode)}</button>`
 				.vee.onn("click", () => {
 					const sample = this._getSample(mode);

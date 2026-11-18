@@ -1,5 +1,4 @@
 import {OmnisearchBacking} from "./omnisearch-backing.js";
-import {PARTNERED_CONTENT_MODE_NONE, PARTNERED_CONTENT_MODE_TEXT, PARTNERED_CONTENT_MODE_TOOLTIP, PARTNERED_CONTENT_MODES} from "./omnisearch-consts.js";
 
 export class OmnisearchUtilsUi {
 	static _isFauxPage (resultDoc) {
@@ -28,27 +27,6 @@ export class OmnisearchUtilsUi {
 			hash: url,
 			isFauxPage,
 		});
-	}
-
-	/* -------------------------------------------- */
-
-	static bindBtnCyclePartneredMode ({btn, omnisearchState, fnDoSearch}) {
-		btn
-			.vee.onn("click", () => {
-				omnisearchState.setPartneredMode(PARTNERED_CONTENT_MODES.getNext(omnisearchState.getPartneredMode()));
-			})
-			.vee.onn("contextmenu", evt => {
-				evt.preventDefault();
-				omnisearchState.setPartneredMode(PARTNERED_CONTENT_MODES.getPrevious(omnisearchState.getPartneredMode()));
-			});
-
-		omnisearchState.addHookPartnered((val) => {
-			btn
-				.vee.tooltip(PARTNERED_CONTENT_MODE_TOOLTIP[omnisearchState.getPartneredMode()] || "")
-				.vee.txt(PARTNERED_CONTENT_MODE_TEXT[omnisearchState.getPartneredMode()])
-				.vee.toggleClass("ve-active", omnisearchState.getPartneredMode() !== PARTNERED_CONTENT_MODE_NONE);
-			if (val != null) fnDoSearch().then(null);
-		})();
 	}
 
 	/* -------------------------------------------- */

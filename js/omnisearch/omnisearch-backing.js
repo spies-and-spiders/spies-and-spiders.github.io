@@ -2,7 +2,6 @@ import {OmnisearchState} from "./omnisearch-state.js";
 import {VetoolsConfig} from "../utils-config/utils-config-config.js";
 import {SITE_STYLE__CLASSIC} from "../consts.js";
 import {SyntaxMetaCategories, SyntaxMetaGroup, SyntaxMetaPageRange, SyntaxMetaSource} from "./omnisearch-models.js";
-import {PARTNERED_CONTENT_MODE_ALL, PARTNERED_CONTENT_MODE_LOCAL, PARTNERED_CONTENT_MODE_NONE} from "./omnisearch-consts.js";
 
 export class OmnisearchBacking {
 	static _CATEGORY_COUNTS = {};
@@ -34,29 +33,8 @@ export class OmnisearchBacking {
 		const brewIndex = await BrewUtil2.pGetSearchIndex({id: this._maxId + 1});
 		brewIndex.forEach(it => this._addToIndex(it));
 
-		// region Partnered homebrew
-		//   Note that we filter out anything which is already in the user's homebrew, to avoid double-indexing
-		const sourcesBrew = new Set(
-			BrewUtil2.getSources()
-				.map(src => src.json),
-		);
-
-		const partneredIndexRaw = Omnidexer.decompressIndex(await DataUtil.loadJSON(`${Renderer.get().baseUrl}search/index-partnered.json`));
-		const partneredIndex = partneredIndexRaw
-			.filter(it => !sourcesBrew.has(it.s));
-		// Re-ID, to:
-		//   - override the base partnered index IDs (which has statically-generated IDs starting at 0)
-		//   - avoid any holes
-		partneredIndex
-			.forEach((it, i) => it.id = this._maxId + 1 + i);
-		partneredIndex.forEach(it => {
-			it.isRemote = true;
-			this._addToIndex(it);
-		});
-		// endregion
-
 		this._adventureBookLookup = {};
-		[prereleaseIndex, brewIndex, siteIndex, partneredIndex].forEach(index => {
+		[prereleaseIndex, brewIndex, siteIndex].forEach(index => {
 			index.forEach(it => {
 				if (it.c === Parser.CAT_ID_ADVENTURE || it.c === Parser.CAT_ID_BOOK) this._adventureBookLookup[it.s.toLowerCase()] = it.c;
 			});
@@ -88,7 +66,6 @@ export class OmnisearchBacking {
 			"monster": [Parser.pageCategoryToFull(Parser.CAT_ID_CREATURE)],
 
 			[new Renderer.tag.TagQuickref().tagName]: [Parser.pageCategoryToFull(Parser.CAT_ID_QUICKREF)],
-			[new Renderer.tag.TagRace().tagName]: [Parser.pageCategoryToFull(Parser.CAT_ID_RACE)],
 			[new Renderer.tag.TagReward().tagName]: [Parser.pageCategoryToFull(Parser.CAT_ID_OTHER_REWARD)],
 			[new Renderer.tag.TagOptfeature().tagName]: Parser.CAT_ID_GROUPS["optionalfeature"].map(catId => Parser.pageCategoryToFull(catId)),
 			[new Renderer.tag.TagClassFeature().tagName]: [Parser.pageCategoryToFull(Parser.CAT_ID_CLASS_FEATURE)],
@@ -115,7 +92,6 @@ export class OmnisearchBacking {
 			"obj": [Parser.pageCategoryToFull(Parser.CAT_ID_OBJECT)],
 			"god": [Parser.pageCategoryToFull(Parser.CAT_ID_DEITY)],
 			"rcp": [Parser.pageCategoryToFull(Parser.CAT_ID_RECIPE)], // :^)
-			"ptn": [Parser.pageCategoryToFull(Parser.CAT_ID_CROCHET_PATTERN)], // :^^)
 
 			"cf": inCategoryAlias["classFeature"],
 			"scf": inCategoryAlias["subclassFeature"],
@@ -146,25 +122,15 @@ export class OmnisearchBacking {
 
 	/* -------------------------------------------- */
 
-	static async pGetFilteredResults (results, {isApplySrdFilter = false, isApplyPartneredFilter = false, searchTerm = null} = {}) {
+	static async pGetFilteredResults (results, {isApplySrdFilter = false, searchTerm = null} = {}) {
 		if (searchTerm) searchTerm = searchTerm.toLowerCase();
 
 		if (isApplySrdFilter && OmnisearchState.isSrdOnly) {
 			results = results.filter(res => res.doc.r || res.doc.r2);
 		}
 
-		if (isApplyPartneredFilter) {
-			switch (OmnisearchState.getPartneredMode()) {
-				case PARTNERED_CONTENT_MODE_ALL: break;
-				case PARTNERED_CONTENT_MODE_LOCAL: results = results.filter(res => (!res.doc.s || !res.doc.dP) || (res.doc.dP && !res.doc.isRemote)); break;
-				case PARTNERED_CONTENT_MODE_NONE: results = results.filter(res => !res.doc.s || !res.doc.dP); break;
-				default: throw new Error(`Unhandled partnered content search mode "${OmnisearchState.getPartneredMode()}"!`);
-			}
-		}
-
 		if (!OmnisearchState.isShowBrew) {
-			// Always filter in partnered, as these are handled by the more specific filter, above
-			results = results.filter(res => !res.doc.s || res.doc.dP || !BrewUtil2.hasSourceJson(res.doc.s));
+			results = results.filter(res => !res.doc.s || !BrewUtil2.hasSourceJson(res.doc.s));
 		}
 
 		if (!OmnisearchState.isShowBlocklisted && ExcludeUtil.getList().length) {
@@ -265,7 +231,7 @@ export class OmnisearchBacking {
 				.filter(Boolean),
 		});
 
-		return this.pGetFilteredResults(results, {isApplySrdFilter: true, isApplyPartneredFilter: true, searchTerm});
+		return this.pGetFilteredResults(results, {isApplySrdFilter: true, searchTerm});
 	}
 
 	static _pGetResults_pGetBaseResults (

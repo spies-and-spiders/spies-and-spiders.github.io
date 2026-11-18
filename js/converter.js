@@ -18,7 +18,7 @@ const doPageInit = async () => {
 		BrewUtil2.pInit(),
 	]);
 	ExcludeUtil.pInitialise().then(null); // don't await, as this is only used for search
-	const [spells, items, itemsRaw, legendaryGroups, classes, brew, converterData] = await Promise.all([
+	const [spells, items, legendaryGroups, classes, brew, converterData] = await Promise.all([
 		DataUtil.spell.pLoadAll(),
 		Renderer.item.pBuildList(),
 		DataUtil.legendaryGroup.pLoadAll(),

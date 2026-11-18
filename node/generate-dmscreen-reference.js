@@ -5,7 +5,7 @@ import {writeJsonSync} from "5etools-utils/lib/UtilFs.js";
 
 const index = utB.UtilBookReference.getIndex(
 	{
-		name: "Quick Reference (5e/2014)",
+		name: "Quick Reference",
 		id: "bookref-quick",
 		tag: "quickref",
 	},

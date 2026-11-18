@@ -220,8 +220,8 @@ class _RenderBestiaryImplBase {
 		const label = this._style === "classic" ? labelFull : mon.hp?.isTemporary ? "Temp HP" : "HP";
 		const ptTitle = this._style === "classic" ? "" : `title="${labelFull}"`;
 		const rendered = mon.hp == null ? "\u2014" : Renderer.monster.getRenderedHp(mon.hp);
-		const ptInitiative = this._style === "classic" ? "" : `<div ${isInlinedToken ? `class="stats__wrp-avoid-token"` : ""}><strong title="Initiative">Initiative</strong> ${Renderer.monster.getInitiativePart(mon)}</div>`;
-		return `<tr><td colspan="6"><div ${isInlinedToken ? `class="stats__wrp-avoid-token"` : ""}><strong ${ptTitle}>${label}</strong> ${rendered}</div>${ptInitiative}</td></tr>`;
+		const ptInitiative = this._style === "classic" ? "" : `<div ${isInlinedToken ? `class="ve-stats__wrp-avoid-token"` : ""}><strong title="Initiative">Initiative</strong> ${Renderer.monster.getInitiativePart(mon)}</div>`;
+		return `<tr><td colspan="6"><div ${isInlinedToken ? `class="ve-stats__wrp-avoid-token"` : ""}><strong ${ptTitle}>${label}</strong> ${rendered}</div>${ptInitiative}</td></tr>`;
 	}
 
 	_getCommonHtmlParts_resources ({mon, isInlinedToken}) {
@@ -428,7 +428,7 @@ class _RenderBestiaryImplClassic extends _RenderBestiaryImplBase {
 	/* ----- */
 
 	_getHtmlParts_defences ({mon, renderer, isInlinedToken}) {
-		return `<tr><td colspan="6"><div ${isInlinedToken ? `class="stats__wrp-avoid-token"` : ""}>${Renderer.monster.getRenderedDefences(mon, {renderer})}</div></td></tr>`;
+		return `<tr><td colspan="6"><div ${isInlinedToken ? `class="ve-stats__wrp-avoid-token"` : ""}>${Renderer.monster.getRenderedDefences(mon, {renderer})}</div></td></tr>`;
 	}
 
 	/* ----- */
@@ -461,8 +461,8 @@ class _RenderBestiaryImplClassic extends _RenderBestiaryImplBase {
 		const renderer = Renderer.get();
 		const renderStack = [];
 		renderer.setFirstSection(true).recursiveRender({type: "list", items: mon.majorEffect}, renderStack, {depth: 2});
-		return `<tr><td colspan="6" class="py-0"><div class="ve-tbl-divider mb-0"></div></td></tr>
-		<tr><td colspan="6" class="stats__sect-row-inner">${renderStack.join("")}</td></tr>`;
+		return `<tr><td colspan="6" class="ve-py-0"><div class="ve-tbl-divider ve-mb-0"></div></td></tr>
+		<tr><td colspan="6" class="ve-stats__sect-row-inner">${renderStack.join("")}</td></tr>`;
 	}
 
 	/* -------------------------------------------- */
@@ -627,7 +627,7 @@ class _RenderBestiaryImplOne extends _RenderBestiaryImplBase {
 	/* ----- */
 
 	_getHtmlParts_defences ({mon, renderer, isInlinedToken}) {
-		return `<tr><td colspan="6"><div ${isInlinedToken ? `class="stats__wrp-avoid-token"` : ""}>${Renderer.monster.getRenderedDefences(mon, {renderer})}</div></td></tr>`;
+		return `<tr><td colspan="6"><div ${isInlinedToken ? `class="ve-stats__wrp-avoid-token"` : ""}>${Renderer.monster.getRenderedDefences(mon, {renderer})}</div></td></tr>`;
 	}
 
 	_getHtmlParts_immunities ({mon}) {
@@ -655,7 +655,7 @@ class _RenderBestiaryImplOne extends _RenderBestiaryImplBase {
 		const renderStack = [];
 		renderer.setFirstSection(true).recursiveRender({type: "list", items: mon.majorEffect}, renderStack, {depth: 2});
 		return `${this._getRenderedSectionHeader({mon, title: "Major Effects", prop: "majorEffect"})}
-		<tr><td colspan="6" class="stats__sect-row-inner">${renderStack.join("")}</td></tr>`;
+		<tr><td colspan="6" class="ve-stats__sect-row-inner">${renderStack.join("")}</td></tr>`;
 	}
 
 	/* -------------------------------------------- */

@@ -254,7 +254,7 @@ class InitTrackerPlayerViewV0 {
 				<div class="ve-col-2 ve-text-center"></div>
 				<div class="ve-col-5 ve-bold">Client Token</div>
 			</div>
-			<div class="initp__initial ve-flex-h-center ve-w-100 flex ve-mb-4">
+			<div class="initp__initial ve-flex-h-center ve-w-100 ve-flex ve-mb-4">
 				<div class="ve-col-5 ve-bold">${iptServerToken}</div>
 				<div class="ve-col-2 ve-flex-vh-center">${btnGenClientToken}</div>
 				<div class="ve-col-5 ve-bold">${iptClientToken}</div>

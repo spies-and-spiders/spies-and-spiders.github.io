@@ -82,7 +82,7 @@ class NavBar {
 		this._addElement_dropdown({keyPath: [NavBar._CAT_RULES], category: NavBar._CAT_BOOKS, isSide: true, page: "books.html"});
 		this._addElement_li({keyPath: [NavBar._CAT_RULES, NavBar._CAT_BOOKS], page: "books.html", aText: "View All/Homebrew"});
 		this._addElement_divider({keyPath: [NavBar._CAT_RULES]});
-		this._addElement_li({keyPath: [NavBar._CAT_RULES], page: "quickreference.html", aText: "Quick Reference (2014)"});
+		this._addElement_li({keyPath: [NavBar._CAT_RULES], page: "quickreference.html", aText: "Quick Reference"});
 
 		this._addElement_dropdown({category: NavBar._CAT_PLAYER});
 		this._addElement_li({keyPath: [NavBar._CAT_PLAYER], page: "classes.html", aText: "Classes"});

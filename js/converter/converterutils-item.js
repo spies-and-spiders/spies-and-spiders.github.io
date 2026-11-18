@@ -997,7 +997,12 @@ export class InstrumentBaseItemTag {
 
 	static init ({items}) {
 		const itemsBaseInstruments = items.filter(item => item._category === "Basic" && [Parser.ITM_TYP__INSTRUMENT, Parser.ITM_TYP__ODND_INSTRUMENT].includes(item.type));
-		if (!itemsBaseInstruments.length) throw new Error(`No items!`);
+		if (!itemsBaseInstruments.length) {
+			this._RE_INSTRUMENT = /(?!)/;
+			this._LOOKUP_INSTRUMENT = {};
+			return;
+		}
+
 		this._RE_INSTRUMENT = new RegExp(`\\b(?<instrumentName>${itemsBaseInstruments.map(itm => itm.name).unique().map(name => RegExp.escape(name)).join("|")})\\b`);
 		this._LOOKUP_INSTRUMENT = itemsBaseInstruments
 			.reduce((accum, itm) => {
