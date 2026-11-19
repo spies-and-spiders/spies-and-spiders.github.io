@@ -10,7 +10,7 @@ const index = utB.UtilBookReference.getIndex(
 		tag: "quickref",
 	},
 	{
-		name: "DM Reference",
+		name: "GM Reference",
 		id: "bookref-dmscreen",
 		tag: "dmref",
 	},

@@ -808,7 +808,7 @@
       "entries": [
         "At 13th level you've managed to truly improve on something or create something new altogether, taking a solid step forward in the technological development of the world. When you first gain this feature, choose a newly invented foodstuff, object, or trade good that could conceivably be crafted. For example, you could invent carbonated sodas, glowing iridium glassware, or a fine mechanism for better performing pocket watches.",
         "As part of a long rest, you can create your new invention for 5 gold worth of materials.",
-        "Any other uses your invention may have are at the DM's discretion, but its utility shouldn't exceed that of other mundane adventuring gear.",
+        "Any other uses your invention may have are at the GM's discretion, but its utility shouldn't exceed that of other mundane adventuring gear.",
         "In addition, your notoriety as a great inventor spreads along with your invention. While you are in a region you've sold your invention in, you have advantage on {@skill Persuasion} checks."
       ]
     },

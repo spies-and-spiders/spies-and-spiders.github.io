@@ -109,29 +109,13 @@ class _PageGeneratorConverter extends PageGeneratorGeneric {
 	];
 }
 
-class _PageGeneratorCrcalculator extends PageGeneratorGeneric {
-	_filename = "page/template-page-crcalculator.hbs";
-	_page = "crcalculator.html";
-
-	_pageTitle = "CR Calculator";
-	_navbarDescription = "Easily build custom creatures.";
-
-	_stylesheets = [
-		"crcalculator",
-	];
-
-	_scriptsModules = [
-		"crcalculator.js",
-	];
-}
-
 class _PageGeneratorIndex extends PageGeneratorGeneric {
 	_filename = "page/template-page-index.hbs";
 	_page = "index.html";
-	_pageDescription = "A suite of tools for Spies & Spiders players and DMs.";
+	_pageDescription = "A suite of tools for Spies & Spiders players and GMs.";
 
 	_navbarTitleHtml = `spies<span>tools</span>`;
-	_navbarDescription = "A suite of tools for Spies & Spiders players and DMs.";
+	_navbarDescription = "A suite of tools for Spies & Spiders players and GMs.";
 	_navbarPageTitleStyleAdditional = "page__title--home";
 
 	_isFontAwesome = true;
@@ -230,30 +214,6 @@ class _PageGeneratorLootgen extends PageGeneratorGeneric {
 
 	_scriptsModules = [
 		"lootgen.js",
-	];
-}
-
-class _PageGeneratorMakebrew extends PageGeneratorGeneric {
-	_filename = "page/template-page-makebrew.hbs";
-	_page = "makebrew.html";
-
-	_pageTitle = "Homebrew Builder";
-	_navbarDescription = "Input values on left, view the results on the right.";
-
-	_stylesheets = [
-		"makebrew",
-	];
-
-	_scriptsRenderAdditional = [
-		"render-markdown.js",
-	];
-
-	_scriptsUtilsAdditional = [
-		"filter-spells.js",
-	];
-
-	_scriptsModules = [
-		"makebrew.js",
 	];
 }
 
@@ -380,13 +340,11 @@ export const PAGE_GENERATORS = 	[
 	new _PageGeneratorBlocklist(),
 	new _PageGeneratorChangelog(),
 	new _PageGeneratorConverter(),
-	new _PageGeneratorCrcalculator(),
 	new _PageGeneratorIndex(),
 	new _PageGeneratorInittrackerplayerview(),
 	new _PageGeneratorLangdemo(),
 	new _PageGeneratorLifegen(),
 	new _PageGeneratorLootgen(),
-	new _PageGeneratorMakebrew(),
 	new _PageGeneratorMakecards(),
 	new _PageGeneratorPrivacyPolicy(),
 	new _PageGeneratorRenderdemo(),

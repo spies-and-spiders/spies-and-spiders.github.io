@@ -14,7 +14,6 @@ const _BLOCKLIST_FILE_PREFIXES = [
 	"foundry.json",
 
 	// specific files
-	"makebrew-creature.json",
 	"makecards.json",
 	"characters.json",
 	"converter.json",

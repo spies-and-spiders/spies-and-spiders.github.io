@@ -17,41 +17,6 @@
 	}
 	// endregion
 
-	// region Proficiency dice rollers
-	[data-proficiency-dice-mode="dice"] {
-		.ve-rd__dc--rollable {
-			color: vars.$rgb-link-blue;
-			cursor: pointer;
-		}
-
-		.ve-rd__dc--rollable-text,
-		.ve-rd__roller--roll-prof-bonus {
-			display: none;
-		}
-
-		.ve-rd__dc--rollable-dice,
-		.ve-rd__roller--roll-prof-dice {
-			display: inline;
-		}
-	}
-
-	[data-proficiency-dice-mode="bonus"] {
-		.ve-rd__dc--rollable-text,
-		.ve-rd__roller--roll-prof-bonus {
-			display: inline;
-		}
-
-		.ve-rd__dc--rollable-dice,
-		.ve-rd__roller--roll-prof-dice {
-			display: none;
-		}
-	}
-
-	.ve-night-mode [data-proficiency-dice-mode="dice"] .ve-rd__dc--rollable {
-		color: vars--night.$rgb-link-blue--night;
-	}
-	// endregion
-
 	// region Encounter builder
 	.best__ {
 		&ecgen-active {

@@ -172,7 +172,7 @@
           "type": "list",
           "items": [
             "You have advantage on {@skill Perception} and {@skill Investigation} checks made to detect the presence of hidden traps and secret doors.",
-            "Whenever your party gains any amount of loot from a combat in a non-outdoor location (at the DM's discretion), you have a 50% chance to gain one additional unit of loot.",
+            "Whenever your party gains any amount of loot from a combat in a non-outdoor location (at the GM's discretion), you have a 50% chance to gain one additional unit of loot.",
             "Once per short rest, you can recover a single resource when you roll for initiative that would usually be recovered after a short rest.",
             "Once per long rest, you can recover a single resource after a short rest that would usually be recovered after a long rest."
           ]

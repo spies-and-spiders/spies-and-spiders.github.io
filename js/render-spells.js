@@ -182,10 +182,10 @@ class _RenderSpellsImplBase extends RenderPageImplBase {
 		if (fromClassListVariant.length) {
 			const [current, legacy] = Parser.spVariantClassesToCurrentAndLegacy(fromClassListVariant);
 			if (settings.isDisplayVariantClasses && current.length) {
-				stackFroms.push(`<div><span class="ve-bold" title="&quot;Optional&quot; spells may be added to a campaign by the DM. &quot;Variant&quot; spells are generally available, but may be made available to a class by the DM.">Optional/Variant Classes: </span>${Parser.spMainClassesToFull(current)}</div>`);
+				stackFroms.push(`<div><span class="ve-bold" title="&quot;Optional&quot; spells may be added to a campaign by the GM. &quot;Variant&quot; spells are generally available, but may be made available to a class by the GM.">Optional/Variant Classes: </span>${Parser.spMainClassesToFull(current)}</div>`);
 			}
 			if (settings.isDisplayVariantClassesLegacy && legacy.length) {
-				stackFroms.push(`<div class="ve-muted"><span class="ve-bold" title="&quot;Optional&quot; spells may be added to a campaign by the DM. &quot;Variant&quot; spells are generally available, but may be made available to a class by the DM.">Optional/Variant Classes (legacy): </span>${Parser.spMainClassesToFull(legacy)}</div>`);
+				stackFroms.push(`<div class="ve-muted"><span class="ve-bold" title="&quot;Optional&quot; spells may be added to a campaign by the GM. &quot;Variant&quot; spells are generally available, but may be made available to a class by the GM.">Optional/Variant Classes (legacy): </span>${Parser.spMainClassesToFull(legacy)}</div>`);
 			}
 		}
 

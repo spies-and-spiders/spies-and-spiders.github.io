@@ -518,7 +518,7 @@ export class Panel {
 		});
 		if (!page) return;
 
-		const pFnConfirmPanels = () => InputUiUtil.pGetUserBoolean({title: "Add as Panels", htmlDescription: "Adding entries one-per-panel may resize your DM Screen<br>Are you sure you want to add as panels?", textYes: "Yes", textNo: "Cancel"});
+		const pFnConfirmPanels = () => InputUiUtil.pGetUserBoolean({title: "Add as Panels", htmlDescription: "Adding entries one-per-panel may resize your GM Screen<br>Are you sure you want to add as panels?", textYes: "Yes", textNo: "Cancel"});
 
 		await ListUtilEntity.pDoUserInputLoadSublist({
 			page,

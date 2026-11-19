@@ -12,9 +12,6 @@ import {EncounterBuilderPartyCustom} from "./encounterbuilder/party/encounterbui
 import {EncounterBuilderPartyCustomAdvanced} from "./encounterbuilder/party/encounterbuilder-party-custom-advanced.js";
 
 class _BestiaryConsts {
-	static PROF_MODE_BONUS = "bonus";
-	static PROF_MODE_DICE = "dice";
-
 	static STORAGE_KEY_ENCOUNTER_BUILDER_UI_STATE = "encounterBuilderUiStateState";
 }
 
@@ -379,11 +376,6 @@ class BestiaryPage extends ListPageMultiSource {
 			listSyntax: new ListSyntaxBestiary({fnGetDataList: () => this._dataList, pFnGetFluff}),
 		});
 
-		this._wrpBtnProf = null;
-		this._btnProf = null;
-
-		this._profDiceMode = null;
-
 		this._encounterBuilder = null;
 
 		this._tokenDisplay = new ListPageTokenDisplay({
@@ -396,14 +388,6 @@ class BestiaryPage extends ListPageMultiSource {
 		return {
 			upload: {
 				pFnPreLoad: (...args) => this._pPreloadSublistSources(...args),
-			},
-			sendToBrew: {
-				mode: "creatureBuilder",
-				fnGetMeta: () => ({
-					page: UrlUtil.getCurrentPage(),
-					source: Hist.getHashSource(),
-					hash: `${UrlUtil.autoEncodeHash(this._lastRender.entity)}${_BestiaryUtil.getUrlSubhashes(this._lastRender.entity)}`,
-				}),
 			},
 			other: [
 				this._bindOtherButtonsOptions_openAsSinglePage({slugPage: "bestiary"}),
@@ -556,11 +540,6 @@ class BestiaryPage extends ListPageMultiSource {
 	async _pOnLoad_pPreDataLoad () {
 		this._encounterBuilder.initUi();
 		await DataUtil.monster.pPreloadLegendaryGroupsSite();
-		this._bindProfDiceHandlers();
-	}
-
-	async _pOnLoad_pPreDataAdd () {
-		await this._pPageInit_pProfBonusDiceToggle();
 	}
 
 	async _pOnLoad_pPostLoad () {
@@ -612,31 +591,6 @@ class BestiaryPage extends ListPageMultiSource {
 			.vee.appendTo(veEs(`#wrp-encounterbuild-footer`));
 	}
 
-	async _pPageInit_pProfBonusDiceToggle () {
-		this._btnProf = veE(document.getElementById("profbonusdice"));
-
-		this._profDiceMode = await StorageUtil.pGetForPage("proficiencyDiceMode") || _BestiaryConsts.PROF_MODE_BONUS;
-
-		const hk = () => {
-			this._btnProf.vee.toggleClass("ve-active", this._profDiceMode === _BestiaryConsts.PROF_MODE_DICE);
-			this._pgContent.vee.attr("data-proficiency-dice-mode", this._profDiceMode);
-			StorageUtil.pSetForPage("proficiencyDiceMode", this._profDiceMode).then(null);
-		};
-
-		this._btnProf.vee.onn("click", () => {
-			if (this._profDiceMode === _BestiaryConsts.PROF_MODE_DICE) {
-				this._profDiceMode = _BestiaryConsts.PROF_MODE_BONUS;
-				hk();
-				return;
-			}
-
-			this._profDiceMode = _BestiaryConsts.PROF_MODE_DICE;
-			hk();
-		});
-
-		hk();
-	}
-
 	_handleBestiaryLiClick (evt, listItem) {
 		if (this._encounterBuilder.isActive()) Renderer.hover.doPopoutCurPage(evt, this._dataList[listItem.getId()]);
 		else this._list.doSelect(listItem, evt);
@@ -650,54 +604,6 @@ class BestiaryPage extends ListPageMultiSource {
 		if (this._encounterBuilder.isActive()) evt.preventDefault();
 	}
 
-	_bindProfDiceHandlers () {
-		this._pgContent
-			.vee.onn(`mousedown`, evt => {
-				if (!evt.target.parentElement?.getAttribute("data-roll-prof-type")) return;
-
-				if (this._profDiceMode !== _BestiaryConsts.PROF_MODE_BONUS) evt.preventDefault();
-			})
-			.vee.onn(`click`, evt => {
-				if (!evt.target.parentElement?.getAttribute("data-roll-prof-type")) return;
-
-				const eleParent = evt.target.closest(`[data-roll-prof-type]`);
-
-				const type = eleParent?.getAttribute("data-roll-prof-type");
-				if (!type) return;
-
-				switch (type) {
-					case "d20": {
-						if (this._profDiceMode === _BestiaryConsts.PROF_MODE_BONUS) return;
-
-						evt.stopPropagation();
-						evt.preventDefault();
-
-						const rollProfDice = eleParent.getAttribute("data-roll-prof-dice");
-						const cpyOriginalEntry = JSON.parse(eleParent.getAttribute("data-packed-dice"));
-						cpyOriginalEntry.toRoll = `d20${rollProfDice}`;
-						cpyOriginalEntry.d20mod = rollProfDice;
-
-						Renderer.dice.pRollerClick(evt, eleParent, JSON.stringify(cpyOriginalEntry)).then(null);
-						break;
-					}
-
-					case "dc": {
-						if (this._profDiceMode === _BestiaryConsts.PROF_MODE_BONUS) {
-							evt.stopPropagation();
-							evt.preventDefault();
-							return;
-						}
-
-						const fauxEntry = Renderer.utils.getTagEntry(`@d20`, eleParent.getAttribute("data-roll-prof-dice"));
-						Renderer.dice.pRollerClick(evt, eleParent, JSON.stringify(fauxEntry)).then(null);
-						break;
-					}
-
-					default: throw new Error(`Unhandled roller type "${type}"`);
-				}
-			});
-	}
-
 	_renderStatblock (mon, {isScaledCr = false, isScaledSpellSummon = false, isScaledClassSummon = false, isVersion = false} = {}) {
 		this._lastRender.entity = mon;
 		this._lastRender.isScaledCr = isScaledCr;
@@ -705,18 +611,11 @@ class BestiaryPage extends ListPageMultiSource {
 		this._lastRender.isScaledClassSummon = isScaledClassSummon;
 		this._lastRender.isVersion = isVersion;
 
-		this._wrpBtnProf = this._wrpBtnProf || veE(document.getElementById("wrp-profbonusdice"));
-
 		this._pgContent.vee.empty();
-
-		if (this._btnProf != null) {
-			this._wrpBtnProf.vee.appends(this._btnProf);
-		}
 
 		const tabMetaStats = new Renderer.utils.TabButton({
 			label: "Stat Block",
 			fnChange: () => {
-				if (this._btnProf) this._wrpBtnProf.vee.appends(this._btnProf);
 				this._tokenDisplay.doShow();
 			},
 			fnPopulate: () => this._renderStatblock_doBuildStatsTab({mon, isScaledCr, isScaledSpellSummon, isScaledClassSummon, isVersion}),
@@ -779,7 +678,7 @@ class BestiaryPage extends ListPageMultiSource {
 	) {
 		Renderer.get().setFirstSection(true);
 
-		const btnScaleCr = !ScaleCreature.isCrInScaleRange(mon) ? null : veT`<button id="btn-scale-cr" title="Scale Creature By CR (Highly Experimental; based on the &quot;Monster Statistics by Challenge Rating&quot; table in the Dungeon Master's Guide (2014), page 274)" class="mon__btn-scale-cr ve-btn ve-btn-xs ve-btn-default ve-popwindow__hidden ve-print__hidden ve-lst-is-exporting-image__hidden"><span class="glyphicon glyphicon-signal"></span></button>`
+		const btnScaleCr = !ScaleCreature.isCrInScaleRange(mon) ? null : veT`<button id="btn-scale-cr" title="Scale Creature By CR (Highly Experimental)" class="mon__btn-scale-cr ve-btn ve-btn-xs ve-btn-default ve-popwindow__hidden ve-print__hidden ve-lst-is-exporting-image__hidden"><span class="glyphicon glyphicon-signal"></span></button>`
 			.vee.onn("click", (evt) => {
 				evt.stopPropagation();
 				const win = (evt.view || {}).window;
@@ -831,97 +730,22 @@ class BestiaryPage extends ListPageMultiSource {
 		const selVersion = Renderer.monster.getSelVersion(monVersionBase);
 		if (selVersion) {
 			selVersion
-				.onChange(evt => {
+				.vee.onn("change", evt => {
 					evt.stopPropagation();
-					const ix = Number(selVersion.val());
+					const ix = Number(selVersion.vee.val());
 					Hist.setSubhash(VeCt.HASH_VERSION, ~ix ? ix : null);
 				});
 			if (isVersion) {
 				const ixVersion = DataUtil.monster.getVersions(monVersionBase)
 					.findIndex(ver => ver.name === mon.name && ver.source === mon.source);
-				if (~ixVersion) selVersion.val(`${ixVersion}`, {isSetAttribute: true});
+				if (~ixVersion) selVersion.vee.val(`${ixVersion}`, {isSetAttribute: true});
 			}
 		}
 		// endregion
 
-		// region dice rollers
-		const expectedPB = Parser.crToPb(mon.cr);
-
-		const pluginDc = (commonArgs, {input: {tag, text}}) => {
-			if (isNaN(text) || expectedPB <= 0) return null;
-
-			const withoutPB = Number(text) - expectedPB;
-			const profDiceString = BestiaryPage._addSpacesToDiceExp(`1d${(expectedPB * 2)}${withoutPB >= 0 ? "+" : ""}${withoutPB}`);
-
-			return `DC <span class="ve-rd__dc ve-rd__dc--rollable" data-roll-prof-type="dc" data-roll-prof-dice="${profDiceString.qq()}"><span class="ve-rd__dc--rollable-text">${text}</span><span class="ve-rd__dc--rollable-dice">${profDiceString}</span></span>`;
-		};
-
-		const pluginDice = (commonArgs, {input: entry}) => {
-			if (expectedPB <= 0 || entry.subType !== "d20" || entry.context?.type == null) return null;
-
-			const text = Renderer.getEntryDiceDisplayText(entry);
-			let profDiceString;
-
-			let expert = 1;
-			let pB = expectedPB;
-
-			const bonus = Number(entry.d20mod);
-
-			switch (entry.context?.type) {
-				case "savingThrow": {
-					const ability = entry.context.ability;
-					const fromAbility = Parser.getAbilityModNumber(mon[ability]);
-					pB = bonus - fromAbility;
-					expert = (pB === expectedPB * 2) ? 2 : 1;
-					break;
-				}
-				case "skillCheck": {
-					const ability = Parser.skillToAbilityAbv(entry.context.skill.toLowerCase().trim());
-					const fromAbility = Parser.getAbilityModNumber(mon[ability]);
-					pB = bonus - fromAbility;
-					expert = (pB === expectedPB * 2) ? 2 : 1;
-					break;
-				}
-
-				// add proficiency dice stuff for attack rolls, since those _generally_ have proficiency
-				// this is not 100% accurate; for example, ghouls don't get their prof bonus on bite attacks
-				// fixing this would require additional context, which is not (yet) available in the renderer
-				case "hit": break;
-
-				case "initiative":
-				case "abilityCheck": return null;
-
-				default: throw new Error(`Unhandled roll context "${entry.context.type}"`);
-			}
-
-			const withoutPB = bonus - pB;
-			profDiceString = BestiaryPage._addSpacesToDiceExp(`+${expert}d${pB * (3 - expert)}${withoutPB >= 0 ? "+" : ""}${withoutPB}`);
-
-			return {
-				toDisplay: `<span class="ve-rd__roller--roll-prof-bonus">${text}</span><span class="ve-rd__roller--roll-prof-dice">${profDiceString}</span>`,
-				additionalData: {
-					"data-roll-prof-type": "d20",
-					"data-roll-prof-dice": profDiceString,
-				},
-			};
-		};
-
-		try {
-			Renderer.get().addPlugin("string_@dc", pluginDc);
-			Renderer.get().addPlugin("dice", pluginDice);
-
-			this._pgContent.vee.empty().vee.appends(RenderBestiary.getRenderedCreature(mon, {btnScaleCr, btnResetScaleCr, selSummonSpellLevel, selSummonClassLevel, classLevelScalerClass: mon.summonedByClass}));
-		} finally {
-			Renderer.get().removePlugin("dice", pluginDice);
-			Renderer.get().removePlugin("string_@dc", pluginDc);
-		}
-		// endregion
+		this._pgContent.vee.empty().vee.appends(RenderBestiary.getRenderedCreature(mon, {btnScaleCr, btnResetScaleCr, selSummonSpellLevel, selSummonClassLevel, classLevelScalerClass: mon.summonedByClass, selVersion}));
 
 		this._tokenDisplay.render(mon);
-	}
-
-	static _addSpacesToDiceExp (exp) {
-		return exp.replace(/([^0-9d])/gi, " $1 ").replace(/\s+/g, " ").trim().replace(/^([-+])\s*/, "$1");
 	}
 
 	async _pPreloadSublistSources (json) {

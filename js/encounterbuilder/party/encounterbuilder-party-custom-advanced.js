@@ -118,7 +118,7 @@ export class EncounterBuilderPartyCustomAdvanced extends EncounterBuilderPartyBa
 
 			<div class="row">
 				<div class="ve-w-100">
-					${this._rendererWrapped.er(`{@note Additional columns will be imported into the DM Screen.}`)}
+					${this._rendererWrapped.er(`{@note Additional columns will be imported into the GM Screen.}`)}
 				</div>
 			</div>
 		</div>`

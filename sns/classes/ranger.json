@@ -666,7 +666,7 @@
           "entries": [
             "Leveraging your skill with snaring small game, you take 10 minutes to set a trap or snare for a creature of Large size or smaller.",
             "The Trap's DC is 8 + your Dexterity modifier + your proficiency bonus. A creature can spot the trap by making a {@skill Perception} check against the trap's DC.",
-            "Describe the mechanics of your trap to the DM, including what triggers it and what happens when triggered. You may use the following examples or work with the DM to invent your own.",
+            "Describe the mechanics of your trap to the GM, including what triggers it and what happens when triggered. You may use the following examples or work with the GM to invent your own.",
             "When a creature enters the trapped area or interacts with the trapped object it makes a save or triggers the trap.",
             {
               "type": "list",
@@ -700,7 +700,7 @@
           "type": "entries",
           "name": "Waste Not",
           "entries": [
-            "With 10 minutes work you can scavenge valuable cuts from the corpse of a beast, dragon, monstrosity, or plant that has a CR of 1 or higher and has died within the last hour. If sold to a collector, druid, or other naturalist, this notable component is worth an amount of gold equal to 5 x the creature's CR (consult your DM to confirm this gold value)."
+            "With 10 minutes work you can scavenge valuable cuts from the corpse of a beast, dragon, monstrosity, or plant that has a CR of 1 or higher and has died within the last hour. If sold to a collector, druid, or other naturalist, this notable component is worth an amount of gold equal to 5 x the creature's CR (consult your GM to confirm this gold value)."
           ]
         }
       ]

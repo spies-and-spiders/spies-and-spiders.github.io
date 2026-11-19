@@ -132,13 +132,13 @@ class InitTrackerPlayerViewV1 {
 			<div class="initp__initial row">
 				<div class="ve-col-12">
 					<p>
-						The Player View is part of a peer-to-peer (i.e., serverless) system to allow players to connect to a DM's <a href="dmscreen.html">GM Screen</a> initiative tracker. As a player, the usage is as follows:
+						The Player View is part of a peer-to-peer (i.e., serverless) system to allow players to connect to a GM's <a href="dmscreen.html">GM Screen</a> initiative tracker. As a player, the usage is as follows:
 					<ol>
 						<li>Enter a name into the "Player Name" field.</li>
-						<li>Paste a "server token," provided by a DM, into the "Server Token" field.</li>
+						<li>Paste a "server token," provided by a GM, into the "Server Token" field.</li>
 						<li>Click "Connect."</li>
 					</ol>
-					<p>After a short delay, you should be connected to the DM and this page will change to display the encounter in the DM's tracker. <i>Please note that this system is highly experimental. Your experience may vary.</i></p>
+					<p>After a short delay, you should be connected to the GM and this page will change to display the encounter in the GM's tracker. <i>Please note that this system is highly experimental. Your experience may vary.</i></p>
 				</div>
 			</div>
 
@@ -238,12 +238,12 @@ class InitTrackerPlayerViewV0 {
 			<div class="initp__initial ve-flex">
 				<div class="ve-col-12">
 					<p>
-						The Player View is part of a peer-to-peer (i.e., serverless) system to allow players to connect to a DM's GM Screen initiative tracker. As a player, the usage is as follows:
+						The Player View is part of a peer-to-peer (i.e., serverless) system to allow players to connect to a GM's GM Screen initiative tracker. As a player, the usage is as follows:
 					<ol>
-						<li>Paste a "server token," provided by a DM, into the "Server Token" field, and click "Generate Client Token."</li>
-						<li>Wait for a token to appear in the "Client Token" field, copy it, and send it to the DM.</li>
+						<li>Paste a "server token," provided by a GM, into the "Server Token" field, and click "Generate Client Token."</li>
+						<li>Wait for a token to appear in the "Client Token" field, copy it, and send it to the GM.</li>
 					</ol>
-					<p>Once the DM accepts your token, this page will change to display the encounter in the DM's tracker.</p>
+					<p>Once the GM accepts your token, this page will change to display the encounter in the GM's tracker.</p>
 				</div>
 			</div>
 

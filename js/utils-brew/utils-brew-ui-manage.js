@@ -79,7 +79,7 @@ export class ManageBrewUi {
 	}
 
 	static _onClickBtnManagePrereleaseBrew ({brewUtil, isGoToPage}) {
-		if (isGoToPage) return window.location = brewUtil.PAGE_MANAGE;
+		if (isGoToPage && brewUtil.PAGE_MANAGE) return window.location = brewUtil.PAGE_MANAGE;
 		return this.pDoManageBrew({brewUtil});
 	}
 

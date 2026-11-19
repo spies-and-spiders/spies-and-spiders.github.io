@@ -874,7 +874,7 @@
           ]
         },
         "You animate a mortal's remains to become your undead servant.",
-        "If the spell is cast upon bones you create a {@creature skeleton}, and if cast upon a corpse you choose to create a {@creature skeleton} or a {@creature zombie}. The DM has the undead's statistics.",
+        "If the spell is cast upon bones you create a {@creature skeleton}, and if cast upon a corpse you choose to create a {@creature skeleton} or a {@creature zombie}. The GM has the undead's statistics.",
         "While it is within 60 feet you can use a bonus action to mentally command the undead. When you command multiple undead using this spell, you must give them all the same command. You may decide the action the undead takes and where it moves during its next turn, or you can issue a general command, such as guarding an area. If not given a command, the undead only defends itself. The undead continues to follow a command until its task is complete.",
         "The undead is under your control for 24 hours, after which it stops obeying any commands. You must cast this spell on the undead before the spell ends to maintain control of it for another 24 hours.",
         "Casting the spell in this way reasserts control over up to 4 of your previously-animated undead instead of animating a new one."
@@ -1165,7 +1165,7 @@
             "10-foot radius sphere"
           ]
         },
-        "An invisible sphere of antimagic forms around you, moving with you and suppressing all magical effects within it. At the DM's discretion, sufficiently powerful artifacts and deities may be able to ignore the sphere's effects.",
+        "An invisible sphere of antimagic forms around you, moving with you and suppressing all magical effects within it. At the GM's discretion, sufficiently powerful artifacts and deities may be able to ignore the sphere's effects.",
         {
           "type": "entries",
           "name": "Area Suppression",
@@ -2088,7 +2088,7 @@
             "Huge or smaller beast or plant with Intelligence 3 or less."
           ]
         },
-        "You impart sentience in the target, granting it an Intelligence of 10 and proficiency in a language you know. A plant targeted by this spell gains the ability to move, as well as senses identical to those of a human. The DM assigns awakened plant statistics (such as an {@creature awakened shrub} or {@creature awakened tree}). The target is {@condition charmed} for 30 days or until you or your companions hurt it. Depending on how you treated the target while it was {@condition charmed}, when the condition ends the awakened creature may choose to remain friendly to you."
+        "You impart sentience in the target, granting it an Intelligence of 10 and proficiency in a language you know. A plant targeted by this spell gains the ability to move, as well as senses identical to those of a human. The GM assigns awakened plant statistics (such as an {@creature awakened shrub} or {@creature awakened tree}). The target is {@condition charmed} for 30 days or until you or your companions hurt it. Depending on how you treated the target while it was {@condition charmed}, when the condition ends the awakened creature may choose to remain friendly to you."
       ],
       "name": "Awaken",
       "time": [
@@ -2582,7 +2582,7 @@
               "type": "item",
               "name": "Standard success",
               "entries": [
-                "Choose one of the below curse effects. The curse lasts on the target until the spell ends. At the DM's discretion you may create a different curse with this spell so long as it is weaker than the predefined options."
+                "Choose one of the below curse effects. The curse lasts on the target until the spell ends. At the GM's discretion you may create a different curse with this spell so long as it is weaker than the predefined options."
               ]
             },
             {
@@ -3170,7 +3170,7 @@
           ]
         },
         "This spell creates a pact which is enforced by celestial or fiendish forces. You and another willing creature commit to a mutual agreement, clearly declaring your parts of the agreement during the casting.",
-        "Until the spell ends, if for any reason either participant breaks the agreement or fails to uphold their part of the bargain, beings of celestial or fiendish origin appear within unoccupied spaces as close as possible to the participant who broke the bargain. The beings are hostile to the deal-breaking participant and attempt to kill them, as well as any creatures that defend them. When the dealbreaking participant is killed, or the spell's duration ends, the beings disappear in a flash of smoke. The spellcaster chooses whether the beings are celestial or fiendish while casting the spell, and the DM chooses the exact creatures summoned (such as a {@creature couatl} or 5 {@creature imp||imps}). There may be any number of beings, but their combined Challenge Rating can't exceed 5."
+        "Until the spell ends, if for any reason either participant breaks the agreement or fails to uphold their part of the bargain, beings of celestial or fiendish origin appear within unoccupied spaces as close as possible to the participant who broke the bargain. The beings are hostile to the deal-breaking participant and attempt to kill them, as well as any creatures that defend them. When the dealbreaking participant is killed, or the spell's duration ends, the beings disappear in a flash of smoke. The spellcaster chooses whether the beings are celestial or fiendish while casting the spell, and the GM chooses the exact creatures summoned (such as a {@creature couatl} or 5 {@creature imp||imps}). There may be any number of beings, but their combined Challenge Rating can't exceed 5."
       ],
       "name": "Blood-Writ Bargain",
       "time": [
@@ -4653,9 +4653,9 @@
       },
       "school": "D",
       "entries": [
-        "You contact your deity, a divine proxy, or a personified source of divine power and ask up to 3 questions that could be answered with a yes or a no. You must complete your questions before the spell ends. You receive a correct answer for each question, unless the being does not know. When the being does not know, you receive “unclear” as an answer. The being does not try to deceive, and the DM may offer a short phrase as an answer if necessary.",
+        "You contact your deity, a divine proxy, or a personified source of divine power and ask up to 3 questions that could be answered with a yes or a no. You must complete your questions before the spell ends. You receive a correct answer for each question, unless the being does not know. When the being does not know, you receive “unclear” as an answer. The being does not try to deceive, and the GM may offer a short phrase as an answer if necessary.",
         "When you cast this spell again before finishing a long rest, the chance of getting a no answer increases.",
-        "The DM makes the following roll in secret:",
+        "The GM makes the following roll in secret:",
         "second casting — 25%, third casting — 50%, fourth casting — 75%, fifth casting — 100%."
       ],
       "name": "Commune",
@@ -5458,7 +5458,7 @@
       },
       "school": "D",
       "entries": [
-        "You consult an otherworldly entity, risking your very mind in the process. Make a save. On a fail, you suffer {@dice 6d6} psychic harm and suffer four levels of {@condition strife} until you finish a long rest. A {@spell greater restoration} spell ends this effect. On a successful save, you can ask the entity up to 5 questions before the spell ends. When possible the entity responds with one-word answers: yes, no, maybe, never, irrelevant, or unclear. At the DM's discretion, it may instead provide a brief but truthful answer when necessary."
+        "You consult an otherworldly entity, risking your very mind in the process. Make a save. On a fail, you suffer {@dice 6d6} psychic harm and suffer four levels of {@condition strife} until you finish a long rest. A {@spell greater restoration} spell ends this effect. On a successful save, you can ask the entity up to 5 questions before the spell ends. When possible the entity responds with one-word answers: yes, no, maybe, never, irrelevant, or unclear. At the GM's discretion, it may instead provide a brief but truthful answer when necessary."
       ],
       "name": "Contact Other Plane",
       "time": [
@@ -7315,7 +7315,7 @@
             "Self"
           ]
         },
-        "On the round you cast it, and as an action on subsequent turns until the spell ends, you can attempt to sense the presence of poisons, poisonous creatures, and disease by making a {@skill Perception} check. On a success you identify the type of each poison or disease within range. Typically noticing and identifying a poison or disease is a DC 10 check, but the DM may use {@dc 15} for uncommon afflictions, {@dc 20} for rare afflictions, or {@dc 25} for afflictions that are truly unique. On a failed check, this casting of the spell cannot sense that specific poison or disease.",
+        "On the round you cast it, and as an action on subsequent turns until the spell ends, you can attempt to sense the presence of poisons, poisonous creatures, and disease by making a {@skill Perception} check. On a success you identify the type of each poison or disease within range. Typically noticing and identifying a poison or disease is a DC 10 check, but the GM may use {@dc 15} for uncommon afflictions, {@dc 20} for rare afflictions, or {@dc 25} for afflictions that are truly unique. On a failed check, this casting of the spell cannot sense that specific poison or disease.",
         "The spell penetrates most barriers but is blocked by 3 feet of wood or dirt, 1 foot of stone, 1 inch of common metal, or a thin sheet of lead."
       ],
       "name": "Detect Poison and Disease",
@@ -7932,9 +7932,9 @@
       "school": "D",
       "entries": [
         "Your offering and magic put you in contact with the higher power you serve or its representatives.",
-        "You ask a single question about something that will (or could) happen in the next 7 days. The DM offers a truthful reply, which may be cryptic or even nonverbal as appropriate to the being in question.",
+        "You ask a single question about something that will (or could) happen in the next 7 days. The GM offers a truthful reply, which may be cryptic or even nonverbal as appropriate to the being in question.",
         "The reply does not account for possible circumstances that could change the outcome, such as making additional precautions.",
-        "When you cast this spell again before finishing a long rest, the chance of getting a random reading increases. The DM makes the following roll in secret: second casting— 25%, third casting—50%, fourth casting—75%, fifth casting—100%."
+        "When you cast this spell again before finishing a long rest, the chance of getting a random reading increases. The GM makes the following roll in secret: second casting— 25%, third casting—50%, fourth casting—75%, fifth casting—100%."
       ],
       "name": "Divination",
       "time": [
@@ -8608,7 +8608,7 @@
         "The ground in the spell's area becomes difficult terrain as it warps and cracks.",
         "When you cast this spell and at the end of each turn you spend concentrating on it, each creature in contact with the ground in the spell's area must make a save or be knocked {@condition prone}.",
         "Additionally, any creature that is concentrating on a spell while in contact with the ground in the spell's area must make a save or lose concentration.",
-        "At the DM's discretion, this spell may have additional effects depending on the terrain in the area.",
+        "At the GM's discretion, this spell may have additional effects depending on the terrain in the area.",
         {
           "type": "list",
           "items": [
@@ -8625,7 +8625,7 @@
               "name": "Structures",
               "entries": [
                 "A structure in contact with the ground in the spell's area suffers 50 bludgeoning harm when you cast the spell and again at the start of each of your turns while the spell is active. A structure reduced to 0 hit points this way collapses.",
-                "Creatures within half the distance of a collapsing structure's height must pass a save or suffer {@dice 5d6} bludgeoning harm, be knocked {@condition prone}, and be buried in the rubble, requiring a DC 20 {@skill Finesse} or {@skill Athletics} check as an action to escape. A creature inside (instead of near) a collapsing structure has disadvantage on its save. The DM can adjust the DC higher or lower depending on the composition of the rubble. On a successful save, the creature takes half as much damage and doesn't fall {@condition prone} or become buried."
+                "Creatures within half the distance of a collapsing structure's height must pass a save or suffer {@dice 5d6} bludgeoning harm, be knocked {@condition prone}, and be buried in the rubble, requiring a DC 20 {@skill Finesse} or {@skill Athletics} check as an action to escape. A creature inside (instead of near) a collapsing structure has disadvantage on its save. The GM can adjust the DC higher or lower depending on the composition of the rubble. On a successful save, the creature takes half as much damage and doesn't fall {@condition prone} or become buried."
               ]
             }
           ]
@@ -10180,7 +10180,7 @@
     {
       "school": "C",
       "entries": [
-        "You summon a spirit that takes the form of a loyal mount, creating a lasting bond with it. You decide on the steed's appearance, and choose whether it uses the statistics of an elk, giant lizard, panther, warhorse, or wolf (the DM may offer additional options.) Its statistics change in the following ways:",
+        "You summon a spirit that takes the form of a loyal mount, creating a lasting bond with it. You decide on the steed's appearance, and choose whether it uses the statistics of an elk, giant lizard, panther, warhorse, or wolf (the GM may offer additional options.) Its statistics change in the following ways:",
         {
           "items": [
             "Its type is your choice of celestial, fey, or fiend.",
@@ -13039,7 +13039,7 @@
           ]
         },
         "You imbue the area with divine power, bolstering some creatures and hindering others. Celestials, elementals, fey, fiends, and undead cannot enter the area. They are also incapable of charming, frightening, or possessing another creature within the area. Any such effects end on a creature that enters the area. When casting, you may exclude one or more creature types from this effect.",
-        "Additionally, you may anchor additional magical effects to the area. Choose one effect from the list below (the DM may also offer specific effects).",
+        "Additionally, you may anchor additional magical effects to the area. Choose one effect from the list below (the GM may also offer specific effects).",
         "Some effects apply to creatures. You may choose to affect all creatures, creatures of a specific type, or those that follow a specific leader or deity. Creatures make a save when the spell is cast, when they enter the area for the first time on a turn, or if they end their turn within the area. On a successful save, a creature is immune to the effect until it leaves the area.",
         {
           "type": "list",
@@ -14460,7 +14460,7 @@
         },
         "You learn the target object's magical properties along with how to use them. You learn what spells are affecting the targeted object (if any) along with what spells were used to create it.",
         "Alternatively, you learn any spells that are currently affecting a targeted creature.",
-        "What this spell can reveal is at the DM's discretion, and some powerful and rare magics are immune to identify."
+        "What this spell can reveal is at the GM's discretion, and some powerful and rare magics are immune to identify."
       ],
       "name": "Identify",
       "time": [
@@ -14660,7 +14660,7 @@
           ]
         },
         "The target does not need sustenance or air, nor does it age. No divination spells of any sort can be used to reveal the target's location.",
-        "When cast, you must specify a condition that will cause the spell to end and release the target. This condition must be based on some observable action or quality and not related to mechanics like level, hit points, or class, and the DM must agree to it.",
+        "When cast, you must specify a condition that will cause the spell to end and release the target. This condition must be based on some observable action or quality and not related to mechanics like level, hit points, or class, and the GM must agree to it.",
         "A {@spell dispel magic} only dispels an imprisonment if it is cast using a 9th-level spell slot and targets the prison or the material component used to create the prison.",
         "Each casting that uses the same spell effect is unique; repeated castings with the same effect free the prior occupant."
       ],
@@ -15705,7 +15705,7 @@
             "One creature"
           ]
         },
-        "Your glowing hand removes one disease or condition affecting the target. Choose from {@condition blinded}, {@condition deafened}, {@condition staggered}, or {@condition poisoned}. At the DM's discretion, some diseases might not be curable with this spell."
+        "Your glowing hand removes one disease or condition affecting the target. Choose from {@condition blinded}, {@condition deafened}, {@condition staggered}, or {@condition poisoned}. At the GM's discretion, some diseases might not be curable with this spell."
       ],
       "name": "Lesser Restoration",
       "time": [
@@ -17937,7 +17937,7 @@
                 "You may destroy the memory, have the target recall the event with perfect clarity, change the details, or create a new memory entirely with the same restrictions in time frame and length.",
                 "You must speak to the target in a language you both know to modify its memories and describe how the memory is changed. The target fills in the gaps in details based on your description.",
                 "If the spell ends before you have finished modifying its memories, the alteration fails. Otherwise, the alteration is complete when the spell ends and only {@spell greater restoration} or {@spell remove curse} can restore the memory.",
-                "The DM may deem a modified memory too illogical or nonsensical to affect a creature, in which case the modified memory is simply dismissed by the target. In addition, a modified memory doesn't specifically change the behaviour of a creature, especially if the memory conflicts with the creature's personality, beliefs, or innate tendencies.",
+                "The GM may deem a modified memory too illogical or nonsensical to affect a creature, in which case the modified memory is simply dismissed by the target. In addition, a modified memory doesn't specifically change the behaviour of a creature, especially if the memory conflicts with the creature's personality, beliefs, or innate tendencies.",
                 "There may also be events that are practically unforgettable and after being modified can be remembered correctly when another creature succeeds on a {@skill Persuasion} check to stir the target's memories. This check is made with disadvantage if the creature does not have indisputable proof on hand that is relevant to the altered memory."
               ]
             },
@@ -18713,7 +18713,7 @@
               "type": "item",
               "name": "Critical success",
               "entries": [
-                "As standard success, but the DM will tell you if the target plans to take advantage of your wording, and you may then alter your wording. You must use your second set of wording."
+                "As standard success, but the GM will tell you if the target plans to take advantage of your wording, and you may then alter your wording. You must use your second set of wording."
               ]
             }
           ]
@@ -22646,7 +22646,7 @@
       },
       "school": "D",
       "entries": [
-        "You call upon the secret lore of beasts and gain the ability to speak with them. Beasts have a different perspective of the world, and their knowledge and awareness is filtered through that perspective. At a minimum, beasts can tell you about nearby locations and monsters, including things they have recently perceived. At the DM's discretion, you might be able to persuade a beast to perform a small favor for you."
+        "You call upon the secret lore of beasts and gain the ability to speak with them. Beasts have a different perspective of the world, and their knowledge and awareness is filtered through that perspective. At a minimum, beasts can tell you about nearby locations and monsters, including things they have recently perceived. At the GM's discretion, you might be able to persuade a beast to perform a small favor for you."
       ],
       "name": "Speak with Animals",
       "time": [
@@ -22771,7 +22771,7 @@
         },
         "Your voice takes on a magical timbre, awakening the targets to limited sentience. Until the spell ends, the targets can communicate with you and follow simple commands, telling you about recent events including creatures that have passed, weather, and nearby locations.",
         "The targets have a limited mobility: they can move their branches, tendrils, and stalks freely. This allows them to turn ordinary terrain into difficult terrain, or make difficult terrain caused by vegetation into ordinary terrain for the duration as vines and branches move at your request. This spell can also release a creature {@condition restrained} by an {@spell entangle} spell.",
-        "At the DM's discretion the targets may be able to perform other tasks, though each must remain rooted in place. If a plant creature is in the area, you can communicate with it but it is not compelled to follow your requests."
+        "At the GM's discretion the targets may be able to perform other tasks, though each must remain rooted in place. If a plant creature is in the area, you can communicate with it but it is not compelled to follow your requests."
       ],
       "name": "Speak with Plants",
       "time": [
@@ -24297,7 +24297,7 @@
           "type": "entries"
         },
         "You teleport the targets instantly across vast distances. When you cast this spell, choose a destination. You must know the location you're teleporting to, and it must be on the same plane of existence.",
-        "Teleportation is difficult magic and you may arrive off-target or somewhere else entirely depending on how familiar you are with the location you're teleporting to. When you teleport, the DM rolls 1d100 and consults Table: Teleport Familiarity.",
+        "Teleportation is difficult magic and you may arrive off-target or somewhere else entirely depending on how familiar you are with the location you're teleporting to. When you teleport, the GM rolls 1d100 and consults Table: Teleport Familiarity.",
         "Familiarity is determined as follows:",
         {
           "type": "list",
@@ -24516,7 +24516,7 @@
         },
         "You draw a 10-foot diameter circle on the ground and open within it a shimmering portal to a permanent teleportation circle elsewhere in the world. The portal remains open until the end of your next turn. Any creature that enters the portal instantly travels to the destination circle.",
         "Permanent teleportation circles are commonly found within major temples, guilds, and other important locations. Each circle has a unique sequence of magical runes inscribed in a certain pattern called a sigil sequence.",
-        "When you cast teleportation circle, you inscribe runes that match the sigil sequence of a teleportation circle you know. When you first gain the ability to cast this spell, you learn the sigil sequences for 2 destinations on the Material Plane, determined by the DM. You can learn a new sigil sequence with 1 minute of observation and study.",
+        "When you cast teleportation circle, you inscribe runes that match the sigil sequence of a teleportation circle you know. When you first gain the ability to cast this spell, you learn the sigil sequences for 2 destinations on the Material Plane, determined by the GM. You can learn a new sigil sequence with 1 minute of observation and study.",
         "Casting the spell in the same location every day for a year creates a permanent teleportation circle with its own unique sigil sequence. You do not need to teleport when casting the spell to make a permanent destination."
       ],
       "name": "Teleportation Circle",
@@ -25893,7 +25893,7 @@
         "If the wall enters a creature's space when it appears, the creature is pushed to one side of the wall (your choice), but when a creature would be surrounded on all sides by the wall (or the wall and another solid surface), it can use its reaction to make a save. On a success, it can move up to its Speed to escape.",
         "If you create a span greater than 20 feet in length, you must halve the size of each panel to create supports. You can crudely shape the wall to create crenelations, battlements, and so on.",
         "The wall is an object made of stone. Each panel has 2 Armour and 33 hit points per inch of thickness.",
-        "Reducing a panel to 0 hit points destroys it and at the DM's discretion might cause connected panels to collapse.",
+        "Reducing a panel to 0 hit points destroys it and at the GM's discretion might cause connected panels to collapse.",
         "You can make the wall permanent by concentrating on the spell for the full duration."
       ],
       "name": "Wall of Stone",
@@ -26832,7 +26832,7 @@
           ],
           "type": "list"
         },
-        "You might be able to achieve something beyond the scope of the above examples. State your wish to the DM as precisely as possible, being very careful in your wording. Be aware that the greater the wish, the greater the chance for an unexpected result. This spell might simply fizzle, your desired outcome might only be partly achieved, or you might suffer some unforeseen consequence as a result of how you worded the wish. The DM has the final authority in ruling what occurs — and reality is not tampered with lightly.",
+        "You might be able to achieve something beyond the scope of the above examples. State your wish to the GM as precisely as possible, being very careful in your wording. Be aware that the greater the wish, the greater the chance for an unexpected result. This spell might simply fizzle, your desired outcome might only be partly achieved, or you might suffer some unforeseen consequence as a result of how you worded the wish. The GM has the final authority in ruling what occurs — and reality is not tampered with lightly.",
         {
           "type": "entries",
           "name": "Multiple Wishes",
@@ -37006,7 +37006,7 @@
         "The fortress has four turrets with square bases, each one 20 feet on a side and 30 feet tall, with one turret on each corner. The turrets are connected to each other by stone walls that are each 80 feet long, creating an enclosed area. Each wall is 1 foot thick and is composed of panels that are 10 feet wide and 20 feet tall. Each panel is contiguous with two other panels or one other panel and a turret. You can place up to four stone doors in the fortress' outer wall.",
         "A small keep stands inside the enclosed area. The keep has a square base that is 50 feet on each side, and it has three floors with 10-foot-high ceilings. Each of the floors can be divided into as many rooms as you like, provided each room is at least 5 feet on each side. The floors of the keep are connected by stone staircases, its walls are 6 inches thick, and interior rooms can have stone doors or open archways as you choose. The keep is furnished and decorated however you like, and it contains sufficient food to serve a nine-course banquet for up to 100 people each day. Furnishings, food, and other objects created by this spell crumble to dust if removed from the fortress.",
         "A staff of one hundred invisible servants obeys any command given to them by creatures you designate when you cast the spell. Each servant functions as if created by the {@spell unseen servant} spell.",
-        "The walls, turrets, and keep are all made of stone that can be damaged. Each 10-foot-by-10-foot section of stone has 2 Armour and 33 hit points per inch of thickness. It is immune to poison and psychic damage. Reducing a section of stone to 0 hit points destroys it and might cause connected sections to buckle and collapse at the DM's discretion.",
+        "The walls, turrets, and keep are all made of stone that can be damaged. Each 10-foot-by-10-foot section of stone has 2 Armour and 33 hit points per inch of thickness. It is immune to poison and psychic damage. Reducing a section of stone to 0 hit points destroys it and might cause connected sections to buckle and collapse at the GM's discretion.",
         "After 7 days or when you cast this spell somewhere else, the fortress harmlessly crumbles and sinks back into the ground, leaving any creatures that were inside it safely on the ground.",
         "Casting this spell on the same spot once every 7 days for a year makes the fortress permanent."
       ],

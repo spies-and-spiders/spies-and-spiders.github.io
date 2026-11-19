@@ -1137,12 +1137,6 @@ export class BrewUtil2Base {
 		[UrlUtil.PG_ADVENTURES]: ["adventure", "adventureData"],
 		[UrlUtil.PG_BOOKS]: ["book", "bookData"],
 		[UrlUtil.PG_TABLES]: ["table", "tableGroup"],
-		[UrlUtil.PG_MAKE_BREW]: [
-			...this._PAGE_TO_PROPS__SPELLS,
-			...this._PAGE_TO_PROPS__BESTIARY,
-			"makebrewCreatureTrait",
-		],
-		[UrlUtil.PG_MANAGE_BREW]: ["*"],
 		[UrlUtil.PG_MANAGE_PRERELEASE]: ["*"],
 		[UrlUtil.PG_DEMO_RENDER]: ["*"],
 		[UrlUtil.PG_VEHICLES]: ["vehicle", "vehicleUpgrade"],
@@ -1183,7 +1177,6 @@ export class BrewUtil2Base {
 	getDirProp (dir) {
 		switch (dir) {
 			case "creature": return "monster";
-			case "makebrew": return "makebrewCreatureTrait";
 			case "encounterbuilder": return "encounterShape";
 			case "crochetpattern": return "crochetPattern";
 		}

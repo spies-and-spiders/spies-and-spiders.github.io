@@ -8172,7 +8172,7 @@ class _RenderCompactSpellsImplBase extends _RenderCompactImplBase {
 		const fromClassListVariant = Renderer.spell.getCombinedClasses(ent, "fromClassListVariant");
 		if (fromClassListVariant.length) {
 			const [current, legacy] = Parser.spVariantClassesToCurrentAndLegacy(fromClassListVariant);
-			stack.push(`<div><span class="ve-bold" title="&quot;Optional&quot; spells may be added to a campaign by the DM. &quot;Variant&quot; spells are generally available, but may be made available to a class by the DM.">Optional/Variant Classes: </span>${Parser.spMainClassesToFull(current)}</div>`);
+			stack.push(`<div><span class="ve-bold" title="&quot;Optional&quot; spells may be added to a campaign by the GM. &quot;Variant&quot; spells are generally available, but may be made available to a class by the GM.">Optional/Variant Classes: </span>${Parser.spMainClassesToFull(current)}</div>`);
 		}
 
 		return stack.join("");
@@ -9771,7 +9771,7 @@ class _RenderCompactBestiaryImplBase {
 			return `<td colspan="2">
 				${Renderer.monster.getChallengeRatingPart(mon, {styleHint: this._style})}
 				${opts.isShowScalers && !opts.isScaledCr && Parser.isValidCr(mon.cr ? (mon.cr.cr || mon.cr) : null) ? `
-				<button title="Scale Creature By CR (Highly Experimental; based on the &quot;Monster Statistics by Challenge Rating&quot; table in the Dungeon Master's Guide (2014), page 274)" class="mon__btn-scale-cr ve-btn ve-btn-xs ve-btn-default ve-print__hidden">
+				<button title="Scale Creature By CR (Highly Experimental)" class="mon__btn-scale-cr ve-btn ve-btn-xs ve-btn-default ve-print__hidden">
 					<span class="glyphicon glyphicon-signal"></span>
 				</button>
 				` : ""}
@@ -15414,11 +15414,11 @@ Renderer.generic = class {
 			},
 			languagesExotic: {
 				name: "Exotic Languages",
-				hint: "With your DM's permission, you can choose an exotic language.",
+				hint: "With your GM's permission, you can choose an exotic language.",
 			},
 			languagesSecret: {
 				name: "Secret Languages",
-				hint: "With your DM's permission, you can choose a secret language.",
+				hint: "With your GM's permission, you can choose a secret language.",
 			},
 		},
 	};
@@ -15595,7 +15595,7 @@ Renderer.generic = class {
 				...(
 					mappedAnyObjects?.[keyAny]
 					|| {
-						...MiscUtil.copyFast(this._FEATURE__LANGUAGES_STANDARD__CHOICE_OBJ), // Use a generic choice object, as rules state DM can allow choosing any
+						...MiscUtil.copyFast(this._FEATURE__LANGUAGES_STANDARD__CHOICE_OBJ), // Use a generic choice object, as rules state GM can allow choosing any
 					}
 				),
 				count: mappedCount,
@@ -15605,7 +15605,7 @@ Renderer.generic = class {
 				...(
 					mappedAnyObjects?.[keyAny]
 					|| {
-						...MiscUtil.copyFast(this._FEATURE__LANGUAGES_STANDARD__CHOICE_OBJ), // Use a generic choice object, as rules state DM can allow choosing any
+						...MiscUtil.copyFast(this._FEATURE__LANGUAGES_STANDARD__CHOICE_OBJ), // Use a generic choice object, as rules state GM can allow choosing any
 					}
 				),
 				count: mappedCount,
@@ -16693,7 +16693,7 @@ Renderer.hover = class {
 					return;
 				}
 
-				// handle DM screen integration
+				// handle GM screen integration
 				if (this._dmScreen && opts.compactReferenceData) {
 					const panel = this._dmScreen.getPanelPx(EventUtil.getClientX(evt), EventUtil.getClientY(evt));
 					if (!panel) return;
@@ -16735,7 +16735,7 @@ Renderer.hover = class {
 					drag.baseTop = parseFloat(eleHov.vee.css("top").slice(0, -2));
 					drag.baseLeft = parseFloat(eleHov.vee.css("left").slice(0, -2));
 
-					// handle DM screen integration
+					// handle GM screen integration
 					if (this._dmScreen) {
 						const panel = this._dmScreen.getPanelPx(EventUtil.getClientX(evt), EventUtil.getClientY(evt));
 						if (!panel) return;

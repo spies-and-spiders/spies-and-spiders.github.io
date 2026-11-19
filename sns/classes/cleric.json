@@ -1055,7 +1055,7 @@
           "type": "entries",
           "name": "Divine Intervention",
           "entries": [
-            "Beginning at 10th level, you can use an action to call on your deity to intervene on your behalf when your need is great. Describe the assistance you seek and roll percentile dice. If you roll a number equal to or lower than your level, your deity intervenes. The DM chooses the nature of the intervention; the effect of any spell would be appopriate. If your deity intervenes, you can't use this feature again for 7 days. Otherwise, you can use it again after you finish a long rest.",
+            "Beginning at 10th level, you can use an action to call on your deity to intervene on your behalf when your need is great. Describe the assistance you seek and roll percentile dice. If you roll a number equal to or lower than your level, your deity intervenes. The GM chooses the nature of the intervention; the effect of any spell would be appopriate. If your deity intervenes, you can't use this feature again for 7 days. Otherwise, you can use it again after you finish a long rest.",
             "After each failed divine intervention roll, add 1 to the number required to succeed until it is a success, at which point it resets to your cleric level or below.",
             "At 20th level, your call for intervention succeeds automatically, no roll required."
           ]
@@ -1187,7 +1187,7 @@
             "or, how one action will play out before the end of your next long rest. Roll a {@dice d20}. Before the end of your next long rest, you may choose to replace any attack roll, ability check, or save made by a creature that you can see within 30 feet of you with the result of this {@dice d20} roll."
           ]
         },
-        "The DM lets you know which benefit is available whenever you finish a long rest."
+        "The GM lets you know which benefit is available whenever you finish a long rest."
       ]
     },
     {

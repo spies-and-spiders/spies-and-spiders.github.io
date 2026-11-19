@@ -96,7 +96,7 @@
       "source": "sns",
       "page": 0,
       "entries": [
-        "A doomed creature dies at a time determined by the DM, or within 13 ({@dice 2d12}) hours.",
+        "A doomed creature dies at a time determined by the GM, or within 13 ({@dice 2d12}) hours.",
         "A doomed creature continues to be doomed even after it dies. Magic equivalent to a 7th-level or higher spell can remove the doomed condition (such as {@spell regenerate} or {@spell wish}."
       ],
       "hasFluffImages": false
@@ -402,7 +402,7 @@
             "{@b Being knocked unconscious or killed.} You lose {@status concentration} on a spell if you are {@condition unconscious} or if you die."
           ]
         },
-        "The DM might also decide that certain environmental phenomena, such as a wave crashing over you while you're on a storm-tossed ship, require you to succeed on a DC 10 Constitution saving throw to maintain {@status concentration} on a spell."
+        "The GM might also decide that certain environmental phenomena, such as a wave crashing over you while you're on a storm-tossed ship, require you to succeed on a DC 10 Constitution saving throw to maintain {@status concentration} on a spell."
       ]
     },
     {
@@ -410,7 +410,7 @@
       "source": "sns",
       "page": 0,
       "entries": [
-        "The DM determines who might be surprised. If neither side tries to be stealthy, they automatically notice each other. Otherwise, the DM compares the Dexterity ({@skill Stealth}) checks of anyone hiding with the passive Wisdom ({@skill Perception}) score of each creature on the opposing side. Any character or monster that doesn't notice a threat is {@status surprised} at the start of the encounter.",
+        "The GM determines who might be surprised. If neither side tries to be stealthy, they automatically notice each other. Otherwise, the GM compares the Dexterity ({@skill Stealth}) checks of anyone hiding with the passive Wisdom ({@skill Perception}) score of each creature on the opposing side. Any character or monster that doesn't notice a threat is {@status surprised} at the start of the encounter.",
         "If you're surprised, you can't move or take an action on your first turn of the combat, and you can't take a reaction until that turn ends. A member of a group can be {@status surprised} even if the other members aren't."
       ]
     }

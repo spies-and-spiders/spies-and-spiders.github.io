@@ -200,7 +200,7 @@ export class InitiativeTrackerNetworking {
 		veT`<div class="row ve-w-100">
 			<div class="ve-col-12">
 				<p>
-				The Player View is part of a peer-to-peer system to allow players to connect to a DM's initiative tracker. Players should use the <a href="inittrackerplayerview.html">Initiative Tracker Player View</a> page to connect to the DM's instance. As a DM, the usage is as follows:
+				The Player View is part of a peer-to-peer system to allow players to connect to a GM's initiative tracker. Players should use the <a href="inittrackerplayerview.html">Initiative Tracker Player View</a> page to connect to the GM's instance. As a GM, the usage is as follows:
 				<ol>
 					<li>Start the server.</li>
 					<li>Copy your link/token and share it with your players.</li>
@@ -234,7 +234,7 @@ export class InitiativeTrackerNetworking {
 	}
 
 	// nop on receiving a message; we want to send only
-	// TODO expand this, to allow e.g. players to set statuses or assign damage/healing (at DM approval?)
+	// TODO expand this, to allow e.g. players to set statuses or assign damage/healing (at GM approval?)
 	_playerWindowV0_DM_MESSAGE_RECEIVER = function () {};
 
 	_playerWindowV0_DM_ERROR_HANDLER = function (err) {
@@ -345,7 +345,7 @@ export class InitiativeTrackerNetworking {
 		veT`<div class="ve-flex ve-w-100">
 			<div class="ve-col-12">
 				<p>
-				The Player View is part of a peer-to-peer (i.e., serverless) system to allow players to connect to a DM's initiative tracker. Players should use the <a href="inittrackerplayerview.html">Initiative Tracker Player View</a> page to connect to the DM's instance. As a DM, the usage is as follows:
+				The Player View is part of a peer-to-peer (i.e., serverless) system to allow players to connect to a GM's initiative tracker. Players should use the <a href="inittrackerplayerview.html">Initiative Tracker Player View</a> page to connect to the GM's instance. As a GM, the usage is as follows:
 				<ol>
 						<li>Add the required number of players ("${btnAltAddPlayer}"), and input (preferably unique) player names.</li>
 						<li>Click "${btnAltGenAll}," which will generate a "server token" per player. You can click "${btnAltCopyAll}" to copy them all as a single block of text, or click on the "Server Token" values to copy them individually. Distribute these tokens to your players (via a messaging service of your choice; we recommend <a href="https://discordapp.com/">Discord</a>). Each player should paste their token into the <a href="inittrackerplayerview.html">Initiative Tracker Player View</a>, following the instructions provided therein.</li>
@@ -358,7 +358,7 @@ export class InitiativeTrackerNetworking {
 						</li>
 					</ol>
 				</p>
-				<p>Once a player's client has been "accepted," it will receive updates from the DM's tracker. <i>Please note that this system is highly experimental. Your experience may vary.</i></p>
+				<p>Once a player's client has been "accepted," it will receive updates from the GM's tracker. <i>Please note that this system is highly experimental. Your experience may vary.</i></p>
 			</div>
 		</div>`.vee.appendTo(wrpHelp);
 

@@ -852,7 +852,7 @@
         }
       ],
       "entries": [
-        "You notice patterns others cannot. As an action, you can spend 1 exertion to study a creature you have watched speak for at least 1 minute. You can ask the DM one of these questions:",
+        "You notice patterns others cannot. As an action, you can spend 1 exertion to study a creature you have watched speak for at least 1 minute. You can ask the GM one of these questions:",
         {
           "type": "list",
           "style": "list-no-bullets",
@@ -863,7 +863,7 @@
             "Is the creature hiding their true race and/or culture?"
           ]
         },
-        "The DM must give you a truthful answer."
+        "The GM must give you a truthful answer."
       ]
     },
     {
@@ -1406,7 +1406,7 @@
         "PT"
       ],
       "entries": [
-        "You are proficient with the {@skill History} skill. When you are in contact with a holy relic, religious artifact, or any kind of similar object or structure, you can spend 2 exertion to learn something about it. You receive a correct answer from the DM for a question about the object that can be answered with a yes or no."
+        "You are proficient with the {@skill History} skill. When you are in contact with a holy relic, religious artifact, or any kind of similar object or structure, you can spend 2 exertion to learn something about it. You receive a correct answer from the GM for a question about the object that can be answered with a yes or no."
       ]
     },
     {

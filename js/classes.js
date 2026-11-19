@@ -891,7 +891,7 @@ class ClassesPage extends MixinComponentGlobalState(MixinBaseComponent(MixinProx
 			),
 			null,
 			new ContextUtil.Action(
-				"Toggle &quot;Spell Points&quot; Mode (5e)",
+				"Toggle Spell Points Mode",
 				() => {
 					this._stateGlobal.isUseSpellPoints = !this._stateGlobal.isUseSpellPoints;
 				},

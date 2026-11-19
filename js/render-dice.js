@@ -461,7 +461,7 @@ Renderer.dice = class {
 		if (roll) return roll.vee.attr("data-rollbox-last-rolled-by-name");
 
 		const name = document.title.replace("- sns-tools", "").trim();
-		return name === "GM Screen" ? "Dungeon Master" : name;
+		return name === "GM Screen" ? "Game Master" : name;
 	}
 
 	static _pRollerClick_getTdsFromTotal (ele, total) {

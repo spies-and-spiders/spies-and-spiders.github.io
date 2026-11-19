@@ -713,7 +713,7 @@ export class BookUtil {
 		}
 		if (fromIndex.group === "screen") {
 			return fromIndex.name
-				.replace(/^Dungeon Master's Screen([;:] )/, (...m) => `DM Screen${m[1]}`);
+				.replace(/^Game Master's Screen([;:] )/, (...m) => `GM Screen${m[1]}`);
 		}
 		return fromIndex.name;
 	}

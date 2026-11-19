@@ -289,14 +289,6 @@ class SpellsPage extends ListPageMultiSource {
 			upload: {
 				pFnPreLoad: (...args) => this._pPreloadSublistSources(...args),
 			},
-			sendToBrew: {
-				mode: "spellBuilder",
-				fnGetMeta: () => ({
-					page: UrlUtil.getCurrentPage(),
-					source: Hist.getHashSource(),
-					hash: Hist.getHashParts()[0],
-				}),
-			},
 			other: [
 				this._bindOtherButtonsOptions_openAsSinglePage({slugPage: "spells"}),
 			].filter(Boolean),

@@ -1544,7 +1544,7 @@ class AddMenuSearchTab extends AddMenuTab {
 	static _getTitle (subType) {
 		switch (subType) {
 			case "content": return "Content";
-			case "rule": return `Rules <span class="ve-small ve-muted">(5e/2014)</span>`;
+			case "rule": return "Rules";
 			case "adventure": return "Adventures";
 			case "book": return "Books";
 			default: throw new Error(`Unhandled search tab subtype: "${subType}"`);

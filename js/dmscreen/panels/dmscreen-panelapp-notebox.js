@@ -62,7 +62,7 @@ export class NoteBox extends DmScreenPanelAppBase {
 			const str = beltStack.join("");
 			await Renderer.dice.pRoll2(str.replace(`[[`, "").replace(`]]`, ""), {
 				isUser: false,
-				name: "DM Screen",
+				name: "GM Screen",
 			});
 			return;
 		}

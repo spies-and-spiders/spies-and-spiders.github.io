@@ -7,7 +7,6 @@ export class UtilsBlocklist {
 		"bookTuple",
 		"map",
 		"roll20Spell",
-		"makebrewCreatureTrait",
 	]);
 	static _PROP_RE_FOUNDRY = /^foundry[A-Z]/;
 

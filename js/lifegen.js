@@ -340,14 +340,14 @@ function _lifeEvtPerson (title, personDetails) {
 const LIFE_EVENTS = [
 	{min: 1, max: 10, result: "You suffered a tragedy. Roll on the Tragedies table.", pNextRoll: () => _pLifeEvtResult("Tragedy", rollEvtTragedy())},
 	{min: 11, max: 20, result: "You gained a bit of good fortune. Roll on the Boons table.", pNextRoll: () => _pLifeEvtResult("Boon", rollEvtBoon())},
-	{min: 21, max: 30, result: "You fell in love or got married. If you get this result more than once, you can choose to have a child instead. Work with your DM to determine the identity of your love interest.", pNextRoll: async () => _lifeEvtPerson(marriageIndex++ === 0 ? "Spouse" : "Spouse/Child", await getPersonDetails())},
-	{min: 31, max: 40, result: () => `You made an enemy of an adventurer. Roll a {@dice d6} ${fmtChoice(RNG(6))}. An odd number indicates you are to blame for the rift, and an even number indicates you are blameless. Use the supplemental tables and work with your DM to determine this hostile character's identity and the danger this enemy poses to you.`, display: "You made an enemy of an adventurer. Roll a {@dice d6}. An odd number indicates you are to blame for the rift, and an even number indicates you are blameless. Use the supplemental tables and work with your DM to determine this hostile character's identity and the danger this enemy poses to you.", pNextRoll: async () => _lifeEvtPerson("Enemy", await getPersonDetails({isAdventurer: true}))},
-	{min: 41, max: 50, result: "You made a friend of an adventurer. Use the supplemental tables and work with your DM to add more detail to this friendly character and establish how your friendship began.", pNextRoll: async () => _lifeEvtPerson("Friend", await getPersonDetails({isAdventurer: true}))},
+	{min: 21, max: 30, result: "You fell in love or got married. If you get this result more than once, you can choose to have a child instead. Work with your GM to determine the identity of your love interest.", pNextRoll: async () => _lifeEvtPerson(marriageIndex++ === 0 ? "Spouse" : "Spouse/Child", await getPersonDetails())},
+	{min: 31, max: 40, result: () => `You made an enemy of an adventurer. Roll a {@dice d6} ${fmtChoice(RNG(6))}. An odd number indicates you are to blame for the rift, and an even number indicates you are blameless. Use the supplemental tables and work with your GM to determine this hostile character's identity and the danger this enemy poses to you.`, display: "You made an enemy of an adventurer. Roll a {@dice d6}. An odd number indicates you are to blame for the rift, and an even number indicates you are blameless. Use the supplemental tables and work with your GM to determine this hostile character's identity and the danger this enemy poses to you.", pNextRoll: async () => _lifeEvtPerson("Enemy", await getPersonDetails({isAdventurer: true}))},
+	{min: 41, max: 50, result: "You made a friend of an adventurer. Use the supplemental tables and work with your GM to add more detail to this friendly character and establish how your friendship began.", pNextRoll: async () => _lifeEvtPerson("Friend", await getPersonDetails({isAdventurer: true}))},
 	{min: 51, max: 70, result: () => `You spent time working in a job related to your background. Start the game with an extra {@dice 2d6} ${fmtChoice(RNG(6) + RNG(6))} gp.`, display: "You spent time working in a job related to your background. Start the game with an extra {@dice 2d6} gp."},
-	{min: 71, max: 75, result: "You met someone important. Use the supplemental tables to determine this character's identity and how this individual feels about you. Work out additional details with your DM as needed to fit this character into your backstory.", pNextRoll: async () => _lifeEvtPerson("Meeting", await getPersonDetails())},
-	{min: 76, max: 80, result: "You went on an adventure. Roll on the Adventures table to see what happened to you. Work with your DM to determine the nature of the adventure and the creatures you encountered.", pNextRoll: () => _pLifeEvtResult("Adventure", rollEvtAdventure())},
+	{min: 71, max: 75, result: "You met someone important. Use the supplemental tables to determine this character's identity and how this individual feels about you. Work out additional details with your GM as needed to fit this character into your backstory.", pNextRoll: async () => _lifeEvtPerson("Meeting", await getPersonDetails())},
+	{min: 76, max: 80, result: "You went on an adventure. Roll on the Adventures table to see what happened to you. Work with your GM to determine the nature of the adventure and the creatures you encountered.", pNextRoll: () => _pLifeEvtResult("Adventure", rollEvtAdventure())},
 	{min: 81, max: 85, result: "You had a supernatural experience. Roll on the Supernatural Events table to find out what it was.", pNextRoll: () => _pLifeEvtResult("Supernatural Experience", rollEvtSupernatural())},
-	{min: 86, max: 90, result: "You fought in a battle. Roll on the War table to learn what happened to you. Work with your DM to come up with the reason for the battle and the factions involved. It might have been a small conflict between your community and a band of orcs, or it could have been a major battle in a larger war.", pNextRoll: () => _pLifeEvtResult("War", rollEvtWar())},
+	{min: 86, max: 90, result: "You fought in a battle. Roll on the War table to learn what happened to you. Work with your GM to come up with the reason for the battle and the factions involved. It might have been a small conflict between your community and a band of orcs, or it could have been a major battle in a larger war.", pNextRoll: () => _pLifeEvtResult("War", rollEvtWar())},
 	{min: 91, max: 95, result: "You committed a crime or were wrongly accused of doing so. Roll on the Crime table to determine the nature of the offense and on the Punishment table to see what became of you.", pNextRoll: () => _lifeEvtResultArr("Crime and Punishment", ["Crime", "Punishment"], rollEvtCrime(), rollEvtPunishment())},
 	{min: 96, max: 99, result: "You encountered something magical. Roll on the Arcane Matters table.", pNextRoll: () => _pLifeEvtResult("Arcane Matter", rollEvtArcaneMatter())},
 	{min: 100, result: "Something truly strange happened to you. Roll on the Weird Stuff table.", pNextRoll: () => _pLifeEvtResult("Weird Stuff", rollEvtWeird())},
@@ -364,25 +364,25 @@ const LIFE_EVENTS_ADVENTURES = [
 	{min: 71, max: 80, result: "You learned a great deal during your adventure. The next time you make an ability check or a saving throw, you have advantage on the roll."},
 	{min: 81, max: 90, result: () => `You found some treasure on your adventure. You have {@dice 2d6} ${fmtChoice(RNG(6) + RNG(6))} gp left from your share of it.`, display: "You found some treasure on your adventure. You have {@dice 2d6} gp left from your share of it."},
 	{min: 91, max: 99, result: () => `You found a considerable amount of treasure on your adventure. You have {@dice 1d20 + 50} ${fmtChoice(RNG(20) + 50)} gp left from your share of it.`, display: "You found a considerable amount of treasure on your adventure. You have {@dice 1d20 + 50} gp left from your share of it."},
-	{min: 100, result: "You came across a common magic item (of the DM's choice)."},
+	{min: 100, result: "You came across a common magic item (of the GM's choice)."},
 ];
 
 const LIFE_EVENTS_ARCANE_MATTERS = [
 	{min: 1, result: "You were charmed or frightened by a spell."},
 	{min: 2, result: "You were injured by the effect of a spell."},
 	{min: 3, result: "You witnessed a powerful spell being cast by a cleric, a druid, a sorcerer, a warlock, or a wizard."},
-	{min: 4, result: "You drank a potion (of the DM's choice)."},
-	{min: 5, result: "You found a spell scroll (of the DM's choice) and succeeded in casting the spell it contained."},
+	{min: 4, result: "You drank a potion (of the GM's choice)."},
+	{min: 5, result: "You found a spell scroll (of the GM's choice) and succeeded in casting the spell it contained."},
 	{min: 6, result: "You were affected by teleportation magic."},
 	{min: 7, result: "You turned invisible for a time."},
 	{min: 8, result: "You identified an illusion for what it was."},
 	{min: 9, result: "You saw a creature being conjured by magic."},
-	{min: 10, result: () => `Your fortune was read by a diviner. Roll twice on the Life Events table, but don't apply the results. Instead, the DM picks one event as a portent of your future (which might or might not come true). ${fmtChoice(GenUtil.getFromTable(LIFE_EVENTS, RNG(100)).display || GenUtil.getFromTable(LIFE_EVENTS, RNG(100)).result)} ${fmtChoice(GenUtil.getFromTable(LIFE_EVENTS, RNG(100)).display || GenUtil.getFromTable(LIFE_EVENTS, RNG(100)).result)}`, display: "Your fortune was read by a diviner. Roll twice on the Life Events table, but don't apply the results. Instead, the DM picks one event as a portent of your future (which might or might not come true)."},
+	{min: 10, result: () => `Your fortune was read by a diviner. Roll twice on the Life Events table, but don't apply the results. Instead, the GM picks one event as a portent of your future (which might or might not come true). ${fmtChoice(GenUtil.getFromTable(LIFE_EVENTS, RNG(100)).display || GenUtil.getFromTable(LIFE_EVENTS, RNG(100)).result)} ${fmtChoice(GenUtil.getFromTable(LIFE_EVENTS, RNG(100)).display || GenUtil.getFromTable(LIFE_EVENTS, RNG(100)).result)}`, display: "Your fortune was read by a diviner. Roll twice on the Life Events table, but don't apply the results. Instead, the GM picks one event as a portent of your future (which might or might not come true)."},
 ];
 
 const LIFE_EVENTS_BOONS = [
-	{min: 1, result: "A friendly wizard gave you a spell scroll containing one cantrip (of the DM's choice)."},
-	{min: 2, result: "You saved the life of a commoner, who now owes you a life debt. This individual accompanies you on your travels and performs mundane tasks for you, but will leave if neglected, abused, or imperiled. Determine details about this character by using the supplemental tables and working with your DM.", pNextRoll: async () => _lifeEvtPerson("Commoner", await getPersonDetails())},
+	{min: 1, result: "A friendly wizard gave you a spell scroll containing one cantrip (of the GM's choice)."},
+	{min: 2, result: "You saved the life of a commoner, who now owes you a life debt. This individual accompanies you on your travels and performs mundane tasks for you, but will leave if neglected, abused, or imperiled. Determine details about this character by using the supplemental tables and working with your GM.", pNextRoll: async () => _lifeEvtPerson("Commoner", await getPersonDetails())},
 	{min: 3, result: "You found a {@item riding horse}."},
 	{min: 4, result: () => `You found some money. You have {@dice 1d20} ${fmtChoice(RNG(20))} gp in addition to your regular starting funds.`, display: "You found some money. You have {@dice 1d20} gp in addition to your regular starting funds."},
 	{min: 5, result: "A relative bequeathed you a simple weapon of your choice."},
@@ -459,7 +459,7 @@ const LIFE_EVENTS_WEIRD_STUFF = [
 	{min: 3, result: () => `You were enslaved by a hag, a satyr, or some other being and lived in that creature's thrall for {@dice 1d6} ${fmtChoice(RNG(6))} years.`, display: "You were enslaved by a hag, a satyr, or some other being and lived in that creature’s thrall for {@dice 1d6} years."},
 	{min: 4, result: () => `A dragon held you as a prisoner for {@dice 1d4} ${fmtChoice(RNG(4))} months until adventurers killed it.`, display: "A dragon held you as a prisoner for {@dice 1d4} months until adventurers killed it."},
 	{min: 5, result: "You were taken captive by a race of evil humanoids such as drow, kuo-toa, or quaggoths. You lived as a slave in the Underdark until you escaped."},
-	{min: 6, result: "You served a powerful adventurer as a hireling. You have only recently left that service. Use the supplemental tables and work with your DM to determine the basic details about your former employer.", pNextRoll: async () => _lifeEvtPerson("Employer", await getPersonDetails({isAdventurer: true}))},
+	{min: 6, result: "You served a powerful adventurer as a hireling. You have only recently left that service. Use the supplemental tables and work with your GM to determine the basic details about your former employer.", pNextRoll: async () => _lifeEvtPerson("Employer", await getPersonDetails({isAdventurer: true}))},
 	{min: 7, result: () => `You went insane for {@dice 1d6} ${fmtChoice(RNG(6))} years and recently regained your sanity. A tic or some other bit of odd behavior might linger.`, display: "You went insane for {@dice 1d6} years and recently regained your sanity. A tic or some other bit of odd behavior might linger."},
 	{min: 8, result: "A lover of yours was secretly a silver dragon."},
 	{min: 9, result: "You were captured by a cult and nearly sacrificed on an altar to the foul being the cultists served. You escaped, but you fear they will find you."},
@@ -536,7 +536,7 @@ const SUPP_RACE = [
 	{min: 81, max: 85, result: "Half-elf"},
 	{min: 86, max: 90, result: "Half-orc"},
 	{min: 91, max: 95, result: "Tiefling"},
-	{min: 96, max: 100, result: "DM’s choice"},
+	{min: 96, max: 100, result: "GM’s choice"},
 ];
 
 const SUPP_RELATIONSHIP = [

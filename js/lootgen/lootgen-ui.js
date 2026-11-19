@@ -332,13 +332,13 @@ export class LootGenUi extends BaseComponent {
 		const tabMetasLookup = this._renderTabsDict(
 			{
 				[this._generatorFindTreasure24.identifier]: new TabUiUtil.TabMeta({
-					name: "Adventure Rewards by CR ('24)",
+					name: "Adventure Rewards by CR",
 					title: `Random Treasure by CR (${Parser.sourceJsonToFull(Parser.SRC_SNS)})`,
 					hasBorder: true,
 					hasBackground: true,
 				}),
 				[this._generatorFindTreasure.identifier]: new TabUiUtil.TabMeta({
-					name: "Random Treasure by CR ('14)",
+					name: "Random Treasure by CR",
 					title: `Random Treasure by CR (${Parser.sourceJsonToFull(Parser.SRC_SNS)})`,
 					hasBorder: true,
 					hasBackground: true,

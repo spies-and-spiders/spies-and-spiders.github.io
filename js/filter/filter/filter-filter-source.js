@@ -200,17 +200,6 @@ export class SourceFilter extends Filter {
 			),
 			null,
 			new ContextUtil.Action(
-				`Select 5e/2014 Sources`,
-				(evt) => this._doSetPinsClassic({isAdditive: evt.shiftKey, isIntersection: EventUtil.isAltOptionKey(evt), isExclusive: EventUtil.isCtrlMetaKey(evt)}),
-				{title: `Select sources published from 2014 to 2024. ${this.constructor._TITLE_CONTEXT_SOURCE_SET}`},
-			),
-			new ContextUtil.Action(
-				`Select 5.5e/2024 Sources`,
-				(evt) => this._doSetPinsOne({isAdditive: evt.shiftKey, isIntersection: EventUtil.isAltOptionKey(evt), isExclusive: EventUtil.isCtrlMetaKey(evt)}),
-				{title: `Select sources published from 2024 onwards. ${this.constructor._TITLE_CONTEXT_SOURCE_SET}`},
-			),
-			null,
-			new ContextUtil.Action(
 				`Select "Vanilla" Sources`,
 				(evt) => this._doSetPinsVanilla({isAdditive: evt.shiftKey, isIntersection: EventUtil.isAltOptionKey(evt), isExclusive: EventUtil.isCtrlMetaKey(evt)}),
 				{title: `Select a baseline set of sources suitable for any campaign. ${this.constructor._TITLE_CONTEXT_SOURCE_SET}`},

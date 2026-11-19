@@ -6,7 +6,7 @@ class NavBar {
 	static _CAT_RULES = "Rules";
 	static _CAT_BOOKS = "Books";
 	static _CAT_PLAYER = "Player";
-	static _CAT_DUNGEON_MASTER = "Dungeon Master";
+	static _CAT_GAME_MASTER = "Game Master";
 	static _CAT_ADVENTURES = "Adventures";
 	static _CAT_REFERENCES = "References";
 	static _CAT_UTILITIES = "Utilities";
@@ -97,20 +97,19 @@ class NavBar {
 		this._addElement_li({keyPath: [NavBar._CAT_PLAYER], page: "lifegen.html", aText: "This Is Your Life"});
 		this._addElement_li({keyPath: [NavBar._CAT_PLAYER], page: "names.html", aText: "Names"});
 
-		this._addElement_dropdown({category: NavBar._CAT_DUNGEON_MASTER});
-		this._addElement_li({keyPath: [NavBar._CAT_DUNGEON_MASTER], page: "dmscreen.html", aText: "GM Screen"});
-		this._addElement_divider({keyPath: [NavBar._CAT_DUNGEON_MASTER]});
-		this._addElement_dropdown({keyPath: [NavBar._CAT_DUNGEON_MASTER], category: NavBar._CAT_ADVENTURES, isSide: true, page: "adventures.html"});
-		this._addElement_li({keyPath: [NavBar._CAT_DUNGEON_MASTER, NavBar._CAT_ADVENTURES], page: "adventures.html", aText: "View All/Homebrew"});
-		this._addElement_li({keyPath: [NavBar._CAT_DUNGEON_MASTER], page: "cultsboons.html", aText: "Cults & Supernatural Boons"});
-		this._addElement_li({keyPath: [NavBar._CAT_DUNGEON_MASTER], page: "objects.html", aText: "Objects"});
-		this._addElement_li({keyPath: [NavBar._CAT_DUNGEON_MASTER], page: "trapshazards.html", aText: "Traps & Hazards"});
-		this._addElement_divider({keyPath: [NavBar._CAT_DUNGEON_MASTER]});
-		this._addElement_li({keyPath: [NavBar._CAT_DUNGEON_MASTER], page: "crcalculator.html", aText: "CR Calculator"});
-		this._addElement_li({keyPath: [NavBar._CAT_DUNGEON_MASTER], page: "encountergen.html", aText: "Encounter Generator"});
-		this._addElement_li({keyPath: [NavBar._CAT_DUNGEON_MASTER], page: "lootgen.html", aText: "Loot Generator"});
-		this._addElement_divider({keyPath: [NavBar._CAT_DUNGEON_MASTER]});
-		this._addElement_li({keyPath: [NavBar._CAT_DUNGEON_MASTER], page: "maps.html", aText: "Maps"});
+		this._addElement_dropdown({category: NavBar._CAT_GAME_MASTER});
+		this._addElement_li({keyPath: [NavBar._CAT_GAME_MASTER], page: "dmscreen.html", aText: "GM Screen"});
+		this._addElement_divider({keyPath: [NavBar._CAT_GAME_MASTER]});
+		this._addElement_dropdown({keyPath: [NavBar._CAT_GAME_MASTER], category: NavBar._CAT_ADVENTURES, isSide: true, page: "adventures.html"});
+		this._addElement_li({keyPath: [NavBar._CAT_GAME_MASTER, NavBar._CAT_ADVENTURES], page: "adventures.html", aText: "View All/Homebrew"});
+		this._addElement_li({keyPath: [NavBar._CAT_GAME_MASTER], page: "cultsboons.html", aText: "Cults & Supernatural Boons"});
+		this._addElement_li({keyPath: [NavBar._CAT_GAME_MASTER], page: "objects.html", aText: "Objects"});
+		this._addElement_li({keyPath: [NavBar._CAT_GAME_MASTER], page: "trapshazards.html", aText: "Traps & Hazards"});
+		this._addElement_divider({keyPath: [NavBar._CAT_GAME_MASTER]});
+		this._addElement_li({keyPath: [NavBar._CAT_GAME_MASTER], page: "encountergen.html", aText: "Encounter Generator"});
+		this._addElement_li({keyPath: [NavBar._CAT_GAME_MASTER], page: "lootgen.html", aText: "Loot Generator"});
+		this._addElement_divider({keyPath: [NavBar._CAT_GAME_MASTER]});
+		this._addElement_li({keyPath: [NavBar._CAT_GAME_MASTER], page: "maps.html", aText: "Maps"});
 
 		this._addElement_dropdown({category: NavBar._CAT_REFERENCES});
 		this._addElement_li({keyPath: [NavBar._CAT_REFERENCES], page: "actions.html", aText: "Actions"});
@@ -132,7 +131,6 @@ class NavBar {
 		this._addElement_divider({keyPath: [NavBar._CAT_UTILITIES]});
 		this._addElement_li({keyPath: [NavBar._CAT_UTILITIES], page: "blocklist.html", aText: "Content Blocklist"});
 		this._addElement_li({keyPath: [NavBar._CAT_UTILITIES], page: "manageprerelease.html", aText: "Prerelease Content Manager"});
-		this._addElement_li({keyPath: [NavBar._CAT_UTILITIES], page: "managebrew.html", aText: "Homebrew Manager"});
 		this._addElement_buttonSplit(
 			{
 				keyPath: [NavBar._CAT_UTILITIES],
@@ -290,7 +288,7 @@ class NavBar {
 			{
 				prop: "adventure",
 				page: "adventure.html",
-				parentCategoryPath: [NavBar._CAT_DUNGEON_MASTER, NavBar._CAT_ADVENTURES],
+				parentCategoryPath: [NavBar._CAT_GAME_MASTER, NavBar._CAT_ADVENTURES],
 				fnSort: SortUtil.ascSortAdventure.bind(SortUtil),
 			},
 		].forEach(({prop, parentCategoryPath, page, fnSort}) => {

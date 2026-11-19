@@ -1962,8 +1962,6 @@ class ListPage {
 	 * @param [opts.download]
 	 * @param [opts.upload]
 	 * @param [opts.upload.pPreloadSublistSources]
-	 * @param [opts.sendToBrew]
-	 * @param [opts.sendToBrew.fnGetMeta]
 	 */
 	_bindOtherButtons (opts) {
 		opts = opts || {};
@@ -2025,20 +2023,6 @@ class ListPage {
 				evt => this._pHandleClick_doCopyFilterLink(evt),
 			),
 		];
-
-		if (opts.sendToBrew) {
-			if (contextOptions.length) contextOptions.push(null); // Add a spacer after the previous group
-
-			const action = new ContextUtil.Action(
-				"Edit in Homebrew Builder",
-				() => {
-					const meta = opts.sendToBrew.fnGetMeta();
-					const toLoadData = [meta.page, meta.source, meta.hash];
-					window.location = `${UrlUtil.PG_MAKE_BREW}#${opts.sendToBrew.mode.toUrlified()}${HASH_PART_SEP}${UrlUtil.packSubHash("statemeta", toLoadData)}`;
-				},
-			);
-			contextOptions.push(action);
-		}
 
 		if (opts.other?.length) {
 			if (contextOptions.length) contextOptions.push(null); // Add a spacer after the previous group

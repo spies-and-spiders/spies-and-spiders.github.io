@@ -20,7 +20,7 @@ export class BrewUtil2_ extends BrewUtil2Base {
 
 	ID = "homebrew";
 	IS_EDITABLE = true;
-	PAGE_MANAGE = UrlUtil.PG_MANAGE_BREW;
+	PAGE_MANAGE = null;
 	URL_REPO_DEFAULT = VeCt.URL_BREW;
 	URL_REPO_ROOT_DEFAULT = VeCt.URL_ROOT_BREW;
 	DISPLAY_NAME = "homebrew";
