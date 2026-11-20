@@ -13,9 +13,14 @@ class PageFilterVehicles extends PageFilterBase {
 		this._upgradeTypeFilter = new Filter({
 			header: "Upgrade Type",
 			items: [],
-			displayFn: Parser.vehicleTypeToFull,
+			displayFn: Parser.vehicleUpgradeTypeToFull,
 			isSortByDisplayItems: true,
 		});
+		this._typeFilter = new MultiFilter({
+			header: "Type",
+			filters: [this._vehicleTypeFilter, this._upgradeTypeFilter],
+		});
+		this._costFilter = FilterCommon.getCostFilter();
 		this._terrainFilter = new Filter({header: "Terrain", items: ["land", "sea", "air"], displayFn: StrUtil.uppercaseFirst});
 		this._speedFilter = new RangeFilter({header: "Speed"});
 		this._armourFilter = new RangeFilter({header: "Armour"});
@@ -37,6 +42,8 @@ class PageFilterVehicles extends PageFilterBase {
 	}
 
 	static mutateForFilters (ent) {
+		this._mutateForFilters_commonSources(ent);
+
 		ent._fSpeed = 0;
 		if (typeof ent.speed === "number" && ent.speed > 0) {
 			ent._fSpeed = ent.speed;
@@ -44,7 +51,7 @@ class PageFilterVehicles extends PageFilterBase {
 			const maxSpeed = Math.max(...Object.values(ent.speed));
 			if (maxSpeed > 0) ent._fSpeed = maxSpeed;
 		} else if (ent.pace && typeof ent.pace === "number") {
-			ent._fSpeed = ent.pace * 10; // Based on "Special Travel Pace," DMG p242
+			ent._fSpeed = ent.pace * 10; // Based on "Special Travel Pace," DMG p242 and/or "Travel Pace" XDMG p39
 		}
 
 		ent._fHp = 0;
@@ -65,6 +72,8 @@ class PageFilterVehicles extends PageFilterBase {
 
 		ent._fCreatureCapacity = (ent.capCrew || 0) + (ent.capPassenger || 0) + (ent.capCreature || 0);
 
+		FilterCommon.mutateForFilters_cost(ent);
+
 		this._mutateForFilters_commonMisc(ent);
 		if (Renderer.vehicle.hasToken(ent)) ent._fMisc.push("Has Token");
 	}
@@ -72,10 +81,9 @@ class PageFilterVehicles extends PageFilterBase {
 	addToFilters (it, isExcluded) {
 		if (isExcluded) return;
 
-		this._sourceFilter.addItem(it.source);
+		this._sourceFilter.addItem(it._fSources);
 		this._vehicleTypeFilter.addItem(it.vehicleType);
 		this._upgradeTypeFilter.addItem(it.upgradeType);
-		this._speedFilter.addItem(it._fSpeed);
 		this._terrainFilter.addItem(it.terrain);
 		(it._fArm || []).forEach(v => this._armourFilter.addItem(v));
 		(it._fWil || []).forEach(v => this._willFilter.addItem(v));
@@ -89,9 +97,9 @@ class PageFilterVehicles extends PageFilterBase {
 	async _pPopulateBoxOptions (opts) {
 		opts.filters = [
 			this._sourceFilter,
-			this._vehicleTypeFilter,
-			this._upgradeTypeFilter,
+			this._typeFilter,
 			this._terrainFilter,
+			this._costFilter,
 			this._speedFilter,
 			this._defencesFilter,
 			this._hpFilter,
@@ -103,10 +111,13 @@ class PageFilterVehicles extends PageFilterBase {
 	toDisplay (values, it) {
 		return this._filterBox.toDisplay(
 			values,
-			it.source,
-			it.vehicleType,
-			it.upgradeType,
+			it._fSources,
+			[
+				it.vehicleType,
+				it.upgradeType,
+			],
 			it.terrain,
+			it._fCost,
 			it._fSpeed,
 			[it._fArm, it._fWil, it._fRef, it._fFort],
 			it._fHp,

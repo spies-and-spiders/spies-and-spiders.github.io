@@ -1,4 +1,4 @@
-"use strict";
+import {AdventuresBooksList} from "./bookslist.js";
 
 class BooksList extends AdventuresBooksList {
 	constructor () {
@@ -15,8 +15,8 @@ class BooksList extends AdventuresBooksList {
 			rowBuilderFn: (bk) => {
 				return `
 					<span class="ve-col-1-3 ve-text-center">${AdventuresBooksList._getGroupHtml(bk)}</span>
-					<span class="ve-col-8-5 bold">${bk.name}</span>
-					<span class="ve-grow ve-text-center code">${AdventuresBooksList._getDateStr(bk)}</span>
+					<span class="ve-col-8-5 ve-bold">${bk.name}</span>
+					<span class="ve-grow ve-text-center ve-code">${AdventuresBooksList._getDateStr(bk)}</span>
 				`;
 			},
 		});
@@ -25,9 +25,9 @@ class BooksList extends AdventuresBooksList {
 
 const booksList = new BooksList();
 
-window.addEventListener("load", () => booksList.pOnPageLoad());
-
 function handleBrew (homebrew) {
 	booksList.addData(homebrew);
 	return Promise.resolve();
 }
+
+window.addEventListener("load", () => booksList.pOnPageLoad({handleBrew}));

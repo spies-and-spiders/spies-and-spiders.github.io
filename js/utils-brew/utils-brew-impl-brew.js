@@ -9,6 +9,7 @@ export class BrewUtil2_ extends BrewUtil2Base {
 	_STORAGE_KEY = "HOMEBREW_2_STORAGE";
 	_STORAGE_KEY_META = "HOMEBREW_2_STORAGE_METAS";
 
+	_STORAGE_KEY_RELOAD_MESSAGE = "HOMEBREW_RELOAD_MESSAGE";
 	_STORAGE_KEY_CUSTOM_URL = "HOMEBREW_CUSTOM_REPO_URL";
 	_STORAGE_KEY_MIGRATION_VERSION = "HOMEBREW_2_STORAGE_MIGRATION";
 
@@ -17,8 +18,9 @@ export class BrewUtil2_ extends BrewUtil2Base {
 	_PATH_LOCAL_DIR = "homebrew";
 	_PATH_LOCAL_INDEX = VeCt.JSON_BREW_INDEX;
 
+	ID = "homebrew";
 	IS_EDITABLE = true;
-	PAGE_MANAGE = UrlUtil.PG_MANAGE_BREW;
+	PAGE_MANAGE = null;
 	URL_REPO_DEFAULT = VeCt.URL_BREW;
 	URL_REPO_ROOT_DEFAULT = VeCt.URL_ROOT_BREW;
 	DISPLAY_NAME = "homebrew";
@@ -26,56 +28,7 @@ export class BrewUtil2_ extends BrewUtil2Base {
 	DEFAULT_AUTHOR = "";
 	STYLE_BTN = "ve-btn-info";
 	IS_PREFER_DATE_ADDED = true;
-
-	/* -------------------------------------------- */
-
-	_pInit_doBindDragDrop () {
-		document.body.addEventListener("drop", async evt => {
-			if (EventUtil.isInInput(evt)) return;
-
-			evt.stopPropagation();
-			evt.preventDefault();
-
-			const files = evt.dataTransfer?.files;
-			if (!files?.length) return;
-
-			const pFiles = [...files].map((file, i) => {
-				if (!/\.json$/i.test(file.name)) return null;
-
-				return new Promise(resolve => {
-					const reader = new FileReader();
-					reader.onload = () => {
-						let json;
-						try {
-							json = JSON.parse(reader.result);
-						} catch (ignored) {
-							return resolve(null);
-						}
-
-						resolve({name: file.name, json});
-					};
-
-					reader.readAsText(files[i]);
-				});
-			});
-
-			const fileMetas = (await Promise.allSettled(pFiles))
-				.filter(({status}) => status === "fulfilled")
-				.map(({value}) => value)
-				.filter(Boolean);
-
-			await this.pAddBrewsFromFiles(fileMetas);
-
-			if (this.isReloadRequired()) this.doLocationReload();
-		});
-
-		document.body.addEventListener("dragover", evt => {
-			if (EventUtil.isInInput(evt)) return;
-
-			evt.stopPropagation();
-			evt.preventDefault();
-		});
-	}
+	IS_ADD_BTN_ALL_PARTNERED = true;
 
 	/* -------------------------------------------- */
 
@@ -83,13 +36,13 @@ export class BrewUtil2_ extends BrewUtil2Base {
 
 	getFileUrl (path, urlRoot) { return DataUtil.brew.getFileUrl(path, urlRoot); }
 
-	pLoadTimestamps (urlRoot) { return DataUtil.brew.pLoadTimestamps(urlRoot); }
+	async pLoadTimestamps (urlRoot) { return DataUtil.brew.pLoadTimestamps(urlRoot); }
 
-	pLoadPropIndex (urlRoot) { return DataUtil.brew.pLoadPropIndex(urlRoot); }
+	async pLoadPropIndex (urlRoot) { return DataUtil.brew.pLoadPropIndex(urlRoot); }
 
-	pLoadMetaIndex (urlRoot) { return DataUtil.brew.pLoadMetaIndex(urlRoot); }
+	async pLoadMetaIndex (urlRoot) { return DataUtil.brew.pLoadMetaIndex(urlRoot); }
 
-	pLoadAdventureBookIdsIndex (urlRoot) { return DataUtil.brew.pLoadAdventureBookIdsIndex(urlRoot); }
+	async pLoadAdventureBookIdsIndex (urlRoot) { return DataUtil.brew.pLoadAdventureBookIdsIndex(urlRoot); }
 
 	/* -------------------------------------------- */
 
@@ -160,12 +113,19 @@ export class BrewUtil2_ extends BrewUtil2Base {
 	async pRemoveEditableBrewEntity (prop, uniqueId) {
 		if (!uniqueId) throw new Error(`A "uniqueId" must be provided!`);
 
+		await this.pRemoveEditableBrewEntities(prop, [uniqueId]);
+	}
+
+	async pRemoveEditableBrewEntities (prop, uniqueIds) {
+		if (!uniqueIds.length) return;
+
 		const brew = await this.pGetOrCreateEditableBrewDoc();
 
 		if (!brew.body?.[prop]?.length) return;
 
 		const nxt = MiscUtil.copyFast(brew);
-		nxt.body[prop] = nxt.body[prop].filter(it => it.uniqueId !== uniqueId);
+		const uniqueIdsSet = new Set(uniqueIds);
+		nxt.body[prop] = nxt.body[prop].filter(it => !uniqueIdsSet.has(it.uniqueId));
 
 		if (nxt.body[prop].length === brew.body[prop]) return; // Silently allow no-op deletes
 

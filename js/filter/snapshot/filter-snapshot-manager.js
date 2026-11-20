@@ -206,8 +206,8 @@ export class FilterSnapshotManager extends BaseComponent {
 			),
 		]);
 
-		return ee`<button class="ve-btn ve-btn-default ve-btn-xs">Manage Defaults</button>`
-			.onn("click", evt => ContextUtil.pOpenMenu(evt, menu));
+		return veT`<button class="ve-btn ve-btn-default ve-btn-xs">Manage Defaults</button>`
+			.vee.onn("click", evt => ContextUtil.pOpenMenu(evt, menu));
 	}
 
 	/**
@@ -380,6 +380,20 @@ export class FilterSnapshotManager extends BaseComponent {
 	}
 
 	/* -------------------------------------------- */
+
+	doSetFiltersFromBoxSnapshot_ (boxSnapshot) {
+		const filterSnapshotsCurrent = this._filters
+			.flatMap(filter => filter.getSnapshots());
+
+		const filterSnapshotsEntity = boxSnapshot.filterSnapshots;
+
+		this._filterBox.reset({
+			snapshots: [
+				...filterSnapshotsCurrent,
+				...filterSnapshotsEntity,
+			],
+		});
+	}
 
 	doSetFiltersFromBoxSnapshotDeck_ (boxSnapshotDeck) {
 		const snapshots = this.getSnapshots({boxSnapshotDeck});

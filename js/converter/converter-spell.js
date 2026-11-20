@@ -6,6 +6,7 @@ import {ConverterConst} from "./converterutils-const.js";
 import {TagJsons} from "./converterutils-entries.js";
 import {SITE_STYLE__CLASSIC} from "../consts.js";
 import {EntryCoalesceEntryLists, EntryCoalesceRawLines} from "./converterutils-entrycoalesce.js";
+import {PropOrder} from "../utils-proporder.js";
 
 export class ConverterSpell extends ConverterBase {
 	static _RE_START_RANGE = "Range";
@@ -31,6 +32,7 @@ export class ConverterSpell extends ConverterBase {
 	 * @param options.isAppend Default output append mode.
 	 * @param options.source Entity source.
 	 * @param options.page Entity page.
+	 * @param [options.isAddPageNumber] Whether to include the page in the output. Defaults to true if a page is provided.
 	 * @param options.titleCaseFields Array of fields to be title-cased in this entity (if enabled).
 	 * @param options.isTitleCase Whether title-case fields should be title-cased in this entity.
 	 * @param options.styleHint
@@ -139,6 +141,8 @@ export class ConverterSpell extends ConverterBase {
 		if (missingProps.length) options.cbWarning(`${statsOut.name ? `(${statsOut.name}) ` : ""}Missing properties: ${missingProps.join(", ")}`);
 
 		options.cbOutput(statsOut, options.isAppend);
+
+		return statsOut;
 	}
 
 	static _getCleanInput (ipt, options = null) {
@@ -178,6 +182,8 @@ export class ConverterSpell extends ConverterBase {
 	}
 
 	static _doSpellPostProcess (stats, options) {
+		this._doPostProcess_removePage(stats, options);
+
 		const doCleanup = () => {
 			// remove any empty arrays
 			Object.keys(stats).forEach(k => {
@@ -195,6 +201,7 @@ export class ConverterSpell extends ConverterBase {
 		]
 			.forEach(prop => {
 				EntryCoalesceEntryLists.mutCoalesce(stats, prop, {styleHint: options.styleHint});
+				TagJsons.mutTagObjectStrictCapsWords(stats, {keySet: new Set([prop]), styleHint: options.styleHint});
 				TagJsons.mutTagObject(stats, {keySet: new Set([prop]), isOptimistic: false, styleHint: options.styleHint});
 			});
 
@@ -323,7 +330,7 @@ export class ConverterSpell extends ConverterBase {
 				tgt.push(
 					...classNames.map(name => ({
 						name,
-						source: Parser.SRC_SNS,
+						source: name === "Artificer" ? Parser.SRC_SNS : Parser.SRC_SNS,
 					})),
 				);
 				break;
@@ -578,26 +585,44 @@ export class ConverterSpell extends ConverterBase {
 			.map(it => it.trim())
 			.filter(Boolean)
 			.forEach(pt => {
-				const lowerPt = pt.toLowerCase();
+				let isLegacy = false;
+				let lowerPt = pt.toLowerCase()
+					.replace(/ \(legacy\)$/, () => {
+						isLegacy = true;
+						return "";
+					})
+					.trim();
+
+				const srcPhb = isLegacy
+					? Parser.SRC_SNS
+					: options.styleHint !== SITE_STYLE__CLASSIC
+						? Parser.SRC_SNS
+						: Parser.SRC_SNS;
+				const srcArtificer = isLegacy
+					? Parser.SRC_SNS
+					: options.styleHint !== SITE_STYLE__CLASSIC
+						? Parser.SRC_SNS
+						: Parser.SRC_SNS;
+
 				switch (lowerPt) {
 					case "artificer":
-					case "artificers": tgt.push({"name": "Artificer", "source": "TCE"}); break;
+					case "artificers": tgt.push({"name": "Artificer", "source": srcArtificer}); break;
 					case "bard":
-					case "bards": tgt.push({"name": "Bard", "source": "PHB"}); break;
+					case "bards": tgt.push({"name": "Bard", "source": srcPhb}); break;
 					case "cleric":
-					case "clerics": tgt.push({"name": "Cleric", "source": "PHB"}); break;
+					case "clerics": tgt.push({"name": "Cleric", "source": srcPhb}); break;
 					case "druid":
-					case "druids": tgt.push({"name": "Druid", "source": "PHB"}); break;
+					case "druids": tgt.push({"name": "Druid", "source": srcPhb}); break;
 					case "paladin":
-					case "paladins": tgt.push({"name": "Paladin", "source": "PHB"}); break;
+					case "paladins": tgt.push({"name": "Paladin", "source": srcPhb}); break;
 					case "ranger":
-					case "rangers": tgt.push({"name": "Ranger", "source": "PHB"}); break;
+					case "rangers": tgt.push({"name": "Ranger", "source": srcPhb}); break;
 					case "sorcerer":
-					case "sorcerers": tgt.push({"name": "Sorcerer", "source": "PHB"}); break;
+					case "sorcerers": tgt.push({"name": "Sorcerer", "source": srcPhb}); break;
 					case "warlock":
-					case "warlocks": tgt.push({"name": "Warlock", "source": "PHB"}); break;
+					case "warlocks": tgt.push({"name": "Warlock", "source": srcPhb}); break;
 					case "wizard":
-					case "wizards": tgt.push({"name": "Wizard", "source": "PHB"}); break;
+					case "wizards": tgt.push({"name": "Wizard", "source": srcPhb}); break;
 					default: options.cbWarning(`${stats.name ? `(${stats.name}) ` : ""}Class "${lowerPt}" requires manual conversion`); break;
 				}
 			});

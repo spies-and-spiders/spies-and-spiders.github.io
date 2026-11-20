@@ -17,6 +17,15 @@ describe("Stripping tags", () => {
 		expect(Renderer.stripTags("{@b {@i aaa} bb} {@b cc}")).toBe("aaa bb cc");
 	});
 
+	it("Should handle nested text-style tags", () => {
+		expect(Renderer.stripTags("{@font {@style Cover & Credits|large}|MyCustomFont}")).toBe("Cover & Credits");
+	});
+
+	it("Should handle empty text-style tags", () => {
+		expect(Renderer.stripTags("{@b}")).toBe("");
+		expect(Renderer.stripTags("{@i}")).toBe("");
+	});
+
 	it("Should ignore property injectors", () => {
 		expect(Renderer.stripTags("{=amount1/v} {=amount2}")).toBe("{=amount1/v} {=amount2}");
 		expect(Renderer.stripTags("{=amount1/v} {@unit {=amount1}|egg|eggs}")).toBe("{=amount1/v} egg");
@@ -30,5 +39,9 @@ describe("Stripping tags", () => {
 	it("Should only remove tags in blocklist", () => {
 		expect(Renderer.stripTags("{@b {@i aaa} bb} {@b cc}", {blocklistTags: new Set(["@b"])})).toBe("{@i aaa} bb cc");
 		expect(Renderer.stripTags("{@b {@i aaa} bb} {@b cc}", {blocklistTags: new Set([])})).toBe("{@b {@i aaa} bb} {@b cc}");
+	});
+
+	it("Should return blank string on junk tag", () => {
+		expect(Renderer.stripTags("{@snstools}")).toBe("");
 	});
 });

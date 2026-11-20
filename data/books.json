@@ -6,13 +6,19 @@
       "source": "sns",
       "group": "core",
       "cover": {
-        "type": "internal"
+        "type": "internal",
+        "path": "covers/sns.png"
       },
       "published": "0000-01-01",
       "author": "SNS Team",
       "contents": []
     }
   ],
-  "bookData": [],
+  "bookData": [
+    {
+      "id": "sns",
+      "data": []
+    }
+  ],
   "data": []
 }

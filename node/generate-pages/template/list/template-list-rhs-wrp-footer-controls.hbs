@@ -1,6 +1,15 @@
-<div class="ve-flex-vh-center mt-2 no-print">
-	{{#if isPrinterView}}
-	<button type="button" class="ve-btn ve-btn-default ve-btn-xs mr-2" id="btn-book">Printer View</button>
+<div class="ve-flex-vh-center ve-mt-2 ve-print__hidden{{#if isTableView}} ve-mobile-sm__flex-col{{/if}}">
+	{{#if isTableView}}
+	<div class="ve-flex-v-center ve-mr-2 ve-mobile-sm__mb-2 ve-mobile-sm__mr-0">
 	{{/if}}
+	{{#if isTableView}}	{{/if}}<button type="button" class="ve-btn ve-btn-default ve-btn-xs ve-mr-2" id="btn-book">Printer View</button>
+	{{#if isTableView}}
+		<button type="button" class="ve-btn ve-btn-default ve-btn-xs" id="btn-show-table" title="View and Download in Tabular Format">Table View</button>
+	{{/if}}
+	{{#if isTableView}}
+	</div>
+	{{/if}}
+	{{#unless isHideManager}}
 	{{> "btngroupManager" }}
+	{{/unless}}
 </div>

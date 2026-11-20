@@ -5,12 +5,12 @@ class VariantRulesSublistManager extends SublistManager {
 		return [
 			new SublistCellTemplate({
 				name: "Name",
-				css: "bold ve-col-10 pl-0 pr-1",
+				css: "ve-bold ve-col-10 ve-pl-0 ve-pr-1",
 				colStyle: "",
 			}),
 			new SublistCellTemplate({
 				name: "Type",
-				css: "ve-col-3 ve-text-center pl-1 pr-0",
+				css: "ve-col-3 ve-text-center ve-pl-1 ve-pr-0",
 				colStyle: "text-center",
 			}),
 		];
@@ -19,27 +19,29 @@ class VariantRulesSublistManager extends SublistManager {
 	pGetSublistItem (it, hash) {
 		const cellsText = [it.name, it.ruleType ? Parser.ruleTypeToFull(it.ruleType) : "\u2014"];
 
-		const $ele = $(`<div class="lst__row lst__row--sublist ve-flex-col">
-			<a href="#${hash}" class="lst__row-border lst__row-inner">
+		const ele = veT`<div class="ve-lst__row ve-lst__row--sublist ve-flex-col">
+			<a href="#${hash}" class="ve-lst__row-border ve-lst__row-inner">
 				${this.constructor._getRowCellsHtml({values: cellsText})}
 			</a>
-		</div>`)
-			.contextmenu(evt => this._handleSublistItemContextMenu(evt, listItem))
-			.click(evt => this._listSub.doSelect(listItem, evt));
+		</div>`
+			.vee.onn("contextmenu", evt => this._handleSublistItemContextMenu(evt, listItem))
+			.vee.onn("click", evt => this._listSub.doSelect(listItem, evt));
 
-		const listItem = new ListItem(
-			hash,
-			$ele,
-			it.name,
-			{
-				hash,
+		const listItem = new ListItem({
+			id: hash,
+			ele,
+			name: it.name,
+			values: {
+				...ListItem.getCommonValues(it),
 				ruleType: it.ruleType || "",
 			},
-			{
+			data: {
+				hash,
+				page: it.page,
 				entity: it,
 				mdRow: [...cellsText],
 			},
-		);
+		});
 		return listItem;
 	}
 }
@@ -53,6 +55,12 @@ class VariantRulesPage extends ListPage {
 			pageFilter,
 
 			dataProps: ["variantrule"],
+
+			bookViewOptions: {
+				nameSingular: "variant rule",
+				namePlural: "variant rules",
+				pageTitle: "Variant Rules Book View",
+			},
 		});
 	}
 
@@ -65,31 +73,33 @@ class VariantRulesPage extends ListPage {
 		}
 
 		const eleLi = document.createElement("div");
-		eleLi.className = `lst__row ve-flex-col ${isExcluded ? "lst__row--blocklisted" : ""}`;
+		eleLi.className = `ve-lst__row ve-flex-col ${isExcluded ? "ve-lst__row--blocklisted" : ""}`;
 
 		const source = Parser.sourceJsonToAbv(rule.source);
 		const hash = UrlUtil.autoEncodeHash(rule);
 
-		eleLi.innerHTML = `<a href="#${hash}" class="lst__row-border lst__row-inner">
-			<span class="bold ve-col-7 pl-0 pr-1">${rule.name}</span>
-			<span class="ve-col-3 px-1 ve-text-center">${rule.ruleType ? Parser.ruleTypeToFull(rule.ruleType) : "\u2014"}</span>
-			<span class="ve-col-2 ve-text-center ${Parser.sourceJsonToSourceClassname(rule.source)} pl-1 pr-0" title="${Parser.sourceJsonToFull(rule.source)}" ${Parser.sourceJsonToStyle(rule.source)}>${source}</span>
+		eleLi.innerHTML = `<a href="#${hash}" class="ve-lst__row-border ve-lst__row-inner">
+			<span class="ve-bold ve-col-7 ve-pl-0 ve-pr-1">${rule.name}</span>
+			<span class="ve-col-3 ve-px-1 ve-text-center">${rule.ruleType ? Parser.ruleTypeToFull(rule.ruleType) : "\u2014"}</span>
+			<span class="ve-col-2 ve-text-center ${Parser.sourceJsonToSourceClassname(rule.source)} ve-pl-1 ve-pr-0" title="${Parser.sourceJsonToFull(rule.source)}">${source}</span>
 		</a>`;
 
-		const listItem = new ListItem(
-			rlI,
-			eleLi,
-			rule.name,
-			{
-				hash,
-				search: searchStack.join(","),
+		const listItem = new ListItem({
+			id: rlI,
+			ele: eleLi,
+			name: rule.name,
+			values: {
 				source,
+				...ListItem.getCommonValues(rule),
+				search: searchStack.join(","),
 				ruleType: rule.ruleType || "",
 			},
-			{
+			data: {
+				hash,
+				page: rule.page,
 				isExcluded,
 			},
-		);
+		});
 
 		eleLi.addEventListener("click", (evt) => this._list.doSelect(listItem, evt));
 		eleLi.addEventListener("contextmenu", (evt) => this._openContextMenu(evt, this._list, listItem));
@@ -98,18 +108,38 @@ class VariantRulesPage extends ListPage {
 	}
 
 	_renderStats_doBuildStatsTab ({ent}) {
-		this._$pgContent.empty().append(RenderVariantRules.$getRenderedVariantRule(ent));
+		this._pgContent.vee.empty().vee.appends(RenderVariantRules.getRenderedVariantRule(ent));
+	}
+
+	async _pDoLoadSubHash_pTitleIndex_ ({sub}) {
+		if (!sub.length) return sub;
+
+		const ixHeader = UrlUtil.unpackSubHash(sub[0], true)?.header;
+		const eleTitle = veEs(`.ve-rd__h[data-title-index="${ixHeader}"]`);
+		if (eleTitle) eleTitle.scrollIntoView();
+
+		return sub;
+	}
+
+	async _pDoLoadSubHash_pTitleIndex ({sub}) {
+		try {
+			sub = await this._pDoLoadSubHash_pTitleIndex_({sub});
+		} catch (e) {
+			JqueryUtil.doToast({type: "danger", content: `Failed to set creature scaler state from URL! ${VeCt.STR_SEE_CONSOLE}`, isAutoHide: false});
+			setTimeout(() => { throw e; });
+		}
+		return sub;
 	}
 
 	async _pDoLoadSubHash ({sub, lockToken}) {
 		sub = await super._pDoLoadSubHash({sub, lockToken});
-
-		if (!sub.length) return;
-		const $title = $(`.rd__h[data-title-index="${sub[0]}"]`);
-		if ($title.length) $title[0].scrollIntoView();
+		sub = await this._pDoLoadSubHash_pTitleIndex({sub});
+		return sub;
 	}
 }
 
 const variantRulesPage = new VariantRulesPage();
 variantRulesPage.sublistManager = new VariantRulesSublistManager();
 window.addEventListener("load", () => variantRulesPage.pOnLoad());
+
+globalThis.dbg_page = variantRulesPage;

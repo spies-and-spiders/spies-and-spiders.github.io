@@ -1,22 +1,22 @@
-import fs from "fs";
 import "../js/parser.js";
 import "../js/utils.js";
 import * as utB from "./util-book-reference.js";
+import {writeJsonSync} from "5etools-utils/lib/UtilFs.js";
 
 const index = utB.UtilBookReference.getIndex(
 	{
-		name: "Quick Reference (2014)",
+		name: "Quick Reference",
 		id: "bookref-quick",
 		tag: "quickref",
 	},
 	{
-		name: "DM Reference",
+		name: "GM Reference",
 		id: "bookref-dmscreen",
 		tag: "dmref",
 	},
 );
 
-fs.writeFileSync("data/generated/bookref-dmscreen.json", CleanUtil.getCleanJson(index, {isMinify: true}), "utf8");
+writeJsonSync("data/generated/bookref-dmscreen.json", index, {isClean: true, isMinify: true});
 
 function flattenReferenceIndex (ref, skipHeaders) {
 	const outMeta = {
@@ -75,5 +75,5 @@ function flattenReferenceIndex (ref, skipHeaders) {
 	};
 }
 
-fs.writeFileSync("data/generated/bookref-dmscreen-index.json", JSON.stringify(flattenReferenceIndex(index.reference)), "utf8");
+writeJsonSync("data/generated/bookref-dmscreen-index.json", flattenReferenceIndex(index.reference), {isClean: true, isMinify: true});
 console.log("Updated GM Screen references.");

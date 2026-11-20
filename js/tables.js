@@ -5,6 +5,7 @@ class TablesSublistManager extends SublistManager {
 		super({
 			sublistListOptions: {
 				sortByInitial: "sortName",
+				fnSort: PageFilterTables.sortTables,
 			},
 		});
 	}
@@ -13,7 +14,7 @@ class TablesSublistManager extends SublistManager {
 		return [
 			new SublistCellTemplate({
 				name: "Name",
-				css: "bold ve-col-12 px-0",
+				css: "ve-bold ve-col-12 ve-px-0",
 				colStyle: "",
 			}),
 		];
@@ -22,26 +23,29 @@ class TablesSublistManager extends SublistManager {
 	pGetSublistItem (it, hash) {
 		const cellsText = [it.name];
 
-		const $ele = $(`<div class="lst__row lst__row--sublist ve-flex-col">
-			<a href="#${hash}" class="lst__row-border lst__row-inner" title="${it.name}">
+		const ele = veT`<div class="ve-lst__row ve-lst__row--sublist ve-flex-col">
+			<a href="#${hash}" class="ve-lst__row-border ve-lst__row-inner" title="${it.name}">
 				${this.constructor._getRowCellsHtml({values: cellsText})}
 			</a>
-		</div>`)
-			.contextmenu(evt => this._handleSublistItemContextMenu(evt, listItem))
-			.click(evt => this._listSub.doSelect(listItem, evt));
+		</div>`
+			.vee.onn("contextmenu", evt => this._handleSublistItemContextMenu(evt, listItem))
+			.vee.onn("click", evt => this._listSub.doSelect(listItem, evt));
 
-		const listItem = new ListItem(
-			hash,
-			$ele,
-			it.name,
-			{
-				hash,
+		const listItem = new ListItem({
+			id: hash,
+			ele,
+			name: it.name,
+			values: {
+				...ListItem.getCommonValues(it),
+				sortName: PageFilterTables.getSortName(it.name),
 			},
-			{
+			data: {
+				hash,
+				page: it.page,
 				entity: it,
 				mdRow: [...cellsText],
 			},
-		);
+		});
 		return listItem;
 	}
 }
@@ -56,9 +60,18 @@ class TablesPage extends ListPage {
 
 			listOptions: {
 				sortByInitial: "sortName",
+				fnSort: PageFilterTables.sortTables,
 			},
 
 			dataProps: ["table", "tableGroup"],
+
+			bookViewOptions: {
+				nameSingular: "table",
+				namePlural: "tables",
+				pageTitle: "Tables Book View",
+			},
+
+			isPreviewable: true,
 
 			listSyntax: new ListSyntaxTables({fnGetDataList: () => this._dataList}),
 		});
@@ -86,7 +99,10 @@ class TablesPage extends ListPage {
 
 				const headerRowMetas = Renderer.table.getHeaderRowMetas(tbl) || [];
 				const [headerRowMetasAsHeaders, ...headerRowMetasAsRows] = headerRowMetas
-					.map(headerRowMeta => headerRowMeta.map(it => Renderer.stripTags(it)));
+					.map(headerRowMeta => headerRowMeta.map(entCellHeader => {
+						if (entCellHeader.type === "cellHeader") return Renderer.stripTags(entCellHeader.entry);
+						return Renderer.stripTags(entCellHeader);
+					}));
 
 				return DataUtil.getCsv(
 					headerRowMetasAsHeaders,
@@ -106,32 +122,37 @@ class TablesPage extends ListPage {
 	getListItem (it, tbI, isExcluded) {
 		this._pageFilter.mutateAndAddToFilters(it, isExcluded);
 
-		const sortName = it.name.replace(/^\s*([\d,.]+)\s*gp/, (...m) => m[1].replace(Parser._numberCleanRegexp, "").padStart(9, "0"));
-
 		const eleLi = document.createElement("div");
-		eleLi.className = `lst__row ve-flex-col ${isExcluded ? "lst__row--blocklisted" : ""}`;
+		eleLi.className = `ve-lst__row ve-flex-col ${isExcluded ? "ve-lst__row--blocklisted" : ""}`;
 
 		const source = Parser.sourceJsonToAbv(it.source);
 		const hash = UrlUtil.autoEncodeHash(it);
 
-		eleLi.innerHTML = `<a href="#${hash}" class="lst__row-border lst__row-inner">
-			<span class="bold ve-col-10 pl-0 pr-1">${it.name}</span>
-			<span class="ve-col-2 ve-text-center ${Parser.sourceJsonToSourceClassname(it.source)} pl-1 pr-0" title="${Parser.sourceJsonToFull(it.source)}" ${Parser.sourceJsonToStyle(it.source)}>${source}</span>
-		</a>`;
+		eleLi.innerHTML = `<a href="#${hash}" class="ve-lst__row-border ve-lst__row-inner">
+			<span class="ve-col-0-5 ve-px-0 ve-flex-vh-center ve-lst__btn-toggle-expand ve-self-flex-stretch ve-no-select">[+]</span>
+			<span class="ve-bold ve-col-9-5 ve-px-1">${it.name}</span>
+			<span class="ve-col-2 ve-text-center ${Parser.sourceJsonToSourceClassname(it.source)} ve-pl-1 ve-pr-0" title="${Parser.sourceJsonToFull(it.source)}">${source}</span>
+		</a>
+		<div class="ve-flex ve-hidden ve-relative ve-accordion__wrp-preview">
+			<div class="ve-vr-0 ve-absolute ve-accordion__vr-preview"></div>
+			<div class="ve-flex-col ve-py-3 ve-ml-4 ve-accordion__wrp-preview-inner"></div>
+		</div>`;
 
-		const listItem = new ListItem(
-			tbI,
-			eleLi,
-			it.name,
-			{
-				hash,
-				sortName,
+		const listItem = new ListItem({
+			id: tbI,
+			ele: eleLi,
+			name: it.name,
+			values: {
 				source,
+				...ListItem.getCommonValues(it),
+				sortName: PageFilterTables.getSortName(it.name),
 			},
-			{
+			data: {
+				hash,
+				page: it.page,
 				isExcluded,
 			},
-		);
+		});
 
 		eleLi.addEventListener("click", (evt) => this._list.doSelect(listItem, evt));
 		eleLi.addEventListener("contextmenu", (evt) => this._openContextMenu(evt, this._list, listItem));
@@ -140,10 +161,12 @@ class TablesPage extends ListPage {
 	}
 
 	_renderStats_doBuildStatsTab ({ent}) {
-		this._$pgContent.empty().append(RenderTables.$getRenderedTable(ent));
+		this._pgContent.vee.empty().vee.appends(RenderTables.getRenderedTable(ent));
 	}
 }
 
 const tablesPage = new TablesPage();
 tablesPage.sublistManager = new TablesSublistManager();
 window.addEventListener("load", () => tablesPage.pOnLoad());
+
+globalThis.dbg_page = tablesPage;

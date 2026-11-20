@@ -1,18 +1,24 @@
 @use "../vars/vars";
 
-.accordion__ {
-	&wrp-preview {
-		font-size: 12.6px;
-		background: vars.$rgb-bg;
-	}
+@layer vetools {
+	.ve-accordion__ {
+		&wrp-preview {
+			font-size: 12.6px;
+			background: vars.$rgb-bg;
+		}
 
-	&vr-preview {
-		top: 7px;
-		left: 8px;
-		height: calc(100% - 14px);
-	}
+		&vr-preview {
+			top: 7px;
+			left: 8px;
+			height: calc(100% - 14px);
 
-	&wrp-preview-inner {
-		border-bottom: 1px solid vars.$rgb-border-grey--list-row;
+			&--col-1 {
+				left: calc(5.8333% + 5px);
+			}
+		}
+
+		&wrp-preview-inner {
+			border-bottom: 1px solid vars.$rgb-border-grey--list-row;
+		}
 	}
 }

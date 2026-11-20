@@ -55,8 +55,6 @@ contentwrapper
 conv
 Conv
 converterutils
-crcalc
-crcalculator
 croutput
 csegp
 ctrls

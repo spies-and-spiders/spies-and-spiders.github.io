@@ -1,62 +1,122 @@
-"use strict";
+import {List2SyntaxParser} from "./list2/list2-syntaxparser.js";
+import {ListSearchCache} from "./list2/list2-search-cache.js";
 
-class ListItem {
+class _ListHelpers {
+	static getSearchText (text) {
+		return CleanUtil.getCleanString(text)
+			.toAscii()
+			.toLowerCase()
+		;
+	}
+
+	static _RE_SEARCH_CLEAN_APOS = /'/g;
+
+	static getNormalizedText (text) {
+		return text
+			.replace(this._RE_SEARCH_CLEAN_APOS, "")
+		;
+	}
+}
+
+export class ListItem {
+	static getCommonValues (ent, {isCorpus = false} = {}) {
+		return {
+			...isCorpus ? {} : {
+				group: ent.group ? ent.group.join(",") : "",
+			},
+			alias: (ent.alias || []).map(it => `"${it}"`).join(","),
+		};
+	}
+
 	/**
-	 * @param ix External ID information (e.g. the location of the entry this ListItem represents in a list of entries)
-	 * @param ele An element, or jQuery element if the list is in jQuery mode.
-	 * @param name A name for this item.
-	 * @param values A dictionary of indexed values for this item.
-	 * @param [data] An optional dictionary of additional data to store with the item (not indexed).
+	 * @param opts
+	 * @param opts.id External ID information (e.g. the location of the entry this ListItem represents in a list of entries).
+	 * @param [opts.ele] An element.
+	 * @param [opts.fnGetEle] A function which creates an element on first access.
+	 * @param opts.name A name for this item.
+	 * @param [opts.values] A dictionary of indexed values for this item.
+	 * @param [opts.data] An optional dictionary of additional data to store with the item (not indexed).
 	 */
-	constructor (ix, ele, name, values, data) {
-		this.ix = ix;
-		this.ele = ele;
+	constructor ({id, ele, fnGetEle, name, values, data} = {}) {
+		if (id == null) throw new Error(`"id" must be provided!`);
+		if (name == null) throw new Error(`"name" must be provided!`);
+		if ((ele == null && fnGetEle == null) || (ele != null && fnGetEle != null)) throw new Error(`Exactly one of "ele" and "fnGetEle" must be provided!`);
+
+		this._id = id;
+		this._ele = ele ?? null;
+		this._fnGetEle = fnGetEle ?? null;
 		this.name = name;
 		this.values = values || {};
 		this.data = data || {};
 
-		this.searchText = null;
-		this.mutRegenSearchText();
+		this._searchText = undefined;
 
 		this._isSelected = false;
 	}
 
-	mutRegenSearchText () {
+	/* ----- */
+
+	getId () { return this._id; }
+
+	/* ----- */
+
+	get ele () {
+		if (this._fnGetEle) {
+			this._ele = this._fnGetEle();
+			this._fnGetEle = null;
+		}
+		return this._ele;
+	}
+
+	set ele (ele) {
+		this._ele = ele;
+		this._fnGetEle = null;
+	}
+
+	/* ----- */
+
+	_mutRegenSearchText () {
 		let searchText = `${this.name} - `;
 		for (const k in this.values) {
 			const v = this.values[k]; // unsafe for performance
 			if (!v) continue;
 			searchText += `${v} - `;
 		}
-		this.searchText = searchText.toAscii().toLowerCase();
+		this._searchText = _ListHelpers.getNormalizedText(_ListHelpers.getSearchText(searchText));
 	}
+
+	get searchText () {
+		if (this._searchText === undefined) this._mutRegenSearchText();
+		return this._searchText;
+	}
+
+	set searchText (searchText) {
+		this._searchText = searchText;
+	}
+
+	/* -------------------------------------------- */
 
 	set isSelected (val) {
 		if (this._isSelected === val) return;
 		this._isSelected = val;
 
-		if (this.ele instanceof $) {
-			if (this._isSelected) this.ele.addClass("list-multi-selected");
-			else this.ele.removeClass("list-multi-selected");
-		} else {
-			if (this._isSelected) this.ele.classList.add("list-multi-selected");
-			else this.ele.classList.remove("list-multi-selected");
-		}
+		if (this._isSelected) this.ele.classList.add("list-multi-selected");
+		else this.ele.classList.remove("list-multi-selected");
 	}
 
 	get isSelected () { return this._isSelected; }
 }
 
+globalThis.ListItem = ListItem;
+
 class _ListSearch {
 	#isInterrupted = false;
 
-	#term = null;
-	#fn = null;
+	#syntaxMetas = null;
 	#items = null;
 
-	constructor ({term, fn, items}) {
-		this.#term = term;
-		this.#fn = fn;
+	constructor ({syntaxMetas, items}) {
+		this.#syntaxMetas = syntaxMetas;
 		this.#items = [...items];
 	}
 
@@ -64,15 +124,27 @@ class _ListSearch {
 
 	async pRun () {
 		const out = [];
-		for (const item of this.#items) {
+		outer: for (const item of this.#items) {
 			if (this.#isInterrupted) break;
-			if (await this.#fn(item, this.#term)) out.push(item);
+
+			for (const syntaxMeta of this.#syntaxMetas) {
+				if (!(await syntaxMeta.syntax.fn(item, syntaxMeta.term)) !== syntaxMeta.isNegate) continue outer;
+			}
+
+			out.push(item);
 		}
 		return {isInterrupted: this.#isInterrupted, searchedItems: out};
 	}
 }
 
-class List {
+export class List {
+	static _DEFAULTS = {
+		searchTerm: "",
+		sortBy: "name",
+		sortDir: "asc",
+		fnFilter: null,
+	};
+
 	#activeSearch = null;
 
 	/**
@@ -80,9 +152,8 @@ class List {
 	 * @param [opts.fnSort] Sort function. Should accept `(a, b, o)` where `o` is an options object. Pass `null` to
 	 * disable sorting.
 	 * @param [opts.fnSearch] Search function. Should accept `(li, searchTerm)` where `li` is a list item.
-	 * @param [opts.$iptSearch] Search input.
-	 * @param opts.$wrpList List wrapper.
-	 * @param [opts.isUseJquery] If the list items are using jQuery elements. Significantly slower for large lists.
+	 * @param [opts.iptSearch] Search input.
+	 * @param opts.wrpList List wrapper.
 	 * @param [opts.sortByInitial] Initial sortBy.
 	 * @param [opts.sortDirInitial] Initial sortDir.
 	 * @param [opts.syntax] A dictionary of search syntax prefixes, each with an item "to display" checker function.
@@ -93,8 +164,8 @@ class List {
 	constructor (opts) {
 		if (opts.fnSearch && opts.isFuzzy) throw new Error(`The options "fnSearch" and "isFuzzy" are mutually incompatible!`);
 
-		this._$iptSearch = opts.$iptSearch;
-		this._$wrpList = opts.$wrpList;
+		this._iptSearch = opts.iptSearch ? veE(opts.iptSearch) : opts.iptSearch;
+		this._wrpList = opts.wrpList ? veE(opts.wrpList) : opts.wrpList;
 		this._fnSort = opts.fnSort === undefined ? SortUtil.listSort : opts.fnSort;
 		this._fnSearch = opts.fnSearch;
 		this._syntax = opts.syntax;
@@ -104,6 +175,7 @@ class List {
 
 		this._items = [];
 		this._eventHandlers = {};
+		this._listSearchCache = new ListSearchCache({fnIsMatch: (item, searchTerm) => this.constructor.isVisibleDefaultSearch(item, searchTerm)});
 
 		this._searchTerm = List._DEFAULTS.searchTerm;
 		this._sortBy = opts.sortByInitial || List._DEFAULTS.sortBy;
@@ -111,8 +183,6 @@ class List {
 		this._sortByInitial = this._sortBy;
 		this._sortDirInitial = this._sortDir;
 		this._fnFilter = null;
-		this._isUseJquery = opts.isUseJquery;
-
 		if (this._isFuzzy) this._initFuzzySearch();
 
 		this._searchedItems = [];
@@ -139,20 +209,32 @@ class List {
 
 	setFnSearch (fn) {
 		this._fnSearch = fn;
+		this._listSearchCache.doReset();
 		this._isDirty = true;
+	}
+
+	getScrollWrpInfo () {
+		return {
+			scrollTop: this._wrpList.scrollTop,
+			height: this._wrpList.getBoundingClientRect().height,
+		};
+	}
+
+	setScrollWrpTop (val) {
+		this._wrpList.scrollTop = val;
 	}
 
 	init ({isLazySearch = false} = {}) {
 		if (this._isInit) return;
 
 		// This should only be run after all the elements are ready from page load
-		if (this._$iptSearch) {
+		if (this._iptSearch) {
 			UiUtil.bindTypingEnd({
-				$ipt: this._$iptSearch,
-				fnKeyup: () => this.search(this._$iptSearch.val()),
+				ipt: this._iptSearch,
+				fnKeyup: () => this.search(this._iptSearch.vee.val()),
 				timeout: isLazySearch ? UiUtil.TYPE_TIMEOUT_LAZY_MS : UiUtil.TYPE_TIMEOUT_MS,
 			});
-			this._searchTerm = List.getCleanSearchTerm(this._$iptSearch.val());
+			this._searchTerm = List.getCleanSearchTerm(this._iptSearch.vee.val());
 			this._init_bindKeydowns();
 
 			// region Help text
@@ -163,7 +245,7 @@ class List {
 					.map(({help}) => help),
 			];
 
-			if (helpText.length) this._$iptSearch.title(helpText.join(" "));
+			if (helpText.length) this._iptSearch.vee.tooltip(helpText.join(" "));
 			// endregion
 		}
 
@@ -172,8 +254,8 @@ class List {
 	}
 
 	_init_bindKeydowns () {
-		this._$iptSearch
-			.on("keydown", evt => {
+		this._iptSearch
+			.vee.onn("keydown", evt => {
 				// Avoid handling the same event multiple times, if there are multiple lists bound to one input
 				if (evt._List__isHandled) return;
 
@@ -187,19 +269,19 @@ class List {
 	_handleKeydown_escape (evt) {
 		evt._List__isHandled = true;
 
-		if (!this._$iptSearch.val()) {
-			$(document.activeElement).blur();
+		if (!this._iptSearch.vee.val()) {
+			document.activeElement?.blur();
 			return;
 		}
 
-		this._$iptSearch.val("");
+		this._iptSearch.vee.val("");
 		this.search("");
 	}
 
 	_handleKeydown_enter (evt) {
 		if (this._isSkipSearchKeybindingEnter) return;
 
-		if (IS_VTT) return;
+		if (globalThis.IS_VTT) return;
 		if (!EventUtil.noModifierKeys(evt)) return;
 
 		const firstVisibleItem = this.visibleItems[0];
@@ -207,17 +289,17 @@ class List {
 
 		evt._List__isHandled = true;
 
-		$(firstVisibleItem.ele).click();
-		if (firstVisibleItem.values.hash) window.location.hash = firstVisibleItem.values.hash;
+		veE(firstVisibleItem.ele).vee.trigger("click");
+		if (firstVisibleItem.data.hash) window.location.hash = firstVisibleItem.data.hash;
 	}
 
 	_initFuzzySearch () {
 		elasticlunr.clearStopWords();
 		this._fuzzySearch = elasticlunr(function () {
 			this.addField("s");
-			this.setRef("ix");
+			this.setRef("id");
 		});
-		SearchUtil.removeStemmer(this._fuzzySearch);
+		SearchUtil.initSearchIndex(this._fuzzySearch);
 	}
 
 	update ({isForce = false} = {}) {
@@ -241,63 +323,129 @@ class List {
 	_doSearch_doSearchTerm () {
 		if (this._doSearch_doSearchTerm_preSyntax()) return;
 
-		const matchingSyntax = this._doSearch_getMatchingSyntax();
-		if (matchingSyntax) {
-			if (this._doSearch_doSearchTerm_syntax(matchingSyntax)) return;
-
-			// For async syntax, blank the list for now, and allow the search to "resume" later
-			this._searchedItems = [];
-			this._doSearch_doSearchTerm_pSyntax(matchingSyntax)
-				.then(isContinue => {
-					if (!isContinue) return;
-					this._doSearch_doPostSearchTerm();
-				});
-
+		const matchingSyntaxInfo = this._doSearch_getMatchingSyntaxInfo();
+		if (!matchingSyntaxInfo?.syntaxMetas.length) {
+			this._doSearch_doSearchTerm_basic({searchTerm: matchingSyntaxInfo?.searchTerm});
 			return;
 		}
 
-		if (this._isFuzzy) return this._searchedItems = this._doSearch_doSearchTerm_fuzzy();
+		this._listSearchCache.doReset();
+		if (this._doSearch_doSearchTerm_syntax(matchingSyntaxInfo.syntaxMetas)) {
+			this._doSearch_doSearchTerm_basic({searchedItems: this._searchedItems, searchTerm: matchingSyntaxInfo.searchTerm});
+			return;
+		}
 
-		if (this._fnSearch) return this._searchedItems = this._items.filter(it => this._fnSearch(it, this._searchTerm));
-
-		this._searchedItems = this._items.filter(it => this.constructor.isVisibleDefaultSearch(it, this._searchTerm));
+		// For async syntax, blank the list for now, and allow the search to "resume" later
+		this._searchedItems = [];
+		this._doSearch_doSearchTerm_pSyntax(matchingSyntaxInfo.syntaxMetas)
+			.then(isContinue => {
+				if (!isContinue) return;
+				this._doSearch_doSearchTerm_basic({searchedItems: this._searchedItems, searchTerm: matchingSyntaxInfo.searchTerm});
+				this._doSearch_doPostSearchTerm();
+			});
 	}
 
 	_doSearch_doSearchTerm_preSyntax () {
 		if (!this._searchTerm && !this._fnSearch) {
-			this._searchedItems = [...this._items];
+			this._searchedItems = this._isFuzzy
+				? this._items.slice(0)
+				: this._listSearchCache.setItems({items: this._items});
 			return true;
 		}
 	}
 
-	_doSearch_getMatchingSyntax () {
-		const [command, term] = this._searchTerm.split(/^([a-z]+):/).filter(Boolean);
-		if (!command || !term || !this._syntax?.[command]) return null;
-		return {term: this._doSearch_getSyntaxSearchTerm(term), syntax: this._syntax[command]};
+	/**
+	 * @param {?Array} searchedItems
+	 * @param {?string} searchTerm
+	 */
+	_doSearch_doSearchTerm_basic ({searchedItems = null, searchTerm = null} = {}) {
+		if (this._isFuzzy) {
+			if (searchedItems) throw new Error(`Using list syntax with fuzzy search is unsupported.`);
+			return this._searchedItems = this._doSearch_doSearchTerm_fuzzy({searchTerm});
+		}
+
+		searchTerm ??= this._searchTerm;
+
+		if (this._fnSearch) return this._searchedItems = (searchedItems || this._items).filter(it => this._fnSearch(it, searchTerm));
+
+		const searchTermNormalized = _ListHelpers.getNormalizedText(searchTerm);
+		if (searchedItems) {
+			this._listSearchCache.doReset();
+			return this._searchedItems = searchedItems.filter(it => this.constructor.isVisibleDefaultSearch(it, searchTermNormalized));
+		}
+
+		this._searchedItems = this._listSearchCache.getMatchingItems({items: this._items, searchTerm: searchTermNormalized});
 	}
+
+	_doSearch_getMatchingSyntaxInfo () {
+		if (!this._syntax) return null;
+
+		const {syntaxMetasRaw, searchTerm} = List2SyntaxParser.getParsedSyntaxInfo({searchTerm: this._searchTerm, reCommand: this._syntax.reCommand});
+
+		return {
+			syntaxMetas: syntaxMetasRaw
+				.map(({command, term}) => {
+					const {term: termProc, isNegate} = this._doSearch_getSyntaxSearchTerm(term);
+					return {
+						term: termProc,
+						isNegate,
+						syntax: this._syntax[command],
+					};
+				}),
+			searchTerm: searchTerm
+				.trim()
+				.replace(/\s+/g, " "),
+		};
+	}
+
+	static _RE_SYNTAX_SEARCH_TERM_QUOTES = /^(?<isNegate>!)?"(?<term>.*)"$/;
+	static _RE_SYNTAX_SEARCH_TERM_REGEX = /^(?<isNegate>!)?\/(?<term>.*)\/$/;
 
 	_doSearch_getSyntaxSearchTerm (term) {
-		if (!term.startsWith("/") || !term.endsWith("/")) return term;
-		try {
-			return new RegExp(term.slice(1, -1));
-		} catch (ignored) {
-			return term;
+		const mQuote = this.constructor._RE_SYNTAX_SEARCH_TERM_QUOTES.exec(term);
+		if (mQuote) {
+			const {isNegate, term: quoteTerm} = mQuote.groups;
+
+			return {term: quoteTerm.trim(), isNegate: !!isNegate};
 		}
+
+		const mRegex = this.constructor._RE_SYNTAX_SEARCH_TERM_REGEX.exec(term);
+		if (mRegex) {
+			const {isNegate, term: reTerm} = mRegex.groups;
+
+			let re;
+			try {
+				re = new RegExp(reTerm);
+			} catch (ignored) {
+				return {term, isNegate: !!isNegate};
+			}
+
+			return {term: re, isNegate: !!isNegate};
+		}
+
+		const isNegate = term.startsWith("!");
+		term = isNegate ? term.slice(1) : term;
+		return {term, isNegate};
 	}
 
-	_doSearch_doSearchTerm_syntax ({term, syntax: {fn, isAsync}}) {
-		if (isAsync) return false;
+	_doSearch_doSearchTerm_syntax (syntaxMetas) {
+		if (syntaxMetas.some(syntaxMeta => syntaxMeta.syntax.isAsync)) return false;
 
-		this._searchedItems = this._items.filter(it => fn(it, term));
+		this._searchedItems = this._items;
+		syntaxMetas
+			.forEach(syntaxMeta => {
+				this._searchedItems = this._searchedItems
+					.filter(it => !syntaxMeta.syntax.fn(it, syntaxMeta.term) === syntaxMeta.isNegate);
+			});
+
 		return true;
 	}
 
-	async _doSearch_doSearchTerm_pSyntax ({term, syntax: {fn, isAsync}}) {
-		if (!isAsync) return false;
+	async _doSearch_doSearchTerm_pSyntax (syntaxMetas) {
+		if (syntaxMetas.every(syntaxMeta => !syntaxMeta.syntax.isAsync)) return false;
 
 		this.#activeSearch = new _ListSearch({
-			term,
-			fn,
+			syntaxMetas,
 			items: this._items,
 		});
 		const {isInterrupted, searchedItems} = await this.#activeSearch.pRun();
@@ -309,10 +457,13 @@ class List {
 
 	static isVisibleDefaultSearch (li, searchTerm) { return li.searchText.includes(searchTerm); }
 
-	_doSearch_doSearchTerm_fuzzy () {
+	/**
+	 * @param {?string} searchTerm
+	 */
+	_doSearch_doSearchTerm_fuzzy ({searchTerm = null} = {}) {
 		const results = this._fuzzySearch
 			.search(
-				this._searchTerm,
+				searchTerm ?? this._searchTerm,
 				{
 					fields: {
 						s: {expand: true},
@@ -322,7 +473,7 @@ class List {
 				},
 			);
 
-		return results.map(res => this._items[res.doc.ix]);
+		return results.map(res => this._items[res.doc.id]);
 	}
 
 	_doSearch_doPostSearchTerm () {
@@ -369,15 +520,10 @@ class List {
 	_doRender () {
 		const len = this._sortedItems.length;
 
-		if (this._isUseJquery) {
-			this._$wrpList.children().detach();
-			for (let i = 0; i < len; ++i) this._$wrpList.append(this._sortedItems[i].ele);
-		} else {
-			this._$wrpList[0].innerHTML = "";
-			const frag = document.createDocumentFragment();
-			for (let i = 0; i < len; ++i) frag.appendChild(this._sortedItems[i].ele);
-			this._$wrpList[0].appendChild(frag);
-		}
+		this._wrpList.innerHTML = "";
+		const frag = document.createDocumentFragment();
+		for (let i = 0; i < len; ++i) frag.appendChild(this._sortedItems[i].ele);
+		this._wrpList.appendChild(frag);
 
 		this._isDirty = false;
 		this._trigger("updated");
@@ -393,6 +539,7 @@ class List {
 	filter (fnFilter) {
 		if (this._fnFilter === fnFilter) return;
 		this._fnFilter = fnFilter;
+		if (!this._isInit) return;
 		this._doFilter();
 	}
 
@@ -417,40 +564,54 @@ class List {
 	addItem (listItem) {
 		this._isDirty = true;
 		this._items.push(listItem);
+		this._listSearchCache.doReset();
 
-		if (this._isFuzzy) this._fuzzySearch.addDoc({ix: listItem.ix, s: listItem.searchText});
+		if (this._isFuzzy) this._fuzzySearch.addDoc({id: listItem.getId(), s: listItem.searchText});
 	}
 
 	removeItem (listItem) {
 		const ixItem = this._items.indexOf(listItem);
-		return this.removeItemByIndex(listItem.ix, ixItem);
+		return this.removeItemById(listItem.getId(), ixItem);
 	}
 
-	removeItemByIndex (ix, ixItem) {
-		ixItem = ixItem ?? this._items.findIndex(it => it.ix === ix);
+	removeItemById (id, ixItem) {
+		ixItem = ixItem ?? this._items.findIndex(it => it.getId() === id);
 		if (!~ixItem) return;
 
 		this._isDirty = true;
 		const removed = this._items.splice(ixItem, 1);
+		this._listSearchCache.doReset();
 
-		if (this._isFuzzy) this._fuzzySearch.removeDocByRef(ix);
+		if (this._isFuzzy) this._fuzzySearch.removeDocByRef(id);
 
 		return removed[0];
 	}
 
 	removeItemBy (valueName, value) {
 		const ixItem = this._items.findIndex(it => it.values[valueName] === value);
-		return this.removeItemByIndex(ixItem, ixItem);
+		return this.removeItemById(this._items[ixItem]?.getId(), ixItem);
 	}
 
 	removeItemByData (dataName, value) {
 		const ixItem = this._items.findIndex(it => it.data[dataName] === value);
-		return this.removeItemByIndex(ixItem, ixItem);
+		return this.removeItemById(this._items[ixItem]?.getId(), ixItem);
+	}
+
+	removeItemsByFilter (fnFilter) {
+		const [itemsToRemove, itemsNxt] = this._items.segregate((li, ix) => fnFilter(li, ix));
+		if (itemsNxt.length === this._items.length) return;
+
+		this._isDirty = true;
+		this._items = itemsNxt;
+		this._listSearchCache.doReset();
+
+		if (this._isFuzzy) itemsToRemove.forEach(li => this._fuzzySearch.removeDocByRef(li.getId()));
 	}
 
 	removeAllItems () {
 		this._isDirty = true;
 		this._items = [];
+		this._listSearchCache.doReset();
 		if (this._isFuzzy) this._initFuzzySearch();
 	}
 
@@ -482,7 +643,7 @@ class List {
 	 * @param [opts.fnBindListeners] Function which binds event listeners to the list.
 	 */
 	doAbsorbItems (dataArr, opts) {
-		const children = [...this._$wrpList[0].children];
+		const children = [...this._wrpList.children];
 
 		const len = children.length;
 		if (len !== dataArr.length) throw new Error(`Data source length and list element length did not match!`);
@@ -490,13 +651,13 @@ class List {
 		for (let i = 0; i < len; ++i) {
 			const node = children[i];
 			const dataItem = dataArr[i];
-			const listItem = new ListItem(
-				i,
-				node,
-				opts.fnGetName(dataItem),
-				opts.fnGetValues ? opts.fnGetValues(dataItem) : {},
-				{},
-			);
+			const listItem = new ListItem({
+				id: i,
+				ele: node,
+				name: opts.fnGetName(dataItem),
+				values: opts.fnGetValues ? opts.fnGetValues(dataItem) : {},
+				data: {},
+			});
 			if (opts.fnGetData) listItem.data = opts.fnGetData(listItem, dataItem);
 			if (opts.fnBindListeners) opts.fnBindListeners(listItem, dataItem);
 			this.addItem(listItem);
@@ -607,16 +768,11 @@ class List {
 	}
 	// endregion
 
+	static _RE_SEARCH_CLEAN_WHITESPACE = /\s\s+/g;
+
 	static getCleanSearchTerm (str) {
-		return (str || "").toAscii().trim().toLowerCase().split(/\s+/g).join(" ");
+		return _ListHelpers.getSearchText(str || "").trim().replace(this._RE_SEARCH_CLEAN_WHITESPACE, " ");
 	}
 }
-List._DEFAULTS = {
-	searchTerm: "",
-	sortBy: "name",
-	sortDir: "asc",
-	fnFilter: null,
-};
 
 globalThis.List = List;
-globalThis.ListItem = ListItem;

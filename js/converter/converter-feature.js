@@ -4,6 +4,13 @@ import {AlignmentUtil} from "./converterutils-utils-alignment.js";
 import {ConverterUtils} from "./converterutils-utils.js";
 
 export class ConverterFeatureBase extends ConverterBase {
+	static _RE_FEAT_TYPE = new RegExp(`\\b(?<category>${Object.values(Parser.FEAT_CATEGORY_TO_FULL).join("|")})\\b`);
+
+	static _STR_RE_ABILITY = Object.values(Parser.ATB_ABV_TO_FULL).join("|");
+	static _RE_PREREQUISITE_ABILITY_SCORE = new RegExp(`^(?<abilities>(?:${this._STR_RE_ABILITY})(?:,? (?:(?:and|or) )?(?:${this._STR_RE_ABILITY}))*) (?:score of )?(?<score>\\d+)(?:\\+| or higher)[,;]?(?=$| )`, "i");
+
+	/* -------------------------------------------- */
+
 	static _doParse_getInitialState (inText, options) {
 		if (!inText || !inText.trim()) {
 			options.cbWarning("No input!");
@@ -23,6 +30,32 @@ export class ConverterFeatureBase extends ConverterBase {
 	}
 
 	/* -------------------------------------------- */
+
+	static _RE_PREREQUISITE_TOOLS = null;
+	static _RE_PREREQUISITE_TOOL_NAME = null;
+
+	static _doPostProcess_setPrerequisites_getPrerequisiteToolMeta (text) {
+		if (!this._RE_PREREQUISITE_TOOLS) {
+			const toolNames = Renderer.generic.FEATURE__TOOLS_ALL
+				.map(name => name.escapeRegexp())
+				.sort((a, b) => b.length - a.length)
+				.join("|");
+			this._RE_PREREQUISITE_TOOLS = new RegExp(`^Proficiency with (?<tools>(?:${toolNames})(?:,? (?:(?:and|or) )?(?:${toolNames}))*)[,;]?(?=$| )`, "i");
+			this._RE_PREREQUISITE_TOOL_NAME = new RegExp(toolNames, "gi");
+		}
+
+		const m = this._RE_PREREQUISITE_TOOLS.exec(text);
+		if (!m) return null;
+
+		return {
+			strMatched: m[0],
+			tools: m.groups.tools.match(this._RE_PREREQUISITE_TOOL_NAME).map(name => name.toLowerCase()).unique(),
+			isAnd: /\band\b/i.test(m.groups.tools),
+			isOr: /\bor\b/i.test(m.groups.tools),
+		};
+	}
+
+	/* ----- */
 
 	static _doPostProcess_setPrerequisites (state, options) {
 		const [entsPrereq, entsRest] = state.entity.entries.segregate(ent => ent.name === "Prerequisite:");
@@ -46,7 +79,7 @@ export class ConverterFeatureBase extends ConverterBase {
 		const tokens = this._getPrerequisiteTokens(entPrereqString);
 
 		// Collect ability score requirements and cross-product them with other prerequisites later
-		const preAbilsMeta = {abils: [], score: null};
+		const preAbilsMeta = {abils: [], score: null, isAnd: false};
 
 		let tkStack = [];
 
@@ -60,24 +93,29 @@ export class ConverterFeatureBase extends ConverterBase {
 			tkStack = [];
 		};
 
-		const reAbils = /^(?:Strength|Dexterity|Constitution|Intelligence|Wisdom|Charisma),?/;
+		const reAbils = new RegExp(`^(?:${this._STR_RE_ABILITY})\\b`, "i");
 
 		for (let i = 0; i < tokens.length; ++i) {
 			const tk = tokens[i];
-			const tkNxt = tokens[i + 1];
 
-			// If we're in a list of abilities, greedily take tokens
-			if (reAbils.test(tk)) {
-				tkStack.push(tk);
-
-				let j = i + 1;
-				for (; j < tokens.length; ++j) {
-					const tkNxt = tokens[j];
-					if (!reAbils.test(tk) && tkNxt !== "or") break;
-					tkStack.push(tkNxt);
+			// Handle tools early, as no consistent "... tools" form exists
+			if (/^proficiency$/i.test(tk)) {
+				const toolMeta = this._doPostProcess_setPrerequisites_getPrerequisiteToolMeta(tokens.slice(i).join(" "));
+				if (toolMeta) {
+					tkStack.push(toolMeta.strMatched.replace(/,(?= )/g, ""));
+					i += ConverterUtils.getTokens(toolMeta.strMatched).length - 1;
+					continue;
 				}
-				if (j > i + 1) i = j;
-				continue;
+			}
+
+			if (reAbils.test(tk)) {
+				const mAbilities = this._RE_PREREQUISITE_ABILITY_SCORE.exec(tokens.slice(i).join(" "));
+
+				if (mAbilities) {
+					tkStack.push(mAbilities[0].replace(/,(?= )/g, ""));
+					i += ConverterUtils.getTokens(mAbilities[0]).length - 1;
+					continue;
+				}
 			}
 
 			if (tk !== "or") {
@@ -89,34 +127,26 @@ export class ConverterFeatureBase extends ConverterBase {
 		}
 		handleStack();
 
-		if (
-			(preAbilsMeta.score && !preAbilsMeta.abils.length)
-			|| (!preAbilsMeta.score && preAbilsMeta.abils.length)
-		) {
-			return options.cbWarning(`(${state.entity.name}) Prerequisite require manual conversion`);
-		}
-
 		const presDeduped = [];
 		pres.forEach(pre => {
 			if (presDeduped.some(it => CollectionUtil.deepEquals(pre, it))) return;
 			presDeduped.push(pre);
 		});
 
+		const preAbils = preAbilsMeta.isAnd
+			? [Object.fromEntries(preAbilsMeta.abils.map(abv => [abv, preAbilsMeta.score]))]
+			: preAbilsMeta.abils.map(abv => ({[abv]: preAbilsMeta.score}));
+
 		const presOut = [];
-		if (!preAbilsMeta.abils.length) presOut.push(...presDeduped);
+		if (!preAbils.length) presOut.push(...presDeduped);
 		else if (!presDeduped.length) {
-			presOut.push(
-				...preAbilsMeta.abils
-					.map(abv => ({
-						"ability": [{[abv]: preAbilsMeta.score}],
-					})),
-			);
+			presOut.push(...preAbils.map(ability => ({ability: [ability]})));
 		} else {
-			preAbilsMeta.abils
-				.forEach(abv => {
+			preAbils
+				.forEach(ability => {
 					MiscUtil.copyFast(presDeduped)
 						.forEach(cpy => {
-							cpy.ability = [{[abv]: preAbilsMeta.score}];
+							cpy.ability = [ability];
 							presOut.push(cpy);
 						});
 				});
@@ -144,11 +174,30 @@ export class ConverterFeatureBase extends ConverterBase {
 		parts.forEach(pt => {
 			pt = pt.trim().replace(/[,;]\s*$/, "");
 
+			if (/^(?:Tool Proficiency|Proficiency with a Tool)$/i.test(pt)) {
+				pre.proficiency ||= [];
+				pre.proficiency.push({tool: true});
+				return;
+			}
+
+			const toolMeta = this._doPostProcess_setPrerequisites_getPrerequisiteToolMeta(pt);
+			if (toolMeta?.strMatched.length === pt.length && !(toolMeta.isAnd && toolMeta.isOr)) {
+				pre.proficiency ||= [];
+				pre.proficiency.push(
+					...(
+						toolMeta.isAnd
+							? [{tool: toolMeta.tools}]
+							: toolMeta.tools.map(tool => ({tool: [tool]}))
+					),
+				);
+				return;
+			}
+
 			if (/^the ability to cast at least one spell$/i.test(pt)) return pre.spellcasting = true;
 
 			if (/^spellcasting$/i.test(pt)) return pre.spellcasting2020 = true;
 			if (/^pact magic feature$/i.test(pt)) return pre.spellcasting2020 = true;
-			if (/^Spellcasting or Pact Magic Feature$/i.test(pt)) return pre.spellcasting2020 = true;
+			if (/^Spellcasting (?:Feature )?or Pact Magic Feature$/i.test(pt)) return pre.spellcasting2020 = true;
 
 			if (/^spellcasting feature$/i.test(pt)) return pre.spellcastingFeature = true;
 			if (/^spellcasting feature from a class that prepares spells$/i.test(pt)) return pre.spellcastingPrepared = true;
@@ -179,14 +228,16 @@ export class ConverterFeatureBase extends ConverterBase {
 			const mLevelAlt = /^Level (?<level>\d+)\+?$/i.exec(pt);
 			if (mLevelAlt) return pre.level = Number(mLevelAlt.groups.level);
 
-			const mAbilityPlain = new RegExp(`^(${Object.values(Parser.ATB_ABV_TO_FULL).join("|")})$`).exec(pt);
-			if (mAbilityPlain) {
-				preAbilsMeta.abils.push(mAbilityPlain[0].slice(0, 3).toLowerCase());
-				return;
-			}
+			const mAbility = this._RE_PREREQUISITE_ABILITY_SCORE.exec(pt);
+			if (mAbility?.[0].length === pt.length) {
+				const isAnd = /\band\b/i.test(mAbility.groups.abilities);
 
-			const mAbility = new RegExp(`^${Object.entries(Parser.ATB_ABV_TO_FULL).map(([abv, full]) => `(?:or )?(?<${abv}>${full})?(?:,? )?`).join("")} (?<score>\\d+)\\+$`).exec(pt);
-			if (mAbility) {
+				if (isAnd && /\bor\b/i.test(mAbility.groups.abilities)) {
+					pre.other = pt;
+					options.cbWarning(`(${state.entity.name}) Ability score prerequisite "${pt}" requires manual conversion`);
+					return;
+				}
+
 				// Expect only one ability score threshold (i.e. no "str 15 OR dex 13")
 				if (preAbilsMeta.score) {
 					options.cbWarning(`(${state.entity.name}) Ability score prerequisite "${pt}" requires manual conversion`);
@@ -194,14 +245,27 @@ export class ConverterFeatureBase extends ConverterBase {
 				}
 
 				preAbilsMeta.score = Number(mAbility.groups.score);
-				Parser.ABIL_ABVS
-					.filter(abv => mAbility.groups[abv])
-					.forEach(abv => {
-						if (preAbilsMeta.abils.includes(abv)) return options.cbWarning(`(${state.entity.name}) Ability score prerequisite (${abv}) requires manual conversion`);
-						preAbilsMeta.abils.push(abv);
-					});
+				preAbilsMeta.isAnd = isAnd;
+				preAbilsMeta.abils = mAbility.groups.abilities
+					.split(/(?:,?\s+(?:and\s+|or\s+)?)/i)
+					.map(ability => ability.slice(0, 3).toLowerCase())
+					.unique();
 
 				return;
+			}
+
+			const mExclusiveCategory = /^Can't Have Another (?<exclusiveType>.*?) Feat$/i.exec(pt);
+			if (mExclusiveCategory) {
+				const {exclusiveType} = mExclusiveCategory.groups;
+				switch (exclusiveType.toLowerCase().trim()) {
+					case "dragonmark": return pre.exclusiveFeatCategory = ["D"];
+					default: return pre.exclusiveFeatCategory = [exclusiveType];
+				}
+			}
+
+			const mFeatCategory = new RegExp(`^Any ${this._RE_FEAT_TYPE.source}(?: Feat)?`, "i").exec(pt);
+			if (mFeatCategory) {
+				return pre.featCategory = [Parser.featCategoryFromFull(mFeatCategory.groups.category)];
 			}
 
 			const mFeat = /^(?<name>.*?) feat$/i.exec(pt);
@@ -213,6 +277,12 @@ export class ConverterFeatureBase extends ConverterBase {
 				if (!ptSpecifier) return pre.feat.push(`${rawFeat}|${state.entity.source.toLowerCase()}`);
 
 				return pre.feat.push(`${ptName}|${state.entity.source.toLowerCase()}|${rawFeat}`);
+			}
+
+			const mSpecies = /^(?<name>.+?) species$/i.exec(pt);
+			if (mSpecies) {
+				pre.race ||= [];
+				return pre.race.push({name: mSpecies.groups.name.toLowerCase().trim()});
 			}
 
 			const mBackground = /^(?<name>.*?) background$/i.exec(pt);
@@ -255,6 +325,12 @@ export class ConverterFeatureBase extends ConverterBase {
 				return;
 			}
 
+			const mCulture = /^(?<name>.*) Culture$/.exec(pt);
+			if (mCulture) {
+				pre.culture = [mCulture.groups.name];
+				return;
+			}
+
 			pre.other = pt;
 			options.cbWarning(`(${state.entity.name}) Prerequisite "${pt}" requires manual conversion`);
 		});
@@ -266,10 +342,15 @@ export class ConverterFeatureBase extends ConverterBase {
 	static _PREREQUISITE_TRIE = null;
 
 	static _getPrerequisiteTokens (entPrereqString) {
+		// Pre-clean "Level" formatting
+		entPrereqString = entPrereqString
+			.replace(/(?<=\bLevel \d+\+?)( and )/g, "; ");
+
 		if (this._PREREQUISITE_TRIE == null) {
 			this._PREREQUISITE_TRIE = new Trie();
 			[
 				"Spellcasting or Pact Magic Feature",
+				"Spellcasting Feature or Pact Magic Feature",
 			]
 				.forEach(str => this._PREREQUISITE_TRIE.add(str));
 		}
@@ -338,8 +419,21 @@ export class ConverterFeatureBase extends ConverterBase {
 			const asi = {
 				[this._doRacePostProcess_ability_getAbilityName(mSimple.groups.ability)]: Number(mSimple.groups.amount),
 			};
-			if (mSimple.groups.max !== "20") asi.max = Number(mSimple.groups.max);
+			if (mSimple.groups.max && mSimple.groups.max !== "20") asi.max = Number(mSimple.groups.max);
 			entity.ability = [asi];
+			entity.entries = entity.entries.filter(ent => ent !== entry);
+			return true;
+		}
+
+		// "Your Wisdom and Charisma scores each increase by 1."
+		const mSimpleTwoSameAmount = new RegExp(`^Your (?<ability1>${Object.values(Parser.ATB_ABV_TO_FULL).join("|")}) and (?<ability2>${Object.values(Parser.ATB_ABV_TO_FULL).join("|")}) scores each increase by (?<amount>\\d+)\\.?$`, "i").exec(ent);
+		if (mSimpleTwoSameAmount) {
+			entity.ability = [
+				{
+					[this._doRacePostProcess_ability_getAbilityName(mSimpleTwoSameAmount.groups.ability1)]: Number(mSimpleTwoSameAmount.groups.amount),
+					[this._doRacePostProcess_ability_getAbilityName(mSimpleTwoSameAmount.groups.ability2)]: Number(mSimpleTwoSameAmount.groups.amount),
+				},
+			];
 			entity.entries = entity.entries.filter(ent => ent !== entry);
 			return true;
 		}
@@ -401,10 +495,48 @@ export class ConverterFeatureBase extends ConverterBase {
 							this._doRacePostProcess_ability_getAbilityName(mSimplePlusEitherSingle.groups.abilityC1),
 							this._doRacePostProcess_ability_getAbilityName(mSimplePlusEitherSingle.groups.abilityC2),
 						],
-						...(amountC === 1 ? {} : {amountC}),
+						...(amountC === 1 ? {} : {amount: amountC}),
 					},
 				},
 			];
+			entity.entries = entity.entries.filter(ent => ent !== entry);
+			return true;
+		}
+
+		// "Your Strength, Constitution, and Wisdom scores each increase by 1. Then, increase one ability score of your choice by 1."
+		const mThreePlusOne = new RegExp(`^Your (?<ability1>${Object.values(Parser.ATB_ABV_TO_FULL).join("|")}), (?<ability2>${Object.values(Parser.ATB_ABV_TO_FULL).join("|")}), and (?<ability3>${Object.values(Parser.ATB_ABV_TO_FULL).join("|")}) scores each increase by (?<amount1>\\d+)\\. Then, increase one ability score of your choice by (?<amount2>\\d+)\\.$`, "i").exec(ent);
+		if (mThreePlusOne) {
+			const abils = [
+				this._doRacePostProcess_ability_getAbilityName(mThreePlusOne.groups.ability1),
+				this._doRacePostProcess_ability_getAbilityName(mThreePlusOne.groups.ability2),
+				this._doRacePostProcess_ability_getAbilityName(mThreePlusOne.groups.ability3),
+			];
+			const amount1 = Number(mThreePlusOne.groups.amount1);
+			const amount2 = Number(mThreePlusOne.groups.amount2);
+			entity.ability = [
+				{
+					"choose": {
+						"weighted": {
+							"weights": [
+								amount1 + amount2,
+								amount2,
+								amount2,
+							],
+							"from": [...abils],
+						},
+					},
+				},
+				{
+					[this._doRacePostProcess_ability_getAbilityName(mThreePlusOne.groups.ability1)]: amount1,
+					[this._doRacePostProcess_ability_getAbilityName(mThreePlusOne.groups.ability2)]: amount1,
+					[this._doRacePostProcess_ability_getAbilityName(mThreePlusOne.groups.ability3)]: amount1,
+					"choose": {
+						"from": Parser.ABIL_ABVS.filter(abv => !abils.includes(abv)),
+						...(amount2 === 1 ? {} : {amount: amount2}),
+					},
+				},
+			];
+
 			entity.entries = entity.entries.filter(ent => ent !== entry);
 			return true;
 		}

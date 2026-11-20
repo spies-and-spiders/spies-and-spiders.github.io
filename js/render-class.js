@@ -14,7 +14,7 @@ class _RenderClassesSidebarImplBase {
 	/**
 	 * @abstract
 	 *
-	 * @return {HTMLElementModified}
+	 * @return {HTMLElementExtended}
 	 */
 	_getRenderedClassSidebar ({comp, cls, renderer}) {
 		throw new Error("Unimplemented!");
@@ -31,6 +31,7 @@ class _RenderClassesSidebarImplBase {
 	) {
 		return {
 			eleName: this._getCommonElements_name({comp, cls}),
+			eleNameSub: this._getCommonElements_nameSub({cls, renderer}),
 			eleAuthors: this._getCommonElements_authors({comp, cls}),
 
 			eleGroup: this._getCommonElements_group({comp, cls}),
@@ -39,7 +40,7 @@ class _RenderClassesSidebarImplBase {
 
 			eleMulticlassing: this._getCommonElements_multiclassing({comp, cls, renderer}),
 
-			eleReprinted: this._getCommonElements_reprinted({comp, cls, renderer}),
+			elePage: this._getCommonElements_page({comp, cls, renderer}),
 		};
 	}
 
@@ -50,26 +51,42 @@ class _RenderClassesSidebarImplBase {
 
 		const btnSendToFoundry = ExtensionUtil.ACTIVE ? Renderer.utils.getBtnSendToFoundryHtml({isMb: false}) : null;
 
-		const btnToggleSidebar = e_({
+		const btnToggleSidebar = veE({
 			tag: "div",
-			clazz: "cls-side__btn-toggle no-select",
-			text: `[\u2212]`,
+			clazz: "cls-side__btn-toggle ve-no-select",
+			txt: `[\u2212]`,
 			click: () => comp._state.isHideSidebar = !comp._state.isHideSidebar,
 		});
 		comp._addHookBase("isHideSidebar", () => {
-			btnToggleSidebar.txt(comp._state.isHideSidebar ? `[+]` : `[\u2212]`);
+			btnToggleSidebar.vee.txt(comp._state.isHideSidebar ? `[+]` : `[\u2212]`);
 		})();
 
-		return ee`<tr><th colspan="6">
-			<div class="split-v-center pr-1" ${dataPartSendToFoundry}>
+		return veT`<tr><th colspan="6" class="ve-text-left">
+			<div class="ve-split-v-center ve-pr-1" ${dataPartSendToFoundry}>
 				<div class="cls-side__name">${cls.name}</div>
 				<div class="ve-flex-v-center">${btnSendToFoundry}${btnToggleSidebar}</div>
 			</div>
 		</th></tr>`;
 	}
 
+	_getCommonElements_nameSub ({cls, renderer}) {
+		const ptReskins = (cls.reskinOf || [])
+			.map(it => renderer.render(`{@${it.tag ?? "class"} ${it.uid ?? it}}`))
+			.join(", ");
+
+		const ptMeta = [
+			cls.isHero ? `<span class="ve-help-subtle" title="Hero classes are typically available only to characters starting at level 3 or higher.">${renderer.render(`{@book Hero Class|WoW|1|Hero Classes}`)}</span>` : null,
+			ptReskins ? `Reskins: ${ptReskins}` : null,
+		]
+			.filter(Boolean)
+			.join(" • ");
+		if (!ptMeta) return null;
+
+		return veT`<tr><td colspan="6" class="ve-small ve-italic ve-pt-0">${ptMeta}</td></tr>`;
+	}
+
 	_getCommonElements_authors ({comp, cls}) {
-		return `${cls.authors ? `<tr><th colspan="6">By ${cls.authors.join(", ")}</th></tr>` : ""}`;
+		return `${cls.authors ? `<tr><th class="ve-text-left" colspan="6">By ${cls.authors.join(", ")}</th></tr>` : ""}`;
 	}
 
 	/* ----- */
@@ -77,7 +94,7 @@ class _RenderClassesSidebarImplBase {
 	_getCommonElements_group ({comp, cls}) {
 		if (!cls.classGroup) return null;
 
-		const ele = e_({
+		const ele = veE({
 			tag: "tr",
 			html: `<td colspan="6" class="cls-side__section">
 				<h5 class="cls-side__section-head">Groups</h5>
@@ -86,7 +103,7 @@ class _RenderClassesSidebarImplBase {
 		});
 
 		comp._addHookBase("isHideSidebar", () => {
-			ele.toggleVe(!comp._state.isHideSidebar);
+			ele.vee.toggle(!comp._state.isHideSidebar);
 		})();
 
 		return ele;
@@ -117,7 +134,7 @@ class _RenderClassesSidebarImplBase {
 	_getCommonElements_requirements ({comp, cls, renderer}) {
 		if (!cls.requirements) return null;
 
-		const ele = e_({
+		const ele = veE({
 			tag: "tr",
 			html: `<td colspan="6" class="cls-side__section">
 				<h5 class="cls-side__section-head">Prerequisites</h5>
@@ -126,7 +143,7 @@ class _RenderClassesSidebarImplBase {
 		});
 
 		comp._addHookBase("isHideSidebar", () => {
-			ele.toggleVe(!comp._state.isHideSidebar);
+			ele.vee.toggle(!comp._state.isHideSidebar);
 		})();
 
 		return ele;
@@ -192,7 +209,7 @@ class _RenderClassesSidebarImplBase {
 			? renderer.setFirstSection(true).render({type: "section", entries: mc.entries})
 			: "";
 
-		const ele = e_({
+		const ele = veE({
 			tag: "tr",
 			html: `<td class="cls-side__section" colspan="6">
 				<h5 class="cls-side__section-head">Multiclassing</h5>
@@ -205,7 +222,7 @@ class _RenderClassesSidebarImplBase {
 		});
 
 		comp._addHookBase("isHideSidebar", () => {
-			ele.toggleVe(!comp._state.isHideSidebar);
+			ele.vee.toggle(!comp._state.isHideSidebar);
 		})();
 
 		return ele;
@@ -213,18 +230,16 @@ class _RenderClassesSidebarImplBase {
 
 	/* ----- */
 
-	_getCommonElements_reprinted ({comp, cls, renderer}) {
-		if (!cls.reprintedAs) return null;
-
-		const ele = e_({
+	_getCommonElements_page ({comp, cls, renderer}) {
+		const ele = veE({
 			tag: "tr",
-			html: `<td class="cls-side__section pt-3" colspan="6">
-				<i>${Renderer.utils.getReprintedAsHtml(cls)}.</i>
+			html: `<td class="cls-side__section ve-pt-3" colspan="6">
+				${Renderer.utils.getSourceAndPageTrHtml(cls)}
 			</td>`,
 		});
 
 		comp._addHookBase("isHideSidebar", () => {
-			ele.toggleVe(!comp._state.isHideSidebar);
+			ele.vee.toggle(!comp._state.isHideSidebar);
 		})();
 
 		return ele;
@@ -257,7 +272,7 @@ class _RenderClassesSidebarImplClassic extends _RenderClassesSidebarImplBase {
 	_getElements_hp ({comp, cls, renderer}) {
 		if (!cls.hd) return null;
 
-		const ele = e_({
+		const ele = veE({
 			tag: "tr",
 			html: `<td colspan="6" class="cls-side__section">
 				<h5 class="cls-side__section-head">Hit Points</h5>
@@ -268,7 +283,7 @@ class _RenderClassesSidebarImplClassic extends _RenderClassesSidebarImplBase {
 		});
 
 		comp._addHookBase("isHideSidebar", () => {
-			ele.toggleVe(!comp._state.isHideSidebar);
+			ele.vee.toggle(!comp._state.isHideSidebar);
 		})();
 
 		return ele;
@@ -280,20 +295,20 @@ class _RenderClassesSidebarImplClassic extends _RenderClassesSidebarImplBase {
 		const renderedStartingEquipment = Renderer.class.getHtmlPtStartingEquipment(cls, {renderer, styleHint: this._style});
 		if (!renderedStartingEquipment) return null;
 
-		const eleDisp = e_({
+		const disp = veE({
 			tag: "div",
 			html: renderedStartingEquipment,
 		});
 
-		const ele = ee`<tr>
+		const ele = veT`<tr>
 			<td class="cls-side__section" colspan="6">
 				<h5 class="cls-side__section-head">Starting Equipment</h5>
-				<div>${eleDisp}</div>
+				<div>${disp}</div>
 			</td>
 		</tr>`;
 
 		comp._addHookBase("isHideSidebar", () => {
-			ele.toggleVe(!comp._state.isHideSidebar);
+			ele.vee.toggle(!comp._state.isHideSidebar);
 		})();
 
 		return ele;
@@ -304,7 +319,7 @@ class _RenderClassesSidebarImplClassic extends _RenderClassesSidebarImplBase {
 	_getElements_proficiencies ({comp, cls}) {
 		const {startingProficiencies: profs = {}} = cls;
 
-		const ele = e_({
+		const ele = veE({
 			tag: "tr",
 			html: `<td colspan="6" class="cls-side__section">
 				<h5 class="cls-side__section-head">Proficiencies</h5>
@@ -317,7 +332,7 @@ class _RenderClassesSidebarImplClassic extends _RenderClassesSidebarImplBase {
 		});
 
 		comp._addHookBase("isHideSidebar", () => {
-			ele.toggleVe(!comp._state.isHideSidebar);
+			ele.vee.toggle(!comp._state.isHideSidebar);
 		})();
 
 		return ele;
@@ -328,11 +343,12 @@ class _RenderClassesSidebarImplClassic extends _RenderClassesSidebarImplBase {
 	_getRenderedClassSidebar ({comp, cls, renderer}) {
 		const {
 			eleName,
+			eleNameSub,
 			eleAuthors,
 			eleGroup,
 			eleRequirements,
 			eleMulticlassing,
-			eleReprinted,
+			elePage,
 		} = this._getCommonElements({
 			comp,
 			cls,
@@ -348,10 +364,11 @@ class _RenderClassesSidebarImplClassic extends _RenderClassesSidebarImplBase {
 			renderer,
 		});
 
-		return ee`<table class="w-100 stats shadow-big cls__stats">
+		return veT`<table class="ve-w-100 ve-stats ve-shadow-big cls__stats">
 			<tr><th class="ve-tbl-border" colspan="6"></th></tr>
 
 			${eleName}
+			${eleNameSub}
 			${eleAuthors}
 
 			${eleGroup}
@@ -360,7 +377,7 @@ class _RenderClassesSidebarImplClassic extends _RenderClassesSidebarImplBase {
 			${eleProficiencies}
 			${eleStartingEquipment}
 			${eleMulticlassing}
-			${eleReprinted}
+			${elePage}
 
 			<tr><th class="ve-tbl-border" colspan="6"></th></tr>
 		</table>`;
@@ -398,9 +415,9 @@ class _RenderClassesSidebarImplOne extends _RenderClassesSidebarImplBase {
 			Renderer.class.getHtmlPtStartingEquipment(cls, {renderer, styleHint: this._style}),
 		]
 			.filter(Boolean)
-			.join(`<div class="py-2 w-100"></div>`);
+			.join(`<div class="ve-py-2 ve-w-100"></div>`);
 
-		const ele = e_({
+		const ele = veE({
 			tag: "tr",
 			html: `<td colspan="6" class="cls-side__section">
 				<h5 class="cls-side__section-head">Core Traits</h5>
@@ -409,7 +426,7 @@ class _RenderClassesSidebarImplOne extends _RenderClassesSidebarImplBase {
 		});
 
 		comp._addHookBase("isHideSidebar", () => {
-			ele.toggleVe(!comp._state.isHideSidebar);
+			ele.vee.toggle(!comp._state.isHideSidebar);
 		})();
 
 		return ele;
@@ -420,11 +437,12 @@ class _RenderClassesSidebarImplOne extends _RenderClassesSidebarImplBase {
 	_getRenderedClassSidebar ({comp, cls, renderer}) {
 		const {
 			eleName,
+			eleNameSub,
 			eleAuthors,
 			eleGroup,
 			eleRequirements,
 			eleMulticlassing,
-			eleReprinted,
+			elePage,
 		} = this._getCommonElements({
 			comp,
 			cls,
@@ -438,17 +456,18 @@ class _RenderClassesSidebarImplOne extends _RenderClassesSidebarImplBase {
 			renderer,
 		});
 
-		return ee`<table class="w-100 stats shadow-big cls__stats">
+		return veT`<table class="ve-w-100 ve-stats ve-shadow-big cls__stats">
 			<tr><th class="ve-tbl-border" colspan="6"></th></tr>
 
 			${eleName}
+			${eleNameSub}
 			${eleAuthors}
 
 			${eleGroup}
 			${eleRequirements}
 			${eleCoreTraits}
 			${eleMulticlassing}
-			${eleReprinted}
+			${elePage}
 
 			<tr><th class="ve-tbl-border" colspan="6"></th></tr>
 		</table>`;

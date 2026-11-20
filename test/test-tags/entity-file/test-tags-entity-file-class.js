@@ -1,0 +1,202 @@
+import {EntityFileHandlerBase} from "./test-tags-entity-file-base.js";
+import {WALKER} from "../test-tags-utils.js";
+
+export class EntityFileHandlerClass extends EntityFileHandlerBase {
+	_props = ["class", "subclass", "classFeature", "subclassFeature"];
+
+	static _FileState = class extends EntityFileHandlerBase._FileState {
+		walkerHandlersNestedRefsClass = null;
+		walkerHandlersNestedRefsSubclass = null;
+		walkerHandlersNestedRefsOptionalFeatures = null;
+		walkerHandlersNestedRefsFeats = null;
+	};
+
+	/* -------------------------------------------- */
+
+	static _UID_CLASS_GENERIC = null;
+
+	_doCheckClassRef ({logIdentOriginal, uidOriginal, filePath, name, source}) {
+		this.constructor._UID_CLASS_GENERIC ||= DataUtil.proxy.getUid("class", {name: VeCt.STR_GENERIC, source: VeCt.STR_GENERIC});
+
+		const uidClass = DataUtil.proxy.getUid("class", {name, source}, {isMaintainCase: true});
+		if (uidClass.toLowerCase() === this.constructor._UID_CLASS_GENERIC) return;
+
+		const urlClass = this._tagTestUrlLookup.getEncodedProxy(uidClass, "class");
+		if (!this._tagTestUrlLookup.hasUrl(urlClass)) this._addMessage(`Missing class in ${logIdentOriginal}: ${uidOriginal} in file ${filePath} class part, "${uidClass}"\n${this._tagTestUrlLookup.getLogPtSimilarUrls({url: urlClass})}`);
+	};
+
+	_doCheckSubclassRef ({logIdentOriginal, uidOriginal, filePath, shortName, source, className, classSource}) {
+		const uidSubclass = DataUtil.proxy.getUid("subclass", {name: shortName, shortName, source, className, classSource}, {isMaintainCase: true});
+		const urlSubclass = this._tagTestUrlLookup.getEncodedProxy(uidSubclass, "subclass", "subclass");
+		if (!this._tagTestUrlLookup.hasUrl(urlSubclass)) this._addMessage(`Missing subclass in ${logIdentOriginal}: ${uidOriginal} in file ${filePath} subclass part, "${uidSubclass}"\n${this._tagTestUrlLookup.getLogPtSimilarUrls({url: urlSubclass})}`);
+	};
+
+	_doCheckFeatureRef ({logIdentOriginal, uidOriginal, filePath, prop}) {
+		const url = this._tagTestUrlLookup.getEncodedProxy(uidOriginal, prop);
+		if (!this._tagTestUrlLookup.hasUrl(url)) this._addMessage(`Missing ${prop} in ${logIdentOriginal}: ${uidOriginal} in file ${filePath} (evaluates to "${url}")\n${this._tagTestUrlLookup.getLogPtSimilarUrls({url})}`);
+	}
+
+	/* -------------------------------------------- */
+
+	_pHandleFile_preProcess_initWalkerHandlers ({filePath, contents, fileState}) {
+		fileState.walkerHandlersNestedRefsClass = {
+			array: (arr) => {
+				arr.forEach(it => {
+					if (it.type !== "refClassFeature") return;
+
+					const uid = it.classFeature || it;
+					const unpacked = DataUtil.class.unpackUidClassFeature(uid, {isLower: true});
+					this._doCheckFeatureRef({logIdentOriginal: `"refClassFeature"`, uidOriginal: uid, filePath: fileState.filePath, prop: "classFeature"});
+
+					this._doCheckClassRef({
+						logIdentOriginal: `"refClassFeature"`,
+						uidOriginal: uid,
+						filePath: fileState.filePath,
+						name: unpacked.className,
+						source: unpacked.classSource,
+					});
+				});
+				return arr;
+			},
+		};
+
+		fileState.walkerHandlersNestedRefsSubclass = {
+			array: (arr) => {
+				arr.forEach(it => {
+					if (it.type !== "refSubclassFeature") return;
+
+					const uid = it.subclassFeature || it;
+					const unpacked = DataUtil.class.unpackUidSubclassFeature(uid, {isLower: true});
+					this._doCheckFeatureRef({logIdentOriginal: `"refSubclassFeature"`, uidOriginal: uid, filePath, prop: "subclassFeature"});
+
+					this._doCheckClassRef({
+						logIdentOriginal: `"refClassFeature"`,
+						uidOriginal: uid,
+						filePath,
+						name: unpacked.className,
+						source: unpacked.classSource,
+					});
+
+					this._doCheckSubclassRef({
+						logIdentOriginal: `"refSubclassFeature"`,
+						uidOriginal: uid,
+						filePath,
+						shortName: unpacked.subclassShortName,
+						source: unpacked.subclassSource,
+						className: unpacked.className,
+						classSource: unpacked.classSource,
+					});
+				});
+				return arr;
+			},
+		};
+
+		fileState.walkerHandlersNestedRefsOptionalFeatures = {
+			array: (arr) => {
+				arr.forEach(it => {
+					if (it.type !== "refOptionalfeature") return;
+
+					const url = this._tagTestUrlLookup.getEncodedProxy(it.optionalfeature, "optfeature", "optionalfeature");
+					if (!this._tagTestUrlLookup.hasUrl(url)) this._addMessage(`Missing optional feature: ${it.optionalfeature} in file ${fileState.filePath} (evaluates to "${url}")\n${this._tagTestUrlLookup.getLogPtSimilarUrls({url})}`);
+				});
+				return arr;
+			},
+		};
+
+		fileState.walkerHandlersNestedRefsFeats = {
+			array: (arr) => {
+				arr.forEach(it => {
+					if (it.type !== "refFeat") return;
+
+					const url = this._tagTestUrlLookup.getEncodedProxy(it.feat, "feat");
+					if (!this._tagTestUrlLookup.hasUrl(url)) this._addMessage(`Missing feat: ${it.feat} in file ${fileState.filePath} (evaluates to "${url}")\n${this._tagTestUrlLookup.getLogPtSimilarUrls({url})}`);
+				});
+				return arr;
+			},
+		};
+	}
+
+	async _pHandleFile_preProcess ({filePath, contents, fileState}) {
+		this._pHandleFile_preProcess_initWalkerHandlers({filePath, contents, fileState});
+	}
+
+	/* -------------------------------------------- */
+
+	_pDoTestEntity_class_featureLinks ({filePath, fileState, ent, prop, propPrefixed}) {
+		(ent.classFeatures || []).forEach(ref => {
+			const uid = ref.classFeature || ref;
+			const unpacked = DataUtil.class.unpackUidClassFeature(uid, {isLower: true});
+			this._doCheckFeatureRef({logIdentOriginal: `"classFeature" array`, uidOriginal: uid, filePath, prop: "classFeature"});
+
+			this._doCheckClassRef({
+				logIdentOriginal: `"classFeature" array`,
+				uidOriginal: uid,
+				filePath,
+				name: unpacked.className,
+				source: unpacked.classSource,
+			});
+		});
+	}
+
+	_pDoTestEntity_class_includeSubclassesFrom ({filePath, fileState, ent, prop, propPrefixed}) {
+		(ent.includeSubclassesFrom || []).forEach(uid => {
+			const {name, source} = DataUtil.generic.unpackUid(uid, "class");
+			this._doCheckClassRef({logIdentOriginal: "includeSubclassesFrom", uidOriginal: uid, filePath, name, source});
+		});
+	}
+
+	async _pDoTestEntity_class ({filePath, fileState, ent, prop, propPrefixed}) {
+		this._pDoTestEntity_class_featureLinks({filePath, fileState, ent, prop, propPrefixed});
+		this._pDoTestEntity_class_includeSubclassesFrom({filePath, fileState, ent, prop, propPrefixed});
+
+		this._testAdditionalSpells(filePath, ent);
+		this._testReprintedAs(filePath, ent, "class");
+		this._testReskinOf(filePath, ent, "class");
+		this._testSrd(filePath, ent);
+		this._testStartingEquipment(filePath, ent, {propDotPath: "startingEquipment.defaultData"});
+	}
+
+	/* ----- */
+
+	_pDoTestEntity_subclass_featureLinks ({filePath, fileState, ent, prop, propPrefixed}) {
+		ent.subclassFeatures.forEach(ref => {
+			const uid = ref.subclassFeature || ref;
+			this._doCheckFeatureRef({logIdentOriginal: `"subclassFeature" array`, uidOriginal: uid, filePath, prop: "subclassFeature"});
+		});
+	}
+
+	async _pDoTestEntity_subclass ({filePath, fileState, ent, prop, propPrefixed}) {
+		if (ent._copy && !ent.subclassFeatures) return;
+
+		this._pDoTestEntity_subclass_featureLinks({filePath, fileState, ent, prop, propPrefixed});
+
+		this._testAdditionalSpells(filePath, ent);
+		this._testReprintedAs(filePath, ent, "subclass");
+		this._testSrd(filePath, ent);
+	}
+
+	/* ----- */
+
+	async _pDoTestEntity_classFeature ({filePath, fileState, ent, prop, propPrefixed}) {
+		WALKER.walk(ent.entries, fileState.walkerHandlersNestedRefsClass);
+		WALKER.walk(ent.entries, fileState.walkerHandlersNestedRefsOptionalFeatures);
+		WALKER.walk(ent.entries, fileState.walkerHandlersNestedRefsFeats);
+	}
+
+	async _pDoTestEntity_subclassFeature ({filePath, fileState, ent, prop, propPrefixed}) {
+		WALKER.walk(ent.entries, fileState.walkerHandlersNestedRefsSubclass);
+		WALKER.walk(ent.entries, fileState.walkerHandlersNestedRefsOptionalFeatures);
+		WALKER.walk(ent.entries, fileState.walkerHandlersNestedRefsFeats);
+	}
+
+	/* ----- */
+
+	async _pDoTestEntity ({filePath, fileState, ent, prop, propPrefixed}) {
+		switch (prop) {
+			case "class": return this._pDoTestEntity_class({filePath, fileState, ent, prop, propPrefixed});
+			case "subclass": return this._pDoTestEntity_subclass({filePath, fileState, ent, prop, propPrefixed});
+			case "classFeature": return this._pDoTestEntity_classFeature({filePath, fileState, ent, prop, propPrefixed});
+			case "subclassFeature": return this._pDoTestEntity_subclassFeature({filePath, fileState, ent, prop, propPrefixed});
+		}
+	}
+}

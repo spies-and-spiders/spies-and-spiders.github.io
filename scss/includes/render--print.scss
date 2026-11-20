@@ -1,0 +1,20 @@
+@use "../vars/vars";
+
+@layer vetools {
+	@include vars.mix-is-print {
+		.ve-rd__b-inset {
+			background: none !important;
+			box-shadow: none !important;
+			border-color: #000 !important;
+		}
+
+		.ve-rd__b-special,
+		.ve-rd__li {
+			break-inside: avoid;
+		}
+
+		.ve-rd__h--1 {
+			border-bottom-color: #000 !important;
+		}
+	}
+}

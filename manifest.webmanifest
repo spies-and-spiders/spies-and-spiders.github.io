@@ -3,7 +3,7 @@
 	"default_locale": "en",
 	"name": "snstools",
 	"short_name": "snstools",
-	"description": "A suite of browser-based tools for Spies & Spiders players and DMs.",
+	"description": "A suite of browser-based tools for Spies & Spiders players and GMs.",
 	"icons": [
 		{
 			"src": "android-chrome-192x192.png",

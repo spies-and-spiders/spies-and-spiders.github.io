@@ -1,6 +1,9 @@
-"use strict";
+import {LootGenUi} from "./lootgen/lootgen-ui.js";
+import {WrappedRenderer} from "./render-wrapped.js";
 
 class LootGenPage {
+	static _STORAGE_KEY_STATE = "state";
+
 	constructor () {
 		this._lootGenUi = null;
 	}
@@ -12,25 +15,29 @@ class LootGenPage {
 		]);
 		await ExcludeUtil.pInitialise();
 
-		const $stgLhs = $(`#lootgen-lhs`);
-		const $stgRhs = $(`#lootgen-rhs`);
+		const stgLhs = veEs(`#lootgen-lhs`);
+		const stgRhs = veEs(`#lootgen-rhs`);
 
+		const [spells, items] = await Promise.all([
+			this._pLoadSpells(),
+			this._pLoadItems(),
+		]);
 		this._lootGenUi = new LootGenUi({
-			spells: await this._pLoadSpells(),
-			items: await this._pLoadItems(),
+			spells,
+			items,
+			rendererWrapped: new WrappedRenderer(),
 		});
 		await this._lootGenUi.pInit();
-		this._lootGenUi.render({$stgLhs, $stgRhs});
+		this._lootGenUi.render({stgLhs, stgRhs});
 
 		const savedState = await StorageUtil.pGetForPage(LootGenPage._STORAGE_KEY_STATE);
 		if (savedState != null) this._lootGenUi.setStateFrom(savedState);
 
 		const savedStateDebounced = MiscUtil.throttle(this._pDoSaveState.bind(this), 100);
-		this._lootGenUi.addHookAll("state", () => savedStateDebounced());
-		this._lootGenUi.addHookAll("meta", () => savedStateDebounced());
+		this._lootGenUi.addHookOnSave(() => savedStateDebounced());
 
-		$(`#wrp-loading`).remove();
-		$(`#wrp-content`).showVe();
+		veEs(`#wrp-loading`).remove();
+		veEs(`#wrp-content`).vee.show();
 
 		window.dispatchEvent(new Event("toolsLoaded"));
 	}
@@ -74,8 +81,7 @@ class LootGenPage {
 		await StorageUtil.pSetForPage(LootGenPage._STORAGE_KEY_STATE, statGenState);
 	}
 }
-LootGenPage._STORAGE_KEY_STATE = "state";
 
 const lootGenPage = new LootGenPage();
-
 window.addEventListener("load", () => void lootGenPage.pInit());
+globalThis.dbg_lootGenPage = lootGenPage;

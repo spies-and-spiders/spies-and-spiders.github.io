@@ -5,6 +5,9 @@ class _PageGeneratorListActions extends PageGeneratorListBase {
 	_page = UrlUtil.PG_ACTIONS;
 	_pageTitle = "Actions";
 	_scriptIdentList = "actions";
+	_isHasRenderer = false;
+
+	_isModule = true;
 
 	_btnsList = [
 		HtmlGeneratorListButtons.getBtnPreviewToggle(),
@@ -39,8 +42,6 @@ class _PageGeneratorListBackgrounds extends PageGeneratorListBase {
 		HtmlGeneratorListButtons.getBtn({width: "5", sortIdent: "ability", text: "Ability"}),
 		HtmlGeneratorListButtons.getBtn({width: "4", sortIdent: "skills", text: "Skills"}),
 	];
-
-	_isPrinterView = true;
 }
 
 class _PageGeneratorListBestiary extends PageGeneratorListBase {
@@ -101,7 +102,7 @@ class _PageGeneratorListBestiary extends PageGeneratorListBase {
 		};
 	}
 
-	_isPrinterView = true;
+	_isTableView = true;
 }
 
 class _PageGeneratorListCharCreationOptions extends PageGeneratorListBase {
@@ -125,6 +126,9 @@ class _PageGeneratorListConditionsDiseases extends PageGeneratorListBase {
 	_page = UrlUtil.PG_CONDITIONS_DISEASES;
 	_pageTitle = "Conditions & Diseases";
 	_scriptIdentList = "conditionsdiseases";
+	_isHasRenderer = false;
+
+	_isModule = true;
 
 	_btnsList = [
 		HtmlGeneratorListButtons.getBtnPreviewToggle(),
@@ -166,10 +170,12 @@ class _PageGeneratorListDecks extends PageGeneratorListBase {
 
 	_stylesheets = [
 		"decks",
+		"deck-spreads",
 	];
 	_isStyleBook = true;
 
 	_scriptIdentList = "decks";
+	_isModule = true;
 
 	_styleListContainerAdditional = "ve-flex-4";
 	_styleContentWrapperAdditional = "ve-flex-7";
@@ -230,12 +236,10 @@ class _PageGeneratorListFeats extends PageGeneratorListBase {
 
 	_btnsSublist = [
 		HtmlGeneratorListButtons.getBtn({width: "4", sortIdent: "name", text: "Name"}),
-		HtmlGeneratorListButtons.getBtn({width: "2", sortIdent: "ability", text: "Category"}),
+		HtmlGeneratorListButtons.getBtn({width: "2", sortIdent: "category", text: "Category"}),
 		HtmlGeneratorListButtons.getBtn({width: "2", sortIdent: "ability", text: "Ability"}),
 		HtmlGeneratorListButtons.getBtn({width: "4", sortIdent: "prerequisite", text: "Prerequisite"}),
 	];
-
-	_isPrinterView = true;
 }
 
 class _PageGeneratorListItems extends PageGeneratorListBase {
@@ -255,7 +259,8 @@ class _PageGeneratorListItems extends PageGeneratorListBase {
 		"utils-tableview.js",
 	];
 
-	_styleContentWrapperAdditional = "itm__wrp-stats";
+	_styleListContainerAdditional = "ve-flex-6 ve-itm__wrp-lists";
+	_styleContentWrapperAdditional = "ve-flex-4 ve-itm__wrp-stats";
 
 	_btnsSublist = [
 		HtmlGeneratorListButtons.getBtn({width: "6", sortIdent: "name", text: "Name"}),
@@ -273,11 +278,6 @@ class _PageGeneratorListItems extends PageGeneratorListBase {
 		});
 
 		this._registerPartial({
-			ident: "listContentwrapperItems",
-			filename: "list/template-list-contentwrapper--items.hbs",
-		});
-
-		this._registerPartial({
 			ident: "listSublistContainerItems",
 			filename: "list/template-list-sublist-container--items.hbs",
 		});
@@ -287,11 +287,11 @@ class _PageGeneratorListItems extends PageGeneratorListBase {
 		return {
 			...super._getData(),
 			identPartialListListcontainer: "listListcontainerItems",
-			identPartialListContentwrapper: "listContentwrapperItems",
+			identPartialListSublistContainer: "listSublistContainerItems",
 		};
 	}
 
-	_isPrinterView = true;
+	_isTableView = true;
 }
 
 class _PageGeneratorListTrapsHazards extends PageGeneratorListBase {
@@ -315,6 +315,9 @@ class _PageGeneratorListRewards extends PageGeneratorListBase {
 	_page = UrlUtil.PG_REWARDS;
 	_pageTitle = "Supernatural Gifts & Rewards";
 	_scriptIdentList = "rewards";
+	_isHasRenderer = false;
+
+	_isModule = true;
 
 	_btnsList = [
 		HtmlGeneratorListButtons.getBtnPreviewToggle(),
@@ -379,12 +382,6 @@ class _PageGeneratorListOptionalFeatures extends PageGeneratorListBase {
 
 	_isModule = true;
 
-	_isPrinterView = true;
-
-	_stylesheets = [
-		"optionalfeatures",
-	];
-
 	_styleListContainerAdditional = "ve-flex-6";
 	_styleContentWrapperAdditional = "ve-flex-4";
 
@@ -427,27 +424,16 @@ class _PageGeneratorListPsionics extends PageGeneratorListBase {
 		HtmlGeneratorListButtons.getBtn({width: "3", sortIdent: "order", text: "Order"}),
 	];
 
-	_registerPartials () {
-		super._registerPartials();
-
-		this._registerPartial({
-			ident: "listContentwrapperPsionics",
-			filename: "list/template-list-contentwrapper--psionics.hbs",
-		});
-	}
-
-	_getData () {
-		return {
-			...super._getData(),
-			identPartialListContentwrapper: "listContentwrapperPsionics",
-		};
-	}
+	_isTableView = true;
 }
 
 class _PageGeneratorListRecipes extends PageGeneratorListBase {
 	_page = UrlUtil.PG_RECIPES;
 	_pageTitle = "Recipes";
 	_scriptIdentList = "recipes";
+	_isHasRenderer = false;
+
+	_isModule = true;
 
 	_stylesheets = [
 		"recipes",
@@ -526,6 +512,8 @@ class _PageGeneratorListSpells extends PageGeneratorListBase {
 		HtmlGeneratorListButtons.getBtn({width: "3-2", sortIdent: "range", text: "Range"}),
 	];
 
+	_isTableView = true;
+
 	_registerPartials () {
 		super._registerPartials();
 
@@ -603,7 +591,8 @@ class _PageGeneratorListTables extends PageGeneratorListBase {
 	_styleContentWrapperAdditional = "ve-flex-6";
 
 	_btnsList = [
-		HtmlGeneratorListButtons.getBtn({width: "10", sortIdent: "sortName", text: "Name"}),
+		HtmlGeneratorListButtons.getBtnPreviewToggle({width: "0-5"}),
+		HtmlGeneratorListButtons.getBtn({width: "9-5", sortIdent: "sortName", text: "Name"}),
 		HtmlGeneratorListButtons.getBtnSource(),
 	];
 

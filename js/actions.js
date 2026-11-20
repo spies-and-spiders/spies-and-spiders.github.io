@@ -1,16 +1,16 @@
-"use strict";
+import {RenderActions} from "./render-actions.js";
 
 class ActionsSublistManager extends SublistManager {
 	static _getRowTemplate () {
 		return [
 			new SublistCellTemplate({
 				name: "Name",
-				css: "bold ve-col-8 pl-0 pr-1",
+				css: "ve-bold ve-col-8 ve-pl-0 ve-pr-1",
 				colStyle: "",
 			}),
 			new SublistCellTemplate({
 				name: "Time",
-				css: "ve-text-center ve-col-4 pl-1 pr-0",
+				css: "ve-text-center ve-col-4 ve-pl-1 ve-pr-0",
 				colStyle: "text-center",
 			}),
 		];
@@ -20,27 +20,29 @@ class ActionsSublistManager extends SublistManager {
 		const time = it.time ? it.time.map(tm => PageFilterActions.getTimeText(tm)).join("/") : "\u2014";
 		const cellsText = [it.name, time];
 
-		const $ele = $(`<div class="lst__row lst__row--sublist ve-flex-col">
-			<a href="#${hash}" class="lst__row-border lst__row-inner">
+		const ele = veT`<div class="ve-lst__row ve-lst__row--sublist ve-flex-col">
+			<a href="#${hash}" class="ve-lst__row-border ve-lst__row-inner">
 				${this.constructor._getRowCellsHtml({values: cellsText})}
 			</a>
-		</div>`)
-			.contextmenu(evt => this._handleSublistItemContextMenu(evt, listItem))
-			.click(evt => this._listSub.doSelect(listItem, evt));
+		</div>`
+			.vee.onn("contextmenu", evt => this._handleSublistItemContextMenu(evt, listItem))
+			.vee.onn("click", evt => this._listSub.doSelect(listItem, evt));
 
-		const listItem = new ListItem(
-			hash,
-			$ele,
-			it.name,
-			{
-				hash,
+		const listItem = new ListItem({
+			id: hash,
+			ele,
+			name: it.name,
+			values: {
+				...ListItem.getCommonValues(it),
 				time,
 			},
-			{
+			data: {
+				hash,
+				page: it.page,
 				entity: it,
 				mdRow: [...cellsText],
 			},
-		);
+		});
 		return listItem;
 	}
 }
@@ -55,6 +57,12 @@ class ActionsPage extends ListPage {
 
 			dataProps: ["action"],
 
+			bookViewOptions: {
+				nameSingular: "action",
+				namePlural: "actions",
+				pageTitle: "Actions Book View",
+			},
+
 			isPreviewable: true,
 		});
 	}
@@ -63,36 +71,38 @@ class ActionsPage extends ListPage {
 		this._pageFilter.mutateAndAddToFilters(it, isExcluded);
 
 		const eleLi = document.createElement("div");
-		eleLi.className = `lst__row ve-flex-col ${isExcluded ? "lst__row--blocklisted" : ""}`;
+		eleLi.className = `ve-lst__row ve-flex-col ${isExcluded ? "ve-lst__row--blocklisted" : ""}`;
 
 		const source = Parser.sourceJsonToAbv(it.source);
 		const hash = UrlUtil.autoEncodeHash(it);
 		const time = it.time ? it.time.map(tm => PageFilterActions.getTimeText(tm)).join("/") : "\u2014";
 
-		eleLi.innerHTML = `<a href="#${hash}" class="lst__row-border lst__row-inner">
-			<span class="ve-col-0-3 px-0 ve-flex-vh-center lst__btn-toggle-expand ve-self-flex-stretch no-select">[+]</span>
-			<span class="ve-col-5-7 px-1 bold">${it.name}</span>
-			<span class="ve-col-4 px-1 ve-text-center">${time}</span>
-			<span class="ve-col-2 ve-text-center ${Parser.sourceJsonToSourceClassname(it.source)} pl-1 pr-0" title="${Parser.sourceJsonToFull(it.source)}" ${Parser.sourceJsonToStyle(it.source)}>${source}</span>
+		eleLi.innerHTML = `<a href="#${hash}" class="ve-lst__row-border ve-lst__row-inner">
+			<span class="ve-col-0-3 ve-px-0 ve-flex-vh-center ve-lst__btn-toggle-expand ve-self-flex-stretch ve-no-select">[+]</span>
+			<span class="ve-col-5-7 ve-px-1 ve-bold">${it.name}</span>
+			<span class="ve-col-4 ve-px-1 ve-text-center">${time}</span>
+			<span class="ve-col-2 ve-text-center ${Parser.sourceJsonToSourceClassname(it.source)} ve-pl-1 ve-pr-0" title="${Parser.sourceJsonToFull(it.source)}">${source}</span>
 		</a>
-		<div class="ve-flex ve-hidden relative accordion__wrp-preview">
-			<div class="vr-0 absolute accordion__vr-preview"></div>
-			<div class="ve-flex-col py-3 ml-4 accordion__wrp-preview-inner"></div>
+		<div class="ve-flex ve-hidden ve-relative ve-accordion__wrp-preview">
+			<div class="ve-vr-0 ve-absolute ve-accordion__vr-preview"></div>
+			<div class="ve-flex-col ve-py-3 ve-ml-4 ve-accordion__wrp-preview-inner"></div>
 		</div>`;
 
-		const listItem = new ListItem(
-			anI,
-			eleLi,
-			it.name,
-			{
-				hash,
+		const listItem = new ListItem({
+			id: anI,
+			ele: eleLi,
+			name: it.name,
+			values: {
 				source,
+				...ListItem.getCommonValues(it),
 				time,
 			},
-			{
+			data: {
+				hash,
+				page: it.page,
 				isExcluded,
 			},
-		);
+		});
 
 		eleLi.addEventListener("click", (evt) => this._list.doSelect(listItem, evt));
 		eleLi.addEventListener("contextmenu", (evt) => this._openContextMenu(evt, this._list, listItem));
@@ -101,10 +111,12 @@ class ActionsPage extends ListPage {
 	}
 
 	_renderStats_doBuildStatsTab ({ent}) {
-		this._$pgContent.empty().append(RenderActions.$getRenderedAction(ent));
+		this._pgContent.vee.empty().vee.appends(RenderActions.getRenderedAction(ent));
 	}
 }
 
 const actionsPage = new ActionsPage();
 actionsPage.sublistManager = new ActionsSublistManager();
 window.addEventListener("load", () => actionsPage.pOnLoad());
+
+globalThis.dbg_page = actionsPage;

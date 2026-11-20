@@ -97,6 +97,11 @@ const resetAll = async () => {
 
 addEventListener("message", (event) => {
 	switch (event.data.type) {
+		case "SKIP_WAITING": {
+			self.skipWaiting();
+			break;
+		}
+
 		case "RESET": {
 			console.log("Resetting...");
 			event.waitUntil(resetAll());
@@ -128,8 +133,16 @@ class RevisionCacheFirst extends Strategy {
 		addEventListener("message", (event) => {
 			switch (event.data.type) {
 				case "CACHE_ROUTES": {
-					this.cacheRoutesAbortController = new AbortController();
-					event.waitUntil(this.cacheRoutes(event.data, this.cacheRoutesAbortController.signal));
+					this.cacheRoutesAbortController?.abort();
+
+					const abortController = new AbortController();
+					this.cacheRoutesAbortController = abortController;
+					event.waitUntil(
+						this.cacheRoutes(event.data, abortController.signal)
+							.finally(() => {
+								if (this.cacheRoutesAbortController === abortController) this.cacheRoutesAbortController = null;
+							}),
+					);
 					break;
 				}
 
@@ -227,15 +240,30 @@ class RevisionCacheFirst extends Strategy {
 	 */
 	async cacheRoutes (data, signal) {
 		const cache = await caches.open(this.cacheName);
+		if (signal.aborted) return;
 
-		const currentCacheKeys = new Set((await cache.keys()).map(request => request.url));
+		// Hack around `failed to execute 'keys' on 'Cache': Operation too large`
+		// See: https://issues.chromium.org/issues/41299331#comment7
+		// "That error is an unfortunate hack to protect the browser from using too much memory.
+		//   Until we rewrite CacheStorage on the browser side to stream responses back to the renderer,
+		//   we simply limit the number of responses we process on the browser side so that it doesn't get too big"
+		let currentCacheKeys;
+		let isTooManyKeys = false;
+		try {
+			currentCacheKeys = new Set((await cache.keys()).map(request => request.url));
+		} catch (e) {
+			isTooManyKeys = true;
+			console.error("Failed to load cache keys due to error; falling back on per-request check...", e);
+		}
 		const validCacheKeys = Array.from(runtimeManifest).map(([url, revision]) => createCacheKey({url, revision}).cacheKey);
+		console.log(`Found ${validCacheKeys.length} valid cache keys`);
 
 		const routeRegex = data.payload.routeRegex;
 		/**
 		 * These are the keys which have not been cached yet AND match the regex for routes
 		 */
-		const routesToCache = validCacheKeys.filter((key) => !currentCacheKeys.has(key) && routeRegex.test(key));
+		const routesToCache = validCacheKeys.filter((key) => (isTooManyKeys || !currentCacheKeys.has(key)) && routeRegex.test(key));
+		console.log(`Found ${routesToCache.length} routes to cache`);
 
 		const fetchTotal = routesToCache.length;
 		let fetched = 0;
@@ -244,18 +272,19 @@ class RevisionCacheFirst extends Strategy {
 		 * This is an async function to let clients know the status of route caching.
 		 * It can take up to 1 ms, so it can be called without an await to let it resolve in downtime.
 		 */
-		const postProgress = async () => {
+		const postProgress = async ({frozenFetched}) => {
 			const clients = await self.clients.matchAll({type: "window"});
+			if (signal.aborted) return;
 			for (const client of clients) {
-				client.postMessage({type: "CACHE_ROUTES_PROGRESS", payload: {fetched, fetchTotal}});
+				client.postMessage({type: "CACHE_ROUTES_PROGRESS", payload: {fetched: frozenFetched, fetchTotal}});
 			}
 		};
 
 		// First call, and awaited, so that pages show a loading bar to indicate fetching has started
-		await postProgress();
+		await postProgress({frozenFetched: fetched});
 
-		// early escape if there is no work to do.
-		if (fetchTotal === 0) return;
+		// early escape if there is no work to do, or this job was superseded while resolving clients
+		if (fetchTotal === 0 || signal.aborted) return;
 
 		/**
 		 * The number of fetches to run at the same time
@@ -270,11 +299,25 @@ class RevisionCacheFirst extends Strategy {
 
 				// this regex is a very bad idea, but it trims the cache version off the url
 				const cleanUrl = url.replace(/\?__WB_REVISION__=\w+$/m, "");
-				const response = await fetch(cleanUrl, this.constructor._FETCH_OPTIONS_VET);
+
+				// Hack around `failed to execute 'keys' on 'Cache': Operation too large`
+				// (See above)
+				const keysForUrl = isTooManyKeys ? await cache.keys(url) : null;
+				if (isTooManyKeys && keysForUrl.length) {
+					console.log(`Skipping ${cleanUrl} (too many keys and already in cache)`);
+					fetched++;
+					postProgress({frozenFetched: fetched});
+					continue;
+				}
+
+				const response = await fetch(cleanUrl, {...this.constructor._FETCH_OPTIONS_VET, signal});
+				if (!response.ok) throw new Error(`Failed to preload "${cleanUrl}": HTTP ${response.status}`);
+				if (signal.aborted) return;
 				// this await could be omitted to further speed up fetching at risk of failure during error
 				await cache.put(url, response);
+				if (signal.aborted) return;
 				fetched++;
-				postProgress();
+				postProgress({frozenFetched: fetched});
 			}
 		};
 
@@ -286,12 +329,28 @@ class RevisionCacheFirst extends Strategy {
 
 		// wait for each function to die, or empty the routesToCache
 		const fetchResults = await Promise.allSettled(fetchPromises);
+		if (signal.aborted) return;
 
 		// determine if any functions died and report them
 		const errorResults = fetchResults.filter(fetchResult => fetchResult.status === "rejected");
 		if (errorResults.length > 0) {
+			const errors = errorResults
+				.map(({reason}) => ({
+					name: reason?.name || "Error",
+					message: reason?.message || `${reason}`,
+				}));
+
 			const clients = await self.clients.matchAll({type: "window"});
-			for (const client of clients) client.postMessage({type: "CACHE_ROUTES_ERROR", payload: { errors: errorResults }});
+			for (const client of clients) {
+				client.postMessage({
+					type: "CACHE_ROUTES_ERROR",
+					payload: {
+						errors,
+						isQuotaExceeded: errors
+							.some(error => error.name === "QuotaExceededError"),
+					},
+				});
+			}
 		}
 	}
 }
@@ -307,7 +366,7 @@ const runtimeManifest = new Map(self.__WB_RUNTIME_MANIFEST.map(
 		revision,
 	]) =>
 		[
-			`${self.location.origin}/${route}`,
+			new URL(route, self.registration.scope).href,
 			revision,
 		],
 ));
@@ -341,10 +400,6 @@ registerRoute(({request}) => request.destination === "image", new NetworkFirst({
 		new ExpirationPlugin({maxAgeSeconds: 7 /* days */ * 24 * 60 * 60, maxEntries: 100, purgeOnQuotaError: true}),
 	],
 }));
-
-addEventListener("install", () => {
-	self.skipWaiting();
-});
 
 // this only serves to delete cache from old versions of page - pre sw rework
 addEventListener("activate", event => {

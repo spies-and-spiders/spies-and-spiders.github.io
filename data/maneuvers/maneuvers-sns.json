@@ -7029,7 +7029,7 @@
       ],
       "entries": [
         "Choose a creature of no more than one size category larger than you that is within 30 feet. Make a ranged weapon fortitude or reflex attack against that creature (target's choice) that deals bludgeoning damage equal to your Strength modifier. On a hit, the target is {@condition grappled} by a gauntleted hand made of force. This effect requires concentration as though it were a spell.",
-        "You may use your bonus action each turn to maintain the grapple for up to a number of rounds equal to half your level. When you maintain a grapple, the target suffers bludgeoning harm equal to your Strength modifier. A creature that becomes {@condition grappled} while in the air remains in its current space, even though its fly speed becomes 0, though at the DM's discretion it may have to make a save once it is no longer {@condition grappled}, falling on a fail.",
+        "You may use your bonus action each turn to maintain the grapple for up to a number of rounds equal to half your level. When you maintain a grapple, the target suffers bludgeoning harm equal to your Strength modifier. A creature that becomes {@condition grappled} while in the air remains in its current space, even though its fly speed becomes 0, though at the GM's discretion it may have to make a save once it is no longer {@condition grappled}, falling on a fail.",
         "At the beginning of each of its turns, a creature {@condition grappled} by this maneuver can make a save, ending the effect on itself on a success. This effect also ends early if you target another creature with the gauntlet or if you move more than 45 feet from the target."
       ],
       "defence": [

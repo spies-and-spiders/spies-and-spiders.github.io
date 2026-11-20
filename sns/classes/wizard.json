@@ -735,7 +735,7 @@
           "name": "Arcane Objects",
           "entries": [
             "When you touch a magic item, either willingly or when hit by it, you are immediately aware that it is magical. If you hold such an item in your hand, you can cast {@spell identify} on it as an action without spending a spell slot, even if you don't have the spell prepared.",
-            "In addition, when you cast {@spell identify} using a spell slot or as a ritual, you also learn if the item is cursed, and the DM will give you a hint as to the curse's effects (which may be cryptic and vague, but must not be a lie)."
+            "In addition, when you cast {@spell identify} using a spell slot or as a ritual, you also learn if the item is cursed, and the GM will give you a hint as to the curse's effects (which may be cryptic and vague, but must not be a lie)."
           ]
         },
         {
@@ -986,7 +986,7 @@
         "ES"
       ],
       "entries": [
-        "You are well-travelled and well-studied. You have advantage on {@skill History} checks to recall information relating to myths and legends that are location-based. In addition, when you arrive at a settlement for the first time, choose one of the following subjects: culture, etiquette, government, or populace. The DM will give you a useful fact about that subject. You can take an expertise die on ability checks related to that subject in this settlement."
+        "You are well-travelled and well-studied. You have advantage on {@skill History} checks to recall information relating to myths and legends that are location-based. In addition, when you arrive at a settlement for the first time, choose one of the following subjects: culture, etiquette, government, or populace. The GM will give you a useful fact about that subject. You can take an expertise die on ability checks related to that subject in this settlement."
       ]
     },
     {

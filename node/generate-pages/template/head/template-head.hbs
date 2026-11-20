@@ -1,7 +1,4 @@
 <head>
-	<!--5ETOOLS_CMP-->
-	<!--5ETOOLS_ANALYTICS-->
-	<!--5ETOOLS_ADCODE-->
 	<meta charset="utf-8">
 	<meta name="description" content="{{pageDescription}}">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -46,14 +43,13 @@
 	<!-- OpenSearch -->
 	<link rel="search" href="open-search.xml" title="Search Spies &amp; Spiders" type="application/opensearchdescription+xml">
 
-	<script type="text/javascript" src="sw-injector.js"></script>
 
-	<script type="text/javascript" src="js/styleswitch.js"></script>
+	<script blocking="render" type="module" src="js/styleswitch.js"></script>
 {{#if redirectHref}}
 
 	<meta http-equiv="refresh" content="0; URL={{redirectHref}}"/>
 {{else}}
 	<script type="text/javascript" src="js/navigation.js"></script>
-	<script type="text/javascript" src="js/browsercheck.js"></script>
+	<script type="module" src="js/browsercheck.js"></script>
 {{/if}}
 </head>

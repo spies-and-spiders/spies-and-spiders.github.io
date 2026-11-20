@@ -48,7 +48,7 @@
       "level": 1,
       "entries": [
         "When you select this subclass at tier 1, you learn how to gruesomely take the power from a slain foe to become all the mightier. When you or an ally slays a living creature of a CR equal to half your level or higher, if it has died within the last minute you can use an action to strike into its body, rip out the heart, and take a massive bite. For a number of hours equal to half your level you gain an expertise die on ability checks.",
-        "Whether or not you are able to consume the heart of a creature is determined by the DM, and finding the heart of some creatures requires an {@skill Investigation} or {@skill Medicine} check (DC 10 + half the creature's CR)."
+        "Whether or not you are able to consume the heart of a creature is determined by the GM, and finding the heart of some creatures requires an {@skill Investigation} or {@skill Medicine} check (DC 10 + half the creature's CR)."
       ]
     },
     {

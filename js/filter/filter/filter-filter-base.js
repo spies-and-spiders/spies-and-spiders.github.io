@@ -11,12 +11,14 @@ export class FilterBase extends BaseComponent {
 	/**
 	 * @param opts
 	 * @param opts.header Filter header (name)
+	 * @param [opts.headerDisplayName] Filter display name
 	 * @param [opts.headerHelp] Filter header help text (tooltip)
 	 */
 	constructor (opts) {
 		super();
 
 		this.header = opts.header;
+		this._headerDisplayName = opts.headerDisplayName;
 		this._headerHelp = opts.headerHelp;
 
 		this.__meta = {...this.getDefaultMeta()};
@@ -29,8 +31,12 @@ export class FilterBase extends BaseComponent {
 		this._fnsTeardown = [];
 	}
 
+	_getHeaderDisplayName () {
+		return this._headerDisplayName || this.header;
+	}
+
 	_getRenderedHeader () {
-		return `<span ${this._headerHelp ? `title="${this._headerHelp.escapeQuotes()}" class="help-subtle"` : ""}>${this.header}</span>`;
+		return `<span ${this._headerHelp ? `title="${this._headerHelp.escapeQuotes()}" class="ve-help-subtle"` : ""}>${this._getHeaderDisplayName()}</span>`;
 	}
 
 	set filterBox (it) { this._filterBox = it; }
@@ -129,15 +135,15 @@ export class FilterBase extends BaseComponent {
 	}
 
 	_getBtnMobToggleControls (wrpControls) {
-		const btnMobToggleControls = e_({
+		const btnMobToggleControls = veE({
 			tag: "button",
-			clazz: `ve-btn ve-btn-xs ve-btn-default mobile__visible ml-auto px-3 mr-2`,
+			clazz: `ve-btn ve-btn-xs ve-btn-default ve-mobile-sm__visible ve-ml-auto ve-px-3 ve-mr-2`,
 			html: `<span class="glyphicon glyphicon-option-vertical"></span>`,
 			click: () => this._uiMeta.isMobileHeaderHidden = !this._uiMeta.isMobileHeaderHidden,
 		});
 		const hkMobHeaderHidden = () => {
-			btnMobToggleControls.toggleClass("active", !this._uiMeta.isMobileHeaderHidden);
-			wrpControls.toggleClass("mobile__hidden", !!this._uiMeta.isMobileHeaderHidden);
+			btnMobToggleControls.vee.toggleClass("ve-active", !this._uiMeta.isMobileHeaderHidden);
+			wrpControls.vee.toggleClass("ve-mobile-sm__hidden", !!this._uiMeta.isMobileHeaderHidden);
 		};
 		this._addHook("uiMeta", "isMobileHeaderHidden", hkMobHeaderHidden);
 		hkMobHeaderHidden();
@@ -176,7 +182,7 @@ export class FilterBase extends BaseComponent {
 	}
 
 	_getBtnShowHide ({isMulti = false} = {}) {
-		return e_({
+		return veE({
 			tag: "button",
 			clazz: `ve-btn ve-btn-default ${isMulti ? "ve-btn-xxs" : "ve-btn-xs"}`,
 			click: () => this._uiMeta.isHidden = !this._uiMeta.isHidden,
@@ -189,7 +195,7 @@ export class FilterBase extends BaseComponent {
 
 		let menu = null;
 
-		return e_({
+		return veE({
 			tag: "button",
 			clazz: `ve-btn ve-btn-default ve-btn-xs`,
 			click: evt => {
@@ -206,7 +212,7 @@ export class FilterBase extends BaseComponent {
 						async () => {
 							await this._snapshotManager.pHandleClick_takeSnapshot({
 								filters: [this],
-								nameDefault: this.header,
+								nameDefault: this._getHeaderDisplayName(),
 							});
 						},
 					),
@@ -215,7 +221,7 @@ export class FilterBase extends BaseComponent {
 						async () => {
 							await this._snapshotManager.pHandleClick_takeSnapshotToDefaultDeck({
 								filters: [this],
-								nameDefault: this.header,
+								nameDefault: this._getHeaderDisplayName(),
 							});
 						},
 					),
@@ -333,8 +339,8 @@ export class FilterBase extends BaseComponent {
 	/* -------------------------------------------- */
 
 	_getDisplayStatePart_getHeader ({isPlainText = false} = {}) {
-		if (isPlainText) return `${this.header}: `;
-		return `<span class="ve-text-right w-140p no-shrink mr-2 bold">${this.header}:</span>`;
+		if (isPlainText) return `${this._getHeaderDisplayName()}: `;
+		return `<span class="ve-text-right ve-w-140p ve-no-shrink ve-mr-2 ve-bold">${this._getHeaderDisplayName()}:</span>`;
 	}
 
 	/* -------------------------------------------- */
@@ -352,9 +358,9 @@ export class FilterBase extends BaseComponent {
 	/* -------------------------------------------- */
 
 	/** @abstract */
-	$render () { throw new Error(`Unimplemented!`); }
+	render () { throw new Error(`Unimplemented!`); }
 	/** @abstract */
-	$renderMinis () { throw new Error(`Unimplemented!`); }
+	renderMinis () { throw new Error(`Unimplemented!`); }
 
 	/** @abstract */
 	getValues ({nxtState = null} = {}) { throw new Error(`Unimplemented!`); }

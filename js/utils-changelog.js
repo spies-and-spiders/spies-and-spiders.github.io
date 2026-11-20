@@ -3,7 +3,7 @@
 class UtilsChangelog {
 	static _RELEASE_URL = "https://github.com/spies-and-spiders/spies-and-spiders.github.io/releases";
 
-	static renderChangelog (changelog, $wrp) {
+	static renderChangelog (changelog, wrp) {
 		let lastMajorVersion = 0;
 		let lastMinorVersion = 0;
 		changelog.forEach((it, i) => {
@@ -21,7 +21,7 @@ class UtilsChangelog {
 			const cleanListLine = l => l.trim().replace(/^-\s*/, "");
 
 			blocks.forEach(block => {
-				htmlStack += `<div class="small mb-2">`;
+				htmlStack += `<div class="small ve-mb-2">`;
 
 				const lines = block.split("\n");
 
@@ -46,7 +46,7 @@ class UtilsChangelog {
 							htmlStack += "</ul>";
 						}
 						depth = -1;
-						htmlStack += `<div class="mb-1">${l.qq()}</div>`;
+						htmlStack += `<div class="ve-mb-1">${l.qq()}</div>`;
 					}
 				});
 
@@ -58,14 +58,12 @@ class UtilsChangelog {
 				htmlStack += `</div>`;
 			});
 
-			htmlStack += `</div>`;
-
 			const isLast = i === changelog.length - 1;
 
-			const titlePart = it.title ? `, &quot;<span ${it.titleAlt ? `class="help" title="AKA &quot;${it.titleAlt.escapeQuotes()}&quot; Edition"` : ""}>${it.title.escapeQuotes()}</span>&quot; Edition` : "";
-			$wrp.prepend(`<div class="ve-flex-col" id="v${it.ver}">
-				<div class="split-v-center">
-					<h${hLevel} class="bold">v${isLast ? `<a href="${UtilsChangelog._RELEASE_URL}" rel="noopener noreferrer">` : ""}${it.ver}${isLast ? `</a>` : ""}${titlePart}</h${hLevel}>
+			const titlePart = it.title ? `, &quot;<span ${it.titleAlt ? `class="ve-help" title="AKA &quot;${it.titleAlt.escapeQuotes()}&quot; Edition"` : ""}>${it.title.escapeQuotes()}</span>&quot; Edition` : "";
+			wrp.prepend(veT`<div class="ve-flex-col" id="v${it.ver}">
+				<div class="ve-split-v-center">
+					<h${hLevel} class="ve-bold">v${isLast ? `<a href="${UtilsChangelog._RELEASE_URL}" rel="noopener noreferrer">` : ""}${it.ver}${isLast ? `</a>` : ""}${titlePart}</h${hLevel}>
 					<span class="ve-muted">${it.date}</span>
 				</div>
 

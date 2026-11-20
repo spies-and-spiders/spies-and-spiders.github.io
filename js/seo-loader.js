@@ -7,34 +7,34 @@ const onLoadSeo = async () => {
 	const it = await DataLoader.pCacheAndGet(fullPage, globalThis._SEO_SOURCE, globalThis._SEO_HASH);
 
 	document.title = `${it.name} - sns-tools`;
-	$(`.page__title`).text(`${globalThis._SEO_PAGE.toTitleCase()}: ${it.name}`);
+	veEs(`.page__title`).vee.txt(`${globalThis._SEO_PAGE.toTitleCase()}: ${it.name}`);
 
-	$(`<div class="ve-col-12 ve-flex-vh-center my-2 pt-3">
+	veT`<div class="ve-col-12 ve-flex-vh-center ve-my-2 ve-pt-3 ve-print__hidden">
 		<button class="ve-btn ve-btn-primary">
-			<a href="/${globalThis._SEO_PAGE}.html" style="font-size: 1.7em; color: white;">${globalThis._SEO_STYLE === 1 ? `View All` : `View Complete`} ${globalThis._SEO_PAGE.toTitleCase()}</a>
+			<a href="/${globalThis._SEO_PAGE}.html" style="font-size: 1.7em; color: white;">View All</a>
 		</button>
-	</div>`).appendTo($(`#link-page`));
+	</div>`.vee.appendTo(veEs(`#link-page`));
 
-	const $wrpContent = $(`#wrp-pagecontent`);
+	const wrpContent = veEs(`#wrp-pagecontent`);
 
-	const $content = $(`#pagecontent`).addClass("shadow-big").empty();
+	const eleContent = veEs(`#pagecontent`).vee.addClass("ve-shadow-big").vee.empty();
 
-	$(`.nav__link`).each((i, e) => {
-		const $e = $(e);
-		const href = $e.attr("href");
-		if (!href.startsWith("http") && href.endsWith(".html")) $e.attr("href", `../${href}`);
+	veEm(`.nav__link`)
+		.forEach((ele) => {
+			const href = ele.vee.attr("href");
+			if (!href.startsWith("http") && href.endsWith(".html")) ele.vee.attr("href", `../${href}`);
 
-		if (href.startsWith("https://wiki.tercept.net")) $e.remove();
-	});
+			if (href.startsWith("https://wiki.tercept.net")) ele.remove();
+		});
 
 	switch (globalThis._SEO_PAGE) {
-		case "spells": $content.append(RenderSpells.$getRenderedSpell(it)); break;
+		case "spells": eleContent.vee.appends(RenderSpells.getRenderedSpell(it, {isSkipExcludesRender: true})); break;
 		case "bestiary": {
 			Renderer.utils.bindPronounceButtons();
-			$content.append(RenderBestiary.$getRenderedCreature(it, {isSkipTokenRender: true}));
+			eleContent.vee.appends(RenderBestiary.getRenderedCreature(it, {isSkipTokenRender: true, isSkipExcludesRender: true}));
 			break;
 		}
-		case "items": $content.append(RenderItems.$getRenderedItem(it)); break;
+		case "items": eleContent.vee.appends(RenderItems.getRenderedItem(it, {isSkipExcludesRender: true})); break;
 
 		// TODO expand this as required
 		// case "races": {
@@ -46,15 +46,15 @@ const onLoadSeo = async () => {
 	if (globalThis._SEO_FLUFF) {
 		const fluff = await DataLoader.pCacheAndGet(`${fullPage}fluff`, globalThis._SEO_SOURCE, globalThis._SEO_HASH);
 		if (fluff) {
-			$$`<div class="mt-5 py-2">
-				${Renderer.hover.$getHoverContent_fluff(globalThis._SEO_PAGE, fluff, null, {isSkipNameRow: true, isSkipPageRow: true}).addClass("shadow-big stats--book stats--book-large")}
-			</div>`.insertAfter($wrpContent);
+			const eleFluff = Renderer.hover.getHoverContent_fluff(globalThis._SEO_PAGE, fluff, null, {isSkipNameRow: true, isSkipPageRow: true})
+				.vee.addClass("ve-shadow-big")
+				.vee.addClass("ve-stats--book")
+				.vee.addClass("ve-stats--book-large");
+			veT`<div class="ve-mt-5 ve-py-2">${eleFluff}</div>`.vee.insertAfter(wrpContent);
 		}
 	}
 };
 
 window.addEventListener("load", () => {
-	// Attempt to sneak this in before the navigation onload fires
-	Renderer.get().setBaseUrl("/");
 	onLoadSeo().then(null);
 });

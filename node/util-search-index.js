@@ -72,7 +72,7 @@ export class UtilSearchIndex {
 
 		for (const indexMeta of toIndexSingle) {
 			const filePath = `./data/${indexMeta.file}`;
-			const data = ut.readJson(filePath);
+			const data = await DataUtil.loadJSON(filePath);
 
 			if (indexMeta.postLoad) indexMeta.postLoad(data);
 
@@ -102,23 +102,25 @@ export class UtilSearchIndex {
 	}
 
 	// this should be generalised if further specific indexes are required
-	static async pGetIndexAdditionalItem ({baseIndex = 0, doLogging = true} = {}) {
+	static async pGetIndexAdditional (forCatId, {baseIndex = 0, doLogging = true} = {}) {
 		ut.patchLoadJson();
 
 		const indexer = new Omnidexer(baseIndex);
 
-		await Promise.all(Omnidexer.TO_INDEX.filter(it => it.category === Parser.CAT_ID_ITEM).map(async ti => {
-			const filename = `./data/${ti.file}`;
-			const data = ut.readJson(filename);
+		await Omnidexer.TO_INDEX
+			.filter(it => it.additionalIndexes && it.category === forCatId)
+			.pMap(async ti => {
+				const filename = `./data/${ti.file}`;
+				const data = await DataUtil.loadJSON(filename);
 
-			if (ti.postLoad) ti.postLoad(data);
+				if (ti.postLoad) ti.postLoad(data);
 
-			if (ti.additionalIndexes && ti.additionalIndexes.item) {
-				if (doLogging) console.log(`\tindexing ${filename}`);
-				const extra = await ti.additionalIndexes.item(indexer, data);
-				extra.forEach(add => indexer.pushToIndex(add));
-			}
-		}));
+				for (const [prop, fn] of Object.entries(ti.additionalIndexes)) {
+					if (doLogging) console.log(`\tIndexing ${filename} (additional; "${prop}")`);
+					const extra = await fn(indexer, data);
+					extra.forEach(add => indexer.pushToIndex(add));
+				}
+			});
 
 		const out = indexer.getIndex();
 		ut.unpatchLoadJson();
@@ -137,6 +139,7 @@ export class UtilSearchIndex {
 		const out = await BrewUtil2.pGetSearchIndex({
 			isDecompress: false,
 			isIncludeExtendedSourceInfo: true,
+			isSkipNonPartnered: true,
 		});
 
 		ut.unpatchLoadJson();

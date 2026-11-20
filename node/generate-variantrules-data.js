@@ -9,11 +9,11 @@ class GenVariantrules {
 				if (GenVariantrules.ADVENTURE_ALLOWLIST[idx.id]) {
 					return {
 						adventure: idx,
-						adventureData: JSON.parse(fs.readFileSync(`./data/adventure/adventure-${idx.id.toLowerCase()}.json`, "utf-8")),
+						adventureData: ut.readJson(`./data/adventure/adventure-${idx.id.toLowerCase()}.json`).adventureData.find(corpusData => corpusData.id === idx.id),
 					};
 				}
 			})
-			.filter(it => it);
+			.filter(Boolean);
 	}
 
 	_doLoadBookData () {
@@ -22,11 +22,11 @@ class GenVariantrules {
 				if (!GenVariantrules.BOOK_BLOCKLIST[idx.id]) {
 					return {
 						book: idx,
-						bookData: JSON.parse(fs.readFileSync(`./data/book/book-${idx.id.toLowerCase()}.json`, "utf-8")),
+						bookData: ut.readJson(`./data/book/book-${idx.id.toLowerCase()}.json`).bookData.find(corpusData => corpusData.id === idx.id),
 					};
 				}
 			})
-			.filter(it => it);
+			.filter(Boolean);
 	}
 
 	async pRun () {
@@ -105,8 +105,18 @@ class GenVariantrules {
 					);
 					// endregion
 
+					cpy.name = variantRuleMeta.name || cpy.name;
 					cpy.ruleType = variantRuleMeta.ruleType;
 					cpy.source = doc[opts.headProp].source;
+
+					[
+						"srd",
+						"basicRules",
+						"srd52",
+						"basicRules2024",
+					]
+						.filter(prop => variantRuleMeta[prop])
+						.forEach(prop => cpy[prop] = variantRuleMeta[prop]);
 
 					out.push(cpy);
 				},

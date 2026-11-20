@@ -5,12 +5,16 @@ class BlocklistUtil {
 		"_meta",
 		"_test",
 		"linkedLootTables",
+		"$schema",
 
 		// `items-base.json`
 		"itemProperty",
 		"itemType",
 		"itemEntry",
 		"itemTypeAdditionalEntries",
+
+		// `languages.json`
+		"languageScript",
 
 		// homebrew corpus
 		"adventureData",
@@ -39,6 +43,7 @@ class BlocklistUtil {
 		"variantrules.json",
 		"vehicles.json",
 		"decks.json",
+		"languages.json",
 	];
 
 	static async pLoadData (
@@ -99,16 +104,17 @@ globalThis.BlocklistUtil = BlocklistUtil;
 class BlocklistUi {
 	constructor (
 		{
-			$wrpContent,
+			wrpContent,
 			data,
 			isCompactUi = false,
 			isAutoSave = true,
 		},
 	) {
-		this._$wrpContent = $wrpContent;
+		this._wrpContent = wrpContent;
 		this._data = data;
 		this._isCompactUi = !!isCompactUi;
 		this._isAutoSave = !!isAutoSave;
+		this._isRequireSave = false; // (For Foundry use)
 
 		this._excludes = ExcludeUtil.getList();
 
@@ -117,18 +123,26 @@ class BlocklistUi {
 		this._allSources = null;
 		this._allCategories = null;
 
-		this._$wrpControls = null;
+		this._wrpControls = null;
 
 		this._comp = null;
 
-		this._$wrpSelName = null;
+		this._wrpSelName = null;
 		this._metaSelName = null;
+	}
+
+	async _pDoPersist (nxtList) {
+		nxtList ||= MiscUtil.copy(this._excludes);
+
+		if (this._isAutoSave) return ExcludeUtil.pSetList(nxtList);
+
+		this._isRequireSave = true;
 	}
 
 	_addExclude (displayName, hash, category, source) {
 		if (!this._excludes.find(row => row.source === source && row.category === category && row.hash === hash)) {
 			this._excludes.push({displayName, hash, category, source});
-			if (this._isAutoSave) ExcludeUtil.pSetList(MiscUtil.copy(this._excludes)).then(null);
+			this._pDoPersist().then(null);
 			return true;
 		}
 		return false;
@@ -136,15 +150,17 @@ class BlocklistUi {
 
 	_removeExclude (hash, category, source) {
 		const ix = this._excludes.findIndex(row => row.source === source && row.category === category && row.hash === hash);
-		if (~ix) {
-			this._excludes.splice(ix, 1);
-			if (this._isAutoSave) ExcludeUtil.pSetList(MiscUtil.copy(this._excludes)).then(null);
-		}
+		if (!~ix) return;
+
+		if (this._excludes[ix].isAuto) return;
+
+		this._excludes.splice(ix, 1);
+		this._pDoPersist().then(null);
 	}
 
 	_resetExcludes () {
-		this._excludes = [];
-		if (this._isAutoSave) ExcludeUtil.pSetList(MiscUtil.copy(this._excludes)).then(null);
+		this._excludes = this._excludes.filter(excludeMeta => excludeMeta.isAuto);
+		this._pDoPersist().then(null);
 	}
 
 	async _pInitSubBlocklistEntries () {
@@ -199,7 +215,7 @@ class BlocklistUi {
 	_renderList () {
 		this._excludes
 			.sort((a, b) => SortUtil.ascSort(a.source, b.source) || SortUtil.ascSort(a.category, b.category) || SortUtil.ascSort(a.displayName, b.displayName))
-			.forEach(({displayName, hash, category, source}) => this._addListItem(displayName, hash, category, source));
+			.forEach(excludeMeta => this._addListItem(excludeMeta));
 		this._list.init();
 		this._list.update();
 	}
@@ -215,79 +231,88 @@ class BlocklistUi {
 	}
 
 	_pInit_initUi () {
-		this._$wrpControls = $(`<div ${this._isCompactUi ? "" : `class="bg-solid py-5 px-3 shadow-big b-1p"`}></div>`);
+		this._wrpControls = veT`<div ${this._isCompactUi ? "" : `class="ve-bg-solid ve-py-5 ve-px-3 ve-shadow-big ve-b-1p"`}></div>`;
 
-		const $iptSearch = $(`<input type="search" class="search form-control lst__search lst__search--no-border-h h-100">`).disableSpellcheck();
+		const iptSearch = veT`<input type="search" class="search ve-form-control ve-lst__search ve-lst__search--no-border-h ve-h-100">`.vee.disableSpellcheck();
 
-		const $btnReset = $(`<button class="ve-btn ve-btn-default">Reset Search</button>`)
-			.click(() => {
-				$iptSearch.val("");
+		const btnReset = veT`<button class="ve-btn ve-btn-default">Reset Search</button>`
+			.vee.onn("click", () => {
+				iptSearch.vee.val("");
 				this._list.reset();
 			});
 
-		const $wrpFilterTools = $$`<div class="input-group input-group--bottom ve-flex no-shrink">
+		const wrpFilterTools = veT`<div class="ve-input-group ve-input-group--bottom ve-flex ve-no-shrink">
 			<button class="ve-col-4 sort ve-btn ve-btn-default ve-btn-xs ve-grow" data-sort="source">Source</button>
 			<button class="ve-col-2 sort ve-btn ve-btn-default ve-btn-xs" data-sort="category">Category</button>
 			<button class="ve-col-5 sort ve-btn ve-btn-default ve-btn-xs" data-sort="name">Name</button>
 			<button class="ve-col-1 sort ve-btn ve-btn-default ve-btn-xs" disabled>&nbsp;</button>
 		</div>`;
 
-		const $wrpList = $(`<div class="list-display-only smooth-scroll ve-overflow-y-auto h-100 min-h-0"></div>`);
+		const wrpList = veT`<div class="list-display-only ve-smooth-scroll ve-overflow-y-auto ve-h-100 ve-min-h-0"></div>`;
 
-		$$(this._$wrpContent.empty())`
-			${this._$wrpControls}
+		veT(this._wrpContent.vee.empty())`
+			${this._wrpControls}
 
-			<hr class="${this._isCompactUi ? "hr-2" : "hr-5"}">
+			<hr class="${this._isCompactUi ? "ve-hr-2" : "ve-hr-5"}">
 
-			<h4 class="my-0">Blocklist</h4>
-			<div class="ve-muted ${this._isCompactUi ? "mb-2" : "mb-3"}"><i>Rows marked with an asterisk (*) in a field match everything in that field.</i></div>
+			<h4 class="ve-my-0">Blocklist</h4>
+			<div class="ve-muted ${this._isCompactUi ? "ve-mb-2" : "ve-mb-3"}"><i>Rows marked with an asterisk (*) in a field match everything in that field.</i></div>
 
-			<div class="ve-flex-col min-h-0">
-				<div class="ve-flex-v-stretch input-group input-group--top no-shrink">
-					<div class="w-100 relative">
-						${$iptSearch}
-						<div class="lst__wrp-search-glass no-events ve-flex-vh-center"><span class="glyphicon glyphicon-search"></span></div>
-						<div class="lst__wrp-search-visible no-events ve-flex-vh-center"></div>
+			<div class="ve-flex-col ve-min-h-0">
+				<div class="ve-flex-v-stretch ve-input-group ve-input-group--top ve-no-shrink">
+					<div class="ve-w-100 ve-relative">
+						${iptSearch}
+						<div class="ve-lst__wrp-search-glass ve-no-events ve-flex-vh-center"><span class="glyphicon glyphicon-search"></span></div>
+						<div class="ve-lst__wrp-search-visible ve-no-events ve-flex-vh-center"></div>
 					</div>
-					${$btnReset}
+					${btnReset}
 				</div>
 
-				${$wrpFilterTools}
+				${wrpFilterTools}
 
-				${$wrpList}
+				${wrpList}
 			</div>`;
 
 		this._list = new List({
-			$iptSearch,
-			$wrpList,
-			isUseJquery: true,
+			iptSearch,
+			wrpList,
 		});
 		this._listId = 1;
 
-		SortUtil.initBtnSortHandlers($wrpFilterTools, this._list);
+		SortUtil.initBtnSortHandlers(wrpFilterTools, this._list);
 	}
 
 	_pInit_render () {
 		// region Helper controls
-		const $btnExcludeAllUa = $(this._getBtnHtml_addToBlocklist())
-			.click(() => this._addAllUa());
-		const $btnIncludeAllUa = $(this._getBtnHtml_removeFromBlocklist())
-			.click(() => this._removeAllUa());
+		const btnExcludeAllUa = this._getBtn_addToBlocklist()
+			.vee.onn("click", () => this._addAllUa());
+		const btnIncludeAllUa = this._getBtn_removeFromBlocklist()
+			.vee.onn("click", () => this._removeAllUa());
 
-		const $btnExcludeAllSources = $(this._getBtnHtml_addToBlocklist())
-			.click(() => this._addAllSources());
-		const $btnIncludeAllSources = $(this._getBtnHtml_removeFromBlocklist())
-			.click(() => this._removeAllSources());
+		const btnExcludeAllSources = this._getBtn_addToBlocklist()
+			.vee.onn("click", () => this._addAllSources());
+		const btnIncludeAllSources = this._getBtn_removeFromBlocklist()
+			.vee.onn("click", () => this._removeAllSources());
 
-		const $btnExcludeAllComedySources = $(this._getBtnHtml_addToBlocklist())
-			.click(() => this._addAllComedySources());
-		const $btnIncludeAllComedySources = $(this._getBtnHtml_removeFromBlocklist())
-			.click(() => this._removeAllComedySources());
+		const btnExcludeAllComedySources = this._getBtn_addToBlocklist()
+			.vee.onn("click", () => this._addAllComedySources());
+		const btnIncludeAllComedySources = this._getBtn_removeFromBlocklist()
+			.vee.onn("click", () => this._removeAllComedySources());
 
-		const $btnExcludeAllNonForgottenRealmsSources = $(this._getBtnHtml_addToBlocklist())
-			.click(() => this._addAllNonForgottenRealms());
-		const $btnIncludeAllNonForgottenRealmsSources = $(this._getBtnHtml_removeFromBlocklist())
-			.click(() => this._removeAllNonForgottenRealms());
+		const btnExcludeAllNonForgottenRealmsSources = this._getBtn_addToBlocklist()
+			.vee.onn("click", () => this._addAllNonForgottenRealms());
+		const btnIncludeAllNonForgottenRealmsSources = this._getBtn_removeFromBlocklist()
+			.vee.onn("click", () => this._removeAllNonForgottenRealms());
+
+		const btnExcludeClassicSources = this._getBtn_addToBlocklist()
+			.vee.onn("click", () => this._addAllNonClassicSources());
+		const btnIncludeClassicSources = this._getBtn_removeFromBlocklist()
+			.vee.onn("click", () => this._removeAllClassicSources());
+
+		const btnExcludeModernSources = this._getBtn_addToBlocklist()
+			.vee.onn("click", () => this._addAllNonModernSources());
+		const btnIncludeModernSources = this._getBtn_removeFromBlocklist()
+			.vee.onn("click", () => this._removeAllModernSources());
 		// endregion
 
 		// region Primary controls
@@ -308,7 +333,7 @@ class BlocklistUi {
 
 		this._comp = new BlocklistUi.Component();
 
-		const $selSource = ComponentUiUtil.$getSelSearchable(
+		const selSource = ComponentUiUtil.getSelSearchable(
 			this._comp,
 			"source",
 			{
@@ -318,7 +343,7 @@ class BlocklistUi {
 		);
 		this._comp.addHook("source", () => this._doHandleSourceCategorySelChange());
 
-		const $selCategory = ComponentUiUtil.$getSelSearchable(
+		const selCategory = ComponentUiUtil.getSelSearchable(
 			this._comp,
 			"category",
 			{
@@ -328,111 +353,94 @@ class BlocklistUi {
 		);
 		this._comp.addHook("category", () => this._doHandleSourceCategorySelChange());
 
-		this._$wrpSelName = $(`<div class="w-100 ve-flex"></div>`);
+		this._wrpSelName = veT`<div class="ve-w-100 ve-flex"></div>`;
 		this._doHandleSourceCategorySelChange();
 
-		const $btnAddExclusion = $(`<button class="ve-btn ve-btn-default ve-btn-xs">Add to Blocklist</button>`)
-			.click(() => this._pAdd());
+		const btnAddExclusion = veT`<button class="ve-btn ve-btn-default ve-btn-xs">Add to Blocklist</button>`
+			.vee.onn("click", () => this._pAdd());
 		// endregion
 
 		// Utility controls
-		const $btnSendToFoundry = !IS_VTT && ExtensionUtil.ACTIVE
-			? $(`<button title="Send to Foundry" class="ve-btn ve-btn-xs ve-btn-default mr-2"><span class="glyphicon glyphicon-send"></span></button>`)
-				.click(evt => this._pDoSendToFoundry({isTemp: !!evt.shiftKey}))
+		const btnSendToFoundry = !globalThis.IS_VTT && ExtensionUtil.ACTIVE
+			? veT`<button title="Send to Foundry" class="ve-btn ve-btn-xs ve-btn-default ve-mr-2"><span class="glyphicon glyphicon-send"></span></button>`
+				.vee.onn("click", evt => this._pDoSendToFoundry({isTemp: !!evt.shiftKey}))
 			: null;
-		const $btnExport = $(`<button class="ve-btn ve-btn-default ve-btn-xs">Export List</button>`)
-			.click(() => this._export());
-		const $btnImport = $(`<button class="ve-btn ve-btn-default ve-btn-xs" title="SHIFT for Add Only">Import List</button>`)
-			.click(evt => this._pImport(evt));
-		const $btnReset = $(`<button class="ve-btn ve-btn-danger ve-btn-xs">Reset List</button>`)
-			.click(async () => {
+		const btnExport = veT`<button class="ve-btn ve-btn-default ve-btn-xs">Export List</button>`
+			.vee.onn("click", () => this._export());
+		const btnImport = veT`<button class="ve-btn ve-btn-default ve-btn-xs" title="SHIFT for Add Only">Import List</button>`
+			.vee.onn("click", evt => this._pImport(evt));
+		const btnReset = veT`<button class="ve-btn ve-btn-danger ve-btn-xs">Reset List</button>`
+			.vee.onn("click", async () => {
 				if (!await InputUiUtil.pGetUserBoolean({title: "Reset Blocklist", htmlDescription: "Are you sure?", textYes: "Yes", textNo: "Cancel"})) return;
 				this._reset();
 			});
 		// endregion
 
-		$$`<div class="${this._isCompactUi ? "mb-2" : "mb-5"} ve-flex-v-center mobile__ve-flex-col mobile__ve-flex-ai-start">
-			<div class="ve-flex-vh-center mr-4 mobile__mr-0 mobile__mb-2">
-				<div class="mr-2">UA/Etc. Sources</div>
-				<div class="ve-flex-v-center ve-btn-group">
-					${$btnExcludeAllUa}
-					${$btnIncludeAllUa}
+		const getWrpExcludeInclude = ({name, btnExclude, btnInclude}) => veT`<div class="ve-flex-v-center ve-mobile-md__w-100 ve-mr-2 ve-mobile-md__mr-0 ve-mobile-md__mb-2 ve-p-2 ve-b-1p ve-bc-5p">
+				<div class="ve-mr-2">${name}</div>
+				<div class="ve-flex-v-center ve-btn-group ve-mobile-md__ml-auto">
+					${btnExclude}
+					${btnInclude}
 				</div>
+			</div>`;
+
+		veT(this._wrpControls.vee.empty())`<div class="${this._isCompactUi ? "ve-mb-2" : "ve-mb-5"} ve-flex-v-center ve-mobile-md__flex-col ve-mobile-md__flex-ai-start">
+			${getWrpExcludeInclude({name: "UA/Etc. Sources", btnExclude: btnExcludeAllUa, btnInclude: btnIncludeAllUa})}
+			${getWrpExcludeInclude({name: `Comedy Sources`, btnExclude: btnExcludeAllComedySources, btnInclude: btnIncludeAllComedySources})}
+			${getWrpExcludeInclude({name: `Non-<i>Forgotten Realms</i>`, btnExclude: btnExcludeAllNonForgottenRealmsSources, btnInclude: btnIncludeAllNonForgottenRealmsSources})}
+			${getWrpExcludeInclude({name: `5e (&apos;14) Sources`, btnExclude: btnExcludeClassicSources, btnInclude: btnIncludeClassicSources})}
+			${getWrpExcludeInclude({name: `5.5e (&apos;24) Sources`, btnExclude: btnExcludeModernSources, btnInclude: btnIncludeModernSources})}
+			${getWrpExcludeInclude({name: `All Sources`, btnExclude: btnExcludeAllSources, btnInclude: btnIncludeAllSources})}
+		</div>
+
+		<div class="ve-flex-v-end ${this._isCompactUi ? "ve-mb-2" : "ve-mb-5"} ve-mobile-sm__flex-col ve-mobile-sm__flex-ai-start">
+			<div class="ve-flex-col ve-w-25 ve-pr-2 ve-mobile-sm__w-100 ve-mobile-sm__mb-2 ve-mobile-sm__p-0">
+				<label class="ve-mb-1">Source</label>
+				${selSource}
 			</div>
 
-			<div class="ve-flex-vh-center mr-3 mobile__mr-0 mobile__mb-2">
-				<div class="mr-2">Comedy Sources</div>
-				<div class="ve-flex-v-center ve-btn-group">
-					${$btnExcludeAllComedySources}
-					${$btnIncludeAllComedySources}
-				</div>
+			<div class="ve-flex-col ve-w-25 ve-px-2 ve-mobile-sm__w-100 ve-mobile-sm__mb-2 ve-mobile-sm__p-0">
+				<label class="ve-mb-1">Category</label>
+				${selCategory}
 			</div>
 
-			<div class="ve-flex-vh-center mr-3 mobile__mr-0 mobile__mb-2">
-				<div class="mr-2">Non-<i>Forgotten Realms</i></div>
-				<div class="ve-flex-v-center ve-btn-group">
-					${$btnExcludeAllNonForgottenRealmsSources}
-					${$btnIncludeAllNonForgottenRealmsSources}
-				</div>
+			<div class="ve-flex-col ve-w-25 ve-px-2 ve-mobile-sm__w-100 ve-mobile-sm__mb-2 ve-mobile-sm__p-0">
+				<label class="ve-mb-1">Name</label>
+				${this._wrpSelName}
 			</div>
 
-			<div class="ve-flex-vh-center mr-3 mobile__mr-0 mobile__mb-2">
-				<div class="mr-2">All Sources</div>
-				<div class="ve-flex-v-center ve-btn-group">
-					${$btnExcludeAllSources}
-					${$btnIncludeAllSources}
+			<div class="ve-flex-col ve-w-25 ve-pl-2 ve-mobile-sm__w-100 ve-mobile-sm__mb-2 ve-mobile-sm__p-0">
+				<div class="ve-mt-auto">
+					${btnAddExclusion}
 				</div>
 			</div>
 		</div>
 
-		<div class="ve-flex-v-end ${this._isCompactUi ? "mb-2" : "mb-5"} mobile__ve-flex-col mobile__ve-flex-ai-start">
-			<div class="ve-flex-col w-25 pr-2 mobile__w-100 mobile__mb-2 mobile__p-0">
-				<label class="mb-1">Source</label>
-				${$selSource}
+		<div class="ve-w-100 ve-flex-v-center">
+			${btnSendToFoundry}
+			<div class="ve-flex-v-center ve-btn-group ve-mr-2">
+				${btnExport}
+				${btnImport}
 			</div>
-
-			<div class="ve-flex-col w-25 px-2 mobile__w-100 mobile__mb-2 mobile__p-0">
-				<label class="mb-1">Category</label>
-				${$selCategory}
-			</div>
-
-			<div class="ve-flex-col w-25 px-2 mobile__w-100 mobile__mb-2 mobile__p-0">
-				<label class="mb-1">Name</label>
-				${this._$wrpSelName}
-			</div>
-
-			<div class="ve-flex-col w-25 pl-2 mobile__w-100 mobile__mb-2 mobile__p-0">
-				<div class="mt-auto">
-					${$btnAddExclusion}
-				</div>
-			</div>
-		</div>
-
-		<div class="w-100 ve-flex-v-center">
-			${$btnSendToFoundry}
-			<div class="ve-flex-v-center ve-btn-group mr-2">
-				${$btnExport}
-				${$btnImport}
-			</div>
-			${$btnReset}
-		</div>`.appendTo(this._$wrpControls.empty());
+			${btnReset}
+		</div>`;
 	}
 
-	_getBtnHtml_addToBlocklist () {
-		return `<button class="ve-btn ve-btn-danger ve-btn-xs w-20p h-21p ve-flex-vh-center" title="Add to Blocklist"><span class="glyphicon glyphicon-trash"></span></button>`;
+	_getBtn_addToBlocklist () {
+		return veT`<button class="ve-btn ve-btn-danger ve-btn-xs ve-w-20p ve-h-21p ve-flex-vh-center" title="Add to Blocklist"><span class="glyphicon glyphicon-trash"></span></button>`;
 	}
 
-	_getBtnHtml_removeFromBlocklist () {
-		return `<button class="ve-btn ve-btn-success ve-btn-xs w-20p h-21p ve-flex-vh-center" title="Remove from Blocklist"><span class="glyphicon glyphicon-thumbs-up"></span></button>`;
+	_getBtn_removeFromBlocklist () {
+		return veT`<button class="ve-btn ve-btn-success ve-btn-xs ve-w-20p ve-h-21p ve-flex-vh-center" title="Remove from Blocklist"><span class="glyphicon glyphicon-thumbs-up"></span></button>`;
 	}
 
 	_doHandleSourceCategorySelChange () {
 		if (this._metaSelName) this._metaSelName.unhook();
-		this._$wrpSelName.empty();
+		this._wrpSelName.vee.empty();
 
 		const filteredData = this._doHandleSourceCategorySelChange_getFilteredData();
 
-		const $selName = ComponentUiUtil.$getSelSearchable(
+		const selName = ComponentUiUtil.getSelSearchable(
 			this._comp,
 			"name",
 			{
@@ -444,7 +452,7 @@ class BlocklistUi {
 			},
 		);
 
-		this._$wrpSelName.append($selName);
+		this._wrpSelName.append(selName);
 	}
 
 	_doHandleSourceCategorySelChange_getFilteredData () {
@@ -506,7 +514,7 @@ class BlocklistUi {
 					case "subclassFeature": prefix = this._getDisplayNamePrefix_subclassFeature(it); break;
 				}
 
-				const displayName = `${prefix}${it.name}${(dupes.has(it.name) || (copy[i + 1] && copy[i + 1].name === it.name)) ? ` (${Parser.sourceJsonToAbv(SourceUtil.getEntitySource(it))})` : ""}`;
+				const displayName = `${prefix}${it.name}${(dupes.has(it.name) || (copy[i + 1] && copy[i + 1].name === it.name)) ? ` [${Parser.sourceJsonToAbv(SourceUtil.getEntitySource(it))}]` : ""}`;
 
 				dupes.add(it.name);
 				return {
@@ -535,44 +543,46 @@ class BlocklistUi {
 		}
 	}
 
-	_addListItem (displayName, hash, category, source) {
+	_addListItem ({displayName, hash, category, source, isAuto = false}) {
 		const display = this._getDisplayValues(category, source);
 
 		const id = this._listId++;
 		const sourceFull = Parser.sourceJsonToFull(source);
 
-		const $btnRemove = $(`<button class="ve-btn ve-btn-xxs ve-btn-danger">Remove</button>`)
-			.click(() => {
-				this._remove(id, hash, category, source);
-			});
+		const btnRemove = isAuto
+			? veT`<button class="ve-btn ve-btn-xxs ve-btn-danger" disabled title="This blocklist entry is automatically managed, and cannot be manually removed.">Remove</button>`
+			: veT`<button class="ve-btn ve-btn-xxs ve-btn-danger">Remove</button>`
+				.vee.onn("click", () => {
+					this._remove(id, hash, category, source);
+				});
 
-		const $ele = $$`<div class="${this._addListItem_getItemStyles()}">
-			<span class="ve-col-4 ve-text-center">${sourceFull}</span>
+		const ele = veT`<div class="${this._addListItem_getItemStyles()}">
+			<span class="ve-col-4 ve-text-center">${sourceFull.qq()}</span>
 			<span class="ve-col-2 ve-text-center">${display.displayCategory}</span>
 			<span class="ve-col-5 ve-text-center">${displayName}</span>
-			<span class="ve-col-1 ve-text-center">${$btnRemove}</span>
+			<span class="ve-col-1 ve-text-center">${btnRemove}</span>
 		</div>`;
 
-		const listItem = new ListItem(
+		const listItem = new ListItem({
 			id,
-			$ele,
-			displayName,
-			{
+			ele,
+			name: displayName,
+			values: {
 				category: display.displayCategory,
 				source: sourceFull,
 			},
-			{
+			data: {
 				displayName: displayName,
 				hash: hash,
 				category: category,
 				source: source,
 			},
-		);
+		});
 
 		this._list.addItem(listItem);
 	}
 
-	_addListItem_getItemStyles () { return `no-click ve-flex-v-center lst__row lst__row-border veapp__list-row lst__row-inner no-shrink`; }
+	_addListItem_getItemStyles () { return `no-click ve-flex-v-center ve-lst__row ve-lst__row-border veapp__list-row ve-lst__row-inner ve-no-shrink`; }
 
 	async _pAdd () {
 		const {hash, name: displayName, category: categoryName} = this._comp.name;
@@ -586,14 +596,14 @@ class BlocklistUi {
 		) return;
 
 		if (this._addExclude(displayName, hash, category, this._comp.source)) {
-			this._addListItem(displayName, hash, category, this._comp.source);
+			this._addListItem({displayName, hash, category, source: this._comp.source, isAuto: false});
 
 			const subBlocklist = MiscUtil.get(this._subBlocklistEntries, category, hash);
 			if (subBlocklist) {
 				subBlocklist.forEach(it => {
 					const {displayName, hash, category, source} = it;
 					this._addExclude(displayName, hash, category, source);
-					this._addListItem(displayName, hash, category, source);
+					this._addListItem({displayName, hash, category, source, isAuto: false});
 				});
 			}
 
@@ -610,9 +620,8 @@ class BlocklistUi {
 			: this._allSources;
 		sources
 			.forEach(source => {
-				if (this._addExclude("*", "*", "*", source)) {
-					this._addListItem("*", "*", "*", source);
-				}
+				if (!this._addExclude("*", "*", "*", source)) return;
+				this._addListItem({displayName: "*", hash: "*", category: "*", source, isAuto: false});
 			});
 		this._list.update();
 	}
@@ -627,9 +636,8 @@ class BlocklistUi {
 		sources
 			.forEach(source => {
 				const item = this._list.items.find(it => it.data.hash === "*" && it.data.category === "*" && it.data.source === source);
-				if (item) {
-					this._remove(item.ix, "*", "*", source, {isSkipListUpdate: true});
-				}
+				if (!item) return;
+				this._remove(item.getId(), "*", "*", source, {isSkipListUpdate: true});
 			});
 		this._list.update();
 	}
@@ -646,18 +654,24 @@ class BlocklistUi {
 	_addAllNonForgottenRealms () { this._addMassSources({fnFilter: source => Parser.SOURCES_NON_FR.has(source)}); }
 	_removeAllNonForgottenRealms () { this._removeMassSources({fnFilter: source => Parser.SOURCES_NON_FR.has(source)}); }
 
-	_remove (ix, hash, category, source, {isSkipListUpdate = false} = {}) {
+	_addAllNonClassicSources () { this._addMassSources({fnFilter: source => SourceUtil.isClassicSource(source)}); }
+	_removeAllClassicSources () { this._removeMassSources({fnFilter: source => SourceUtil.isClassicSource(source)}); }
+
+	_addAllNonModernSources () { this._addMassSources({fnFilter: source => !SourceUtil.isClassicSource(source)}); }
+	_removeAllModernSources () { this._removeMassSources({fnFilter: source => !SourceUtil.isClassicSource(source)}); }
+
+	_remove (id, hash, category, source, {isSkipListUpdate = false} = {}) {
 		this._removeExclude(hash, category, source);
-		this._list.removeItemByIndex(ix);
+		this._list.removeItemById(id);
 		if (!isSkipListUpdate) this._list.update();
 	}
 
 	async _pDoSendToFoundry () {
-		await ExtensionUtil.pDoSend({type: "snstools.blocklist.excludes", data: this._excludes});
+		await ExtensionUtil.pDoSend({type: "snstools.blocklist.excludes", data: this._excludes.filter(excludeMeta => !excludeMeta.isAuto)});
 	}
 
 	_export () {
-		DataUtil.userDownload(`content-blocklist`, {fileType: "content-blocklist", blocklist: this._excludes});
+		DataUtil.userDownload(`content-blocklist`, {fileType: "content-blocklist", blocklist: this._excludes.filter(excludeMeta => !excludeMeta.isAuto)});
 	}
 
 	async _pImport_getUserUpload () {
@@ -678,12 +692,19 @@ class BlocklistUi {
 		const json = jsons[0];
 
 		// update storage
-		const nxtList = evt.shiftKey
-			// Supports old key "blacklist"
-			? MiscUtil.copy(this._excludes).concat(json.blocklist || json.blacklist || [])
-			: json.blocklist || json.blacklist || [];
+		// Supports old key "blacklist"
+		const importList = json.blocklist || json.blacklist || [];
+		const nxtList = [
+			...(
+				evt.shiftKey
+				// Supports old key "blacklist"
+					? MiscUtil.copy(this._excludes).concat(importList)
+					: importList
+			),
+			...this._excludes.filter(excludeMeta => excludeMeta.isAuto),
+		];
 		this._excludes = nxtList;
-		if (this._isAutoSave) await ExcludeUtil.pSetList(nxtList);
+		this._pDoPersist(nxtList).then(null);
 
 		// render list display
 		this._renderList();
@@ -692,13 +713,23 @@ class BlocklistUi {
 	_reset () {
 		this._resetExcludes();
 		this._list.removeAllItems();
-		this._list.update();
+		this._renderList();
 	}
 }
 
 globalThis.BlocklistUi = BlocklistUi;
 
 BlocklistUi.Component = class extends BaseComponent {
+	constructor () {
+		super();
+
+		const hkNonNameChange = () => {
+			this._state.name = {hash: "*", name: "*", category: this._state.category};
+		};
+		this._addHookBase("source", hkNonNameChange);
+		this._addHookBase("category", hkNonNameChange);
+	}
+
 	get source () { return this._state.source; }
 	get category () { return this._state.category; }
 	get name () { return this._state.name; }

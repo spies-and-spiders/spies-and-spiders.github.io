@@ -24,13 +24,13 @@ export class FilterBox extends ProxyBase {
 
 	/**
 	 * @param opts Options object.
-	 * @param [opts.$wrpFormTop] Form input group.
-	 * @param opts.$btnReset Form reset button.
-	 * @param [opts.$btnOpen] A custom button to use to open the filter overlay.
-	 * @param [opts.$iptSearch] Search input associated with the "form" this filter is a part of. Only used for passing
+	 * @param [opts.wrpFormTop] Form input group.
+	 * @param opts.btnReset Form reset button.
+	 * @param [opts.btnOpen] A custom button to use to open the filter overlay.
+	 * @param [opts.iptSearch] Search input associated with the "form" this filter is a part of. Only used for passing
 	 * through search terms in @filter tags.
-	 * @param [opts.$wrpMiniPills] Element to house mini pills.
-	 * @param [opts.$btnToggleSummaryHidden] Button which toggles the filter summary.
+	 * @param [opts.wrpMiniPills] Element to house mini pills.
+	 * @param [opts.btnToggleSummaryHidden] Button which toggles the filter summary.
 	 * @param opts.filters Array of filters to be included in this box.
 	 * @param [opts.isCompact] True if this box should have a compact/reduced UI.
 	 * @param [opts.namespace] Namespace for this filter, to prevent collisions with other filters on the same page.
@@ -39,12 +39,12 @@ export class FilterBox extends ProxyBase {
 	constructor (opts) {
 		super();
 
-		this._$iptSearch = opts.$iptSearch;
-		this._$wrpFormTop = opts.$wrpFormTop;
-		this._$btnReset = opts.$btnReset;
-		this._$btnOpen = opts.$btnOpen;
-		this._$wrpMiniPills = opts.$wrpMiniPills;
-		this._$btnToggleSummaryHidden = opts.$btnToggleSummaryHidden;
+		this._iptSearch = opts.iptSearch;
+		this._wrpFormTop = opts.wrpFormTop;
+		this._btnReset = opts.btnReset;
+		this._btnOpen = opts.btnOpen;
+		this._wrpMiniPills = opts.wrpMiniPills;
+		this._btnToggleSummaryHidden = opts.btnToggleSummaryHidden;
 		this._filters = opts.filters;
 		this._isCompact = opts.isCompact;
 		this._namespace = opts.namespace;
@@ -190,63 +190,72 @@ export class FilterBox extends ProxyBase {
 		}
 		this._isRendered = true;
 
-		if (this._$wrpFormTop || this._$wrpMiniPills) {
-			if (!this._$wrpMiniPills) {
-				this._$wrpMiniPills = $(`<div class="fltr__mini-view ve-btn-group"></div>`).insertAfter(this._$wrpFormTop);
+		if (this._wrpFormTop || this._wrpMiniPills) {
+			if (!this._wrpMiniPills) {
+				this._wrpMiniPills = veT`<div class="ve-fltr__mini-view ve-btn-group"></div>`.vee.insertAfter(this._wrpFormTop);
 			} else {
-				this._$wrpMiniPills.addClass("fltr__mini-view");
+				this._wrpMiniPills.vee.addClass("ve-fltr__mini-view");
 			}
 		}
 
-		if (this._$btnReset) {
-			this._$btnReset
-				.title(TITLE_BTN_RESET)
-				.click((evt) => this.reset(evt.shiftKey));
+		if (this._btnReset) {
+			this._btnReset
+				.vee.tooltip(TITLE_BTN_RESET)
+				.vee.onn("click", (evt) => this.reset(evt.shiftKey));
 		}
 
-		if (this._$wrpFormTop || this._$btnToggleSummaryHidden) {
-			if (!this._$btnToggleSummaryHidden) {
-				this._$btnToggleSummaryHidden = $(`<button class="ve-btn ve-btn-default ${this._isCompact ? "p-2" : ""}" title="Toggle Filter Summary"><span class="glyphicon glyphicon-resize-small"></span></button>`)
-					.prependTo(this._$wrpFormTop);
-			} else if (!this._$btnToggleSummaryHidden.parent().length) {
-				this._$btnToggleSummaryHidden.prependTo(this._$wrpFormTop);
+		if (this._wrpFormTop || this._btnToggleSummaryHidden) {
+			if (!this._btnToggleSummaryHidden) {
+				this._btnToggleSummaryHidden = veT`<button class="ve-btn ve-btn-default ${this._isCompact ? "ve-p-2" : ""}" title="Toggle Filter Summary"><span class="glyphicon glyphicon-resize-small"></span></button>`
+					.vee.prependTo(this._wrpFormTop);
+			} else if (!this._btnToggleSummaryHidden.vee.parent()) {
+				this._btnToggleSummaryHidden.vee.prependTo(this._wrpFormTop);
 			}
-			this._$btnToggleSummaryHidden
-				.click(() => {
+			this._btnToggleSummaryHidden
+				.vee.onn("click", () => {
 					this._meta.isSummaryHidden = !this._meta.isSummaryHidden;
 					this._doSaveStateThrottled();
 				});
 			const summaryHiddenHook = () => {
-				this._$btnToggleSummaryHidden.toggleClass("active", !!this._meta.isSummaryHidden);
-				this._$wrpMiniPills.toggleClass("ve-hidden", !!this._meta.isSummaryHidden);
+				this._btnToggleSummaryHidden.vee.toggleClass("ve-active", !!this._meta.isSummaryHidden);
+				if (this._wrpMiniPills) this._wrpMiniPills.vee.toggleClass("ve-hidden", !!this._meta.isSummaryHidden);
 			};
 			this._addHook("meta", "isSummaryHidden", summaryHiddenHook);
 			summaryHiddenHook();
 		}
 
-		if (this._$wrpFormTop || this._$btnOpen) {
-			if (!this._$btnOpen) {
-				this._$btnOpen = $(`<button class="ve-btn ve-btn-default ${this._isCompact ? "px-2" : ""}">Filter</button>`)
-					.prependTo(this._$wrpFormTop);
-			} else if (!this._$btnOpen.parent().length) {
-				this._$btnOpen.prependTo(this._$wrpFormTop);
+		if (this._wrpFormTop || this._btnOpen) {
+			if (!this._btnOpen) {
+				this._btnOpen = veT`<button class="ve-btn ve-btn-default ${this._isCompact ? "ve-px-2" : ""}">Filter</button>`
+					.vee.prependTo(this._wrpFormTop);
+			} else if (!this._btnOpen.vee.parent()) {
+				this._btnOpen.vee.prependTo(this._wrpFormTop);
 			}
-			this._$btnOpen.click(() => this.show());
+			this._btnOpen.vee.onn("click", () => this.show());
 		}
 
 		const sourceFilter = this._filters.find(it => it.header === SOURCE_HEADER);
 		if (sourceFilter) {
-			const selFnAlt = (val) => !SourceUtil.isNonstandardSource(val) && !PrereleaseUtil.hasSourceJson(val) && !BrewUtil2.hasSourceJson(val);
 			const hkSelFn = () => {
-				if (this._meta.isBrewDefaultHidden) sourceFilter.setTempFnSel(selFnAlt);
-				else sourceFilter.setTempFnSel(null);
+				const {isPrereleaseDefaultHidden, isBrewDefaultHidden} = this._meta;
+				if (isPrereleaseDefaultHidden || isBrewDefaultHidden) {
+					const selFnAlt = (val) => {
+						return PageFilterBase.defaultSourceSelFnStandardPartnered(val)
+							|| SourceUtil.getFilterGroup(val) === SourceUtil.FILTER_GROUP_UNIVERSES_BEYOND
+							|| (SourceUtil.getFilterGroup(val) === SourceUtil.FILTER_GROUP_PRERELEASE && !isPrereleaseDefaultHidden)
+							|| (SourceUtil.getFilterGroup(val) === SourceUtil.FILTER_GROUP_HOMEBREW && !isBrewDefaultHidden);
+					};
+					sourceFilter.setTempFnSel(selFnAlt);
+				} else sourceFilter.setTempFnSel(null);
+
 				sourceFilter.updateMiniPillClasses();
 			};
+			this._addHook("meta", "isPrereleaseDefaultHidden", hkSelFn);
 			this._addHook("meta", "isBrewDefaultHidden", hkSelFn);
 			hkSelFn();
 		}
 
-		if (this._$wrpMiniPills) this._filters.map((f, i) => f.$renderMinis({filterBox: this, isFirst: i === 0, $wrpMini: this._$wrpMiniPills}));
+		if (this._wrpMiniPills) this._filters.map((f, i) => f.renderMinis({filterBox: this, isFirst: i === 0, wrpMini: this._wrpMiniPills}));
 	}
 
 	async _render_pRenderModal () {
@@ -255,6 +264,7 @@ export class FilterBox extends ProxyBase {
 		this._modalMeta = await UiUtil.pGetShowModal({
 			isHeight100: true,
 			isWidth100: true,
+			isUncappedWidth: globalThis.styleSwitcher?.getIsWideMode(),
 			isUncappedHeight: true,
 			isIndestructible: true,
 			isClosed: true,
@@ -263,134 +273,140 @@ export class FilterBox extends ProxyBase {
 			cbClose: (isDataEntered) => this._pHandleHide(!isDataEntered),
 		});
 
-		const $children = this._filters.map((f, i) => f.$render({filterBox: this, isFirst: i === 0, $wrpMini: this._$wrpMiniPills}));
+		const children = this._filters.map((filter, i) => filter.render({filterBox: this, isFirst: i === 0, wrpMini: this._wrpMiniPills}));
 
-		this._metaIptSearch = ComponentUiUtil.$getIptStr(
+		this._metaIptSearch = ComponentUiUtil.getIptStr(
 			this._compSearch, "search",
-			{decorationRight: "clear", asMeta: true, html: `<input class="form-control input-xs" placeholder="Search...">`},
+			{decorationRight: "clear", asMeta: true, html: `<input class="ve-form-control ve-input-xs" placeholder="Search...">`},
 		);
 		this._compSearch._addHookBase("search", () => {
 			const searchTerm = this._compSearch._state.search.toLowerCase();
 			this._filters.forEach(f => f.handleSearch(searchTerm));
 		});
 
-		const $btnShowAllFilters = $(`<button class="ve-btn ve-btn-xs ve-btn-default">Show All</button>`)
-			.click(() => this.showAllFilters());
-		const $btnHideAllFilters = $(`<button class="ve-btn ve-btn-xs ve-btn-default">Hide All</button>`)
-			.click(() => this.hideAllFilters());
+		const btnShowAllFilters = veT`<button class="ve-btn ve-btn-xs ve-btn-default">Show All</button>`
+			.vee.onn("click", () => this.showAllFilters());
+		const btnHideAllFilters = veT`<button class="ve-btn ve-btn-xs ve-btn-default">Hide All</button>`
+			.vee.onn("click", () => this.hideAllFilters());
 
-		const $btnReset = $(`<button class="ve-btn ve-btn-xs ve-btn-default mr-3" title="${TITLE_BTN_RESET}">Reset</button>`)
-			.click(evt => this.reset(evt.shiftKey));
+		const btnReset = veT`<button class="ve-btn ve-btn-xs ve-btn-default ve-mr-3" title="${TITLE_BTN_RESET}">Reset</button>`
+			.vee.onn("click", evt => this.reset(evt.shiftKey));
 
 		const btnSnapshotManager = this._snapshotManager.getBtn();
 
-		const $btnSettings = $(`<button class="ve-btn ve-btn-xs ve-btn-default" title="Settings"><span class="glyphicon glyphicon-cog"></span></button>`)
-			.click(() => this._pOpenSettingsModal());
+		const btnSettings = veT`<button class="ve-btn ve-btn-xs ve-btn-default" title="Settings"><span class="glyphicon glyphicon-cog"></span></button>`
+			.vee.onn("click", () => this._pOpenSettingsModal());
 
-		const $btnSaveAlt = $(`<button class="ve-btn ve-btn-xs ve-btn-primary" title="Save"><span class="glyphicon glyphicon-ok"></span></button>`)
-			.click(() => this._modalMeta.doClose(true));
+		const btnSaveAlt = veT`<button class="ve-btn ve-btn-xs ve-btn-primary" title="Save"><span class="glyphicon glyphicon-ok"></span></button>`
+			.vee.onn("click", () => this._modalMeta.doClose(true));
 
-		const $wrpBtnCombineFilters = $(`<div class="ve-btn-group mr-3"></div>`);
-		const $btnCombineFilterSettings = $(`<button class="ve-btn ve-btn-xs ve-btn-default"><span class="glyphicon glyphicon-cog"></span></button>`)
-			.click(() => this._pOpenCombineAsModal());
+		const wrpBtnCombineFilters = veT`<div class="ve-btn-group ve-mr-3"></div>`;
+		const btnCombineFilterSettings = veT`<button class="ve-btn ve-btn-xs ve-btn-default"><span class="glyphicon glyphicon-cog"></span></button>`
+			.vee.onn("click", () => this._pOpenCombineAsModal());
 
-		const btnCombineFiltersAs = e_({
+		const btnCombineFiltersAs = veE({
 			tag: "button",
 			clazz: `ve-btn ve-btn-xs ve-btn-default`,
 			click: () => this._meta.modeCombineFilters = FilterBox._COMBINE_MODES.getNext(this._meta.modeCombineFilters),
 			title: `"AND" requires every filter to match. "OR" requires any filter to match. "Custom" allows you to specify a combination (every "AND" filter must match; only one "OR" filter must match) .`,
-		}).appendTo($wrpBtnCombineFilters[0]);
+		}).vee.appendTo(wrpBtnCombineFilters);
 
 		const hook = () => {
 			btnCombineFiltersAs.innerText = this._meta.modeCombineFilters === "custom" ? this._meta.modeCombineFilters.uppercaseFirst() : this._meta.modeCombineFilters.toUpperCase();
-			if (this._meta.modeCombineFilters === "custom") $wrpBtnCombineFilters.append($btnCombineFilterSettings);
-			else $btnCombineFilterSettings.detach();
+			if (this._meta.modeCombineFilters === "custom") wrpBtnCombineFilters.vee.appends(btnCombineFilterSettings);
+			else btnCombineFilterSettings.vee.detach();
 			this._doSaveStateThrottled();
 		};
 		this._addHook("meta", "modeCombineFilters", hook);
 		hook();
 
-		const $btnSave = $(`<button class="ve-btn ve-btn-primary fltr__btn-close mr-2">Save</button>`)
-			.click(() => this._modalMeta.doClose(true));
+		const btnSave = veT`<button class="ve-btn ve-btn-primary ve-fltr__btn-close ve-mr-2">Save</button>`
+			.vee.onn("click", () => this._modalMeta.doClose(true));
 
-		const $btnCancel = $(`<button class="ve-btn ve-btn-default fltr__btn-close">Cancel</button>`)
-			.click(() => this._modalMeta.doClose(false));
+		const btnCancel = veT`<button class="ve-btn ve-btn-default ve-fltr__btn-close">Cancel</button>`
+			.vee.onn("click", () => this._modalMeta.doClose(false));
 
-		$$(this._modalMeta.$modal)`<div class="split mb-2 mt-2 ve-flex-v-center mobile__ve-flex-col">
-			<div class="ve-flex-v-baseline mobile__ve-flex-col">
-				<h4 class="m-0 mr-2 mobile__mb-2">Filters</h4>
-				${this._metaIptSearch.$wrp.addClass("mobile__mb-2")}
+		veT(this._modalMeta.eleModal)`<div class="ve-split ve-mb-2 ve-mt-2 ve-flex-v-center ve-mobile-sm__flex-col">
+			<div class="ve-flex-v-baseline ve-mobile-sm__flex-col">
+				<h4 class="ve-m-0 ve-mr-2 ve-mobile-sm__mb-2">Filters</h4>
+				${this._metaIptSearch.wrp.vee.addClass("ve-mobile-sm__mb-2")}
 			</div>
-			<div class="ve-flex-v-center mobile__ve-flex-col">
-				<div class="ve-flex-v-center mobile__m-1">
-					<div class="mr-2">Combine as</div>
-					${$wrpBtnCombineFilters}
+			<div class="ve-flex-v-center ve-mobile-sm__flex-col">
+				<div class="ve-flex-v-center ve-mobile-sm__m-1">
+					<div class="ve-mr-2">Combine as</div>
+					${wrpBtnCombineFilters}
 				</div>
-				<div class="ve-flex-v-center mobile__m-1">
-					<div class="ve-btn-group mr-2 ve-flex-h-center">
-						${$btnShowAllFilters}
-						${$btnHideAllFilters}
+				<div class="ve-flex-v-center ve-mobile-sm__m-1">
+					<div class="ve-btn-group ve-mr-2 ve-flex-h-center">
+						${btnShowAllFilters}
+						${btnHideAllFilters}
 					</div>
-					${$btnReset}
-					<div class="ve-btn-group mr-3 ve-flex-h-center">
+					${btnReset}
+					<div class="ve-btn-group ve-mr-3 ve-flex-h-center">
 						${btnSnapshotManager}
-						${$btnSettings}
+						${btnSettings}
 					</div>
-					${$btnSaveAlt}
+					${btnSaveAlt}
 				</div>
 			</div>
 		</div>
-		<hr class="w-100 m-0 mb-2">
+		<hr class="ve-w-100 ve-m-0 ve-mb-2">
 
-		<hr class="mt-1 mb-1">
-		<div class="ui-modal__scroller smooth-scroll px-1">
-			${$children}
+		<div class="ve-ui-modal__scroller ve-smooth-scroll ve-px-1">
+			${children}
 		</div>
-		<hr class="my-1 w-100">
-		<div class="w-100 ve-flex-vh-center my-1">${$btnSave}${$btnCancel}</div>`;
+		<hr class="ve-my-1 ve-w-100">
+		<div class="ve-w-100 ve-flex-vh-center ve-my-1">${btnSave}${btnCancel}</div>`;
 	}
 
 	async _pOpenSettingsModal () {
-		const {$modalInner} = await UiUtil.pGetShowModal({title: "Settings"});
+		const {eleModalInner} = await UiUtil.pGetShowModal({title: "Settings"});
 
-		UiUtil.$getAddModalRowCb($modalInner, "Deselect Homebrew Sources by Default", this._meta, "isBrewDefaultHidden");
+		UiUtil.getAddModalRowCb(eleModalInner, "Deselect Prerelease Content Sources by Default", this._meta, "isPrereleaseDefaultHidden");
+		UiUtil.getAddModalRowCb(eleModalInner, "Deselect Homebrew Sources by Default", this._meta, "isBrewDefaultHidden");
 
-		UiUtil.addModalSep($modalInner);
+		UiUtil.addModalSep(eleModalInner);
 
-		UiUtil.$getAddModalRowHeader($modalInner, "Hide summary for filter...", {helpText: "The summary is the small red and blue button panel which appear below the search bar."});
-		this._filters.forEach(f => UiUtil.$getAddModalRowCb($modalInner, f.header, this._minisHidden, f.header));
+		UiUtil.getAddModalRowHeader(eleModalInner, "Hide summary for filter...", {helpText: "The summary is the small red and blue button panel which appear below the search bar."});
+		this._filters.forEach(f => UiUtil.getAddModalRowCb(eleModalInner, f.header, this._minisHidden, f.header));
 
-		UiUtil.addModalSep($modalInner);
+		UiUtil.addModalSep(eleModalInner);
 
-		const $rowResetAlwaysSave = UiUtil.$getAddModalRow($modalInner, "div").addClass("pr-2");
-		$rowResetAlwaysSave.append(`<span>Always Save on Close</span>`);
-		$(`<button class="ve-btn ve-btn-xs ve-btn-default">Reset</button>`)
-			.appendTo($rowResetAlwaysSave)
-			.click(async () => {
+		const rowResetAlwaysSave = UiUtil.getAddModalRow(eleModalInner, "div").vee.addClass("ve-pr-2");
+		rowResetAlwaysSave.vee.appends(`<span>Always Save on Close</span>`);
+		veT`<button class="ve-btn ve-btn-xs ve-btn-default">Reset</button>`
+			.vee.appendTo(rowResetAlwaysSave)
+			.vee.onn("click", async () => {
 				await StorageUtil.pRemove(FilterBox._STORAGE_KEY_ALWAYS_SAVE_UNCHANGED);
 				JqueryUtil.doToast("Saved!");
 			});
 	}
 
 	async _pOpenCombineAsModal () {
-		const {$modalInner} = await UiUtil.pGetShowModal({title: "Filter Combination Logic"});
-		const $btnReset = $(`<button class="ve-btn ve-btn-xs ve-btn-default">Reset</button>`)
-			.click(() => {
+		const {eleModalInner} = await UiUtil.pGetShowModal({title: "Filter Combination Logic"});
+		const btnReset = veT`<button class="ve-btn ve-btn-xs ve-btn-default">Reset</button>`
+			.vee.onn("click", () => {
 				Object.keys(this._combineAs).forEach(k => this._combineAs[k] = "and");
-				$sels.forEach($sel => $sel.val("0"));
+				sels.forEach(sel => sel.vee.val("0"));
 			});
-		UiUtil.$getAddModalRowHeader($modalInner, "Combine filters as...", {$eleRhs: $btnReset});
-		const $sels = this._filters.map(f => UiUtil.$getAddModalRowSel($modalInner, f.header, this._combineAs, f.header, ["and", "or"], {fnDisplay: (it) => it.toUpperCase()}));
+		UiUtil.getAddModalRowHeader(eleModalInner, "Combine filters as...", {eleRhs: btnReset});
+		const sels = this._filters.map(f => UiUtil.getAddModalRowSel(eleModalInner, f.header, this._combineAs, f.header, ["and", "or"], {fnDisplay: (it) => it.toUpperCase()}));
 	}
 
 	getValues ({nxtStateOuter = null} = {}) {
-		const outObj = {};
-		this._filters.forEach(f => Object.assign(outObj, f.getValues({nxtState: nxtStateOuter?.filters})));
-		return outObj;
+		const filterVals = {};
+		this._filters.forEach(f => Object.assign(filterVals, f.getValues({nxtState: nxtStateOuter?.filters})));
+
+		filterVals._filtersActive = {};
+		for (const filter of this._filters) {
+			filterVals._filtersActive[filter.header] = filter.isActive(filterVals);
+		}
+
+		return filterVals;
 	}
 
 	addEventListener (type, listener) {
-		(this._$wrpFormTop ? this._$wrpFormTop[0] : this._$btnOpen[0]).addEventListener(type, listener);
+		(this._wrpFormTop ? this._wrpFormTop[0] : this._btnOpen[0]).addEventListener(type, listener);
 	}
 
 	_mutNextState_reset_meta ({tgt}) {
@@ -444,7 +460,7 @@ export class FilterBox extends ProxyBase {
 		if (!this._isModalRendered) await this._render_pRenderModal();
 		this._cachedState = this._getSaveableState();
 		this._modalMeta.doOpen();
-		if (this._metaIptSearch?.$ipt) this._metaIptSearch.$ipt.focus();
+		if (this._metaIptSearch?.ipt) this._metaIptSearch.ipt.vee.focus();
 	}
 
 	async _pHandleHide (isCancel = false) {
@@ -503,6 +519,7 @@ export class FilterBox extends ProxyBase {
 		const urlHeadersUpdated = new Set();
 		const subHashesConsumed = new Set();
 		let filterInitialSearch;
+		let isPreserveExisting = false;
 
 		const filterBoxState = {};
 		const statePerFilter = {};
@@ -522,9 +539,17 @@ export class FilterBox extends ProxyBase {
 				}
 
 				if (Object.values(FilterBox._SUB_HASH_PREFIXES).includes(prefix)) {
-					// special case for the search """state"""
-					if (prefix === VeCt.FILTER_BOX_SUB_HASH_SEARCH_PREFIX) filterInitialSearch = data.clean[0];
-					else filterBoxState[prefix] = data.clean;
+					switch (prefix) {
+						case VeCt.FILTER_BOX_SUB_HASH_SEARCH_PREFIX:
+							filterInitialSearch = data.clean[0];
+							break;
+						case VeCt.FILTER_BOX_SUB_HASH_FLAG_IS_PRESERVE_EXISTING:
+							isPreserveExisting = true;
+							break;
+						default:
+							filterBoxState[prefix] = data.clean;
+					}
+
 					subHashesConsumed.add(data.raw);
 					return;
 				}
@@ -542,19 +567,14 @@ export class FilterBox extends ProxyBase {
 			unpacked,
 			subHashesConsumed,
 			filterInitialSearch,
+			isPreserveExisting,
 		};
 	}
 
-	setFromSubHashes (subHashes, {force = false, $iptSearch = null} = {}) {
+	setFromSubHashes (subHashes, {force = false, iptSearch = null} = {}) {
 		const unpackedSubhashes = this.unpackSubHashes(subHashes, {force});
 
 		if (unpackedSubhashes == null) return subHashes;
-
-		const {
-			unpacked,
-			subHashesConsumed,
-			filterInitialSearch,
-		} = unpackedSubhashes;
 
 		// region Update filter state
 		const {box: nxtStateBox, filters: nxtStatesFilters} = this.getNextStateFromSubHashes({unpackedSubhashes});
@@ -570,8 +590,14 @@ export class FilterBox extends ProxyBase {
 			.forEach(filter => filter.setStateFromNextState(nxtStatesFilters));
 		// endregion
 
+		const {
+			unpacked,
+			subHashesConsumed,
+			filterInitialSearch,
+		} = unpackedSubhashes;
+
 		// region Update search input value
-		if (filterInitialSearch && ($iptSearch || this._$iptSearch)) ($iptSearch || this._$iptSearch).val(filterInitialSearch).change().keydown().keyup().trigger("instantKeyup");
+		if (filterInitialSearch && (iptSearch || this._iptSearch)) (iptSearch || this._iptSearch).vee.val(filterInitialSearch).vee.trigger("change").vee.trigger("keydown").vee.trigger("keyup").vee.trigger("instantKeyup");
 		// endregion
 
 		// region Re-assemble and return remaining subhashes
@@ -597,6 +623,7 @@ export class FilterBox extends ProxyBase {
 			filterBoxState,
 			statePerFilter,
 			urlHeadersUpdated,
+			isPreserveExisting,
 		} = unpackedSubhashes;
 
 		const nxtStateBox = this._getNextBoxStateFromSubHashes(urlHeaderToFilter, filterBoxState);
@@ -610,12 +637,14 @@ export class FilterBox extends ProxyBase {
 			});
 
 		// reset any other state/meta state/etc
-		Object.keys(urlHeaderToFilter)
-			.filter(k => !urlHeadersUpdated.has(k))
-			.forEach(k => {
-				const filter = urlHeaderToFilter[k];
-				Object.assign(nxtStateFilters, filter.getNextStateFromSubhashState(null));
-			});
+		if (!isPreserveExisting) {
+			Object.keys(urlHeaderToFilter)
+				.filter(k => !urlHeadersUpdated.has(k))
+				.forEach(k => {
+					const filter = urlHeaderToFilter[k];
+					Object.assign(nxtStateFilters, filter.getNextStateFromSubhashState(null));
+				});
+		}
 
 		return {box: nxtStateBox, filters: nxtStateFilters};
 	}
@@ -693,8 +722,8 @@ export class FilterBox extends ProxyBase {
 		const boxSubHashes = this.getBoxSubHashes();
 		if (boxSubHashes) out.push(boxSubHashes);
 		out.push(...this._filters.map(f => f.getSubHashes(opts)).filter(Boolean));
-		if (opts.isAddSearchTerm && this._$iptSearch) {
-			const searchTerm = UrlUtil.encodeForHash(this._$iptSearch.val().trim());
+		if (opts.isAddSearchTerm && this._iptSearch) {
+			const searchTerm = UrlUtil.encodeForHash(this._iptSearch.vee.val().trim());
 			if (searchTerm) out.push(UrlUtil.packSubHash(this._getSubhashPrefix("search"), [searchTerm]));
 		}
 		return out.flat();
@@ -728,12 +757,16 @@ export class FilterBox extends ProxyBase {
 	}
 
 	getFilterTag ({isAddSearchTerm = false} = {}) {
+		return `{@filter |${UrlUtil.getCurrentPage().replace(/\.html$/, "")}|${this.getFilterTagExpression({isAddSearchTerm})}}`;
+	}
+
+	getFilterTagExpression ({isAddSearchTerm = false} = {}) {
 		const parts = this._filters.map(f => f.getFilterTagPart()).filter(Boolean);
-		if (isAddSearchTerm && this._$iptSearch) {
-			const term = this._$iptSearch.val().trim();
+		if (isAddSearchTerm && this._iptSearch) {
+			const term = this._iptSearch.vee.val().trim();
 			if (term) parts.push(`search=${term}`);
 		}
-		return `{@filter |${UrlUtil.getCurrentPage().replace(/\.html$/, "")}|${parts.join("|")}}`;
+		return parts.join("|");
 	}
 
 	/**
@@ -800,18 +833,30 @@ export class FilterBox extends ProxyBase {
 	}
 
 	_toDisplay_isAndDisplay (boxState, filters, vals) {
-		return filters
-			.map((f, i) => f.toDisplay(boxState, vals[i]))
-			.every(it => it);
+		for (let i = 0; i < filters.length; ++i) {
+			const filter = filters[i];
+			if (
+				(boxState._filtersActive?.[filter.header] ?? filter.isActive(boxState))
+				&& !filter.toDisplay(boxState, vals[i])
+			) return false;
+		}
+		return true;
 	}
 
 	_toDisplay_isOrDisplay (boxState, filters, vals) {
-		const res = filters.map((f, i) => {
-			// filter out "ignored" filter (i.e. all white)
-			if (!f.isActive(boxState)) return null;
-			return f.toDisplay(boxState, vals[i]);
-		}).filter(it => it != null);
-		return res.length === 0 || res.find(it => it);
+		let isAnyResult = false;
+		for (let i = 0; i < filters.length; ++i) {
+			const filter = filters[i];
+
+			if (!(boxState._filtersActive?.[filter.header] ?? filter.isActive(boxState))) continue;
+
+			const result = filter.toDisplay(boxState, vals[i]);
+			if (result == null) continue;
+
+			isAnyResult = true;
+			if (result) return result;
+		}
+		return !isAnyResult;
 	}
 
 	_getSubhashPrefix (prop) {
@@ -842,6 +887,7 @@ FilterBox._STORAGE_KEY = "filterBoxState";
 FilterBox._DEFAULT_META = {
 	modeCombineFilters: "and",
 	isSummaryHidden: false,
+	isPrereleaseDefaultHidden: false,
 	isBrewDefaultHidden: false,
 };
 FilterBox._STORAGE_KEY_ALWAYS_SAVE_UNCHANGED = "filterAlwaysSaveUnchanged";
@@ -855,6 +901,7 @@ FilterBox._SUB_HASH_PREFIXES = {
 	minisHidden: FilterBox._SUB_HASH_BOX_MINIS_HIDDEN_PREFIX,
 	combineAs: FilterBox._SUB_HASH_BOX_COMBINE_AS_PREFIX,
 	search: VeCt.FILTER_BOX_SUB_HASH_SEARCH_PREFIX,
+	flagIsPreserveExisting: VeCt.FILTER_BOX_SUB_HASH_FLAG_IS_PRESERVE_EXISTING,
 };
 
 FilterRegistry.registerSubhashes(Object.values(FilterBox._SUB_HASH_PREFIXES));

@@ -1,6 +1,5 @@
 desktop.ini
 node_modules
-img
 
 # IntelliJ project files
 .idea/
@@ -10,9 +9,10 @@ img
 .vscode/
 
 # Misc dev/scripting files
-trash
-trash_in
-node_
+trash/
+trash_in/
+node_/
+scratch/
 
 # Generated files
 sitemap.xml
@@ -39,3 +39,18 @@ markdown/config.json
 # Clojure related files
 .clj-kondo/.cache
 .lsp
+# Dev scripts
+dev-*.sh
+
+# Generated pages (npm run gen:pages)
+/*.html
+/bestiary/
+/items/
+/spells/
+
+# Compiled styles (npm run build:css)
+/css/*.css
+!/css/fontawesome.css
+
+# Libraries copied from node_modules (npm run build:libs)
+/lib/

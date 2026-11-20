@@ -1,4 +1,4 @@
-import {UtilsFoundryItem} from "./utils-foundry.js";
+import {UtilsFoundryItem} from "./foundry/foundry-utils.js";
 
 class FoundryOmnidexerUtils {
 	static getPackedFoundryExtras ({prop, ent}) {
@@ -42,7 +42,6 @@ class Omnidexer {
 		 *   s: "PHB", // source
 		 *   [sA: "PHB"], // source abbreviation
 		 *   [sF: "Player's Handbook"], // source full
-		 *   [sC: "ff00ff"], // source color
 		 *   u: "spell name_phb, // hash
 		 *   uh: "spell name_phb, // Optional; hash for href if the link should be different from the hover lookup hash.
 		 *   p: 110, // page number
@@ -51,6 +50,7 @@ class Omnidexer {
 		 *   r: 1 // if SRD 5.1
 		 *   r2: 1 // if SRD 5.2
 		 *   [dP: 1] // if partnered
+		 *   [dR: 1] // if reprinted
 		 *   c: 10, // category ID
 		 *   id: 123, // index ID
 		 *   [t: "spell"], // tag
@@ -93,6 +93,7 @@ class Omnidexer {
 	}
 
 	static getProperty (obj, withDots) {
+		if (typeof withDots === "function") return withDots(obj);
 		return MiscUtil.get(obj, ...withDots.split("."));
 	}
 
@@ -107,6 +108,7 @@ class Omnidexer {
 	 * @param [options.isIncludeUid]
 	 * @param [options.isIncludeImg]
 	 * @param [options.isIncludeExtendedSourceInfo]
+	 * @param [options.isSkipNonPartnered]
 	 */
 	async pAddToIndex (arbiter, json, options) {
 		options = options || {};
@@ -150,9 +152,8 @@ class Omnidexer {
 
 		const {arbiter, index, options} = state;
 
-		if (name) name = name.toAscii();
-
 		const toAdd = await this._pAddToIndex_pGetToAdd(state, ent, {n: name}, ix);
+		if (!toAdd) return;
 
 		if ((options.isNoFilter || (!arbiter.include && !(arbiter.filter && arbiter.filter(ent))) || (!arbiter.filter && (!arbiter.include || arbiter.include(ent)))) && !arbiter.isOnlyDeep) index.push(toAdd);
 
@@ -160,6 +161,7 @@ class Omnidexer {
 		const deepItems = await arbiter.pGetDeepIndex(this, primary, ent, {name});
 		for (const item of deepItems) {
 			const toAdd = await this._pAddToIndex_pGetToAdd(state, ent, item);
+			if (!toAdd) continue;
 			if (!arbiter.filter || !arbiter.filter(ent)) index.push(toAdd);
 		}
 	}
@@ -186,6 +188,7 @@ class Omnidexer {
 		if (arbiter.isFauxPage) indexDoc.hx = 1;
 		if (ent.srd) indexDoc.r = 1;
 		if (ent.srd52) indexDoc.r2 = 1;
+		if (ent.reprintedAs || ent.isReprinted) indexDoc.dR = 1;
 
 		if (src) {
 			if (options.isIncludeTag) {
@@ -205,7 +208,10 @@ class Omnidexer {
 				}
 
 				if (!indexDoc.m) {
-					const fluff = await Renderer.hover.pGetHoverableFluff(arbiter.fluffBaseListProp || arbiter.listProp, src, hash, {isSilent: true});
+					const fluff = await Renderer.utils.pGetProxyFluff({
+						entity: ent,
+						prop: arbiter.fluffBaseListProp || arbiter.listProp,
+					});
 					if (fluff?.images?.length) {
 						indexDoc.m = Renderer.utils.getEntryMediaUrl(fluff.images[0], "href", "img");
 					}
@@ -220,9 +226,6 @@ class Omnidexer {
 				indexDoc.sA = this.getMetaId("sA", Parser.sourceJsonToAbv(src));
 
 				indexDoc.sF = this.getMetaId("sF", Parser.sourceJsonToFull(src));
-
-				const color = Parser.sourceJsonToColor(src);
-				if (color) indexDoc.sC = this.getMetaId("sC", color);
 			}
 
 			if (options.isIncludeFoundryExtras) {
@@ -265,7 +268,48 @@ class Omnidexer {
 
 globalThis.Omnidexer = Omnidexer;
 
-class IndexableDirectory {
+/**
+ * @abstract
+ */
+class _IndexableBase {
+	/**
+	 * @param opts Options object.
+	 * @param opts.category a category from utils.js (see `Parser.pageCategoryToFull`)
+	 * @param [opts.primary] (default "name") JSON property to index, per item. Can be a chain of properties e.g. `outer.inner.name`
+	 * @param [opts.source] (default "source") JSON property containing the item's source, per item. Can be a chan of properties, e.g. `outer.inner.source`
+	 * @param opts.listProp the JSON always has a root property containing the list of items. Provide the name of this property here. Can be a chain of properties e.g. `outer.inner.name`
+	 * @param opts.baseUrl the base URL (which page) to use when forming index URLs
+	 * @param [opts.isHover] a boolean indicating if the generated link should have `Renderer` isHover functionality.
+	 * @param opts.isOnlyDeep
+	 * @param opts.isSkipBrew
+	 * @param [opts.pFnPreProcBrew] An un-bound function
+	 * @param [opts.fnGetToken]
+	 * @param [opts.brewProps] Additional homebrew properties associated with this indexable category.
+	 */
+	constructor (opts) {
+		this._brewProps = opts.brewProps;
+
+		this.category = opts.category;
+		this.primary = opts.primary;
+		this.source = opts.source;
+		this.listProp = opts.listProp;
+		this.baseUrl = opts.baseUrl;
+		this.isHover = opts.isHover;
+		this.isOnlyDeep = opts.isOnlyDeep;
+		this.isSkipBrew = opts.isSkipBrew;
+		this.pFnPreProcBrew = opts.pFnPreProcBrew;
+		this.fnGetToken = opts.fnGetToken;
+	}
+
+	hasBrewProp (prop) {
+		return this._brewProps?.includes(prop);
+	}
+}
+
+/**
+ * @extends _IndexableBase
+ */
+class IndexableDirectory extends _IndexableBase {
 	/**
 	 * @param opts Options object.
 	 * @param [opts.category]
@@ -273,7 +317,7 @@ class IndexableDirectory {
 	 * @param [opts.primary]
 	 * @param [opts.source]
 	 * @param [opts.listProp]
-	 * @param [opts.brewProp]
+	 * @param [opts.brewProps]
 	 * @param [opts.baseUrl]
 	 * @param [opts.isHover]
 	 * @param [opts.alternateIndexes]
@@ -282,18 +326,10 @@ class IndexableDirectory {
 	 * @param [opts.fnGetToken]
 	 */
 	constructor (opts) {
-		this.category = opts.category;
+		super(opts);
+
 		this.dir = opts.dir;
-		this.primary = opts.primary;
-		this.source = opts.source;
-		this.listProp = opts.listProp;
-		this.brewProp = opts.brewProp;
-		this.baseUrl = opts.baseUrl;
-		this.isHover = opts.isHover;
 		this.alternateIndexes = opts.alternateIndexes;
-		this.isOnlyDeep = opts.isOnlyDeep;
-		this.pFnPreProcBrew = opts.pFnPreProcBrew;
-		this.fnGetToken = opts.fnGetToken;
 	}
 
 	pGetDeepIndex () { return []; }
@@ -374,7 +410,7 @@ class IndexableDirectorySubclass extends IndexableDirectory {
 			primary: "name",
 			source: "source",
 			listProp: "subclass",
-			brewProp: "subclass",
+			brewProps: ["subclass"],
 			baseUrl: "classes.html",
 			isHover: true,
 			isOnlyDeep: true,
@@ -469,50 +505,34 @@ Omnidexer.TO_INDEX__FROM_INDEX_JSON = [
 	new IndexableDirectorySubclassFeature(),
 ];
 
-class IndexableFile {
+/**
+ * @extends _IndexableBase
+ */
+class IndexableFile extends _IndexableBase {
 	/**
 	 * @param opts Options object.
-	 * @param opts.category a category from utils.js (see `Parser.pageCategoryToFull`)
 	 * @param opts.file source JSON file
-	 * @param [opts.primary] (default "name") JSON property to index, per item. Can be a chain of properties e.g. `outer.inner.name`
-	 * @param [opts.source] (default "source") JSON property containing the item's source, per item. Can be a chan of properties, e.g. `outer.inner.source`
 	 * @param [opts.page] (default "page") JSON property containing the item's page in the relevant book, per item. Can be a chain of properties, e.g. `outer.inner.page`
-	 * @param opts.listProp the JSON always has a root property containing the list of items. Provide the name of this property here. Can be a chain of properties e.g. `outer.inner.name`
 	 * @param [opts.fluffBaseListProp]
-	 * @param opts.baseUrl the base URL (which page) to use when forming index URLs
 	 * @param [opts.hashBuilder] a function which takes a data item and returns a hash for it. Generally not needed, as UrlUtils has a defined list of hash-building functions for each page.
 	 * @param [opts.test_extraIndex] a function which can optionally be called per item if `doExtraIndex` is true. Used to generate a complete list of links for testing; should not be used for production index. Should return full index objects.
-	 * @param [opts.isHover] a boolean indicating if the generated link should have `Renderer` isHover functionality.
 	 * @param [opts.filter] a function which takes a data item and returns true if it should not be indexed, false otherwise
 	 * @param [opts.include] a function which takes a data item and returns true if it should be indexed, false otherwise
 	 * @param [opts.postLoad] a function which takes the data set, does some post-processing, and runs a callback when done (synchronously)
-	 * @param opts.isOnlyDeep
 	 * @param opts.additionalIndexes
-	 * @param opts.isSkipBrew
-	 * @param [opts.pFnPreProcBrew] An un-bound function
-	 * @param [opts.fnGetToken]
 	 * @param [opts.isFauxPage]
 	 */
 	constructor (opts) {
-		this.category = opts.category;
+		super(opts);
 		this.file = opts.file;
-		this.primary = opts.primary;
-		this.source = opts.source;
 		this.page = opts.page;
-		this.listProp = opts.listProp;
 		this.fluffBaseListProp = opts.fluffBaseListProp;
-		this.baseUrl = opts.baseUrl;
 		this.hashBuilder = opts.hashBuilder;
 		this.test_extraIndex = opts.test_extraIndex;
-		this.isHover = opts.isHover;
 		this.filter = opts.filter;
 		this.include = opts.include;
 		this.postLoad = opts.postLoad;
-		this.isOnlyDeep = opts.isOnlyDeep;
 		this.additionalIndexes = opts.additionalIndexes;
-		this.isSkipBrew = opts.isSkipBrew;
-		this.pFnPreProcBrew = opts.pFnPreProcBrew;
-		this.fnGetToken = opts.fnGetToken;
 		this.isFauxPage = !!opts.isFauxPage;
 	}
 
@@ -590,18 +610,18 @@ class IndexableFileMagicVariants extends IndexableFile {
 		super({
 			category: Parser.CAT_ID_ITEM,
 			file: "magicvariants.json",
-			source: "inherits.source",
-			page: "inherits.page",
+			source: it => SourceUtil.getEntitySource(it),
+			page: it => SourceUtil.getEntityPage(it),
 			listProp: "magicvariant",
 			fluffBaseListProp: "item",
 			baseUrl: "items.html",
 			hashBuilder: (it) => {
-				return UrlUtil.encodeForHash([it.name, it.inherits.source]);
+				return UrlUtil.encodeForHash([it.name, SourceUtil.getEntitySource(it)]);
 			},
 			additionalIndexes: {
 				item: async (indexer, rawVariants) => {
 					const specVars = await (async () => {
-						const baseItemJson = await DataUtil.loadJSON(`data/items-base.json`);
+						const baseItemJson = await DataUtil.loadJSON(`${Renderer.get().baseUrl}data/items-base.json`);
 						const rawBaseItems = {...baseItemJson, baseitem: [...baseItemJson.baseitem]};
 
 						const prerelease = typeof PrereleaseUtil !== "undefined" ? await PrereleaseUtil.pGetBrewProcessed() : {};
@@ -712,10 +732,10 @@ class IndexableFileOptFeatures_Metamagic extends IndexableFile {
 	}
 }
 
-class IndexableFileOptFeatures_ManeuverBattlemaster extends IndexableFile {
+class IndexableFileOptFeatures_ManeuverBattleMaster extends IndexableFile {
 	constructor () {
 		super({
-			category: Parser.CAT_ID_MANEUVER_BATTLEMASTER,
+			category: Parser.CAT_ID_MANEUVER_BATTLE_MASTER,
 			file: "optionalfeatures.json",
 			listProp: "optionalfeature",
 			baseUrl: "optionalfeatures.html",
@@ -1158,28 +1178,54 @@ class IndexableFileVehicles extends IndexableFile {
 	}
 }
 
-class IndexableFileVehicles_ShipUpgrade extends IndexableFile {
+class IndexableFileVehicles_UpgradeShip extends IndexableFile {
+	static UPGRADE_TYPES = new Set([
+		"SHP:H",
+		"SHP:M",
+		"SHP:W",
+		"SHP:F",
+	]);
+
 	constructor () {
 		super({
-			category: Parser.CAT_ID_SHIP_UPGRADE,
+			category: Parser.CAT_ID_VEHICLE_UPGRADE_SHIP,
 			file: "vehicles.json",
 			listProp: "vehicleUpgrade",
 			baseUrl: "vehicles.html",
 			isHover: true,
-			include: (it) => it.upgradeType.includes("SHP:H") || it.upgradeType.includes("SHP:M") || it.upgradeType.includes("SHP:W") || it.upgradeType.includes("SHP:F"),
+			include: (it) => it.upgradeType?.some(ut => IndexableFileVehicles_UpgradeShip.UPGRADE_TYPES.has(ut)),
 		});
 	}
 }
 
-class IndexableFileVehicles_InfernalWarMachineUpgrade extends IndexableFile {
+class IndexableFileVehicles_UpgradeInfernalWarMachine extends IndexableFile {
+	static UPGRADE_TYPES = new Set([
+		"IWM:W",
+		"IWM:A",
+		"IWM:G",
+	]);
+
 	constructor () {
 		super({
-			category: Parser.CAT_ID_INFERNAL_WAR_MACHINE_UPGRADE,
+			category: Parser.CAT_ID_VEHICLE_UPGRADE_INFERNAL_WAR_MACHINE,
 			file: "vehicles.json",
 			listProp: "vehicleUpgrade",
 			baseUrl: "vehicles.html",
 			isHover: true,
-			include: (it) => it.upgradeType.includes("IWM:W") || it.upgradeType.includes("IWM:A") || it.upgradeType.includes("IWM:G"),
+			include: (it) => it.upgradeType?.some(ut => IndexableFileVehicles_UpgradeInfernalWarMachine.UPGRADE_TYPES.has(ut)),
+		});
+	}
+}
+
+class IndexableFileVehicles_UpgradeOther extends IndexableFile {
+	constructor () {
+		super({
+			category: Parser.CAT_ID_VEHICLE_UPGRADE_OTHER,
+			file: "vehicles.json",
+			listProp: "vehicleUpgrade",
+			baseUrl: "vehicles.html",
+			isHover: true,
+			include: (it) => it.upgradeType?.every(ut => !IndexableFileVehicles_UpgradeShip.UPGRADE_TYPES.has(ut) && !IndexableFileVehicles_UpgradeInfernalWarMachine.UPGRADE_TYPES.has(ut)),
 		});
 	}
 }
@@ -1229,7 +1275,7 @@ class IndexableFileCharCreationOptions extends IndexableFile {
 class IndexableFileRecipes extends IndexableFile {
 	constructor () {
 		super({
-			category: Parser.CAT_ID_RECIPES,
+			category: Parser.CAT_ID_RECIPE,
 			file: "recipes.json",
 			listProp: "recipe",
 			baseUrl: "recipes.html",
@@ -1311,7 +1357,7 @@ Omnidexer.TO_INDEX = [
 
 	new IndexableFileOptFeatures_EldritchInvocations(),
 	new IndexableFileOptFeatures_Metamagic(),
-	new IndexableFileOptFeatures_ManeuverBattlemaster(),
+	new IndexableFileOptFeatures_ManeuverBattleMaster(),
 	new IndexableFileOptFeatures_ManeuverCavalier(),
 	new IndexableFileOptFeatures_ArcaneShot(),
 	new IndexableFileOptFeatures_Other(),
@@ -1351,8 +1397,9 @@ Omnidexer.TO_INDEX = [
 	new IndexableLegendaryGroups(),
 
 	new IndexableFileVehicles(),
-	new IndexableFileVehicles_ShipUpgrade(),
-	new IndexableFileVehicles_InfernalWarMachineUpgrade(),
+	new IndexableFileVehicles_UpgradeShip(),
+	new IndexableFileVehicles_UpgradeInfernalWarMachine(),
+	new IndexableFileVehicles_UpgradeOther(),
 
 	new IndexableFileActions(),
 	new IndexableFileLanguages(),
@@ -1374,7 +1421,10 @@ class IndexableSpecialPages extends IndexableSpecial {
 				n: name,
 				c: Parser.CAT_ID_PAGE,
 				u: page,
-				r: 1, // Consider basic pages to be "SRD friendly"
+				// region Consider basic pages to be "SRD friendly"
+				r: 1,
+				r2: 1,
+				// endregion
 			}));
 	}
 }

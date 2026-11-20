@@ -480,7 +480,7 @@
               "type": "item",
               "name": "Critical success",
               "entries": [
-                "As standard success, and you may ask the DM 3 questions about the target's game statistics."
+                "As standard success, and you may ask the GM 3 questions about the target's game statistics."
               ]
             }
           ]
@@ -886,7 +886,7 @@
           "type": "entries",
           "name": "Reveal Heresy",
           "entries": [
-            "You gain proficiency in the {@skill Insight} skill, and gain an expertise die on {@skill Insight} checks. Whenever a creature is lying to you, it makes a {@skill deception} check against a DC equal to 10 + your {@skill Insight} bonus. This check is made with disadvantage and done in secret by the DM. On a failure, you get a strong sense that they are being untruthful."
+            "You gain proficiency in the {@skill Insight} skill, and gain an expertise die on {@skill Insight} checks. Whenever a creature is lying to you, it makes a {@skill deception} check against a DC equal to 10 + your {@skill Insight} bonus. This check is made with disadvantage and done in secret by the GM. On a failure, you get a strong sense that they are being untruthful."
           ]
         },
         {
@@ -1046,7 +1046,7 @@
         "DL"
       ],
       "entries": [
-        "You gain an expertise die on {@skill Athletics} or {@skill Finesse} checks made to climb, jump, run, and swim. This affects the Force March journey activity. When your party makes a group {@skill Athletics} or {@skill Finesse} check, you may apply the results of your roll to yourself and one ally. You can choose which ally to apply your result to after everyone has rolled, but must do so before the DM says whether you succeed or fail. This part of the lesson does not affect journey activities."
+        "You gain an expertise die on {@skill Athletics} or {@skill Finesse} checks made to climb, jump, run, and swim. This affects the Force March journey activity. When your party makes a group {@skill Athletics} or {@skill Finesse} check, you may apply the results of your roll to yourself and one ally. You can choose which ally to apply your result to after everyone has rolled, but must do so before the GM says whether you succeed or fail. This part of the lesson does not affect journey activities."
       ]
     },
     {
@@ -1056,7 +1056,7 @@
         "DL"
       ],
       "entries": [
-        "When you agree to undertake a quest that specifically fulfills the tenets of your herald subclass, you gain proficiency with a skill that will be crucial to completing that quest. The skill is chosen by the DM. If you are already proficient with the skill, you gain an expertise die instead. The benefits of this divine lesson do not change until the quest has been completed."
+        "When you agree to undertake a quest that specifically fulfills the tenets of your herald subclass, you gain proficiency with a skill that will be crucial to completing that quest. The skill is chosen by the GM. If you are already proficient with the skill, you gain an expertise die instead. The benefits of this divine lesson do not change until the quest has been completed."
       ]
     },
     {
@@ -1096,7 +1096,7 @@
         "DL"
       ],
       "entries": [
-        "Whenever you would trigger a trap, the DM makes a secret Charisma ({@skill Perception}) check for you against the DC to spot the trap. On a success, you do not spot the trap but get a strong sense that moving any further will put you in danger."
+        "Whenever you would trigger a trap, the GM makes a secret Charisma ({@skill Perception}) check for you against the DC to spot the trap. On a success, you do not spot the trap but get a strong sense that moving any further will put you in danger."
       ]
     },
     {
