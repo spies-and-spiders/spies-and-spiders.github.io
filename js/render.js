@@ -10480,11 +10480,11 @@ Renderer.monster = class {
 			clazz: "ve-input-xs ve-form-control ve-form-control--minimal ve-w-initial ve-inline-block ve-popwindow__hidden ve-no-print",
 			name: "mon__sel-version",
 			children: [
-				veE({tag: "option", val: "-1", text: monBase.name}),
+				veE({tag: "option", val: "-1", txt: monBase.name}),
 				...versions.map((ver, i) => veE({
 					tag: "option",
 					val: i,
-					text: ver.name,
+					txt: ver.name,
 				})),
 			],
 		});
